@@ -7,20 +7,18 @@
 
  jobs:
    deploy: # 任务名自取
-     runs-on: ubuntu-20.04 # 在什么环境运行任务
-     steps:
-       - uses: actions/checkout@v4
-       - uses: actions/setup-node@v4
-         with:
-           node-version: 14
-           cache: 'yarn'
-        run: yarn && yarn build
+     - uses: actions/checkout@v4
+     - uses: actions/setup-node@v4
+       with:
+         node-version: 14
+         cache: 'yarn'
+      run: yarn && yarn build
 
-       - name: Install Tecent Object Storage CLI
-         run: curl -L https://obs-community-intl.obs.ap-southeast-1.myhuaweicloud.com/obsutil/current/obsutil_linux_amd64.tar.gz -o ~/obsutil.tar.gz && tar -xzvf ~/obsutil.tar.gz && chmod 755 ~/obscli
+     - name: Install Tecent Object Storage CLI
+       run: curl -L https://obs-community-intl.obs.ap-southeast-1.myhuaweicloud.com/obsutil/current/obsutil_linux_amd64.tar.gz -o ~/obsutil.tar.gz && tar -xzvf ~/obsutil.tar.gz && chmod 755 ~/obscli
 
-       - name: Set Tecent Object Storage Auth
-         run: touch ~/.obsutilconfig && ~/obsutil config -i=${{variables.ACCESSKEY}} -k=${{secrets.SECRETKEY}} -e={{variables.ENDPOINT}}
+     - name: Set Tecent Object Storage Auth
+       run: touch ~/.obsutilconfig && ~/obsutil config -i=${{variables.ACCESSKEY}} -k=${{secrets.SECRETKEY}} -e={{variables.ENDPOINT}}
 
-       - name: Upload Static files to Tencent Object Storage
-         run:  cd src/.vuepress/dist && ~/obsutil sync . obs://{{variables.BUCKET}} -r
+     - name: Upload Static files to Tencent Object Storage
+       run:  cd src/.vuepress/dist && ~/obsutil sync . obs://{{variables.BUCKET}} -r
