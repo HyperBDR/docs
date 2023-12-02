@@ -23,7 +23,7 @@ jobs:
         run: curl -L https://obs-community-intl.obs.ap-southeast-1.myhuaweicloud.com/obsutil/current/obsutil_linux_amd64.tar.gz -o ~/obsutil.tar.gz && mkdir -p ~/obsutil && tar -xzvf ~/obsutil.tar.gz -C ~/obsutil --strip-components=1 && chmod 755 ~/obsutil/obsutil
 
       - name: Set Huawei Object Storage Auth
-        run: touch ~/.obsutilconfig && ~/obsutil/obsutil config -i=${{ vars.ACCESSKEY }} -k=${{ secrets.SECRETKEY }} -e={{ vars.ENDPOINT }}
+        run: touch ~/.obsutilconfig && ~/obsutil/obsutil config -i=${{ vars.ACCESSKEY }} -k=${{ secrets.SECRETKEY }} -e=${{ vars.ENDPOINT }}
 
       - name: Upload Static files to Huawei Object Storage
-        run:  cd src/.vuepress/dist && ~/obsutil/obsutil sync . obs://{{ vars.BUCKET }}
+        run:  cd src/.vuepress/dist && ~/obsutil/obsutil sync . obs://${{ vars.BUCKET }}
