@@ -52,8 +52,8 @@ module.exports = {
           title: 'Solutions',
           collapsable: false,
           children: [
-            '',
-            'using-vue',
+            /*'',*/
+            'hyperbdr-vmware-investigation',
           ]
         }
       ],
