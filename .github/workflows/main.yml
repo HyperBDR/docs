@@ -26,4 +26,4 @@ jobs:
         run: touch ~/.obsutilconfig && ~/obsutil/obsutil config -i=${{vars.ACCESSKEY}} -k=${{secrets.SECRETKEY}} -e={{vars.ENDPOINT}}
 
       - name: Upload Static files to Huawei Object Storage
-        run:  cd src/.vuepress/dist && ~/obsutil/obsutil sync . obs://{{vars.BUCKET}} -r
+        run:  cd src/.vuepress/dist && ~/obsutil/obsutil sync . obs://{{vars.BUCKET}}
