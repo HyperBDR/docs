@@ -55,7 +55,9 @@ module.exports = {
           title: 'POC Guideline',
           collapsable: false,
           children: [
-            'poc/vmware-permission-configuration',
+            'poc/vmware-pre-settings',
+            'poc/huaweicloud-pre-settings',
+            'poc/hyperbdr-pre-settings'
           ]
         }
       ],

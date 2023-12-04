@@ -1,10 +1,12 @@
-# VMware User Permission Requirements
+# VMWare Pre-Settings for POC
 
-## Why we need this permissions?
+## 1. VMWare User Permission
+
+### Why we need this permissions?
 
 HyperBDR utilizes VMware CBT technology for incremental data synchronization. Change Block Tracking (CBT) is a technique employed in VMware for incremental backup and replication. It tracks the blocks that have changed on a virtual disk, allowing for the transmission of only the data associated with these changes during the backup and replication processes.
 
-## VMware Permission List
+### VMware Permission List
 
 Provide VMware user with following permissions:
 
@@ -64,3 +66,7 @@ Provide VMware user with following permissions:
 |                        |   Customize guest                                |
 |                        |   Read customization specification             |
 
+
+## 2. How to import Proxy OVA image?
+
+## 3. How to modify proxy network?
