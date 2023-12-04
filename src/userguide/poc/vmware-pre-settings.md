@@ -1,6 +1,6 @@
-# VMWare Pre-Settings for POC
+# VMware Pre-Settings for POC
 
-## 1. VMWare User Permission
+## 1. VMware User Permission
 
 ### Why we need this permissions?
 
