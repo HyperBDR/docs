@@ -2,7 +2,7 @@
 home: true
 tagline: 
 actionText: Quick Start →
-actionLink: /solutions/
+actionLink: /userguide/
 features:
 - title: Solutions
   details: HyperBDR Solutions

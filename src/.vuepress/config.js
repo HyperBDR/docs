@@ -33,27 +33,29 @@ module.exports = {
     editLinkText: '',
     lastUpdated: false,
     nav: [
-      /*{
-        text: 'Guide',
-        link: '/guide/',
-      },
       {
-        text: 'Config',
-        link: '/config/'
-      },*/
+        text: 'User Guide',
+        link: '/userguide/'
+      },
       {
         text: 'OneProCloud',
         link: 'https://oneprocloud.com'
       }
     ],
     sidebar: {
-      '/solutions/': [
+      '/userguide/': [
         {
-          title: 'Solutions',
+          title: 'Pre-Sales Guideline',
           collapsable: false,
           children: [
-            /*'',*/
-            'hyperbdr-vmware-investigation',
+            'presales/hyperbdr-vmware-investigation',
+          ]
+        },
+        {
+          title: 'POC Guideline',
+          collapsable: false,
+          children: [
+            'poc/vmware-permission-configuration',
           ]
         }
       ],
