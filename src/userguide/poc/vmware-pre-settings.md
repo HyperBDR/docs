@@ -70,3 +70,51 @@ Provide VMware user with following permissions:
 ## 2. How to import Proxy OVA image?
 
 ## 3. How to modify proxy network?
+
+### Login Proxy VM
+
+Login Proxy VM using credentials:
+
+* username: root
+* password: onepro
+
+### Modify network interface configuration file
+
+NOTE: Before you run this command, make sure replace following variables:
+
+* ipaddress: Assign IPv4 network according to real network
+* netmask
+* gateway
+* dns1
+* dns2
+
+```
+cat <<EOF >> /etc/sysconfig/network-scripts/ifcfg-ens160
+TYPE=Ethernet
+
+BOOTPROTO=static
+DEFROUTE=yes
+NAME=ens160
+DEVICE=ens160
+ONBOOT=yes
+IPADDR=<ipaddress>
+PREFIX=<netmask>
+GATEWAY=<gateway>
+DNS1=<dns1>
+DNS2=<dns2>
+EOF
+```
+
+### Restart Network
+
+```
+systemctl restart network
+```
+
+### Testing
+
+Try to ping VMware vCenter IP or ESXi IP, check if you can get correct response.
+
+```
+ping <vcenter ip or esxi ip>
+```
