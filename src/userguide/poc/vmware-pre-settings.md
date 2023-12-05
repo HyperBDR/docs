@@ -240,3 +240,42 @@ Note: This command is primarily used to test the accessibility of Huawei Cloud O
 Reference Link: https://developer.huaweicloud.com/endpoint?OBS
 
 ### VPN
+
+#### Login Proxy VM
+
+Login Proxy VM using credentials:
+
+* username: root
+* password: onepro
+
+#### Check Object Storage Service Endpoint
+
+Make sure object storage service endpoint address return internal ip address.
+
+```
+ping obs.ap-southeast-3.myhuaweicloud.com
+```
+
+Success Response:
+
+```
+PING obs.lz01.ap-southeast-3.myhuaweicloud.com (100.125.36.29) 56(84) bytes of data.
+```
+
+NOTE: Huawei Cloud Object Storage Service internal IP Range: 100.125.xx. If there is no ICMP response, it is considered normal.
+
+#### Huawei Object Storage Bucket Connectivity
+
+```
+curl https://obs.ap-southeast-3.myhuaweicloud.com
+```
+
+Success Response:
+
+```
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Error><Code>AccessDenied</Code><Message>Anonymous access is forbidden for this operation</Message><RequestId>0000018C1F508F2F9012234EA17641CE</RequestId><HostId>Z9v+cC1sRnaWw6x0vi8pxxYA0YVnKxbYHUPAFpnxkX8sLV44u5b02Z+ailn2wCnR</HostId></Error>#
+```
+
+Note: This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is for the Huawei Cloud Singapore region. If you need to test in a different region, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain address.
+
+Reference Link: https://developer.huaweicloud.com/endpoint?OBS
