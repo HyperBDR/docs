@@ -56,6 +56,17 @@ module.exports = {
           collapsable: false,
           children: [
             'poc/vmware-pre-settings',
+            'poc/hyperbdr-proxy-pre-settings',
+            'poc/huaweicloud-pre-settings',
+            'poc/hyperbdr-pre-settings'
+          ]
+        }
+      ],
+    }
+  },
+
+  /*locales: {
+    // 键名是该语言所属的子路径
             'poc/huaweicloud-pre-settings',
             'poc/hyperbdr-pre-settings'
           ]
