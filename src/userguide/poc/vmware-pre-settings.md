@@ -191,7 +191,7 @@ debug1: Connecting to <vCenter/ESXi IP/Domain> [<vCenter/ESXi IP/Domain>] port 4
 debug1: Connection established.
 ```
 
-## 6. Proxy to Cloud Network Testing
+## 6. Proxy to Object Storage Network Testing
 
 ### Internet
 
@@ -279,3 +279,9 @@ Success Response:
 Note: This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is for the Huawei Cloud Singapore region. If you need to test in a different region, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain address.
 
 Reference Link: https://developer.huaweicloud.com/endpoint?OBS
+
+## 7. Proxy to HyperBDR Network Testing
+
+## 8. Proxy DNS Settings
+
+NOTE: This step is only for VPN connnection.

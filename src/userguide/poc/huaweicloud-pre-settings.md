@@ -125,3 +125,13 @@ NOTE: For Source IP range, we recommend use safe range to replace 0.0.0.0/0. For
 | 2   | Allow  | IPv4 | TCP:10443       | 0.0.0.0/0 | Permit HyperBDR web console |
 | 3   | Allow  | IPv4 | TCP:30443       | 0.0.0.0/0 | Permit HyperBDR Operation and maintenance management platform web console port |
 | 4   | Allow  | IPv4 | TCP:30080       | 0.0.0.0/0 | Permit HyperBDR https services port |
+
+## 3. Image Upload
+
+TODO
+
+## 4. Create Huawei VPC Endpoint
+
+## 5. Create Huawei VPC Peering
+
+## 6. Huawei VPC Network Testing
