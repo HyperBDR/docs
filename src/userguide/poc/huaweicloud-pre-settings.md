@@ -113,9 +113,9 @@
 
 ## 2. HyperBDR Security Group Settings
 
-* Security Group Name: SG-HyperBDR
+1. Security Group Name: SG-HyperBDR
 
-### Rules for Security Group
+2. Rules for Security Group
 
 NOTE: For Source IP range, we recommend use safe range to replace 0.0.0.0/0. For example, if your external ip address is 110.242.68.66, source can be configurated as 110.242.68.66/32.
 

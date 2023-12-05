@@ -121,6 +121,47 @@ ping <vcenter ip or esxi ip>
 
 ## 4. NTP Settings
 
+### Download and Upload to Proxy
+
+Download these packages and upload to proxy, save in /root/ntp-packages/
+
+* [ntp-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntp-4.2.6p5-28.el7.centos.x86_64.rpm)
+* [autogen-libopts-5.18-5.el7.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/autogen-libopts-5.18-5.el7.x86_64.rpm)
+* [ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm)
+
+### Installation
+
+```bash
+cd /root/ntp-packages/
+yum install -y *.rpm
+```
+
+### NTP Configuration
+
+To edit the /etc/ntp.conf file, you can use the vi editor.
+
+- Find the following lines in the file:
+
+```bash
+#server 0.centos.pool.ntp.org iburst
+#server 1.centos.pool.ntp.org iburst
+#server 2.centos.pool.ntp.org iburst
+#server 3.centos.pool.ntp.org iburst
+```
+- uncomment and add the following to the file.
+
+```bash
+server ntp.server.ip.address
+```
+
+There ==ntp.server.ip.address== is your ntp server ip address.
+
+### Start Service
+
+```bash
+systemctl enable ntpd && systemctl start ntpd
+```
+
 ## 5. Proxy To VMware Network Testing
 
 Test if Proxy can connect to vCenter 443 port and ESXis 902 port which is management by vCenter.
