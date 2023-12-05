@@ -118,3 +118,84 @@ Try to ping VMware vCenter IP or ESXi IP, check if you can get correct response.
 ```
 ping <vcenter ip or esxi ip>
 ```
+
+## 4. NTP Settings
+
+## 5. Proxy To VMware Network Testing
+
+Test if Proxy can connect to vCenter 443 port and ESXis 902 port which is management by vCenter.
+
+### Login Proxy VM
+
+Login Proxy VM using credentials:
+
+* username: root
+* password: onepro
+
+### Test vCenter/ESXi Connectivity
+
+NOTE: Repeat this steps if you have multiple vCenter or ESXis to be protected.
+
+```
+ssh -v -p 443 <vCenter/ESXi IP/Domain>
+```
+
+Success Retruns:
+
+```
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 58: Applying options for *
+debug1: Connecting to <vCenter/ESXi IP/Domain> [<vCenter/ESXi IP/Domain>] port 443.
+debug1: Connection established.
+```
+
+## 6. Proxy to Cloud Network Testing
+
+### Internet
+
+Ensure your proxy can access internet before testing.
+
+#### Login Proxy VM
+
+Login Proxy VM using credentials:
+
+* username: root
+* password: onepro
+
+#### Public DNS Connectivity Testing
+
+```
+ping -c 4 -t 2 8.8.8.8
+```
+
+Success Response:
+
+```
+ping -c 4 -t 2 8.8.8.8
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+64 bytes from 8.8.8.8: icmp_seq=0 ttl=111 time=43.362 ms
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=111 time=49.807 ms
+
+--- 8.8.8.8 ping statistics ---
+2 packets transmitted, 2 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 43.362/46.585/49.807/3.222 ms
+```
+
+#### Huawei Object Storage Bucket Connectivity
+
+```
+curl https://obs.ap-southeast-3.myhuaweicloud.com
+```
+
+Success Response:
+
+```
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Error><Code>AccessDenied</Code><Message>Anonymous access is forbidden for this operation</Message><RequestId>0000018C1F508F2F9012234EA17641CE</RequestId><HostId>Z9v+cC1sRnaWw6x0vi8pxxYA0YVnKxbYHUPAFpnxkX8sLV44u5b02Z+ailn2wCnR</HostId></Error>#
+```
+
+Note: This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is for the Huawei Cloud Singapore region. If you need to test in a different region, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain address.
+
+Reference Link: https://developer.huaweicloud.com/endpoint?OBS
+
+### VPN
