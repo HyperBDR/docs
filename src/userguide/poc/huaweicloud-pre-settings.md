@@ -113,9 +113,15 @@
 
 ## 2. HyperBDR Security Group Settings
 
-| No. | Security Group Name | Priority | Action | Type | Protocol & Port | Source                | Description                                     | Priority | Action | Type | Protocol & Port | Source    | Description                                     |
-| --- | ------------------- | -------- | ------ | ---- | --------------- | -------------------- | ----------------------------------------------- | -------- | ------ | ---- | --------------- | --------- | ----------------------------------------------- |
-| 1   | SG-HyperBDR         | 1        | Allow  | IPv4 | TCP:22          | 61.49.138.26/32      | Permit default Linux SSH port.                  | 1        | Allow  | IPv4 | All             | 0.0.0.0/0 |                                                 |
-| 2   | SG-HyperBDR         | 1        | Allow  | IPv4 | TCP:10443       | 0.0.0.0/0            | Permit HyperBDR web console port.               | 1        | Allow  | IPv6 | All             | ::/0      |                                                 |
-| 3   | SG-HyperBDR         | 1        | Allow  | IPv4 | TCP:30443       | 0.0.0.0/0            | Permit HyperBDR Operation and maintenance management platform web console port. |                                                 |                                                 |      |                 |               |  |                 |                     |                                                 |
-| 4   | SG-HyperBDR         | 1        | Allow  | IPv4 | TCP:30080       | 0.0.0.0/0            | Permit HyperBDR https services port.            |                                                 |                                                 |      |                 |               |  |                 |                     |
+* Security Group Name: SG-HyperBDR
+
+### Rules for Security Group
+
+NOTE: For Source IP range, we recommend use safe range to replace 0.0.0.0/0. For example, if your external ip address is 110.242.68.66, source can be configurated as 110.242.68.66/32.
+
+| No. | Action | Type | Protocol & Port | Source | Description |
+| --- | ------ | ---- | --------------- | ------ | ----------- |
+| 1   | Allow  | IPv4 | TCP:22          | 0.0.0.0/0 | Permit default Linux SSH port |
+| 2   | Allow  | IPv4 | TCP:10443       | 0.0.0.0/0 | Permit HyperBDR web console |
+| 3   | Allow  | IPv4 | TCP:30443       | 0.0.0.0/0 | Permit HyperBDR Operation and maintenance management platform web console port |
+| 4   | Allow  | IPv4 | TCP:30080       | 0.0.0.0/0 | Permit HyperBDR https services port |
