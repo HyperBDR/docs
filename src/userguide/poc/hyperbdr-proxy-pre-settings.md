@@ -1,13 +1,19 @@
-# HyperBDR Proxy Pre-Settings for POC
+# HyperBDR Proxy Pre-Settings
 
-## 1. How to modify proxy network?
+[[toc]]
+
+::: tip
+Default username and password for Proxy ova:
+
+* Username: root
+* Password: onepro
+:::
+
+## Configure Proxy IP Address
 
 ### Login Proxy VM
 
-Login Proxy VM using credentials:
-
-* username: root
-* password: onepro
+Use your terminal to Login Proxy VM using default credentials.
 
 ### Modify network interface configuration file
 
@@ -50,7 +56,7 @@ Try to ping VMware vCenter IP or ESXi IP, check if you can get correct response.
 ping <vcenter ip or esxi ip>
 ```
 
-## 2. NTP Settings
+## Configure NTP Server
 
 ### Download and Upload to Proxy
 
@@ -93,16 +99,21 @@ There ==ntp.server.ip.address== is your ntp server ip address.
 systemctl enable ntpd && systemctl start ntpd
 ```
 
-## 3. Proxy To VMware Network Testing
+## Enable Access Policy for Proxy
+
+Open the network access policy in your firewall for synchronizing Proxy nodes to vCenter and all ESXi hosts managed by vCenter.
+
+1. Proxy nodes need to have normal access to vCenter on port 443.
+2. Proxy nodes need to have normal access to all ESXi hosts managed by vCenter on port 902.
+
+::: tip
+Proxy synchronization nodes access the vCenter API interface for authentication, and they retrieve data by calling the S host where the disaster recovery production site hosts are located. Therefore, it is necessary to open network access policies for all ESXi hosts managed by vCenter.
+:::
+
+
+## Test Access Policy for Proxy
 
 Test if Proxy can connect to vCenter 443 port and ESXis 902 port which is management by vCenter.
-
-### Login Proxy VM
-
-Login Proxy VM using credentials:
-
-* username: root
-* password: onepro
 
 ### Test vCenter/ESXi Connectivity
 
@@ -121,19 +132,15 @@ debug1: /etc/ssh/ssh_config line 58: Applying options for *
 debug1: Connecting to <vCenter/ESXi IP/Domain> [<vCenter/ESXi IP/Domain>] port 443.
 debug1: Connection established.
 ```
+## Test Network Connectivity from Proxy to Object Storage
 
-## 4. Proxy to Object Storage Network Testing
+::: tip
+Make sure you already login to Proxy VM
+:::
 
 ### Internet
 
 Ensure your proxy can access internet before testing.
-
-#### Login Proxy VM
-
-Login Proxy VM using credentials:
-
-* username: root
-* password: onepro
 
 #### Public DNS Connectivity Testing
 
@@ -172,13 +179,6 @@ Reference Link: https://developer.huaweicloud.com/endpoint?OBS
 
 ### VPN
 
-#### Login Proxy VM
-
-Login Proxy VM using credentials:
-
-* username: root
-* password: onepro
-
 #### Check Object Storage Service Endpoint
 
 Make sure object storage service endpoint address return internal ip address.
@@ -211,8 +211,20 @@ Note: This command is primarily used to test the accessibility of Huawei Cloud O
 
 Reference Link: https://developer.huaweicloud.com/endpoint?OBS
 
-## 4. Proxy to HyperBDR Network Testing
+## Test Network Connectivity from Proxy to HyperBDR
 
-## 5. Proxy DNS Settings
+::: tip
+This step needs to be tested after the installation of HyperBDR is completed.
+:::
 
-NOTE: This step is only for VPN connnection.
+## Proxy DNS Settings
+
+::: tip
+This step is only used when connecting to the cloud platform via VPN.
+:::
+
+## Install Proxy
+
+::: tip
+Proxy should be installation after the completion of the HyperBDR installation process.
+:::

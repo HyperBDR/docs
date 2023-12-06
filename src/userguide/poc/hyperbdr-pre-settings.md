@@ -1,9 +1,21 @@
-# HyperBDR Pre-Settings for POC
+# HyperBDR For VMware Pre-Settings
 
-## 1. Download HyperBDR
+[[toc]]
 
-## 2. Install HyperBDR
+## Download HyperBDR Installation Package
 
-## 3. Proxy to HyperBDR Network Testing
+## Install HyperBDR
 
-## 4. Install Proxy
+## Apply for HyperBDR License
+
+## Verify Proxy Registration in HyperBDR
+
+## Add VMware Credentials
+
+## Verify VMware Status in HyperBDR
+
+## Add Object Storage
+
+## Add DR Recovery Gateway
+
+## Add VMware Hosts in HyperBDR

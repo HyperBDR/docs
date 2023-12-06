@@ -1,12 +1,21 @@
-# VMware Pre-Settings for POC
+# VMware Pre-Settings
 
-## 1. VMware User Permission
+[[toc]]
+
+## VMware Environemnt Preparation
+
+1. Export host information via vCenter：[VMware Quick Investigation](../presales/hyperbdr-vmware-investigation.md)
+2. Fill in detail VM host information based on the export inf, which will be used for DR setup . 
+
+## VMware User Permission Requirements
 
 ### Why we need this permissions?
 
 HyperBDR utilizes VMware CBT technology for incremental data synchronization. Change Block Tracking (CBT) is a technique employed in VMware for incremental backup and replication. It tracks the blocks that have changed on a virtual disk, allowing for the transmission of only the data associated with these changes during the backup and replication processes.
 
-### VMware Permission List
+### VMware User Permission
+
+Prepare the VMware user authentication information for data synchronization and ensure that the user has the necessary permissions.
 
 Provide VMware user with following permissions:
 
@@ -66,5 +75,16 @@ Provide VMware user with following permissions:
 |                        |   Customize guest                                |
 |                        |   Read customization specification             |
 
+### Fill in HyperBDR
 
-## 2. How to import Proxy OVA image?
+Then fill in the authentication information of this account to the HyperBDR DR Platform later, including:
+
+* vCenter IP
+* vCenter usename
+* vCenter password
+
+## Download and Import OVA Images
+
+Download and import the template file for installing proxy synchronization (OVA)
+
+## Create Proxy Virtual Machine in VMware

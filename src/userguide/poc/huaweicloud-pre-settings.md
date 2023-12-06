@@ -1,6 +1,12 @@
-# Huawei Cloud Pre-Settings for POC
+# HuaweiCloud Pre-Settings
 
-## 1. Huawei Cloud IAM requirements
+[[toc]]
+
+## Create Huawei Cloud IAM account for DR purpose
+
+Create a Huawei Cloud IAM account with correspinding permissions, detail requirement please refer to below document. And create Access Key ID & Access Secret Key of IAM account for setup. 
+
+Here's the permission requests:
 
 ### ecs/vpc/evs/ims
 
@@ -111,11 +117,30 @@
 }
 ```
 
-## 2. HyperBDR Security Group Settings
+## Configure VPC & Subnet
 
-1. Security Group Name: SG-HyperBDR
+Create VPC Network and Subnet According to Huawei Cloud Documentation.
+Explanation: Establish your network based on the following disaster recovery network scenarios.
 
-2. Rules for Security Group
+1. Intranet VPN Access:
+
+If accessing through an intranet VPN, create a DR VPC network and place HyperBDR ECS instances in this network.
+
+2. Disaster Recovery VPC:
+
+Dedicated VPC network and subnet for HyperBDR disaster recovery and backup, interconnected with the on-premises IDC through VPN.
+
+3. Business VPC:
+
+Business VPC network and subnet used for disaster takeover and drills.
+
+## Create HyperBDR Security Group
+
+::: tip
+HyperBDR Security Group Name: SG-HyperBDR 
+:::
+
+### Create Security Group Rules
 
 NOTE: For Source IP range, we recommend use safe range to replace 0.0.0.0/0. For example, if your external ip address is 110.242.68.66, source can be configurated as 110.242.68.66/32.
 
@@ -126,12 +151,17 @@ NOTE: For Source IP range, we recommend use safe range to replace 0.0.0.0/0. For
 | 3   | Allow  | IPv4 | TCP:30443       | 0.0.0.0/0 | Permit HyperBDR Operation and maintenance management platform web console port |
 | 4   | Allow  | IPv4 | TCP:30080       | 0.0.0.0/0 | Permit HyperBDR https services port |
 
-## 3. Image Upload
+
+## Create ECS for HyperBDR
+
+## Image Download & Upload
 
 TODO
 
-## 4. Create Huawei VPC Endpoint
+## VPN Setup
 
-## 5. Create Huawei VPC Peering
+## Create Huawei VPC Endpoint
 
-## 6. Huawei VPC Network Testing
+## Create Huawei VPC Peering
+
+## Test Network Access between VPCs
