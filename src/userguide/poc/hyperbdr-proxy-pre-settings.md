@@ -7,6 +7,10 @@ Default username and password for Proxy ova:
 
 * Username: root
 * Password: onepro
+
+If you don't know how to use SSH on a Windows system, please refer to the following link:
+
+[How do I connect to SSH on Windows?](../faq.md)
 :::
 
 ## Configure Proxy IP Address

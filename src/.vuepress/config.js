@@ -60,6 +60,13 @@ module.exports = {
             'poc/huaweicloud-pre-settings',
             'poc/hyperbdr-pre-settings'
           ]
+        },
+        {
+          title: 'FAQ',
+          collapsable: false,
+          children: [
+            'faq.md',
+          ]
         }
       ],
     }
