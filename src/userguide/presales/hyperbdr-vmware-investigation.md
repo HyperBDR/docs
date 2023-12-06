@@ -6,8 +6,7 @@ This document is primarily designed to guide the initial investigation of user s
 
 ### Host Information Collection
 
-> Why we need this infromation?
-> Investigate your VMware host information to assist us in analyzing whether your operating system type is compatible with HyperBDR for protection, and to determine how to effectively utilize cloud resources to provide protection for your system.
+> Why we need this infromation? Investigate your VMware host information to assist us in analyzing whether your operating system type is compatible with HyperBDR for protection, and to determine how to effectively utilize cloud resources to provide protection for your system.
 
 After these steps, you will get a csv file, please send back to us.
 
@@ -46,5 +45,3 @@ Exporting
 ![hyperbdr-vmware-investigation-9.png](./images/hyperbdr-vmware-investigation-9.png)
 
 After the configuration is complete, it is necessary to perform a page reload operation.
-
-
