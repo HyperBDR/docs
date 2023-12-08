@@ -2,22 +2,20 @@
 
 [[toc]]
 
+## Configure Proxy IP Address
+
+### Login Proxy VM
+
 ::: tip
 Default username and password for Proxy ova:
 
 * Username: root
 * Password: onepro
-
-If you don't know how to use SSH on a Windows system, please refer to the following link:
-
-[How do I connect to SSH on Windows?](../faq.md)
 :::
 
-## Configure Proxy IP Address
+Use vCenter Web Console to login the Proxy VM and to the following configurations.
 
-### Login Proxy VM
-
-Use your terminal to Login Proxy VM using default credentials.
+TODO: How to access vCenter Web Console Image.
 
 ### Modify network interface configuration file
 
@@ -69,6 +67,15 @@ Download these packages and upload to proxy, save in /root/ntp-packages/
 * [ntp-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntp-4.2.6p5-28.el7.centos.x86_64.rpm)
 * [autogen-libopts-5.18-5.el7.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/autogen-libopts-5.18-5.el7.x86_64.rpm)
 * [ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm)
+
+[TODO]In Proxy Terminal, you can use these commands to download these packages:
+
+```
+cd /root/ntp-packages
+curl https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntp-4.2.6p5-28.el7.centos.x86_64.rpm
+curl autogen-libopts-5.18-5.el7.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/autogen-libopts-5.18-5.el7.x86_64.rpm)
+curl ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm)
+```
 
 ### Installation
 
@@ -220,13 +227,21 @@ Reference Link: https://developer.huaweicloud.com/endpoint?OBS
 ::: tip
 This step needs to be tested after the installation of HyperBDR is completed.
 :::
-> Huawei Cloud side has already configured VPN service, and it has successfully connected to the production site VPN through VPN. You can test it using the following methods.  
 
-> Proxy synchronizes node login information:  
-> User：root  
-> Password：onepro  
+::: tip
+Default username and password for Proxy ova:
+
+* Username: root
+* Password: onepro
+
+If you don't know how to use SSH on a Windows system, please refer to the following link:
+
+[How do I connect to SSH on Windows?](../faq.md)
+:::
+
 ### Test Step
-- Step1: Log in to the Proxy Synchronization Node  
+
+- Step1: Log in to the Proxy Node  
 - Step2: Test Access to HyperBDR Port 10443 and Port 30080  
 
 Execute Command:  
@@ -264,48 +279,49 @@ debug1: Connection established.
 ::: tip
 This step is only used when connecting to the cloud platform via VPN.
 :::
-### Configure proxy synchronization node DNS domain name
-#### Login to the production site Proxy synchronization node  
-
-Windows machines  
-
-```sh
-win+R  
-cmd  
-ssh root@ip  
-```
-![option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-1.png](./images/option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-1.png)  
 
 ::: tip
-Note: IP is the proxy synchronization node IP address  
-Proxy synchronization node login information:  
-User: root  
-Password: onepro  
+Default username and password for Proxy ova:
+
+* Username: root
+* Password: onepro
+
+If you don't know how to use SSH on a Windows system, please refer to the following link:
+
+[How do I connect to SSH on Windows?](../faq.md)
 :::
 
 ### Configure DNS domain name
+
+::: tip
+\<Huawei OBS Endpoint Service IPaddress\>is the IP address of the OBS endpoint service after creating the VPC Endpoint service.   
+:::
+
+![option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png](./images/option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png)  
 
 ```sh
 cat <<EOF >> /etc/resolv.conf
 nameserver <Huawei OBS Endpoint Service IPaddress>
 EOF
 ```
-::: tip
-Note:<Huawei OBS Endpoint Service IPaddress\>is the IP address of the OBS endpoint service after creating the VPC Endpoint service.   
-:::
-![option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png](./images/option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png)  
-
 ## Install Proxy
 
 ::: tip
 Proxy should be installation after the completion of the HyperBDR installation process.
 :::
 
-> Proxy synchronization node login information:  
-> User：root  
-> Password：onepro  
+::: tip
+Default username and password for Proxy ova:
 
-## Log in to the HyperBDR console
+* Username: root
+* Password: onepro
+
+If you don't know how to use SSH on a Windows system, please refer to the following link:
+
+[How do I connect to SSH on Windows?](../faq.md)
+:::
+
+### Log in to the HyperBDR console
 
 ![install-proxy-1.png](./images/install-proxy-1.png) 
 
@@ -321,7 +337,7 @@ In the popped-up page, in the "Step 2: Installing synchronization nodes" section
 
 ![install-proxy-4.png](./images/install-proxy-4.png) 
 
-### Log in to the Proxy synchronization node
+### Log in to the Proxy Node
 
 ![install-proxy-5.png](./images/install-proxy-5.png) 
 
@@ -330,4 +346,3 @@ In the popped-up page, in the "Step 2: Installing synchronization nodes" section
 Paste the copied installation command into the command line and execute it. Wait for the command to execute successfully; this indicates that the Proxy synchronization node program is running normally. 
 
 ![install-proxy-6.png](./images/install-proxy-6.png)
-
