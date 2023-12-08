@@ -220,15 +220,114 @@ Reference Link: https://developer.huaweicloud.com/endpoint?OBS
 ::: tip
 This step needs to be tested after the installation of HyperBDR is completed.
 :::
+> Huawei Cloud side has already configured VPN service, and it has successfully connected to the production site VPN through VPN. You can test it using the following methods.  
+
+> Proxy synchronizes node login information:  
+> User：root  
+> Password：onepro  
+### Test Step
+- Step1: Log in to the Proxy Synchronization Node  
+- Step2: Test Access to HyperBDR Port 10443 and Port 30080  
+
+Execute Command:  
+```sh
+ssh -v -p 10443 <HyperBDR Internal IP>
+```
+Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
+
+```sh
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 58: Applying options for *
+debug1: Connecting to <HyperBDR Internal IP> [<HyperBDR Internal IP>] port 10443.
+debug1: Connection established.
+```
+
+Execute Command：
+
+```sh
+ssh -v -p 30080 <HyperBDR Internal IP>
+```
+
+Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
+
+```sh
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 58: Applying options for *
+debug1: Connecting to <HyperBDR Internal IP> [<HyperBDR Internal IP>] port 30080.
+debug1: Connection established.
+```
 
 ## Proxy DNS Settings
 
 ::: tip
 This step is only used when connecting to the cloud platform via VPN.
 :::
+### Configure proxy synchronization node DNS domain name
+#### Login to the production site Proxy synchronization node  
+
+Windows machines  
+
+```sh
+win+R  
+cmd  
+ssh root@ip  
+```
+![option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-1.png](./images/option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-1.png)  
+
+::: tip
+Note: IP is the proxy synchronization node IP address  
+Proxy synchronization node login information:  
+User: root  
+Password: onepro  
+:::
+
+### Configure DNS domain name
+
+```sh
+cat <<EOF >> /etc/resolv.conf
+nameserver <Huawei OBS Endpoint Service IPaddress>
+EOF
+```
+::: tip
+Note:<Huawei OBS Endpoint Service IPaddress\>is the IP address of the OBS endpoint service after creating the VPC Endpoint service.   
+:::
+![option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png](./images/option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png)  
 
 ## Install Proxy
 
 ::: tip
 Proxy should be installation after the completion of the HyperBDR installation process.
 :::
+
+> Proxy synchronization node login information:  
+> User：root  
+> Password：onepro  
+
+## Log in to the HyperBDR console
+
+![install-proxy-1.png](./images/install-proxy-1.png) 
+
+![install-proxy-2.png](./images/install-proxy-2.png) 
+
+### Retrieve the installation command
+
+Click on the top menu bar "Configuration," "Production Site," "VMware," then click the "Add" button. 
+
+![install-proxy-3.png](./images/install-proxy-3.png) 
+
+In the popped-up page, in the "Step 2: Installing synchronization nodes" section, under "2. Execute the following command to install," click on "Copy command" to obtain the installation command for the Proxy node. 
+
+![install-proxy-4.png](./images/install-proxy-4.png) 
+
+### Log in to the Proxy synchronization node
+
+![install-proxy-5.png](./images/install-proxy-5.png) 
+
+### Execute the installation command on the Proxy node
+
+Paste the copied installation command into the command line and execute it. Wait for the command to execute successfully; this indicates that the Proxy synchronization node program is running normally. 
+
+![install-proxy-6.png](./images/install-proxy-6.png)
+
