@@ -167,8 +167,8 @@ NOTE: For Source IP range, we recommend use safe range to replace 0.0.0.0/0. For
 
 ### Log in to the Huawei Cloud Console
 ### Create ECS Cloud Instance based on Configuration Information
-> Huawei Cloud documentation ：https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html  
-The resource configuration for HyperBDR servers is as follows.: 
+> Huawei Cloud documentation ：[https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html](https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html)  
+The resource configuration for HyperBDR servers is as follows: 
  
 | Configuration items | Parameters |
 | :------------------- | :---------- |

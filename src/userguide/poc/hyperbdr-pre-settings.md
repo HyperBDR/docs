@@ -7,30 +7,35 @@
 ### Installation Package Information
 
 #### Installation Package
-
-- [https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz](https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz)  
+ 
+> File Nmae: HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz  
+> Download Link: [https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz](https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz)  
 
 #### MD5 Checksum File
 
-- [https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz.md5](https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz.md5)  
+> File Nmae: HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz.md5  
+> Download Link: [https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz.md5](https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz.md5)  
 
-#### Set Package Name in Shell
+::: tip
+Log in to the HyperBDR host backend and execute the command.  
+:::
 
-TODO
-
-```
-export HYPERBDR_PACKAGE=<url for package>
-export HYPERBDR_PACKAGE_MD5=<url for package>
-```
 
 ### Download Installation Package and MD5 Checksum File
 
-- Log in to the HyperBDR host backend and execute the download command.  
+#### Set url in Shell
 
 ```sh
-wget https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz  
+export HYPERBDR_PACKAGE=<url for Installation Package>
+export HYPERBDR_PACKAGE_MD5=<url for MD5 Checksum File>
+export HYPERBDR_PACKAGE_NAME=<File Name for Installation Package>
+export HYPERBDR_PACKAGE_MD5_NAME=<File Name for MD5 Checksum File>
+```
+#### Download File
 
-wget https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz.md5  
+```sh
+curl -O "$HYPERBDR_PACKAGE"
+curl -O "$HYPERBDR_PACKAGE_MD5"
 ```
 
 ### Installation Package Consistency Check
@@ -38,17 +43,17 @@ wget https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/Hy
 - Step1: Generate the MD5 value for the downloaded installation package  
 
 ```sh
-md5sm HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz
+md5sm "$HYPERBDR_PACKAGE_NAME"
 ```
 - Step2: Check the MD5 value recorded in the MD5 checksum file
 
 ```sh
-cat HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz.md5
+cat "$HYPERBDR_PACKAGE_MD5_NAME"
 ```
 
 - Step3: Compare MD5 Values 
  
-If the MD5 values obtained in 2.1 and 2.2 are the same, it indicates that the installation package is not corrupted. If the MD5 values are different, you can try re-downloading the file for comparison or contact us for assistance.
+If the MD5 values obtained in `Step1` and `Step2` are the same, it indicates that the installation package is not corrupted. If the MD5 values are different, you can try re-downloading the file for comparison or contact us for assistance.
 
 ## Install HyperBDR
 
@@ -60,7 +65,7 @@ If the MD5 values obtained in 2.1 and 2.2 are the same, it indicates that the in
 - Execute the following command to unzip the installation package  
 
 ```sh
-tar -zxvf HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz -C /mnt/  
+tar -zxvf "$HYPERBDR_PACKAGE_MD5_NAME" -C /mnt/  
 ```
 ### Run the installation script
 

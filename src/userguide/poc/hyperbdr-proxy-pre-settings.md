@@ -14,8 +14,8 @@ Default username and password for Proxy ova:
 :::
 
 Use vCenter Web Console to login the Proxy VM and to the following configurations.
-
-TODO: How to access vCenter Web Console Image.
+![vcenter-web-console-1.png](./images/vcenter-web-console-1.png)  
+![vcenter-web-console-2.png](./images/vcenter-web-console-2.png)  
 
 ### Modify network interface configuration file
 
@@ -68,13 +68,13 @@ Download these packages and upload to proxy, save in /root/ntp-packages/
 * [autogen-libopts-5.18-5.el7.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/autogen-libopts-5.18-5.el7.x86_64.rpm)
 * [ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm)
 
-[TODO]In Proxy Terminal, you can use these commands to download these packages:
+In Proxy Terminal, you can use these commands to download these packages:
 
-```
-cd /root/ntp-packages
-curl https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntp-4.2.6p5-28.el7.centos.x86_64.rpm
-curl autogen-libopts-5.18-5.el7.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/autogen-libopts-5.18-5.el7.x86_64.rpm)
-curl ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm)
+```sh
+mkdir /root/ntp-packages && cd /root/ntp-packages  
+curl -O https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntp-4.2.6p5-28.el7.centos.x86_64.rpm
+curl -O https://vault.centos.org/7.5.1804/os/x86_64/Packages/autogen-libopts-5.18-5.el7.x86_64.rpm  
+curl -O https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm  
 ```
 
 ### Installation
@@ -186,7 +186,7 @@ Success Response:
 
 Note: This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is for the Huawei Cloud Singapore region. If you need to test in a different region, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain address.
 
-Reference Link: https://developer.huaweicloud.com/endpoint?OBS
+Reference Link: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
 
 ### VPN
 
@@ -194,7 +194,7 @@ Reference Link: https://developer.huaweicloud.com/endpoint?OBS
 
 Make sure object storage service endpoint address return internal ip address.
 
-```
+```sh
 ping obs.ap-southeast-3.myhuaweicloud.com
 ```
 
@@ -204,11 +204,13 @@ Success Response:
 PING obs.lz01.ap-southeast-3.myhuaweicloud.com (100.125.36.29) 56(84) bytes of data.
 ```
 
-NOTE: Huawei Cloud Object Storage Service internal IP Range: 100.125.xx. If there is no ICMP response, it is considered normal.
+::: tip
+Huawei Cloud Object Storage Service internal IP Range: 100.125.xx. If there is no ICMP response, it is considered normal.
+:::
 
 #### Huawei Object Storage Bucket Connectivity
 
-```
+```sh
 curl https://obs.ap-southeast-3.myhuaweicloud.com
 ```
 
@@ -218,9 +220,11 @@ Success Response:
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?><Error><Code>AccessDenied</Code><Message>Anonymous access is forbidden for this operation</Message><RequestId>0000018C1F508F2F9012234EA17641CE</RequestId><HostId>Z9v+cC1sRnaWw6x0vi8pxxYA0YVnKxbYHUPAFpnxkX8sLV44u5b02Z+ailn2wCnR</HostId></Error>#
 ```
 
-Note: This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is for the Huawei Cloud Singapore region. If you need to test in a different region, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain address.
+::: tip
+This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is for the Huawei Cloud Singapore region. If you need to test in a different region, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain address.
+:::
 
-Reference Link: https://developer.huaweicloud.com/endpoint?OBS
+Reference Link: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
 
 ## Test Network Connectivity from Proxy to HyperBDR
 
@@ -250,7 +254,7 @@ ssh -v -p 10443 <HyperBDR Internal IP>
 ```
 Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
 
-```sh
+```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
 debug1: Reading configuration data /etc/ssh/ssh_config
 debug1: /etc/ssh/ssh_config line 58: Applying options for *
@@ -266,7 +270,7 @@ ssh -v -p 30080 <HyperBDR Internal IP>
 
 Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
 
-```sh
+```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
 debug1: Reading configuration data /etc/ssh/ssh_config
 debug1: /etc/ssh/ssh_config line 58: Applying options for *
