@@ -85,3 +85,29 @@ These commands will establish an SSH session, allowing you to execute commands o
 
 **Troubleshooting:**
 - If you encounter issues, double-check your server's IP address, ensure SSH is running, and confirm your login details.
+
+## FAQ: Ensuring Windows Data Integrity with HyperBDR
+
+**Q1: How does HyperBDR ensure the integrity of Windows data?**
+
+A1: HyperBDR primarily utilizes Windows VSS (Volume Shadow Copy Service) technology to ensure data integrity. In VMware without an agent, it achieves this by invoking VSS through VMware Tools. In Windows Agent mode, it directly calls the VSS interface.
+
+**Q2: What is Windows VSS technology?**
+
+A2: VSS, or Volume Shadow Copy Service, is a Windows service that enables the creation of point-in-time snapshots of volumes, including those containing databases. These snapshots, or shadow copies, provide a consistent view of the data, even if changes are being made to the database during the snapshot creation process.
+
+VSS ensures database integrity through a process known as "shadow copy creation." When a VSS snapshot is triggered, the service coordinates with various components, including VSS writers associated with applications such as databases. These writers temporarily freeze write I/O operations to ensure that the data on the disk is in a consistent state at the time of the snapshot.
+
+VSS is compatible with various Database Management Systems (DBMS), including SQL Server. Most major DBMS vendors provide VSS writers that integrate with the VSS framework, allowing for the creation of consistent and reliable database snapshots.
+
+**Q3: In VMware without an agent, how does HyperBDR call VSS?**
+
+A3: In VMware without an agent, HyperBDR collaborates with VMware Tools to invoke VSS, freezing the file system and application states to ensure data consistency during snapshot creation.
+
+**Q4: In Windows Agent mode, how does HyperBDR directly call the VSS interface?**
+
+A4: In Windows Agent mode, HyperBDR directly calls the VSS interface provided by the Windows operating system to freeze data and create snapshots, ensuring the backup data is in a transactionally consistent state.
+
+**Q5: Does HyperBDR's data integrity assurance apply to specific applications like databases?**
+
+A5: Yes, HyperBDR's VSS integration is application-aware and applicable to specific applications, including databases. VSS ensures that application data is in a consistent state during snapshot creation.
