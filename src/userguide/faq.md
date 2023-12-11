@@ -86,7 +86,7 @@ These commands will establish an SSH session, allowing you to execute commands o
 **Troubleshooting:**
 - If you encounter issues, double-check your server's IP address, ensure SSH is running, and confirm your login details.
 
-## FAQ: Ensuring Windows Data Integrity with HyperBDR
+## How HyperBDR ensure the integrity of Windows Data?
 
 **Q1: How does HyperBDR ensure the integrity of Windows data?**
 
