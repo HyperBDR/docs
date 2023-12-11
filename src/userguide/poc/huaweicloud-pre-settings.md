@@ -95,6 +95,7 @@ Create a Huawei Cloud IAM account with correspinding permissions, detail require
                 "vpc:ports:update",
                 "vpc:ports:create",
                 "vpc:securityGroupRules:get",
+                "vpc:securityGroupRules:update",
                 "vpc:subnets:create",
                 "vpc:securityGroups:delete",
                 "vpc:publicIps:delete",
@@ -183,7 +184,8 @@ HyperBDR Security Group Name: SG-HyperBDR
 
 ### Create Security Group Rules
 
-NOTE: For Source IP range, we recommend use safe range to replace 0.0.0.0/0. For example, if your external ip address is 110.242.68.66, source can be configurated as 110.242.68.66/32.
+> NOTE: For Source IP range, we recommend use safe range to replace 0.0.0.0/0.
+> For example, if your external ip address is 110.242.68.66, source can be configurated as 110.242.68.66/32.
 
 | No. | Action | Type | Protocol & Port | Source | Description |
 | --- | --- | --- | --- | --- | --- |

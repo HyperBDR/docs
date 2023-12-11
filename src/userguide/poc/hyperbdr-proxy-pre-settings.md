@@ -102,7 +102,7 @@ To edit the /etc/ntp.conf file, you can use the vi editor.
 server ntp.server.ip.address
 ```
 
-There ==ntp.server.ip.address== is your ntp server ip address.
+There **<ntp.server.ip.address>** is your ntp server ip address.
 
 ### Start Service
 
@@ -118,7 +118,7 @@ Open the network access policy in your firewall for synchronizing Proxy nodes to
 2. Proxy nodes need to have normal access to all ESXi hosts managed by vCenter on port 902.
 
 ::: tip
-Proxy synchronization nodes access the vCenter API interface for authentication, and they retrieve data by calling the S host where the disaster recovery production site hosts are located. Therefore, it is necessary to open network access policies for all ESXi hosts managed by vCenter.
+Proxy synchronization nodes access the vCenter API interface for authentication, and they retrieve data by calling the ESXi host where the disaster recovery production site VM are located. Therefore, it is necessary to open network access policies for all ESXi hosts managed by vCenter.
 :::
 
 
@@ -134,7 +134,7 @@ NOTE: Repeat this steps if you have multiple vCenter or ESXis to be protected.
 ssh -v -p 443 <vCenter/ESXi IP/Domain>
 ```
 
-Success Retruns:
+Success Response:
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -334,7 +334,7 @@ If you don't know how to use SSH on a Windows system, please refer to the follow
 ### Configure DNS domain name
 
 ::: tip
-\<Huawei OBS Endpoint Service IPaddress\>is the IP address of the OBS endpoint service after creating the VPC Endpoint service.   
+\<Huawei OBS Endpoint Service IPaddress\> is the IP address of the OBS endpoint service after creating the VPC Endpoint service.   
 :::
 
 ![option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png](./images/option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png)  
@@ -369,11 +369,11 @@ If you don't know how to use SSH on a Windows system, please refer to the follow
 
 ### Retrieve the installation command
 
-Click on the top menu bar "Configuration," "Production Site," "VMware," then click the "Add" button. 
+Click on the top menu bar **"Configuration"**, **"Production Site"**, **"VMware"** then click the **"Add"** button. 
 
 ![install-proxy-3.png](./images/install-proxy-3.png) 
 
-In the popped-up page, in the "Step 2: Installing synchronization nodes" section, under "2. Execute the following command to install," click on "Copy command" to obtain the installation command for the Proxy node. 
+In the popped-up page, in the **"Step 2: Installing synchronization nodes"** section, under **"2. Execute the following command to install"** click on **"Copy command"** to obtain the installation command for the Proxy node. 
 
 ![install-proxy-4.png](./images/install-proxy-4.png) 
 
