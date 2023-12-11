@@ -113,7 +113,7 @@ Create a Huawei Cloud IAM account with correspinding permissions, detail require
             "Action": [
                 "IMS:*:*"
             ]
-        },
+        }
     ]
 }
 ```
