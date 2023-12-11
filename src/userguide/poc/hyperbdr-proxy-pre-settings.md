@@ -243,9 +243,45 @@ If you don't know how to use SSH on a Windows system, please refer to the follow
 [How do I connect to SSH on Windows?](../faq.md)
 :::
 
-### Test Step
+### Option 1: Public Network Access - Test the network connectivity from the production site to Huawei Cloud HyperBDR
+
+- Step1: Log in to the Proxy Node
+
+- Step2: Test Access to HyperBDR Port 10443 and Port 30080
+
+Execute Command：
+```sh
+ssh -v -p 10443 <HyperBDR Public IP>
+```
+
+Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
+
+```
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 58: Applying options for *
+debug1: Connecting to <HyperBDR Public IP> [<HyperBDR Public IP>] port 10443.
+debug1: Connection established.
+```
+Execute Command：
+```sh
+ssh -v -p 30080 <HyperBDR Public IP>
+```
+
+Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
+
+```
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 58: Applying options for *
+debug1: Connecting to <HyperBDR Public IP> [<HyperBDR Public IP>] port 30080.
+debug1: Connection established.
+```
+
+### Option 2: Internal VPN Access - Test the network connectivity from the production site to Huawei Cloud HyperBDR
 
 - Step1: Log in to the Proxy Node  
+
 - Step2: Test Access to HyperBDR Port 10443 and Port 30080  
 
 Execute Command:  

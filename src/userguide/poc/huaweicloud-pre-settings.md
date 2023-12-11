@@ -371,12 +371,18 @@ Add the internal subnet range of the local (Huawei Cloud) OBS service at the VPN
 
 ## Create Huawei VPC Peering
 
+::: tip
+Based on business requirements, choose different VPC peering configurations:  
+- If there is no need for mutual access between multiple business VPCs, you only need to configure the peering connection according to the [Disaster recovery VPC connected via peering with multiple business VPC](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#disaster-recovery-vpc-connected-via-peering-with-multiple-business-vpc) setup.  
+- If there is a requirement for mutual access between multiple business VPCs, then you need to configure according to the [Disaster recovery VPC peering with multiple business VPCs, as well as peering connections between multiple business VPC](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#disaster-recovery-vpc-peering-with-multiple-business-vpcs-as-well-as-peering-connections-between-multiple-business-vpc) setup.
+:::
+
 ### Disaster recovery VPC connected via peering with multiple business VPC
 
 In Huawei Cloud Disaster Recovery, the disaster recovery host needs to be restored to the planned production business VPC. Therefore, it is necessary to configure cross VPC peer-to-peer connections in Huawei Cloud, configure the disaster recovery VPC with the business VPC, and add peer-to-peer connection routing. Mainly used for disaster recovery, the disaster recovery VPC where HyperBDR is located can access the business VPC through the intranet to recover virtual machines for data recovery.
 
 > Huawei Cloud Document Link:  
-> [https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html](https://support.huaweicloud.com/usermanual-vpc/zh-cn_topic_0046809840.html#zh-cn_topic_0046809840__section512843)
+> [https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html#section1](https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html#section1)
 
 ![configure-cross-vpc-network-access-between-disaster-recovery-vpc-and-business-vpc-1.png](./images/configure-cross-vpc-network-access-between-disaster-recovery-vpc-and-business-vpc-1.png)
 
@@ -385,9 +391,13 @@ In Huawei Cloud Disaster Recovery, the disaster recovery host needs to be restor
 When all disaster recovery hosts of the customer need to be placed in different business VPCs planned by Huawei Cloud, and there is a need for cross VPC access in the business, then it is necessary to configure peer-to-peer connections between business VPCs to ensure normal cross VPC business interaction after subsequent business recovery.
 
 > Huawei Cloud Document Link:  
-> [https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html](https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html)
+> [https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html#section0](https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html#section0)
 
 ## Test Network Access between VPCs
+
+::: tip
+[Create huawei VPC Peering](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#create-huawei-vpc-peering) configuration has been successfully completed, and routing entries have been added correctly.
+:::
 
 ### Test the network connectivity between the disaster recovery VPC and the business VPC
 
