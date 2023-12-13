@@ -75,6 +75,50 @@ Provide VMware user with following permissions:
 |                 | Customize guest                      |
 |                 | Read customization specification     |
 
+### vCenter Permission Open Settings Steps
+
+#### Step 01: Log in to the vCenter Administrator Console
+
+#### Step 02: Add Access Users
+
+Click on **"Menu"**, **"Administration"**
+
+![create-vmware-account-1.png](./images/create-vmware-account-1.png)
+
+Click on the left-hand menu **"Users and Groups"**, select **"Users"** tab， choose the **"Domain"** associated with the correct login for vCenter, and click the **"Add"** button.
+
+![create-vmware-account-2.png](./images/create-vmware-account-2.png)
+
+Follow the prompts to enter the Username, Password, Confirm Password, and any other optional information. Then, click the **"Add"** button.
+
+![create-vmware-account-3.png](./images/create-vmware-account-3.png)
+
+#### Step 03: Add Access Control Roles
+
+On the left-hand menu, go to **"Access Control"**, **"Roles"**. Under **"Role Provider"**, select the vCenter address, and click the **"+"** button.
+
+![create-vmware-account-4.png](./images/create-vmware-account-4.png)
+
+Refer to "[VMware User Permission](http://192.168.31.41:8080/userguide/poc/vmware-pre-settings.html#vmware-user-permission)" and select the appropriate settings. Then, click the "NEXT" button.
+
+![create-vmware-account-5.png](./images/create-vmware-account-5.png)
+
+Set a new Role name and Description, then click the **"FINISH"** button.
+
+![create-vmware-account-6.png](./images/create-vmware-account-6.png)
+
+#### Step 04: Add Permissions to vCenter 
+
+In **"Hosts and Clusters"**，find the top-level **"vCenter IP"** on the left-hand menu, select it, and click on the **"Permissions"** menu on the right. Then, click the **"+"** button.
+
+![create-vmware-account-7.png](./images/create-vmware-account-7.png)
+
+Follow the prompts to choose the domain for user authorization, keeping it consistent with the previous steps. Search for the **"migrate"** user to be added. Select the **"Migration Role Permissions"** for the role and check the box for "Propagate to Child". Then, click the "OK" button.
+
+![create-vmware-account-8.png](./images/create-vmware-account-8.png)
+
+After the addition is complete, provide the vCenter access address, **"migrate"** user, and login password to HyperBDR platform.
+
 ### Fill in HyperBDR
 
 Then fill in the authentication information of this account to the HyperBDR DR Platform later, including:
