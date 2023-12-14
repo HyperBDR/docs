@@ -21,6 +21,10 @@ module.exports = {
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
 
+  markdown: {
+    lineNumbers: true
+  },
+
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
    *
@@ -31,7 +35,7 @@ module.exports = {
     editLinks: false,
     docsDir: '',
     editLinkText: '',
-    lastUpdated: false,
+    lastUpdated: true,
     nav: [
       {
         text: 'User Guide',
@@ -103,6 +107,20 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
+    [
+      'vuepress-plugin-right-anchor',
+      {
+        showDepth: 6,
+        ignore: [
+        ],
+        expand: {
+          trigger: 'click',
+          clickModeDefaultOpen: true,
+        },
+        customClass: 'your-customClass',
+        disableGlobalUI: false,
+      },
+    ],
     [
       'vuepress-plugin-container',
       {

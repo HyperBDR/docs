@@ -243,7 +243,9 @@ If you don't know how to use SSH on a Windows system, please refer to the follow
 [How do I connect to SSH on Windows?](../faq.md)
 :::
 
-### Option 1: Public Network Access - Test the network connectivity from the production site to Huawei Cloud HyperBDR
+### Option 1: Public Network Access
+
+Test the network connectivity from the production site to Huawei Cloud HyperBDR
 
 - Step1: Log in to the Proxy Node
 
@@ -278,7 +280,9 @@ debug1: Connecting to <HyperBDR Public IP> [<HyperBDR Public IP>] port 30080.
 debug1: Connection established.
 ```
 
-### Option 2: Internal VPN Access - Test the network connectivity from the production site to Huawei Cloud HyperBDR
+### Option 2: Internal VPN Access
+
+Test the network connectivity from the production site to Huawei Cloud HyperBDR
 
 - Step1: Log in to the Proxy Node  
 
