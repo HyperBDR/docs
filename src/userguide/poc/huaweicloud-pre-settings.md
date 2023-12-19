@@ -26,6 +26,10 @@ Create a Huawei Cloud IAM account with correspinding permissions, detail require
 
 ### Huawei Cloud IAM Permission Requirements
 
+::: tip
+Huawei Cloud has different API versions of v2 and v3 in different regions, and each region has a slightly different definition of resource description permissions. When you create permissions for HyperBDR, So you need to provide full access to ecs, evs, obs, ims, and netwrok services.
+:::
+
 #### ecs/vpc/evs/ims
 
 ```
@@ -35,109 +39,25 @@ Create a Huawei Cloud IAM account with correspinding permissions, detail require
         {
             "Effect": "Allow",
             "Action": [
-                "ecs:serverPasswords:manage",
-                "ecs:serverKeypairs:delete",
-                "ecs:cloudServers:reboot",
-                "ecs:diskConfigs:use",
-                "ecs:cloudServers:start",
-                "ecs:cloudServers:vnc",
-                "ecs:servers:lock",
-                "ecs:servers:rebuild",
-                "ecs:cloudServers:attach",
-                "ecs:serverInterfaces:get",
-                "ecs:cloudServers:detachVolume",
-                "ecs:servers:unlock",
-                "ecs:cloudServers:delete",
-                "ecs:serverKeypairs:get",
-                "ecs:cloudServers:updateMetadata",
-                "ecs:cloudServers:stop",
-                "ecs:servers:setMetadata",
-                "ecs:serverVolumes:use",
-                "ecs:cloudServers:create",
-                "ecs:serverKeypairs:create",
-                "ecs:servers:get",
-                "ecs:serverInterfaces:use",
-                "ecs:serverGroups:manage",
-                "ecs:securityGroups:use",
-                "ecs:*:get*",
-                "ecs:*:list*"
+                "ecs:*:*"
             ]
         },
         {
             "Effect": "Allow",
             "Action": [
-                "evs:snapshots:rollback",
-                "evs:volumes:use",
-                "evs:snapshots:delete",
-                "evs:volumes:create",
-                "evs:snapshots:create",
-                "evs:volumes:update",
-                "evs:backups:get",
-                "evs:volumes:get",
-                "evs:snapshots:get",
-                "evs:volumes:delete",
-                "evs:*:get*",
-                "evs:*:list*"
+                "evs:*:*"
             ]
         },
         {
             "Effect": "Allow",
             "Action": [
-                "vpc:securityGroups:create",
-                "vpc:vpcs:delete",
-                "vpc:subnets:update",
-                "vpc:routers:update",
-                "vpc:subnets:delete",
-                "vpc:vpcs:create",
-                "vpc:networks:get",
-                "vpc:publicIps:create",
-                "vpc:ports:get",
-                "vpc:ports:update",
-                "vpc:ports:create",
-                "vpc:securityGroupRules:get",
-                "vpc:securityGroupRules:update",
-                "vpc:subnets:create",
-                "vpc:securityGroups:delete",
-                "vpc:publicIps:delete",
-                "vpc:subnets:get",
-                "vpc:securityGroups:update",
-                "vpc:routers:get",
-                "vpc:securityGroups:get",
-                "vpc:networks:create",
-                "vpc:networks:update",
-                "vpc:*:list*",
-                "vpc:*:get*"
+                "vpc:*:*"
             ]
         },
         {
             "Effect": "Allow",
             "Action": [
                 "IMS:*:*"
-            ]
-        }
-    ]
-}
-```
-
-#### iam
-
-```
-{
-    "Version": "1.1",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "iam:securitypolicies:updateApiAclPolicy",
-                "iam:roles:listRoles",
-                "iam:securitypolicies:updateConsoleAclPolicy",
-                "iam:securitypolicies:updateLoginPolicy",
-                "iam:credentials:getCredential",
-                "iam:credentials:listCredentials",
-                "iam:roles:createRole",
-                "iam:credentials:deleteCredential",
-                "iam:credentials:updateCredential",
-                "iam:credentials:createCredential"
             ]
         }
     ]
