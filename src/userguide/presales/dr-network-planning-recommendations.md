@@ -20,13 +20,13 @@ This document primarily focuses on the rational planning of the HyperBDR network
 | Solution | Data Transmission | Business Access |
 | --- | --- | --- |
 | Internet | Internet | Internet |
-| Dedicated Network Connection Solution (e.g., VPN) | Dedicated Network | Dedicated Network |
+| Dedicated Network Connection Solution (e.g. VPN) | Dedicated Network | Dedicated Network |
 | Hybrid Network Solution | Internet | Dedicated Network |
 
 
 > NOTE: Business Access after Post-Disaster Recovery Takeover
 
-### Port Openings List
+### List of Open Ports
 
 #### Agent
 
@@ -77,12 +77,12 @@ Agent contains Windows Agent and Linux Agent.
 | Solution | Data Transmission | Business Access |
 | --- | --- | --- |
 | Internet | Internet | Internet |
-| Dedicated Network Connection Solution (e.g., VPN) | Dedicated Network | Dedicated Network |
+| Dedicated Network Connection Solution (e.g. VPN) | Dedicated Network | Dedicated Network |
 
 
 > NOTE: Business Access after Post-Disaster Recovery Takeover
 
-### Port Openings List
+### List of Open Ports
 
 #### Agent
 
@@ -126,7 +126,7 @@ During the failover process, as it is necessary for the cloud to take over the h
 
 ![dr-network-planning-recommendations-6.jpeg](./images/dr-network-planning-recommendations-6.jpeg)
 
-#### Port Openings List
+#### List of Open Ports
 
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -140,7 +140,7 @@ During the failover process, as it is necessary for the cloud to take over the h
 
 ![dr-network-planning-recommendations-7.jpeg](./images/dr-network-planning-recommendations-7.jpeg)
 
-#### Port Openings List
+#### List of Open Ports
 
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |

@@ -53,7 +53,7 @@ module.exports = {
           collapsable: false,
           children: [
             'presales/hyperbdr-vmware-investigation',
-            'presales/dr-network-planning-recommendations.converted.md',
+            'presales/dr-network-planning-recommendations',
           ]
         },
         {
