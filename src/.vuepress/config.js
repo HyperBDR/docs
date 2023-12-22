@@ -123,6 +123,12 @@ module.exports = {
       },
     ],
     [
+        'vuepress-plugin-baidu-tongji-analytics',
+        {
+            key: '7ad07e0051d3efdabaf046d43f3bed8d'
+        }
+    ],
+    [
       'vuepress-plugin-container',
       {
         type: 'right',

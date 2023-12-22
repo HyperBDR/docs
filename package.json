@@ -21,6 +21,7 @@
     "vuepress-plugin-right-anchor": "^0.5.5"
   },
   "dependencies": {
+    "vuepress-plugin-baidu-tongji-analytics": "^1.0.2",
     "yarn": "^1.22.21"
   }
 }
