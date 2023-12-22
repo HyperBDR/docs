@@ -53,6 +53,7 @@ module.exports = {
           collapsable: false,
           children: [
             'presales/hyperbdr-vmware-investigation',
+            'presales/dr-network-planning-recommendations.converted.md',
           ]
         },
         {
@@ -117,7 +118,7 @@ module.exports = {
           trigger: 'click',
           clickModeDefaultOpen: true,
         },
-        customClass: 'your-customClass',
+        customClass: 'vuepress-plugin-right-anchor-custom-class',
         disableGlobalUI: false,
       },
     ],
