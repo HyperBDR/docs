@@ -53,6 +53,7 @@ module.exports = {
           collapsable: false,
           children: [
             'presales/hyperbdr-vmware-investigation',
+            'presales/hyperbdr-agent-investigation',
             'presales/dr-network-planning-recommendations',
           ]
         },
@@ -60,10 +61,12 @@ module.exports = {
           title: 'POC Guideline',
           collapsable: false,
           children: [
+            'poc/agent-pre-settings',
             'poc/vmware-pre-settings',
-            'poc/hyperbdr-proxy-pre-settings',
             'poc/huaweicloud-pre-settings',
-            'poc/hyperbdr-pre-settings'
+            'poc/hyperbdr-proxy-pre-settings',
+            'poc/hyperbdr-agent-pre-settings',
+            'poc/hyperbdr-vmware-pre-settings'
           ]
         },
         {
