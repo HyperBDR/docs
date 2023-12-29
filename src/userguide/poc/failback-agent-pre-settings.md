@@ -262,3 +262,49 @@ Success Response:
 This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is for the Huawei Cloud Singapore region. If you need to test in a different region, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain address.  
 Reference Link:  [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
 :::
+
+## (Intranet VPN Access) Tests the network connectivity between the Failback Host and the Failback Gateway
+
+::: tip
+If the switchback test environment is connected to the Intranet of the production site through Huawei Cloud VPN, you can perform this operation to test the network connectivity between the Failback Host and the Failback Gateway Host.
+:::
+
+### The Failback Host is a Linux
+
+#### Verification test procedure
+
+Log in to the Failback Host.
+
+#### Test access to port 10729 of the Failback Gateway Host
+
+::: tip
+Ensure that the ssh command is running on the Failback Host
+:::
+
+Test command:
+```bash
+ssh -p 10729 root@<General storage Switchback Gateway Intranet IP>
+```
+
+Verification results:
+If the password can be accessed normally, the access is normal.
+
+### The Failback Host is a Windows
+
+#### Verification test procedure
+
+Log in to the Failback Host
+
+#### Test access to port 10729 of the Failback Gateway Host
+
+::: tip
+Ensure that the ssh command exists on the Failback Host, and open the CMD command line
+:::
+
+Test command:
+```bash
+ssh -p 10729 root@<Failback Gateway Host Intranet IP>
+```
+
+Verification results:
+If the password can be accessed normally, the access is normal.
