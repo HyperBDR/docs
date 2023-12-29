@@ -99,7 +99,7 @@ On the left-hand menu, go to **"Access Control"**, **"Roles"**. Under **"Role Pr
 
 ![create-vmware-account-4.png](./images/create-vmware-account-4.png)
 
-Refer to "[VMware User Permission](http://192.168.31.41:8080/userguide/poc/vmware-pre-settings.html#vmware-user-permission)" and select the appropriate settings. Then, click the "NEXT" button.
+Refer to "[VMware User Permission](https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#vmware-user-permission)" and select the appropriate settings. Then, click the "NEXT" button.
 
 ![create-vmware-account-5.png](./images/create-vmware-account-5.png)
 

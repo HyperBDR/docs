@@ -66,7 +66,10 @@ module.exports = {
             'poc/huaweicloud-pre-settings',
             'poc/hyperbdr-proxy-pre-settings',
             'poc/hyperbdr-agent-pre-settings',
-            'poc/hyperbdr-vmware-pre-settings'
+            'poc/hyperbdr-vmware-pre-settings',
+            'poc/failback-agent-pre-settings',
+            'poc/failback-hyperbdr-pre-settings',
+            'poc/failback-vmware-pre-settings'
           ]
         },
         {
