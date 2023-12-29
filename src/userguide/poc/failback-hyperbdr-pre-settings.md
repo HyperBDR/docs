@@ -2,6 +2,19 @@
 
 [[toc]]
 
+## (Intranet VPN Access) Create and configure the VPN service
+
+::: tip
+The VPC network of the Huawei cloud failback host connects to the local vCenter/ESXi VM service network.  
+If the VPC network where the HyperBDR resides has been connected to the vCenter/ESXi service network through the VPN service when the Dr Is deployed to Huawei cloud, you do not need to connect the network again.
+:::
+
+### Configuration document
+
+Configure VPN. For details, see Huawei Cloud official documentation.
+
+Document Link：[https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html](https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html)
+
 ## （Internal VPN Access) - Create VPC Endpoint service
 
 ::: tip
