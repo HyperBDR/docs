@@ -283,7 +283,7 @@ Ensure that the ssh command is running on the Failback Host
 
 Test command:
 ```bash
-ssh -p 10729 root@<General storage Switchback Gateway Intranet IP>
+ssh -p 10729 root@<Failback Gateway Host Intranet IP>
 ```
 
 Verification results:
