@@ -151,3 +151,109 @@ debug1: /etc/ssh/ssh_config line 58: Applying options for *
 debug1: Connecting to 192.168.10.2 [ESXi IP Address] port 443.
 debug1: Connection established.
 ```
+
+## Add the Failback Gateway Host to HyperBDR
+
+::: tip
+The deployment of the HyperBDR has been completed by default.
+:::
+
+### Log in to the HyperBDR console
+
+![configure-hyperbdr-host-failback-1.png](./images/configure-hyperbdr-host-failback-1.png)
+
+### Add the Failback Gateway Host
+
+Select [**DR**] > [**Host Failback**] > [**Failback Gateway**], and click [**Add**].
+
+![configure-hyperbdr-host-failback-2.png](./images/configure-hyperbdr-host-failback-2.png)
+
+After confirming the Failback Gateway Host is ready, click [**Next**].
+
+![configure-hyperbdr-host-failback-3.png](./images/configure-hyperbdr-host-failback-3.png)
+
+After filling in the information for the Failback Gateway Host virtual machine, click [**Submit**].
+
+![configure-hyperbdr-host-failback-4.png](./images/configure-hyperbdr-host-failback-4.png)
+
+Wait for the addition to complete.
+
+![configure-hyperbdr-host-failback-5.png](./images/configure-hyperbdr-host-failback-5.png)
+
+
+## Verify the status of the Failback Gateway Host
+
+::: tip
+The deployment of the HyperBDR has been completed by default.
+:::
+
+### Log in to the HyperBDR console
+
+![configure-hyperbdr-host-failback-6.png](./images/configure-hyperbdr-host-failback-6.png)
+
+### Check the status of the Failback Gateway
+
+Select [**DR**] > [**Host Failback**] > [**Failback Gateway**]. You can see the added [**Failback Gateway**]. Click on the [**Failback Gateway**] you want to confirm.
+
+![configure-hyperbdr-host-failback-7.png](./images/configure-hyperbdr-host-failback-7.png)
+
+Confirm that the status of this Failback Gateway is [**available**].
+
+![configure-hyperbdr-host-failback-8.png](./images/configure-hyperbdr-host-failback-8.png)
+
+
+## Apply for HyperBDR Failback License
+
+::: tip
+The deployment of the HyperBDR has been completed by default.
+:::
+
+### Log in the HyperBDR console
+
+![configure-hyperbdr-host-failback-9.png](./images/configure-hyperbdr-host-failback-9.png)
+
+### Activate a Failback License
+
+Select [**Settings**] > [**License Management**] > [**Failback License**], and click [**Add**].
+
+![configure-hyperbdr-host-failback-10.png](./images/configure-hyperbdr-host-failback-10.png)
+
+### Retrieve the Failback License activation code
+
+::: tip
+There are two methods to obtain the Failback License activation code.
+:::
+
+#### Activate using the QR code
+
+![configure-hyperbdr-host-failback-11.png](./images/configure-hyperbdr-host-failback-11.png)
+
+Scan the QR code and fill out the application form. Customer service will send the activation code to the user via email (as an attachment) after reviewing the application. 
+
+::: tip
+Please ensure that the email address provided on the application form is accurate; otherwise, you will not receive the activation code.
+:::
+
+![configure-hyperbdr-host-failback-12.png](./images/configure-hyperbdr-host-failback-12.png)
+
+After filling in the received activation code, click [**Activate**].
+
+![configure-hyperbdr-host-failback-13.png](./images/configure-hyperbdr-host-failback-13.png)
+
+#### Activate using the **registration code**
+
+[**click here**] to obtain the registration code, and [**Click copy the registration code**].
+
+![configure-hyperbdr-host-failback-14.png](./images/configure-hyperbdr-host-failback-14.png)
+
+![configure-hyperbdr-host-failback-15.png](./images/configure-hyperbdr-host-failback-15.png)
+
+
+You can send the registration code to the sales representative or email it to **enquiry@oneprocloud.com**. After receiving the activation code, fill it in and click [**Activate**].
+
+![configure-hyperbdr-host-failback-16.png](./images/configure-hyperbdr-host-failback-16.png)
+
+![configure-hyperbdr-host-failback-17.png](./images/configure-hyperbdr-host-failback-17.png)
+
+
+
