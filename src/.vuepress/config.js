@@ -56,6 +56,7 @@ module.exports = {
             'presales/hyperbdr-vmware-investigation',
             'presales/hyperbdr-agent-investigation',
             'presales/dr-network-planning-recommendations',
+            'presales/hyperbdr-rpo-rto-planning-best-practices',
           ]
         },
         {
