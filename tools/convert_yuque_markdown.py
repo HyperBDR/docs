@@ -93,9 +93,12 @@ with open(source_path, "r") as rfhd:
         #
         #   1. Empty Line
         #   2. Start with > Line
+        #   3. Table line start with |
         #
         # will be ignored
-        if re.match(r"^\s*$", line.strip()) or re.match(r"^\>", line):
+        if (re.match(r"^\s*$", line.strip()) or
+            re.match(r"^\>", line) or
+            re.match(r"^\s*\|", line)):
             print("Ignore line: %s" % line)
             is_add_newline = False
         else:
