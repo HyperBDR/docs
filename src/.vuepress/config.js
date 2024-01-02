@@ -31,10 +31,11 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: '',
-    editLinks: false,
-    docsDir: '',
+    repo: 'HyperBDR/docs',
+    editLinks: true,
+    docsDir: 'src',
     editLinkText: '',
+    docsBranch: 'main',
     lastUpdated: true,
     nav: [
       {
