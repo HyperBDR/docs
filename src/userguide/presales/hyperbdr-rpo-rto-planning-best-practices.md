@@ -86,7 +86,7 @@ Assuming the user's production data allocation capacity is 1TB, we outline the b
 | 1 | 720 | 5.00% | 51.20  | 10  |
 | 1 | 1440 | 5.00% | 51.20  | 5  |
 
-### Best Practices for RPO Calculation
+### Best Practices for RTO Calculation
 
 #### Block Storage
 
