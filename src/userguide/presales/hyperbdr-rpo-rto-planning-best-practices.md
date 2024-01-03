@@ -1,4 +1,4 @@
-# HyperBDR RPO & RTO Best Practices
+# RPO & RTO Best Practices
 
 ## Basic Concept
 
