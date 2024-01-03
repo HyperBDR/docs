@@ -157,9 +157,7 @@ Example Reference: In the General Computing S7 series, under the S7 type, the s7
 2. Run the ping command: In the command prompt, enter the following command, replacing CloudServerIP with the actual IP address of your Huawei Cloud host.
 
 ```bash
-
 ping CloudServerIP
-
 ```
 
 This will display the round-trip latency between the local host and the Huawei Cloud host.
@@ -172,36 +170,25 @@ This will display the round-trip latency between the local host and the Huawei C
 2. Start the iperf server: Run the following command on the Huawei Cloud host:
 
 ```bash
-
 iperf -s
-
 ```
 
 
 3. Run the iperf client: Execute the following command on the local host, replacing CloudServerIP with the actual IP address of your Huawei Cloud host.
 
 ```bash
-
 iperf -c CloudServerIP
-
 ```
 
 This will display the bandwidth test results from the local host to the Huawei Cloud host.
 
 ```bash
-
 Client connecting to <Cloud Host IP>, TCP port 5001
-
 TCP window size: 85.3 KByte (default)
-
 ------------------------------------------------------------
-
 [  3] local 192.168.1.2 port 12345 connected with <Cloud Host IP> port 5001
-
 [ ID] Interval       Transfer     Bandwidth
-
 [  3]  0.0-10.0 sec  1.10 GBytes   944 Mbits/sec
-
 ```
 
 To analyze bandwidth, you only need to look at the "Bandwidth" column. Bandwidth is a measure of network connection speed, usually expressed in bits per second (bps). In the example above, bandwidth is represented in megabits per second (Mbits/sec).
