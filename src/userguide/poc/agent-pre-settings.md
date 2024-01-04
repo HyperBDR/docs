@@ -717,6 +717,11 @@ If antivirus software is running locally on the Windows host, during the install
 
 Before installing the Windows Agent, check if antivirus software is running on the host and take the following measures to avoid issues with the proper installation and operation of the Windows Agent.
 
+#### If your host is running Kaspersky, please click [here](https://docs.oneprocloud.com/userguide/faq.html#kaspersky).
+#### If your host is running McAfee, please click [here](https://docs.oneprocloud.com/userguide/faq.html#mcafee).
+
+If the above did not find the antivirus software running on your host, please continue to browse the contents of this document.
+
 ### Measures when Antivirus Software is Running on the Windows Host
 
 #### Option 1: Add to Antivirus Software Whitelist

@@ -111,3 +111,180 @@ A4: In Windows Agent mode, HyperBDR directly calls the VSS interface provided by
 **Q5: Does HyperBDR's data integrity assurance apply to specific applications like databases?**
 
 A5: Yes, HyperBDR's VSS integration is application-aware and applicable to specific applications, including databases. VSS ensures that application data is in a consistent state during snapshot creation.
+
+## Configuration of Antivirus Software on Windows Agent Source Host
+
+### Kaspersky
+
+#### Kaspersky Pause Protection
+
+Set the running Kaspersky to Pause Protection status.
+
+![configuration-of-antivirus-software-1.png](./images/configuration-of-antivirus-software-1.png)
+
+![configuration-of-antivirus-software-2.png](./images/configuration-of-antivirus-software-2.png)
+
+![configuration-of-antivirus-software-3.png](./images/configuration-of-antivirus-software-3.png)
+
+#### Create a new subgroup named "windows agent" under [Application]
+
+Select [**Security**] - [**Intrusion Prevention**] - [**Manage applications**], and create a new subgroup named "**windows agent**" under [**Application**].
+
+
+![configuration-of-antivirus-software-4.png](./images/configuration-of-antivirus-software-4.png)
+
+
+![configuration-of-antivirus-software-5.png](./images/configuration-of-antivirus-software-5.png)
+
+
+![configuration-of-antivirus-software-6.png](./images/configuration-of-antivirus-software-6.png)
+
+
+![configuration-of-antivirus-software-7.png](./images/configuration-of-antivirus-software-7.png)
+
+#### Configure [**Intrusion Prevention**]
+
+Locate the [**Trust group for applications started before startup of Kaspersky Small Office Security**] item and set it to the recently created trust group "**windows agent**", save the configuration.
+
+![configuration-of-antivirus-software-8.png](./images/configuration-of-antivirus-software-8.png)
+
+![configuration-of-antivirus-software-9.png](./images/configuration-of-antivirus-software-9.png)
+
+![configuration-of-antivirus-software-10.png](./images/configuration-of-antivirus-software-10.png)
+
+
+![configuration-of-antivirus-software-11.png](./images/configuration-of-antivirus-software-11.png)
+
+#### Exit Kaspersky
+
+![configuration-of-antivirus-software-12.png](./images/configuration-of-antivirus-software-12.png)
+
+#### Install Windows Agent
+
+::: tip
+After installing Windows Agent, do not start Windows Agent temporarily.
+:::
+
+Reference Document: [https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#unzip-the-installation-package-and-proceed-with-the-installation](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#unzip-the-installation-package-and-proceed-with-the-installation)
+
+
+#### Run the Kaspersky
+
+::: tip
+When Kaspersky is restarted, it remains in the paused protection state.
+:::
+
+![configuration-of-antivirus-software-13.png](./images/configuration-of-antivirus-software-13.png)
+
+#### Add the application of Windows Agent to the trusted group.
+
+Select [**Security**] - [**Intrusion Prevention**] - [**Manage applications**], Right-click on "**windows agent**", click on [**Add Application to Group**], and add all exe, bat, and sys files under the installation directory of Windows Agent and its subdirectory "**hyper_exporter**".
+
+![configuration-of-antivirus-software-14.png](./images/configuration-of-antivirus-software-14.png)
+
+![configuration-of-antivirus-software-15.png](./images/configuration-of-antivirus-software-15.png)
+
+![configuration-of-antivirus-software-16.png](./images/configuration-of-antivirus-software-16.png)
+
+#### Modify Security settings (1)
+
+ In [**Settings**] - [**Security Settings**] - [**File Anti-Virus**], locate the [**Actions on threat detection**] option, check [**Block**], and save the settings.
+
+![configuration-of-antivirus-software-17.png](./images/configuration-of-antivirus-software-17.png)
+
+![configuration-of-antivirus-software-18.png](./images/configuration-of-antivirus-software-18.png)
+
+![configuration-of-antivirus-software-19.png](./images/configuration-of-antivirus-software-19.png)
+
+#### Modify Security settings (2)
+
+ In [**Settings**] - [**Security Settings**] - [**Exclusions and actions on object detected**], click [**Manage Exclusions**] - [**+Add**] add the installation directory of Windows Agent as an exclusion, check [**Protect components**] - [**All components**], Click [**Add**] after confirmation.
+
+![configuration-of-antivirus-software-20.png](./images/configuration-of-antivirus-software-20.png)
+
+![configuration-of-antivirus-software-21.png](./images/configuration-of-antivirus-software-21.png)
+
+![configuration-of-antivirus-software-22.png](./images/configuration-of-antivirus-software-22.png)
+
+![configuration-of-antivirus-software-23.png](./images/configuration-of-antivirus-software-23.png)
+
+![configuration-of-antivirus-software-24.png](./images/configuration-of-antivirus-software-24.png)
+
+![configuration-of-antivirus-software-25.png](./images/configuration-of-antivirus-software-25.png)
+
+![configuration-of-antivirus-software-26.png](./images/configuration-of-antivirus-software-26.png)
+
+Confirm that the exclusion status is set to [**Active**].
+
+![configuration-of-antivirus-software-27.png](./images/configuration-of-antivirus-software-27.png)
+
+Save the settings
+
+![configuration-of-antivirus-software-28.png](./images/configuration-of-antivirus-software-28.png)
+
+#### Run Windows Agent
+
+ Click on the Windows Agent shortcut on the desktop, start the service, and check if the registration is successful after 1-2 minutes. Verify if the service status is normal.
+
+![configuration-of-antivirus-software-29.png](./images/configuration-of-antivirus-software-29.png)
+
+![configuration-of-antivirus-software-30.png](./images/configuration-of-antivirus-software-30.png)
+
+#### Restore Kaspersky protection status
+
+![configuration-of-antivirus-software-31.png](./images/configuration-of-antivirus-software-31.png)
+
+![configuration-of-antivirus-software-32.png](./images/configuration-of-antivirus-software-32.png)
+
+::: warning
+If any application is added to [Low Restricted] during the operation, it needs to be manually added back to the trusted group "Windows Agent."
+:::
+
+![configuration-of-antivirus-software-33.png](./images/configuration-of-antivirus-software-33.png)
+
+### McAfee
+
+#### Turn off Real-Time Scanning in McAfee
+
+Access Real-time scan from the left-side menu and click on [**Turn off**]
+
+![configuration-of-antivirus-software-34.png](./images/configuration-of-antivirus-software-34.png)
+
+![configuration-of-antivirus-software-35.png](./images/configuration-of-antivirus-software-35.png)
+ 
+Check the option "**Never**" under [**When do you want to resume Real-Time Scanning?**] and click the [**Turn off**].
+
+![configuration-of-antivirus-software-36.png](./images/configuration-of-antivirus-software-36.png)
+
+![configuration-of-antivirus-software-37.png](./images/configuration-of-antivirus-software-37.png)
+
+#### Install Windows Agent and run Windows Agent
+
+Reference Document：[https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#unzip-the-installation-package-and-proceed-with-the-installation](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#unzip-the-installation-package-and-proceed-with-the-installation)
+
+#### Turn on Real-Time Scanning in McAfee and add Excluded files
+
+click [**Turn on**] Real-Time Scanning
+
+![configuration-of-antivirus-software-38.png](./images/configuration-of-antivirus-software-38.png)
+
+click [**Add file**] add all exe, bat, and sys files under the installation directory of Windows Agent and its subdirectory "**yper_exporter**".
+
+::: tip
+The default installation path for Windows Agent: C:\Program Files (x86)\DiskSync-Agent
+:::
+
+![configuration-of-antivirus-software-39.png](./images/configuration-of-antivirus-software-39.png)
+
+![configuration-of-antivirus-software-40.png](./images/configuration-of-antivirus-software-40.png)
+
+#### Check Quarantined items
+
+::: warning
+If there is an abnormal termination of the Windows Agent service, enter McAfee to check the Quarantined items. Select the files related to Windows Agent and proceed with the restoration.
+:::
+
+![configuration-of-antivirus-software-41.png](./images/configuration-of-antivirus-software-41.png)
+
+![configuration-of-antivirus-software-42.png](./images/configuration-of-antivirus-software-42.png)
+
