@@ -71,7 +71,8 @@ module.exports = {
             'poc/hyperbdr-vmware-pre-settings',
             'poc/failback-agent-pre-settings',
             'poc/failback-hyperbdr-pre-settings',
-            'poc/failback-vmware-pre-settings'
+            'poc/failback-vmware-pre-settings',
+            'poc/failback-agent-source-pre-settings'
           ]
         },
         {

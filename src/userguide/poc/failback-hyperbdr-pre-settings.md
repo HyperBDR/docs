@@ -255,5 +255,27 @@ You can send the registration code to the sales representative or email it to **
 
 ![configure-hyperbdr-host-failback-17.png](./images/configure-hyperbdr-host-failback-17.png)
 
+## Download the hyperdoor image for the Failback Gateway
 
+::: tip
+Choose the available image file according to the production environment on the source. You will need to use the hyperdoor image to create a virtual machine/physical machine in the source production environment.
+:::
 
+### Download ISO Format Image
+hyperdoor image download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso) 
+hyperdoor image MD5 file download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso.md5](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso.md5)
+
+### Download QCOW2 Format Image
+hyperdoor image download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2)
+hyperdoor image MD5 file download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2)
+
+## (Intranet VPN Access) Create and configure the VPN service-Agent
+
+::: tip
+The VPC network of the Huawei cloud failback host connects to the source production environment network.  
+Note: If the VPC network where the HyperBDR resides has been connected to the source production environment network through the VPN service when the Dr Is deployed to Huawei cloud, you do not need to connect the network again.
+:::
+
+### Configuration document
+Configure VPN. For details, see Huawei Cloud official documentation.
+Document Link：[https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html](https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html)

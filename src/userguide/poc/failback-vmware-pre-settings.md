@@ -7,7 +7,8 @@
 ### Download the Hyperdoor image file (ISO)
 
 ::: tip
-Download Link：https://<HyperBDR IP\>:30080/softwares/hyperdoor/Livecd-HyperDoor.iso
+Download the ISO image to the download address in the document.  
+Document link: [https://docs.oneprocloud.com/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image](http://192.168.7.58:8080/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image)
 :::
 
 ### Upload the Hyperdoor image file (ISO) to the VMware storage
