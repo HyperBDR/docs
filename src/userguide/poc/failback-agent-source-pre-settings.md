@@ -77,3 +77,46 @@ ip route
 
 ![configure-the-ip-address-for-the-failback-gateway-host---agent-4.png](./images/configure-the-ip-address-for-the-failback-gateway-host---agent-4.png)
 
+## (Intranet VPN Access)Test the connectivity from the Failback Gateway network to Huawei Cloud OBS network - Agent
+
+### Login Failback Gateway System
+
+::: tip
+Default User：root  
+Default Password：Acb@132.Inst
+:::
+
+![test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-1.png](./images/test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-1.png)
+
+### Huawei Cloud Private DNS Connection Test
+
+::: tip
+Please refer to the following document to find the dedicated Network Domain Service (NDS) address based on the used Huawei Cloud OBS region.  
+Reference Document:[https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
+:::
+
+```shell
+ping 100.125.1.250
+```
+
+Success Response:
+
+![test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-2.png](./images/test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-2.png)
+
+### Huawei Cloud Object Storage Connection Test
+
+```shell
+
+ping https://obs.ap-southeast-3.myhuaweicloud.com
+
+```
+
+Success Response:
+
+![test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-3.png](./images/test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-3.png)
+
+::: tip
+This command is primarily used to test the accessibility of Huawei Cloud Object Storage. Currently, the tested OBS domain is applicable to the Huawei Cloud Singapore region. If you need to perform tests in different regions, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain.  
+Document Link: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
+:::
+
