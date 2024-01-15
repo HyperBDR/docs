@@ -288,3 +288,60 @@ If there is an abnormal termination of the Windows Agent service, enter McAfee t
 
 ![configuration-of-antivirus-software-42.png](./images/configuration-of-antivirus-software-42.png)
 
+## How to Create a Failback Gateway（HyperDoor） on a Physical Machine
+
+Physical servers can utilize the IPMI console to create a fallback gateway by loading the HyperDoor image.
+::: tip
+The HyperDoor image has already been downloaded to the local machine by default.
+:::
+
+### 1. Log in to the IPMI console
+
+Open a web browser locally and enter the IPMI address of the physical machine (usually accessed through a browser, for example: https://ipmi_address).
+Log in to the IPMI interface using the username and password assigned to the server.
+
+### 2. Locate the 'Virtual Media' or a similar option
+
+Navigate to the menu on the IPMI console, and find an option similar to 'Virtual Media' or other related options.
+
+### 3. Choose to mount the image
+
+In the Virtual Media menu, there is typically an option for "Mount ISO" or a similar choice. Select this option.
+
+### 4. Upload the image file
+
+Provide the local path of the HyperDoor image file or upload the HyperDoor image file.
+
+### 5. Confirm the mounting
+
+Confirm the mounting of the image. The system will use the provided image file to simulate an optical drive, allowing the server to boot from it.
+
+### 6. Restart the server
+
+In the IPMI console, find "Power Control" or a similar option, and select restart for the server.
+
+### 7. Enter the BIOS/Boot Menu of the server
+
+When the server restarts, follow the on-screen prompts to enter BIOS settings or the boot menu. This is typically done by pressing a specific key (such as F2, F10, Del, etc.).
+
+### 8. Choose virtual media as the boot device
+
+In the BIOS or boot menu, select virtual media as the boot device, ensuring that the system will boot from the virtual optical drive.
+
+### 9. Save settings and exit
+
+In the BIOS settings, save the changes and exit, allowing the system to boot from the virtual media. The system will load the HyperDoor image file.
+
+### 10. Failback Gateway startup
+
+After the system restarts again, it will successfully load the HyperDoor image, becoming a HyperDoor failback gateway.
+
+::: tip
+Please note that different servers and IPMI implementations may have slight variations, so be sure to refer to the documentation for specific operational guidance.
+:::
+
+## Instructions for Migration or DR on a physical machine
+
+Due to the diverse models of underlying hardware in physical machines and the potential need for different drivers to accommodate various hardware models, it is essential to proactively query the hardware information of the physical machine, including RAID cards, disks, network cards, etc., when migrating or reverting.  
+
+Currently, manual intervention is required for the adaptation and repair of physical machine drivers. This involves the installation of hardware drivers to ensure compatibility and functionality.
