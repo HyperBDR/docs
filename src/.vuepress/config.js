@@ -76,6 +76,13 @@ module.exports = {
           ]
         },
         {
+          title: 'HyperBDR Usage Guide',
+          collapsable: false,
+          children: [
+            'dr-usage-guide/dr-operations-manual-huaweicloud'
+          ]
+        },
+        {
           title: 'FAQ',
           collapsable: false,
           children: [
