@@ -8,7 +8,7 @@ This document describes how to obtain host information on a windows host, includ
 
 #### Get host name, operating system version, cpu, memory, etc. (Control Panel)
 
-Open Control Pannel，System and Security，System to retrieve relevant information.
+Open Control Pannel, System and Security, System to retrieve relevant information.
 
 ![hyperbdr-agent-investigation-copy-1.png](./images/hyperbdr-agent-investigation-copy-1.png)
 
