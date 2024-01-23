@@ -390,3 +390,52 @@ In the popped-up page, in the **"Step 2: Installing synchronization nodes"** sec
 Paste the copied installation command into the command line and execute it. Wait for the command to execute successfully; this indicates that the Proxy synchronization node program is running normally. 
 
 ![install-proxy-6.png](./images/install-proxy-6.png)
+
+##  Add and Configure HyperGate
+
+::: tip
+Already logged in to the HyperBDR console by default.
+:::
+
+![add-and-configure-hypergate-1.png](./images/add-and-configure-hypergate-1.png)
+
+### Operational Steps
+
+::: tip
+The HyperGate is an automatically created cloud instance that needs to be in the same region as the business VPC for DR.
+:::
+
+**Step1.** Click on "Configuration Management" in the top menu, choose "Storage Configuration" on the left, select "Block Storage," and click on the "Add" button.
+
+![add-and-configure-hypergate-2.png](./images/add-and-configure-hypergate-2.png)
+
+**Step 2.** Fill in the information as follows to add the cloud platform. 
+
+> This step will automatically create a block storage recovery gateway (HyperGate) under the Huawei Cloud authentication tenant after authentication.
+
+Choose Huawei Cloud in the Recovery Platform.
+
+Fill in the Huawei Cloud authentication information as shown in the image below when adding the target disaster recovery platform:
+
+- Access Key ID: Huawei Cloud account Access Key ID  
+- Access Key Secret: Huawei Cloud account Access Key Secret  
+- Project: Optional, can be left blank  
+- Project ID: Optional, can be left blank  
+- Skip Driver Adaption: Optional
+
+After confirming the filled information, click the "Next" button.
+
+![add-and-configure-hypergate-3.png](./images/add-and-configure-hypergate-3.png)
+
+Choose the relevant information to create the Cloud Sync Gateway instance under the authentication tenant and click the "Next" button.
+
+![add-and-configure-hypergate-4.png](./images/add-and-configure-hypergate-4.png)
+
+After the name and status are available, wait for the "Createing" process to complete, then click the "Complete" button.
+
+![add-and-configure-hypergate-5.png](./images/add-and-configure-hypergate-5.png)
+
+Check the "Block Storage" - "Cloud Sync Gateway" page, and the status should be "Available".
+
+![add-and-configure-hypergate-6.png](./images/add-and-configure-hypergate-6.png)
+

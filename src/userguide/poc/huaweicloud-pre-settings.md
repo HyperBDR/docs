@@ -414,13 +414,25 @@ Access the CDN Console, select 'Resources' > 'My Quotas'. The system will naviga
 
 Compare the resource levels of the source hosts, as per your inventory, with the remaining resource quota in your Huawei Cloud account to assess whether it meets the requirements for disaster recovery.
 
+**1. If you are using object storage recovery mode for DR, please refer to the following criteria.**
+
 > **Elastic Cloud Server: ECSs** Residual Quota ≥ The total number of source host  
 > **Elastic Cloud Server: vCPUs** Residual Quota ≥ The total number of source host CPU  
 > **Elastic Cloud Server: Memory (MB)** Residual Quota ≥ The total number of source host RAM(MB)  
 > **Elastic Volume Service: Disk** Residual Quota ≥ The total number of source host disks  
 > **Elastic Volume Service: Disk capacity(GB)** Residual Quota ≥ The total disk capacity for source host(GB)  
 > **Image Management Service: Images**  Residual Quota ≥ 2  
-> **Virtual Private Cloud: Elastic IP addresses** Residual Quota: Satisfying the required number of public IP addresses for the disaster recovery hosts to be restored to the Huawei Cloud platform is sufficient.
+> **Virtual Private Cloud: Elastic IP addresses** Residual Quota: Satisfying the required number of public IP for the disaster recovery hosts to be restored to the Huawei Cloud platform is sufficient.
+
+**2. If you are using block storage recovery mode for DR, please refer to the following criteria.**
+
+> **Elastic Cloud Server: ECSs** Residual Quota ≥ The total number of source host + Number of HyperGate instances  
+> **Elastic Cloud Server: vCPUs** Residual Quota ≥ The total number of source host CPU + 2 * Number of HyperGate instances  
+> **Elastic Cloud Server: Memory (MB)** Residual Quota ≥ The total number of source host RAM(MB) + 2048(MB) * Number of HyperGate instances  
+> **Elastic Volume Service: Disk** Residual Quota ≥ 2 * Total number of source host disks + Number of HyperGate instances  
+> **Elastic Volume Service: Disk capacity(GB)** Residual Quota ≥ 2 * Total disk capacity for source host(GB) + 40(GB) * Number of HyperGate instances  
+> **Image Management Service: Images**  Residual Quota ≥ 2  
+> **Virtual Private Cloud: Elastic IP addresses** Residual Quota: The quantity should satisfy the sum of the required public IP addresses for the disaster recovery hosts to be restored to the Huawei Cloud platform, including both the number of public IP for the source hosts and the quantity of HyperGate instances.
 
 If it is discovered that the remaining resource quota in the Huawei Cloud account is insufficient, it is necessary to clean up unnecessary resources in the account or apply to Huawei Cloud for an expansion of resource quotas.
 
