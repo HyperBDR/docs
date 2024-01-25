@@ -9,12 +9,12 @@
 #### Installation Package
  
 > File Nmae: HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz  
-> Download Link: [https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.12.0_20231231-20231229-2197.tar.gz](https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.12.0_20231231-20231229-2197.tar.gz)  
+> Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz)  
 
 #### MD5 Checksum File
 
 > File Nmae: HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz.md5  
-> Download Link: [https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.12.0_20231231-20231229-2197.tar.gz.md5](https://oneprocloud.oss-cn-beijing.aliyuncs.com/download/standalone-prod/HyperBDR_release_v4.12.0_20231231-20231229-2197.tar.gz.md5)  
+> Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz.md5](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz.md5)  
 
 ::: tip
 Log in to the HyperBDR host backend and execute the command.  
