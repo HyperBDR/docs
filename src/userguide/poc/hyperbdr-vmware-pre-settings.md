@@ -8,12 +8,12 @@
 
 #### Installation Package
  
-> File Nmae: HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz  
+> File Nmae: HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz 
 > Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz)  
 
 #### MD5 Checksum File
 
-> File Nmae: HyperBDR_release_v4.10.1_20231031-20231031-1617.tar.gz.md5  
+> File Nmae: HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz.md5  
 > Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz.md5](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz.md5)  
 
 ::: tip
