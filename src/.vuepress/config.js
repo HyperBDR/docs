@@ -60,6 +60,13 @@ module.exports = {
           ]
         },
         {
+          title: 'POC Checklist',
+          collapsable: false,
+          children: [
+            'poc/poc-checklist'
+          ]
+        },
+        {
           title: 'POC Guideline',
           collapsable: false,
           children: [
