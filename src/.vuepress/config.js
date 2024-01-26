@@ -63,7 +63,7 @@ module.exports = {
           title: 'POC Checklist',
           collapsable: false,
           children: [
-            'poc/poc-checklist'
+            'checklist/dr-checklist'
           ]
         },
         {
