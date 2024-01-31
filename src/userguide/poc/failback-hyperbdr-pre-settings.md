@@ -196,7 +196,7 @@ The deployment of the HyperBDR has been completed by default.
 
 ### Check the status of the Failback Gateway
 
-Select [**DR**] > [**Host Failback**] > [**Failback Gateway**]. You can see the added [**Failback Gateway**]. Click on the [**Failback Gateway**] you want to confirm.
+On the top navigation bar, select "Configuration", choose "Generic Storage" in the left menu, and click on the [Failback Gateway] you want to confirm.
 
 ![configure-hyperbdr-host-failback-7.png](./images/configure-hyperbdr-host-failback-7.png)
 
