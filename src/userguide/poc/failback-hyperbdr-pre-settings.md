@@ -152,7 +152,7 @@ debug1: Connecting to 192.168.10.2 [ESXi IP Address] port 443.
 debug1: Connection established.
 ```
 
-## Add the Failback Gateway Host to HyperBDR
+## Add the Generic Failback Gateway Host to HyperBDR
 
 ::: tip
 The deployment of the HyperBDR has been completed by default.
@@ -162,24 +162,27 @@ The deployment of the HyperBDR has been completed by default.
 
 ![configure-hyperbdr-host-failback-1.png](./images/configure-hyperbdr-host-failback-1.png)
 
-### Add the Failback Gateway Host
+### Add the Generic Failback Gateway Host
 
-Select [**DR**] > [**Host Failback**] > [**Failback Gateway**], and click [**Add**].
+**Step 1.** On the top navigation bar, select "Configuration", choose "Generic Storage" in the left menu, and click "Add" on the "Failback" - "Failback Storage Gateway" tab.
 
 ![configure-hyperbdr-host-failback-2.png](./images/configure-hyperbdr-host-failback-2.png)
 
-After confirming the Failback Gateway Host is ready, click [**Next**].
+**Step 2.** Follow the instructions in the form to create the Generic Storage "Failback Gateway". Choose "Block Storage" or "Object Storage" as the Failback Method, fill in the information for the generic storage failback gateway, and after confirming, click "Next".
+
+::: tip
+Choose "Object Storage" or "Block Storage" based on your storage type to configure the "Failback Method".
+:::
 
 ![configure-hyperbdr-host-failback-3.png](./images/configure-hyperbdr-host-failback-3.png)
 
-After filling in the information for the Failback Gateway Host virtual machine, click [**Submit**].
+**Step 3.** The "Driver Adaption" option can remain at its default setting.
 
 ![configure-hyperbdr-host-failback-4.png](./images/configure-hyperbdr-host-failback-4.png)
 
-Wait for the addition to complete.
+**Step 4.** The status of the general storage failback gateway should be "Available".
 
 ![configure-hyperbdr-host-failback-5.png](./images/configure-hyperbdr-host-failback-5.png)
-
 
 ## Verify the status of the Failback Gateway Host
 
