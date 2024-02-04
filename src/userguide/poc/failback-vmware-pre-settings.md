@@ -314,3 +314,36 @@ The deployment of the HyperBDR environment has been completed by default.
 Select [**Configuration**> [**Object Storage**], and you can see the [**Object Storage**] you added. Confirm that the status of [**Object Storage**] is [**Available**].
 
 ![docs-of-object-storage-host-failback-8.png](./images/docs-of-object-storage-host-failback-8.png)
+
+##  Add the vCenter/ESXi as an Object DR Gateway(Failback)
+
+::: tip
+Default deployment of HyperBDR environment completed
+:::
+
+### Login HyperBDR
+
+![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-1.png](./images/add-the-vcenteresxi-as-an-object-dr-gatewayfailback-1.png)
+
+### Add Object DR Gateway(Failback)
+
+**Step 1.** Select "Configuration" in the upper navigation bar, choose "Object DR Gateway" in the left menu, and click "Add" on the "Failback" tab.
+
+![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-2.png](./images/add-the-vcenteresxi-as-an-object-dr-gatewayfailback-2.png)
+
+**Step 2.** Fill in the authentication information for the VMware platform on the "Authentication Information" page, and click "Next" after confirmation.
+
+![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-3.png](./images/add-the-vcenteresxi-as-an-object-dr-gatewayfailback-3.png)
+
+**Step 3.** Configure the failback target platform VMware Setting, and click "Next" after confirmation.
+
+![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-4.png](./images/add-the-vcenteresxi-as-an-object-dr-gatewayfailback-4.png)
+
+**Step 4. **The "Driver Adaption" option can remain at its default setting.
+
+![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-5.png](./images/add-the-vcenteresxi-as-an-object-dr-gatewayfailback-5.png)
+
+**Step 5.** The Object DR Gateway(Failback) has been successfully added.
+
+![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-6.png](./images/add-the-vcenteresxi-as-an-object-dr-gatewayfailback-6.png)
+
