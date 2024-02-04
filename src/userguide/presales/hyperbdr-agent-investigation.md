@@ -56,7 +56,7 @@ As shown in the figure below, at the upper-right position, the allocation and us
 
 ### CentOS 7 (Linux)
 
-This document primarily guides on obtaining relevant host information on a Linux machine, including the host name, operating system version, CPU, memory, disk, and other details. The steps for collecting Linux host information in this instance will be based on CentOS 7; for other operating system versions, please refer to their respective documentation.
+This document primarily guides on obtaining relevant host information on a Linux machine, including the host name, operating system version, kernel version, CPU, memory, disk, and other details. The steps for collecting Linux host information in this instance will be based on CentOS 7; for other operating system versions, please refer to their respective documentation.
 
 #### 1. Retrieve host name.
 
@@ -86,7 +86,21 @@ The output content represents information about the operating system version.
 
 ![hyperbdr-agent-investigation-copy-6.png](./images/hyperbdr-agent-investigation-copy-6.png)
 
-#### 3. Retrieve CPU information
+#### 3. Retrieve the kernel version
+
+Run the following command to view the kernel version.
+
+```bash
+uname -r
+```
+
+The output content represents information about the kernel version.
+
+```
+4.1.12-61.1.28.el6uek.x86_64
+```
+
+#### 4. Retrieve CPU information
 
 Run the following command to view CPU information.
 
@@ -100,7 +114,7 @@ In the output, locate the value of **"CPU(s)"**, which represents the number of 
 
 ![hyperbdr-agent-investigation-copy-7.png](./images/hyperbdr-agent-investigation-copy-7.png)
 
-#### 4. Retrieve Memory information
+#### 5. Retrieve Memory information
 
 Run the following command to view memory information.
 
@@ -114,7 +128,7 @@ Look for the "Total" column, which displays the total physical memory.
 
 ![hyperbdr-agent-investigation-copy-8.png](./images/hyperbdr-agent-investigation-copy-8.png)
 
-#### 5. Retrieve disk information
+#### 6. Retrieve disk information
 
 
 1. **Check the number of disks and the total capacity.**
