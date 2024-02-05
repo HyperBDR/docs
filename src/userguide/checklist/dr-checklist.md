@@ -14,3 +14,7 @@ Welcome to HyperBDR! Before using this product, please fill out the relevant for
 | VMware(Agentless) | Block Storage | Public Network | [View Checklist](https://docs.google.com/forms/d/1EizT2S4nEZNUuH4pODSwVVSgzhlPo0GtDL4Ziujf694/prefill) |
 | VMware(Agentless) | Object Storage | Intranet VPN | [View Checklist](https://docs.google.com/forms/d/1h2rUAtiZbuU7_Bi1MhexVBA9XxrrOrEhYfoyuforNTY/prefill) |
 | VMware(Agentless) | Object Storage | Public Network | [View Checklist](https://docs.google.com/forms/d/1dwqdVi-pwDGYGkVMOVs2uhyiYm8PTQjUcV92PymM6i4/prefill) |
+| Agent | Block Storage | Intranet VPN | [View Checklist](https://docs.google.com/forms/d/1ajJwet1toboe7j_113l0VrnrE8oMv6tIkkfFXZwYdNk/prefill) |
+| Agent | Block Storage | Public Network | [View Checklist]() |
+| Agent | Object Storage | Intranet VPN | [View Checklist]() |
+| Agent | Object Storage | Public Network | [View Checklist]() |
