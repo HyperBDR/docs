@@ -58,7 +58,11 @@ If the MD5 values obtained in `Step1` and `Step2` are the same, it indicates tha
 ## Install HyperBDR
 
 > After completing the download of the HyperBDR installation package, you can proceed to install it  
-> Already logged in to the Huawei Cloud HyperBDR ECS instance backend by default  
+> Already logged in to the Huawei Cloud HyperBDR ECS instance backend by default
+
+::: tip
+The operating system used for the installation must be CentOS7.x version.
+:::
 
 ### Unzip the HyperBDR installation package
 
