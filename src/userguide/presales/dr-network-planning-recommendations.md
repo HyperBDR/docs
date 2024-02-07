@@ -149,7 +149,8 @@ During the failover process, as it is necessary for the cloud to take over the h
 | 3 | HyperBDR | Object Storage Service | TCP Unidirectional | 443 | Control Flow | 
 | 4 | HyperBDR | Failback Gateway VM | TCP Unidirectional | 10729 | Control Flow | 
 | 5 | HyperBDR | Cloud API | TCP Unidirectional | 443 | Control Flow | 
-| 6 | Failback VM | Object Storage Service | TCP Unidirectional | 443 | Data Flow | 
+| 6 | HyperBDR | vCenter/ESXi | TCP Unidirectional | 443/902 | Control Flow | 
+| 7 | Failback Gateway VM | Object Storage Service | TCP Unidirectional | 443 | Data Flow | 
 
 
 ## DR Network Planning
