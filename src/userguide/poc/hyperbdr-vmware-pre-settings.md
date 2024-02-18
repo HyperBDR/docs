@@ -259,7 +259,7 @@ Click on the top menu bar "Configuration," "Disaster Recovery Site," "Object DR 
 ::: tip
 Windows UEFI Fixes Image uses the private Windows image you uploaded.
 
-Document link: https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#image-download-upload
+Document link: [https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#image-download-upload](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#image-download-upload)
 :::
 
 ![add-dr-recovery-gateway-3.png](./images/add-dr-recovery-gateway-3.png)
