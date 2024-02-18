@@ -265,11 +265,11 @@ Choose the available image file according to the production environment on the s
 :::
 
 ### Download ISO Format Image
-hyperdoor image download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso) 
+hyperdoor image download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso)  
 hyperdoor image MD5 file download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso.md5](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso.md5)
 
 ### Download QCOW2 Format Image
-hyperdoor image download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2)
+hyperdoor image download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2)  
 hyperdoor image MD5 file download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2)
 
 ## (Intranet VPN Access) Create and configure the VPN service-Agent
@@ -282,3 +282,39 @@ Note: If the VPC network where the HyperBDR resides has been connected to the so
 ### Configuration document
 Configure VPN. For details, see Huawei Cloud official documentation.
 Document Link：[https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html](https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html)
+
+## Add Huawei Cloud Object Storage (Failback)
+
+::: tip
+Already logged in to the HyperBDR console by default.  
+Using the provided IAM account AK/SK information, configure and add Huawei Cloud Object Storage bucket in the HyperBDR console.
+:::
+
+### Configure Step
+
+- Step 1. Click on the top menu bar 'Configuration,' 'Storage,' 'Object Storage.' Select 'fallback' tab, Click the 'Add' button.
+
+![add-huawei-cloud-object-storage-failback-1.png](./images/add-huawei-cloud-object-storage-failback-1.png)
+
+- Step 2. On the object storage platform, select the Huawei Cloud object storage region.
+
+![add-huawei-cloud-object-storage-failback-2.png](./images/add-huawei-cloud-object-storage-failback-2.png)
+
+- Step 3. Using the provided IAM account AK/SK information，After confirmation, click 'Next'.
+
+![add-huawei-cloud-object-storage-failback-3.png](./images/add-huawei-cloud-object-storage-failback-3.png)
+
+- Step 4. After setting the name of the object storage bucket, click 'Submit'.
+
+::: tip
+You can use existing object buckets within the region, or create new object buckets and customize their names.
+:::
+
+![add-huawei-cloud-object-storage-failback-4.png](./images/add-huawei-cloud-object-storage-failback-4.png)
+
+![add-huawei-cloud-object-storage-failback-5.png](./images/add-huawei-cloud-object-storage-failback-5.png)
+
+- Step 5. Object storage(Failback) addition completed.
+
+![add-huawei-cloud-object-storage-failback-6.png](./images/add-huawei-cloud-object-storage-failback-6.png)
+
