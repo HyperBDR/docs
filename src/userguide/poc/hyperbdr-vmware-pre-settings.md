@@ -256,6 +256,12 @@ Click on the top menu bar "Configuration," "Disaster Recovery Site," "Object DR 
 
 ![add-dr-recovery-gateway-2.png](./images/add-dr-recovery-gateway-2.png)
 
+::: tip
+Windows UEFI Fixes Image uses the private Windows image you uploaded.
+
+Document link: https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#image-download-upload
+:::
+
 ![add-dr-recovery-gateway-3.png](./images/add-dr-recovery-gateway-3.png)
 
 ## Add VMware Hosts in HyperBDR

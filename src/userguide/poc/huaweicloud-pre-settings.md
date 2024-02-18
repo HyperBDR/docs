@@ -148,7 +148,7 @@ HyperBDR Security Group Name: SG-HyperBDR
 ### Image Download
 
 ::: tip
-Overseas Huawei Cloud does not have Windows images. Windows images are primarily used for disaster recovery, while Linux images are used in block storage mode and serve as the base image for cloud sync gateway creation. 
+Overseas Huawei Cloud does not have Windows images. Windows images are primarily used for disaster recovery with UEFI Windows as the source host, while Linux images are used in block storage mode and serve as the base image for cloud sync gateway creation. 
 :::
 
 ::: tip
@@ -214,6 +214,10 @@ Supported Windows image names
 > Windows Server 2019 Datacenter 64bit English
 
 ![upload-custom-windowslinux-images-to-huawei-cloud-3.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-3.png)
+
+::: warning
+The size of the System disk must be 40G.
+:::
 
 ![upload-custom-windowslinux-images-to-huawei-cloud-4.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-4.png)
 
