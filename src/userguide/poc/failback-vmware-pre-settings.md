@@ -1,4 +1,4 @@
-# VMware For Host Failback Pre-Settings
+# VMware Target Pre-Settings
 
 [[toc]]
 

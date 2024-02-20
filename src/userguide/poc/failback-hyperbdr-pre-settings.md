@@ -1,4 +1,4 @@
-# HyperBDR For Host Failback Pre-Settings
+# HyperBDR Pre-Settings
 
 [[toc]]
 

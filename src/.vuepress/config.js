@@ -63,30 +63,73 @@ module.exports = {
           title: 'POC Checklist',
           collapsable: false,
           children: [
-            'checklist/dr-checklist'
+            'checklist/dr-checklist',
           ]
         },
         {
-          title: 'POC Guideline',
+          title: 'DR',
           collapsable: false,
           children: [
-            'poc/agent-pre-settings',
-            'poc/vmware-pre-settings',
-            'poc/huaweicloud-pre-settings',
-            'poc/hyperbdr-proxy-pre-settings',
-            'poc/hyperbdr-agent-pre-settings',
-            'poc/hyperbdr-vmware-pre-settings',
-            'poc/failback-agent-pre-settings',
-            'poc/failback-hyperbdr-pre-settings',
-            'poc/failback-vmware-pre-settings',
-            'poc/failback-agent-source-pre-settings'
+            {
+              title: 'Production Site',
+              collapsable: false,
+              children: [
+                'poc/agent-pre-settings',
+                'poc/vmware-pre-settings',
+              ]
+            },
+            {
+              title: 'DR Site',
+              collapsable: false,
+              children: [
+                'poc/huaweicloud-pre-settings',
+              ]
+            },
+            {
+              title: 'HyperBDR',
+              collapsable: false,
+              children: [
+                'poc/hyperbdr-agent-pre-settings',
+                'poc/hyperbdr-vmware-pre-settings',
+                'poc/hyperbdr-proxy-pre-settings',
+              ]
+            }
           ]
         },
         {
-          title: 'HyperBDR Usage Guide',
+          title: 'Failback',
           collapsable: false,
           children: [
-            'dr-usage-guide/dr-operations-manual-huaweicloud'
+            {
+              title: 'Failback Source',
+              collapsable: false,
+              children: [
+                'poc/failback-agent-pre-settings',
+
+              ]
+            },
+            {
+              title: 'Failback Target',
+              collapsable: false,
+              children: [
+                'poc/failback-vmware-pre-settings',
+                'poc/failback-agent-source-pre-settings',
+              ]
+            },
+            {
+              title: 'HyperBDR',
+              collapsable: false,
+              children: [
+                'poc/failback-hyperbdr-pre-settings',
+              ]
+            }
+          ]
+        },
+        {
+          title: 'HyperBDR User Manual',
+          collapsable: false,
+          children: [
+            'dr-usage-guide/dr-operations-manual-huaweicloud',
           ]
         },
         {
@@ -146,10 +189,10 @@ module.exports = {
       },
     ],
     [
-        'vuepress-plugin-baidu-tongji-analytics',
-        {
-            key: '7ad07e0051d3efdabaf046d43f3bed8d'
-        }
+      'vuepress-plugin-baidu-tongji-analytics',
+      {
+        key: '7ad07e0051d3efdabaf046d43f3bed8d'
+      }
     ],
     [
       'vuepress-plugin-container',
