@@ -182,7 +182,7 @@ module.exports = {
         ],
         expand: {
           trigger: 'click',
-          clickModeDefaultOpen: true,
+          clickModeDefaultOpen: false,
         },
         customClass: 'vuepress-plugin-right-anchor-custom-class',
         disableGlobalUI: false,
