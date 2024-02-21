@@ -1,4 +1,4 @@
-# VMware Target Pre-Settings
+# VMware Pre-Settings
 
 [[toc]]
 
@@ -230,27 +230,6 @@ Document Link:[https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.ht
 ::: tip
 The HyperBDR node host requires access to the vCenter API interface for authentication. By invoking the Disaster Recovery Production vCenter/ESXi interface, it creates a failback recovery virtual machine in the VMware business network, manages it, and automatically creates a failback recovery virtual machine. This involves accessing port 443 of Huawei Cloud Object Storage to retrieve data for failback recovery.
 :::
-
-## (Intranet VPN Access) Create and Configure VPN Service - Object Storage Fallback Mode
-
-Requirement: The VPC network where Huawei Cloud HyperBDR is located needs to be interconnected with the local vCenter/ESXi host management network and the upper-level virtual machine business network. 
-
-::: tip
-If during disaster recovery to Huawei Cloud, the VPC network where HyperBDR is located is already connected to the vCenter/ESXi business network via a VPN service, then it is only necessary to establish connectivity between the VPC network where HyperBDR is located and the vCenter/ESXi host management network.
-:::
-
-To configure the VPN service, please refer to the detailed information in the official Huawei Cloud documentation.  
-Document Link:[https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html](https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html)
-
-
-## (Intranet VPN Access) Create Huawei VPC Endpoint - Object Storage Fallback Mode
-
-::: tip
-If the purchase and configuration of VPC Endpoint services have already been completed during the disaster recovery to Huawei Cloud, there is no need to repeat the configuration.
-:::
-
-Reference Document: [https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#create-huawei-vpc-endpoint](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#create-huawei-vpc-endpoint)
-
 
 ## (Intranet VPN Access)Configure a Huawei cloud Intranet DNS address for the VMware Network-Object Storage Fallback
 

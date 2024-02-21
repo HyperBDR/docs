@@ -1,4 +1,4 @@
-# HuaweiCloud Pre-Settings
+# Huawei Cloud Pre-Settings
 
 [[toc]]
 

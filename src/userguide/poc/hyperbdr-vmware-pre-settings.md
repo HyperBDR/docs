@@ -1,4 +1,4 @@
-# HyperBDR For VMware Pre-Settings
+# HyperBDR Setup
 
 [[toc]]
 

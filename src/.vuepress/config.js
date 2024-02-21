@@ -50,24 +50,18 @@ module.exports = {
     sidebar: {
       '/userguide/': [
         {
-          title: 'Pre-Sales Guideline',
+          title: 'Pre Sales',
           collapsable: false,
           children: [
             'presales/hyperbdr-vmware-investigation',
             'presales/hyperbdr-agent-investigation',
             'presales/dr-network-planning-recommendations',
             'presales/hyperbdr-rpo-rto-planning-best-practices',
-          ]
-        },
-        {
-          title: 'POC Checklist',
-          collapsable: false,
-          children: [
             'checklist/dr-checklist',
           ]
         },
         {
-          title: 'DR',
+          title: 'DR Prerequisites',
           collapsable: false,
           children: [
             {
@@ -89,7 +83,6 @@ module.exports = {
               title: 'HyperBDR',
               collapsable: false,
               children: [
-                'poc/hyperbdr-agent-pre-settings',
                 'poc/hyperbdr-vmware-pre-settings',
                 'poc/hyperbdr-proxy-pre-settings',
               ]
@@ -97,9 +90,16 @@ module.exports = {
           ]
         },
         {
-          title: 'Failback',
+          title: 'Failback Prerequisites',
           collapsable: false,
           children: [
+            {
+              title: 'Failback Network Requirement',
+              collapsable: false,
+              children: [
+                'poc/failback-network-requirement-huaweicloud',
+              ]
+            },
             {
               title: 'Failback Source',
               collapsable: false,

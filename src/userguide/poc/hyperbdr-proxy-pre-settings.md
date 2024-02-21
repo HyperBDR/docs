@@ -1,4 +1,4 @@
-# HyperBDR Proxy Pre-Settings
+# Proxy Setup
 
 [[toc]]
 

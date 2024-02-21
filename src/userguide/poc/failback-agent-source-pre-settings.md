@@ -1,4 +1,4 @@
-# Agent Target Pre-Settings
+# General Platform Setup
 
 [[toc]]
 
@@ -9,7 +9,7 @@
 3. The Failback Gateway serves requires a minimum configuration of 2 cores and 4 GB RAM. As this host is the recovery host during the final rollback, the general rule is to have a computing resource configuration consistent with the failback host.
 4. The Failback Gateway serves storage configuration (disk number and disk capacity) for the Failback Gateway should match that of the failback host.
 
-### Example：
+**Example：**
 | Host configuration | Failback Host configuration | Failback Gateway configuration |
 | --- | --- | --- |
 | CPU | 4 | 4 |
