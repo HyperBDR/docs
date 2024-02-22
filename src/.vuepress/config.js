@@ -63,6 +63,14 @@ module.exports = {
         algolia: {},
         nav: [
           //  { text: 'Nested', link: '/nested/', ariaLabel: 'Nested' }
+          {
+            text: 'User Guide',
+            link: '/userguide/'
+          },
+          {
+            text: 'OneProCloud',
+            link: 'https://oneprocloud.com'
+          }
         ],
         sidebar: {
           '/userguide/': [
@@ -178,6 +186,14 @@ module.exports = {
         algolia: {},
         nav: [
           //  { text: '嵌套', link: '/zh/nested/' }
+          {
+            text: '用户指南',
+            link: '/zh/userguide/'
+          },
+          {
+            text: 'OneProCloud',
+            link: 'https://oneprocloud.com'
+          }
         ],
         sidebar: {
           '/zh/userguide/': [
