@@ -47,101 +47,251 @@ module.exports = {
         link: 'https://oneprocloud.com'
       }
     ],
-    sidebar: {
-      '/userguide/': [
-        {
-          title: 'Pre Sales',
-          collapsable: false,
-          children: [
-            'presales/hyperbdr-vmware-investigation',
-            'presales/hyperbdr-agent-investigation',
-            'presales/dr-network-planning-recommendations',
-            'presales/hyperbdr-rpo-rto-planning-best-practices',
-            'checklist/dr-checklist',
-          ]
+    locales: {
+      // 英文文档目录结构与配置
+      '/': {
+        selectText: 'Languages',
+        label: 'English',
+        ariaLabel: 'Languages',
+        editLinkText: 'Edit this page on GitHub',
+        serviceWorker: {
+          updatePopup: {
+            message: "New content is available.",
+            buttonText: "Refresh"
+          }
         },
-        {
-          title: 'DR Prerequisites',
-          collapsable: false,
-          children: [
+        algolia: {},
+        nav: [
+          //  { text: 'Nested', link: '/nested/', ariaLabel: 'Nested' }
+        ],
+        sidebar: {
+          '/userguide/': [
             {
-              title: 'Production Site',
+              title: 'Pre Sales',
               collapsable: false,
               children: [
-                'poc/agent-pre-settings',
-                'poc/vmware-pre-settings',
+                'presales/hyperbdr-vmware-investigation',
+                'presales/hyperbdr-agent-investigation',
+                'presales/dr-network-planning-recommendations',
+                'presales/hyperbdr-rpo-rto-planning-best-practices',
+                'checklist/dr-checklist',
               ]
             },
             {
-              title: 'DR Site',
+              title: 'DR Prerequisites',
               collapsable: false,
               children: [
-                'poc/huaweicloud-pre-settings',
+                {
+                  title: 'Production Site',
+                  collapsable: false,
+                  children: [
+                    'poc/agent-pre-settings',
+                    'poc/vmware-pre-settings',
+                  ]
+                },
+                {
+                  title: 'DR Site',
+                  collapsable: false,
+                  children: [
+                    'poc/huaweicloud-pre-settings',
+                  ]
+                },
+                {
+                  title: 'HyperBDR',
+                  collapsable: false,
+                  children: [
+                    'poc/hyperbdr-vmware-pre-settings',
+                    'poc/hyperbdr-proxy-pre-settings',
+                  ]
+                }
               ]
             },
             {
-              title: 'HyperBDR',
+              title: 'Failback Prerequisites',
               collapsable: false,
               children: [
-                'poc/hyperbdr-vmware-pre-settings',
-                'poc/hyperbdr-proxy-pre-settings',
-              ]
-            }
-          ]
-        },
-        {
-          title: 'Failback Prerequisites',
-          collapsable: false,
-          children: [
-            {
-              title: 'Failback Network Requirement',
-              collapsable: false,
-              children: [
-                'poc/failback-network-requirement-huaweicloud',
-              ]
-            },
-            {
-              title: 'Failback Source',
-              collapsable: false,
-              children: [
-                'poc/failback-agent-pre-settings',
+                {
+                  title: 'Failback Network Requirement',
+                  collapsable: false,
+                  children: [
+                    'poc/failback-network-requirement-huaweicloud',
+                  ]
+                },
+                {
+                  title: 'Failback Source',
+                  collapsable: false,
+                  children: [
+                    'poc/failback-agent-pre-settings',
 
+                  ]
+                },
+                {
+                  title: 'Failback Target',
+                  collapsable: false,
+                  children: [
+                    'poc/failback-vmware-pre-settings',
+                    'poc/failback-agent-source-pre-settings',
+                  ]
+                },
+                {
+                  title: 'HyperBDR',
+                  collapsable: false,
+                  children: [
+                    'poc/failback-hyperbdr-pre-settings',
+                  ]
+                }
               ]
             },
             {
-              title: 'Failback Target',
+              title: 'HyperBDR User Manual',
               collapsable: false,
               children: [
-                'poc/failback-vmware-pre-settings',
-                'poc/failback-agent-source-pre-settings',
+                'dr-usage-guide/dr-operations-manual-huaweicloud',
               ]
             },
             {
-              title: 'HyperBDR',
+              title: 'FAQ',
               collapsable: false,
               children: [
-                'poc/failback-hyperbdr-pre-settings',
+                'faq.md',
               ]
             }
-          ]
-        },
-        {
-          title: 'HyperBDR User Manual',
-          collapsable: false,
-          children: [
-            'dr-usage-guide/dr-operations-manual-huaweicloud',
-          ]
-        },
-        {
-          title: 'FAQ',
-          collapsable: false,
-          children: [
-            'faq.md',
-          ]
+          ],
         }
-      ],
+      },
+      // 中文文档目录结构与配置
+      '/zh/': {
+        // 多语言下拉菜单的标题
+        selectText: '选择语言',
+        // 该语言在下拉菜单中的标签
+        label: '简体中文',
+        // 编辑链接文字
+        editLinkText: '在 GitHub 上编辑此页',
+        // Service Worker 的配置
+        serviceWorker: {
+          updatePopup: {
+            message: "发现新内容可用.",
+            buttonText: "刷新"
+          }
+        },
+        // 当前 locale 的 algolia docsearch 选项
+        algolia: {},
+        nav: [
+          //  { text: '嵌套', link: '/zh/nested/' }
+        ],
+        sidebar: {
+          '/zh/userguide/': [
+            {
+              title: '预售',
+              collapsable: false,
+              children: [
+                'presales/hyperbdr-vmware-investigation',
+                'presales/hyperbdr-agent-investigation',
+                'presales/dr-network-planning-recommendations',
+                'presales/hyperbdr-rpo-rto-planning-best-practices',
+                'checklist/dr-checklist',
+              ]
+            },
+            {
+              title: '云容灾前置条件',
+              collapsable: false,
+              children: [
+                {
+                  title: '生产站点',
+                  collapsable: false,
+                  children: [
+                    'poc/agent-pre-settings',
+                    'poc/vmware-pre-settings',
+                  ]
+                },
+                {
+                  title: '容灾站点',
+                  collapsable: false,
+                  children: [
+                    'poc/huaweicloud-pre-settings',
+                  ]
+                },
+                {
+                  title: 'HyperBDR容灾平台',
+                  collapsable: false,
+                  children: [
+                    'poc/hyperbdr-vmware-pre-settings',
+                    'poc/hyperbdr-proxy-pre-settings',
+                  ]
+                }
+              ]
+            },
+            {
+              title: '回切前置条件',
+              collapsable: false,
+              children: [
+                {
+                  title: '回切网络需求',
+                  collapsable: false,
+                  children: [
+                    'poc/failback-network-requirement-huaweicloud',
+                  ]
+                },
+                {
+                  title: '回切源端',
+                  collapsable: false,
+                  children: [
+                    'poc/failback-agent-pre-settings',
+
+                  ]
+                },
+                {
+                  title: '回切目标端',
+                  collapsable: false,
+                  children: [
+                    'poc/failback-vmware-pre-settings',
+                    'poc/failback-agent-source-pre-settings',
+                  ]
+                },
+                {
+                  title: 'HyperBDR容灾平台',
+                  collapsable: false,
+                  children: [
+                    'poc/failback-hyperbdr-pre-settings',
+                  ]
+                }
+              ]
+            },
+            {
+              title: 'HyperBDR 用户手册',
+              collapsable: false,
+              children: [
+                'dr-usage-guide/dr-operations-manual-huaweicloud',
+              ]
+            },
+            {
+              title: 'FAQ常见问题解答',
+              collapsable: false,
+              children: [
+                'faq.md',
+              ]
+            }
+          ],
+        }
+      }
+    },
+
+  },
+  locales: {
+    // 键名是该语言所属的子路径
+    // 作为特例，默认语言可以使用 '/' 作为其路径。
+    '/': {
+      lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
+      title: 'HyperBDR Documentation',
+      description: 'Cloud Native DR Product - HyperBDR'
+    },
+    '/zh/': {
+      lang: 'zh-CN',
+      title: 'HyperBDR文档中心',
+      description: 'HyperBDR云原生容灾产品'
     }
   },
+
 
   /*locales: {
     // 键名是该语言所属的子路径
@@ -152,7 +302,7 @@ module.exports = {
       ],
     }
   },
-
+  
   /*locales: {
     // 键名是该语言所属的子路径
     // 作为特例，默认语言可以使用 '/' 作为其路径。
