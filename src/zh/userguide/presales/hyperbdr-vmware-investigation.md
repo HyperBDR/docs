@@ -1,6 +1,6 @@
 # 源端VMware主机快速调研
 
-This document is primarily designed to guide the initial investigation of user scenarios to determine whether they fall within the scope of product support during the early stages.
+本文档主要用于指导用户场景的初步调查，以确定用户场景是否在产品支持的早期阶段。
 
 ## Investigation Steps
 
