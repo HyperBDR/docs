@@ -6,15 +6,15 @@ This document is primarily designed to guide the initial investigation of user s
 
 ### Host Information Collection
 
-> Why we need this infromation? Investigate your VMware host information to assist us in analyzing whether your operating system type is compatible with HyperBDR for protection, and to determine how to effectively utilize cloud resources to provide protection for your system.
+> Why do we need this information? We are investigating your VMware host details to assist us in analyzing whether your operating system type is compatible with HyperBDR for protection and to determine how to effectively utilize cloud resources to safeguard your system.
 
-After these steps, you will get a csv file, please send back to us.
+Upon completion of these steps, you will receive a CSV file. Kindly send the file back to us for further assessment and assistance.
 
-#### Login vCenter
+#### Login to vCenter
 
 ![hyperbdr-vmware-investigation-1.png](./images/hyperbdr-vmware-investigation-1.png)
 
-#### Menu->Global Inventory Lists
+#### Menu -> Global Inventory Lists
 
 ![hyperbdr-vmware-investigation-2.png](./images/hyperbdr-vmware-investigation-2.png)
 
@@ -26,11 +26,11 @@ After these steps, you will get a csv file, please send back to us.
 
 ![hyperbdr-vmware-investigation-4.png](./images/hyperbdr-vmware-investigation-4.png)
 
-#### Select [All rows] and [All Columns]
+#### Select [All Rows] and [All Columns]
 
 ![hyperbdr-vmware-investigation-5.png](./images/hyperbdr-vmware-investigation-5.png)
 
-Exporting
+#### Exporting
 
 ![hyperbdr-vmware-investigation-6.png](./images/hyperbdr-vmware-investigation-6.png)
 
@@ -44,4 +44,4 @@ Exporting
 
 ![hyperbdr-vmware-investigation-9.png](./images/hyperbdr-vmware-investigation-9.png)
 
-After the configuration is complete, it is necessary to perform a page reload operation.
+Upon completing the configuration, it is essential to execute a page reload for the changes to take effect.
