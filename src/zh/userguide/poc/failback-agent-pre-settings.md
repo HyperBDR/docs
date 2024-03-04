@@ -2,29 +2,29 @@
 
 [[toc]]
 
-## (Intranet VPN Access) Test the network connectivity between the Failback Host and the HyperBDR
+## （内网VPN访问）测试回切主机与HyperBDR之间的网络连接
 
 ::: tip
-The VPN service has been configured on the Huawei cloud side, and the Huawei cloud side has connected to the production site through the VPN. You can perform the following tests.
+在华为云端配置了VPN服务，并且华为云端通过VPN连接到生产站点。您可以执行以下测试。
 :::
 
-### Verification test procedure
+### 验证测试流程
 
-Log in to the Failback Host.
+登录到回切主机。
 
-#### The Failback Host is Linux 
+#### Linux回切主机
 
-Ensure that the ssh command is running on the Failback Host
+确保回切主机上运行ssh命令。
 
-#### The HyperBDR is accessed on port 10443
+#### HyperBDR通过端口10443访问
 
-Test command:
+测试命令：
 
 ```
 ssh -v -p 10443 <HyperBDR Intranet IP>
 ```
 
-Test result: If the following input result contains the information [debug1: Connection established.], the network connectivity is OK.
+测试结果：如果以下输出结果包含信息[debug1: Connection established.]，则网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -35,13 +35,13 @@ debug1: Connection established.
 #### The HyperBDR is accessed on port 30080
 ```
 
-Test command:
+测试命令：
 
 ```
 ssh -v -p 30080 <HyperBDR Intranet IP>
 ```
 
-Test result: If the following input result contains the information [debug1: Connection established.], the network connectivity is OK.
+测试结果：如果以下输出结果包含信息[debug1: Connection established.]，则网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -51,15 +51,15 @@ debug1: Connecting to <HyperBDR Intranet IP> [<HyperBDR Intranet IP>] port 30080
 debug1: Connection established.
 ```
 
-#### The HyperBDR is accessed on port 10081
+#### HyperBDR通过端口10081访问
 
-Test command:
+测试命令：
 
 ```
 ssh -v -p 10081 <HyperBDR Intranet IP>
 ```
 
-Test result: If the following input result contains the information [debug1: Connection established.], the network connectivity is OK.
+测试结果：如果以下输出结果包含信息[debug1: Connection established.]，则网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -69,19 +69,19 @@ debug1: Connecting to <HyperBDR Intranet IP> [<HyperBDR Intranet IP>] port 10081
 debug1: Connection established.
 ```
 
-### The Failback Host is Windows
+### Windows回切主机
 
-Ensure that the ssh command exists on the Failback Host, and open the CMD command line
+确保回切主机上存在ssh命令，并打开CMD命令行。
 
-#### The HyperBDR is accessed on port 10443
+#### HyperBDR通过端口10443访问
 
-Test command:
+测试命令：
 
 ```
 ssh -v -p 10443 <HyperBDR Intranet IP>
 ```
 
-Test result: If the following input result contains the information [debug1: Connection established.], the network connectivity is OK.
+测试结果：如果以下输出结果包含信息[debug1: Connection established.]，则网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -91,15 +91,15 @@ debug1: Connecting to <HyperBDR Intranet IP> [<HyperBDR Intranet IP>] port 10443
 debug1: Connection established.
 ```
 
-#### The HyperBDR is accessed on port 30080
+#### HyperBDR通过端口30080访问
 
-Test command:
+测试命令：
 
 ```
 ssh -v -p 30080 <HyperBDR Intranet IP>
 ```
 
-Test result: If the following input result contains the information [debug1: Connection established.], the network connectivity is OK.
+测试结果：如果以下输出结果包含信息[debug1: Connection established.]，则网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -109,15 +109,15 @@ debug1: Connecting to <HyperBDR Intranet IP> [<HyperBDR Intranet IP>] port 30080
 debug1: Connection established.
 ```
 
-#### The HyperBDR is accessed on port 10081
+#### HyperBDR通过端口10081访问
 
-Test command:
+测试命令：
 
 ```
 ssh -v -p 10081 <HyperBDR Intranet IP>
 ```
 
-Test result: If the following input result contains the information [debug1: Connection established.], the network connectivity is OK.
+测试结果：如果以下输出结果包含信息[debug1: Connection established.]，则网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -127,184 +127,186 @@ debug1: Connecting to <HyperBDR Intranet IP> [<HyperBDR Intranet IP>] port 10081
 debug1: Connection established.
 ```
 
-## Install Agent on the Failback Host and register with HyperBDR
+## 在回切主机上安装Agent并注册到HyperBDR
 
-### Linux Failback Host
+### Linux 回切主机
 
-#### Log in to the HyperBDR Console
+#### 登录到HyperBDR控制台
 
 ![complete-doc-for-block-storage-failback-1.png](./images/complete-doc-for-block-storage-failback-1.png)
 
-#### Copy the Agent installation command
+#### 复制Agent安装命令
 
-Click on the **'DR'** tab above, then select **'Host Failback'** on the left. Click on **'Add Host'**, choose the Agent mode.
+点击上方的 **'资源容灾'** 标签页，然后在左侧选择 **'主机回切'** 。点击 **'添加主机'** ，选择Agent模式。
 
 ![complete-doc-for-block-storage-failback-2.png](./images/complete-doc-for-block-storage-failback-2.png)
 
-In the **'Linux'** section, click **'Copy Command'**.
+在 **'Linux'** 部分，点击 **'点击复制命令'** 。
 
 ![complete-doc-for-block-storage-failback-3.png](./images/complete-doc-for-block-storage-failback-3.png)
 
-#### Run the installation command on the Failback Host
+#### 在回切主机上运行安装命令
 
-Log in to the Failback Host, and then run the Agent installation command. Wait for the installation to complete.
+登录到回切主机，然后复制并运行Agent安装命令。等待安装完成。
 
 ![complete-doc-for-block-storage-failback-4.png](./images/complete-doc-for-block-storage-failback-4.png)
 
-### Windows Failback Host
+### Windows 回切主机
 
-#### Log in to the HyperBDR Console
+#### 登录到HyperBDR控制台
 
 ![complete-doc-for-block-storage-failback-5.png](./images/complete-doc-for-block-storage-failback-5.png)
 
-#### Download the Agent installation package to the local of the Failback Host.
+#### 将Agent安装包下载到回切主机的本地。
 
-Click on the **'DR'** tab above, then select **'Host Failback'** on the left. Click on **'Add Host'**, choose the Agent mode.
+点击上方的 **'资源容灾'** 选项卡，然后在左侧选择 **'主机回切'** 。点击 **'添加主机'** ，选择Agent模式。
 
 ![complete-doc-for-block-storage-failback-6.png](./images/complete-doc-for-block-storage-failback-6.png)
 
-In the **'Windows'** section, select the installation package corresponding to your version for download.
+在 **'Windows'** 部分，选择与您的回切主机版本相对应的安装包进行下载。
 
 ![complete-doc-for-block-storage-failback-7.png](./images/complete-doc-for-block-storage-failback-7.png)
 
 
-#### **Antivirus Software Inspection and Measures on Source Windows Host**
+#### 源Windows主机上的防毒软件检查与措施
 
-Refer to the following documentation and perform the operations on the Windows Failback Host.
+参考以下文档，在源Windows 回切主机上执行操作。
 
-Documentation Link：[https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#antivirus-software-inspection-and-measures-on-source-windows-host](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#antivirus-software-inspection-and-measures-on-source-windows-host)
+文档链接：[https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#antivirus-software-inspection-and-measures-on-source-windows-host](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#antivirus-software-inspection-and-measures-on-source-windows-host)
 
-#### **Install Agent on the Windows Failback Host**
+#### **在Windows 回切主机上安装Agent**
 
-Refer to the following documentation and perform the operations on the Windows Failback Host.
+参考以下文档，在Windows 回切主机上执行操作。
 
-Documentation Link：[https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#install-agent-on-the-source-windows-host](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#install-agent-on-the-source-windows-host)
+文档链接：[https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#install-agent-on-the-source-windows-host](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#install-agent-on-the-source-windows-host)
 
-## (Intranet VPN Access) Test the network connectivity between the Failback Host and Huawei Cloud OBS
+## （内网VPN访问）测试回切主机与华为云OBS之间的网络连接
 
 ::: tip
-The VPN service has been configured on the Huawei cloud side, and the Huawei cloud side has connected to the production site through the VPN. You can perform the following tests.
+已经在华为云端配置了VPN服务，并且华为云端通过VPN连接到生产站点。您可以执行以下测试。
 :::
 
-### The Failback Host is Linux 
+### Linux回切主机
 
-#### Log in to the Failback Host .
+#### 登录到回切主机
 
 ::: tip
-Ensure that the ssh command is running on the Failback Host.
+确保在回切主机上运行ssh命令。
 :::
 
-#### Huawei Cloud Private DNS Connectivity Testing
+#### 华为云私有DNS连接测试
 
 ::: tip
-Refer to the following document to find the Private DNS server addresses based on the used object storage region.  
-Reference documents：[https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
+请参考以下文档，根据使用的对象存储区域查找私有DNS服务器地址。  
+参考文档链接：[https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
 :::
 
 ```shell
 ping 100.125.1.250
 ```
 
-Success Response:
+成功响应：
 
 ![docs-of-object-storage-host-failback-1.png](./images/docs-of-object-storage-host-failback-1.png)
 
-#### Huawei Cloud Object Storage Connectivity  Testing
+#### 华为云对象存储连接测试
 
 ```shell
 ping https://obs.ap-southeast-3.myhuaweicloud.com
 ```
 
-Success Response:
+成功响应：
 
 ![docs-of-object-storage-host-failback-2.png](./images/docs-of-object-storage-host-failback-2.png)
 
 ::: tip
-This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is for the Huawei Cloud Singapore region. If you need to test in a different region, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain address.  
-Reference Link:  [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
+此命令主要用于测试对华为云对象存储桶的可访问性。当前示例测试的OBS域是华为云新加坡区域的。如果需要在其他区域进行测试，请参考官方华为云文档以找到相应的终端域地址。  
+文档链接：[https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
 :::
 
 
-### The Failback Host is Windows
+### Windows回切主机
 
-#### Log in to the Failback Host .
+#### 登录到回切主机
 
 ::: tip
-Ensure that the ssh command exists on the Failback Host, and open the CMD command line.
+确保在Failback主机上存在ssh命令，并打开CMD命令行。
 :::
 
-#### Huawei Cloud Private DNS Connectivity Testing
+#### 华为云私有DNS连接测试
 
 ::: tip
-Refer to the following document to find the Private DNS server addresses based on the used object storage region.  
-Reference documents：[https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
+请参考以下文档，根据使用的对象存储区域查找私有DNS服务器地址。  
+参考文档：[https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
 :::
 
 ```shell
 ping 100.125.1.250
 ```
 
-Success Response:
+成功响应：
 
 ![docs-of-object-storage-host-failback-3.png](./images/docs-of-object-storage-host-failback-3.png)
 
-#### Huawei Cloud Object Storage Connectivity  Testing
+#### 华为云对象存储连接测试
 
 ```shell
 ping https://obs.ap-southeast-3.myhuaweicloud.com
 ```
 
-Success Response:
+成功响应：
 
 ![docs-of-object-storage-host-failback-4.png](./images/docs-of-object-storage-host-failback-4.png)
 
 ::: tip
-This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is for the Huawei Cloud Singapore region. If you need to test in a different region, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain address.  
-Reference Link:  [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
+此命令主要用于测试对华为云对象存储桶的可访问性。当前示例测试的OBS域是华为云新加坡区域的。如果需要在其他区域进行测试，请参考官方华为云文档以找到相应的终端域地址。  
+文档链接：[https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
 :::
 
-## (Intranet VPN Access) Tests the network connectivity between the Failback Host and the Failback Gateway
+## （内网VPN访问）测试回切主机与回切网关之间的网络连接
 
 ::: tip
-If the switchback test environment is connected to the Intranet of the production site through Huawei Cloud VPN, you can perform this operation to test the network connectivity between the Failback Host and the Failback Gateway Host.
+如果回切测试环境通过华为云VPN连接到生产站点的内网，您可以执行此操作以测试回切主机与回切网关主机之间的网络连接。
 :::
 
-### The Failback Host is a Linux
+### Linux回切主机
 
-#### Verification test procedure
+#### 验证测试步骤
 
-Log in to the Failback Host.
+登录到回切主机。
 
-#### Test access to port 10729 of the Failback Gateway Host
+#### 测试访问回切网关主机的10729端口
 
 ::: tip
-Ensure that the ssh command is running on the Failback Host
+确保在Failback主机上运行ssh命令。
 :::
 
-Test command:
+测试命令：
+
 ```bash
 ssh -p 10729 root@<Failback Gateway Host Intranet IP>
 ```
 
-Verification results:
-If the password can be accessed normally, the access is normal.
+验证结果：
+如果可以正常访问密码，则访问正常。
 
-### The Failback Host is a Windows
+### Windows回切主机
 
-#### Verification test procedure
+#### 验证测试步骤
 
-Log in to the Failback Host
+登录到回切主机。
 
-#### Test access to port 10729 of the Failback Gateway Host
+#### 测试访问回切网关主机的10729端口
 
 ::: tip
-Ensure that the ssh command exists on the Failback Host, and open the CMD command line
+确保在回切主机上存在ssh命令，并打开CMD命令行窗口。
 :::
 
-Test command:
+测试命令：
+
 ```bash
 ssh -p 10729 root@<Failback Gateway Host Intranet IP>
 ```
 
-Verification results:
-If the password can be accessed normally, the access is normal.
+验证结果：
+如果可以正常访问密码，则访问正常。
