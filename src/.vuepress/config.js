@@ -103,6 +103,7 @@ module.exports = {
                   collapsable: false,
                   children: [
                     'poc/huaweicloud-pre-settings',
+                    'poc/tmcae-pre-settings'
                   ]
                 },
                 {

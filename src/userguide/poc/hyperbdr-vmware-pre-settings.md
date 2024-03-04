@@ -223,6 +223,10 @@ Already logged in to the HyperBDR console by default.
 ### Configure Step
 
 ::: tip
+The following operations use Huawei Cloud Object Storage as an example. Please choose the corresponding object storage based on your actual disaster recovery scenario.
+:::
+
+::: tip
 Using the provided IAM account AK/SK information, configure and add Huawei Cloud Object Storage bucket in the HyperBDR console.
 :::
 
@@ -245,6 +249,10 @@ Already logged in to the HyperBDR console by default.
 ![add-vmware-credentials-1.png](./images/add-vmware-credentials-1.png)
 
 ### Configure Step
+
+::: tip
+The following operations use Huawei Cloud as an example. Please choose the corresponding disaster recovery target cloud based on your actual disaster recovery scenario.
+:::
 
 ::: tip
 Using the provided IAM account AK/SK information, Configure and add Huawei Cloud Recovery Gateway in the HyperBDR console
