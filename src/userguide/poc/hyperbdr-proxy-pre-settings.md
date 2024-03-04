@@ -175,13 +175,22 @@ round-trip min/avg/max/stddev = 43.362/46.585/49.807/3.222 ms
 #### Huawei Object Storage Bucket Connectivity
 
 ```
-curl https://obs.ap-southeast-3.myhuaweicloud.com
+curl -I https://obs.ap-southeast-3.myhuaweicloud.com
 ```
 
 Success Response:
 
 ```
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Error><Code>AccessDenied</Code><Message>Anonymous access is forbidden for this operation</Message><RequestId>0000018C1F508F2F9012234EA17641CE</RequestId><HostId>Z9v+cC1sRnaWw6x0vi8pxxYA0YVnKxbYHUPAFpnxkX8sLV44u5b02Z+ailn2wCnR</HostId></Error>#
+HTTP/1.1 405 Method Not Allowed
+Server: OBS
+Date: Thu, 29 Feb 2024 08:29:51 GMT
+Content-Type: application/xml
+Content-Length: 380
+Connection: close
+x-reserved: amazon, aws and amazon web services are trademarks or registered trademarks of Amazon Technologies, Inc
+x-amz-request-id: 0000018DF3FBF121900FFB988BE0FC8D
+Allow: HEAD, GET, OPTIONS
+x-amz-id-2: 32AAAQAAEAABAAAQAAEAABAAAQAAEAABCRjxc+HEW3ehsrcsKS60jUgz7XhG8uyS
 ```
 
 Note: This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is for the Huawei Cloud Singapore region. If you need to test in a different region, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain address.
@@ -201,7 +210,11 @@ ping obs.ap-southeast-3.myhuaweicloud.com
 Success Response:
 
 ```
-PING obs.lz01.ap-southeast-3.myhuaweicloud.com (100.125.36.29) 56(84) bytes of data.
+[root@data-sync-proxy-2024-0229-145824 ~]# ping obs.ap-southeast-3.myhuaweicloud.com  
+PING obs.lz01.ap-southeast-3.myhuaweicloud.com (100.125.80.30) 56(84) bytes of data.  
+64 bytes from ecs-159-138-80-62.compute.hwclouds-dns.com (100.125.80.30): icmp_seq=1 ttl=53 time=1.24 ms  
+64 bytes from ecs-159-138-80-62.compute.hwclouds-dns.com (100.125.80.30): icmp_seq=2 ttl=53 time=0.971 ms  
+64 bytes from ecs-159-138-80-62.compute.hwclouds-dns.com (100.125.80.30): icmp_seq=3 ttl=53 time=0.972 ms
 ```
 
 ::: tip
@@ -211,13 +224,22 @@ Huawei Cloud Object Storage Service internal IP Range: 100.125.xx. If there is n
 #### Huawei Object Storage Bucket Connectivity
 
 ```sh
-curl https://obs.ap-southeast-3.myhuaweicloud.com
+curl -I https://obs.ap-southeast-3.myhuaweicloud.com
 ```
 
 Success Response:
 
 ```
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Error><Code>AccessDenied</Code><Message>Anonymous access is forbidden for this operation</Message><RequestId>0000018C1F508F2F9012234EA17641CE</RequestId><HostId>Z9v+cC1sRnaWw6x0vi8pxxYA0YVnKxbYHUPAFpnxkX8sLV44u5b02Z+ailn2wCnR</HostId></Error>#
+HTTP/1.1 405 Method Not Allowed
+Server: OBS
+Date: Thu, 29 Feb 2024 08:29:51 GMT
+Content-Type: application/xml
+Content-Length: 380
+Connection: close
+x-reserved: amazon, aws and amazon web services are trademarks or registered trademarks of Amazon Technologies, Inc
+x-amz-request-id: 0000018DF3FBF121900FFB988BE0FC8D
+Allow: HEAD, GET, OPTIONS
+x-amz-id-2: 32AAAQAAEAABAAAQAAEAABAAAQAAEAABCRjxc+HEW3ehsrcsKS60jUgz7XhG8uyS
 ```
 
 ::: tip
@@ -394,7 +416,11 @@ Paste the copied installation command into the command line and execute it. Wait
 ##  Add and Configure HyperGate
 
 ::: tip
-Already logged in to the HyperBDR console by default.
+Already logged in to the HyperBDR console by default.  
+After configuring HyperGate, it will automatically invoke the API of the DR target cloud platform to create a cloud instance as cloud storage gateway.  
+HyperGate CPU : 2 Core  
+HyperGate RAM : 2 GB  
+HyperGate System Disk Size : 40 GB
 :::
 
 ![add-and-configure-hypergate-1.png](./images/add-and-configure-hypergate-1.png)
