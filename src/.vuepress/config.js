@@ -125,6 +125,7 @@ module.exports = {
                   collapsable: false,
                   children: [
                     'poc/failback-network-requirement-huaweicloud',
+                    'poc/failback-network-requirement-tmcae',
                   ]
                 },
                 {

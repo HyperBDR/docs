@@ -501,3 +501,247 @@ Note: This command is primarily used to test the accessibility of TM CAE Object 
 :::
 
 Reference Link: [https://support.alphaedge.tmone.com.my/en-us/endpoint/index.html](https://support.alphaedge.tmone.com.my/en-us/endpoint/index.html)
+
+## (Option 2: Intranet VPN access)Configure TM CAE Intranet DNS address for the network device where the Agent host resid
+
+::: tip
+If your disaster recovery environment is interconnected with the production site's intranet through TM CAE VPN, after creating the VPC Endpoint service, you need to add the resolution address of the TM CAE intranet OBS VPC Endpoint service in the network where the production site's Agent host is located.
+:::
+
+### Configure firewall or network devices such as switches
+
+::: tip
+Example: Palo Alto Firewall  
+The following operations are performed in the firewall web management interface.
+:::
+
+1. Navigate to [Network] > [DNS Proxy] .
+
+2. Click [Add] to bring up the DNS proxy dialog box.
+
+3. Select the interface on which DNS proxy should be enabled. In the following figure, DNS proxy is enabled on Ethernet 1/2 and 1/3 interfaces.
+
+4. Select the primary and secondary servers to which the firewall should forward DNS queries. This example shows the configuration of enabling DNS proxy on Ethernet interfaces 1/2 and 1/3. The active DNS server is set to 10.0.0.246 (This IP is configured as the TM CAE internal DNS Server Addresse).
+
+::: tip
+Configure the TM CAE internal DNS address based on the region where you use TM CAE resources.  
+TM CAE internal DNS service address at： [https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html)
+:::
+
+![configure-a-huawei-cloud-intranet-dns-address-for-the-network-device-1.png](./images/configure-a-huawei-cloud-intranet-dns-address-for-the-network-device-1.png)
+
+## (Option 1: Public Network Access)Test The Connectivity Between The Agent Host And TM CAE OBS
+
+::: tip
+Ensure your source hosts can access internet before testing.
+:::
+
+### Windows
+
+::: tip
+Perform testing operations using the Windows Command Prompt (CMD).
+:::
+
+#### Public DNS Connectivity Testing
+```shell
+
+ping 8.8.8.8
+
+```
+
+Success Response:
+
+![agent-pre-settings-41.png](./images/agent-pre-settings-41.png)
+
+#### TM CAE Object Storage Connectivity
+
+```shell
+
+ping obs.my-kualalumpur-1.alphaedge.tmone.com.my
+
+```
+
+Success Response:
+
+```
+C:\Users\Administrator>ping obs.my-kualalumpur-1.alphaedge.tmone.com.my
+
+Pinging obs.lz01.my-kualalumpur-1.alphaedge.tmone.com.my [202.165.20.91] with 32
+ bytes of data:
+Reply from 202.165.20.91: bytes=32 time=311ms TTL=44
+Reply from 202.165.20.91: bytes=32 time=310ms TTL=44
+Reply from 202.165.20.91: bytes=32 time=319ms TTL=44
+Reply from 202.165.20.91: bytes=32 time=310ms TTL=44
+
+Ping statistics for 202.165.20.91:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 310ms, Maximum = 319ms, Average = 312ms
+```
+
+### Linux
+
+#### Public DNS Connectivity Testing
+
+```shell
+
+ping -c 4 -t 2 8.8.8.8
+
+```
+
+Success Response:
+
+```
+
+ping -c 4 -t 2 8.8.8.8
+
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+
+64 bytes from 8.8.8.8: icmp_seq=0 ttl=111 time=43.362 ms
+
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=111 time=49.807 ms
+
+
+--- 8.8.8.8 ping statistics ---
+2 packets transmitted, 2 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 43.362/46.585/49.807/3.222 ms
+```
+
+#### TM CAE Object Storage Connectivity
+
+```shell
+
+ping obs.my-kualalumpur-1.alphaedge.tmone.com.my
+
+```
+
+Success Response:
+
+```
+64 bytes from 202.165.20.91 (202.165.20.91): icmp_seq=1 ttl=44 time=68 ms
+64 bytes from 202.165.20.91 (202.165.20.91): icmp_seq=3 ttl=44 time=77 ms
+64 bytes from 202.165.20.91 (202.165.20.91): icmp_seq=4 ttl=44 time=66 ms
+64 bytes from 202.165.20.91 (202.165.20.91): icmp_seq=5 ttl=44 time=71 ms
+64 bytes from 202.165.20.91 (202.165.20.91): icmp_seq=6 ttl=44 time=79 ms
+
+```
+
+::: tip
+Note: This command is primarily used to test the accessibility of TM CAE Object Storage buckets. Currently, the tested OBS domain is for the TM CAE MY-Kuala Lumpur region. If you need to test in a different region, please refer to the official TM CAE documentation to find the corresponding Endpoint domain address.
+:::
+
+Reference Link: [https://support.alphaedge.tmone.com.my/en-us/endpoint/index.html](https://support.alphaedge.tmone.com.my/en-us/endpoint/index.html)
+
+## (Option 2: Internal VPN Access)Test The Connectivity Between The Agent Host And TM CAE OBS
+
+### Windows Host
+
+::: tip
+Perform testing operations using the Windows Command Prompt (CMD).
+:::
+
+#### TM CAE Private DNS Connectivity Testing
+
+::: tip
+Refer to the following document to find the private NDS (Network Domain Service) address based on the used object storage region.  
+Reference documents：[https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html)
+:::
+
+```shell
+ping 100.125.12.250
+```
+
+Success Response:
+
+```
+C:\Users\Administrator>ping 100.125.12.250
+
+Pinging 100.125.12.250 with 32 bytes of data:
+Reply from 100.125.12.250: bytes=32 time=101ms TTL=84
+Reply from 100.125.12.250: bytes=32 time=96ms TTL=93
+Reply from 100.125.12.250: bytes=32 time=91ms TTL=75
+Reply from 100.125.12.250: bytes=32 time=95ms TTL=77
+
+Ping statistics for 100.125.12.250:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 91ms, Maximum = 101ms, Average = 95ms
+```
+
+#### TM CAE Object Storage Connectivity
+
+```shell
+
+ping obs.my-kualalumpur-1.alphaedge.tmone.com.my
+
+```
+
+Success Response:
+
+```
+C:\Users\Administrator>ping obs.my-kualalumpur-1.alphaedge.tmone.com.my
+
+Pinging obs.lz01.my-kualalumpur-1.alphaedge.tmone.com.my [100.125.32.15] with 32
+ bytes of data:
+Reply from 100.125.32.15: bytes=32 time=311ms TTL=44
+Reply from 100.125.32.15: bytes=32 time=310ms TTL=44
+Reply from 100.125.32.15: bytes=32 time=319ms TTL=44
+Reply from 100.125.32.15: bytes=32 time=310ms TTL=44
+
+Ping statistics for 100.125.32.15:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 310ms, Maximum = 319ms, Average = 312ms
+```
+
+### Linux Host
+
+#### Check Object Storage Service Endpoint
+
+Make sure object storage service endpoint address return internal ip address.
+
+
+```
+ping obs.my-kualalumpur-1.alphaedge.tmone.com.my
+```
+
+Success Response:
+
+```
+64 bytes from 100.125.32.15 (100.125.32.15): icmp_seq=1 ttl=44 time=0.255 ms
+64 bytes from 100.125.32.15 (100.125.32.15): icmp_seq=2 ttl=44 time=0.294 ms
+64 bytes from 100.125.32.15 (100.125.32.15): icmp_seq=3 ttl=44 time=0.300 ms
+```
+
+::: tip
+TM CAE Object Storage Service internal IP Range: 100.125.xx.xx If there is no ICMP response, it is considered normal.
+:::
+
+#### TM CAE Object Storage Connectivity
+
+```
+
+curl -I obs.my-kualalumpur-1.alphaedge.tmone.com.my
+
+```
+
+Success Response:
+
+```
+HTTP/1.1 405 Method Not Allowed
+Server: OBS
+Date: Tue, 05 Mar 2024 08:25:12 GMT
+Content-Type: application/xml
+Content-Length: 380
+Connection: close
+x-reserved: amazon, aws and amazon web services are trademarks or registered trademarks of Amazon Technologies, Inc
+x-amz-request-id: 0000018E0DB77D90900FFC3569013F9E
+Allow: HEAD, GET, OPTIONS
+x-amz-id-2: 32AAAQAAEAABAAAQAAEAABAAAQAAEAABCRFIjeNiGuFNgKb8WqvHNfJse+CDi0GZ
+
+```
+
+::: tip
+This command is primarily used to test the accessibility of TM CAE Object Storage buckets. Currently, the tested OBS domain is for the TM CAE MY-Kuala Lumpur region. If you need to test in a different region, please refer to the official TM CAE documentation to find the corresponding Endpoint domain address.   
+Reference Link: [https://support.alphaedge.tmone.com.my/en-us/endpoint/index.html](https://support.alphaedge.tmone.com.my/en-us/endpoint/index.html)
+:::

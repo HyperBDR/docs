@@ -5,7 +5,7 @@
 ## (Intranet VPN Access) Test the network connectivity between the Failback Host and the HyperBDR
 
 ::: tip
-The VPN service has been configured on the Huawei cloud side, and the Huawei cloud side has connected to the production site through the VPN. You can perform the following tests.
+The VPN service has been configured on the DR side, and the DR side has connected to the production site through the VPN. You can perform the following tests.
 :::
 
 ### Verification test procedure
@@ -266,7 +266,7 @@ Reference Link:  [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](htt
 ## (Intranet VPN Access) Tests the network connectivity between the Failback Host and the Failback Gateway
 
 ::: tip
-If the switchback test environment is connected to the Intranet of the production site through Huawei Cloud VPN, you can perform this operation to test the network connectivity between the Failback Host and the Failback Gateway Host.
+If the switchback test environment is connected to the Intranet of the production site through VPN, you can perform this operation to test the network connectivity between the Failback Host and the Failback Gateway Host.
 :::
 
 ### The Failback Host is a Linux

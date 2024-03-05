@@ -5,7 +5,7 @@
 ## (Intranet VPN access)Test the network connectivity between the HyperBDR and the Failback Gateway Host
 
 ::: tip
-If the failback test environment is connected to the Intranet of the production site through Huawei Cloud VPN, perform this step to test the network connectivity between the HyperBDR and the universal storage failback gateway.
+If the failback test environment is connected to the Intranet of the production site through VPN, perform this step to test the network connectivity between the HyperBDR and the universal storage failback gateway.
 :::
 
 ### Verification test procedure
@@ -33,7 +33,7 @@ debug1: Connection established.
 ## Test the connectivity from HyperBDR to the management network of vCenter/ESXi
 
 ::: tip
-If your fallback testing environment is interconnected with the on-premises network through Huawei Cloud VPN, you can test the network connectivity from HyperBDR to the Common Storage Fallback Gateway using the following steps.
+If your fallback testing environment is interconnected with the on-premises network through VPN, you can test the network connectivity from HyperBDR to the Common Storage Fallback Gateway using the following steps.
 :::
 
 ### Log in to the HyperBDR host
@@ -207,6 +207,10 @@ hyperdoor image MD5 file download link：[https://hyperbdr-system-image-do-not-d
 ::: tip
 Already logged in to the HyperBDR console by default.  
 Using the provided IAM account AK/SK information, configure and add Huawei Cloud Object Storage bucket in the HyperBDR console.
+:::
+
+::: tip
+The following operations use Huawei Cloud Object Storage as an example. Please choose the corresponding object storage based on your actual disaster recovery scenario.
 :::
 
 ### Configure Step

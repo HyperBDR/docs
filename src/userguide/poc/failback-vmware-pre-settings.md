@@ -290,6 +290,10 @@ The deployment of the HyperBDR environment has been completed by default.
 
 ### Check the status of Huawei Cloud Object Storage
 
+::: tip
+The following operations use Huawei Cloud Object Storage as an example.
+:::
+
 Select [**Configuration**]> [**Object Storage**]> [**Failback**], and you can see the failback [**Object Storage**] you added. Confirm that the status of [**Object Storage**] is [**Available**].
 
 ![docs-of-object-storage-host-failback-8.png](./images/docs-of-object-storage-host-failback-8.png)
