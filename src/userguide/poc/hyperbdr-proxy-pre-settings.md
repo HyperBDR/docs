@@ -428,6 +428,10 @@ HyperGate System Disk Size : 40 GB
 ### Operational Steps
 
 ::: tip
+The following operations use Huawei Cloud as an example. Please choose the corresponding disaster recovery target cloud based on your actual disaster recovery scenario.
+:::
+
+::: tip
 The HyperGate is an automatically created cloud instance that needs to be in the same region as the business VPC for DR.
 :::
 
