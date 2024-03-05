@@ -327,8 +327,8 @@ cat /etc/redhat-release
 
 ![agent-pre-settings-32.png](./images/agent-pre-settings-32.png)
 
- 
-Windows Agent安装完成。 
+Windows Agent安装完成。
+
 ![agent-pre-settings-33.png](./images/agent-pre-settings-33.png)
 
 ### 启动Windows Agent服务
