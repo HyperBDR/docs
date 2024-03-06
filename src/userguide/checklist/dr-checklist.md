@@ -2,9 +2,9 @@
 
 [[toc]]
 
-## How to use Checklist?
+## How to use the Checklist?
 
-Welcome to HyperBDR! Before using this product, please fill out the relevant form based on your scenario. This document includes key steps and a checklist for successful use of HyperBDR. Be sure to follow the associated processes and document links to complete all steps before using the product.
+Welcome to HyperBDR! Prior to utilizing this product, kindly complete the appropriate form based on your specific scenario. This document provides essential steps and a checklist to ensure the successful implementation of HyperBDR. Please adhere to the corresponding processes and follow the provided document links to complete all necessary steps before using the product.
 
 ## Huawei Cloud
 
