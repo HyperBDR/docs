@@ -4,11 +4,11 @@
 
 ### Windows Server 2016
 
-This document describes how to obtain host information on a windows host, including the host name, operating system version, cpu, memory, and disk information. In this section, use windows server 2016 as a reference. You can query other operating system versions by yourself.
+This document provides a comprehensive guide on retrieving host information from a Windows environment, covering essential details such as the host name, operating system version, CPU specifications, memory details, and disk information. For the purpose of this section, we will use Windows Server 2016 as a reference. Please note that you can adapt the queries to other operating system versions as needed.
 
 #### Get host name, operating system version, cpu, memory, etc. (Control Panel)
 
-Open Control Pannel, System and Security, System to retrieve relevant information.
+Open Control Pannel -> System and Security -> System to retrieve relevant information.
 
 ![hyperbdr-agent-investigation-copy-1.png](./images/hyperbdr-agent-investigation-copy-1.png)
 
@@ -58,7 +58,7 @@ As shown in the figure below, at the upper-right position, the allocation and us
 
 This document primarily guides on obtaining relevant host information on a Linux machine, including the host name, operating system version, kernel version, CPU, memory, disk, and other details. The steps for collecting Linux host information in this instance will be based on CentOS 7; for other operating system versions, please refer to their respective documentation.
 
-#### 1. Retrieve host name.
+#### 1. Retrieve host name
 
 To retrieve the host name on a Linux system, you can use the **hostname** command. Open a terminal and run the following command:
 
@@ -68,13 +68,13 @@ hostname
 
 ```
 
-The output is as follows, and the displayed content is the hostname.
+The output is as follows, and the displayed content is the hostname:
 
 ![hyperbdr-agent-investigation-copy-5.png](./images/hyperbdr-agent-investigation-copy-5.png)
 
 #### 2. Retrieve the operating system version
 
-Run the following command to view the operating system version.
+Run the following command to view the operating system version:
 
 ```bash
 
@@ -82,19 +82,19 @@ cat /etc/redhat-release
 
 ```
 
-The output content represents information about the operating system version.
+The output content represents information about the operating system version:
 
 ![hyperbdr-agent-investigation-copy-6.png](./images/hyperbdr-agent-investigation-copy-6.png)
 
 #### 3. Retrieve the kernel version
 
-Run the following command to view the kernel version.
+Run the following command to view the kernel version:
 
 ```bash
 uname -r
 ```
 
-The output content represents information about the kernel version.
+The output content represents information about the kernel version:
 
 ```
 4.1.12-61.1.28.el6uek.x86_64
@@ -102,7 +102,7 @@ The output content represents information about the kernel version.
 
 #### 4. Retrieve CPU information
 
-Run the following command to view CPU information.
+Run the following command to view CPU information:
 
 ```bash
 
@@ -110,13 +110,13 @@ lscpu
 
 ```
 
-In the output, locate the value of **"CPU(s)"**, which represents the number of CPU cores.
+In the output, locate the value of **"CPU(s)"**, which represents the number of CPU cores:
 
 ![hyperbdr-agent-investigation-copy-7.png](./images/hyperbdr-agent-investigation-copy-7.png)
 
 #### 5. Retrieve Memory information
 
-Run the following command to view memory information.
+Run the following command to view memory information:
 
 ```bash
 
@@ -124,7 +124,7 @@ free -h
 
 ```
 
-Look for the "Total" column, which displays the total physical memory.
+Look for the "Total" column, which displays the total physical memory:
 
 ![hyperbdr-agent-investigation-copy-8.png](./images/hyperbdr-agent-investigation-copy-8.png)
 
@@ -134,7 +134,7 @@ Look for the "Total" column, which displays the total physical memory.
 1. **Check the number of disks and the total capacity.**
 
 
-Run the following command to obtain the number of disks and their total capacity.
+Run the following command to obtain the number of disks and their total capacity:
 
 ```bash
 
@@ -142,7 +142,7 @@ lsblk
 
 ```
 
-The output content is as follows: Look for the content in the NAME column, the disks starting with "sd/vd" indicate the number of disks, and the SIZE column represents the total capacity of the disks.
+The output content is as follows: Look for the content in the NAME column, the disks starting with "sd/vd" indicate the number of disks, and the SIZE column represents the total capacity of the disks:
 
 ![hyperbdr-agent-investigation-copy-9.png](./images/hyperbdr-agent-investigation-copy-9.png)
 
@@ -150,7 +150,7 @@ The output content is as follows: Look for the content in the NAME column, the d
 2. **Retrieve actual disk usage**
 
 
-Run the following command to obtain the actual disk usage.
+Run the following command to obtain the actual disk usage:
 
 ```bash
 
