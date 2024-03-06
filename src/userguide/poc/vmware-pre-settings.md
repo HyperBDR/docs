@@ -4,14 +4,14 @@
 
 ## VMware Environemnt Preparation
 
-1. Export host information via vCenter：[VMware Quick Investigation](../presales/hyperbdr-vmware-investigation.md)
+1. Export host information via vCenter: [VMware Quick Investigation](../presales/hyperbdr-vmware-investigation.md)
 2. Fill in detail VM host information based on the export inf, which will be used for DR setup .
 
 ## VMware User Permission Requirements
 
-### Why we need this permissions?
+### Why do we need the permissions?
 
-HyperBDR utilizes VMware CBT technology for incremental data synchronization. Change Block Tracking (CBT) is a technique employed in VMware for incremental backup and replication. It tracks the blocks that have changed on a virtual disk, allowing for the transmission of only the data associated with these changes during the backup and replication processes.
+The need for these permissions arises from HyperBDR's utilization of VMware CBT (Change Block Tracking) technology for incremental data synchronization. CBT is a technique employed in VMware to facilitate incremental backup and replication. It effectively tracks the blocks that have undergone changes on a virtual disk, enabling the transmission of only the data associated with these changes during the backup and replication processes.
 
 ### VMware User Permission
 
@@ -85,7 +85,7 @@ Click on **"Menu"**, **"Administration"**
 
 ![create-vmware-account-1.png](./images/create-vmware-account-1.png)
 
-Click on the left-hand menu **"Users and Groups"**, select **"Users"** tab， choose the **"Domain"** associated with the correct login for vCenter, and click the **"Add"** button.
+Click on the left-hand menu **"Users and Groups"**, select **"Users"** tab, choose the **"Domain"** associated with the correct login for vCenter, and click the **"Add"** button.
 
 ![create-vmware-account-2.png](./images/create-vmware-account-2.png)
 
@@ -109,7 +109,7 @@ Set a new Role name and Description, then click the **"FINISH"** button.
 
 #### Step 04: Add Permissions to vCenter 
 
-In **"Hosts and Clusters"**，find the top-level **"vCenter IP"** on the left-hand menu, select it, and click on the **"Permissions"** menu on the right. Then, click the **"+"** button.
+In **"Hosts and Clusters"**, find the top-level **"vCenter IP"** on the left-hand menu, select it, and click on the **"Permissions"** menu on the right. Then, click the **"+"** button.
 
 ![create-vmware-account-7.png](./images/create-vmware-account-7.png)
 
@@ -155,7 +155,7 @@ You can give this vm a name, like **"proxy-agent_BaseOS"**, then select a locati
 
 #### Step03: Select a compute resource
 
-Select the destination compute resource for your created vm.
+Select the destination compute resource for the created VM.
 
 ![vmware-pre-settings-4.png](./images/vmware-pre-settings-4.png)
 
@@ -193,7 +193,7 @@ Confirm the created information then click Finish to start creation.
 
 ![vmware-pre-settings-10.png](./images/vmware-pre-settings-10.png)
 
-### Modify the Proxy vm flavors
+### Modify the Proxy VM Flavors
 
 - Click the VM name, then right click, select the **"Edit Settings..."**.
 
@@ -203,7 +203,7 @@ Confirm the created information then click Finish to start creation.
 
 ![vmware-pre-settings-12.png](./images/vmware-pre-settings-12.png)
 
-### Power on the proxy vm.
+### Power On the Proxy VM
 
 - Select the VM name, then right click, click the **"Power"**, **"Power On"**.
 
