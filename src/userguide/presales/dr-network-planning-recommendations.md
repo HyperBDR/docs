@@ -2,7 +2,7 @@
 
 [[toc]]
 
-This document primarily focuses on the rational planning of the HyperBDR network and disaster recovery takeover, as well as the network used for exercises, prior to the commencement of the project. The following are fundamental principles for network planning:
+This document primarily focuses on the rational planning of the HyperBDR network and disaster recovery takeover, as well as the network used for drills, prior to the commencement of the project. The following are fundamental principles for network planning:
 
 
 - HyperBDR should be deployed within the disaster recovery platform to ensure that, in the event of a production platform failure, HyperBDR can still effectively recover business systems on the disaster recovery platform.
@@ -72,7 +72,7 @@ Agent contains Windows Agent and Linux Agent.
 
 ## Deployment Solution for Block Storage
 
-### Network Schemems
+### Network Schemes
 
 | Solution | Data Transmission | Business Access |
 | --- | --- | --- |
@@ -118,7 +118,7 @@ Agent contains Windows Agent and Linux Agent.
 
 ## Failover Network Planning — Dedicated Line Solution
 
-During the failover process, as it is necessary for the cloud to take over the host and directly access the production-side IP address, currently, only a dedicated line solution is supported for the failover.
+During the failover process, due to the necessity for cloud takeover of the host with direct access to the production-side IP address, the current support is limited to dedicated line solutions.
 
 ### Block Storage
 
@@ -157,7 +157,7 @@ During the failover process, as it is necessary for the cloud to take over the h
 
 ### User Network
 
-We use the network of a specific client's production environment as an example to illustrate network planning under different scenarios. Below is the current network architecture topology diagram for the user:
+We use the network of a specific client's production environment as an example to illustrate network planning under different scenarios. Below is the network architecture topology diagram for the user:
 
 ![dr-network-planning-recommendations-8.jpeg](./images/dr-network-planning-recommendations-8.jpeg)
 
