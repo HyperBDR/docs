@@ -6,7 +6,7 @@
 
 When it comes to Disaster Recovery, two key concepts are RPO (Recovery Point Objective) and RTO (Recovery Time Objective). They are critical performance metrics in disaster recovery planning, used to measure the recoverability and business continuity of systems in the event of a catastrophic incident.
 
-#### Recovery Point Objective(RPO)
+#### Recovery Point Objective (RPO)
 
 RPO refers to the time frame within which a system can tolerate data loss in the event of a failure or catastrophic incident. In other words, RPO defines the maximum amount of data loss that the business can tolerate. Usually measured in units of time (such as hours or minutes), the choice of RPO depends on the business's real-time data requirements and the acceptable risk of data loss. Lower RPO values indicate that the system can back up data more frequently, reducing the amount of data lost in the event of a catastrophic incident.
 
@@ -28,7 +28,7 @@ Factors involved in calculating RPO include:
 
 - To establish a robust disaster recovery plan, it's essential to consider the above factors when calculating RPO.
 
-#### Recovery Time Objective(RTO)
+#### Recovery Time Objective (RTO)
 
 RTO (Recovery Time Objective) refers to the maximum time required for a system to recover to normal operation after a catastrophic event. It is a time window that defines the maximum acceptable downtime for the business. The selection of RTO is typically based on the business's continuity requirements, indicating how quickly the business can resume normal operation after a catastrophic event. A shorter RTO indicates a higher level of business continuity, as the system can recover more quickly from a disaster, minimizing business interruption.
 
@@ -92,7 +92,7 @@ Assuming the user's production data allocation capacity is 1TB, we outline the b
 
 In Huawei Cloud, the recovery time for block storage is independent of the data volume and the specifications of the host used for recovery. The RTO time range is between 5 minutes and 10 minutes. The following is a simulated test scenario using 1 TB capacity for reference in actual planning:
 
-| Disk Count | Recovery Host Flavor | Disk Type | Recovery Host Duration(Minutes) |
+| Disk Count | Recovery Host Flavor | Disk Type | Recovery Host Duration (Minutes) |
 | --- | --- | --- | --- |
 | Single Disk(Usage Capacity 800 GB)<br/> Multiple Disks(Usage Capacity 1010 GB) | Unrestricted (Ensure that the selected host specifications can use the corresponding disk type) | High I/O(SAS) <br/> General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 5 - 10 |
 
@@ -115,14 +115,14 @@ In Huawei Cloud, the Object Storage mode is influenced by several factors in ter
 
 Below are some common specification recommendations and the host recovery time for 1TB of effective data (i.e., entirely comprised of data) under different circumstances.
 
-| Disk Count | Recovery Host Flavor | Disk Type | Recovery Host Duration(Minutes) |
+| Disk Count | Recovery Host Flavor | Disk Type | Recovery Host Duration (Minutes) |
 | --- | --- | --- | --- |
-| Single Disk(Usage capacity 100 GB) | Memory is less than or equal to 4GB Maximum bandwidth range: 1.5 - 4 Gbps | High I/O(SAS) <br/> General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 20 Minutes(Ultra-high I/O、Extreme SSD) <br/> 25 Minutes(General Purpose SSD) <br/> 30 Minutes(High I/O) |
-| Single Disk(Usage capacity 100 GB) | Memory is greater than 4GB Maximum bandwidth range: Greater than 4 Gbps | High I/O(SAS) <br/> General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 30 Minutes(High I/O) <br/> 20 Minutes(Ultra-high I/O、Extreme SSD) |
-| Single Disk(Usage capacity 500 GB) | Memory is less than or equal to 4GB Maximum bandwidth range: 1.5 - 4 Gbps | High I/O(SAS) <br/> General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 1 Hour 30 Minutes(High I/O) <br/> 1 Hour 10 Minutes(Ultra-high I/O、Extreme SSD) |
-| Single Disk(Usage capacity 500 GB) | Memory is greater than 4GB Maximum bandwidth range: Greater than 4 Gbps | High I/O(SAS) <br/> General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 45 Minutes(Ultra-high I/O、Extreme SSD) <br/> 1 Hour 30 Minutes(High I/O) |
-| Single Disk(Usage capacity 920 GB) <br/> Multiple Disks(Usage capacity 1010 GB) | Memory is less than or equal to 4GB Maximum bandwidth range: 1.5 - 4 Gbps | High I/O(SAS) <br/> General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 2 Hours 10 Minutes(Ultra-high I/O、Extreme SSD) <br/> 2 Hours 20 Minutes(General Purpose SSD) <br/> 2 Hours 30 Minutes(High I/O) |
-| Single Disk(Usage capacity 920 GB) <br/> Multiple Disks(Usage capacity 1010 GB) | Memory is greater than 4GB Maximum bandwidth range: Greater than 4 Gbps | General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 1 Hour 15 Minutes(Ultra-high I/O、Extreme SSD) <br/> 1 Hour 35 Minutes(General Purpose SSD) |
+| Single Disk(Usage capacity 100 GB) | Memory is less than or equal to 4GB Maximum bandwidth range: 1.5 - 4 Gbps | High I/O(SAS) <br/> General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 20 Minutes(Ultra-high I/O, Extreme SSD) <br/> 25 Minutes(General Purpose SSD) <br/> 30 Minutes(High I/O) |
+| Single Disk(Usage capacity 100 GB) | Memory is greater than 4GB Maximum bandwidth range: Greater than 4 Gbps | High I/O(SAS) <br/> General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 30 Minutes(High I/O) <br/> 20 Minutes(Ultra-high I/O, Extreme SSD) |
+| Single Disk(Usage capacity 500 GB) | Memory is less than or equal to 4GB Maximum bandwidth range: 1.5 - 4 Gbps | High I/O(SAS) <br/> General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 1 Hour 30 Minutes(High I/O) <br/> 1 Hour 10 Minutes(Ultra-high I/O, Extreme SSD) |
+| Single Disk(Usage capacity 500 GB) | Memory is greater than 4GB Maximum bandwidth range: Greater than 4 Gbps | High I/O(SAS) <br/> General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 45 Minutes(Ultra-high I/O, Extreme SSD) <br/> 1 Hour 30 Minutes(High I/O) |
+| Single Disk(Usage capacity 920 GB) <br/> Multiple Disks(Usage capacity 1010 GB) | Memory is less than or equal to 4GB Maximum bandwidth range: 1.5 - 4 Gbps | High I/O(SAS) <br/> General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 2 Hours 10 Minutes(Ultra-high I/O, Extreme SSD) <br/> 2 Hours 20 Minutes(General Purpose SSD) <br/> 2 Hours 30 Minutes(High I/O) |
+| Single Disk(Usage capacity 920 GB) <br/> Multiple Disks(Usage capacity 1010 GB) | Memory is greater than 4GB Maximum bandwidth range: Greater than 4 Gbps | General Purpose SSD(GPSSD) <br/> Ultra-high I/O(SSD) <br/> Extreme SSD(ESSD) | 1 Hour 15 Minutes(Ultra-high I/O, Extreme SSD) <br/> 1 Hour 35 Minutes(General Purpose SSD) |
 
 #### Recommended Specifications for Object Storage Mode Disaster Recovery
 
@@ -174,7 +174,7 @@ iperf -s
 ```
 
 
-3. Run the iperf client: Execute the following command on the local host, replacing CloudServerIP with the actual IP address of your Huawei Cloud host.
+3. Run the iperf client: Execute the following command on the local host, replacing CloudServerIP with the actual IP address of your Huawei Cloud host:
 
 ```bash
 iperf -c CloudServerIP
