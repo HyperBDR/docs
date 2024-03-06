@@ -5,8 +5,7 @@
 ## Configure the time synchronization service for the source host
 
 ::: tip
-Ensure that the host time is synchronized with the network time.  
-This example is for reference only; please configure according to the specific circumstances of the standby disaster recovery host.
+Ensure synchronization between the host time and the network time. The provided example is for reference purposes only; please configure based on the specific circumstances of the standby disaster recovery host.
 :::
 
 ### Windows
@@ -23,17 +22,17 @@ Click on the Windows icon on the desktop > Open Control Panel > Select "Date and
 
 ![agent-pre-settings-2.png](./images/agent-pre-settings-2.png)
 
-#### Configure time to synchronize automatically with Internet time synchronization servers.
+#### Configure the system to automatically synchronize time with Internet time synchronization servers.
 
-In the "Date and Time" tab, click on "Internet Time",Click on "Change settings."
+In the "Date and Time", click on "Internet Time", click on "Change settings..."
 
 ![agent-pre-settings-3.png](./images/agent-pre-settings-3.png)
 
-Check the "Synchronize with an Internet time server" option.From the "Server" dropdown menu, choose a time server (e.g., time.windows.com).
+Check the "Synchronize with an Internet time server" option. From the "Server" dropdown menu, choose a time server (e.g., time.windows.com).
 
 ![agent-pre-settings-4.png](./images/agent-pre-settings-4.png)
 
-Click "Update now" to test the connection and wait for confirmation.Click "OK" to save the changes.
+Click "Update now" to test the connection and wait for confirmation. Click "OK" to save the changes.
 
 ![agent-pre-settings-5.png](./images/agent-pre-settings-5.png)
 
@@ -51,7 +50,7 @@ The **<ntp.server.ip.address>** is the IP address of your NTP server.
 ![agent-pre-settings-6.png](./images/agent-pre-settings-6.png)
 
 
-Click "Update now" to test the connection and wait for confirmation.Click "OK" to save the changes.
+Click "Update now" to test the connection and wait for confirmation. Click "OK" to save the changes.
 
 ![agent-pre-settings-7.png](./images/agent-pre-settings-7.png)
 
@@ -151,7 +150,7 @@ Please make sure to replace **time.example.com** with the actual NTP server addr
 
 ```
 
-## Verify Source Host time is synchronized with UTC 
+## Verify that the time on the source host is synchronized with Coordinated Universal Time (UTC)
 
 ::: tip
 For security purposes, OBS verifies the time difference between the client and server. If the time difference is longer than 15 minutes, the OBS server will reject your requests and this error message is reported. To resolve this problem, adjust your local time (UTC) and try again. 
@@ -166,7 +165,7 @@ Click on the Windows icon on the desktop > Open Control Panel > Select "Date and
 ![agent-pre-settings-9.png](./images/agent-pre-settings-9.png)
 
  
-View the time and time zone.
+View the time and time zone:
 
 ![agent-pre-settings-10.png](./images/agent-pre-settings-10.png)
 
@@ -177,7 +176,7 @@ View the time and time zone.
 
 1. **Open the terminal:**
    - Use a terminal application, such as Terminal.
-2. **Execute the command to view the current system time:**
+2. **Execute the command to view the system time:**
 ```
 date
 ```
@@ -185,7 +184,7 @@ date
 ![agent-pre-settings-11.png](./images/agent-pre-settings-11.png)
 
 
-3. **Execute the command to view the current system time zone:**
+3. **Execute the command to view the system time zone:**
 ```
 timedatectl
 ```
@@ -208,7 +207,7 @@ Example OS：Microsoft Windows Server 2016 Datacenter
 :::
 
 #### Get the Windows OS version through the Control Panel
-Open [Control Panel], go to [System and Security], and then select System to retrieve relevant information.
+Open [Control Panel], go to [System and Security], and then select the system to retrieve relevant information.
 ![agent-pre-settings-14.png](./images/agent-pre-settings-14.png)
 
 #### Get the Windows OS version through the CMD
@@ -219,7 +218,7 @@ systeminfo
 
 ![agent-pre-settings-15.png](./images/agent-pre-settings-15.png)
 
-In the output, you can view the OS name.
+From the output, you can view the OS name.
 
 > **Host Name:** NGINX-WEB  
 > **OS Name:** Microsoft Windows Server 2016 Datacenter
@@ -227,12 +226,12 @@ In the output, you can view the OS name.
 ### Get the Linux operating system version
 > Example OS：CentOS 7.9
 
-Run the following command to view the operating system version.
+Run the following command to view the operating system version:
 ```shell
 cat /etc/redhat-release
 ```
 
-The output content represents information about the operating system version.  
+The output content represents information about the operating system version:  
 
 ![agent-pre-settings-16.png](./images/agent-pre-settings-16.png)
 
@@ -245,7 +244,7 @@ Check the operating system and version of the source host, compare it with the A
 【√】: Full support 
 :::
 
-| **OS**[Production Source] | **Version** | **Support Information** |
+| **OS** [Production Source] | **Version** | **Support Information** |
 | :---: | :---: | :---: |
 | **Windows Server** |  2003 SP2/R2 (64-bit) | √ |
 | **Windows Server** |  2008(64-bit) | √ |
@@ -277,29 +276,27 @@ Log in to the disaster recovery platform using the username and password for the
 ![agent-pre-settings-17.png](./images/agent-pre-settings-17.png)
 
 ### Copy the Agent installation command
-Click on 'Configuration' at the top, then on the left, click on 'Production Site'. Choose the Agent mode and click.
+Click on 'Configuration' at the top, then on the left, click on 'Production Site'. Choose the Agent mode and click to proceed.
 ![agent-pre-settings-18.png](./images/agent-pre-settings-18.png)
 
 In the 'Linux' section, click on 'Copy Command'.
 ![agent-pre-settings-19.png](./images/agent-pre-settings-19.png)
 
 ### Execute the installation command on the source-side host
-Log in to the source-side host，Execute the command，Then will successfully install the Agent program
+Log in to the source-side host, execute the specified command, and the Agent program will be successfully installed.
 ![agent-pre-settings-20.png](./images/agent-pre-settings-20.png)
 
 
 ## Install Agent on the source Windows Host
 
 ::: tip
-The HyperBDR disaster recovery platform is installed by default.  
-If there is antivirus software installed locally, it is necessary to add the Windows Agent software to the antivirus software's whitelist in advance, allowing the Agent program to run smoothly.  
-It is required that there is at least 1GB of available memory on the host to ensure the normal operation of the Windows Agent.
+The HyperBDR disaster recovery platform is pre-installed by default. In case of local antivirus software, it is essential to proactively add the Windows Agent software to the antivirus software's whitelist. This ensures the smooth execution of the Agent program. Additionally, it is a prerequisite to have a minimum of 1GB of available memory on the host to guarantee the normal operation of the Windows Agent.
 :::
 
-Open the Performance tab of Task Manager and view the available memory of the system
+Open the Performance tab of Task Manager and view the available memory of the system:
 ![agent-pre-settings-21.png](./images/agent-pre-settings-21.png)
 
-### Download the installation package to the host system.
+### Download the installation package to the host system
  
 Login to the HyperBDR platform, navigate to **[Configuration]** -> **[Production Site]** -> **[Agent]**, and download the ZIP file：
 ![agent-pre-settings-22.png](./images/agent-pre-settings-22.png)
@@ -310,7 +307,7 @@ Login to the HyperBDR platform, navigate to **[Configuration]** -> **[Production
 
 ![agent-pre-settings-25.png](./images/agent-pre-settings-25.png)
 
-### Unzip the installation package and proceed with the installation.
+### Unzip the installation package and proceed with the installation
 Extract the installation package to the current directory.
 ![agent-pre-settings-26.png](./images/agent-pre-settings-26.png)
 
@@ -361,12 +358,12 @@ Log in to the disaster recovery platform using the username and password for the
 ![agent-pre-settings-39.png](./images/agent-pre-settings-39.png)
 
 ### View hosts on the disaster recovery main interface
-After logging in to the HyperBDR disaster recovery platform, click on the 'DR' in the top menu bar, then on the left menu bar, select 'Host DR' to check whether the hosts are registered on the platform,Ensure Host Status is "Registered"，Availability is "Online"
+After logging in to the HyperBDR disaster recovery platform, click on the 'DR' in the top menu bar, then on the left menu bar, select 'Host DR' to check whether the hosts are registered on the platform, ensure Host Status is "Registered", Availability is "Online":
 ![agent-pre-settings-40.png](./images/agent-pre-settings-40.png)
 
 
 
-## (Option 1: Public Network Access)Test The Connectivity Between The Agent Host And Huawei Cloud OBS
+## (Option 1: Public Network Access) Test the Connectivity between the Agent Host and Huawei Cloud OBS
 
 ::: tip
 Ensure your source hosts can access internet before testing.
@@ -451,7 +448,7 @@ Reference Link: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](http
 :::
 
 
-## (Option 2: Internal VPN Access)Test The Connectivity Between The Agent Host And Huawei Cloud OBS
+## (Option 2: Internal VPN Access) Test the Connectivity between the Agent Host and Huawei Cloud OBS
 
 ### Windows Host
 
@@ -531,7 +528,7 @@ Reference Link: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](http
 :::
 
 
-## (Option 1: Public Network Access)Test Network Connectivity from Source Host to HyperBDR
+## (Option 1: Public Network Access) Test Network Connectivity from Source Host to HyperBDR
 
 ::: tip
 This step needs to be tested after the installation of HyperBDR is completed.  
@@ -719,8 +716,8 @@ If antivirus software is running locally on the Windows host, during the install
 
 Before installing the Windows Agent, check if antivirus software is running on the host and take the following measures to avoid issues with the proper installation and operation of the Windows Agent.
 
-#### If your host is running Kaspersky, please click [here](https://docs.oneprocloud.com/userguide/faq.html#kaspersky).
-#### If your host is running McAfee, please click [here](https://docs.oneprocloud.com/userguide/faq.html#mcafee).
+#### If the host is running Kaspersky, please click [here](https://docs.oneprocloud.com/userguide/faq.html#kaspersky).
+#### If the host is running McAfee, please click [here](https://docs.oneprocloud.com/userguide/faq.html#mcafee).
 
 If the above did not find the antivirus software running on your host, please continue to browse the contents of this document.
 
@@ -762,13 +759,13 @@ As some antivirus software programs may operate in the background, this method m
 
 
 
-4. **Enable the antivirus software's protection feature**
+4. **Enable the Antivirus Software's Protection Feature**
 
 
 During this process, if the antivirus software prompts actions such as blocking the installation and operation of the Window Agent with pop-ups or isolating files, manual "**allow**" or "**restore**" operations are required.
 
 
-5. **Start the Windows Agent service (refer to the documentation: [Start Windows Agent Service](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#start-the-windows-agent-service))**
+5. **Start the Windows Agent Service (refer to the documentation: [Start Windows Agent Service](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#start-the-windows-agent-service))**
 
 ::: warning
 If the program fails to start, uninstall the Windows Agent and repeat steps **[1]** to **[5]** until the Windows Agent starts successfully.
@@ -782,9 +779,9 @@ If the program fails to start, uninstall the Windows Agent and repeat steps **[1
 Consider this option when option 1 does not resolve the issue. 
 :::
 
-Completely uninstalling the antivirus software before installing Windows Agent can effectively solve this problem. If conditions permit, uninstall the antivirus software currently in use on the system and prohibit reinstallation during the host disaster recovery process.
+To effectively address this issue, completely uninstall the antivirus software before installing the Windows Agent. If possible, uninstall the current antivirus software on the system and restrict its reinstallation during the host disaster recovery process.
 
-#### Option 3: Permanently Exit Antivirus Software Program
+#### Option 3: Permanently Close the Antivirus Software Program
 
 ::: tip
 Consider this option when option 1 does not resolve the issue. 
@@ -796,13 +793,13 @@ Exiting the antivirus software program can also allow the normal installation an
 During the installation and use of Windows Agent, it is crucial to ensure that the antivirus software program is not running. If the antivirus software restarts during the use of Windows Agent (either manually or automatically by the system), it may render Windows Agent unusable, leading to HyperBDR disaster recovery failure.
 :::
 
-## (Option 2: Intranet VPN access)Configure Huawei cloud Intranet DNS address for the network device where the Agent host resid
+## (Option 2: Intranet VPN access) Configure Huawei Cloud Intranet DNS Address for the Network Device where the Agent Host Reside
 
 ::: tip
 If your disaster recovery environment is interconnected with the production site's intranet through Huawei Cloud VPN, after creating the VPC Endpoint service, you need to add the resolution address of the Huawei Cloud intranet OBS VPC Endpoint service in the network where the production site's Agent host is located.
 :::
 
-### Configure firewall or network devices such as switches
+### Configure Firewall or Network Devices such as Switches
 
 ::: tip
 Example: Palo Alto Firewall  
