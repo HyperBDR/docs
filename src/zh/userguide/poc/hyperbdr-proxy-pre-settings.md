@@ -2,24 +2,23 @@
 
 [[toc]]
 
-## Configure Proxy IP Address
+## 配置同步代理IP地址
 
-### Login Proxy VM
+### 登录同步代理虚拟机
 
 ::: tip
-Default username and password for Proxy ova:
-
-* Username: root
-* Password: onepro
+Proxy ova的默认用户名和密码:
+* 用户名: root
+* 密码: onepro
 :::
 
-Use vCenter Web Console to login the Proxy VM and to the following configurations.
+使用vCenter Web Console登录Proxy VM并进行以下配置。
 ![vcenter-web-console-1.png](./images/vcenter-web-console-1.png)  
 ![vcenter-web-console-2.png](./images/vcenter-web-console-2.png)  
 
 ### Modify network interface configuration file
 
-NOTE: Before you run this command, make sure replace following variables:
+注意：在运行此命令之前，请确保替换以下变量：
 
 * ipaddress: Assign IPv4 network according to real network
 * netmask
@@ -44,31 +43,31 @@ DNS2=<dns2>
 EOF
 ```
 
-### Restart Network
+### 重启网络服务
 
 ```
 systemctl restart network
 ```
 
-### Testing
+### 测试网络
 
-Try to ping VMware vCenter IP or ESXi IP, check if you can get correct response.
+尝试ping VMware vCenter IP或ESXi IP，检查是否能够获得正确的响应。
 
 ```
 ping <vcenter ip or esxi ip>
 ```
 
-## Configure NTP Server
+## 配置NTP服务器
 
-### Download and Upload to Proxy
+### 下载并上传到Proxy
 
-Download these packages and upload to proxy, save in /root/ntp-packages/
+下载这些软件包并上传到Proxy，在 /root/ntp-packages/ 目录下保存
 
 * [ntp-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntp-4.2.6p5-28.el7.centos.x86_64.rpm)
 * [autogen-libopts-5.18-5.el7.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/autogen-libopts-5.18-5.el7.x86_64.rpm)
 * [ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm)
 
-In Proxy Terminal, you can use these commands to download these packages:
+在Proxy终端上，您可以使用以下命令下载这些软件包：
 
 ```sh
 mkdir /root/ntp-packages && cd /root/ntp-packages  
@@ -77,18 +76,18 @@ curl -O https://vault.centos.org/7.5.1804/os/x86_64/Packages/autogen-libopts-5.1
 curl -O https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm  
 ```
 
-### Installation
+### 安装
 
 ```bash
 cd /root/ntp-packages/
 yum install -y *.rpm
 ```
 
-### NTP Configuration
+### NTP 配置
 
-To edit the /etc/ntp.conf file, you can use the vi editor.
+要编辑 /etc/ntp.conf 文件，可以使用vi编辑器。
 
-- Find the following lines in the file:
+- 在文件中找到以下行:
 
 ```bash
 #server 0.centos.pool.ntp.org iburst
@@ -96,45 +95,45 @@ To edit the /etc/ntp.conf file, you can use the vi editor.
 #server 2.centos.pool.ntp.org iburst
 #server 3.centos.pool.ntp.org iburst
 ```
-- uncomment and add the following to the file.
+- 取消注释并在文件中添加以下内容。
 
 ```bash
 server ntp.server.ip.address
 ```
 
-There **<ntp.server.ip.address>** is your ntp server ip address.
+**<ntp.server.ip.address>** 是你的ntp服务器的IP地址
 
-### Start Service
+### 启动服务
 
 ```bash
 systemctl enable ntpd && systemctl start ntpd
 ```
 
-## Enable Access Policy for Proxy
+## 启用Proxy的访问策略
 
-Open the network access policy in your firewall for synchronizing Proxy nodes to vCenter and all ESXi hosts managed by vCenter.
+在防火墙中打开网络访问策略，以便将Proxy节点与vCenter和由vCenter管理的所有ESXi主机同步。
 
-1. Proxy nodes need to have normal access to vCenter on port 443.
-2. Proxy nodes need to have normal access to all ESXi hosts managed by vCenter on port 902.
+1. Proxy节点需要在443端口上对vCenter具有正常的访问权限。
+2. Proxy节点需要在902端口上对由vCenter管理的所有ESXi主机具有正常的访问权限。
 
 ::: tip
-Proxy synchronization nodes access the vCenter API interface for authentication, and they retrieve data by calling the ESXi host where the disaster recovery production site VM are located. Therefore, it is necessary to open network access policies for all ESXi hosts managed by vCenter.
+Proxy同步节点访问vCenter API接口进行身份验证，并通过调用灾难恢复生产站VM所在的ESXi主机来检索数据。因此，需要为由vCenter管理的所有ESXi主机开启网络访问策略。
 :::
 
 
-## Test Access Policy for Proxy
+## 测试Proxy的访问策略
 
-Test if Proxy can connect to vCenter 443 port and ESXis 902 port which is management by vCenter.
+测试Proxy是否能够连接到vCenter的443端口和由vCenter管理的ESXi的902端口。
 
-### Test vCenter/ESXi Connectivity
+### 测试vCenter/ESXi的连接性
 
-NOTE: Repeat this steps if you have multiple vCenter or ESXis to be protected.
+注意：如果有多个要保护的vCenter或ESXi，请重复这些步骤。
 
 ```
 ssh -v -p 443 <vCenter/ESXi IP/Domain>
 ```
 
-Success Response:
+成功响应:
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -143,23 +142,23 @@ debug1: /etc/ssh/ssh_config line 58: Applying options for *
 debug1: Connecting to <vCenter/ESXi IP/Domain> [<vCenter/ESXi IP/Domain>] port 443.
 debug1: Connection established.
 ```
-## Test Network Connectivity from Proxy to Object Storage
+## 测试Proxy到对象存储的网络连接
 
 ::: tip
-Make sure you already login to Proxy VM
+确保您已经登录到Proxy虚拟机
 :::
 
-### Internet
+### 互联网
 
-Ensure your proxy can access internet before testing.
+确保在进行测试之前，您的Proxy可以访问互联网。
 
-#### Public DNS Connectivity Testing
+#### 公共DNS连接测试
 
 ```
 ping -c 4 -t 2 8.8.8.8
 ```
 
-Success Response:
+成功响应:
 
 ```
 ping -c 4 -t 2 8.8.8.8
@@ -172,91 +171,90 @@ PING 8.8.8.8 (8.8.8.8): 56 data bytes
 round-trip min/avg/max/stddev = 43.362/46.585/49.807/3.222 ms
 ```
 
-#### Huawei Object Storage Bucket Connectivity
+#### 华为对象存储桶连接性
 
 ```
 curl https://obs.ap-southeast-3.myhuaweicloud.com
 ```
 
-Success Response:
+成功响应：
 
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?><Error><Code>AccessDenied</Code><Message>Anonymous access is forbidden for this operation</Message><RequestId>0000018C1F508F2F9012234EA17641CE</RequestId><HostId>Z9v+cC1sRnaWw6x0vi8pxxYA0YVnKxbYHUPAFpnxkX8sLV44u5b02Z+ailn2wCnR</HostId></Error>#
 ```
 
-Note: This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is for the Huawei Cloud Singapore region. If you need to test in a different region, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain address.
+注意：此命令主要用于测试华为云对象存储桶的可访问性。目前，测试的OBS域是华为云新加坡地区的。如果您需要在其他地区进行测试，请参考华为云官方文档查找相应的Endpoint域地址。
 
-Reference Link: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
+相关链接: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
 
 ### VPN
 
-#### Check Object Storage Service Endpoint
-
-Make sure object storage service endpoint address return internal ip address.
+#### 检查对象存储服务终端端点
+确保对象存储服务终端端点返回内部 IP 地址。
 
 ```sh
 ping obs.ap-southeast-3.myhuaweicloud.com
 ```
 
-Success Response:
+成功响应:
 
 ```
 PING obs.lz01.ap-southeast-3.myhuaweicloud.com (100.125.36.29) 56(84) bytes of data.
 ```
 
 ::: tip
-Huawei Cloud Object Storage Service internal IP Range: 100.125.xx. If there is no ICMP response, it is considered normal.
+华为云对象存储服务的内部 IP 范围为 100.125.xx。如果没有 ICMP 响应，被视为正常。
 :::
 
-#### Huawei Object Storage Bucket Connectivity
+#### 华为对象存储桶连接性测试
 
 ```sh
 curl https://obs.ap-southeast-3.myhuaweicloud.com
 ```
 
-Success Response:
+成功响应:
 
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?><Error><Code>AccessDenied</Code><Message>Anonymous access is forbidden for this operation</Message><RequestId>0000018C1F508F2F9012234EA17641CE</RequestId><HostId>Z9v+cC1sRnaWw6x0vi8pxxYA0YVnKxbYHUPAFpnxkX8sLV44u5b02Z+ailn2wCnR</HostId></Error>#
 ```
 
 ::: tip
-This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is for the Huawei Cloud Singapore region. If you need to test in a different region, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain address.
+该命令主要用于测试华为云对象存储桶的可访问性。目前，测试的OBS域名是为华为云新加坡区域。如果您需要在不同的区域进行测试，请参考华为云官方文档找到相应的终端域名地址。
 :::
 
-Reference Link: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
+参考链接: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
 
-## Test Network Connectivity from Proxy to HyperBDR
+## 测试从代理服务器到HyperBDR的网络连接
 
 ::: tip
-This step needs to be tested after the installation of HyperBDR is completed.
+此步骤需要在HyperBDR安装完成后进行测试。
 :::
 
 ::: tip
-Default username and password for Proxy ova:
+Proxy ova的默认用户名和密码：
 
-* Username: root
-* Password: onepro
+* 用户名: root
+* 密码: onepro
 
-If you don't know how to use SSH on a Windows system, please refer to the following link:
+如果您不知道如何在Windows系统上使用SSH，请参考以下链接：
 
 [How do I connect to SSH on Windows?](../faq.md)
 :::
 
-### Option 1: Public Network Access
+### 选项 1: 公网访问
 
-Test the network connectivity from the production site to Huawei Cloud HyperBDR
+测试从生产站点到华为云HyperBDR的网络连接
 
-- Step1: Log in to the Proxy Node
+- 步骤1: 登录到代理节点
 
-- Step2: Test Access to HyperBDR Port 10443 and Port 30080
+- 步骤2: 测试访问 HyperBDR 的端口 10443 和端口 30080
 
-Execute Command：
+执行命令：
 ```sh
 ssh -v -p 10443 <HyperBDR Public IP>
 ```
 
-Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
+测试结果：如果输入结果包含 "[debug1: Connection established.]" 信息，则表示网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017
@@ -265,12 +263,12 @@ debug1: /etc/ssh/ssh_config line 58: Applying options for *
 debug1: Connecting to <HyperBDR Public IP> [<HyperBDR Public IP>] port 10443.
 debug1: Connection established.
 ```
-Execute Command：
+执行命令：
 ```sh
 ssh -v -p 30080 <HyperBDR Public IP>
 ```
 
-Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
+测试结果：如果输入结果包含 "[debug1: Connection established.]" 信息，则表示网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017
@@ -280,19 +278,19 @@ debug1: Connecting to <HyperBDR Public IP> [<HyperBDR Public IP>] port 30080.
 debug1: Connection established.
 ```
 
-### Option 2: Internal VPN Access
+### 选项 2: 内部 VPN 访问
 
-Test the network connectivity from the production site to Huawei Cloud HyperBDR
+测试从生产站点到华为云 HyperBDR 的网络连通性
 
-- Step1: Log in to the Proxy Node  
+- 步骤1: 登录到 Proxy 节点 
 
-- Step2: Test Access to HyperBDR Port 10443 and Port 30080  
+- 步骤2: 测试对 HyperBDR 端口 10443 和端口 30080 的访问  
 
-Execute Command:  
+执行命令:  
 ```sh
 ssh -v -p 10443 <HyperBDR Internal IP>
 ```
-Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
+测试结果：如果输入的结果包括信息 "[debug1: Connection established.]"，则表示网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -302,13 +300,13 @@ debug1: Connecting to <HyperBDR Internal IP> [<HyperBDR Internal IP>] port 10443
 debug1: Connection established.
 ```
 
-Execute Command：
+执行命令：
 
 ```sh
 ssh -v -p 30080 <HyperBDR Internal IP>
 ```
 
-Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
+测试结果：如果输入结果包含信息 "[debug1: Connection established.]"，则表示网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -318,27 +316,27 @@ debug1: Connecting to <HyperBDR Internal IP> [<HyperBDR Internal IP>] port 30080
 debug1: Connection established.
 ```
 
-## Proxy DNS Settings
+## 设置Proxy DNS
 
 ::: tip
-This step is only used when connecting to the cloud platform via VPN.
+该步骤仅在通过 VPN 连接到云平台时使用。
 :::
 
 ::: tip
-Default username and password for Proxy ova:
+Proxy ova 的默认用户名和密码：
 
-* Username: root
-* Password: onepro
+* 用户名: root
+* 密码: onepro
 
-If you don't know how to use SSH on a Windows system, please refer to the following link:
+如果您不知道如何在 Windows 系统上使用 SSH，请参考以下链接：
 
-[How do I connect to SSH on Windows?](../faq.md)
+[怎么在windows上使用ssh工具?](../faq.md)
 :::
 
-### Configure DNS domain name
+### 配置DNS域名
 
 ::: tip
-\<Huawei OBS Endpoint Service IPaddress\> is the IP address of the OBS endpoint service after creating the VPC Endpoint service.   
+\<华为OBS终端节点服务的IP地址\> 在创建VPC端点服务后，是OBS终端节点服务的IP地址。   
 :::
 
 ![option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png](./images/option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png)  
@@ -348,94 +346,94 @@ cat <<EOF >> /etc/resolv.conf
 nameserver <Huawei OBS Endpoint Service IPaddress>
 EOF
 ```
-## Install Proxy
+## 安装同步代理
 
 ::: tip
-Proxy should be installation after the completion of the HyperBDR installation process.
+Proxy应在HyperBDR安装过程完成后安装。
 :::
 
 ::: tip
-Default username and password for Proxy ova:
+Proxy ova 的默认用户名和密码：
 
-* Username: root
-* Password: onepro
+* 用户名: root
+* 密码: onepro
 
-If you don't know how to use SSH on a Windows system, please refer to the following link:
+如果您不知道如何在 Windows 系统上使用 SSH，请参考以下链接：
 
-[How do I connect to SSH on Windows?](../faq.md)
+[怎么在windows上使用ssh工具?](../faq.md)
 :::
 
-### Log in to the HyperBDR console
+### 登录HyperBDR主控台
 
 ![install-proxy-1.png](./images/install-proxy-1.png) 
 
 ![install-proxy-2.png](./images/install-proxy-2.png) 
 
-### Retrieve the installation command
+### 获取安装命令
 
-Click on the top menu bar **"Configuration"**, **"Production Site"**, **"VMware"** then click the **"Add"** button. 
+点击顶部菜单栏 **"配置"**，**"生产站点"**，**"VMware"**，然后点击 **"添加"** 按钮。 
 
 ![install-proxy-3.png](./images/install-proxy-3.png) 
 
-In the popped-up page, in the **"Step 2: Installing synchronization nodes"** section, under **"2. Execute the following command to install"** click on **"Copy command"** to obtain the installation command for the Proxy node. 
+在弹出的页面中，在 **"步骤2：安装同步节点"** 部分，在 **"2. 执行以下命令进行安装"** 下点击 **"复制命令"** 以获取Proxy节点的安装命令。
 
 ![install-proxy-4.png](./images/install-proxy-4.png) 
 
-### Log in to the Proxy Node
+### 登录进入到同步节点
 
 ![install-proxy-5.png](./images/install-proxy-5.png) 
 
-### Execute the installation command on the Proxy node
+### 在Proxy节点上执行安装命令
 
-Paste the copied installation command into the command line and execute it. Wait for the command to execute successfully; this indicates that the Proxy synchronization node program is running normally. 
+将复制的安装命令粘贴到命令行中并执行。等待命令成功执行，这表示Proxy同步节点程序正常运行。 
 
 ![install-proxy-6.png](./images/install-proxy-6.png)
 
-##  Add and Configure HyperGate
+##  添加和配置云存储网关
 
 ::: tip
-Already logged in to the HyperBDR console by default.
+默认情况下已登录到HyperBDR控制台。
 :::
 
 ![add-and-configure-hypergate-1.png](./images/add-and-configure-hypergate-1.png)
 
-### Operational Steps
+### 操作步骤
 
 ::: tip
-The HyperGate is an automatically created cloud instance that needs to be in the same region as the business VPC for DR.
+云存储网关是一台自动创建的云实例，需要与业务VPC所在的区域相同。
 :::
 
-**Step1.** Click on "Configuration Management" in the top menu, choose "Storage Configuration" on the left, select "Block Storage," and click on the "Add" button.
+**步骤 1.** 点击顶部菜单中的“配置管理”，在左侧选择“存储配置”，然后选择“块存储”，点击“添加”按钮。
 
 ![add-and-configure-hypergate-2.png](./images/add-and-configure-hypergate-2.png)
 
-**Step 2.** Fill in the information as follows to add the cloud platform. 
+**步骤 2.** 按照以下信息填写以添加云平台。 
 
-> This step will automatically create a block storage recovery gateway (HyperGate) under the Huawei Cloud authentication tenant after authentication.
+> 此步骤将在身份验证后自动在华为云认证租户下创建块存储恢复网关（云存储网关）
 
-Choose Huawei Cloud in the Recovery Platform.
+选择在“恢复平台”中选择华为云。
 
-Fill in the Huawei Cloud authentication information as shown in the image below when adding the target disaster recovery platform:
+在添加目标灾难恢复平台时，请填写如下图所示的华为云认证信息：
 
-- Access Key ID: Huawei Cloud account Access Key ID  
-- Access Key Secret: Huawei Cloud account Access Key Secret  
-- Project: Optional, can be left blank  
-- Project ID: Optional, can be left blank  
-- Skip Driver Adaption: Optional
+- Access Key ID: 华为云账号 Access Key ID  
+- Access Key Secret: 华为云账号 Access Key Secret  
+- Project: 可选项, 可以留空  
+- Project ID: 可选项, 可以留空 
+- 跳过驱动修复: 可选项
 
-After confirming the filled information, click the "Next" button.
+确认填写的信息后，点击“下一步”按钮。
 
 ![add-and-configure-hypergate-3.png](./images/add-and-configure-hypergate-3.png)
 
-Choose the relevant information to create the Cloud Sync Gateway instance under the authentication tenant and click the "Next" button.
+选择相关信息，创建认证租户下的云同步网关实例，然后点击“下一步”按钮。
 
 ![add-and-configure-hypergate-4.png](./images/add-and-configure-hypergate-4.png)
 
-After the name and status are available, wait for the "Createing" process to complete, then click the "Complete" button.
+在名称和状态显示正常后，等待“创建”过程完成，然后点击“完成”按钮。
 
 ![add-and-configure-hypergate-5.png](./images/add-and-configure-hypergate-5.png)
 
-Check the "Block Storage" - "Cloud Sync Gateway" page, and the status should be "Available".
+检查"块存储" - "云同步网关"页面，状态应为"可用"。
 
 ![add-and-configure-hypergate-6.png](./images/add-and-configure-hypergate-6.png)
 
