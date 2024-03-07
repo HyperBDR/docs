@@ -26,7 +26,7 @@
 
 ![hyperbdr-vmware-investigation-4.png](./images/hyperbdr-vmware-investigation-4.png)
 
-#### 选择[All rows]和[All Columns]
+#### 行 选择[所有行]，列 勾选[全部]
 
 ![hyperbdr-vmware-investigation-5.png](./images/hyperbdr-vmware-investigation-5.png)
 
