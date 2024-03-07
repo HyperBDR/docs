@@ -2,32 +2,32 @@
 
 [[toc]]
 
-## Create Huawei Cloud IAM account for DR purpose
+## 为容灾目标端创建华为云子账号
 
-Create a Huawei Cloud IAM account with correspinding permissions, detail requirement please refer to below document. And create Access Key ID & Access Secret Key of IAM account for setup.
+创建一个华为云IAM账户，并赋予相应的权限，详细要求请参考以下文档。同时，为该IAM账户创建Access Key ID和Access Secret Key用于设置。
 
-### Create IAM User
+### 创建IAM账号
 
-#### Huawei Cloud official documentation link:
+#### 华为云官方文档链接：
 
 - [https://support.huaweicloud.com/intl/en-us/usermanual-iam/iam_02_0001.html](https://support.huaweicloud.com/intl/en-us/usermanual-iam/iam_02_0001.html)
 
-### Granting Authorization to IAM User
+### 授予IAM用户权限
 
-#### Huawei Cloud official documentation link:
+#### 华为云官方文档链接：
 
 - [https://support.huaweicloud.com/intl/en-us/usermanual-iam/iam_01_0652.html](https://support.huaweicloud.com/intl/en-us/usermanual-iam/iam_01_0652.html)
 
-### Managing IAM User Access Keys
+### 管理IAM用户访问密钥
 
-#### Huawei Cloud official documentation link:
+#### 华为云官方文档链接：
 
 - [https://support.huaweicloud.com/intl/en-us/usermanual-iam/iam_02_0003.html](https://support.huaweicloud.com/intl/en-us/usermanual-iam/iam_02_0003.html)
 
-### Huawei Cloud IAM Permission Requirements
+### 华为云IAM权限要求
 
 ::: tip
-Huawei Cloud has different API versions of v2 and v3 in different regions, and each region has a slightly different definition of resource description permissions. When you create permissions for HyperBDR, So you need to provide full access to ecs, evs, obs, ims, and netwrok services.
+华为云在不同地区使用不同的API版本，包括v2和v3，并且每个地区对资源描述权限的定义略有不同。当您为HyperBDR创建权限时，需要提供对ecs、evs、obs、ims和network服务的完全访问权限。
 :::
 
 #### ecs/vpc/evs/ims
@@ -80,32 +80,32 @@ Huawei Cloud has different API versions of v2 and v3 in different regions, and e
 }
 ```
 
-## Configure VPC & Subnet
+## 配置 VPC & 子网
 
-Create VPC Network and Subnet According to Huawei Cloud Documentation. Explanation: Establish your network based on the following disaster recovery network scenarios.
+根据华为云文档创建VPC网络和子网。说明：根据以下灾难恢复网络场景建立您的网络。
 
-1. Intranet VPN Access:
+1. 内部 VPN 访问:
 
-If accessing through an intranet VPN, create a DR VPC network and place HyperBDR ECS instances in this network.
+如果通过内部 VPN 访问，请创建一个灾难恢复(VPC)网络，并将HyperBDR ECS实例放置在此网络中。
 
-2. Disaster Recovery VPC:
+2. 灾难恢复 VPC:
 
-Dedicated VPC network and subnet for HyperBDR disaster recovery and backup, interconnected with the on-premises IDC through VPN.
+为HyperBDR灾难恢复和备份创建专用的VPC网络和子网，通过VPN与本地IDC相互连接。
 
-3. Business VPC:
+3. 业务 VPC:
 
-Business VPC network and subnet used for disaster takeover and drills.
+用于灾难接管和演练的业务VPC网络和子网。
 
-## Create HyperBDR Security Group
+## 创建 HyperBDR 安全组
 
 ::: tip
-HyperBDR Security Group Name: SG-HyperBDR
+HyperBDR 安全组名称: SG-HyperBDR
 :::
 
-### Create Security Group Rules
+### 创建安全组规则
 
-> NOTE: For Source IP range, we recommend use safe range to replace 0.0.0.0/0.
-> For example, if your external ip address is 110.242.68.66, source can be configurated as 110.242.68.66/32.
+> 注意：对于源IP范围，我们建议使用安全范围来替代0.0.0.0/0。
+> 例如，如果您的外部IP地址是110.242.68.66，源可以配置为110.242.68.66/32。
 
 | No. | Action | Type | Protocol & Port | Source | Description |
 | --- | --- | --- | --- | --- | --- |
@@ -114,16 +114,16 @@ HyperBDR Security Group Name: SG-HyperBDR
 | 3 | Allow | IPv4 | TCP:30443 | 0.0.0.0/0 | Permit HyperBDR Operation and maintenance management platform web console port |
 | 4 | Allow | IPv4 | TCP:30080 | 0.0.0.0/0 | Permit HyperBDR https services port |
 
-## Create ECS for HyperBDR
+## 创建ECS实例用来安装 HyperBDR
 
-### Log in to the Huawei Cloud Console
+### 登录华为云主控台
 
-### Create ECS Cloud Instance based on Configuration Information
+### 基于配置信息创建华为云ECS实例
 
-> Huawei Cloud documentation ：[https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html](https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html)  
-> The resource configuration for HyperBDR servers is as follows:
+> 华为云文档 ：[https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html](https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html)  
+> HyperBDR服务器的资源配置如下:
 
-| Configuration items | Parameters                                                      |
+| 配置项               | 参数                                                      |
 | :------------------ | :-------------------------------------------------------------- |
 | Region              | <Your Region\>                                                  |
 | Billing Mode        | Yearly/Monthly                                                  |
@@ -143,66 +143,66 @@ HyperBDR Security Group Name: SG-HyperBDR
 | Username            | root                                                            |
 | Password            | ec1@OneProCloud#!                                               |
 
-## Image Download & Upload
+## 镜像下载 & 上传
 
-### Image Download
+### 镜像下载
 
 ::: tip
-Overseas Huawei Cloud does not have Windows images. Windows images are primarily used for disaster recovery with UEFI Windows as the source host, while Linux images are used in block storage mode and serve as the base image for cloud sync gateway creation. 
+海外华为云暂时没有Windows镜像。Windows镜像主要用于以UEFI Windows为源主机进行灾难恢复，而Linux镜像则以块存储模式使用，并作为云同步网关创建的基础镜像。 
 :::
 
 ::: tip
-Download Windows/Linux images to your local machine through the provided image links. 
+通过提供的镜像链接将Windows/Linux镜像下载到本地计算机。 
 :::
 
-### Image Info
+### 镜像信息
 
-#### Linux Image
+#### Linux 镜像
 
-* Version：CentOS 8.4 64bit
-* Size： 1.22 GB
-* Download Link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) 
-* MD5 Value of the Image: fe9f21a75a80d12159030fff76e1c8a5
+* 版本：CentOS 8.4 64bit
+* 大小： 1.22 GB
+* 下载链接：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) 
+* 镜像的MD5值: fe9f21a75a80d12159030fff76e1c8a5
 
-#### Windows Image
+#### Windows 镜像
 
-* Version：Windows Server 2016 Datacenter 64bit English
-* Size：12.11 GB
-* Download Link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
-* MD5 Value of the Image: 519444d4b0343e15fa014c50d906a832
+* 版本：Windows Server 2016 Datacenter 64bit English
+* 大小：12.11 GB
+* 下载链接：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
+* 镜像的MD5值: 519444d4b0343e15fa014c50d906a832
 
-### Upload Image to Huawei Cloud Object Storage
+### 上传镜像到华为云对象存储
 
 ::: tip
-Huawei Cloud official documentation link:
+华为云官方文档链接:
 [https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0205.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0205.html) 
 :::
 
-### Import Image
+### 导入镜像
 
 ::: tip
-Huawei Cloud official documentation link:
+华为云官方文档链接:
 [https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0206.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0206.html)
 [https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0211.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0211.html)
 :::
 
-#### Step1: Access the IMS console.
+#### 步骤一: 访问IMS控制台
 
-- Log in to the management console.
-- Under Compute, click Image Management Service.The IMS console is displayed.Register an external image file as a private image.
+- 登录管理控制台。
+- 在“计算”下，点击“镜像服务”。IMS控制台将显示。将外部镜像文件注册为私有镜像。
   ![upload-custom-windowslinux-images-to-huawei-cloud-1.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-1.png)
 
-#### Step2: Register an external image file as a private image
+#### 步骤2: 将外部镜像文件注册为私有镜像
 
-- Click Create Image in the upper right corner
+- 点击右上角的“创建镜像”
   ![upload-custom-windowslinux-images-to-huawei-cloud-2.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-2.png)
 
 ::: warning 
-1.The name must be one of the following and cannot have additional characters.  
-2.Due to the diverse versions of Windows on the source hosts, select the generic option for the operating system.  
-3.Linux image is primarily used for creating an HD. The recommended version for the current release is CentOS 8+  
+1.名称必须是以下之一，并且不能包含额外的字符。  
+2.由于源主机上Windows的各种版本，选择操作系统的通用选项。 
+3.Linux镜像主要用于创建HyperDoor。当前版本的推荐版本是CentOS 8+。 
 :::
-Supported Windows image names
+支持的 windows 镜像名称
 
 > Windows Server 2012 R2 Standard 64bit  
 > Windows Server 2012 R2 Datacenter 64bit  
@@ -216,12 +216,12 @@ Supported Windows image names
 ![upload-custom-windowslinux-images-to-huawei-cloud-3.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-3.png)
 
 ::: warning
-The size of the System disk must be 40G.
+系统磁盘的大小必须为40G。
 :::
 
 ![upload-custom-windowslinux-images-to-huawei-cloud-4.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-4.png)
 
-Supported Linux image names
+支持的 Linux 镜像名称
 
 > CentOS 8.4 64bit  
 > CentOS 8.3 64bit  
@@ -233,29 +233,29 @@ Supported Linux image names
 
 ![upload-custom-windowslinux-images-to-huawei-cloud-8.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-8.png)
 
-#### Step3: Confirm and submit
+#### 步骤3: 确认并提交
 
-- Click Next and confirm the image specifications. Select Statement of Commitment to Image Creation and Huawei Image Disclaimer. Click Submit.
+- 点击“下一步”并确认镜像规格。选择“创建镜像承诺书”和“华为镜像免责声明”。然后点击“提交”。
 
-- Go back to the Private Images page. The image is successfully registered when its status becomes Normal.
+- 返回到私有镜像页面。当镜像的状态变为正常时，表示成功注册。
 
-## VPN Setup
+## VPN 设置
 
-> Note: If your DR Environment is connected to the Intranet of the production site through Huawei Cloud, you need to purchase the Huawei cloud VPN service and configure the Huawei cloud to connect to the On-perms network.
+> 注意：如果您的灾难恢复环境通过华为云连接到生产站点的内部网络，您需要购买华为云VPN服务，并配置华为云连接到本地网络。
 
-> Configure VPN. For details, see Huawei Cloud official documentation.  
-> Document Link: [https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html](https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html)
+> 配置VPN。详细信息请参阅华为云官方文档。 
+> 文档链接: [https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html](https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html)
 
-## Create Huawei VPC Endpoint
+## 创建华为VPC终端
 
-> If your disaster recovery environment is interconnected with the production site's intranet through Huawei Cloud VPN, and the production site needs to access Huawei Cloud HyperBDR and OBS services through VPN during a disaster, then you need to purchase and configure VPC Endpoint services in Huawei Cloud.
+> 如果您的灾难恢复环境通过华为云VPN与生产站点的内部网络相互连接，并且在灾难期间生产站点需要通过VPN访问华为云HyperBDR和OBS服务，那么您需要购买并配置华为云中的VPC终端服务。
 
-> You need to purchase two VPC Endpoint services, one for OBS and the other for DNS.
+> 您需要购买两个VPC终端服务，一个用于OBS，另一个用于DNS。
 
-> Huawei Cloud official definition: If you want to access OBS services from a local data center via VPN or Cloud Connect using an intranet method, you can achieve this by connecting through terminal endpoints to access terminal endpoint services.  
-> Document Link：[https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html](https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html)
+> 华为云的官方定义：如果您希望通过VPN或Cloud Connect使用内部网络方法从本地数据中心访问OBS服务，您可以通过连接终端终端点以访问终端终端点服务来实现这一目标。  
+> 文档链接：[https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html](https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html)
 
-### Configure DNS Interface Type for Terminal Endpoints
+### 为终端终端点配置DNS接口类型
 
 | Project | Configuration |
 | --- | --- |
@@ -267,7 +267,7 @@ Supported Linux image names
 
 ![option-2-internal-vpn-access---create-vpc-endpoint-service-1.png](./images/option-2-internal-vpn-access---create-vpc-endpoint-service-1.png)
 
-### Selection of OBS Gateway-type Terminal Endpoint
+### 选择OBS网关类型的终端终端点
 
 | Project | Configuration |
 | --- | --- |
@@ -279,95 +279,96 @@ Supported Linux image names
 | Policy | default |
 
 ::: warning 
-Note: In the Service Category section, it may not be possible to directly find the corresponding OBS service for the default Cloud service type. In such cases, you will need to use "Find a service by name" to search. You must enter the complete name of the specific OBS service. Please confirm with Huawei Cloud as the target OBS service terminal endpoints on the Huawei side may have distinctions between v1 and v2 versions. Additionally, the names of each region and the association between v1/v2 versions and the resource pool of the object storage bucket need clarification. If you have purchased v1 OBS terminal endpoints but your object storage bucket is in a v2 cluster, it must be aligned accordingly. Confirm with Huawei in advance regarding the specific version of the object storage bucket's cluster and OBS terminal endpoints
+注意：在“服务类别”部分，可能无法直接找到默认云服务类型对应的OBS服务。在这种情况下，您需要使用“按名称查找服务”进行搜索。您必须输入特定OBS服务的完整名称。请与华为云确认，因为华为云侧目标OBS服务终端点在v1和v2版本之间可能存在差异。此外，每个地区的名称和v1/v2版本之间以及对象存储桶的资源池之间的关联需要澄清。如果您购买了v1 OBS终端节点但您的对象存储桶位于v2集群中，必须相应地进行调整。请提前与华为云确认对象存储桶集群的具体版本和OBS终端节点。
 
-Example: v2 version OBS terminal endpoint name: sa-brazil-1.com.myhuaweicloud.v4.obsv2.lz002 
+示例：v2版本OBS终端节点名称：sa-brazil-1.com.myhuaweicloud.v4.obsv2.lz002 
 :::
 
 ![option-2-internal-vpn-access---create-vpc-endpoint-service-2.png](./images/option-2-internal-vpn-access---create-vpc-endpoint-service-2.png)
 
-### Configure VPN local-end OBS gateway
+### 配置VPN本地端OBS网关
 
-Add the internal subnet range of the local (Huawei Cloud) OBS service at the VPN connection point. The subnet address for all internal Huawei Cloud OBS services is 100.125.0.0/16.  
+在VPN连接点添加本地（华为云）OBS服务的内部子网范围。所有内部华为云OBS服务的子网地址为100.125.0.0/16。  
 ![option-2-internal-vpn-access---create-vpc-endpoint-service-3.png](./images/option-2-internal-vpn-access---create-vpc-endpoint-service-3.png)  
 ![option-2-internal-vpn-access---create-vpc-endpoint-service-4.png](./images/option-2-internal-vpn-access---create-vpc-endpoint-service-4.png)
 
-## Create Huawei VPC Peering
+## 创建华为VPC对等连接
 
 ::: tip
-Based on business requirements, choose different VPC peering configurations:  
-- If there is no need for mutual access between multiple business VPCs, you only need to configure the peering connection according to the [Disaster recovery VPC connected via peering with multiple business VPC](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#disaster-recovery-vpc-connected-via-peering-with-multiple-business-vpc) setup.  
-- If there is a requirement for mutual access between multiple business VPCs, then you need to configure according to the [Disaster recovery VPC peering with multiple business VPCs, as well as peering connections between multiple business VPC](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#disaster-recovery-vpc-peering-with-multiple-business-vpcs-as-well-as-peering-connections-between-multiple-business-vpc) setup.
+根据业务需求，选择不同的VPC对等连接配置：  
+- 
+如果多个业务VPC之间不需要相互访问，只需根据 [容灾恢复 VPC 通过对等连接与多个业务VPC连接](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#disaster-recovery-vpc-connected-via-peering-with-multiple-business-vpc) 配置对等连接。
+- 如果需要多个业务VPC之间相互访问的需求，那么您需要根据 [与多个业务VPC进行灾难恢复VPC对等连接，以及多个业务VPC之间的对等连接](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#disaster-recovery-vpc-peering-with-multiple-business-vpcs-as-well-as-peering-connections-between-multiple-business-vpc) 进行配置。
 :::
 
-### Disaster recovery VPC connected via peering with multiple business VPC
+### 通过与多个业务VPC建立对等连接的灾难恢复VPC
 
-In Huawei Cloud Disaster Recovery, the disaster recovery host needs to be restored to the planned production business VPC. Therefore, it is necessary to configure cross VPC peer-to-peer connections in Huawei Cloud, configure the disaster recovery VPC with the business VPC, and add peer-to-peer connection routing. Mainly used for disaster recovery, the disaster recovery VPC where HyperBDR is located can access the business VPC through the intranet to recover virtual machines for data recovery.
+在华为云灾难恢复中，灾难恢复主机需要恢复到计划的生产业务VPC。因此，需要在华为云中配置跨VPC点对点连接，将灾难恢复VPC与业务VPC进行配置，并添加点对点连接路由。主要用于灾难恢复，HyperBDR所在的灾难恢复VPC可以通过内部网络访问业务VPC，以进行虚拟机的数据恢复。
 
-> Huawei Cloud Document Link:  
+> 华为云文档链接:  
 > [https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html#section1](https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html#section1)
 
 ![configure-cross-vpc-network-access-between-disaster-recovery-vpc-and-business-vpc-1.png](./images/configure-cross-vpc-network-access-between-disaster-recovery-vpc-and-business-vpc-1.png)
 
-### Disaster recovery VPC peering with multiple business VPCs, as well as peering connections between multiple business VPC
+### 与多个业务VPC进行灾难恢复VPC的对等连接，以及多个业务VPC之间的对等连接
 
-When all disaster recovery hosts of the customer need to be placed in different business VPCs planned by Huawei Cloud, and there is a need for cross VPC access in the business, then it is necessary to configure peer-to-peer connections between business VPCs to ensure normal cross VPC business interaction after subsequent business recovery.
+当客户的所有灾难恢复主机需要放置在华为云规划的不同业务VPC中，并且在业务中存在跨VPC访问的需求时，就需要在业务VPC之间配置点对点连接，以确保在后续业务恢复后正常进行跨VPC业务交互。
 
-> Huawei Cloud Document Link:  
+> 为云文档链接:  
 > [https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html#section0](https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html#section0)
 
-## Test Network Access between VPCs
+## 测试VPC之间的网络访问
 
 ::: tip
-[Create huawei VPC Peering](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#create-huawei-vpc-peering) configuration has been successfully completed, and routing entries have been added correctly.
+[创建华为VPC对等连接](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#create-huawei-vpc-peering) 配置已成功完成，并且路由条目已正确添加。
 :::
 
-### Test the network connectivity between the disaster recovery VPC and the business VPC
+### 测试灾难恢复VPC和业务VPC之间的网络连通性
 
-- Step1: Login to Huawei Cloud and create an ECS test cloud server  
-Create an ECS test cloud server (CentOS 7.6 operating system) on Huawei Cloud. When configuring the network, choose the business VPC and subnet. Ensure that the security group of this newly created ECS test virtual machine has an inbound access policy allowing port 22.
+- 步骤1: 登录到华为云并创建一个ECS测试云服务器  
+在华为云上创建一个ECS测试云服务器（使用CentOS 7.6操作系统）。在配置网络时，选择业务VPC和子网。确保这台新创建的ECS测试虚拟机的安全组具有允许端口22的入站访问策略。
 
-- Step2: Network testing access from the disaster recovery VPC to the business VPC
+- 步骤2: 从灾难恢复VPC到业务VPC进行网络测试访问
 
-Log in to the Huawei Cloud console, access the HyperBDR ECS cloud server, and use the intranet IP to connect to the ECS host within the business VPC.
+登录华为云控制台，访问HyperBDR ECS云服务器，使用内部网络IP连接到业务VPC内的ECS主机。
 
 ![test-the-intranet-network-connectivity-across-vpcs-1.png](./images/test-the-intranet-network-connectivity-across-vpcs-1.png)
 
 ![test-the-intranet-network-connectivity-across-vpcs-2.png](./images/test-the-intranet-network-connectivity-across-vpcs-2.png)
 
-Execute command:
+执行命令:
 
 ```sh
 ssh root@<The intranet IP address of the test ECS> 22
 ```
 
-Test results:  
-If you can successfully access and enter the password, it indicates normal access.
+测试结果:  
+如果您能够成功访问并输入密码，表示正常访问。
 
-### Test the network connectivity between business VPC
+### 测试业务VPC之间的网络连通性
 
-- Setp1: Create a new ECS test cloud server with CentOS 7.6 operating system. When configuring the network, choose a different business VPC and subnet. Ensure that the security group of this newly created ECS test virtual machine has an inbound access policy allowing port 22
+- 步骤1: 创建一个新的ECS测试云服务器，使用CentOS 7.6操作系统。在配置网络时，选择不同的业务VPC和子网。确保这台新创建的ECS测试虚拟机的安全组具有允许端口22的入站访问策略。
 
-- Sep2: Log in to different test cloud servers through the console and perform bidirectional command tests with the following commands
+- 步骤2: 通过控制台登录到不同的测试云服务器，并使用以下命令进行双向命令测试。
 
-Execute command:
+执行命令:
 
 ```sh
 ssh root@<The intranet IP of the test ECS> 22
 ```
 
-Test results:  
-If you can successfully access and enter the password, it indicates normal access.
+测试结果:  
+如果您能够成功访问并输入密码，表示正常访问。
 
-## Huawei Cloud platform account quota check
+## 华为云平台账户配额检查
 
-During the disaster recovery process, it is essential to ensure that the cloud account has sufficient resource quotas to support data synchronization and disaster recovery recovery. To prevent potential failure of disaster recovery due to insufficient quotas, it is necessary to perform a resource quota check before initiating the disaster recovery.
+在灾难恢复过程中，确保云账户具有足够的资源配额以支持数据同步和灾难恢复非常重要。为防止因配额不足而导致灾难恢复的潜在失败，有必要在启动灾难恢复之前进行资源配额检查。
 
-If the remaining quota in the Huawei Cloud account is insufficient, it is necessary to clean up unnecessary resources in the account or apply for an expansion of Huawei Cloud resource quotas.
+如果华为云账户中的剩余配额不足，就有必要清理账户中的不必要资源，或者申请扩展华为云资源配额。
 
-### Source host resource inventory
+### 源主机资源清单
 
-Need to gather information on the computing and storage resources for the host systems awaiting disaster recovery and input the details into a table.
+需要收集等待灾难恢复的主机系统的计算和存储资源信息，并将详细信息输入到一个表格中。
 | Resources Type | Size |
 | --- | --- |
 | The total number of source host  |  |
@@ -376,15 +377,15 @@ Need to gather information on the computing and storage resources for the host s
 | The total number of source host disks |  |
 | The total disk capacity for source host(GB) |  |
 
-### Huawei Cloud account resource quota check
+### 华为云账户资源配额检查
 
-#### Login Huawei Cloud
+#### 登录华为云
 
 ![huawei-cloud-platform-account-quota-check-1.png](./images/huawei-cloud-platform-account-quota-check-1.png)
 
-#### View resource quotas
+#### 查看资源配额
 
-Access the CDN Console, select 'Resources' > 'My Quotas'. The system will navigate to the 'Quotas' page.
+访问CDN控制台，选择“资源” > “我的配额”。系统将跳转到“配额”页面。
 
 ![huawei-cloud-platform-account-quota-check-2.png](./images/huawei-cloud-platform-account-quota-check-2.png)
 
@@ -393,9 +394,9 @@ Access the CDN Console, select 'Resources' > 'My Quotas'. The system will naviga
 ![huawei-cloud-platform-account-quota-check-4.png](./images/huawei-cloud-platform-account-quota-check-4.png)
 
 
-#### Compile your Huawei Cloud account resource quotas and calculate the remaining quota
+#### 整理您的华为云账户资源配额并计算剩余配额
 
-Access the CDN Console, select 'Resources' > 'My Quotas'. The system will navigate to the 'Quotas' page.
+访问CDN控制台，选择“资源” > “我的配额”。系统将跳转到“配额”页面。
 
 ![huawei-cloud-platform-account-quota-check-5.png](./images/huawei-cloud-platform-account-quota-check-5.png)
 
@@ -414,41 +415,41 @@ Access the CDN Console, select 'Resources' > 'My Quotas'. The system will naviga
 | Elastic Volume Service | Disk capacity(GB) |  |  |  |
 | Virtual Private Cloud | Elastic IP addresses |  |  |  |
 
-#### Compare the remaining quota with the resources of the source hosts
+#### 将剩余配额与源主机的资源进行比较
 
-Compare the resource levels of the source hosts, as per your inventory, with the remaining resource quota in your Huawei Cloud account to assess whether it meets the requirements for disaster recovery.
+根据您的清单，将源主机的资源水平与华为云账户中的剩余资源配额进行比较，以评估是否满足灾难恢复的要求。
 
-**1. If you are using object storage recovery mode for DR, please refer to the following criteria.**
+**1. 如果您正在使用对象存储恢复模式进行灾难恢复，请参考以下标准。**
 
-> **Elastic Cloud Server: ECSs** Residual Quota ≥ The total number of source host  
-> **Elastic Cloud Server: vCPUs** Residual Quota ≥ The total number of source host CPU  
-> **Elastic Cloud Server: Memory (MB)** Residual Quota ≥ The total number of source host RAM(MB)  
-> **Elastic Volume Service: Disk** Residual Quota ≥ The total number of source host disks  
-> **Elastic Volume Service: Disk capacity(GB)** Residual Quota ≥ The total disk capacity for source host(GB)  
-> **Image Management Service: Images**  Residual Quota ≥ 2  
-> **Virtual Private Cloud: Elastic IP addresses** Residual Quota: Satisfying the required number of public IP for the disaster recovery hosts to be restored to the Huawei Cloud platform is sufficient.
+> **弹性云服务器: ECSs** 剩余配额 ≥ 源主机的总数  
+> **弹性云服务器: vCPUs** 剩余配额 ≥ 源主机的总CPU数  
+> **弹性云服务器: Memory (MB)** 剩余配额 ≥ 源主机的总内存（MB）  
+> **弹性卷服务: Disk** 剩余配额 ≥ 源主机的总磁盘数  
+> **弹性卷服务: Disk capacity(GB)** 剩余配额 ≥ 源主机的总磁盘容量（GB） 
+> **镜像管理服务: Images**  剩余配额 ≥ 2  
+> **虚拟专有云: 弹性IP地址** 剩余配额：满足将灾难恢复主机恢复到华为云平台所需的公网IP数量即可。
 
-**2. If you are using block storage recovery mode for DR, please refer to the following criteria.**
+**2. 如果您正在使用块存储恢复模式进行灾难恢复，请参考以下标准。**
 
-> **Elastic Cloud Server: ECSs** Residual Quota ≥ The total number of source host + Number of HyperGate instances  
-> **Elastic Cloud Server: vCPUs** Residual Quota ≥ The total number of source host CPU + 2 * Number of HyperGate instances  
-> **Elastic Cloud Server: Memory (MB)** Residual Quota ≥ The total number of source host RAM(MB) + 2048(MB) * Number of HyperGate instances  
-> **Elastic Volume Service: Disk** Residual Quota ≥ 2 * Total number of source host disks + Number of HyperGate instances  
-> **Elastic Volume Service: Disk capacity(GB)** Residual Quota ≥ 2 * Total disk capacity for source host(GB) + 40(GB) * Number of HyperGate instances  
-> **Image Management Service: Images**  Residual Quota ≥ 2  
-> **Virtual Private Cloud: Elastic IP addresses** Residual Quota: The quantity should satisfy the sum of the required public IP addresses for the disaster recovery hosts to be restored to the Huawei Cloud platform, including both the number of public IP for the source hosts and the quantity of HyperGate instances.
+> **弹性云服务器: ECSs** 剩余配额 ≥ 源主机的总数 + HyperGate实例的数量  
+> **弹性云服务器: vCPUs** 剩余配额 ≥ 源主机的总CPU数 + 2 * HyperGate实例的数量  
+> **弹性云服务器: Memory (MB)** 剩余配额 ≥ 源主机的总内存（MB） + 2048（MB） * HyperGate实例的数量  
+> **弹性卷服务: Disk** 剩余配额 ≥ 2 * 源主机的总磁盘数 + HyperGate实例的数量  
+> **弹性卷服务: Disk capacity(GB)** 剩余配额 ≥ 2 * 源主机的总磁盘容量（GB） + 40（GB） * HyperGate实例的数量  
+> **镜像管理服务: Images**  剩余配额 ≥ 2  
+> **虚拟专有云: 弹性IP地址s** 剩余配额：数量应满足将灾难恢复主机恢复到华为云平台所需的公网IP地址总数，包括源主机的公网IP数量和HyperGate实例的数量。
 
-If it is discovered that the remaining resource quota in the Huawei Cloud account is insufficient, it is necessary to clean up unnecessary resources in the account or apply to Huawei Cloud for an expansion of resource quotas.
+如果发现华为云账户中的剩余资源配额不足，就有必要清理账户中的不必要资源，或者向华为云申请扩展资源配额。
 
-### Increase quotas in your Huawei Cloud account.
+### 增加华为云账户中的配额。
 
-If it is discovered that the remaining resource quota in the Huawei Cloud account is insufficient, and there are no resources to clean up in the account, you can try submitting a Huawei Cloud ticket to request an expansion of resource quotas. 
+如果发现华为云账户中的剩余资源配额不足，并且账户中没有可清理的资源，您可以尝试提交一张华为云工单，请求扩展资源配额。 
 
-In the 'Quotas' page, click on 'Increase', and fill out the Huawei Cloud Ticket.
+在“配额”页面上，点击“增加”，并填写华为云工单。
 
 ![huawei-cloud-platform-account-quota-check-8.png](./images/huawei-cloud-platform-account-quota-check-8.png)
 
 ![huawei-cloud-platform-account-quota-check-9.png](./images/huawei-cloud-platform-account-quota-check-9.png)
 
-After completing the form, check the agreement box and click 'Submit.' Wait and monitor the response from the Huawei Cloud Ticket for information regarding the increase quotas.
+在填写完表单后，勾选同意框，并点击“提交”。等待并监视华为云工单的响应，获取有关增加配额的信息。
 
