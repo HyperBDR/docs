@@ -2,223 +2,213 @@
 
 [[toc]]
 
-This document primarily focuses on the rational planning of the HyperBDR network and disaster recovery takeover, as well as the network used for exercises, prior to the commencement of the project. The following are fundamental principles for network planning:
+本文主要着重于 HyperBDR 网络和灾难恢复接管的合理规划，以及项目启动前所使用的网络。以下是网络规划的基本原则：
 
+- HyperBDR需要部署在容灾平台中，因为一旦生产平台发生故障，HyperBDR在容灾平台上仍然可以正常对业务系统进行恢复。
 
-- HyperBDR should be deployed within the disaster recovery platform to ensure that, in the event of a production platform failure, HyperBDR can still effectively recover business systems on the disaster recovery platform.
+- HyperBDR对底层所使用的组网形式并没有特别的要求，只要保证网络通讯端口和方向符合HyperBDR需求即可。
 
-- HyperBDR does not have specific requirements for the underlying networking topology; it only requires that network communication ports and directions align with HyperBDR's needs.
+- HyperBDR的部署方案取决于生产站点和云容灾站点的连接方式，根据不同的网络连接方案，部署方式上略有差异，所需要的资源不同，成本也有较大差异。
 
-- The deployment approach for HyperBDR depends on the connection method between the production site and the cloud disaster recovery site. Based on different network connection scenarios, there are slight variations in deployment methods, resource requirements, and associated costs.
+- 对于有状态的业务系统接管，要注意容灾接管所使用的网络与生产网络连接的防火墙策略配置，避免在容灾接管后，容灾接管系统直接连接生产端后造成不正确的数据写入。
 
-- For stateful business system takeover, attention should be given to the firewall policy configuration of the network used for disaster recovery takeover, ensuring it aligns with the production network connection. This is to avoid incorrect data writes after the disaster recovery takeover system directly connects to the production end.
+## 对象存储部署方案
 
-## Deployment Solution for Object Storage
+### 组网方案
 
-### Networking Schemes
-
-| Solution | Data Transmission | Business Access |
+| 方案名称 | 数据传输 | 业务访问(容灾接管后) |
 | --- | --- | --- |
-| Internet | Internet | Internet |
-| Dedicated Network Connection Solution (e.g. VPN) | Dedicated Network | Dedicated Network |
-| Hybrid Network Solution | Internet | Dedicated Network |
+| 公网方案 | 公网 | 公网 |
+| 专线方案(例如：VPN等) | 专线 | 专线 |
+| 混合方案 | 公网 | 专线 |
 
+> 注意：灾难后恢复接管后的业务访问
 
-> NOTE: Business Access after Post-Disaster Recovery Takeover
+### 开放端口列表
 
-### List of Open Ports
+#### 代理
 
-#### Agent
+代理包含 Windows 代理和 Linux 代理两种方式。
 
-Agent contains Windows Agent and Linux Agent.
-
-
-| **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
+| **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Agent | HyperBDR | TCP Unidirectional | 10443 / 30080 | Control Flow | 
-| 2 | Agent | Object Storage Service | TCP Unidirectional | 443 | Data Flow | 
-| 3 | HyperBDR | Object Storage Service | TCP Unidirectional | 443 | Control Flow | 
-| 4 | HyperBDR | Drill/Takeover VM | TCP Unidirectional | 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
-| 5 | HyperBDR | Cloud API | TCP Unidirectional | 443 | Control Flow | 
-| 6 | Drill/Takeover VM | Object Storage Service | TCP Unidirectional | 443 | Data Flow | 
+| 1 | Agent | HyperBDR | TCP 单向 | 10443 / 30080 | 控制流 |
+| 2 | Agent | 对象存储服务 | TCP 单向 | 443 | 数据流 |
+| 3 | HyperBDR | 对象存储服务 | TCP 单向 | 443 | 控制流 |
+| 4 | HyperBDR | Drill/Takeover VM | TCP 单向 | 10729 | 控制流 | 必须在 HyperBDR 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
+| 5 | HyperBDR | 云 API | TCP 单向 | 443 | 控制流 |
+| 6 | Drill/Takeover VM | 对象存储服务 | TCP 单向 | 443 | 数据流 |
 
-#### VMware Agentless
+#### VMware 无代理
 
-| **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
+| **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | HyperBDR Proxy | vCenter | TCP Unidirectional | 443 | Control Flow |  |
-| 2 | HyperBDR Proxy | ESXi | TCP Unidirectional | 902 | Data Flow | Port 902 for all ESXis managed by vCenter |
-| 3 | HyperBDR Proxy | HyperBDR | TCP Unidirectional | 10443 / 30080 | Control Flow |  |
-| 4 | HyperBDR Proxy | Object Storage Service | TCP Unidirectional | 443 | Data Flow |  |
-| 5 | HyperBDR | Object Storage Service | TCP Unidirectional | 443 | Control Flow |  |
-| 6 | HyperBDR | Drill/Takeover VM | TCP Unidirectional | 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
-| 7 | HyperBDR | Cloud API | TCP Unidirectional | 443 | Control Flow |  |
-| 8 | Drill/Takeover VM | Object Storage Service | TCP Unidirectional | 443 | Data Flow |  |
+| 1 | HyperBDR Proxy | vCenter | TCP 单向 | 443 | 控制流 |  |
+| 2 | HyperBDR Proxy | ESXi | TCP 单向 | 902 | 数据流 | 所有由 vCenter 管理的 ESXi 的端口 902 |
+| 3 | HyperBDR Proxy | HyperBDR | TCP 单向 | 10443 / 30080 | 控制流 |  |
+| 4 | HyperBDR Proxy | 对象存储服务 | TCP 单向 | 443 | 数据流 |  |
+| 5 | HyperBDR | 对象存储服务 | TCP 单向 | 443 | 控制流 |  |
+| 6 | HyperBDR | Drill/Takeover VM | TCP 单向 | 10729 | 控制流 | 必须在 HyperBDR 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
+| 7 | HyperBDR | 云 API | TCP 单向 | 443 | 控制流 |  |
+| 8 | Drill/Takeover VM | 对象存储服务 | TCP 单向 | 443 | 数据流 |
 
+### 部署架构
 
-### Deployment Architecture
-
-#### Internet
+#### 互联网
 
 ![dr-network-planning-recommendations-1.jpeg](./images/dr-network-planning-recommendations-1.jpeg)
 
-#### Dedicated Network Connection
+#### 专用网络连接
 
 ![dr-network-planning-recommendations-2.jpeg](./images/dr-network-planning-recommendations-2.jpeg)
 
-#### Hybrid Network
+#### 混合网络
 
 ![dr-network-planning-recommendations-3.jpeg](./images/dr-network-planning-recommendations-3.jpeg)
 
-## Deployment Solution for Block Storage
+## 块存储部署解决方案
 
-### Network Schemems
+### 网络方案
 
-| Solution | Data Transmission | Business Access |
+| 方案 | 数据传输 | 业务访问 |
 | --- | --- | --- |
-| Internet | Internet | Internet |
-| Dedicated Network Connection Solution (e.g. VPN) | Dedicated Network | Dedicated Network |
+| 公网 | 公网 | 公网 |
+| 专用网络连接解决方案（例如 VPN） | 专线 | 专线 |
 
+> 注意：灾难后恢复接管后的业务访问
 
-> NOTE: Business Access after Post-Disaster Recovery Takeover
+### 开放端口列表
 
-### List of Open Ports
+#### 代理
 
-#### Agent
-
-| **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
+| **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Agent | HyperBDR | TCP Unidirectional | 10443 / 30080 | Control Flow | 
-| 2 | Agent | HyperBDR Cloud Proxy | TCP Unidirectional | 3260 | Data Flow | 
-| 3 | HyperBDR | HyperBDR Cloud Proxy | TCP Unidirectional | 22 / 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
-| 4 | HyperBDR | Cloud API | TCP Unidirectional | 443 | Control Flow | 
+| 1 | Agent | HyperBDR | TCP 单向 | 10443 / 30080 | 控制流 |
+| 2 | Agent | HyperBDR Cloud Proxy | TCP 单向 | 3260 | 数据流 |
+| 3 | HyperBDR | HyperBDR Cloud Proxy | TCP 单向 | 22 / 10729 | 控制流 | 必须在 HyperBDR 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
+| 4 | HyperBDR | 云 API | TCP 单向 | 443 | 控制流 |
 
-#### Agentless
+#### 无代理
 
-| **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
+| **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | HyperBDR Proxy | vCenter | TCP Unidirectional | 443 | Control Flow |  |
-| 2 | HyperBDR Proxy | ESXi | TCP Unidirectional | 902 | Data Flow | Port 902 for all ESXis managed by vCenter |
-| 3 | HyperBDR Proxy | HyperBDR | TCP Unidirectional | 10443 / 30080 | Control Flow |  |
-| 4 | HyperBDR Proxy | HyperBDR Cloud Proxy | TCP Unidirectional | 3260 | Data Flow |  |
-| 5 | HyperBDR | HyperBDR Cloud Proxy | TCP Unidirectional | 22 / 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
-| 6 | HyperBDR | Cloud API | TCP Unidirectional | 443 | Control Flow | 
+| 1 | HyperBDR Proxy | vCenter | TCP 单向 | 443 | 控制流 |  |
+| 2 | HyperBDR Proxy | ESXi | TCP 单向 | 902 | 数据流 | 所有由 vCenter 管理的 ESXi 的端口 902 |
+| 3 | HyperBDR Proxy | HyperBDR | TCP 单向 | 10443 / 30080 | 控制流 |  |
+| 4 | HyperBDR Proxy | HyperBDR Cloud Proxy | TCP 单向 | 3260 | 数据流 |  |
+| 5 | HyperBDR | HyperBDR 云代理 | TCP 单向 | 22 / 10729 | 控制流 | 必须在 HyperBDR 和容灾演练/接管 VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
+| 6 | HyperBDR | 云 API | TCP 单向 | 443 | 控制流 |
 
+### 部署架构
 
-### Deployment Architecture
-
-#### Internet
+#### 互联网
 
 ![dr-network-planning-recommendations-4.jpeg](./images/dr-network-planning-recommendations-4.jpeg)
 
-#### Dedicated Network Connection
+#### 专用网络连接
 
 ![dr-network-planning-recommendations-5.jpeg](./images/dr-network-planning-recommendations-5.jpeg)
 
+## 回切网络规划 — 专线解决方案
 
-## Failover Network Planning — Dedicated Line Solution
+在回切过程中，由于需要云端接管主机直接访问生产端IP地址，所以目前只支持专线方案进行回切。
 
-During the failover process, as it is necessary for the cloud to take over the host and directly access the production-side IP address, currently, only a dedicated line solution is supported for the failover.
+### 块存储方式
 
-### Block Storage
-
-#### Deployment Architecutre
+#### 部署架构
 
 ![dr-network-planning-recommendations-6.jpeg](./images/dr-network-planning-recommendations-6.jpeg)
 
-#### List of Open Ports
+#### 开放端口列表
 
-| **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
+| **编号** | **访问来源** | **访问目标** | **通信方向** | **开放端口** | **通讯类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Drill/Takeover VM(Agent) | HyperBDR | TCP Unidirectional | 10443 / 30080 | Control Flow | 
-| 2 | Drill/Takeover(Agent) | Failback Gateway VM | TCP Unidirectional | 3260 | Data Flow | 
-| 3 | HyperBDR | Failback Gateway VM | TCP Unidirectional | 10729 | Control Flow | 
+| 1 | 容灾接管/演练VM（Agent）| HyperBDR | TCP 单向 | 10443 / 30080 | 控制流 |
+| 2 | 容灾接管/演练VM（Agent）| 回切网关 VM | TCP 单向 | 3260 | 数据流 |
+| 3 | HyperBDR | 回切网关 VM | TCP 单向 | 10729 | 控制流 |
 
-### Object Storage
+### 对象存储
 
-#### Deployment Architecture
+#### 部署架构
 
 ![dr-network-planning-recommendations-7.jpeg](./images/dr-network-planning-recommendations-7.jpeg)
 
-#### List of Open Ports
+#### 开放端口列表
 
-| **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
+| **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Drill/Takeover VM(Agent) | HyperBDR | TCP Unidirectional | 10443 / 30080 | Control Flow | 
-| 2 | Drill/Takeover VM(Agent) | Object Storage Service | TCP Unidirectional | 443 | Data Flow | 
-| 3 | HyperBDR | Object Storage Service | TCP Unidirectional | 443 | Control Flow | 
-| 4 | HyperBDR | Failback Gateway VM | TCP Unidirectional | 10729 | Control Flow | 
-| 5 | HyperBDR | Cloud API | TCP Unidirectional | 443 | Control Flow | 
-| 6 | HyperBDR | vCenter/ESXi | TCP Unidirectional | 443/902 | Control Flow | 
-| 7 | Failback Gateway VM | Object Storage Service | TCP Unidirectional | 443 | Data Flow | 
+| 1 | 容灾接管/演练VM（Agent） | HyperBDR | TCP 单向 | 10443 / 30080 | 控制流 |
+| 2 | 容灾接管/演练VM（Agent） | 对象存储服务 | TCP 单向 | 443 | 数据流 |
+| 3 | HyperBDR | 对象存储服务 | TCP 单向 | 443 | 控制流 |
+| 4 | HyperBDR | 回切网关 VM | TCP 单向 | 10729 | 控制流 |
+| 5 | HyperBDR | 云 API | TCP 单向 | 443 | 控制流 |
+| 6 | HyperBDR | vCenter/ESXi | TCP 单向 | 443/902 | 控制流 |
+| 7 | 回切网关 VM | 对象存储服务 | TCP 单向 | 443 | 数据流 |
 
+## 容灾网络规划
 
-## DR Network Planning
+### 用户网络
 
-### User Network
-
-We use the network of a specific client's production environment as an example to illustrate network planning under different scenarios. Below is the current network architecture topology diagram for the user:
+我们以某客户生产环境的网络为例，说明不同方式下的网络规划，以下为用户现有的网络架构拓扑图：
 
 ![dr-network-planning-recommendations-8.jpeg](./images/dr-network-planning-recommendations-8.jpeg)
 
-The user network allocation is as follows:
+用户网络分配如下：
 
-
-| Network | Subnet | Usage |
+| 网络名称 | 网段 | 用途 |
 | --- | --- | --- |
-| Client Desktops | 192.168.0.0/24 | User access application network |
-| Application A | 192.168.4.0/24 | Application A network |
-| Application B | 10.227.129.0/24 | The network for Business System B, which is the VMware Business Network address |
-| VMware Management Network | 10.227.230.0/24 | VMware management network |
+| 用户客户端桌面网络 | 192.168.0.0/24 | 用于桌面电脑访问业务网络 |
+| 业务系统A | 192.168.4.0/24 | 业务系统A所在网络 |
+| 业务系统B | 10.227.129.0/24 | 业务系统B所在网络，该网络为VMware业务网地址 |
+| VMware 管理网络 | 10.227.230.0/24 | VMware资源管理网地址 |
 
-### Dedicated Line Solution 1
+### 专线解决方案 1
 
-Production network and takeover subnet are distinct.
+生产网络和接管子网是不同的。
 
-#### Architecture
+#### 架构
 
 ![dr-network-planning-recommendations-9.jpeg](./images/dr-network-planning-recommendations-9.jpeg)
 
-#### Firewall Policies
+#### 防火墙策略
 
-| Production Subnet | Takeover Subnet | Production to Takeover | Takeover to Production |
+| 生产子网 | 接管子网 | 生产网络访问接管网络 | 接管网络访问生产网络 |
 | --- | --- | --- | --- |
-| 192.168.0.0/24 <br/> 192.168.4.0/24 | 192.168.104.0/24 | ALLOW | Denied |
-| 192.168.0.0/24 <br/> 10.227.129.0/24 | 10.227.229.0/24 | ALLOW | Denied |
+| 192.168.0.0/24 <br/> 192.168.4.0/24 | 192.168.104.0/24 | 允许 | 拒绝 |
+| 192.168.0.0/24 <br/> 10.227.129.0/24 | 10.227.229.0/24 | 允许 | 拒绝 |
 
 
-Explanation:
+解释：
 
-- User Access: On the target cloud platform, a different subnet address is used for the takeover network. On the production side, direct access to the cloud's VPC is possible through the dedicated line. Users can also connect directly to the cloud's VPN using a VPN client to access the business network.
+- 用户访问：在目标云平台侧使用不同的子网地址作为接管网络，生产侧可以直接通过专线访问云上的VPC，用户也可以通过VPN客户端直接连接至云端的VPN后访问业务网络。
 
-- Firewall Configuration: To prevent erroneously accessing the original hosts after takeover, restrictions are in place to prevent the directly accessing the production network from the taken-over hosts. Specific ports are allowed based on policy requirements.
+- 防火墙设定：为了防止接管后的主机，错误的访问原有主机，所以限制接管后的主机直接访问生产网络，根据策略需求情况对指定端口进行放行。
 
-### Dedicated Line Solution 2
+### 专线方案 2
 
-Production network and takeover subnet are the same.
+生产网络和接管子网是相同的。
 
-#### Architecture
+#### 架构
 
 ![dr-network-planning-recommendations-10.jpeg](./images/dr-network-planning-recommendations-10.jpeg)
 
-#### Firewall Policies
+#### 防火墙策略
 
-| Production Subnet | Takeover Subnet | Production to Takeover | Takeover to Production |
+| 生产子网 | 接管子网 | 生产网络访问接管网络 | 接管网络访问生产网络 |
 | --- | --- | --- | --- |
-| 192.168.0.0/24 <br/> 192.168.4.0/24 | 192.168.4.0/24 | Denied | Denied |
-| 192.168.0.0/24 <br/> 10.227.129.0/24 | 10.227.129.0/24 | Denied | Denied |
+| 192.168.0.0/24 <br/> 192.168.4.0/24 | 192.168.4.0/24 | 不允许 | 不允许 |
+| 192.168.0.0/24 <br/> 10.227.129.0/24 | 10.227.129.0/24 | 不允许 | 不允许 |
 
-Explanation:
+说明:
 
-- Firewall Configuration: To prevent erroneously accessing the original hosts after takeover, restrictions are in place to prevent the directly accessing the production network from the taken-over hosts. Specific ports are allowed based on policy requirements.
+- 防火墙设定：为了防止接管后的主机，和原有主机发生冲突，所以严格限制接管后的主机与原有生产网络地址的访问，根据策略需求情况对指定端口进行放行。
 
-### Internet
+### 公网
 
-#### Architecutre
+#### 架构
 
 ![dr-network-planning-recommendations-11.jpeg](./images/dr-network-planning-recommendations-11.jpeg)
 
-#### Firewall Policies
+#### 防火墙策略
 
-Users access the taken-over business system directly through a public network address. The firewall needs to allow the required access from the public network
-
+用户通过公网地址直接访问接管后的业务系统，防火墙需要放行对公网访问的需要。
