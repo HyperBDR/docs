@@ -1,20 +1,20 @@
 # 源端Agent主机快速调研
 
-## Investigation Steps
+## 调研步骤
 
 ### Windows Server 2016
 
-This document describes how to obtain host information on a windows host, including the host name, operating system version, cpu, memory, and disk information. In this section, use windows server 2016 as a reference. You can query other operating system versions by yourself.
+该文档描述了如何在Windows主机上获取主机信息，包括主机名、操作系统版本、CPU、内存和磁盘信息。在本节中，以Windows Server 2016为参考。你可以自行查询其他操作系统版本。
 
-#### Get host name, operating system version, cpu, memory, etc. (Control Panel)
+#### 获取主机名、操作系统版本、CPU、内存等（控制面板）
 
-Open Control Pannel, System and Security, System to retrieve relevant information.
+打开控制面板，选择“系统和安全”，然后选择“系统”以获取相关信息。
 
 ![hyperbdr-agent-investigation-copy-1.png](./images/hyperbdr-agent-investigation-copy-1.png)
 
-#### Get host name, operating system version, cpu, memory, etc. (command line)
+#### 获取主机名、操作系统版本、CPU、内存等（命令行）
 
-Log in to the windows server, press the shortcut key "Win + R" to open the CMD window, and run the following command:
+登录到Windows服务器，按下快捷键“Win + R”打开CMD窗口，运行以下命令：
 
 ```powershell
 
@@ -22,45 +22,41 @@ systeminfo
 
 ```
 
-The output is as follows; you can check the Host Name, OS Name, Processor(s), and Total Physical Memory to obtain the corresponding information.
+输出结果如下所示；你可以检查主机名、操作系统版本、CPU和内存信息。
 
-> **Host Name:** NGINX-WEB  
-> **OS Name:** Microsoft Windows Server 2016 Datacenter  
-> **Processor(s):** 1 Processor(s) Installed.  
-> **Total Physical Memory:** 4096MB
+> **主机名：** NGINX-WEB
+> **操作系统名称：** Microsoft Windows Server 2016 Datacenter
+> **处理器：** 安装了 1 个处理器。
+> **总物理内存：** 4096MB
 
 ![hyperbdr-agent-investigation-copy-2.png](./images/hyperbdr-agent-investigation-copy-2.png)
 
-#### Retrieve disk information.
+#### 获取磁盘信息。
 
-Open the "Control Panel", go to "System and Security", select "Administrative Tools", click the "Computer Management", and click on "Disk Management".
+打开“控制面板”，进入“系统和安全”，选择“管理工具”，点击“计算机管理”，然后点击“磁盘管理”。
 
+1. **获取磁盘数量。**
 
-1. **Retrieve the number of disks.**
-
-
-As shown in the figure below, Disk 0 represents the first disk. If there are multiple storage devices, they will be sequentially labeled as Disk 1, Disk x, and so on, with each one representing an independent storage unit. Just record the total number.
+如下图所示，Disk 0 代表第一个磁盘。如果有多个存储设备，它们将依次标记为 Disk 1、Disk x 等，每个磁盘代表一个独立的存储单元。只需记录总数即可。
 
 ![hyperbdr-agent-investigation-copy-3.png](./images/hyperbdr-agent-investigation-copy-3.png)
 
+2. **获取每个磁盘的实际使用情况。**
 
-2. **Retrieve the actual usage of each disk.**
+如下图所示，右上角显示了所有磁盘的分配和使用信息。'C' 表示具有相应容量和可用空间的分区。你可以通过从总容量中减去可用空间来计算当前 'C' 分区的实际使用情况。单个磁盘可能有多个分区，因此在图中的 Disk 0 的右下角相应位置进行检查，以确定每个分区所属的磁盘。这样，你可以分别计算每个磁盘的实际使用情况。
 
-
-As shown in the figure below, at the upper-right position, the allocation and usage information for all disks are displayed. 'C' represents a partition with corresponding capacity and available space. You can calculate the actual usage of the current 'C' partition by subtracting the available space from the total capacity. A single disk may have multiple partitions, so correspondingly check the lower-right position of Disk 0 in the figure to determine the disk to which each partition belongs. This way, you can separately calculate the actual usage of each disk.
-
-> The Disk 0 has a C partition with a total capacity of 39.51GB, available space of 28.14GB, and the current actual usage space on Disk 0 is 11.37GB.  
-> If there are other disks, the same calculation method applies to determine the actual usage space on each respective disk.
+> Disk 0 上有一个 C 分区，总容量为 39.51GB，可用空间为 28.14GB，Disk 0 上当前的实际使用空间为 11.37GB。
+> 如果有其他磁盘，则同样的计算方法适用于确定每个磁盘上的实际使用空间。
 
 ![hyperbdr-agent-investigation-copy-4.png](./images/hyperbdr-agent-investigation-copy-4.png)
 
-### CentOS 7 (Linux)
+### CentOS 7（Linux）
 
-This document primarily guides on obtaining relevant host information on a Linux machine, including the host name, operating system version, kernel version, CPU, memory, disk, and other details. The steps for collecting Linux host information in this instance will be based on CentOS 7; for other operating system versions, please refer to their respective documentation.
+本文主要介绍如何在Linux机器上获取相关主机信息，包括主机名、操作系统版本、内核版本、CPU、内存、磁盘等详细信息。本示例中收集Linux主机信息的步骤基于CentOS 7；对于其他操作系统版本，请参阅其相应的文档。
 
-#### 1. Retrieve host name.
+#### 1. 获取主机名。
 
-To retrieve the host name on a Linux system, you can use the **hostname** command. Open a terminal and run the following command:
+要在Linux系统上获取主机名，可以使用 **hostname** 命令。打开终端并运行以下命令：
 
 ```bash
 
@@ -68,13 +64,13 @@ hostname
 
 ```
 
-The output is as follows, and the displayed content is the hostname.
+输出结果如下所示，其中显示了主机名。
 
 ![hyperbdr-agent-investigation-copy-5.png](./images/hyperbdr-agent-investigation-copy-5.png)
 
 #### 2. Retrieve the operating system version
 
-Run the following command to view the operating system version.
+运行以下命令来查看操作系统的版本。
 
 ```bash
 
@@ -82,27 +78,27 @@ cat /etc/redhat-release
 
 ```
 
-The output content represents information about the operating system version.
+输出结果如下所示，其中显示了操作系统的版本。
 
 ![hyperbdr-agent-investigation-copy-6.png](./images/hyperbdr-agent-investigation-copy-6.png)
 
 #### 3. Retrieve the kernel version
 
-Run the following command to view the kernel version.
+运行以下命令来查看内核版本。
 
 ```bash
 uname -r
 ```
 
-The output content represents information about the kernel version.
+输出结果如下所示，其中显示了内核版本。
 
 ```
 4.1.12-61.1.28.el6uek.x86_64
 ```
 
-#### 4. Retrieve CPU information
+#### 4. 获取CPU信息
 
-Run the following command to view CPU information.
+运行以下命令查看CPU信息。
 
 ```bash
 
@@ -110,13 +106,13 @@ lscpu
 
 ```
 
-In the output, locate the value of **"CPU(s)"**, which represents the number of CPU cores.
+在输出中，找到“CPU(s)”值，它表示CPU核心的数量。
 
 ![hyperbdr-agent-investigation-copy-7.png](./images/hyperbdr-agent-investigation-copy-7.png)
 
-#### 5. Retrieve Memory information
+#### 5. 检索内存信息
 
-Run the following command to view memory information.
+运行以下命令查看内存信息。
 
 ```bash
 
@@ -124,17 +120,15 @@ free -h
 
 ```
 
-Look for the "Total" column, which displays the total physical memory.
+查找"Total"列，显示总物理内存。
 
 ![hyperbdr-agent-investigation-copy-8.png](./images/hyperbdr-agent-investigation-copy-8.png)
 
-#### 6. Retrieve disk information
+#### 6. 检索磁盘信息
 
+1. **检查磁盘数量和总容量。**
 
-1. **Check the number of disks and the total capacity.**
-
-
-Run the following command to obtain the number of disks and their total capacity.
+运行以下命令获取磁盘数量及其总容量。
 
 ```bash
 
@@ -142,15 +136,13 @@ lsblk
 
 ```
 
-The output content is as follows: Look for the content in the NAME column, the disks starting with "sd/vd" indicate the number of disks, and the SIZE column represents the total capacity of the disks.
+输出内容如下：查找NAME列中的内容，“sd/vd”开头的磁盘表示磁盘数量，SIZE列表示磁盘的总容量。
 
 ![hyperbdr-agent-investigation-copy-9.png](./images/hyperbdr-agent-investigation-copy-9.png)
 
+2. **获取磁盘实际使用量**
 
-2. **Retrieve actual disk usage**
-
-
-Run the following command to obtain the actual disk usage.
+运行以下命令获取实际磁盘使用情况。
 
 ```bash
 
@@ -158,11 +150,10 @@ df -Th
 
 ```
 
-Check the used space of the disk based on the output.
+根据输出检查磁盘的使用空间。
 
-> Notes: In the "Mounted on" column, "/" represents the root partition. Check the "Used" column for the actual usage of the root partition. If there are other mounted partitions, you also need to obtain their information.
+> 注意：在“Mounted on”列中，“/”表示根分区。检查“Used”列以获取根分区的实际使用情况。如果有其他挂载的分区，您还需要获取它们的信息。
 
 ![hyperbdr-agent-investigation-copy-10.png](./images/hyperbdr-agent-investigation-copy-10.png)
 
-Based on the above operation steps, obtain the corresponding system information for subsequent disaster recovery testing. When executing any commands, ensure that you have sufficient permissions. Additionally, after collecting the information, fill in the gathered details into the corresponding disaster recovery host research table.
-
+根据以上操作步骤，获取相应的系统信息，用于后续的灾难恢复测试。在执行任何命令时，请确保您具有足够的权限。此外，在收集信息后，将收集到的详细信息填写到相应的灾难恢复主机研究表中。
