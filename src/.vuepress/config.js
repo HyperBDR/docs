@@ -209,6 +209,7 @@ module.exports = {
                 'presales/dr-network-planning-recommendations',
                 'presales/hyperbdr-rpo-rto-planning-best-practices',
                 'checklist/dr-checklist',
+                'presales/cloud-platform-support-matrix',
               ]
             },
             {

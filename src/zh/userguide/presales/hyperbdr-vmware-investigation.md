@@ -1,42 +1,42 @@
 # 源端VMware主机快速调研
 
-本文档主要用于指导用户场景的初步调查，以确定用户场景是否在产品支持的早期阶段。
+本文档主要用于指导用户场景的初步调研，以确定用户场景是否在产品支持的早期阶段。
 
-## Investigation Steps
+## 调研步骤
 
-### Host Information Collection
+### 主机信息收集
 
-> Why we need this infromation? Investigate your VMware host information to assist us in analyzing whether your operating system type is compatible with HyperBDR for protection, and to determine how to effectively utilize cloud resources to provide protection for your system.
+> 为什么需要这些信息？调查您的VMware主机信息，以帮助我们分析您的操作系统类型是否与HyperBDR兼容，以及如何有效利用云资源为您的系统提供保护。
 
-After these steps, you will get a csv file, please send back to us.
+完成这些步骤后，您将获得一个csv文件，请将其发送给我们。
 
-#### Login vCenter
+#### 登录vCenter
 
 ![hyperbdr-vmware-investigation-1.png](./images/hyperbdr-vmware-investigation-1.png)
 
-#### Menu->Global Inventory Lists
+#### 菜单->全局存储列表
 
 ![hyperbdr-vmware-investigation-2.png](./images/hyperbdr-vmware-investigation-2.png)
 
-#### Virtual Machines
+#### 虚拟机
 
 ![hyperbdr-vmware-investigation-3.png](./images/hyperbdr-vmware-investigation-3.png)
 
-#### Export
+#### 导出
 
 ![hyperbdr-vmware-investigation-4.png](./images/hyperbdr-vmware-investigation-4.png)
 
-#### Select [All rows] and [All Columns]
+#### 选择[All rows]和[All Columns]
 
 ![hyperbdr-vmware-investigation-5.png](./images/hyperbdr-vmware-investigation-5.png)
 
-Exporting
+导出中
 
 ![hyperbdr-vmware-investigation-6.png](./images/hyperbdr-vmware-investigation-6.png)
 
-## FAQ
+## 常见问题解答
 
-### The export operation has been blocked
+### 导出操作被阻止
 
 ![hyperbdr-vmware-investigation-7.png](./images/hyperbdr-vmware-investigation-7.png)
 
@@ -44,4 +44,4 @@ Exporting
 
 ![hyperbdr-vmware-investigation-9.png](./images/hyperbdr-vmware-investigation-9.png)
 
-After the configuration is complete, it is necessary to perform a page reload operation.
+配置完成后，需要执行页面重新加载操作。
