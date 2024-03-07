@@ -2,28 +2,28 @@
 
 [[toc]]
 
-## Download HyperBDR Installation Package
+## 下载 HyperBDR 安装包
 
-### Installation Package Information
+### 安装包信息
 
-#### Installation Package
+#### 安装包
  
-> File Nmae: HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz 
-> Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz)  
+> 文件名称: HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz 
+> 下载链接: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz)  
 
-#### MD5 Checksum File
+#### MD5校验文件
 
-> File Nmae: HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz.md5  
-> Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz.md5](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz.md5)  
+> 文件名称: HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz.md5  
+> 下载链接: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz.md5](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz.md5)  
 
 ::: tip
-Log in to the HyperBDR host backend and execute the command.  
+登录到HyperBDR主机后端并执行命令。  
 :::
 
 
-### Download Installation Package and MD5 Checksum File
+### 下载安装包和MD5校验文件
 
-#### Set url in Shell
+#### 在Shell中设置URL
 
 ```sh
 export HYPERBDR_PACKAGE=<url for Installation Package>
@@ -31,68 +31,68 @@ export HYPERBDR_PACKAGE_MD5=<url for MD5 Checksum File>
 export HYPERBDR_PACKAGE_NAME=<File Name for Installation Package>
 export HYPERBDR_PACKAGE_MD5_NAME=<File Name for MD5 Checksum File>
 ```
-#### Download File
+#### 下载文件
 
 ```sh
 curl -O "$HYPERBDR_PACKAGE"
 curl -O "$HYPERBDR_PACKAGE_MD5"
 ```
 
-### Installation Package Consistency Check
+### 安装包一致性检查
 
-- Step1: Generate the MD5 value for the downloaded installation package  
+- 步骤1: 生成已下载安装包的MD5值  
 
 ```sh
 md5sm "$HYPERBDR_PACKAGE_NAME"
 ```
-- Step2: Check the MD5 value recorded in the MD5 checksum file
+- 步骤2: 检查MD5校验文件中记录的MD5值
 
 ```sh
 cat "$HYPERBDR_PACKAGE_MD5_NAME"
 ```
 
-- Step3: Compare MD5 Values 
+- Step3: 比较MD5值 
  
-If the MD5 values obtained in `Step1` and `Step2` are the same, it indicates that the installation package is not corrupted. If the MD5 values are different, you can try re-downloading the file for comparison or contact us for assistance.
+如果步骤1和步骤2中获取的MD5值相同，则表示安装包未损坏。如果MD5值不同，您可以尝试重新下载文件进行比较，或者联系我们寻求帮助。
 
-## Install HyperBDR
+## 安装 HyperBDR
 
-> After completing the download of the HyperBDR installation package, you can proceed to install it  
-> Already logged in to the Huawei Cloud HyperBDR ECS instance backend by default
+> 完成HyperBDR安装包的下载后，您可以继续进行安装。  
+> 默认已登录到华为云HyperBDR ECS实例的后端。
 
 ::: tip
-The operating system used for the installation must be CentOS7.x version.
+安装所使用的操作系统必须是CentOS 7.x版本。
 :::
 
-### Unzip the HyperBDR installation package
+### 解压HyperBDR安装包
 
-- Execute the following command to unzip the installation package  
+- 执行以下命令解压安装包  
 
 ```sh
 tar -zxvf "$HYPERBDR_PACKAGE_MD5_NAME" -C /mnt/  
 ```
-### Run the installation script
+### 运行安装脚本
 
-#### Enable public access to the HyperBDR platform
+#### 启用HyperBDR平台的公共访问
 
-- Execute the command  
+- 执行命令 
 
 ```sh
 bash /mnt/installer/install.sh -i <HyperBDR EIP>
 ```
 
-#### Access the HyperBDR platform through an internal VPN
+#### 通过内部VPN访问HyperBDR平台
 
-- Execute the command  
+- 执行命令  
 
 ```sh
 bash /mnt/installer/install.sh
 ```
 ::: warning
-By default, the installation script uses the address of the first network interface card as the platform service address. 
+默认情况下，安装脚本使用第一个网络接口卡的地址作为平台服务地址。 
 :::
 
-If the installation is successful, you will see the prompted login information.  
+如果安装成功，您将看到提示的登录信息。  
 
 ```
 [2023-03-30 23:08:36] [INFO] --------------------------------------------------
@@ -110,172 +110,172 @@ If the installation is successful, you will see the prompted login information.
 [2023-03-30 23:08:36] [INFO] Enjoy using our product!
 [2023-03-30 23:08:36] [INFO] --------------------------------------------------
 ```
-Access HyperBDR console url：https://\<HyperBDR IP\>:10443
+访问HyperBDR控制台URL：https://\<HyperBDR IP\>:10443
 
-## Apply for HyperBDR License
+## 申请HyperBDR授权
 
 ::: tip
-Already logged in to the HyperBDR console by default.
+默认已登录到HyperBDR控制台。
 :::
 
-### Activate a License
+### 激活授权
 
-Go to [Settings]->[Licenses], then click the [+Add] button: 
+转到[设置]->[授权管理]，然后点击[+添加]按钮： 
 
 ![hyperbdr-license-activation-guide-1.png](./images/hyperbdr-license-activation-guide-1.png)
 
-There are two ways to activate a license: 
+激活许可证有两种方法： 
 
-#### I. Activate a license by using the QR code
+#### I. 通过使用二维码激活授权
 
 ![hyperbdr-license-activation-guide-2.png](./images/hyperbdr-license-activation-guide-2.png)  
 
-Scan the QR code and fill in the application form. OnePro Cloud customer service will email user the activation code after reviewing the application. 
+扫描QR码并填写申请表。OnePro Cloud客户服务在审核申请后将通过电子邮件发送激活码给用户。 
 
-Fill in the activation code and click the [Activate] button. 
+填写激活码并点击[激活]按钮。 
 
 ::: warning
-Please make sure the email address provided on the application form is correct, otherwise activation code will not be received.  
+请确保申请表上提供的电子邮件地址是正确的，否则将无法收到激活码。  
 :::
 
-#### II. Activate a license by using the activation code
+#### II. 通过使用激活码激活授权
 
 ![hyperbdr-license-activation-guide-3.png](./images/hyperbdr-license-activation-guide-3.png) 
 
-Copy and email the registration code to OnePro Cloud and customer service will email user the activation code. 
+复制并将注册码发送给OnePro Cloud，客户服务将通过电子邮件发送激活码给用户。 
 
-Fill in the activation code and click the [Activate] button. 
+填写激活码并点击[激活]按钮。
 
 ::: tip
-User can send the registration code to OnePro Cloud sales representative or _[enquiry@oneprocloud.com](mailto:enquiry@oneprocloud.com)_._
+用户可以将注册码发送给OnePro Cloud销售代表或者 _[enquiry@oneprocloud.com](mailto:enquiry@oneprocloud.com)_._
 :::
 
-## Verify Proxy Registration in HyperBDR
+## 在HyperBDR中验证代理注册
 
 ::: tip
-After the Proxy Node installation is completed, it will automatically be added to HyperBDR, and you can view this Proxy Node machine in HyperBDR.
+代理节点安装完成后，它将自动添加到HyperBDR，并且您可以在HyperBDR中查看此代理节点机器。
 :::
 
 ::: tip
-Already logged in to the HyperBDR console by default.
+默认已登录到HyperBDR控制台。
 :::
 
 ![verify-proxy-registration-in-hyperbdr-1.png](./images/verify-proxy-registration-in-hyperbdr-1.png)
 
-### Check The Status Of The Proxy Node  
+### 检查代理节点的状态  
 
-Click on the top menu bar 'Configuration,' 'Production Site,' 'SyncNode' to view the Proxy Node host. If you can see this host and status is 'online,' it indicates that it has been successfully registered with HyperBDR, and you can proceed with further configuration and usage.
+点击顶部菜单栏的 '配置管理'、'生产站点配置'、'同步节点' 来查看代理节点主机。如果您能看到这个主机，并且状态为 '正常'，则表示它已成功注册到HyperBDR，您可以继续进行进一步的配置和使用。
 
 ![verify-proxy-registration-in-hyperbdr-2.png](./images/verify-proxy-registration-in-hyperbdr-2.png)
 
-## Add VMware Credentials
+## 添加VMware链接
 
 ::: tip
-Using the pre-prepared VMware account information, add VMware to the HyperBDR platform as a disaster recovery source-side production platform.
+使用预先准备好的VMware账户信息，将VMware添加到HyperBDR平台作为灾难恢复源端生产平台。
 :::
 
 ::: tip
-Already logged in to the HyperBDR console by default.
+默认已登录到HyperBDR控制台。
 :::
 
 ![add-vmware-credentials-1.png](./images/add-vmware-credentials-1.png)
 
-### Add VMware To The HyperBDR
+### 添加VMware到 HyperBDR
 
-Click on the top menu bar 'Configuration,' 'Production Site,' 'VMware.' Click the 'Add' button, then on the popped-up page, click the 'Next' button. Follow the prompts to fill in the VMware information and click the 'Submit' button.
+点击顶部菜单栏的 '配置管理'、'生产站点配置'、'VMware'。点击 '+添加' 按钮，然后在弹出的页面上点击 '下一步' 按钮。按照提示填写VMware信息，然后点击 'Submit' 按钮。
 
 ![add-vmware-credentials-2.png](./images/add-vmware-credentials-2.png)
 
 ![add-vmware-credentials-3.png](./images/add-vmware-credentials-3.png)
 
-| Auth Url | https://\<vCenter IP/Domain Name\>:443 |
+| 鉴权地址 | https://\<vCenter IP/Domain Name\>:443 |
 | --- | --- |
-| user | \<vCenter user\> |
-| password | \<vCenter password\> |
-| SyncNode | \<Proxy Node IP\> |
+| 用户名 | \<vCenter user\> |
+| 密码 | \<vCenter password\> |
+| 同步节点 | \<Proxy Node IP\> |
 
 ![add-vmware-credentials-4.png](./images/add-vmware-credentials-4.png)
 
-## Verify VMware Status in HyperBDR
+## 在HyperBDR中验证VMware的状态
 
 ::: tip
-Already logged in to the HyperBDR console by default.
+默认已登录到HyperBDR控制台
 :::
 
 ![verify-proxy-registration-in-hyperbdr-2.png](./images/verify-proxy-registration-in-hyperbdr-2.png)
 
-### Check the status of the VMware Connection
+### 检查VMware连接的状态
 
-Click on the top menu bar 'Configuration,' 'Production Site,' 'VMware' to view the status of the added source-side VMware account, as well as obtain information such as the number of hosts. You can also click on the VMware name to check the detailed information and host details. If everything is normal, you can proceed with the subsequent configuration operations.
+点击顶部菜单栏 '配置管理'、'生产站点配置'、'VMware'，查看添加的源端VMware账户的状态，以及获取诸如主机数量之类的信息。您还可以点击VMware的名称来查看详细信息和主机详情。如果一切正常，可以继续进行后续的配置操作。
 
 ![verify-vmware-status-in-hyperbdr-1.png](./images/verify-vmware-status-in-hyperbdr-1.png)
 
-If the status is 'Online,' it indicates that the addition was successful.
+如果状态为 '正常'，表示添加成功。
 
-## Add Object Storage
+## 添加对象存储
 
 ::: tip
-Already logged in to the HyperBDR console by default.  
+默认已登录到HyperBDR控制台。  
 :::
 
 ![add-vmware-credentials-1.png](./images/add-vmware-credentials-1.png)
 
-### Configure Step
+### 配置步骤
 
 ::: tip
-Using the provided IAM account AK/SK information, configure and add Huawei Cloud Object Storage bucket in the HyperBDR console.
+使用提供的IAM账号的AK/SK信息，在HyperBDR控制台中配置并添加华为云对象存储桶。
 :::
 
-- Step1: "Click on the top menu bar 'Configuration,' 'Storage,' 'Object Storage.' Click the 'Add' button.  
+- 步骤1: 点击顶部菜单栏 '配置管理'、'对象存储'。点击 '+添加' 按钮。  
 
 ![add-object-storage-1.png](./images/add-object-storage-1.png)
 
-- Step2: Fill in or select the corresponding parameters according to the prompts, click 'Submit,' and wait for the completion.  
+- 步骤2: 根据提示填写或选择相应的参数，点击 '确定'，然后等待完成。  
 
 ![add-object-storage-2.png](./images/add-object-storage-2.png)
 
 ![add-object-storage-3.png](./images/add-object-storage-3.png)
 
-## Add DR Recovery Gateway
+## 添加DR恢复网关
 
 ::: tip
-Already logged in to the HyperBDR console by default.
+默认已登录到HyperBDR控制台。
 :::
 
 ![add-vmware-credentials-1.png](./images/add-vmware-credentials-1.png)
 
-### Configure Step
+### 配置步骤
 
 ::: tip
-Using the provided IAM account AK/SK information, Configure and add Huawei Cloud Recovery Gateway in the HyperBDR console
+使用提供的IAM账号的AK/SK信息，在HyperBDR控制台中配置并添加华为云恢复网关
 :::
 
-Click on the top menu bar "Configuration," "Disaster Recovery Site," "Object DR Gateway." Click the "Add" button, fill in or select the corresponding parameters as prompted, click "Submit," and wait for the completion.
+点击顶部菜单栏 "配置管理"， "对象存储恢复网关"，点击 "+添加" 按钮，根据提示填写或选择相应的参数，点击 "确定"，然后等待完成。
 
 ![add-dr-recovery-gateway-1.png](./images/add-dr-recovery-gateway-1.png)
 
 ![add-dr-recovery-gateway-2.png](./images/add-dr-recovery-gateway-2.png)
 
 ::: tip
-Windows UEFI Fixes Image uses the private Windows image you uploaded.
+Windows UEFI 修复镜像使用您上传的私有 Windows 镜像。
 
-Document link: [https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#image-download-upload](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#image-download-upload)
+文档链接: [https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#image-download-upload](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#image-download-upload)
 :::
 
 ![add-dr-recovery-gateway-3.png](./images/add-dr-recovery-gateway-3.png)
 
-## Add VMware Hosts in HyperBDR
+## 在HyperBDR中添加VMware主机
 
 ::: tip
-Already logged in to the HyperBDR console by default.  
-Already Add VMware Connection to  the HyperBDR by default.
+默认已登录到HyperBDR控制台。  
+默认已在HyperBDR中添加了VMware连接。
 :::
 
 ![add-vmware-credentials-1.png](./images/add-vmware-credentials-1.png)
 
-### Configure Step
+### 配置步骤
 
-Click on the top menu bar "DR," "Host DR," click the "Add Host" button, select "Agentless," "VMware," choose the previously added VMware account, filter and select the desired disaster recovery hosts, and finally click confirm. Once the selection is complete, click confirm to add the VMware disaster recovery hosts to the disaster recovery platform.  
+点击顶部菜单栏 "资源容灾"，"主机容灾"，点击 "添加主机" 按钮，选择 "无代理模式" "VMware" ，选择之前添加的VMware账户，过滤并选择所需的灾难恢复主机，最后点击确认。一旦选择完成，点击确认将VMware灾难恢复主机添加到灾难恢复平台。  
 
 ![add-vmware-hosts-in-hyperbdr-1.png](./images/add-vmware-hosts-in-hyperbdr-1.png)
 
