@@ -69,7 +69,7 @@ The operating system used for the installation must be CentOS7.x version.
 - Execute the following command to unzip the installation package  
 
 ```sh
-tar -zxvf "$HYPERBDR_PACKAGE_MD5_NAME" -C /mnt/  
+tar -zxvf "$HYPERBDR_PACKAGE_NAME" -C /mnt/  
 ```
 ### Run the installation script
 
@@ -80,6 +80,10 @@ tar -zxvf "$HYPERBDR_PACKAGE_MD5_NAME" -C /mnt/
 ```sh
 bash /mnt/installer/install.sh -i <HyperBDR EIP>
 ```
+
+::: tip
+In Huawei Cloud, the Elastic IP (EIP) service enables your cloud resources to communicate with the Internet using static public IP addresses and outbound bandwidth services. After configuring an EIP for a resource, it gains direct access to the Internet. If a resource is configured only with a private IP, it cannot access the Internet directly. In another cloud platforms, it may be referred to by a different names, such as 'Public IP address' in Azure.
+:::
 
 #### Access the HyperBDR platform through an internal VPN
 
