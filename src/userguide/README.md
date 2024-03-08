@@ -1,1 +1,1 @@
-# HyperBDR Document Center
+# HyperBDR User Guide
