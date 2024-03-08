@@ -64,8 +64,17 @@ module.exports = {
         nav: [
           //  { text: 'Nested', link: '/nested/', ariaLabel: 'Nested' }
           {
-            text: 'User Guide',
-            link: '/userguide/'
+            text: 'Docs',
+            items: [
+              {
+                text: 'User Guide',
+                link: '/userguide/'
+              },
+              //{
+              //  text: 'Product Overview',
+              //  link: '/productoverview/'
+              //},
+            ]
           },
           {
             text: 'OneProCloud',
@@ -75,14 +84,20 @@ module.exports = {
         sidebar: {
           '/userguide/': [
             {
+              title: 'Checklist',
+              collapsable: false,
+              children: [
+                'checklist/dr-checklist',
+              ]
+            },
+            {
               title: 'Pre Sales',
               collapsable: false,
               children: [
                 'presales/hyperbdr-vmware-investigation',
                 'presales/hyperbdr-agent-investigation',
                 'presales/dr-network-planning-recommendations',
-                'presales/hyperbdr-rpo-rto-planning-best-practices',
-                'checklist/dr-checklist',
+                'presales/hyperbdr-rpo-rto-planning-best-practices',                
                 'presales/cloud-platform-support-matrix',
               ]
             },
@@ -168,6 +183,14 @@ module.exports = {
               ]
             }
           ],
+          '/productintroduction/': [
+            {
+            title: 'Product Introduction',
+            collapsable: false,
+            children: [
+            ],
+            }
+          ]
         }
       },
       // 中文文档目录结构与配置
