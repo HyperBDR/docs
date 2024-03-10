@@ -1,4 +1,6 @@
-# DR Operations Manual (Huawei Cloud)
+# DR Operations Manual Object Storage (Huawei Cloud)
+
+[[toc]]
 
 # I. Disaster Recovery Scenario Overview
 
@@ -391,7 +393,7 @@ Note: For disaster recovery hosts that are first added to the host group, it is 
 
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-60.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-60.png)
 
-In the pop-up box, select the synchronization time point snapshot copy, after confirming that the information is correct, click the “Confirm” button.
+In the pop-up box, select the synchronization time point snapshot copy, after confirming that the information is correct, click the "Submit" button.
 
 > The synchronization time point records the recoverable data time point for each snapshot copy generated after each data synchronization is completed.
 
@@ -430,6 +432,7 @@ Click 'Configuration' on the top menu bar, select 'Policy Settings' on the left,
 The Create Policy page allows you to modify various parameters of the policy configuration.
 
 #### 6.1.1 Policy Name、Snapshot Retain Count、Policy Status
+
 | **Parameter** | **Description** |
 | :---: | --- |
 | Policy Name | Fill in the synchronization policy name and customize the configuration, which can be shared by other disaster recovery host groups. |
@@ -445,7 +448,6 @@ Check **Synchronization Policy : Incremental Synchronization**, You can enable a
 Check **Synchronization Policy : Full Synchronization**, You can enable and configure parameters for the full synchronization policy.
 
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-68.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-68.png)
-
 
 | **Parameter** | **Description** |
 | :---: | --- |
