@@ -227,6 +227,11 @@ Choose 'Object Storage' for the select storage type and select the configured ob
 **Disaster recovery configuration step 3:** Specify Volume Type; Choose the volume type used by the disaster recovery host on the target disaster recovery platform. If there are multiple volumes, you can configure them separately for system and data volumes. Once configured, click the 'Next' button.
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-29.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-29.png)
 
+Select the disk for booting. If the first disk in your original system is not designated for booting, you must specify the boot disk here, or it may result in startup failure.
+> Note: In block storage mode, due to limitations in the cloud platform API interface, once data synchronization is completed, the option for the boot disk cannot be changed. Before initiating synchronization, please reconfirm the selected disk for booting. If chosen incorrectly, you will need to clear data and initiate synchronization again. Exercise caution to ensure the accurate selection of the boot disk and avoid unnecessary re-synchronization steps.
+
+![hyperbdr-user-guide-to-tm-cae-object-storage-31.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-31.png)
+
 **Disaster recovery configuration step 4:** Network Congfiguration; Select the VPC network, Subnet, and whether to specify an IP address at startup, configure a public IP, and security group for the disaster recovery host on the target disaster recovery platform. Once configured, click the 'Next' button.
 
 > VPC networks and Subnets need to be created in advance under your Huawei Cloud account.
