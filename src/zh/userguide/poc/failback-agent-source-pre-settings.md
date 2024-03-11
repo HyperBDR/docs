@@ -2,44 +2,44 @@
 
 [[toc]]
 
-##  Create Failback Gateway - Agent
+## 创建通用存储回切网关 - Agent
 
-1. Use the hyperdoor image to create a virtual machine or physical machine in the source production environment as a Failback Gateway.
-2. The Failback Gateway serves as the data receiver during rollback and the recovery host during the final rollback.
-3. The Failback Gateway serves requires a minimum configuration of 2 cores and 4 GB RAM. As this host is the recovery host during the final rollback, the general rule is to have a computing resource configuration consistent with the failback host.
-4. The Failback Gateway serves storage configuration (disk number and disk capacity) for the Failback Gateway should match that of the failback host.
+1. 使用下载的Hyperdoor镜像在源端生产环境创建虚拟机或物理机作为通用存储回切网关。
+2. 通用存储回切网关作为回切时的数据接收和最后回切时的恢复主机。
+3. 通用存储回切网关最小需要2C4G的计算资源配置；由于此主机为最后回切时的恢复主机，一般情况计算资源配置与回切主机一致即可。
+4. 通用存储回切网关的存储配置（硬盘数量与硬盘分配容量）应与回切主机一致。
 
-**Example：**
-| Host configuration | Failback Host configuration | Failback Gateway configuration |
+**配置示例：**
+| 配置 | 回切主机 | 通用存储回切网关 |
 | --- | --- | --- |
 | CPU | 4 | 4 |
-| RAM | 8GB | 8GB |
-| OS disk capacity | 100GB | 100GB |
-| data disk1 capacity | 200GB | 200GB |
-| data disk2 capacity | 500GB | 500GB |
+| 内存 | 8GB | 8GB |
+| 系统盘分配容量 | 100GB | 100GB |
+| 数据盘1分配容量 | 200GB | 200GB |
+| 数据盘2分配容量 | 500GB | 500GB |
 
-## Configure the IP address for the Failback Gateway Host - Agent
+## 配置通用存储回切网关的IP地址 - Agent
 
 ::: tip
-The virtual machine/physical machine has already been created as a failback gateway in the source production environment by defaul.
+默认已经在源端生产环境创建虚拟机/物理机作为通用存储回切网关。
 :::
 
-### Login the Failback Gateway system
+### 登录到通用存储回切网关
 
 ::: tip
-Default User：root  
-Default Password：Acb@132.Inst
+默认用户名：root  
+默认密码：Acb@132.Inst
 :::
 
 ![configure-the-ip-address-for-the-failback-gateway-host---agent-1.png](./images/configure-the-ip-address-for-the-failback-gateway-host---agent-1.png)
 
-### Manually configure the network
+### 手动配置网络
 
 ::: tip
-The Hyperdoor image is configured with default DHCP mode for networking. If the source production environment network you selected supports DHCP, confirm the virtual machine's IP and proceed. If the source production environment network does not use DHCP, manual configuration of the machine's network is required
+Hyperdoor镜像系统默认网络配置为DHCP模式，如果您的网络支持DHCP，确认此虚拟机IP即可，无需进行以下操作；如果您的网络未使用DHCP需要手动配置虚拟机/物理机的网络。
 :::
 
-#### Confirm the virtual machine's network adapter device name
+#### 确认虚拟机网卡设备名称
 
 ```shell
 ip a
@@ -47,23 +47,23 @@ ip a
 
 ![configure-the-ip-address-for-the-failback-gateway-host---agent-2.png](./images/configure-the-ip-address-for-the-failback-gateway-host---agent-2.png)
 
-#### Clear network configuration information
+#### 清除网络配置信息
 
 ```shell
 ip addr flush dev eth0
 ```
 
-Configure a IP address and gateway
+配置临时IP
 
 ::: tip
-Configure with example information. Please replace the IP address/mask [192.168.x.x/20] and gateway address [192.168.0.1] based on your actual situation.
+配置为示例信息，请根据实际情况替换IP地址/掩码 [192.168.x.x/20] 和网关地址 [192.168.0.1]
 :::
 
 ```shell
 ip addr add 192.168.x.x/20 dev ens160 && ip route add default via 192.168.0.1
 ```
 
-#### View network configuration
+#### 查看网络配置
 
 ```shell
 ip a
@@ -77,22 +77,26 @@ ip route
 
 ![configure-the-ip-address-for-the-failback-gateway-host---agent-4.png](./images/configure-the-ip-address-for-the-failback-gateway-host---agent-4.png)
 
-## (Intranet VPN Access)Test the connectivity from the Failback Gateway network to Huawei Cloud OBS network - Agent
-
-### Login Failback Gateway System
+## （内网VPN访问）测试通用存储回切网关到容灾目标云内网OBS网络的连通性 - Agent
 
 ::: tip
-Default User：root  
-Default Password：Acb@132.Inst
+以下操作示例使用华为云。请根据您所使用的容灾目标云信息进行测试
+:::
+
+### 登录通用存储回切网关
+
+::: tip
+默认用户名：root  
+默认密码：Acb@132.Inst
 :::
 
 ![test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-1.png](./images/test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-1.png)
 
-### Huawei Cloud Private DNS Connection Test
+### 私有DNS连接测试
 
 ::: tip
-Please refer to the following document to find the dedicated Network Domain Service (NDS) address based on the used Huawei Cloud OBS region.  
-Reference Document:[https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
+请参阅以下文档，查找基于所用对象存储区域的专用NDS（网络域服务）地址。  
+参考文档： [https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
 :::
 
 ```shell
@@ -103,7 +107,7 @@ Success Response:
 
 ![test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-2.png](./images/test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-2.png)
 
-### Huawei Cloud Object Storage Connection Test
+### 对象存储连接测试
 
 ```shell
 
@@ -116,7 +120,7 @@ Success Response:
 ![test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-3.png](./images/test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-3.png)
 
 ::: tip
-This command is primarily used to test the accessibility of Huawei Cloud Object Storage. Currently, the tested OBS domain is applicable to the Huawei Cloud Singapore region. If you need to perform tests in different regions, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain.  
-Document Link: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
+该命令主要用于测试华为云对象存储桶所在区域的可访问性。目前，测试的OBS域适用于华为云新加坡地区。如果您需要在不同的地区进行测试，请参阅华为云官方文档，找到相应的Endpoint域名。  
+文档链接:  [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
 :::
 

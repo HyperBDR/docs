@@ -2,93 +2,93 @@
 
 [[toc]]
 
-## Download the Hyperdoor image file (ISO) and upload it to the VMware storage.
+## 下载Hyperdoor镜像文件（ISO）并上传至VMware存储
 
-### Download the Hyperdoor image file (ISO)
+### 下载Hyperdoor镜像文件（ISO）
 
 ::: tip
-Download the ISO image to the download address in the document.  
-Document link: [https://docs.oneprocloud.com/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image](http://192.168.7.58:8080/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image)
+请在文档中的下载地址下载ISO镜像。  
+文档链接： [https://docs.oneprocloud.com/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image](http://192.168.7.58:8080/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image)
 :::
 
-### Upload the Hyperdoor image file (ISO) to the VMware storage
+### 将Hyperdoor镜像文件（ISO）上传至VMware存储
 
-#### Log in to the VMware vSphere Client console
+#### 登录VMware vSphere Client控制台
 
 ![complete-doc-for-block-storage-failback-8.png](./images/complete-doc-for-block-storage-failback-8.png)
 
-#### Select [Storage]
+#### 选择 [存储]
 
 ![complete-doc-for-block-storage-failback-9.png](./images/complete-doc-for-block-storage-failback-9.png)
 
 ![complete-doc-for-block-storage-failback-10.png](./images/complete-doc-for-block-storage-failback-10.png)
 
-#### On the left navigation bar, choose the available [Datastore]. Click [Files] and select the storage path for the image file,click [Upload Files].
+#### 左侧选择可用的[存储池]，点击[文件]，选择镜像的存放路径后点击[上载文件]
 
 ![complete-doc-for-block-storage-failback-11.png](./images/complete-doc-for-block-storage-failback-11.png)
 
-Select the downloaded Hyperdoor image file (ISO), and wait for the image upload to complete.
+#### 选择下载的Hyperdoor镜像文件（iso），等待上传镜像完成
 
 ![complete-doc-for-block-storage-failback-12.png](./images/complete-doc-for-block-storage-failback-12.png)
 
 ![complete-doc-for-block-storage-failback-13.png](./images/complete-doc-for-block-storage-failback-13.png)
 
 
-## Use the Hyperdoor image to create a virtual machine in the production VMware environment as the Failback Gateway Host
+## 使用Hyperdoor镜像创建VMware虚拟机作为通用存储回切网关
 
-### Create a new virtual machine
+### 创建通用存储回切网关
 
-Select your ESXi host or data center, right-click, and choose [New Virtual Machine]
+选择你的ESXi或数据中心，右击鼠标，选择[新建虚拟机]
 
 ![complete-doc-for-block-storage-failback-14.png](./images/complete-doc-for-block-storage-failback-14.png)
 
-### New Virtual Machine Configuration
+### 新虚拟机配置
 
-**Step 1: Choose [Create a new virtual machine], and after configuring, click [NEXT]**
+**Step 1: 创建新虚拟机，配置完成后点击[NEXT]**
 
 ![complete-doc-for-block-storage-failback-15.png](./images/complete-doc-for-block-storage-failback-15.png)
 
-**Step 2: Enter the virtual machine name, select an available cluster,click [NEXT].**
+**Step 2: 填写虚拟机名称，选择可用集群，配置完成后点击[NEXT]**
 
 ![complete-doc-for-block-storage-failback-16.png](./images/complete-doc-for-block-storage-failback-16.png)
 
-**Step 3: Choose an available [Compute Resource],click [NEXT].**
+**Step 3: 选择[计算资源] ，配置完成后点击[NEXT]**
 
 ![complete-doc-for-block-storage-failback-17.png](./images/complete-doc-for-block-storage-failback-17.png)
 
-**Step 4: Choose an available [Storage],click [NEXT].**
+**Step: 选择[存储]，配置完成后点击[NEXT]**
 
 ![complete-doc-for-block-storage-failback-18.png](./images/complete-doc-for-block-storage-failback-18.png)
 
-**Step 5: Choose compatibility (leave it as default), click [NEXT].**
+**Step 5: 选择兼容性，默认即可，配置完成后点击[NEXT]**
 
 ![complete-doc-for-block-storage-failback-19.png](./images/complete-doc-for-block-storage-failback-19.png)
 
-**Step 6: Choose the operating system. For the operating system family, select [Linux], and for the operating system version, choose [Other Linux (64-bit)], click [NEXT].**
+**Step 6: 选择操作系统，操作系统系列使用[Linux] ，操作系统版本使用 [Other Linux（64-bit）]即可，配置完成后点击[NEXT]**
 
 ![complete-doc-for-block-storage-failback-20.png](./images/complete-doc-for-block-storage-failback-20.png)
 
-**Step 7-1: Customize hardware by configuring CPU ≥2 and memory ≥4GB.**
+**Step 7-1: 自定义硬件，配置CPU≥2，内存≥4GB**
 
 ![complete-doc-for-block-storage-failback-21.png](./images/complete-doc-for-block-storage-failback-21.png)
 
-**Step 7-2: Customize hardware by selecting an available network configuration**
+**Step 7-2: 自定义硬件，配置选择可用的网络**
 
 ![complete-doc-for-block-storage-failback-22.png](./images/complete-doc-for-block-storage-failback-22.png)
 
 ![complete-doc-for-block-storage-failback-23.png](./images/complete-doc-for-block-storage-failback-23.png)
 
-**Step 7-3: Customize hardware by configuring system disk and data disk.**
+**Step 7-3: 自定义硬件，配置系统盘和数据盘**
 
 ::: warning
-The number and capacity of disks for the Failback Gateway Host need to be consistent with the Failback Host.
+通用存储回切网关虚拟机的系统盘和数据盘需要与回切主机一致。
 :::
 
 ![complete-doc-for-block-storage-failback-24.png](./images/complete-doc-for-block-storage-failback-24.png)
 
 ![complete-doc-for-block-storage-failback-25.png](./images/complete-doc-for-block-storage-failback-25.png)
 
-**Step 7-4: Configure the CD/DVD drive. Choose the type as [Datastore ISO File], in the new window select the uploaded Hyperdoor image file (ISO) from the storage, and check the option [Connect At Power On]. Leave other configurations as default, click [NEXT].**
+**Step 7-4: CD/DVD驱动配置，类型选择[数据存储ISO文件]，新窗口选择上传到存储的Hyperdoor镜像文件（ISO），并且勾选[打开电源时连接]选项；其他配置默认即可，配置完成后点击[NEXT]**
 
 ![complete-doc-for-block-storage-failback-26.png](./images/complete-doc-for-block-storage-failback-26.png)
 
@@ -98,39 +98,39 @@ The number and capacity of disks for the Failback Gateway Host need to be consis
 
 ![complete-doc-for-block-storage-failback-29.png](./images/complete-doc-for-block-storage-failback-29.png)
 
-**Step 8: After confirming that the information is correct, click [FINISH] to start the creation.**
+**Step 8: 确认信息无误后，单击[FINISH]启动创建**
 
 ![complete-doc-for-block-storage-failback-30.png](./images/complete-doc-for-block-storage-failback-30.png)
 
-### Start the virtual machine
+### 启动虚拟机
 
-Right-click on the newly created virtual machine, choose [**Power**] \> [**Power On**].
+右键点击刚刚创建的虚拟机，选择 [启动] > [打开电源] 。
 
 ![complete-doc-for-block-storage-failback-31.png](./images/complete-doc-for-block-storage-failback-31.png)
 
-Open the virtual machine console and check the startup status of the virtual machine.
+打开虚拟机控制台，查看虚拟机启动状态。
 
 ![complete-doc-for-block-storage-failback-32.png](./images/complete-doc-for-block-storage-failback-32.png)
 
-The virtual machine system has started successfully.
+虚拟机系统正常启动。
 
 ![complete-doc-for-block-storage-failback-33.png](./images/complete-doc-for-block-storage-failback-33.png)
 
 
-## Configure the IP address for the Failback Gateway Host
+## 配置通用存储回切网关虚拟机的IP地址
 
-### Log in to the VMware vSphere Client console
+### 登录VMware vSphere Client控制台
 
 ![complete-doc-for-block-storage-failback-34.png](./images/complete-doc-for-block-storage-failback-34.png)
 
-### Access the Failback Gateway Host virtual machine through the console.
+### 控制台访问通用存储回切网关虚拟机
 
 ![complete-doc-for-block-storage-failback-35.png](./images/complete-doc-for-block-storage-failback-35.png)
 
-### Log in system
+### 登录系统
 
-> Default username: root  
-> Default password: Acb@132.Inst
+> 默认用户名: root  
+> 默认密码: Acb@132.Inst
 
 ![complete-doc-for-block-storage-failback-36.png](./images/complete-doc-for-block-storage-failback-36.png)
 
@@ -140,7 +140,7 @@ The virtual machine system has started successfully.
 The Hyperdoor image is configured with default DHCP mode for networking. If the VMware network you selected supports DHCP, confirm the virtual machine's IP and proceed. If the VMware network does not use DHCP, manual configuration of the virtual machine's network is required
 :::
 
-#### Confirm the virtual machine's network adapter device name
+#### 确认虚拟机的网络适配器设备名称
 
 ```shell
 ip a
@@ -148,23 +148,23 @@ ip a
 
 ![complete-doc-for-block-storage-failback-37.png](./images/complete-doc-for-block-storage-failback-37.png)
 
-#### Clear network configuration information
+#### 清除网络配置信息
 
 ```shell
 ip addr flush dev eth0
 ```
 
-Configure a temporary IP address and gateway
+配置临时IP
 
 ::: tip
-Configure with example information. Please replace the IP address/mask [192.168.x.x/20] and gateway address [192.168.0.1] based on your actual situation.
+配置为示例信息，请根据实际情况替换IP地址/掩码 [192.168.x.x/20] 和网关地址 [192.168.0.1]
 :::
 
 ```shell
 ip addr add 192.168.x.x/20 dev ens160 && ip route add default via 192.168.0.1
 ```
 
-#### View network configuration
+#### 查看网络配置
 
 ```shell
 ip a
@@ -178,81 +178,87 @@ ip route
 
 ![complete-doc-for-block-storage-failback-39.png](./images/complete-doc-for-block-storage-failback-39.png)
 
-## VMware User Permission Requirements（Host Failback）
+## vCenter创建用户及开放权限 （主机回切）
 
-### VMware User Preparation（Host Failback）
+### VMware用户权限（主机回切）
 
-Prepare the VMware user authentication information for failback and ensure that the user has the necessary permissions. 
+准备用于回切的VMware用户身份验证信息，并确保该用户具有必要的权限。  
 
-For configuring VMware user permissions, please refer to the following document.
+有关配置VMware用户权限的信息，请参阅以下文档。  
 
-Document Link:[https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#vcenter-permission-open-settings-steps](https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#vcenter-permission-open-settings-steps)
+文档链接： [https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#vcenter-permission-open-settings-steps](https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#vcenter-permission-open-settings-steps)
 
-### VMware User Permission (Host Failback)
+### VMware用户所需权限（主机回切）
 
-| **Permission Type** | **Permissions** |
+| **权限类型** | **权限** |
 | --- | --- |
-| Datastore | Low level file operations |
-| | Allocate space |
-| Network | Assign network |
-| Resource | Assign virtual machine to resource pool |
-| vApp | Import |
-| Virtual machine | **Interaction** |
-| | Power off |
-| | Power on |
-| | Reset |
-| | **Guest operations** |
-| | Guest operation queries |
-| | Guest operation program execution |
-| | **Change Configuration** |
-| | Change CPU count |
-| | Change Memory |
-| | Change Settings |
-| | Add or remove device |
-| | Add new disk |
-| | Add existing disk |
-| | Remove disk |
-| | Advanced configuration |
-| | **Edit Inventory** |
-| | Create from existing |
-| | Remove |
-| | **Provisioning** |
-| | Clone virtual machine |
+| 数据存储 | 低级别文件操作 |
+| | 分配空间 |
+| 网络 | 分配网络 |
+| 资源 | 将虚拟机分配给资源池 |
+| vApp | 导入 |
+| 虚拟机 | **交互** |
+| | 关闭电源 |
+| | 打开电源 |
+| | 重置 |
+| | **客户机操作** |
+| | 客户机操作查询 |
+| | 客户机操作程序执行 |
+| | **更改配置** |
+| | 更改 CPU 数目 |
+| | 更改内存 |
+| | 更改设置 |
+| | 添加或移除设备 |
+| | 添加新磁盘 |
+| | 添加现有磁盘 |
+| | 移除磁盘 |
+| | 高级配置 |
+| | **编辑清单** |
+| | 从现有项创建 |
+| | 移除 |
+| | **置备** |
+| | 克隆虚拟机 |
 
-## VMware Network Policy Enablement (Host Failback)
+## vCenter/ESXi网络策略开通 (主机回切)
 
 
-1. The HyperBDR node host needs to have normal access to the vCenter on port 443.  
-2. The HyperBDR node host needs to have normal access to all ESXi hosts managed by vCenter on port 443.  
-3. The VMware business network virtual machine (failback recovery virtual machine) needs to have normal access to the object storage on port 443.  
-4. The HyperBDR node host needs to have normal access to port 10729 of the VMware business network virtual machine (failback recovery virtual machine).
+1. HyperBDR节点主机需要正常访问vCenter 443端口。  
+2. HyperBDR节点主机需要正常访问vCenter管理的所有ESXi 443端口。 
+3. VMware业务网络虚拟机（回切恢复虚拟机）需要正常访问对象存储的443端口。 
+4. HyperBDR节点主机需要正常访问VMware业务网络虚拟机（回切恢复虚拟机）的10729端口。
 
 ::: tip
-The HyperBDR node host requires access to the vCenter API interface for authentication. By invoking the Disaster Recovery Production vCenter/ESXi interface, it creates a failback recovery virtual machine in the VMware business network, manages it, and automatically creates a failback recovery virtual machine. This involves accessing port 443 of Huawei Cloud Object Storage to retrieve data for failback recovery.
+HyperBDR节点主机需要访问vCenter API接口进行认证，通过调用容灾生产站点vCenter/ESXi接口在VMware业务网络创建回切恢复虚拟机，并进行管理，同时自动创建回切恢复虚拟机通过访问华为云对象存储的443端口来获取数据，进行回切恢复。
 :::
 
-## (Intranet VPN Access)Configure a Huawei cloud Intranet DNS address for the VMware Network-Object Storage Fallback
+## （内网VPN访问）配置VMware生产端回切恢复主机所在网络使用容灾目标云内网DNS解析
 
 ::: tip
-If the configuration of the Huawei Cloud intranet OBS VPC Endpoint service resolution address has already been completed during the disaster recovery to Huawei Cloud, there is no need to repeat the configuration.
+如果在对容灾目标云的灾难恢复过程中，已经配置容灾目标云内网OBS VPC Endpoint服务解析地址，则无需重复配置。
 :::
 
-If your fallback environment is interconnected with the on-premises network through Huawei Cloud VPN, after creating VPC Endpoint services, it is necessary to configure the Huawei Cloud intranet OBS VPC Endpoint service resolution address in the local vCenter/ESXi host management network and the virtual machine business network.  
-Reference Document: [https://docs.oneprocloud.com/userguide/poc/hyperbdr-agent-pre-settings.html#option-2-intranet-vpn-access-configure-huawei-cloud-intranet-dns-address-for-the-network-device-where-the-agent-host-resid](https://docs.oneprocloud.com/userguide/poc/hyperbdr-agent-pre-settings.html#option-2-intranet-vpn-access-configure-huawei-cloud-intranet-dns-address-for-the-network-device-where-the-agent-host-resid)
 
-## (Intranet VPN Access)Test the connectivity from the VMware failback recovery host network to Huawei Cloud OBS network
+如果你的容灾环境是通过华为云VPN与生产站点内网互联，VPC Endpont服务创建之后，需要在生产站点Agent主机所在网络增加华为云内网OBS VPC Endpoint服务解析地址。
 
-### Prepare and log in the test host 
+参考文档链接: [https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#option-2-intranet-vpn-access-configure-huawei-cloud-intranet-dns-address-for-the-network-device-where-the-agent-host-reside](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#option-2-intranet-vpn-access-configure-huawei-cloud-intranet-dns-address-for-the-network-device-where-the-agent-host-reside)
+
+## （内网VPN访问）测试VMware生产端回切恢复主机所在网络到内网OBS网络的连通性
 
 ::: tip
-The network of the test host needs to be consistent with the network of the fallback recovery host.  
+使用华为云作为测试示例
 :::
 
-### Huawei Cloud Private DNS Connection Test
+### 准备测试主机并登录
 
 ::: tip
-Please refer to the following document to find the dedicated Network Domain Service (NDS) address based on the used Huawei Cloud OBS region.  
-Reference Document:[https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
+测试主机所在网络需要与回切恢复主机所在的网络一致。  
+:::
+
+### 私有DNS连接测试
+
+::: tip
+请参阅以下文档，查找基于所用对象存储区域的专用NDS（网络域服务）地址。  
+参考文档： [https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
 :::
 
 ```shell
@@ -263,7 +269,7 @@ Success Response:
 
 ![docs-of-object-storage-host-failback-5.png](./images/docs-of-object-storage-host-failback-5.png)
 
-### Huawei Cloud Object Storage Connection Test
+### 对象存储连接测试
 
 ```shell
 ping https://obs.ap-southeast-3.myhuaweicloud.com
@@ -274,55 +280,55 @@ Success Response:
 ![docs-of-object-storage-host-failback-6.png](./images/docs-of-object-storage-host-failback-6.png)
 
 ::: tip
-This command is primarily used to test the accessibility of Huawei Cloud Object Storage buckets. Currently, the tested OBS domain is applicable to the Huawei Cloud Singapore region. If you need to perform tests in different regions, please refer to the official Huawei Cloud documentation to find the corresponding Endpoint domain.  
-Document Link: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
+该命令主要用于测试华为云对象存储桶的可访问性。目前，测试的OBS域适用于华为云新加坡地区。如果您需要在不同的地区进行测试，请参阅华为云官方文档，找到相应的Endpoint域名。  
+文档链接： [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
 :::
 
-## Verify the status of the Huawei Cloud Object Storage added by HyperBDR(Host Failback)
+## 验证HyperBDR添加的对象存储状态（主机回切）
 
 ::: tip
-The deployment of the HyperBDR environment has been completed by default.
+默认已完成HyperBDR环境的部署。
 :::
 
-### Log in HyperBDR Console
+### 登录HyperBDR
 
 ![docs-of-object-storage-host-failback-7.png](./images/docs-of-object-storage-host-failback-7.png)
 
-### Check the status of Huawei Cloud Object Storage
+### 检查对象存储状态
 
-Select [**Configuration**]> [**Object Storage**]> [**Failback**], and you can see the failback [**Object Storage**] you added. Confirm that the status of [**Object Storage**] is [**Available**].
+选择 [**配置管理**] > [**对象存储**] > [**回切**], 可以看到您添加的 [**对象存储**] ，确认 [**对象存储**] 的健康状态为 [**在线**] 即可。
 
 ![docs-of-object-storage-host-failback-8.png](./images/docs-of-object-storage-host-failback-8.png)
 
-##  Add the vCenter/ESXi as an Object DR Gateway(Failback)
+## 添加源端生产vCenter/ESXi主机为对象存储回切网关
 
 ::: tip
-Default deployment of HyperBDR environment completed
+默认已完成HyperBDR环境的部署。
 :::
 
-### Login HyperBDR
+### 登录HyperBDR
 
-![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-1.png](./images/add-the-vcenteresxi-as-an-object-dr-gatewayfailback-1.png)
+![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-1.png](./images/docs-of-object-storage-host-failback-7.png)
 
-### Add Object DR Gateway(Failback)
+### 添加回切恢复网关
 
-**Step 1.** Select "Configuration" in the upper navigation bar, choose "Object DR Gateway" in the left menu, and click "Add" on the "Failback" tab.
+**Step 1.** 上方导航栏中选择 "配置管理"，左侧菜单栏选择"对象存储恢复网关"，在"回切"标签页中点击"添加"。
 
 ![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-2.png](./images/add-the-vcenteresxi-as-an-object-dr-gatewayfailback-2.png)
 
-**Step 2.** Fill in the authentication information for the VMware platform on the "Authentication Information" page, and click "Next" after confirmation.
+**Step 2.** 在"添加回切平台账号"页面填写VMware平台鉴权信息，确认后点击"下一步"。
 
 ![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-3.png](./images/add-the-vcenteresxi-as-an-object-dr-gatewayfailback-3.png)
 
-**Step 3.** Configure the failback target platform VMware Setting, and click "Next" after confirmation.
+**Step 3.** 回切目标平台VMware的配置，确认后点击"下一步"。
 
 ![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-4.png](./images/add-the-vcenteresxi-as-an-object-dr-gatewayfailback-4.png)
 
-**Step 4. **The "Driver Adaption" option can remain at its default setting.
+**Step 4.** "驱动修复"选项默认即可。
 
 ![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-5.png](./images/add-the-vcenteresxi-as-an-object-dr-gatewayfailback-5.png)
 
-**Step 5.** The Object DR Gateway(Failback) has been successfully added.
+**Step 5.** 对象存储恢复网关添加成功。
 
 ![add-the-vcenteresxi-as-an-object-dr-gatewayfailback-6.png](./images/add-the-vcenteresxi-as-an-object-dr-gatewayfailback-6.png)
 
