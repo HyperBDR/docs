@@ -2,55 +2,50 @@
 
 [[toc]]
 
-## (Intranet VPN access)Test the network connectivity between the HyperBDR and the Failback Gateway Host
+## （内网VPN访问）测试HyperBDR到通用存储回切网关的网络连通性
 
 ::: tip
-If the failback test environment is connected to the Intranet of the production site through Huawei Cloud VPN, perform this step to test the network connectivity between the HyperBDR and the universal storage failback gateway.
+如果你的回切测试环境是通过容灾目标云VPN与生产站点内网互联，可以通过此操作步骤来测试HyperBDR到通用存储回切网关的网络连通性。
 :::
 
-### Verification test procedure
+### 验证测试步骤
 
-Log in to the HyperBDR host
+登录到HyperBDR主机
 
-#### Test access to port 10729 of the Failback Gateway Host
+#### 测试访问通用存储回切网关10729端口
 
-Test command:
-
-```
-ssh -v -p 10729 <Failback Gateway Host Intranet IP>
-```
-
-If the input result includes the information '[debug1: Connection established.],' it indicates that the network connection is successful.
+测试命令：
 
 ```
-OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
-debug1: Reading configuration data /etc/ssh/ssh_config
-debug1: /etc/ssh/ssh_config line 58: Applying options for *
-debug1: Connecting to 192.168.10.2 [ESXi IP Address] port 443.
-debug1: Connection established.
+ssh -p 10729 root@<Failback Gateway Host Intranet IP>
 ```
 
-## Test the connectivity from HyperBDR to the management network of vCenter/ESXi
+验证结果：  
+
+可以正常访问到输入密码，则表示正常访问。
+
+## 测试HyperBDR到vCenter/ESXi的管理网络连通性
 
 ::: tip
-If your fallback testing environment is interconnected with the on-premises network through Huawei Cloud VPN, you can test the network connectivity from HyperBDR to the Common Storage Fallback Gateway using the following steps.
+如果你的回切测试环境是通过容灾目标云的VPN与生产站点内网互联，可以通过此操作步骤来测试HyperBDR到vCenter/ESXi的管理网络连通性的网络连通性。
 :::
 
-### Log in to the HyperBDR host
+### 登录到HyperBDR主机
 
-### Test access to the vCenter address port
+### 测试访问vCenter地址的端口
 
 ::: tip
-Replace the IP address of vCenter in the command with the actual IP address from the production environment.
+命令中将Vcenter的IP地址替换为实际生产环境中的IP地址
 :::
 
-Test command:
+测试命令：
 
 ```
 ssh -v -p 443 <vCenter IP Address>
 ```
 
-If the input result includes the information '[debug1: Connection established.],' it indicates that the network connection is successful.
+测试结果：
+如果输入结果包括信息“[debug1: Connection established.]”，则表明网络连接没有问题。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -60,19 +55,20 @@ debug1: Connecting to 192.168.10.2 [vCenter IP Address] port 443.
 debug1: Connection established.
 ```
 
-### Test access to the ESXi address port
+### 测试访问ESXi地址的端口
 
 ::: tip
-Replace the IP address of ESXi in the command with the actual IP address from the production environment.
+命令中将ESXi的IP地址替换为实际生产环境中的IP地址
 :::
+
+测试命令：
 
 ```
 ssh -v -p 443 <ESXi IP Address>
 ```
 
-Test command:
-
-If the input result includes the information '[debug1: Connection established.],' it indicates that the network connection is successful.
+测试结果：
+如果输入结果包括信息“[debug1: Connection established.]”，则表明网络连接没有问题。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -82,158 +78,159 @@ debug1: Connecting to 192.168.10.2 [ESXi IP Address] port 443.
 debug1: Connection established.
 ```
 
-## Add the Generic Failback Gateway Host to HyperBDR
+## 添加通用存储回切网关到HyperBDR
 
 ::: tip
-The deployment of the HyperBDR has been completed by default.
+默认已完成HyperBDR环境的部署。
 :::
 
-### Log in to the HyperBDR console
+### 登录HyperBDR
 
-![configure-hyperbdr-host-failback-1.png](./images/configure-hyperbdr-host-failback-1.png)
+![docs-of-object-storage-host-failback-7.png](./images/docs-of-object-storage-host-failback-7.png)
 
-### Add the Generic Failback Gateway Host
+### 添加通用存储回切网关
 
-**Step 1.** On the top navigation bar, select "Configuration", choose "Generic Storage" in the left menu, and click "Add" on the "Failback" - "Failback Storage Gateway" tab.
+**Step 1.** 上方导航栏中选择 "配置管理"，左侧菜单栏选择"通用方式存储"，在"回切" - "回切网关管理"标签页中点击"添加"。
 
 ![configure-hyperbdr-host-failback-2.png](./images/configure-hyperbdr-host-failback-2.png)
 
-**Step 2.** Follow the instructions in the form to create the Generic Storage "Failback Gateway". Choose "Block Storage" or "Object Storage" as the Failback Method, fill in the information for the generic storage failback gateway, and after confirming, click "Next".
+**Step 2.** 按照表单中的说明创建"通用存储回切网关"。填写通用存储回切网关的信息，确认后单击"下一步"。
 
 ::: tip
-Choose "Object Storage" or "Block Storage" based on your storage type to configure the "Failback Method".
+根据您的存储类型来配置"回切恢复模式"，您可以选择"对象存储"或者"云硬盘"。
 :::
 
 ![configure-hyperbdr-host-failback-3.png](./images/configure-hyperbdr-host-failback-3.png)
 
-**Step 3.** The "Driver Adaption" option can remain at its default setting.
+**Step 3.** "驱动修复"选项默认即可。
 
 ![configure-hyperbdr-host-failback-4.png](./images/configure-hyperbdr-host-failback-4.png)
 
-**Step 4.** The status of the general storage failback gateway should be "Available".
+**Step 4.** 通用存储回切网关状态为可用即可。
 
 ![configure-hyperbdr-host-failback-5.png](./images/configure-hyperbdr-host-failback-5.png)
 
-## Verify the status of the Failback Gateway Host
+## 验证通用存储回切网关状态
 
 ::: tip
-The deployment of the HyperBDR has been completed by default.
+默认已完成HyperBDR环境的部署。
 :::
 
-### Log in to the HyperBDR console
+### 登录HyperBDR控制台
 
-![configure-hyperbdr-host-failback-6.png](./images/configure-hyperbdr-host-failback-6.png)
+![docs-of-object-storage-host-failback-7.png](./images/docs-of-object-storage-host-failback-7.png)
 
-### Check the status of the Failback Gateway
+### 检查通用存储回切网关的状态
 
-On the top navigation bar, select "Configuration", choose "Generic Storage" in the left menu, and click on the [Failback Gateway] you want to confirm.
+在顶部导航栏上，选择[**配置管理**]，在左侧菜单中选择[**通用方式存储**] > [**回切**]，在回切网关管理中单击要确认的[**通用存储回切网关**]。
 
 ![configure-hyperbdr-host-failback-7.png](./images/configure-hyperbdr-host-failback-7.png)
 
-Confirm that the status of this Failback Gateway is [**available**].
+确认此通用存储回切网关的状态为[**可用**]即可。
 
 ![configure-hyperbdr-host-failback-8.png](./images/configure-hyperbdr-host-failback-8.png)
 
 
-## Apply for HyperBDR Failback License
+## 申请HyperBDR容灾回切授权
 
 ::: tip
-The deployment of the HyperBDR has been completed by default.
+默认已完成HyperBDR环境的部署。
 :::
 
-### Log in the HyperBDR console
+### 登录HyperBDR控制台
 
-![configure-hyperbdr-host-failback-9.png](./images/configure-hyperbdr-host-failback-9.png)
+![docs-of-object-storage-host-failback-7.png](./images/docs-of-object-storage-host-failback-7.png)
 
-### Activate a Failback License
+### 激活容灾回切Licnese
 
-Select [**Settings**] > [**License Management**] > [**Failback License**], and click [**Add**].
+选择[设置] > [授权管理] >[容灾回切授权] ，点击 [添加]。
 
 ![configure-hyperbdr-host-failback-10.png](./images/configure-hyperbdr-host-failback-10.png)
 
-### Retrieve the Failback License activation code
+### 获取License激活码（容灾回切）
 
 ::: tip
-There are two methods to obtain the Failback License activation code.
+有两种方法来获取License激活码
 :::
 
-#### Activate using the QR code
+#### 使用二维码激活License
 
 ![configure-hyperbdr-host-failback-11.png](./images/configure-hyperbdr-host-failback-11.png)
 
-Scan the QR code and fill out the application form. Customer service will send the activation code to the user via email (as an attachment) after reviewing the application. 
+扫描二维码并填写申请表。客服将在审查申请后通过电子邮件向用户发送激活码（附件）。
 
 ::: tip
-Please ensure that the email address provided on the application form is accurate; otherwise, you will not receive the activation code.
+请确保申请表上提供的电子邮件地址正确无误，否则将不会收到激活码。
 :::
 
 ![configure-hyperbdr-host-failback-12.png](./images/configure-hyperbdr-host-failback-12.png)
 
-After filling in the received activation code, click [**Activate**].
+将收到的激活码填写后点击 [激活] 即可。
 
 ![configure-hyperbdr-host-failback-13.png](./images/configure-hyperbdr-host-failback-13.png)
 
-#### Activate using the **registration code**
+#### 使用注册码激活License
 
-[**click here**] to obtain the registration code, and [**Click copy the registration code**].
+[点击此处] 获取注册码，并复制注册码
 
 ![configure-hyperbdr-host-failback-14.png](./images/configure-hyperbdr-host-failback-14.png)
 
 ![configure-hyperbdr-host-failback-15.png](./images/configure-hyperbdr-host-failback-15.png)
 
 
-You can send the registration code to the sales representative or email it to **enquiry@oneprocloud.com**. After receiving the activation code, fill it in and click [**Activate**].
+用户可以将注册码发送给销售代表或邮箱enquiry@oneprocloud.com ，将收到的激活码填写后点击 [激活] 即可。
 
 ![configure-hyperbdr-host-failback-16.png](./images/configure-hyperbdr-host-failback-16.png)
 
 ![configure-hyperbdr-host-failback-17.png](./images/configure-hyperbdr-host-failback-17.png)
 
-## Download the hyperdoor image for the Failback Gateway
+## 下载通用存储回切网关所使用的HyperDoor镜像
 
 ::: tip
 Choose the available image file according to the production environment on the source. You will need to use the hyperdoor image to create a virtual machine/physical machine in the source production environment.
+根据源生产环境选择可用的镜像文件。您将需要使用HyperDoor镜像在源生产环境中创建虚拟机/物理机。
 :::
 
-### Download ISO Format Image
-hyperdoor image download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso)  
-hyperdoor image MD5 file download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso.md5](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso.md5)
+### ISO格式镜像下载
+镜像下载地址：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso)  
+镜像MD5文件下载地址：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso.md5](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso.md5)
 
-### Download QCOW2 Format Image
-hyperdoor image download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2)  
-hyperdoor image MD5 file download link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2)
+### QCOW2格式镜像下载
+镜像下载地址：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2)  
+镜像MD5文件下载地址：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2)
 
-## Add Huawei Cloud Object Storage (Failback)
+## 添加对象存储（容灾回切）
 
 ::: tip
-Already logged in to the HyperBDR console by default.  
-Using the provided IAM account AK/SK information, configure and add Huawei Cloud Object Storage bucket in the HyperBDR console.
+默认已完成HyperBDR环境的部署。  
+以下操作使用华为云作为示例，在HyperBDR控制台中配置并添加华为云对象存储桶。请根据您实际场景中的容灾目标云进行配置。
 :::
 
-### Configure Step
+### 配置步骤
 
-- Step 1. Click on the top menu bar 'Configuration,' 'Storage,' 'Object Storage.' Select 'fallback' tab, Click the 'Add' button.
+- Step 1. 上侧菜单栏点击 [配置管理]，左侧选择 [存储配置] 中的 [对象存储]，选择 [回切] 标签页，点击 [+添加] 。
 
 ![add-huawei-cloud-object-storage-failback-1.png](./images/add-huawei-cloud-object-storage-failback-1.png)
 
-- Step 2. On the object storage platform, select the Huawei Cloud object storage region.
+- Step 2. 在 [对象存储平台]，选择您所使用的华为云对象存储区域
 
 ![add-huawei-cloud-object-storage-failback-2.png](./images/add-huawei-cloud-object-storage-failback-2.png)
 
-- Step 3. Using the provided IAM account AK/SK information，After confirmation, click 'Next'.
+- Step 3. 填写用于鉴权认证对象存储的AK/SK，确认后点击 下一步
 
 ![add-huawei-cloud-object-storage-failback-3.png](./images/add-huawei-cloud-object-storage-failback-3.png)
 
-- Step 4. After setting the name of the object storage bucket, click 'Submit'.
+- Step 4. 设置对象存储桶的名称后点击 [确定]。
 
 ::: tip
-You can use existing object buckets within the region, or create new object buckets and customize their names.
+您可以使用区域内已经存在的对象存储桶，或者新建对象存储桶并自定义名称。
 :::
 
 ![add-huawei-cloud-object-storage-failback-4.png](./images/add-huawei-cloud-object-storage-failback-4.png)
 
 ![add-huawei-cloud-object-storage-failback-5.png](./images/add-huawei-cloud-object-storage-failback-5.png)
 
-- Step 5. Object storage(Failback) addition completed.
+- Step 5. 对象存储（容灾回切）添加完成
 
 ![add-huawei-cloud-object-storage-failback-6.png](./images/add-huawei-cloud-object-storage-failback-6.png)
 
