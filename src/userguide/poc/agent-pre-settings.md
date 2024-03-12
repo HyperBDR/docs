@@ -244,6 +244,11 @@ Check the operating system and version of the source host, compare it with the A
 【√】: Full support 
 :::
 
+::: tip
+Currently, the Linux Agent only supports officially released Ubuntu LTS versions. For other customized versions based on Ubuntu, we do not provide support at the moment.  
+If your production environment uses a customized Ubuntu version, we need to conduct an internal evaluation on the product side and perform necessary custom builds based on the actual on-site situation. Once the build is completed and passes internal integrity testing, we will provide updates to support your production environment.
+:::
+
 | **OS** [Production Source] | **Version** | **Support Information** |
 | :---: | :---: | :---: |
 | **Windows Server** |  2003 SP2/R2 (64-bit) | √ |

@@ -329,11 +329,11 @@ module.exports = {
       title: 'HyperBDR Documentation',
       description: 'Cloud Native DR Product - HyperBDR'
     },
-    //'/zh/': {
-    //lang: 'zh-CN',
-    //title: 'HyperBDR文档中心',
-    //description: 'HyperBDR云原生容灾产品'
-    //}
+    '/zh/': {
+      lang: 'zh-CN',
+      title: 'HyperBDR文档中心',
+      description: 'HyperBDR云原生容灾产品'
+    }
   },
 
 
