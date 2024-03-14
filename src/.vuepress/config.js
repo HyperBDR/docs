@@ -214,8 +214,17 @@ module.exports = {
         nav: [
           //  { text: '嵌套', link: '/zh/nested/' }
           {
-            text: '用户指南',
-            link: '/zh/userguide/'
+            text: '文档',
+            items: [
+              {
+                text: '用户指南',
+                link: '/zh/userguide/'
+              },
+              //{
+              //  text: 'Product Overview',
+              //  link: '/productoverview/'
+              //},
+            ]
           },
           {
             text: 'OneProCloud',
@@ -225,6 +234,13 @@ module.exports = {
         sidebar: {
           '/zh/userguide/': [
             {
+              title: '检查清单',
+              collapsable: false,
+              children: [
+                'checklist/dr-checklist',
+              ]
+            },
+            {
               title: '售前',
               collapsable: false,
               children: [
@@ -232,7 +248,6 @@ module.exports = {
                 'presales/hyperbdr-agent-investigation',
                 'presales/dr-network-planning-recommendations',
                 'presales/hyperbdr-rpo-rto-planning-best-practices',
-                'checklist/dr-checklist',
                 'presales/cloud-platform-support-matrix',
               ]
             },
