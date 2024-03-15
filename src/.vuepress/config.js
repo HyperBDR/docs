@@ -70,10 +70,10 @@ module.exports = {
                 text: 'User Guide',
                 link: '/userguide/'
               },
-              //{
-              //  text: 'Product Overview',
-              //  link: '/productoverview/'
-              //},
+              {
+                text: 'Product Overview',
+                link: '/product-overview/'
+              },
             ]
           },
           {
@@ -184,11 +184,21 @@ module.exports = {
               ]
             }
           ],
-          '/productintroduction/': [
+          '/product-overview/': [
             {
-            title: 'Product Introduction',
+            title: 'Product Overview',
             collapsable: false,
             children: [
+              {
+                title: 'Compatibility & Limitations',
+                collapsable: false,
+                children: [
+                  'limitations/linux-agent.md',
+                  'limitations/windows-agent.md',
+                  'limitations/vmware-agentless.md',
+                  'limitations/openstack-ceph-agentless.md',
+                ]
+              }
             ],
             }
           ]
@@ -222,7 +232,7 @@ module.exports = {
               },
               //{
               //  text: 'Product Overview',
-              //  link: '/productoverview/'
+              //  link: '/product-overview/'
               //},
             ]
           },
