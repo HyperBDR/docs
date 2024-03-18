@@ -20,11 +20,11 @@ Proxy ova的默认用户名和密码:
 
 注意：在运行此命令之前，请确保替换以下变量：
 
-* ipaddress: Assign IPv4 network according to real network
-* netmask
-* gateway
-* dns1
-* dns2
+* ipaddr: 分配IPV4地址
+* netmask: 子网掩码
+* gateway: 网关
+* dns1: 主DNS
+* dns2: 备DNS
 
 ```
 cat <<EOF >> /etc/sysconfig/network-scripts/ifcfg-ens160
@@ -417,8 +417,8 @@ Proxy ova 的默认用户名和密码：
 
 - Access Key ID: 华为云账号 Access Key ID  
 - Access Key Secret: 华为云账号 Access Key Secret  
-- Project: 可选项, 可以留空  
-- Project ID: 可选项, 可以留空 
+- 项目: 可选项, 可以留空  
+- 项目 ID: 可选项, 可以留空 
 - 跳过驱动修复: 可选项
 
 确认填写的信息后，点击“下一步”按钮。

@@ -8,7 +8,7 @@
 
 #### 安装包
  
-> 文件名称: HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz 
+> 文件名称: HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz  
 > 下载链接: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v4.12.1_20240112-20240112-2284.tar.gz)  
 
 #### MD5校验文件
@@ -69,7 +69,7 @@ cat "$HYPERBDR_PACKAGE_MD5_NAME"
 - 执行以下命令解压安装包  
 
 ```sh
-tar -zxvf "$HYPERBDR_PACKAGE_MD5_NAME" -C /mnt/  
+tar -zxvf "$HYPERBDR_PACKAGE_NAME" -C /mnt/  
 ```
 ### 运行安装脚本
 
@@ -190,9 +190,9 @@ bash /mnt/installer/install.sh
 
 | 鉴权地址 | https://\<vCenter IP/Domain Name\>:443 |
 | --- | --- |
-| 用户名 | \<vCenter user\> |
-| 密码 | \<vCenter password\> |
-| 同步节点 | \<Proxy Node IP\> |
+| 用户名 | \<vCenter\>用户名 |
+| 密码 | \<vCenter\>密码 |
+| 同步节点 | \<同步节点 IP\> |
 
 ![add-vmware-credentials-4.png](./images/add-vmware-credentials-4.png)
 

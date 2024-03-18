@@ -109,10 +109,10 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 | No. | Action | Type | Protocol & Port | Source | Description |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Allow | IPv4 | TCP:22 | 0.0.0.0/0 | Permit default Linux SSH port |
-| 2 | Allow | IPv4 | TCP:10443 | 0.0.0.0/0 | Permit HyperBDR web console |
-| 3 | Allow | IPv4 | TCP:30443 | 0.0.0.0/0 | Permit HyperBDR Operation and maintenance management platform web console port |
-| 4 | Allow | IPv4 | TCP:30080 | 0.0.0.0/0 | Permit HyperBDR https services port |
+| 1 | 允许 | IPv4 | TCP:22 | 0.0.0.0/0 | 默认允许Linux SSH端口 |
+| 2 | 允许 | IPv4 | TCP:10443 | 0.0.0.0/0 | 允许 HyperBDR web 控制台 |
+| 3 | 允许 | IPv4 | TCP:30443 | 0.0.0.0/0 | 允许 HyperBDR 运维管理平台 Web 控制台端口 |
+| 4 | 允许 | IPv4 | TCP:30080 | 0.0.0.0/0 | 允许 HyperBDR HTTPS 服务端口 |
 
 ## 创建ECS实例用来安装 HyperBDR
 
@@ -125,23 +125,23 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 | 配置项               | 参数                                                      |
 | :------------------ | :-------------------------------------------------------------- |
-| Region              | <Your Region\>                                                  |
-| Billing Mode        | Yearly/Monthly                                                  |
-| AZ                  | AZ1                                                             |
-| Flavor              | s6.2xlarge.2                                                    |
-| Image               | CentOS 7.9 64bit(40 GiB)(d580586a-1761-4f06-bb11-5f358ee29e40)  |
-| System Disk         | High IO 200GB                                                   |
-| Network             | <VPC-HyperBDR-172.16.0.0\>                                      |
-| Subnet              | <Subnet-HyperBDR-172.16.0.0\> (Automatically assign IP address) |
-| Security Group      | SG-HyperBDR                                                     |
-| EIP                 | Auto assign                                                     |
-| EIP Type            | Dynamic BGP                                                     |
-| Billed By           | Traffic                                                         |
-| Bandwidth Size      | 100Mbps                                                         |
-| ECS Name            | HyperBDR-Prod                                                   |
-| Login Mode          | Password                                                        |
-| Username            | root                                                            |
-| Password            | ec1@OneProCloud#!                                               |
+| 区域                | <你的区域\>                                                      |
+| 计费模式            | 包年/包月                                                        |
+| 可用区              | 可用区1                                                          |
+| 规格                | s6.2xlarge.2                                                    |
+| 镜像                | CentOS 7.9 64bit(40 GiB)(d580586a-1761-4f06-bb11-5f358ee29e40)  |
+| 系统盘              | 高IO 200GB                                                      |
+| 网络                | <VPC-HyperBDR-172.16.0.0\>                                      |
+| 子网                | <Subnet-HyperBDR-172.16.0.0\> (Automatically assign IP address) |
+| 安全组              | SG-HyperBDR                                                     |
+| 弹性公网ip          | 现在购买                                                         |
+| 弹性公网ip线路       | 全动态 BGP                                                      |
+| 公网带宽             | 按流量计费                                                      |
+| 带宽大小             | 100Mbps                                                        |
+| 实例名称             | HyperBDR-Prod                                                  |
+| 登录凭证             | 密码                                                           |
+| 用户名               | root                                                            |
+| 密码                 | ec1@OneProCloud#!                                               |
 
 ## 镜像下载 & 上传
 
@@ -189,17 +189,17 @@ HyperBDR 安全组名称: SG-HyperBDR
 #### 步骤一: 访问IMS控制台
 
 - 登录管理控制台。
-- 在“计算”下，点击“镜像服务”。IMS控制台将显示。将外部镜像文件注册为私有镜像。
+- 在“计算”下，点击“镜像服务IMS”。IMS控制台将显示。将外部镜像文件注册为私有镜像。
   ![upload-custom-windowslinux-images-to-huawei-cloud-1.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-1.png)
 
 #### 步骤2: 将外部镜像文件注册为私有镜像
 
-- 点击右上角的“创建镜像”
+- 点击右上角的“创建私有镜像”
   ![upload-custom-windowslinux-images-to-huawei-cloud-2.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-2.png)
 
 ::: warning 
 1.名称必须是以下之一，并且不能包含额外的字符。  
-2.由于源主机上Windows的各种版本，选择操作系统的通用选项。 
+2.由于源主机上Windows的各种版本，选择操作系统的通用选项。  
 3.Linux镜像主要用于创建HyperDoor。当前版本的推荐版本是CentOS 8+。 
 :::
 支持的 windows 镜像名称
@@ -235,7 +235,7 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 #### 步骤3: 确认并提交
 
-- 点击“下一步”并确认镜像规格。选择“创建镜像承诺书”和“华为镜像免责声明”。然后点击“提交”。
+- 勾选“我已阅读并同意”，选择“创建镜像承诺书”和“华为镜像免责声明”。然后点击“立即创建”。
 
 - 返回到私有镜像页面。当镜像的状态变为正常时，表示成功注册。
 
@@ -246,37 +246,37 @@ HyperBDR 安全组名称: SG-HyperBDR
 > 配置VPN。详细信息请参阅华为云官方文档。 
 > 文档链接: [https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html](https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html)
 
-## 创建华为VPC终端
+## 创建华为VPC终端节点
 
 > 如果您的灾难恢复环境通过华为云VPN与生产站点的内部网络相互连接，并且在灾难期间生产站点需要通过VPN访问华为云HyperBDR和OBS服务，那么您需要购买并配置华为云中的VPC终端服务。
 
 > 您需要购买两个VPC终端服务，一个用于OBS，另一个用于DNS。
 
-> 华为云的官方定义：如果您希望通过VPN或Cloud Connect使用内部网络方法从本地数据中心访问OBS服务，您可以通过连接终端终端点以访问终端终端点服务来实现这一目标。  
+> 华为云的官方定义：如果您希望通过VPN或Cloud Connect使用内部网络方法从本地数据中心访问OBS服务，您可以通过连接终端端点以访问终端端点服务来实现这一目标。  
 > 文档链接：[https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html](https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html)
 
-### 为终端终端点配置DNS接口类型
+### 为终端节点配置DNS接口类型
 
-| Project | Configuration |
+| 项目 | 配置 |
 | --- | --- |
-| Region | Choose the Region to activate |
-| Billing Mode | Pay-per-use |
-| Service Category | Choose the default "Cloud server," check com.myhuaweicloud.<region\>.dns, and set the type as Interface. |
-| VPC | Choose the VPC interconnecting with the local IDC VPN |
-| Subnet | Select the subnet for VPN interconnection |
+| 区域 | 选择要激活的区域 |
+| 计费模式 | 按需计费 |
+| 服务类别 | 选择默认的'云服务'，选择 com.myhuaweicloud.<region\>.dns，并将类型设置为接口 |
+| 虚拟私有云 | 选择与本地IDC VPN互联的VPC |
+| 子网 | 选择用于VPN互连的子网 |
 
 ![option-2-internal-vpn-access---create-vpc-endpoint-service-1.png](./images/option-2-internal-vpn-access---create-vpc-endpoint-service-1.png)
 
-### 选择OBS网关类型的终端终端点
+### 选择OBS网关类型的终端端点
 
 | Project | Configuration |
-| --- | --- |
-| Region | Choose the Region to activate |
-| Billing Mode | Pay-per-use |
-| Service Category | Choose the default "Cloud server," check com.myhuaweicloud.<region/>.obs, and set the type as Gateway |
-| VPC | Choose the VPC interconnecting with the local IDC VPN |
-| Route Table | default |
-| Policy | default |
+| ---        | --- |
+| 区域       | 选择要激活的区域 |
+| 计费模式   | 按需计费 |
+| 服务类别   | 选择默认的'云服务'，选择 com.myhuaweicloud.<region\>.obs，并将类型设置为网关 |
+| 虚拟私有云 | 选择与本地IDC VPN互联的VPC |
+| 路由表     | 默认 |
+| 策略       | 默认 |
 
 ::: warning 
 注意：在“服务类别”部分，可能无法直接找到默认云服务类型对应的OBS服务。在这种情况下，您需要使用“按名称查找服务”进行搜索。您必须输入特定OBS服务的完整名称。请与华为云确认，因为华为云侧目标OBS服务终端点在v1和v2版本之间可能存在差异。此外，每个地区的名称和v1/v2版本之间以及对象存储桶的资源池之间的关联需要澄清。如果您购买了v1 OBS终端节点但您的对象存储桶位于v2集群中，必须相应地进行调整。请提前与华为云确认对象存储桶集群的具体版本和OBS终端节点。
@@ -295,9 +295,9 @@ HyperBDR 安全组名称: SG-HyperBDR
 ## 创建华为VPC对等连接
 
 ::: tip
+
 根据业务需求，选择不同的VPC对等连接配置：  
-- 
-如果多个业务VPC之间不需要相互访问，只需根据 [容灾恢复 VPC 通过对等连接与多个业务VPC连接](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#disaster-recovery-vpc-connected-via-peering-with-multiple-business-vpc) 配置对等连接。
+- 如果多个业务VPC之间不需要相互访问，只需根据 [容灾恢复 VPC 通过对等连接与多个业务VPC连接](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#disaster-recovery-vpc-connected-via-peering-with-multiple-business-vpc) 配置对等连接。
 - 如果需要多个业务VPC之间相互访问的需求，那么您需要根据 [与多个业务VPC进行灾难恢复VPC对等连接，以及多个业务VPC之间的对等连接](https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-settings.html#disaster-recovery-vpc-peering-with-multiple-business-vpcs-as-well-as-peering-connections-between-multiple-business-vpc) 进行配置。
 :::
 
@@ -314,7 +314,7 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 当客户的所有灾难恢复主机需要放置在华为云规划的不同业务VPC中，并且在业务中存在跨VPC访问的需求时，就需要在业务VPC之间配置点对点连接，以确保在后续业务恢复后正常进行跨VPC业务交互。
 
-> 为云文档链接:  
+> 华为云文档链接:  
 > [https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html#section0](https://support.huaweicloud.com/intl/en-us/usermanual-vpc/en-us_topic_0046809840.html#section0)
 
 ## 测试VPC之间的网络访问
@@ -369,13 +369,13 @@ ssh root@<The intranet IP of the test ECS> 22
 ### 源主机资源清单
 
 需要收集等待灾难恢复的主机系统的计算和存储资源信息，并将详细信息输入到一个表格中。
-| Resources Type | Size |
+| 资源类型 | 大小 |
 | --- | --- |
-| The total number of source host  |  |
-| The total number of source host CPU |  |
-| The total number of source host RAM(MB) |  |
-| The total number of source host disks |  |
-| The total disk capacity for source host(GB) |  |
+| 源端主机的总数量  |  |
+| 源端主机的总CPU数量 |  |
+| 源端主机的总内存大小 |  |
+| 源端主机的总磁盘数量 |  |
+| 源端主机磁盘的总容量 |  |
 
 ### 华为云账户资源配额检查
 
@@ -405,15 +405,15 @@ ssh root@<The intranet IP of the test ECS> 22
 ![huawei-cloud-platform-account-quota-check-7.png](./images/huawei-cloud-platform-account-quota-check-7.png)
 
 
-| Service | Resources Type | Used Quota | Total Quota | Residual Quota |
+| 服务 | 资源类型 | 使用配额 | 总配额 | 剩余配额 |
 | --- | --- | --- | --- | --- |
-| Elastic Cloud Server | ECSs |  |  |  |
-| Elastic Cloud Server | vCPUs |  |  |  |
-| Elastic Cloud Server | Memory (MB) |  |  |  |
-| Image Management Service | Images |  |  |  |
-| Elastic Volume Service | Disks |  |  |  |
-| Elastic Volume Service | Disk capacity(GB) |  |  |  |
-| Virtual Private Cloud | Elastic IP addresses |  |  |  |
+| 弹性云服务器 | ECS实例 |  |  |  |
+| 弹性云服务器 | CPU |  |  |  |
+| 弹性云服务器 | 内存 |  |  |  |
+| 镜像管理服务 | 镜像 |  |  |  |
+| 弹性卷服务 | 磁盘 |  |  |  |
+| 弹性卷服务 | 磁盘容量 |  |  |  |
+| 虚拟私用云 | 弹性IP地址 |  |  |  |
 
 #### 将剩余配额与源主机的资源进行比较
 
