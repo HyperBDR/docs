@@ -183,9 +183,9 @@ This command is primarily used to test the accessibility of TM CAE Object Storag
 Reference Link: [https://support.alphaedge.tmone.com.my/en-us/endpoint/index.html](https://support.alphaedge.tmone.com.my/en-us/endpoint/index.html)
 :::
 
-## (Intranet VPN Access)Test the connectivity from the Failback Gateway network to OBS network - Agent
+## (Intranet VPN Access)Test the connectivity from the Failback Transition Host network to OBS network - Agent
 
-### Login Failback Gateway System
+### Login Failback Transition Host System
 
 ::: tip
 Default User：root  
