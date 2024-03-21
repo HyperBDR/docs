@@ -2,22 +2,22 @@
 
 [[toc]]
 
-## (Intranet VPN access)Test the network connectivity between the HyperBDR and the Failback Gateway Host
+## (Intranet VPN access)Test the network connectivity between the HyperBDR and the Failback Transition Host
 
 ::: tip
-If the failback test environment is connected to the Intranet of the production site through VPN, perform this step to test the network connectivity between the HyperBDR and the universal storage failback gateway.
+If the failback test environment is connected to the Intranet of the production site through VPN, perform this step to test the network connectivity between the HyperBDR and the universal storage failback Transition Host.
 :::
 
 ### Verification test procedure
 
 Log in to the HyperBDR host
 
-#### Test access to port 10729 of the Failback Gateway Host
+#### Test access to port 10729 of the Failback Transition Host
 
 Test command:
 
 ```
-ssh -v -p 10729 <Failback Gateway Host Intranet IP>
+ssh -v -p 10729 <Failback Transition Host Intranet IP>
 ```
 
 If the input result includes the information '[debug1: Connection established.],' it indicates that the network connection is successful.
@@ -33,7 +33,7 @@ debug1: Connection established.
 ## Test the connectivity from HyperBDR to the management network of vCenter/ESXi
 
 ::: tip
-If your fallback testing environment is interconnected with the on-premises network through VPN, you can test the network connectivity from HyperBDR to the Common Storage Fallback Gateway using the following steps.
+If your fallback testing environment is interconnected with the on-premises network through VPN, you can test the network connectivity from HyperBDR to the Common Storage Fallback Transition using the following steps.
 :::
 
 ### Log in to the HyperBDR host
@@ -82,7 +82,7 @@ debug1: Connecting to 192.168.10.2 [ESXi IP Address] port 443.
 debug1: Connection established.
 ```
 
-## Add the Generic Failback Gateway Host to HyperBDR
+## Add the Generic Failback Transition Host to HyperBDR
 
 ::: tip
 The deployment of the HyperBDR has been completed by default.
@@ -92,13 +92,13 @@ The deployment of the HyperBDR has been completed by default.
 
 ![configure-hyperbdr-host-failback-1.png](./images/configure-hyperbdr-host-failback-1.png)
 
-### Add the Generic Failback Gateway Host
+### Add the Generic Failback Transition Host
 
 **Step 1.** On the top navigation bar, select "Configuration", choose "Generic Storage" in the left menu, and click "Add" on the "Failback" - "Failback Storage Gateway" tab.
 
 ![configure-hyperbdr-host-failback-2.png](./images/configure-hyperbdr-host-failback-2.png)
 
-**Step 2.** Follow the instructions in the form to create the Generic Storage "Failback Gateway". Choose "Block Storage" or "Object Storage" as the Failback Method, fill in the information for the generic storage failback gateway, and after confirming, click "Next".
+**Step 2.** Follow the instructions in the form to create the Generic Storage "Failback Transition Host". Choose "Block Storage" or "Object Storage" as the Failback Method, fill in the information for the generic storage failback Transition Host, and after confirming, click "Next".
 
 ::: tip
 Choose "Object Storage" or "Block Storage" based on your storage type to configure the "Failback Method".
@@ -110,11 +110,11 @@ Choose "Object Storage" or "Block Storage" based on your storage type to configu
 
 ![configure-hyperbdr-host-failback-4.png](./images/configure-hyperbdr-host-failback-4.png)
 
-**Step 4.** The status of the general storage failback gateway should be "Available".
+**Step 4.** The status of the general storage failback Transition Host should be "Available".
 
 ![configure-hyperbdr-host-failback-5.png](./images/configure-hyperbdr-host-failback-5.png)
 
-## Verify the status of the Failback Gateway Host
+## Verify the status of the Failback Transition Host
 
 ::: tip
 The deployment of the HyperBDR has been completed by default.
@@ -124,13 +124,13 @@ The deployment of the HyperBDR has been completed by default.
 
 ![configure-hyperbdr-host-failback-6.png](./images/configure-hyperbdr-host-failback-6.png)
 
-### Check the status of the Failback Gateway
+### Check the status of the Failback Transition Host
 
 On the top navigation bar, select "Configuration", choose "Generic Storage" in the left menu, and click on the [Failback Gateway] you want to confirm.
 
 ![configure-hyperbdr-host-failback-7.png](./images/configure-hyperbdr-host-failback-7.png)
 
-Confirm that the status of this Failback Gateway is [**available**].
+Confirm that the status of this Failback Transition Host is [**available**].
 
 ![configure-hyperbdr-host-failback-8.png](./images/configure-hyperbdr-host-failback-8.png)
 
@@ -188,7 +188,7 @@ You can send the registration code to the sales representative or email it to **
 
 ![configure-hyperbdr-host-failback-17.png](./images/configure-hyperbdr-host-failback-17.png)
 
-## Download the hyperdoor image for the Failback Gateway
+## Download the hyperdoor image for the Failback Transition Host
 
 ::: tip
 Choose the available image file according to the production environment on the source. You will need to use the hyperdoor image to create a virtual machine/physical machine in the source production environment.
