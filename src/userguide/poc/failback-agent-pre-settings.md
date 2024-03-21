@@ -263,10 +263,10 @@ This command is primarily used to test the accessibility of Huawei Cloud Object 
 Reference Link:  [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
 :::
 
-## (Intranet VPN Access) Tests the network connectivity between the Failback Host and the Failback Gateway
+## (Intranet VPN Access) Tests the network connectivity between the Failback Host and the Failback Transition Host
 
 ::: tip
-If the switchback test environment is connected to the Intranet of the production site through VPN, you can perform this operation to test the network connectivity between the Failback Host and the Failback Gateway Host.
+If the switchback test environment is connected to the Intranet of the production site through VPN, you can perform this operation to test the network connectivity between the Failback Host and the Failback Transition Host.
 :::
 
 ### The Failback Host is a Linux
@@ -275,7 +275,7 @@ If the switchback test environment is connected to the Intranet of the productio
 
 Log in to the Failback Host.
 
-#### Test access to port 10729 of the Failback Gateway Host
+#### Test access to port 10729 of the Failback Transition Host
 
 ::: tip
 Ensure that the ssh command is running on the Failback Host
@@ -283,7 +283,7 @@ Ensure that the ssh command is running on the Failback Host
 
 Test command:
 ```bash
-ssh -p 10729 root@<Failback Gateway Host Intranet IP>
+ssh -p 10729 root@<Failback Transition Host Intranet IP>
 ```
 
 Verification results:
@@ -295,7 +295,7 @@ If the password can be accessed normally, the access is normal.
 
 Log in to the Failback Host
 
-#### Test access to port 10729 of the Failback Gateway Host
+#### Test access to port 10729 of the Failback Transition Host
 
 ::: tip
 Ensure that the ssh command exists on the Failback Host, and open the CMD command line
@@ -303,7 +303,7 @@ Ensure that the ssh command exists on the Failback Host, and open the CMD comman
 
 Test command:
 ```bash
-ssh -p 10729 root@<Failback Gateway Host Intranet IP>
+ssh -p 10729 root@<Failback Transition Host Intranet IP>
 ```
 
 Verification results:
