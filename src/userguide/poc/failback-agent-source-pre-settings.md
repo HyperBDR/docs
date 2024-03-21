@@ -2,15 +2,15 @@
 
 [[toc]]
 
-##  Create Failback Gateway - Agent
+##  Create Failback Transition Host - Agent
 
-1. Use the hyperdoor image to create a virtual machine or physical machine in the source production environment as a Failback Gateway.
-2. The Failback Gateway serves as the data receiver during rollback and the recovery host during the final rollback.
-3. The Failback Gateway serves requires a minimum configuration of 2 cores and 4 GB RAM. As this host is the recovery host during the final rollback, the general rule is to have a computing resource configuration consistent with the failback host.
-4. The Failback Gateway serves storage configuration (disk number and disk capacity) for the Failback Gateway should match that of the failback host.
+1. Use the hyperdoor image to create a virtual machine or physical machine in the source production environment as a Failback Transition Host.
+2. The Failback Transition Host serves as the data receiver during rollback and the recovery host during the final rollback.
+3. The Failback Transition Host serves requires a minimum configuration of 2 cores and 4 GB RAM. As this host is the recovery host during the final rollback, the general rule is to have a computing resource configuration consistent with the failback host.
+4. The Failback Transition Host serves storage configuration (disk number and disk capacity) for the Failback Transition Host should match that of the failback host.
 
 **Example：**
-| Host configuration | Failback Host configuration | Failback Gateway configuration |
+| Host configuration | Failback Host configuration | Failback Transition Host configuration |
 | --- | --- | --- |
 | CPU | 4 | 4 |
 | RAM | 8GB | 8GB |
@@ -18,13 +18,13 @@
 | data disk1 capacity | 200GB | 200GB |
 | data disk2 capacity | 500GB | 500GB |
 
-## Configure the IP address for the Failback Gateway Host - Agent
+## Configure the IP address for the Failback Transition Host Host - Agent
 
 ::: tip
-The virtual machine/physical machine has already been created as a failback gateway in the source production environment by defaul.
+The virtual machine/physical machine has already been created as a failback Transition Host in the source production environment by defaul.
 :::
 
-### Login the Failback Gateway system
+### Login the Failback Transition Host system
 
 ::: tip
 Default User：root  
@@ -77,9 +77,9 @@ ip route
 
 ![configure-the-ip-address-for-the-failback-gateway-host---agent-4.png](./images/configure-the-ip-address-for-the-failback-gateway-host---agent-4.png)
 
-## (Intranet VPN Access)Test the connectivity from the Failback Gateway network to Huawei Cloud OBS network - Agent
+## (Intranet VPN Access)Test the connectivity from the Failback Transition Host network to Huawei Cloud OBS network - Agent
 
-### Login Failback Gateway System
+### Login Failback Transition Host System
 
 ::: tip
 Default User：root  
