@@ -34,7 +34,7 @@ Select the downloaded Hyperdoor image file (ISO), and wait for the image upload 
 ![complete-doc-for-block-storage-failback-13.png](./images/complete-doc-for-block-storage-failback-13.png)
 
 
-## Use the Hyperdoor image to create a virtual machine in the production VMware environment as the Failback Gateway Host
+## Use the Hyperdoor image to create a virtual machine in the production VMware environment as the Failback Transition Host
 
 ### Create a new virtual machine
 
@@ -81,7 +81,7 @@ Select your ESXi host or data center, right-click, and choose [New Virtual Machi
 **Step 7-3: Customize hardware by configuring system disk and data disk.**
 
 ::: warning
-The number and capacity of disks for the Failback Gateway Host need to be consistent with the Failback Host.
+The number and capacity of disks for the Failback Transition Host need to be consistent with the Failback Host.
 :::
 
 ![complete-doc-for-block-storage-failback-24.png](./images/complete-doc-for-block-storage-failback-24.png)
@@ -117,13 +117,13 @@ The virtual machine system has started successfully.
 ![complete-doc-for-block-storage-failback-33.png](./images/complete-doc-for-block-storage-failback-33.png)
 
 
-## Configure the IP address for the Failback Gateway Host
+## Configure the IP address for the Failback Transition Host
 
 ### Log in to the VMware vSphere Client console
 
 ![complete-doc-for-block-storage-failback-34.png](./images/complete-doc-for-block-storage-failback-34.png)
 
-### Access the Failback Gateway Host virtual machine through the console.
+### Access the Failback Transition Host virtual machine through the console.
 
 ![complete-doc-for-block-storage-failback-35.png](./images/complete-doc-for-block-storage-failback-35.png)
 
