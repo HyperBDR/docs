@@ -360,14 +360,14 @@ If you don't know how to use SSH on a Windows system, please refer to the follow
 ### Configure DNS domain name
 
 ::: tip
-\<Huawei OBS Endpoint Service IPaddress\> is the IP address of the OBS endpoint service after creating the VPC Endpoint service.   
+\<Huawei DNS Endpoint Service IPaddress\> is the IP address of the DNS endpoint service after creating the VPC Endpoint service.   
 :::
 
 ![option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png](./images/option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png)  
 
 ```sh
 cat <<EOF >> /etc/resolv.conf
-nameserver <Huawei OBS Endpoint Service IPaddress>
+nameserver <Huawei DNS Endpoint Service IPaddress>
 EOF
 ```
 ## Install Proxy

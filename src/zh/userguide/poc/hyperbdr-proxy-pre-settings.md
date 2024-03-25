@@ -336,14 +336,14 @@ Proxy ova 的默认用户名和密码：
 ### 配置DNS域名
 
 ::: tip
-\<华为OBS终端节点服务的IP地址\> 在创建VPC端点服务后，是OBS终端节点服务的IP地址。   
+\<华为DNS终端节点服务的IP地址\> 在创建VPC端点服务后，是DNS终端节点服务的IP地址。   
 :::
 
 ![option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png](./images/option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png)  
 
 ```sh
 cat <<EOF >> /etc/resolv.conf
-nameserver <Huawei OBS Endpoint Service IPaddress>
+nameserver <Huawei DNS Endpoint Service IPaddress>
 EOF
 ```
 ## 安装同步代理
