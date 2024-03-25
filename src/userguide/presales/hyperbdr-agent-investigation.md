@@ -1,4 +1,6 @@
-# Agent Quick Investigation
+# Host Quick Investigation
+
+Complete the following steps to collect information about the DR hosts in the source production environment and fill it into a CSV ([CSV Template Download](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Host%28Windows%20or%20Linux%29%20Quick%20Investigation%20information%20template.xlsx)). Then, upload the CSV file to us using the Google Form [Google Form](https://docs.google.com/forms/d/1ikUHJxwYqeYmfBuk2Tl7Fy1I9aYIqvlFsSsg21rqfTs/prefill).  
 
 ## Investigation Steps
 
@@ -166,3 +168,5 @@ Check the used space of the disk based on the output.
 
 Based on the above operation steps, obtain the corresponding system information for subsequent disaster recovery testing. When executing any commands, ensure that you have sufficient permissions. Additionally, after collecting the information, fill in the gathered details into the corresponding disaster recovery host research table.
 
+[CSV Template Download](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Host%28Windows%20or%20Linux%29%20Quick%20Investigation%20information%20template.xlsx).  
+[Upload Investigation Information](https://docs.google.com/forms/d/1ikUHJxwYqeYmfBuk2Tl7Fy1I9aYIqvlFsSsg21rqfTs/prefill)

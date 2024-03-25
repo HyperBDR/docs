@@ -1,5 +1,7 @@
 # 源端Agent主机快速调研
 
+完成以下步骤，收集源端生产环境中容灾主机的信息并填写到CSV文件中（[CSV 模板文件下载](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Host%28Windows%20or%20Linux%29%20Quick%20Investigation%20information%20template.xlsx)）。然后使用 [Google 表单](https://docs.google.com/forms/d/1ikUHJxwYqeYmfBuk2Tl7Fy1I9aYIqvlFsSsg21rqfTs/prefill) CSV文件上传给我们。
+
 ## 调研步骤
 
 ### Windows Server 2016
@@ -159,4 +161,7 @@ df -Th
 
 ![hyperbdr-agent-investigation-copy-10.png](./images/hyperbdr-agent-investigation-copy-10.png)
 
-根据以上操作步骤，获取相应的系统信息，用于后续的灾难恢复测试。在执行任何命令时，请确保您具有足够的权限。此外，在收集信息后，将收集到的详细信息填写到相应的灾难恢复主机研究表中。
+根据以上操作步骤，获取相应的系统信息，用于后续的灾难恢复测试。在执行任何命令时，请确保您具有足够的权限。此外，在收集信息后，将收集到的详细信息填写到相应的灾难恢复主机研究表中。  
+
+[CSV模板文件下载](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Host%28Windows%20or%20Linux%29%20Quick%20Investigation%20information%20template.xlsx).  
+[上传调研信息](https://docs.google.com/forms/d/1ikUHJxwYqeYmfBuk2Tl7Fy1I9aYIqvlFsSsg21rqfTs/prefill)

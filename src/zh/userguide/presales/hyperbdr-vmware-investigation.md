@@ -1,6 +1,8 @@
 # 源端VMware主机快速调研
 
-本文档主要用于指导用户场景的初步调研，以确定用户场景是否在产品支持的早期阶段。
+本文档主要用于指导用户场景的初步调研，以确定用户场景是否在产品支持的早期阶段。  
+
+完成以下步骤，导出包含 VMware 虚拟机信息的 CSV 文件，并使用 [Google 表单](https://docs.google.com/forms/d/1ikUHJxwYqeYmfBuk2Tl7Fy1I9aYIqvlFsSsg21rqfTs/prefill) 将 CSV 文件上传给我们。
 
 ## 调研步骤
 
@@ -44,4 +46,6 @@
 
 ![hyperbdr-vmware-investigation-9.png](./images/hyperbdr-vmware-investigation-9.png)
 
-配置完成后，需要执行页面重新加载操作。
+配置完成后，需要执行页面重新加载操作。  
+
+[上传调研信息](https://docs.google.com/forms/d/1ikUHJxwYqeYmfBuk2Tl7Fy1I9aYIqvlFsSsg21rqfTs/prefill)
