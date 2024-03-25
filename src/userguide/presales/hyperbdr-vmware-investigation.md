@@ -1,6 +1,8 @@
 # VMware Quick Investigation
 
-This document is primarily designed to guide the initial investigation of user scenarios to determine whether they fall within the scope of product support during the early stages.
+This document is primarily designed to guide the initial investigation of user scenarios to determine whether they fall within the scope of product support during the early stages.  
+
+Complete the following steps to export a CSV file containing VMware virtual machine information and upload the CSV file to us using the [Google Form](https://docs.google.com/forms/d/1ikUHJxwYqeYmfBuk2Tl7Fy1I9aYIqvlFsSsg21rqfTs/prefill).  
 
 ## Investigation Steps
 
@@ -45,3 +47,6 @@ Upon completion of these steps, you will receive a CSV file. Kindly send the fil
 ![hyperbdr-vmware-investigation-9.png](./images/hyperbdr-vmware-investigation-9.png)
 
 Upon completing the configuration, it is essential to execute a page reload for the changes to take effect.
+
+
+[Upload Investigation Information](https://docs.google.com/forms/d/1ikUHJxwYqeYmfBuk2Tl7Fy1I9aYIqvlFsSsg21rqfTs/prefill)
