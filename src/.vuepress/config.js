@@ -101,7 +101,7 @@ module.exports = {
                 'presales/hyperbdr-vmware-investigation',
                 'presales/hyperbdr-agent-investigation',
                 'presales/dr-network-planning-recommendations',
-                'presales/hyperbdr-rpo-rto-planning-best-practices',                
+                'presales/hyperbdr-rpo-rto-planning-best-practices',
                 'presales/cloud-platform-support-matrix',
               ]
             },
@@ -190,38 +190,45 @@ module.exports = {
           ],
           '/product-overview/': [
             {
-            title: 'Product Overview',
-            collapsable: false,
-            children: [
-              {
-                title: 'Compatibility & Limitations',
-                collapsable: false,
-                children: [
-                  'limitations/linux-agent.md',
-                  'limitations/windows-agent.md',
-                  'limitations/vmware-agentless.md',
-                  'limitations/openstack-ceph-agentless.md',
-                ]
-              }
-            ],
+              title: 'Product Overview',
+              collapsable: false,
+              children: [
+                {
+                  title: 'Compatibility & Limitations',
+                  collapsable: false,
+                  children: [
+                    'limitations/linux-agent.md',
+                    'limitations/windows-agent.md',
+                    'limitations/vmware-agentless.md',
+                    'limitations/openstack-ceph-agentless.md',
+                  ]
+                },
+                {
+                  title: 'HyperBDR Operation',
+                  collapsable: false,
+                  children: [
+                    'operation/upgrade-manual',
+                  ]
+                }
+              ],
             }
           ], // end of /product-overview/
           '/product-trainning/': [
             {
-            title: 'Product Tranning',
-            collapsable: false,
-            children: [
-              {
-                title: 'Tranning',
-                collapsable: false,
-                children: [
-                  'product-overview.md',
-                  'scenarios.md',
-                  'technical-highlights.md',
-                  'project-delivery.md',
-                ]
-              }
-            ],
+              title: 'Product Tranning',
+              collapsable: false,
+              children: [
+                {
+                  title: 'Tranning',
+                  collapsable: false,
+                  children: [
+                    'product-overview.md',
+                    'scenarios.md',
+                    'technical-highlights.md',
+                    'project-delivery.md',
+                  ]
+                }
+              ],
             }
           ] // end of /trainning/
         }
