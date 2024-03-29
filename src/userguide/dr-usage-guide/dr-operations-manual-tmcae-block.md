@@ -543,3 +543,91 @@ Click on the policy name, select the 'Associate Hosts' or 'Associate Resource Gr
 
 ![hyperbdr-user-guide-to-tm-cae-block-storage-78.png](./images/hyperbdr-user-guide-to-tm-cae-block-storage-78.png)
 
+## 7. Alarm Management
+
+::: tip
+Currently, two methods of Email alerts and SMS alerts are supported.
+:::
+
+### 7.1 Alarm Sending Configuration
+
+#### 7.1.1 Use Email Alerts
+
+1. Log in the Broadview coss console
+
+> Login Address：https://<HyperBDR IP\>:30443  
+> Default administrator user：admin  
+> Default administrator password：P@ssw0rd
+
+![alarmconfiguration-1.png](./images/alarmconfiguration-1.png)
+
+2. Configure SMTP
+
+![alarmconfiguration-2.png](./images/alarmconfiguration-2.png)
+
+![alarmconfiguration-3.png](./images/alarmconfiguration-3.png)
+
+
+3. Send Test Email
+
+
+![alarmconfiguration-4.png](./images/alarmconfiguration-4.png)
+
+![alarmconfiguration-5.png](./images/alarmconfiguration-5.png)
+
+#### 7.1.2 Use SMS Alerts
+
+1. Log in the Broadview coss console
+
+> Login Address：https://<HyperBDR IP\>:30443  
+> Default administrator user：admin  
+> Default administrator password：P@ssw0rd
+
+![alarmconfiguration-6.png](./images/alarmconfiguration-6.png)
+
+2. Configure SMS Service
+
+![alarmconfiguration-7.png](./images/alarmconfiguration-7.png)
+
+![alarmconfiguration-8.png](./images/alarmconfiguration-8.png)
+
+3. Send Test SMS
+
+![alarmconfiguration-9.png](./images/alarmconfiguration-9.png)
+
+![alarmconfiguration-10.png](./images/alarmconfiguration-10.png)
+
+### 7.2 Notification Configuration
+
+> Logged into the HyperBDR console by default
+
+1. Add Notufication
+
+![alarmconfiguration-11.png](./images/alarmconfiguration-11.png)
+
+
+2. Configure Notufication
+
+![alarmconfiguration-12.png](./images/alarmconfiguration-12.png)
+
+### 7.3 Alarm Rule Configuration
+
+#### 7.3.1 Resource Alert
+
+1. Create Resource Alert
+
+![alarmconfiguration-13.png](./images/alarmconfiguration-13.png)
+
+2. Configure Resource Alert
+
+![alarmconfiguration-14.png](./images/alarmconfiguration-14.png)
+
+#### 7.3.2 Event Alert
+
+1. Create Event Alert
+
+![alarmconfiguration-15.png](./images/alarmconfiguration-15.png)
+
+2. Configure Event Alert
+
+![alarmconfiguration-16.png](./images/alarmconfiguration-16.png)
