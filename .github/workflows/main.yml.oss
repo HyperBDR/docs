@@ -1,0 +1,29 @@
+name: Deploy to Huawei Cloud
+
+on:
+  push:
+    branches:
+      - main  # 这里的意思是当 main分支发生push的时候，运行下面的jobs，这里先改为github-actions
+
+jobs:
+  deploy: # 任务名自取
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 14
+          cache: 'yarn'
+
+      - name: Build vuepress
+        run: yarn && yarn build
+
+      # Use --strip-components=1 to ignore directory inside tar.gz
+      - name: Install Huawei Object Storage CLI
+        run: curl -L https://obs-community-intl.obs.ap-southeast-1.myhuaweicloud.com/obsutil/current/obsutil_linux_amd64.tar.gz -o ~/obsutil.tar.gz && mkdir -p ~/obsutil && tar -xzvf ~/obsutil.tar.gz -C ~/obsutil --strip-components=1 && chmod 755 ~/obsutil/obsutil
+
+      - name: Set Huawei Object Storage Auth
+        run: touch ~/.obsutilconfig && ~/obsutil/obsutil config -i=${{ vars.ACCESSKEY }} -k=${{ secrets.SECRETKEY }} -e=${{ vars.ENDPOINT }}
+
+      - name: Upload Static files to Huawei Object Storage
+        run:  cd src/.vuepress/dist && ~/obsutil/obsutil sync . obs://${{ vars.BUCKET }}

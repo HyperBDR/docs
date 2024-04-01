@@ -1,4 +1,4 @@
-name: Deploy to Huawei Cloud
+name: Deploy to doc(s).oneprocloud.com
 
 on:
   push:
@@ -18,12 +18,13 @@ jobs:
       - name: Build vuepress
         run: yarn && yarn build
 
-      # Use --strip-components=1 to ignore directory inside tar.gz
-      - name: Install Huawei Object Storage CLI
-        run: curl -L https://obs-community-intl.obs.ap-southeast-1.myhuaweicloud.com/obsutil/current/obsutil_linux_amd64.tar.gz -o ~/obsutil.tar.gz && mkdir -p ~/obsutil && tar -xzvf ~/obsutil.tar.gz -C ~/obsutil --strip-components=1 && chmod 755 ~/obsutil/obsutil
-
-      - name: Set Huawei Object Storage Auth
-        run: touch ~/.obsutilconfig && ~/obsutil/obsutil config -i=${{ vars.ACCESSKEY }} -k=${{ secrets.SECRETKEY }} -e=${{ vars.ENDPOINT }}
-
-      - name: Upload Static files to Huawei Object Storage
-        run:  cd src/.vuepress/dist && ~/obsutil/obsutil sync . obs://${{ vars.BUCKET }}
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avzr --delete
+          path: src/.vuepress/dist
+          remote_path: ${{ secrets.DEPLOY_PATH }}
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_port: ${{ secrets.DEPLOY_PORT }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
