@@ -22,7 +22,7 @@ jobs:
         uses: burnett01/rsync-deployments@7.0.1
         with:
           switches: -avzr --delete
-          path: src/.vuepress/dist
+          path: src/.vuepress/dist/*
           remote_path: ${{ vars.DEPLOY_PATH }}
           remote_host: ${{ vars.DEPLOY_HOST }}
           remote_port: ${{ vars.DEPLOY_PORT }}
