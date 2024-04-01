@@ -343,7 +343,8 @@ debug1: Connection established.
 ## Proxy DNS Settings
 
 ::: tip
-This step is only used when connecting to the cloud platform via VPN.
+This step is only used when connecting to the cloud platform via VPN.  
+If your disaster recovery environment is interconnected with the production site's intranet through Huawei Cloud VPN, after creating the VPC Endpoint service, you need to add the resolution address of the Huawei Cloud intranet OBS VPC Endpoint service in the network where the production site's Proxy host is located.
 :::
 
 ::: tip
@@ -357,7 +358,7 @@ If you don't know how to use SSH on a Windows system, please refer to the follow
 [How do I connect to SSH on Windows?](../faq.md)
 :::
 
-### Configure DNS domain name
+### Get DNS domain name
 
 ::: tip
 \<Huawei DNS Endpoint Service IPaddress\> is the IP address of the DNS endpoint service after creating the VPC Endpoint service.   
@@ -365,11 +366,28 @@ If you don't know how to use SSH on a Windows system, please refer to the follow
 
 ![option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png](./images/option-2-internal-vpn-access-configure-proxy-nodes-to-use-huawei-cloud-intranet-dns-resolution-2.png)  
 
-```sh
-cat <<EOF >> /etc/resolv.conf
-nameserver <Huawei DNS Endpoint Service IPaddress>
-EOF
-```
+### Configure Firewall or Network Devices such as Switches
+
+::: tip
+Example: Palo Alto Firewall  
+The following operations are performed in the firewall web management interface.
+:::
+
+1. Navigate to [Network] > [DNS Proxy] .
+
+2. Click [Add] to bring up the DNS proxy dialog box.
+
+3. Select the interface on which DNS proxy should be enabled. In the following figure, DNS proxy is enabled on Ethernet 1/2 and 1/3 interfaces.
+
+4. Select the primary and secondary servers to which the firewall should forward DNS queries. This example shows the configuration of enabling DNS proxy on Ethernet interfaces 1/2 and 1/3. The active DNS server is set to 10.0.0.246 (This IP is configured as the Huawei Cloud internal DNS Server Addresse).
+
+::: tip
+Configure the Huawei Cloud internal DNS address based on the region where you use Huawei Cloud resources.  
+Huawei Cloud internal DNS service address at： [https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
+:::
+
+![configure-a-huawei-cloud-intranet-dns-address-for-the-network-device-1.png](./images/configure-a-huawei-cloud-intranet-dns-address-for-the-network-device-1.png)
+
 ## Install Proxy
 
 ::: tip
