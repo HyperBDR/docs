@@ -6,6 +6,12 @@
 
 Welcome to HyperBDR! Prior to utilizing this product, kindly complete the appropriate form based on your specific scenario. This document provides essential steps and a checklist to ensure the successful implementation of HyperBDR. Please adhere to the corresponding processes and follow the provided document links to complete all necessary steps before using the product.
 
+## Quick Investigation Checklist
+
+Please fill out the form to complete the preliminary investigation on the host.  
+
+[View Checklist](https://docs.google.com/forms/d/e/1FAIpQLScSfqupAu15ZmfyUnUhJ6B07X9IHuhRRQcw9-TNrR4yFr3tuw/viewform)
+
 ## Huawei Cloud
 
 ### DR Checklist
