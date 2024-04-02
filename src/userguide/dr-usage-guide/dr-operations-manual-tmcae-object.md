@@ -1,4 +1,4 @@
-# DR Operations Manual Object Storage (TM CAE)
+# DR Operations Manual Object Storage
 
 [[toc]]
 
@@ -10,11 +10,11 @@ This user guide explains the use of HyperBDR to backup various types of hosts fr
 
 # II. Basic requirements
 
-·       The hosts (VMware virtual machines) that need to be protected against disasters.
+- The hosts (VMware virtual machines) that need to be protected against disasters.
 
-·       Installation of HyperBDR disaster recovery tool and the login credential.
+- Installation of HyperBDR disaster recovery tool and the login credential.
 
-·       Object storage.
+- Object storage.
 
 # III.  Workflow
 
@@ -34,27 +34,27 @@ This user guide explains the use of HyperBDR to backup various types of hosts fr
 
 **[Note]**
 
-·       When the source  ( the host to be protected) is a VMware virtual machine, relevant configurations need to be performed.
+- When the source  ( the host to be protected) is a VMware virtual machine, relevant configurations need to be performed.
 
-·       This scenario can achieve agentless disaster recovery, meaning that there is no need to install an agent in each VMware virtual machine to achieve non-intrusive operations.
+- This scenario can achieve agentless disaster recovery, meaning that there is no need to install an agent in each VMware virtual machine to achieve non-intrusive operations.
 
 **[Basic requirements]**
 
-·       A vCenter/ESXi cluster
+- A vCenter/ESXi cluster
 
-·       Installation of VMware vSphere Client and login to the vCenter/ESXi cluster.
+- Installation of VMware vSphere Client and login to the vCenter/ESXi cluster.
 
-·       Installation of HyperBDR disaster recovery tool and the login credential.
+- Installation of HyperBDR disaster recovery tool and the login credential.
 
-·       Enable the network policy for the VMware virtual machines on production platform to HyperBDR and the cloud synchronization gateway.
+- Enable the network policy for the VMware virtual machines on production platform to HyperBDR and the cloud synchronization gateway.
 
-**Step 1: **Click "Configuration", click on "Production Sit" in the left menu, click on the "VMware" selection box.
+**Step 1: **Click **"Configuration"**, click on **"Production Sit"** in the left menu, click on the **"VMware"** selection box.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-4.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-4.png)
 
-**Step 2:** Click on the "+Add" button to add the agentless proxy component "Hamal".
+**Step 2:** Click on the **"+Add"** button to add the agentless proxy component **"Hamal"**.
 
->  For the initial addition of VMware, you need to install the "Hamal" component (refer to step 3).
+>  For the initial addition of VMware, you need to install the **"Hamal"** component (refer to step 3).
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-5.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-5.png)
 
@@ -68,7 +68,7 @@ This user guide explains the use of HyperBDR to backup various types of hosts fr
 
 Note: Please operate according to the current display information on the disaster recovery tool. This action is performed by the user in the VMware vSphere Client environment
 
-(3) After installation, return to the disaster recovery tool and click on the "Next" button.
+(3) After installation, return to the disaster recovery tool and click on the **"Next"** button.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-6.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-6.png)
 
@@ -96,23 +96,23 @@ After completing the VMware production platform configuration, you can proceed t
 
 #### 1.2.2. Add Disaster Recovery Host(s) 
 
-After clicking on "DR," select "Host DR" from the left menu, then click on "+Add Host" on the right side, and choose the "Agentless" -> "VMware"  option.
+After clicking on **"DR,"** select **"Host DR"** from the left menu, then click on **"+Add Host"** on the right side, and choose the **"Agentless"** -> **"VMware"**  option.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-9.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-9.png)
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-10.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-10.png)
 
-Select one of the VMware source connections and click on the "Next" button.
+Select one of the VMware source connections and click on the **"Next"** button.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-11.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-11.png)
 
-Select the VMware hosts to be protected against disasters from the list of all VMware hosts in the vCenter/ESXi and click on the "Submit" button:
+Select the VMware hosts to be protected against disasters from the list of all VMware hosts in the vCenter/ESXi and click on the **"Submit"** button:
 
 If there are multiple hosts, you can search in the upper right corner and perform batch selection. 
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-12.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-12.png)
 
-On the disaster recovery page, you can view the list of VMware hosts to be protected against disasters. Select the hosts to be operated on, click on the "Next" button, and proceed to the disaster recovery configuration operation:
+On the disaster recovery page, you can view the list of VMware hosts to be protected against disasters. Select the hosts to be operated on, click on the **"Next"** button, and proceed to the disaster recovery configuration operation:
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-13.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-13.png)
 
@@ -139,18 +139,18 @@ Document Link: [https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.ht
 
 ## 2. Object Storage Settings
 ### 2.1. Adding Object Storage
-**(1) Click on "Configuration" in the upper menu bar, select "Object Storage" under "Storage" on the left, and click on "+Add" .**
+**(1) Click on **"Configuration"** in the upper menu bar, select **"Object Storage"** under **"Storage"** on the left, and click on **"+Add"** .**
 ![hyperbdr-user-guide-to-tm-cae-object-storage-14.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-14.png)
 
 Object storage that supports the S3 protocol can be added, including public cloud object storage such as TM CAE object storage and custom object storage deployed through Minio.
 
-**(2) In the "Object Storage platform", select the TM CAE Object Storage region you are using.**
+**(2) In the **"Object Storage platform"**, select the TM CAE Object Storage region you are using.**
 ![hyperbdr-user-guide-to-tm-cae-object-storage-15.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-15.png)
 
-**(3) Fill in the Access Key (AK) and Access Secret Key (SK) for authenticating against the Object Storage. After confirming, click "Next".**
+**(3) Fill in the Access Key (AK) and Access Secret Key (SK) for authenticating against the Object Storage. After confirming, click **"Next"**.**
 ![hyperbdr-user-guide-to-tm-cae-object-storage-16.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-16.png)
 
-**(4) Set the Object Storage bucket name and click "Submit".**
+**(4) Set the Object Storage bucket name and click **"Submit"**.**
 > You can either use an existing Object Storage bucket within the region or create a new one with a custom name.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-17.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-17.png)
@@ -168,7 +168,7 @@ Object storage that supports the S3 protocol can be added, including public clou
 
 ### 3.1. Configure the disaster recovery platform (TM CAE)
 
-**(1) Click on "Configuration" in the top menu, choose "Object DR Gateway" on the left, and click the "Add" button.**
+**(1) Click on **"Configuration"** in the top menu, choose **"Object DR Gateway"** on the left, and click the **"Add"** button.**
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-20.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-20.png)
 
@@ -188,11 +188,11 @@ When adding the target disaster recovery platform, the TM CAE authentication inf
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-21.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-21.png)
 
-After filling in the details, click on the "Next" button:
+After filling in the details, click on the **"Next"** button:
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-22.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-22.png)
 
-After confirming the information, click on the "Submit" button and wait for the completion to be completed in the disaster recovery management platform.
+After confirming the information, click on the **"Submit"** button and wait for the completion to be completed in the disaster recovery management platform.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-23.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-23.png)
 
@@ -204,26 +204,26 @@ After configuring the disaster recovery platform on TM CAE, you can proceed to [
 ---
 
 ## 4. Perform Disaster Recovery Operations
-When the hosts to be protected against disasters have already been added, select the hosts and click on the "Next" button to go to the disaster recovery configuration page:
+When the hosts to be protected against disasters have already been added, select the hosts and click on the **"Next"** button to go to the disaster recovery configuration page:
 ![hyperbdr-user-guide-to-tm-cae-object-storage-25.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-25.png)
 
 ### 4.1. Disaster Recovery Configuration
-On the Hops DR page, select the hosts to be protected against disasters, click on the "Setup DR" button, select "Object Storage Recovery" and follow the configuration steps:
+On the Hops DR page, select the hosts to be protected against disasters, click on the **"Setup DR"** button, select **"Object Storage Recovery"** and follow the configuration steps:
 ![hyperbdr-user-guide-to-tm-cae-object-storage-26.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-26.png)
 
-**DR configuration step 1:** Specify DR Platform; Select the configuration information of the disaster recovery platform where the disaster recovery host is located, and click the 'Next' button.
+**DR configuration step 1:** Specify DR Platform; Select the configuration information of the disaster recovery platform where the disaster recovery host is located, and click the **"Next"** button.
 > If the disaster recovery platform information is empty, it means that no disaster recovery platform has been added yet. You need to configure the disaster recovery recovery operation before proceeding with the subsequent operations.
 
-Choose 'Object Storage' for the select storage type and select the configured object storage and recovery platform.
+Choose **"Object Storage"** for the select storage type and select the configured object storage and recovery platform.
 ![hyperbdr-user-guide-to-tm-cae-object-storage-27.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-27.png)
 
 You can configure the maximum CPU usage, encryption, and compression settings for the source synchronization.
 ![hyperbdr-user-guide-to-tm-cae-object-storage-28.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-28.png)
 
-**DR configuration step 2:** Computing Resource Configuration; Select the flavor and OS type for the disaster recovery host on the target disaster recovery platform. Once configured, click on the 'Next' button.
+**DR configuration step 2:** Computing Resource Configuration; Select the flavor and OS type for the disaster recovery host on the target disaster recovery platform. Once configured, click on the **"Next"** button.
 ![hyperbdr-user-guide-to-tm-cae-object-storage-29.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-29.png)
 
-**DR configuration step 3:** Specify Volume Type; Choose the volume type used by the disaster recovery host on the target disaster recovery platform. If there are multiple volumes, you can configure them separately for system and data volumes. Once configured, click the 'Next' button.
+**DR configuration step 3:** Specify Volume Type; Choose the volume type used by the disaster recovery host on the target disaster recovery platform. If there are multiple volumes, you can configure them separately for system and data volumes. Once configured, click the **"Next"** button.
 ![hyperbdr-user-guide-to-tm-cae-object-storage-30.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-30.png)
 
 Select the disk for booting. If the first disk in your original system is not designated for booting, you must specify the boot disk here, or it may result in startup failure.
@@ -231,19 +231,19 @@ Select the disk for booting. If the first disk in your original system is not de
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-31.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-31.png)
 
-**DR configuration step 4** Network Congfiguration; Select the VPC network, Subnet, and whether to specify an IP address at startup, configure a public IP, and security group for the disaster recovery host on the target disaster recovery platform. Once configured, click the 'Next' button.
+**DR configuration step 4** Network Congfiguration; Select the VPC network, Subnet, and whether to specify an IP address at startup, configure a public IP, and security group for the disaster recovery host on the target disaster recovery platform. Once configured, click the **"Next"** button.
 > VPC networks and Subnets need to be created in advance under your TM CAE account.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-32.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-32.png)
 
-**DR configuration step 5** Associat Policy;  Associate the corresponding disaster recovery policy with the standby host (association can be skipped for now). If there is no policy, you can create a new one. After completion, click the 'Submit' button.
-> Before starting the policy configuration, the hosts that have already been configured will automatically enter the "Start DR" phase.
+**DR configuration step 5** Associat Policy;  Associate the corresponding disaster recovery policy with the standby host (association can be skipped for now). If there is no policy, you can create a new one. After completion, click the **"Submit"** button.
+> Before starting the policy configuration, the hosts that have already been configured will automatically enter the **"Start DR"** phase.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-33.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-33.png)
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-34.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-34.png)
 
-> After completing the disaster recovery configuration, you can still choose to modify the disaster recovery configuration for the host in the "Action" section.
+> After completing the disaster recovery configuration, you can still choose to modify the disaster recovery configuration for the host in the **"Action"** section.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-35.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-35.png)
 
@@ -253,11 +253,11 @@ Select the disk for booting. If the first disk in your original system is not de
 
 ### 4.2. Data Synchronization (Full / Incremental)
 
-In the "Start DR" step, you can select one or more hosts to be protected against disasters, and click on the "Sync" button to synchronize data:
+In the **"Start DR"** step, you can select one or more hosts to be protected against disasters, and click on the **"Sync"** button to synchronize data:
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-36.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-36.png)
 
-Confirm the disaster recovery hosts that need to be synchronized and click on the "Submit" button:
+Confirm the disaster recovery hosts that need to be synchronized and click on the **"Submit"** button:
 
 > For the first synchronization, full data will be synchronized. For subsequent synchronizations, incremental data will be synchronized. You can also select run full synchronization, which means that all data will be synchronized during this synchronization.
 
@@ -271,12 +271,12 @@ Wait for the data synchronization of the disaster recovery hosts to complete.
 ---
 
 ### 4.3. DR Drill / DR Takeover
-After the data synchronization (snapshot synchronization) is completed, select the host and click on the 'Drill' / 'Takeover'  button accordingly:
-> The  'Drill' / 'Takeover'  functions are consistent, these functions indicate starting the disaster recovery host on the disaster recovery platform, and relevant verification and takeover work can be performed after the start.
+After the data synchronization (snapshot synchronization) is completed, select the host and click on the **"Drill"** / **"Takeover"**  button accordingly:
+> The  **"Drill"** / **"Takeover"**  functions are consistent, these functions indicate starting the disaster recovery host on the disaster recovery platform, and relevant verification and takeover work can be performed after the start.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-39.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-39.png)
 
-Select the snapshot time point when starting the disaster recovery hosts and click on the "Submit" button to start the host instance.
+Select the snapshot time point when starting the disaster recovery hosts and click on the **"Submit"** button to start the host instance.
 > **Note:** This action will start an instance on the TM CAE platform according to the disaster recovery parameters set for this disaster recovery host. This instance is a host recovered to the cloud. The snapshot time point is generated each time data is synchronized and is used for selection during startup. (The number of reserved snapshot time points can be configured as needed.)
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-40.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-40.png)
@@ -289,7 +289,7 @@ Select the snapshot time point when starting the disaster recovery hosts and cli
 
 ### 4.4. View Disaster Recovery Result
 
-After the disaster recovery host is started, if the host startup status displays the relevant configuration information of the host on the disaster recovery platform, it means that the disaster recovery drill/disaster recovery takeover was successful. You can log in to TM CAE or click on 'Remote Login' to view the running status of the disaster recovery host:
+After the disaster recovery host is started, if the host startup status displays the relevant configuration information of the host on the disaster recovery platform, it means that the disaster recovery drill/disaster recovery takeover was successful. You can log in to TM CAE or click on **"Remote Login"** to view the running status of the disaster recovery host:
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-42.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-42.png)
 
@@ -299,7 +299,7 @@ After the disaster recovery host is started, if the host startup status displays
 
 ### 4.5. Clean Up Verification Host
 
-Select the host that needs to be "Clean Up Verification Host", and in the "Action" section, click on the "Clean Up Verification Host" option. Wait for the cleaning process to complete.
+Select the host that needs to be **"Clean Up Verification Host"**, and in the **"Action"** section, click on the **"Clean Up Verification Host"** option. Wait for the cleaning process to complete.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-45.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-45.png)
 
@@ -311,23 +311,23 @@ Host group disaster recovery is mainly applicable to groups of disaster recovery
 > When adding a disaster recovery host to host group disaster recovery, it is necessary to ensure that the single host disaster recovery configuration is completed before it can be added to the disaster recovery host group. Otherwise, it cannot be directly added to the host group disaster recovery.
 
 ### 5.1 Create Host Group
-Go to the 'Group DR' on the left menu bar and then click the '+Add' button:
+Go to the **"Group DR"** on the left menu bar and then click the **"+Add"** button:
 ![hyperbdr-user-guide-to-tm-cae-object-storage-46.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-46.png)
 
 **Step1: Basic Info**
-Configure basic information for the Host Group, including 'Name' and 'Description.' You can add information in these two sections according to your needs. Then, click the 'Next' button.
+Configure basic information for the Host Group, including **"Name"** and **"Description."** You can add information in these two sections according to your needs. Then, click the **"Next"** button.
 ![hyperbdr-user-guide-to-tm-cae-object-storage-47.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-47.png)
 
 **Step2: Select Hosts**
-Select the disaster recovery host resources that have completed the disaster recovery configuration on the left side. Click the 'Add Resource' button to include the corresponding disaster recovery hosts in the resource group. Then, click the 'Next' button.
+Select the disaster recovery host resources that have completed the disaster recovery configuration on the left side. Click the **"Add Resource"** button to include the corresponding disaster recovery hosts in the resource group. Then, click the **"Next"** button.
 ![hyperbdr-user-guide-to-tm-cae-object-storage-48.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-48.png)
 
 **Step3: Associate Policy**
-Choose the policy used by the resource group. If a synchronization policy has been created in advance, you can select it directly. If not, click the 'Create Policy' button to create a new disaster recovery policy.
+Choose the policy used by the resource group. If a synchronization policy has been created in advance, you can select it directly. If not, click the **"Create Policy"** button to create a new disaster recovery policy.
 ![hyperbdr-user-guide-to-tm-cae-object-storage-49.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-49.png)
 
 **Step4: Boot Sequence**
-Adjust the startup sequence of the host resources in the associated resources on the left, and click 'Finish' after confirmation.
+Adjust the startup sequence of the host resources in the associated resources on the left, and click **"Finish"** after confirmation.
 ![hyperbdr-user-guide-to-tm-cae-object-storage-50.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-50.png)
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-51.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-51.png)
@@ -335,7 +335,7 @@ Adjust the startup sequence of the host resources in the associated resources on
 ![hyperbdr-user-guide-to-tm-cae-object-storage-52.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-52.png)
 
 ### 5.2. Modify Host Group
-Click the 'Action' button after selecting the resource group to modify the **Basic Info**, **Select Hosts**, **Associate Policy**, and **Boot Sequence** of the resource group.
+Click the **"Action"** button after selecting the resource group to modify the **Basic Info**, **Select Hosts**, **Associate Policy**, and **Boot Sequence** of the resource group.
 ![hyperbdr-user-guide-to-tm-cae-object-storage-53.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-53.png)
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-54.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-54.png)
@@ -348,10 +348,10 @@ Click the 'Action' button after selecting the resource group to modify the **Bas
 
 ### 5.3. Delete Host Group
 Go to [Group DR] and click the on “Delete Host group” button :
-Check the resource group, and click the 'Delete Resource Group' button to perform the operation of deleting the resource group.
+Check the resource group, and click the **"Delete Resource Group"** button to perform the operation of deleting the resource group.
 ![hyperbdr-user-guide-to-tm-cae-object-storage-58.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-58.png)
 
-According to the prompt for host group deletion, select the relevant configuration options, enter the character "Yes" to confirm deletion, then click the [Submit] button to complete deletion.
+According to the prompt for host group deletion, select the relevant configuration options, enter the character **"Yes"** to confirm deletion, then click the [Submit] button to complete deletion.
 ::: tip
 **Notes:**  
 **1:** This operation only deletes the host group, and the resources in the host group will be retained. The disaster recovery hosts in the host group will still be displayed separately in the host disaster recovery, and the disaster recovery operation can still be performed on a single disaster recovery host, and the data that has been synchronized will not be cleared from the disaster recovery platform.  
@@ -373,7 +373,7 @@ Select the configured host group, click the “Sync” button, and then the “S
 
 ### 5.5. Host Group - DR Drill / Takeover
 
-Wait for data synchronization to complete (synchronization snapshot completed), check the host group that needs to be disaster recovery drilled/taken over, then click on the 'Drill' / 'Takeover' button.
+Wait for data synchronization to complete (synchronization snapshot completed), check the host group that needs to be disaster recovery drilled/taken over, then click on the **"Drill"** / **"Takeover"** button.
 
 ::: tip
 Note: For disaster recovery hosts that are first added to the host group, it is necessary to perform data synchronization operation, otherwise it will not be possible to perform disaster recovery drill/takeover even if the disaster recovery hosts in the host group have already performed data synchronization operation during Host Disaster Recovery.
@@ -383,7 +383,7 @@ Note: For disaster recovery hosts that are first added to the host group, it is 
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-63.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-63.png)
 
-In the pop-up box, select the synchronization time point snapshot copy, after confirming that the information is correct, click the "Submit" button.
+In the pop-up box, select the synchronization time point snapshot copy, after confirming that the information is correct, click the **"Submit"** button.
 > The synchronization time point records the recoverable data time point for each snapshot copy generated after each data synchronization is completed.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-64.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-64.png)
@@ -392,7 +392,7 @@ When the host group status showing disaster recovery drill / takeover is complet
 ![hyperbdr-user-guide-to-tm-cae-object-storage-65.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-65.png)
 
 ### 5.6. Host Group - Clean Up Validation Resources
-Check the resource group that needs to clean up and verify resources, click the 'Action' button, and select the 'Clean Up Validation Resources' button.
+Check the resource group that needs to clean up and verify resources, click the **"Action"** button, and select the **"Clean Up Validation Resources"** button.
 > This operation means that the disaster recovery hosts in the host group that have already performed disaster recovery drill / takeover and the disaster recovery host instances generated on the disaster recovery platform will be deleted. This action prevents the risk of manual operation of deleting instances on the disaster recovery platform.
 
 ::: warning
@@ -401,14 +401,14 @@ Note: If the disaster recovery host restored on the disaster recovery platform h
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-66.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-66.png)
 
-After confirming that the resources to be cleaned on the disaster recovery platform are accurate, enter the character "Yes" in the input box to confirm and click the “Submit” button.
+After confirming that the resources to be cleaned on the disaster recovery platform are accurate, enter the character **"Yes"** in the input box to confirm and click the “Submit” button.
 ![hyperbdr-user-guide-to-tm-cae-object-storage-67.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-67.png)
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-68.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-68.png)
 
 ## 6. Policy Management
 ### 6.1. Create Policy
-Click 'Configuration' on the top menu bar, select 'Policy Settings' on the left, and click 'Create Policy'.
+Click **"Configuration"** on the top menu bar, select **"Policy Settings"** on the left, and click **"Create Policy"**.
 ![hyperbdr-user-guide-to-tm-cae-object-storage-69.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-69.png)
 
 The Create Policy page allows you to modify various parameters of the policy configuration.
@@ -457,18 +457,18 @@ Support Multi-time period speed limiting(Supports setting different speed limits
 
 #### 6.1.4 Retention Policy
 
-Check 'Sequence Retention', enabling and configuring the snapshot retention policy. (Set snapshot retention based on sequence to retain snapshots at specific time points for a specified duration. For example, retain the first snapshot of each month for 3 weeks. Note: Ensure sufficient quota is available for creating new snapshots during the setup, otherwise data synchronization may fail.)
+Check **"Sequence Retention"**, enabling and configuring the snapshot retention policy. (Set snapshot retention based on sequence to retain snapshots at specific time points for a specified duration. For example, retain the first snapshot of each month for 3 weeks. Note: Ensure sufficient quota is available for creating new snapshots during the setup, otherwise data synchronization may fail.)
 
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-70.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-70.png)
 
 ### 6.2. Modify Policy
 
-Check the created Policy, click on 'Action,' select 'Modify,' and you can modify the parameters of the policy.
+Check the created Policy, click on **"Action,"** select **"Modify,"** and you can modify the parameters of the policy.
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-71.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-71.png)
 
 ### 6.3. Policy Associated Host
 
-Select the created policy, click on 'Action,' choose 'Associate Host,' check the hosts that are not associated with the strategy, and click 'Submit' to establish the association.
+Select the created policy, click on **"Action,"** choose **"Associate Host,"** check the hosts that are not associated with the strategy, and click **"Submit"** to establish the association.
 
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-72.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-72.png)
 
@@ -476,7 +476,7 @@ Select the created policy, click on 'Action,' choose 'Associate Host,' check the
 
 ### 6.4. Delete Policy
 
-Select the created policy, click on 'Action,' choose 'Delete,' and click 'Submit' to delete the that is not associated with any hosts.
+Select the created policy, click on **"Action,"** choose **"Delete,"** and click **"Submit"** to delete the that is not associated with any hosts.
 
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-74.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-74.png)
 
@@ -490,7 +490,7 @@ If the policy is already associated with resources (hosts, resource groups), del
 
 ### 6.5 Policy Unbind Associated Resources (Host, Resource Group)
 
-Click on the policy name, select the 'Associate Hosts' or 'Associate Resource Group' tab, check the resources to unbind, click the 'Unbind Hosts' or 'Unbind Resource Group' button, and confirm to unbind the associated resources.
+Click on the policy name, select the **"Associate Hosts"** or **"Associate Resource Group"** tab, check the resources to unbind, click the **"Unbind Hosts"** or **"Unbind Resource Group"** button, and confirm to unbind the associated resources.
 
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-77.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-77.png)
 

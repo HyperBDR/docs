@@ -176,8 +176,21 @@ module.exports = {
               title: 'HyperBDR User Manual',
               collapsable: false,
               children: [
-                'dr-usage-guide/dr-operations-manual-huaweicloud-object',
-                'dr-usage-guide/dr-operations-manual-tmcae-object',
+                {
+                  title: 'Huawei Cloud',
+                  collapsable: false,
+                  children: [
+                    'dr-usage-guide/dr-operations-manual-huaweicloud-object',
+                    'dr-usage-guide/dr-operations-manual-huaweicloud-block',
+                  ]
+                },
+                {
+                  title: 'TM CAE',
+                  collapsable: false,
+                  children: [
+                    'dr-usage-guide/dr-operations-manual-tmcae-object',
+                  ]
+                },
               ]
             },
             {
