@@ -161,14 +161,14 @@ Download Windows/Linux images to your local machine through the provided image l
 
 * Version：CentOS 8.4 64bit
 * Size： 1.22 GB
-* Download Link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) 
+* Download Link：[https://downloads.oneprocloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2](https://downloads.oneprocloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) 
 * MD5 Value of the Image: fe9f21a75a80d12159030fff76e1c8a5
 
 #### Windows Image
 
 * Version：Windows Server 2016 Datacenter 64bit English
 * Size：12.11 GB
-* Download Link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
+* Download Link：[https://downloads.oneprocloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://downloads.oneprocloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
 * MD5 Value of the Image: 519444d4b0343e15fa014c50d906a832
 
 ### Upload Image to Huawei Cloud Object Storage
