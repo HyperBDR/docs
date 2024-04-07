@@ -113,11 +113,11 @@ In **"Hosts and Clusters"**, find the top-level **"vCenter IP"** on the left-han
 
 ![create-vmware-account-7.png](./images/create-vmware-account-7.png)
 
-Follow the prompts to choose the domain for user authorization, keeping it consistent with the previous steps. Search for the **"migrate"** user to be added. Select the **"Migration Role Permissions"** for the role and check the box for "Propagate to Child". Then, click the "OK" button.
+Follow the prompts to choose the domain for user authorization, keeping it consistent with the previous steps. Search for the **"dr"** user to be added. Select the **"DR Role Permissions"** for the role and check the box for "Propagate to Child". Then, click the "OK" button.
 
 ![create-vmware-account-8.png](./images/create-vmware-account-8.png)
 
-After the addition is complete, provide the vCenter access address, **"migrate"** user, and login password to HyperBDR platform.
+After the addition is complete, provide the vCenter access address, **"dr"** user, and login password to HyperBDR platform.
 
 ### Fill in HyperBDR
 
