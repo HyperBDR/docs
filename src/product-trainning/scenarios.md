@@ -4,15 +4,15 @@
 
 Let's delve into the VMware disaster recovery to the cloud platform scenario, which is quite common due to the extensive VMware environment existing in many projects.
 
-The host disaster recovery process with Hyper BDR can be broken down into three main stages: host selection and configuration, data synchronization, and finally, the rehearsal or takeover phase.
+The host disaster recovery process with HyperBDR can be broken down into three main stages: host selection and configuration, data synchronization, and finally, the rehearsal or takeover phase.
 
 ![VMware DR to Cloud](./images/product-overview-scenario-1.png)
 
-In VMware host disaster recovery, Hyper BDR eliminates the need to install agents on each source host. Instead, it gathers host information via the VMware interface and utilizes Change Block Tracking technology to capture data increments at every snapshot time point.
+In VMware host disaster recovery, HyperBDR eliminates the need to install agents on each source host. Instead, it gathers host information via the VMware interface and utilizes Change Block Tracking technology to capture data increments at every snapshot time point.
 
 Data Transfer Proxy serves as a host deployed on the user‘s VMware and acts as the sole gateway in the user’s production center. Its primary function involves accessing VMware data and directly transmitting it to cloud storage. This node can be horizontally scaled, with additional Proxies recommended when more than firfty hosts.
 
-Hyper BDR offers flexible synchronization policy settings, ranging from intervals as short as 5 minutes to hourly or monthly options. With a minimum 5-minute increment synchronization granularity, Hyper BDR ensures a potential RPO (Recovery Point Objective) time as brief as 5 minutes. However, actual RPO times might vary based on factors like incremental data size and network bandwidth, suggesting the need to adjust policy configurations according to specific circumstances.
+HyperBDR offers flexible synchronization policy settings, ranging from intervals as short as 5 minutes to hourly or monthly options. With a minimum 5-minute increment synchronization granularity, HyperBDR ensures a potential RPO (Recovery Point Objective) time as brief as 5 minutes. However, actual RPO times might vary based on factors like incremental data size and network bandwidth, suggesting the need to adjust policy configurations according to specific circumstances.
 
 
 When it comes to cloud-native storage, options include block storage or object storage, both supporting one-click start. In Huawei Cloud, block storage mode boasts an RTO (Recovery Time Objective) independent of the source-end host's disk capacity and quantity, ensuring recovery within 15 minutes. 
@@ -21,7 +21,7 @@ Object storage, on the other hand, offers cost advantages, albeit with recovery 
 
 After the initial synchronization, the product's Boot in Cloud feature allows for one-click recovery or rehearsal of the business system in the cloud. Users can initiate this process with a simple click, restoring the host to its startup state. With services set to start automatically, accessing the business system through the port becomes seamless.
 
-Additionally, it's worth mentioning that, apart from the agentless method supported by the VMware platform, OpenStack private clouds leveraging Ceph as storage can also achieve disaster recovery without agents. While the process differs slightly from VMware, with Hyper BDR utilizing Ceph RBD to capture incremental data during synchronization, the overall approach remains consistent.
+Additionally, it's worth mentioning that, apart from the agentless method supported by the VMware platform, OpenStack private clouds leveraging Ceph as storage can also achieve disaster recovery without agents. While the process differs slightly from VMware, with HyperBDR utilizing Ceph RBD to capture incremental data during synchronization, the overall approach remains consistent.
 
 ## Scenario 2: Linux / Windows Hosts DR to Cloud
 
@@ -31,13 +31,13 @@ As we mentioned earlier, the Agent approach is incredibly versatile. Whether it'
 
 ![Linux Windows Hosts DR to Cloud](./images/product-overview-scenario-2.png)
 
-A common question is whether Hyper BDR can safeguard container platforms, databases, or middleware services. The answer is yes – Hyper BDR can protect all services installed on hosts, except for Oracle RAC. However, for the Oracle single-instance version, Hyper BDR remains an option.
+A common question is whether HyperBDR can safeguard container platforms, databases, or middleware services. The answer is yes – HyperBDR can protect all services installed on hosts, except for Oracle RAC. However, for the Oracle single-instance version, HyperBDR remains an option.
 
-Another common question revolves around achieving a zero RPO with Hyper BDR, particularly in database scenarios. However, given its minimum synchronization granularity of 5 minutes, Hyper BDR focuses on maintaining data integrity at each synchronization, aiming to make each snapshot time point recoverable during restoration.
+Another common question revolves around achieving a zero RPO with HyperBDR, particularly in database scenarios. However, given its minimum synchronization granularity of 5 minutes, HyperBDR focuses on maintaining data integrity at each synchronization, aiming to make each snapshot time point recoverable during restoration.
 
-For projects with database systems sensitive to RPO times, it's advisable to consider a hybird approach. For instance, real-time disaster recovery for databases like Oracle can be achieved using Oracle Data Guard or Oracle GoldenGate, while Hyper BDR can safeguard other business systems. During takeover, once Oracle completes the primary-standby switch, the business system can be restored in the cloud, and the database path can be updated to complete the takeover.
+For projects with database systems sensitive to RPO times, it's advisable to consider a hybird approach. For instance, real-time disaster recovery for databases like Oracle can be achieved using Oracle Data Guard or Oracle GoldenGate, while HyperBDR can safeguard other business systems. During takeover, once Oracle completes the primary-standby switch, the business system can be restored in the cloud, and the database path can be updated to complete the takeover.
 
-Hyper BDR streamlines different scenarios, so the synchronization and recovery processes closely mirror those of VMware, ensuring a consistent product experience. The only difference is the need to install the corresponding agent on each host requiring protection. While the Agent has system version requirements due to its kernel-level technology, it generally supports common Windows and Linux systems. Specific compatibility checks will be addressed later.
+HyperBDR streamlines different scenarios, so the synchronization and recovery processes closely mirror those of VMware, ensuring a consistent product experience. The only difference is the need to install the corresponding agent on each host requiring protection. While the Agent has system version requirements due to its kernel-level technology, it generally supports common Windows and Linux systems. Specific compatibility checks will be addressed later.
 
 Combining Agent and Agentless modes enables seamless one-click mixed recovery. In real projects, different protection methods can be chosen based on various environments.
 
@@ -49,12 +49,12 @@ In such cases, installing an Agent within the cloud host facilitates host protec
 
 ![Cloud Hosts DR to Cloud](./images/product-overview-scenario-3.png)
 
-A frequent inquiry we receive is whether Hyper BDR can safeguard relational database services (RDS). Due to certain limitations, Hyper BDR doesn't directly support RDS protection. 
+A frequent inquiry we receive is whether HyperBDR can safeguard relational database services (RDS). Due to certain limitations, HyperBDR doesn't directly support RDS protection. 
 However, akin to the Oracle protection method outlined earlier, a hybrid approach can still achieve disaster recovery in the cloud. 
 
-Hosts can utilize Hyper BDR, while database synchronization can leverage platform-specific tools designed for RDS disaster recovery, such as Huawei Cloud’s DRS service. 
+Hosts can utilize HyperBDR, while database synchronization can leverage platform-specific tools designed for RDS disaster recovery, such as Huawei Cloud’s DRS service. 
 
-For businesses sensitive to database protection, employing the DRS service for database synchronization alongside Hyper BDR for host services has successful in projects.
+For businesses sensitive to database protection, employing the DRS service for database synchronization alongside HyperBDR for host services has successful in projects.
 
 ## Scenario 4: Replacing VMware with Cloud
 
@@ -64,7 +64,7 @@ The fourth scenario is a recent focal point. Due to well-known reasons, there ha
 
 However, addressing issues related to business continuity during the transition from VMware to the cloud, as well as ensuring the protection and recovery of business systems post-migration, are crucial considerations for users during the replacement process.
 
-Utilizing Hyper BDR can seamlessly address users' concerns. The basic process involves migrating business systems to the cloud without agents, followed by implementing cross-region disaster recovery using Hyper BDR.
+Utilizing HyperBDR can seamlessly address users' concerns. The basic process involves migrating business systems to the cloud without agents, followed by implementing cross-region disaster recovery using HyperBDR.
 
 This approach not only substitutes VMware but also provides a cross-region disaster recovery solution to meet the high reliability requirements of systems.
 
@@ -86,9 +86,9 @@ With these steps, we have completed the first phase of replacing VMware with the
 
 Once the business system operates smoothly in the cloud, we can initiate cross-region disaster recovery. We may opt for cost-effective object storage, as mentioned earlier. In object storage mode, data synchronization incurs no additional computational costs, only storage fees for the object storage.
 
-!![Replacing VMware with Cloud - Backup & Recovery(Object Storage)](./images/product-overview-scenario-4-3.png)
+![Replacing VMware with Cloud - Backup & Recovery(Object Storage)](./images/product-overview-scenario-4-3.png)
 
-Firstly, we need to install the Hyper BDR Agent on the business hosts already deployed in the cloud.
+Firstly, we need to install the HyperBDR Agent on the business hosts already deployed in the cloud.
 
 Secondly, configure the authentication details for the disaster recovery region's object storage and recovery platform, accessible through the Huawei Cloud console.
 
@@ -101,7 +101,7 @@ Lastly, in case of rehearsal or disaster, launching the business system in the d
 
 If the business system has stringent RTO recovery time requirements, we can utilize block storage in the disaster recovery region to ensure rapid recovery. The disaster recovery steps align with those mentioned earlier for object storage.
 
-!![Replacing VMware with Cloud - Backup & Recovery(Block Storage)](./images/product-overview-scenario-4-4.png)
+![Replacing VMware with Cloud - Backup & Recovery(Block Storage)](./images/product-overview-scenario-4-4.png)
 
 Of course, depending on varying RTO requirements, a hybrid approach combining both storage methods can be considered, aiming to minimize costs while meeting RTO performance needs.
 

@@ -1,6 +1,6 @@
 # Product Overview
 
-Hyper BDR, developed by OneProCloud since 2017, is a cloud-native disaster recovery solution aimed at facilitating seamless movement of host resources across platforms.
+HyperBDR, developed by OneProCloud since 2017, is a cloud-native disaster recovery solution aimed at facilitating seamless movement of host resources across platforms.
 
 It offers one-click disaster recovery from various environments, including physical machines, virtualization, hyper-converged platforms, private and public clouds, to destinations like public clouds, private clouds, or VMware. Moreover, it enables disaster recovery in any direction among different public and private clouds for hosts.
 
@@ -12,4 +12,4 @@ Secondly, it leverages cloud-native storage characteristics, such as block stora
 
 Thirdly, it ensures direct data transmission from the user's source end to cloud storage without local caching.
 
-Installation and usage of Hyper BDR are straightforward, with practical demonstrations available in subsequent training sessions. In summary, Hyper BDR facilitates backup and recovery for x86 host resources, offering minute-level RPO and RTO capabilities.
+Installation and usage of HyperBDR are straightforward, with practical demonstrations available in subsequent training sessions. In summary, HyperBDR facilitates backup and recovery for x86 host resources, offering minute-level RPO and RTO capabilities.
