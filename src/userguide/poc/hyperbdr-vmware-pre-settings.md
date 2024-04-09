@@ -8,13 +8,13 @@
 
 #### Installation Package
  
-> File Name: **HyperBDR_release_v5.2.0_20240229-20240313-2642.tar.gz**  
-> Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v5.2.0_20240229-20240313-2642.tar.gz](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v5.2.0_20240229-20240313-2642.tar.gz)  
+> File Name: **HyperBDR_release_v5.3.0_20240331-20240403-2782.tar.gz**  
+> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.3.0_20240331-20240403-2782.tar.gz](https://downloads.oneprocloud.com/HyperBDR_release_v5.2.0_20240229-20240313-2642.tar.gz)  
 
 #### MD5 Checksum File
 
-> File Name: **HyperBDR_release_v5.2.0_20240229-20240313-2642.tar.gz.md5**  
-> Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v5.2.0_20240229-20240313-2642.tar.gz.md5](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v5.2.0_20240229-20240313-2642.tar.gz.md5)  
+> File Name: **HyperBDR_release_v5.3.0_20240331-20240403-2782.tar.gz.md5**  
+> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.3.0_20240331-20240403-2782.tar.gz.md5](https://downloads.oneprocloud.com/HyperBDR_release_v5.2.0_20240229-20240313-2642.tar.gz.md5)  
 
 ::: tip
 Log in to the HyperBDR host backend and execute the command.  
@@ -114,12 +114,12 @@ If the installation is successful, you will see the prompted login information.
 [2023-03-30 23:08:36] [INFO] Enjoy using our product!
 [2023-03-30 23:08:36] [INFO] --------------------------------------------------
 ```
-Access HyperBDR console url：https://\<HyperBDR IP\>:10443
+Access HyperBDR Console   url：https://\<HyperBDR IP\>:10443
 
 ## Apply for HyperBDR License
 
 ::: tip
-Already logged in to the HyperBDR console by default.
+Already logged in to the HyperBDR Console  by default.
 :::
 
 ### Activate a License
@@ -154,21 +154,21 @@ Fill in the activation code and click the [Activate] button.
 User can send the registration code to OnePro Cloud sales representative or _[enquiry@oneprocloud.com](mailto:enquiry@oneprocloud.com)_._
 :::
 
-## Verify Proxy Registration in HyperBDR
+## Verify Sync Proxy Registration in HyperBDR
 
 ::: tip
-After the Proxy Node installation is completed, it will automatically be added to HyperBDR, and you can view this Proxy Node machine in HyperBDR.
+After the Sync Proxy Node installation is completed, it will automatically be added to HyperBDR, and you can view this Sync Proxy Node machine in HyperBDR.
 :::
 
 ::: tip
-Already logged in to the HyperBDR console by default.
+Already logged in to the HyperBDR Console  by default.
 :::
 
 ![verify-proxy-registration-in-hyperbdr-1.png](./images/verify-proxy-registration-in-hyperbdr-1.png)
 
-### Check The Status Of The Proxy Node  
+### Check The Status Of The Sync Proxy Node  
 
-Click on the top menu bar 'Configuration,' 'Production Site,' 'SyncNode' to view the Proxy Node host. If you can see this host and status is 'online,' it indicates that it has been successfully registered with HyperBDR, and you can proceed with further configuration and usage.
+Click on the top menu bar 'Configuration,' 'Production Site,' 'SyncNode' to view the Sync Proxy Node host. If you can see this host and status is 'online,' it indicates that it has been successfully registered with HyperBDR, and you can proceed with further configuration and usage.
 
 ![verify-proxy-registration-in-hyperbdr-2.png](./images/verify-proxy-registration-in-hyperbdr-2.png)
 
@@ -179,7 +179,7 @@ Using the pre-prepared VMware account information, add VMware to the HyperBDR pl
 :::
 
 ::: tip
-Already logged in to the HyperBDR console by default.
+Already logged in to the HyperBDR Console  by default.
 :::
 
 ![add-vmware-credentials-1.png](./images/add-vmware-credentials-1.png)
@@ -196,14 +196,14 @@ Click on the top menu bar 'Configuration,' 'Production Site,' 'VMware.' Click th
 | --- | --- |
 | user | \<vCenter user\> |
 | password | \<vCenter password\> |
-| SyncNode | \<Proxy Node IP\> |
+| SyncNode | \<Sync Proxy Node IP\> |
 
 ![add-vmware-credentials-4.png](./images/add-vmware-credentials-4.png)
 
 ## Verify VMware Status in HyperBDR
 
 ::: tip
-Already logged in to the HyperBDR console by default.
+Already logged in to the HyperBDR Console  by default.
 :::
 
 ![verify-proxy-registration-in-hyperbdr-2.png](./images/verify-proxy-registration-in-hyperbdr-2.png)
@@ -219,7 +219,7 @@ If the status is 'Online,' it indicates that the addition was successful.
 ## Add Object Storage
 
 ::: tip
-Already logged in to the HyperBDR console by default.  
+Already logged in to the HyperBDR Console  by default.  
 :::
 
 ![add-vmware-credentials-1.png](./images/add-vmware-credentials-1.png)
@@ -231,7 +231,7 @@ The following operations use Huawei Cloud Object Storage as an example. Please c
 :::
 
 ::: tip
-Using the provided IAM account AK/SK information, configure and add Huawei Cloud Object Storage bucket in the HyperBDR console.
+Using the provided IAM account AK/SK information, configure and add Huawei Cloud Object Storage bucket in the HyperBDR Console .
 :::
 
 - Step1: "Click on the top menu bar 'Configuration,' 'Storage,' 'Object Storage.' Click the 'Add' button.  
@@ -244,10 +244,10 @@ Using the provided IAM account AK/SK information, configure and add Huawei Cloud
 
 ![add-object-storage-3.png](./images/add-object-storage-3.png)
 
-## Add DR Recovery Gateway
+## Add Object DR Gateway
 
 ::: tip
-Already logged in to the HyperBDR console by default.
+Already logged in to the HyperBDR Console  by default.
 :::
 
 ![add-vmware-credentials-1.png](./images/add-vmware-credentials-1.png)
@@ -259,7 +259,7 @@ The following operations use Huawei Cloud as an example. Please choose the corre
 :::
 
 ::: tip
-Using the provided IAM account AK/SK information, Configure and add Huawei Cloud Recovery Gateway in the HyperBDR console
+Using the provided IAM account AK/SK information, Configure and add Huawei Cloud Object DR Gateway in the HyperBDR Console 
 :::
 
 Click on the top menu bar "Configuration," "Disaster Recovery Site," "Object DR Gateway." Click the "Add" button, fill in or select the corresponding parameters as prompted, click "Submit," and wait for the completion.
@@ -279,7 +279,7 @@ Document link: [https://docs.oneprocloud.com/userguide/poc/huaweicloud-pre-setti
 ## Add VMware Hosts in HyperBDR
 
 ::: tip
-Already logged in to the HyperBDR console by default.  
+Already logged in to the HyperBDR Console  by default.  
 Already Add VMware Connection to  the HyperBDR by default.
 :::
 

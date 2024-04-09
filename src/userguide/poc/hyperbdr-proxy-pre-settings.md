@@ -1,19 +1,19 @@
-# Proxy Setup
+# Sync Proxy Setup
 
 [[toc]]
 
-## Configure Proxy IP Address
+## Configure Sync Proxy IP Address
 
-### Login Proxy VM
+### Login Sync Proxy VM
 
 ::: tip
-Default username and password for Proxy ova:
+Default username and password for Sync Proxy ova:
 
 * Username: root
 * Password: onepro
 :::
 
-Use vCenter Web Console to login the Proxy VM and to the following configurations.
+Use vCenter Web Console to login the Sync Proxy VM and to the following configurations.
 ![vcenter-web-console-1.png](./images/vcenter-web-console-1.png)  
 ![vcenter-web-console-2.png](./images/vcenter-web-console-2.png)  
 
@@ -60,15 +60,15 @@ ping <vcenter ip or esxi ip>
 
 ## Configure NTP Server
 
-### Download and Upload to Proxy
+### Download and Upload to Sync Proxy
 
-Download these packages and upload to proxy, save in /root/ntp-packages/
+Download these packages and upload to Sync Proxy, save in /root/ntp-packages/
 
 * [ntp-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntp-4.2.6p5-28.el7.centos.x86_64.rpm)
 * [autogen-libopts-5.18-5.el7.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/autogen-libopts-5.18-5.el7.x86_64.rpm)
 * [ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm)
 
-In Proxy Terminal, you can use these commands to download these packages:
+In Sync Proxy Terminal, you can use these commands to download these packages:
 
 ```sh
 mkdir /root/ntp-packages && cd /root/ntp-packages  
@@ -110,21 +110,21 @@ There **<ntp.server.ip.address>** is your ntp server ip address.
 systemctl enable ntpd && systemctl start ntpd
 ```
 
-## Enable Access Policy for Proxy
+## Enable Access Policy for Sync Proxy
 
-Open the network access policy in your firewall for synchronizing Proxy nodes to vCenter and all ESXi hosts managed by vCenter.
+Open the network access policy in your firewall for synchronizing Sync Proxy nodes to vCenter and all ESXi hosts managed by vCenter.
 
-1. Proxy nodes need to have normal access to vCenter on port 443.
-2. Proxy nodes need to have normal access to all ESXi hosts managed by vCenter on port 902.
+1. Sync Proxy nodes need to have normal access to vCenter on port 443.
+2. Sync Proxy nodes need to have normal access to all ESXi hosts managed by vCenter on port 902.
 
 ::: tip
-Proxy synchronization nodes access the vCenter API interface for authentication, and they retrieve data by calling the ESXi host where the disaster recovery production site VM are located. Therefore, it is necessary to open network access policies for all ESXi hosts managed by vCenter.
+Sync Proxy nodes access the vCenter API interface for authentication, and they retrieve data by calling the ESXi host where the disaster recovery production site VM are located. Therefore, it is necessary to open network access policies for all ESXi hosts managed by vCenter.
 :::
 
 
-## Test Access Policy for Proxy
+## Test Access Policy for Sync Proxy
 
-Test if Proxy can connect to vCenter 443 port and ESXis 902 port which is management by vCenter.
+Test if Sync Proxy can connect to vCenter 443 port and ESXis 902 port which is management by vCenter.
 
 ### Test vCenter/ESXi Connectivity
 
@@ -143,15 +143,15 @@ debug1: /etc/ssh/ssh_config line 58: Applying options for *
 debug1: Connecting to <vCenter/ESXi IP/Domain> [<vCenter/ESXi IP/Domain>] port 443.
 debug1: Connection established.
 ```
-## Test Network Connectivity from Proxy to Object Storage
+## Test Network Connectivity from Sync Proxy to Object Storage
 
 ::: tip
-Make sure you already login to Proxy VM
+Make sure you already login to Sync Proxy VM
 :::
 
 ### Internet
 
-Ensure your proxy can access internet before testing.
+Ensure your Sync Proxy can access internet before testing.
 
 #### Public DNS Connectivity Testing
 
@@ -248,14 +248,14 @@ This command is primarily used to test the accessibility of Huawei Cloud Object 
 
 Reference Link: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
 
-## Test Network Connectivity from Proxy to HyperBDR
+## Test Network Connectivity from Sync Proxy to HyperBDR
 
 ::: tip
 This step needs to be tested after the installation of HyperBDR is completed.
 :::
 
 ::: tip
-Default username and password for Proxy ova:
+Default username and password for Sync Proxy ova:
 
 * Username: root
 * Password: onepro
@@ -269,7 +269,7 @@ If you don't know how to use SSH on a Windows system, please refer to the follow
 
 Test the network connectivity from the production site to Huawei Cloud HyperBDR
 
-- Step1: Log in to the Proxy Node
+- Step1: Log in to the Sync Proxy Node
 
 - Step2: Test Access to HyperBDR Port 10443 and Port 30080
 
@@ -306,7 +306,7 @@ debug1: Connection established.
 
 Test the network connectivity from the production site to Huawei Cloud HyperBDR
 
-- Step1: Log in to the Proxy Node  
+- Step1: Log in to the Sync Proxy Node  
 
 - Step2: Test Access to HyperBDR Port 10443 and Port 30080  
 
@@ -340,7 +340,7 @@ debug1: Connecting to <HyperBDR Internal IP> [<HyperBDR Internal IP>] port 30080
 debug1: Connection established.
 ```
 
-## Proxy DNS Settings
+## Sync Proxy DNS Settings
 
 ::: tip
 This step is only used when connecting to the cloud platform via VPN.  
@@ -348,7 +348,7 @@ If your disaster recovery environment is interconnected with the production site
 :::
 
 ::: tip
-Default username and password for Proxy ova:
+Default username and password for Sync Proxy ova:
 
 * Username: root
 * Password: onepro
@@ -373,13 +373,13 @@ Example: Palo Alto Firewall
 The following operations are performed in the firewall web management interface.
 :::
 
-1. Navigate to [Network] > [DNS Proxy] .
+1. Navigate to [Network] > [DNS Sync Proxy] .
 
-2. Click [Add] to bring up the DNS proxy dialog box.
+2. Click [Add] to bring up the DNS Sync Proxy dialog box.
 
-3. Select the interface on which DNS proxy should be enabled. In the following figure, DNS proxy is enabled on Ethernet 1/2 and 1/3 interfaces.
+3. Select the interface on which DNS Sync Proxy should be enabled. In the following figure, DNS Sync Proxy is enabled on Ethernet 1/2 and 1/3 interfaces.
 
-4. Select the primary and secondary servers to which the firewall should forward DNS queries. This example shows the configuration of enabling DNS proxy on Ethernet interfaces 1/2 and 1/3. The active DNS server is set to 10.0.0.246 (This IP is configured as the Huawei Cloud internal DNS Server Addresse).
+4. Select the primary and secondary servers to which the firewall should forward DNS queries. This example shows the configuration of enabling DNS Sync Proxy on Ethernet interfaces 1/2 and 1/3. The active DNS server is set to 10.0.0.246 (This IP is configured as the Huawei Cloud internal DNS Server Addresse).
 
 ::: tip
 Configure the Huawei Cloud internal DNS address based on the region where you use Huawei Cloud resources.  
@@ -388,14 +388,14 @@ Huawei Cloud internal DNS service address at： [https://support.huaweicloud.com
 
 ![configure-a-huawei-cloud-intranet-dns-address-for-the-network-device-1.png](./images/configure-a-huawei-cloud-intranet-dns-address-for-the-network-device-1.png)
 
-## Install Proxy
+## Install Sync Proxy
 
 ::: tip
-Proxy should be installation after the completion of the HyperBDR installation process.
+Sync Proxy should be installation after the completion of the HyperBDR installation process.
 :::
 
 ::: tip
-Default username and password for Proxy ova:
+Default username and password for Sync Proxy ova:
 
 * Username: root
 * Password: onepro
@@ -417,7 +417,7 @@ Click on the top menu bar **"Configuration"**, **"Production Site"**, **"VMware"
 
 ![install-proxy-3.png](./images/install-proxy-3.png) 
 
-In the popped-up page, in the **"Step 2: Installing synchronization nodes"** section, under **"2. Execute the following command to install"** click on **"Copy command"** to obtain the installation command for the Proxy node. 
+In the popped-up page, in the **"Step 2: Installing synchronization nodes"** section, under **"2. Execute the following command to install"** click on **"Copy command"** to obtain the installation command for the Sync Proxy node. 
 
 ![install-proxy-4.png](./images/install-proxy-4.png) 
 
@@ -425,9 +425,9 @@ In the popped-up page, in the **"Step 2: Installing synchronization nodes"** sec
 
 ![install-proxy-5.png](./images/install-proxy-5.png) 
 
-### Execute the installation command on the Proxy node
+### Execute the installation command on the Sync Proxy node
 
-Paste the copied installation command into the command line and execute it. Wait for the command to execute successfully; this indicates that the Proxy synchronization node program is running normally. 
+Paste the copied installation command into the command line and execute it. Wait for the command to execute successfully; this indicates that the Sync Proxy synchronization node program is running normally. 
 
 ![install-proxy-6.png](./images/install-proxy-6.png)
 
