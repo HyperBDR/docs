@@ -14,7 +14,7 @@ Note: The minimum supported HyperBDR version for upgrading is HyperBDR 4.4.0. Ve
 
 - Step 1: Obtain the upgrade package URL.
 
-- Step2. Download the upgrade package to the HyperBDR operating system and extract it using the following command:
+- Step2. Download the upgrade package to the **HyperBDR Console** operating system and extract it using the following command:
 
 ```shell
 tar zxvf upgrade_incremental_4.4.0_to_4.9.0.tar.gz -C /tmp/
@@ -43,14 +43,12 @@ influxdb-1.7.6.tar.gz  mariadb-10.3.36.tar.gz  rabbitmq-3.8.16.tar.gz  redis-7.0
 
 ### Update the service
 
-
 - Step1. Replace the update commands:
 
 ```shell
 cp /tmp/upgrade/scripts/common.sh /opt/installer/production/scripts/
 cp /tmp/upgrade/scripts/hmctl /opt/installer/production/scripts/
 ```
-
 
 - Step2. Execute the update command
 
@@ -81,41 +79,38 @@ HyperBDR_release_v5.2.0_20230928-20230927-1437.tar.gz
 ## The installed version is HyperBDR_release_v5.2.0_20230928
 ```
 
-## Update Linux Agent, Windows Agent and Agentless SyncNode
+## Update **Linux Agent**, **Windows Agent** and Agentless **Sync Proxy**
 
 ### Restrictions
 
-> Note: Upgrade the HyperBDR Server end  first.
+> Note: Upgrade the HyperBDR Server end first.
 > Versions before V4.10.1 installation package cannot be directly updated using the update script.
 > Updating operations are prohibited during tasks such as syncing hosts or starting hosts.
 
-### Agentless SyncNode
+### Agentless Sync Proxy 
 
-Step 1. Log in to the Agentless Syncnode server
+- Step 1. Log in to the Agentless *Sync Proxy** server
 
 ```shell
 
-ssh root@<Agentless SyncNode IP\>
+ssh root@<Agentless Sync Proxy Server IP\>
 
 ```
-
-Step 2. Get the latest update script
+- Step 2. Get the latest update script
 
 ```shell
 
 curl -k -o /usr/local/hyper_exporter/upgrade_hamal.sh https://<HyperBDR IP\>:30080/softwares/upgrade_hamal.sh
 
 ```
-
-Step 3. Grant execution permissions
+- Step 3. Grant execution permissions
 
 ```shell
 
 chmod +x /root/upgrade.hamal.sh
 
 ```
-
-Step 4. Execute the update command
+- Step 4. Execute the update command
 
 ```shell
 
@@ -127,7 +122,7 @@ bash /usr/local/hyper_exporter/upgrade_hamal.sh
 
 #### Linux Agent
 
-Step 1. Log in to the Linux Agent host
+- Step 1. Log in to the Linux Agent host
 
 ```shell
 
@@ -135,7 +130,7 @@ ssh root@<Agent Host IP\>
 
 ```
 
-Step 2. Get the latest update script
+- Step 2. Get the latest update script
 
 ```shell
 
@@ -143,7 +138,7 @@ curl -k -o /var/lib/egisplus-agent/upgrade_agent.sh https://<HyperBDR-IP\>:30080
 
 ```
 
-Step 4. Execute the update script
+- Step 3. Execute the update script
 
 ```shell
 
@@ -153,9 +148,9 @@ bash /var/lib/egisplus-agent/upgrade_agent.sh
 
 #### Windows Agent
 
-Step 1. Log in to the source Windows Agent node server desktop
+- Step 1. Log in to the source Windows Agent server desktop
 
-Step 2. Download the update files to the Windows Agent server.
+- Step 2. Download the update files to the Windows Agent server.
 
 ```shell
 
@@ -170,11 +165,11 @@ https://<HyperBDR IP\>:30080/softwares/windows-agent-new/upgrade_to_xxx_x86.zip
 
 ![upgrade-hyperbdr-offline-upgrade-1.png](./images/upgrade-hyperbdr-offline-upgrade-1.png)
 
-Step 3. Extract the downloaded files
+- Step 3. Extract the downloaded files
 
 ![upgrade-hyperbdr-offline-upgrade-2.png](./images/upgrade-hyperbdr-offline-upgrade-2.png)
 
-Step 4. Execute Upgrade.exe.
+- Step 4. Execute Upgrade.exe.
 
 ![upgrade-hyperbdr-offline-upgrade-3.png](./images/upgrade-hyperbdr-offline-upgrade-3.png)
 

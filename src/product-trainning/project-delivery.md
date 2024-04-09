@@ -4,15 +4,15 @@ Now, Let's move to project delivery part.
 
 ## Can we do this project?
 
-When we first talk to a user, how do we decide if we can recommend Hyper BDR disaster recovery to them?
+When we first talk to a user, how do we decide if we can recommend HyperBDR disaster recovery to them?
 
 ![can we do this project](./images/project-delivery-can-we-do-this-project.png)
 
 Here's a simple way to decide:
 * Firstly, if the user's business systems are running on servers and they need disaster recovery, then they might be a potential customer. If they use Oracle RAC or cloud-native relational database services partially, they might need a hybrid solution we mentioned before. If they only want to protect Oracle or use cloud-native services entirely, they might not be able to use Hyper BDR for disaster recovery.
-* Secondly, currently, Hyper BDR mainly works with X86 architecture servers. It doesn't work with ARM or IBM Power series for now.
-* Thirdly, they should be using common operating systems like CentOS, Redhat, SUSE, Windows, etc. However, some operating systems provided by cloud providers might be customized with modified kernels, so standard Hyper BDR products may not work directly, and custom development might be needed.
-* Finally, if the user can accept a recovery point objective (RPO) of minutes, then they are likely potential users of Hyper BDR.
+* Secondly, currently, HyperBDR mainly works with X86 architecture servers. It doesn't work with ARM or IBM Power series for now.
+* Thirdly, they should be using common operating systems like CentOS, Redhat, SUSE, Windows, etc. However, some operating systems provided by cloud providers might be customized with modified kernels, so standard HyperBDR products may not work directly, and custom development might be needed.
+* Finally, if the user can accept a recovery point objective (RPO) of minutes, then they are likely potential users of HyperBDR.
 
 ## Project Gantt Overview
 
@@ -20,17 +20,17 @@ To facilitate understanding of the entire project delivery process, we use Gantt
 
 ![project delivery gantt overview](./images/project-delivery-gantt.png)
 
-1. After confirming that Hyper BDR can meet the customer's requirements, we need to conduct research on the customer's business systems to determine the scope of support.
+1. After confirming that HyperBDR can meet the customer's requirements, we need to conduct research on the customer's business systems to determine the scope of support.
 
 2. Based on the research findings, we determine the types of cloud storage to be used based on the requirements for disaster recovery networks, RPO, and RTO, ultimately forming a delivery plan.
 
-3. Once the project enters the delivery phase, pre-configuration is conducted for the user's source end and network environment according to the checklist. Simultaneously, network configuration and Hyper BDR installation and configuration are performed in the cloud.
+3. Once the project enters the delivery phase, pre-configuration is conducted for the user's source end and network environment according to the checklist. Simultaneously, network configuration and HyperBDR installation and configuration are performed in the cloud.
 
-4. After the installation and configuration of the production environment and Hyper BDR are completed, we enter the product usage phase, synchronizing data according to the schedule. The amount of data synchronized depends on factors such as data volume and bandwidth.
+4. After the installation and configuration of the production environment and HyperBDR are completed, we enter the product usage phase, synchronizing data according to the schedule. The amount of data synchronized depends on factors such as data volume and bandwidth.
 
 5. After the initial synchronization is completed, it is recommended to conduct a drill to confirm the integrity of disaster recovery data.
 
-6. Finally, Hyper BDR is monitored, and alarm configurations are made, completing the project delivery and entering the maintenance phase.
+6. Finally, HyperBDR is monitored, and alarm configurations are made, completing the project delivery and entering the maintenance phase.
 
 ## Investigation
 
@@ -38,11 +38,11 @@ Disaster recovery research mainly involves three aspects: host, network, and app
 
 ![project delivery investigation](./images/project-delivery-investigation.png)
 
-1. When conducting host research, we need to gather detailed information about the hosts to determine if Hyper BDR fully supports them. We can use methods provided in the official Hyper BDR documentation for this.
+1. When conducting host research, we need to gather detailed information about the hosts to determine if HyperBDR fully supports them. We can use methods provided in the official HyperBDR documentation for this.
 
 2. Network research aims to determine the existing network topology and bandwidth situation of the users. With this information, we can plan the disaster recovery network on the cloud platform and decide if VPN or dedicated connections are needed between the user's production and backup sites.
 
-3. Application system research can be carried out concurrently with host research. It mainly involves determining the importance of user business systems and configuring different disaster recovery strategies in Hyper BDR based on their importance levels. Additionally, we need to establish the sequence for taking over systems during disaster recovery based on their interdependencies.
+3. Application system research can be carried out concurrently with host research. It mainly involves determining the importance of user business systems and configuring different disaster recovery strategies in HyperBDR based on their importance levels. Additionally, we need to establish the sequence for taking over systems during disaster recovery based on their interdependencies.
 
 ### Useful Links
 
@@ -57,7 +57,7 @@ Planning for RPO and RTO needs to be based on the requirements of the user's bus
 
 ![project delivery rpo rto planning](./images/project-delivery-rpo-rto-planning.png)
 
-Currently, the minimum RPO time for Hyper BDR is 5 minutes, and it needs to be matched with the corresponding network bandwidth based on the size of data increments.
+Currently, the minimum RPO time for HyperBDR is 5 minutes, and it needs to be matched with the corresponding network bandwidth based on the size of data increments.
 
 In terms of RTO planning, the Huawei Cloud block storage mode is independent of data volume, with recovery times always within 15 minutes. However, the object storage mode is related to data volume. Specific indicator parameters can be referred to in the content of best practices.
 
@@ -81,7 +81,7 @@ As we officially enter the deployment phase, it's crucial to use a Checklist alo
 
 When selecting the Checklist, start by choosing based on the type of source system. Then, select the storage type of the cloud platform being used, followed by deciding on the network connection, whether it's through the public network or via VPN or dedicated lines. Finally, locate the corresponding Checklist.
 
-The Checklist is presented in a form format and needs to be completed step by step according to the guidance to finish the installation and configuration work of Hyper BDR.
+The Checklist is presented in a form format and needs to be completed step by step according to the guidance to finish the installation and configuration work of HyperBDR.
 
 ### Checklist Links
 

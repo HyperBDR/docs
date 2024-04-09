@@ -33,15 +33,15 @@ Click [Cloud Platform Support Matrix](https://365.kdocs.cn/l/ctsKIt85ScaM) to vi
    - It is necessary to provide the correspondence between volume types and Ceph storage pools. For default volume types, when the volume type is empty in the OpenStack platform, the corresponding platform volume type value is DEFAULT_VOLUME_TYPE.
    - For hosts started with images, it is necessary to provide storage pool information corresponding to the host's local volumes. Typically, the corresponding storage pool is vms, and the default value of the platform volume type is CEPH_GLANCE_VMS.
 
-### Sync Gateway Requirements:
-   - A CentOS 7 system with a minimum of 2 cores and 4GB of RAM is required as a sync gateway.
+### Sync Proxy Requirements:
+   - A CentOS 7 system with a minimum of 2 cores and 4GB of RAM is required as a **Sync Proxy** node.
    - Access to Ceph Monitor (default is 6789) and read corresponding data in OSD (default port is 6800).
    - Access to OpenStack platform API interface.
-   - Access to the management network address of HyperMotion/HyperBDR.
+   - Access to the management network address of **HyperMotion/HyperBDR Console**.
 
-### Sync Gateway Performance:
-   - The maximum number of synchronized hosts per sync gateway is not more than 100.
-   - Sync gateway rate configuration is related to the number of concurrent synchronized hosts:
+### Sync Proxy Performance:
+   - The maximum number of synchronized hosts per **Sync Proxy** is not more than 100.
+   - **Sync Proxy** rate configuration is related to the number of concurrent synchronized hosts:
       - (Default Setting) When a higher rate is required, it is recommended to adjust openstack_release_cpu_time = 0 to improve synchronization efficiency.
       - When there are many concurrent synchronized hosts, it is recommended to adjust openstack_release_cpu_time = the number of concurrent synchronized hosts.
 
