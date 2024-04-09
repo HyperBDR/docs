@@ -17,6 +17,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# OS X specific files
+*.DS_Store
+
 ### Node ###
 # Logs
 logs
