@@ -32,25 +32,25 @@
 
 | **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Agent | HyperBDR | TCP 单向 | 10443 / 30080 | 控制流 |
+| 1 | Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |
 | 2 | Agent | 对象存储服务 | TCP 单向 | 443 | 数据流 |
-| 3 | HyperBDR | 对象存储服务 | TCP 单向 | 443 | 控制流 |
-| 4 | HyperBDR | Drill/Takeover VM | TCP 单向 | 10729 | 控制流 | 必须在 HyperBDR 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
-| 5 | HyperBDR | 云 API | TCP 单向 | 443 | 控制流 |
-| 6 | Drill/Takeover VM | 对象存储服务 | TCP 单向 | 443 | 数据流 |
+| 3 | HyperBDR Console | 对象存储服务 | TCP 单向 | 443 | 控制流 |
+| 4 | HyperBDR Console | Transition Host | TCP 单向 | 10729 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
+| 5 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |
+| 6 | Transition Host | 对象存储服务 | TCP 单向 | 443 | 数据流 |
 
 #### VMware 无代理
 
 | **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | HyperBDR Proxy | vCenter | TCP 单向 | 443 | 控制流 |  |
-| 2 | HyperBDR Proxy | ESXi | TCP 单向 | 902 | 数据流 | 所有由 vCenter 管理的 ESXi 的端口 902 |
-| 3 | HyperBDR Proxy | HyperBDR | TCP 单向 | 10443 / 30080 | 控制流 |  |
-| 4 | HyperBDR Proxy | 对象存储服务 | TCP 单向 | 443 | 数据流 |  |
-| 5 | HyperBDR | 对象存储服务 | TCP 单向 | 443 | 控制流 |  |
-| 6 | HyperBDR | Drill/Takeover VM | TCP 单向 | 10729 | 控制流 | 必须在 HyperBDR 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
-| 7 | HyperBDR | 云 API | TCP 单向 | 443 | 控制流 |  |
-| 8 | Drill/Takeover VM | 对象存储服务 | TCP 单向 | 443 | 数据流 |
+| 1 | Sync Proxy | vCenter | TCP 单向 | 443 | 控制流 |  |
+| 2 | Sync Proxy | ESXi | TCP 单向 | 902 | 数据流 | 所有由 vCenter 管理的 ESXi 的端口 902 |
+| 3 | Sync Proxy | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |  |
+| 4 | Sync Proxy | 对象存储服务 | TCP 单向 | 443 | 数据流 |  |
+| 5 | HyperBDR Console | 对象存储服务 | TCP 单向 | 443 | 控制流 |  |
+| 6 | HyperBDR Console | Transition Host | TCP 单向 | 10729 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
+| 7 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |  |
+| 8 | Transition Host | 对象存储服务 | TCP 单向 | 443 | 数据流 |
 
 ### 部署架构
 
@@ -83,21 +83,21 @@
 
 | **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Agent | HyperBDR | TCP 单向 | 10443 / 30080 | 控制流 |
-| 2 | Agent | HyperBDR Cloud Proxy | TCP 单向 | 3260 | 数据流 |
-| 3 | HyperBDR | HyperBDR Cloud Proxy | TCP 单向 | 22 / 10729 | 控制流 | 必须在 HyperBDR 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
-| 4 | HyperBDR | 云 API | TCP 单向 | 443 | 控制流 |
+| 1 | Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |
+| 2 | Agent | Cloud Sync Gateway | TCP 单向 | 3260 | 数据流 |
+| 3 | HyperBDR Console | Cloud Sync Gateway | TCP 单向 | 22 / 10729 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
+| 4 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |
 
 #### 无代理
 
 | **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | HyperBDR Proxy | vCenter | TCP 单向 | 443 | 控制流 |  |
-| 2 | HyperBDR Proxy | ESXi | TCP 单向 | 902 | 数据流 | 所有由 vCenter 管理的 ESXi 的端口 902 |
-| 3 | HyperBDR Proxy | HyperBDR | TCP 单向 | 10443 / 30080 | 控制流 |  |
-| 4 | HyperBDR Proxy | HyperBDR Cloud Proxy | TCP 单向 | 3260 | 数据流 |  |
-| 5 | HyperBDR | HyperBDR 云代理 | TCP 单向 | 22 / 10729 | 控制流 | 必须在 HyperBDR 和容灾演练/接管 VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
-| 6 | HyperBDR | 云 API | TCP 单向 | 443 | 控制流 |
+| 1 | Sync Proxy | vCenter | TCP 单向 | 443 | 控制流 |  |
+| 2 | Sync Proxy | ESXi | TCP 单向 | 902 | 数据流 | 所有由 vCenter 管理的 ESXi 的端口 902 |
+| 3 | Sync Proxy | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |  |
+| 4 | Sync Proxy | Cloud Sync Gateway | TCP 单向 | 3260 | 数据流 |  |
+| 5 | HyperBDR Console | Cloud Sync Gateway | TCP 单向 | 22 / 10729 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管 VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
+| 6 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |
 
 ### 部署架构
 
@@ -123,9 +123,9 @@
 
 | **编号** | **访问来源** | **访问目标** | **通信方向** | **开放端口** | **通讯类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 容灾接管/演练VM（Agent）| HyperBDR | TCP 单向 | 10443 / 30080 | 控制流 |
-| 2 | 容灾接管/演练VM（Agent）| 回切网关 VM | TCP 单向 | 3260 | 数据流 |
-| 3 | HyperBDR | 回切网关 VM | TCP 单向 | 10729 | 控制流 |
+| 1 | Failback Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |
+| 2 | Failback Agent | Failback Transition Host | TCP 单向 | 3260 | 数据流 |
+| 3 | HyperBDR Console | Failback Transition Host | TCP 单向 | 10729 | 控制流 |
 
 ### 对象存储
 
@@ -137,13 +137,13 @@
 
 | **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 容灾接管/演练VM（Agent） | HyperBDR | TCP 单向 | 10443 / 30080 | 控制流 |
-| 2 | 容灾接管/演练VM（Agent） | 对象存储服务 | TCP 单向 | 443 | 数据流 |
-| 3 | HyperBDR | 对象存储服务 | TCP 单向 | 443 | 控制流 |
-| 4 | HyperBDR | 回切网关 VM | TCP 单向 | 10729 | 控制流 |
-| 5 | HyperBDR | 云 API | TCP 单向 | 443 | 控制流 |
-| 6 | HyperBDR | vCenter/ESXi | TCP 单向 | 443/902 | 控制流 |
-| 7 | 回切网关 VM | 对象存储服务 | TCP 单向 | 443 | 数据流 |
+| 1 | Failback Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |
+| 2 | Failback Agent | 对象存储服务 | TCP 单向 | 443 | 数据流 |
+| 3 | HyperBDR Console | 对象存储服务 | TCP 单向 | 443 | 控制流 |
+| 4 | HyperBDR Console | Failback Transition Host | TCP 单向 | 10729 | 控制流 |
+| 5 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |
+| 6 | HyperBDR Console | vCenter/ESXi | TCP 单向 | 443/902 | 控制流 |
+| 7 | Failback Transition Host | 对象存储服务 | TCP 单向 | 443 | 数据流 |
 
 ## 容灾网络规划
 
