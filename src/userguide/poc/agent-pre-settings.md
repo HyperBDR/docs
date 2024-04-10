@@ -5,7 +5,7 @@
 ## Configure the time synchronization service for the source host
 
 ::: tip
-Ensure synchronization between the host time and the network time. The provided example is for reference purposes only; please configure based on the specific circumstances of the standby disaster recovery host.
+Ensure synchronization between the host time and the network time. The provided example is for reference purposes only, please configure based on the specific circumstances of the standby disaster recovery host.
 :::
 
 ### Windows
@@ -533,11 +533,11 @@ Reference Link: [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](http
 :::
 
 
-## (Option 1: Public Network Access) Test Network Connectivity from Source Host to HyperBDR
+## (Option 1: Public Network Access) Test Network Connectivity from Source Host to HyperBDR Console
 
 ::: tip
-This step needs to be tested after the installation of HyperBDR is completed.  
-Test Access to HyperBDR Port 10443 and Port 30080.
+This step needs to be tested after the installation of HyperBDR Console is completed.  
+Test Access to HyperBDR Console Port 10443 and Port 30080.
 :::
 
 ### Windows Host
@@ -546,13 +546,13 @@ Test Access to HyperBDR Port 10443 and Port 30080.
 Perform testing operations using the Windows Command Prompt (CMD).
 :::
 
-Test Access to HyperBDR Port 10443 and Port 30080
+Test Access to HyperBDR Console Port 10443 and Port 30080
 
 Execute Command：
 
 ```shell
 
-ssh -v -p 10443 <HyperBDR Public IP>
+ssh -v -p 10443 <HyperBDR Console Public IP>
 
 ```
 
@@ -564,7 +564,7 @@ Execute Command：
 
 ```shell
 
-ssh -v -p 30080 <HyperBDR Public IP>
+ssh -v -p 30080 <HyperBDR Console Public IP>
 
 ```
 
@@ -574,19 +574,19 @@ Test Result: If the input results include the information "[debug1: Connection e
 
 ### Linux Host
 
-Test Access to HyperBDR Port 10443 and Port 30080
+Test Access to HyperBDR Console Port 10443 and Port 30080
 
 Execute Command：
 
 ```shell
 
-ssh -v -p 10443 <HyperBDR Public IP>
+ssh -v -p 10443 <HyperBDR Console Public IP>
 
 ```
 
 Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
 
-```
+```shell
 
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017
 
@@ -604,13 +604,13 @@ Execute Command：
 
 ```shell
 
-ssh -v -p 30080 <HyperBDR Public IP>
+ssh -v -p 30080 <HyperBDR Console Public IP>
 
 ```
 
 Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
 
-```
+```shell
 
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017
 
@@ -618,17 +618,17 @@ debug1: Reading configuration data /etc/ssh/ssh_config
 
 debug1: /etc/ssh/ssh_config line 58: Applying options for *
 
-debug1: Connecting to <HyperBDR Public IP> [<HyperBDR Public IP>] port 30080.
+debug1: Connecting to <HyperBDR Console Public IP> [<HyperBDR Console Public IP>] port 30080.
 
 debug1: Connection established.
 
 ```
 
-## (Option 2: Internal VPN Access)Test Network Connectivity from Source Host to HyperBDR
+## (Option 2: Internal VPN Access)Test Network Connectivity from Source Host to HyperBDR Console
 
 ::: tip
-This step needs to be tested after the installation of HyperBDR is completed.  
-Test Access to HyperBDR Port 10443 and Port 30080
+This step needs to be tested after the installation of HyperBDR Console is completed.  
+Test Access to HyperBDR Console Port 10443 and Port 30080
 :::
 
 ### Windows Host
@@ -641,7 +641,7 @@ Execute Command：
 
 ```shell
 
-ssh -v -p 10443 <HyperBDR Internal IP>
+ssh -v -p 10443 <HyperBDR Console Internal IP>
 
 ```
 
@@ -653,7 +653,7 @@ Execute Command：
 
 ```shell
 
-ssh -v -p 30080 <HyperBDR Internal IP>
+ssh -v -p 30080 <HyperBDR Console Internal IP>
 
 ```
 
@@ -665,15 +665,15 @@ Test Result: If the input results include the information "[debug1: Connection e
 
 Execute Command:
 
-```
+```shell
 
-ssh -v -p 10443 <HyperBDR Internal IP>
+ssh -v -p 10443 <HyperBDR Console Internal IP>
 
 ```
 
 Test Result: If the input results include the information "[debug1: Connection established.]" it indicates that there are no issues with network connectivity.
 
-```
+```shell
 
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
 
@@ -689,9 +689,9 @@ debug1: Connection established.
 
 Execute Command：
 
-```
+```shell
 
-ssh -v -p 30080 <HyperBDR Internal IP>
+ssh -v -p 30080 <HyperBDR Console Internal IP>
 
 ```
 
