@@ -431,14 +431,14 @@ Paste the copied installation command into the command line and execute it. Wait
 
 ![install-proxy-6.png](./images/install-proxy-6.png)
 
-##  Add and Configure HyperGate
+##  Add and Configure Cloud Sync Gateway
 
 ::: tip
 Already logged in to the HyperBDR console by default.  
-After configuring HyperGate, it will automatically invoke the API of the DR target cloud platform to create a cloud instance as cloud storage gateway.  
-HyperGate CPU : 2 Core  
-HyperGate RAM : 2 GB  
-HyperGate System Disk Size : 40 GB
+After configuring Cloud Sync Gateway, it will automatically invoke the API of the DR target cloud platform to create a cloud instance as Cloud Sync Gateway.  
+Cloud Sync Gateway CPU : 2 Core  
+Cloud Sync Gateway RAM : 2 GB  
+Cloud Sync Gateway System Disk Size : 40 GB
 :::
 
 ![add-and-configure-hypergate-1.png](./images/add-and-configure-hypergate-1.png)
@@ -450,7 +450,7 @@ The following operations use Huawei Cloud as an example. Please choose the corre
 :::
 
 ::: tip
-The HyperGate is an automatically created cloud instance that needs to be in the same region as the business VPC for DR.
+The Cloud Sync Gateway is an automatically created cloud instance that needs to be in the same region as the business VPC for DR.
 :::
 
 **Step1.** Click on "Configuration Management" in the top menu, choose "Storage Configuration" on the left, select "Block Storage," and click on the "Add" button.
@@ -459,7 +459,7 @@ The HyperGate is an automatically created cloud instance that needs to be in the
 
 **Step 2.** Fill in the information as follows to add the cloud platform. 
 
-> This step will automatically create a block storage recovery gateway (HyperGate) under the Huawei Cloud authentication tenant after authentication.
+> This step will automatically create a block storage recovery Cloud Sync Gateway under the Huawei Cloud authentication tenant after authentication.
 
 Choose Huawei Cloud in the Recovery Platform.
 
