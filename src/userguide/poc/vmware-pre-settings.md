@@ -117,11 +117,11 @@ Follow the prompts to choose the domain for user authorization, keeping it consi
 
 ![create-vmware-account-8.png](./images/create-vmware-account-8.png)
 
-After the addition is complete, provide the vCenter access address, **"dr"** user, and login password to HyperBDR platform.
+After the addition is complete, provide the vCenter access address, **"dr"** user, and login password to **HyperBDR Console**.
 
-### Fill in HyperBDR
+### Fill in HyperBDR Console
 
-Then fill in the authentication information of this account to the HyperBDR DR Platform later, including:
+Then fill in the authentication information of this account to the HyperBDR Console DR Platform later, including:
 
 - vCenter IP
 - vCenter usename
@@ -129,15 +129,15 @@ Then fill in the authentication information of this account to the HyperBDR DR P
 
 ## Download The OVA Images
 
-Download the template file for installing proxy synchronization (OVA)
+Download the template file for installing **Sync Proxy** node (OVA)
 
 - [proxy-agent_BaseOS.ova](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova)
 
-## Import OVA Images and Create Proxy Virtual Machine in VMware
+## Import OVA Images and Create **Sync Proxy** Virtual Machine in VMware
 
 ### Deploy VOF template
 
-select the your Esxis or Datacenter Name, Right click, select the **"Deploy OVF Template.."**
+select the your ESXis or Datacenter Name, Right click, select the **"Deploy OVF Template.."**
 
 ![vmware-pre-settings-1.png](./images/vmware-pre-settings-1.png)
 
@@ -179,7 +179,7 @@ Select a destination network for each source network.
 
 #### Step07: Ready to complete
 
-Confirm the created information then click Finish to start creation.
+Confirm the created information then click **"Finish"** to start creation.
 
 ![vmware-pre-settings-8.png](./images/vmware-pre-settings-8.png)
 
@@ -193,7 +193,7 @@ Confirm the created information then click Finish to start creation.
 
 ![vmware-pre-settings-10.png](./images/vmware-pre-settings-10.png)
 
-### Modify the Proxy VM Flavors
+### Modify the Sync Proxy VM Flavors
 
 - Click the VM name, then right click, select the **"Edit Settings..."**.
 
@@ -203,10 +203,10 @@ Confirm the created information then click Finish to start creation.
 
 ![vmware-pre-settings-12.png](./images/vmware-pre-settings-12.png)
 
-### Power On the Proxy VM
+### Power On the Sync Proxy VM
 
 - Select the VM name, then right click, click the **"Power"**, **"Power On"**.
 
 ![vmware-pre-settings-13.png](./images/vmware-pre-settings-13.png)
 
-Next step, you can configration the proxy IP Address.
+Next step, you can configration the Sync Proxy node IP Address.
