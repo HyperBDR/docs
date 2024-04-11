@@ -4,13 +4,13 @@
 
 ##  Create Failback Transition Host - Agent
 
-1. Use the hyperdoor image to create a virtual machine or physical machine in the source production environment as a Failback Transition Host.
+1. Use the failback transition image to create a virtual machine or physical machine in the source production environment as a Failback Transition Host.
 2. The Failback Transition Host serves as the data receiver during rollback and the recovery host during the final rollback.
 3. The Failback Transition Host serves requires a minimum configuration of 2 cores and 4 GB RAM. As this host is the recovery host during the final rollback, the general rule is to have a computing resource configuration consistent with the failback host.
 4. The Failback Transition Host serves storage configuration (disk number and disk capacity) for the Failback Transition Host should match that of the failback host.
 
 **Example：**
-| Host configuration | Failback Host configuration | Failback Transition Host configuration |
+| Host configuration | Tackover Host configuration | Failback Transition Host configuration |
 | --- | --- | --- |
 | CPU | 4 | 4 |
 | RAM | 8GB | 8GB |
@@ -18,10 +18,10 @@
 | data disk1 capacity | 200GB | 200GB |
 | data disk2 capacity | 500GB | 500GB |
 
-## Configure the IP address for the Failback Transition Host Host - Agent
+## Configure the IP address for the Failback Transition Host - Agent
 
 ::: tip
-The virtual machine/physical machine has already been created as a failback Transition Host in the source production environment by defaul.
+The virtual machine/physical machine has already been created as a Failback Transition Host in the source production environment by defaul.
 :::
 
 ### Login the Failback Transition Host system
@@ -92,7 +92,7 @@ Default Password：Acb@132.Inst
 
 ::: tip
 Please refer to the following document to find the dedicated Network Domain Service (NDS) address based on the used Huawei Cloud OBS region.  
-Reference Document:[https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
+Reference Document: [https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
 :::
 
 ```shell

@@ -127,7 +127,7 @@ debug1: Connecting to <HyperBDR Intranet IP> [<HyperBDR Intranet IP>] port 10081
 debug1: Connection established.
 ```
 
-## Install Agent on the Failback Host and register with HyperBDR
+## Install Failback Agent on the Failback Host and register with HyperBDR
 
 ### Linux Failback Host
 
