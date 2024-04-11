@@ -2,16 +2,16 @@
 
 [[toc]]
 
-## Download the Hyperdoor image file (ISO) and upload it to the VMware storage.
+## Download the Transition Host Image file (ISO) and upload it to the VMware storage.
 
-### Download the Hyperdoor image file (ISO)
+### Download the Transition Host Image file (ISO)
 
 ::: tip
 Download the ISO image to the download address in the document.  
 Document link: [https://docs.oneprocloud.com/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image](http://192.168.7.58:8080/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image)
 :::
 
-### Upload the Hyperdoor image file (ISO) to the VMware storage
+### Upload the Transition Host Image file (ISO) to the VMware storage
 
 #### Log in to the VMware vSphere Client console
 
@@ -27,14 +27,14 @@ Document link: [https://docs.oneprocloud.com/userguide/poc/failback-hyperbdr-pre
 
 ![complete-doc-for-block-storage-failback-11.png](./images/complete-doc-for-block-storage-failback-11.png)
 
-Select the downloaded Hyperdoor image file (ISO), and wait for the image upload to complete.
+Select the downloaded Transition Host Image file (ISO), and wait for the image upload to complete.
 
 ![complete-doc-for-block-storage-failback-12.png](./images/complete-doc-for-block-storage-failback-12.png)
 
 ![complete-doc-for-block-storage-failback-13.png](./images/complete-doc-for-block-storage-failback-13.png)
 
 
-## Use the Hyperdoor image to create a virtual machine in the production VMware environment as the Failback Transition Host
+## Use the Transition Host Image to create a virtual machine in the production VMware environment as the Failback Transition Host
 
 ### Create a new virtual machine
 
@@ -81,14 +81,14 @@ Select your ESXi host or data center, right-click, and choose [New Virtual Machi
 **Step 7-3: Customize hardware by configuring system disk and data disk.**
 
 ::: warning
-The number and capacity of disks for the Failback Transition Host need to be consistent with the Failback Host.
+The number and capacity of disks for the Failback Transition Host need to be consistent with the Takeover Host.
 :::
 
 ![complete-doc-for-block-storage-failback-24.png](./images/complete-doc-for-block-storage-failback-24.png)
 
 ![complete-doc-for-block-storage-failback-25.png](./images/complete-doc-for-block-storage-failback-25.png)
 
-**Step 7-4: Configure the CD/DVD drive. Choose the type as [Datastore ISO File], in the new window select the uploaded Hyperdoor image file (ISO) from the storage, and check the option [Connect At Power On]. Leave other configurations as default, click [NEXT].**
+**Step 7-4: Configure the CD/DVD drive. Choose the type as [Datastore ISO File], in the new window select the uploaded Transition Host Image file (ISO) from the storage, and check the option [Connect At Power On]. Leave other configurations as default, click [NEXT].**
 
 ![complete-doc-for-block-storage-failback-26.png](./images/complete-doc-for-block-storage-failback-26.png)
 
@@ -137,7 +137,7 @@ The virtual machine system has started successfully.
 ### Manually configure the network
 
 ::: tip
-The Hyperdoor image is configured with default DHCP mode for networking. If the VMware network you selected supports DHCP, confirm the virtual machine's IP and proceed. If the VMware network does not use DHCP, manual configuration of the virtual machine's network is required
+The Transition Host Image is configured with default DHCP mode for networking. If the VMware network you selected supports DHCP, confirm the virtual machine's IP and proceed. If the VMware network does not use DHCP, manual configuration of the virtual machine's network is required
 :::
 
 #### Confirm the virtual machine's network adapter device name
@@ -224,11 +224,11 @@ Document Link:[https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.ht
 
 1. The HyperBDR node host needs to have normal access to the vCenter on port 443.  
 2. The HyperBDR node host needs to have normal access to all ESXi hosts managed by vCenter on port 443.  
-3. The VMware business network virtual machine (failback recovery virtual machine) needs to have normal access to the object storage on port 443.  
-4. The HyperBDR node host needs to have normal access to port 10729 of the VMware business network virtual machine (failback recovery virtual machine).
+3. The VMware business network virtual machine (failback host virtual machine) needs to have normal access to the object storage on port 443.  
+4. The HyperBDR node host needs to have normal access to port 10729 of the VMware business network virtual machine (failback host virtual machine).
 
 ::: tip
-The HyperBDR node host requires access to the vCenter API interface for authentication. By invoking the Disaster Recovery Production vCenter/ESXi interface, it creates a failback recovery virtual machine in the VMware business network, manages it, and automatically creates a failback recovery virtual machine. This involves accessing port 443 of Huawei Cloud Object Storage to retrieve data for failback recovery.
+The HyperBDR node host requires access to the vCenter API interface for authentication. By invoking the Disaster Recovery Production vCenter/ESXi interface, it creates a failback host virtual machine in the VMware business network, manages it, and automatically creates a failback host virtual machine. This involves accessing port 443 of Huawei Cloud Object Storage to retrieve data for failback host.
 :::
 
 ## (Intranet VPN Access)Configure a Huawei cloud Intranet DNS address for the VMware Network-Object Storage Fallback
@@ -240,7 +240,7 @@ If the configuration of the Huawei Cloud intranet OBS VPC Endpoint service resol
 If your fallback environment is interconnected with the on-premises network through Huawei Cloud VPN, after creating VPC Endpoint services, it is necessary to configure the Huawei Cloud intranet OBS VPC Endpoint service resolution address in the local vCenter/ESXi host management network and the virtual machine business network.  
 Reference Document: [https://docs.oneprocloud.com/userguide/poc/hyperbdr-agent-pre-settings.html#option-2-intranet-vpn-access-configure-huawei-cloud-intranet-dns-address-for-the-network-device-where-the-agent-host-resid](https://docs.oneprocloud.com/userguide/poc/hyperbdr-agent-pre-settings.html#option-2-intranet-vpn-access-configure-huawei-cloud-intranet-dns-address-for-the-network-device-where-the-agent-host-resid)
 
-## (Intranet VPN Access)Test the connectivity from the VMware failback recovery host network to Huawei Cloud OBS network
+## (Intranet VPN Access)Test the connectivity from the VMware failback host network to Huawei Cloud OBS network
 
 ### Prepare and log in the test host 
 
