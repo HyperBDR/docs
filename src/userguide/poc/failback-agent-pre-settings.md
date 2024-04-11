@@ -2,7 +2,7 @@
 
 [[toc]]
 
-## (Intranet VPN Access) Test the network connectivity between the Failback Host and the HyperBDR
+## (Intranet VPN Access) Test the network connectivity between the Takeover Host and the HyperBDR
 
 ::: tip
 The VPN service has been configured on the DR side, and the DR side has connected to the production site through the VPN. You can perform the following tests.
@@ -10,11 +10,11 @@ The VPN service has been configured on the DR side, and the DR side has connecte
 
 ### Verification test procedure
 
-Log in to the Failback Host.
+Log in to the Takeover Host.
 
-#### The Failback Host is Linux 
+#### The Takeover Host is Linux 
 
-Ensure that the ssh command is running on the Failback Host
+Ensure that the ssh command is running on the Takeover Host
 
 #### The HyperBDR is accessed on port 10443
 
@@ -69,9 +69,9 @@ debug1: Connecting to <HyperBDR Intranet IP> [<HyperBDR Intranet IP>] port 10081
 debug1: Connection established.
 ```
 
-### The Failback Host is Windows
+### The Takeover Host is Windows
 
-Ensure that the ssh command exists on the Failback Host, and open the CMD command line
+Ensure that the ssh command exists on the Takeover Host, and open the CMD command line
 
 #### The HyperBDR is accessed on port 10443
 
@@ -127,9 +127,9 @@ debug1: Connecting to <HyperBDR Intranet IP> [<HyperBDR Intranet IP>] port 10081
 debug1: Connection established.
 ```
 
-## Install Failback Agent on the Failback Host and register with HyperBDR
+## Install Failback Agent on the Takeover Host and register with HyperBDR
 
-### Linux Failback Host
+### Linux Takeover Host
 
 #### Log in to the HyperBDR Console
 
@@ -145,19 +145,19 @@ In the **'Linux'** section, click **'Copy Command'**.
 
 ![complete-doc-for-block-storage-failback-3.png](./images/complete-doc-for-block-storage-failback-3.png)
 
-#### Run the installation command on the Failback Host
+#### Run the installation command on the Takeover Host
 
-Log in to the Failback Host, and then run the Agent installation command. Wait for the installation to complete.
+Log in to the Takeover Host, and then run the Agent installation command. Wait for the installation to complete.
 
 ![complete-doc-for-block-storage-failback-4.png](./images/complete-doc-for-block-storage-failback-4.png)
 
-### Windows Failback Host
+### Windows Takeover Host
 
 #### Log in to the HyperBDR Console
 
 ![complete-doc-for-block-storage-failback-5.png](./images/complete-doc-for-block-storage-failback-5.png)
 
-#### Download the Agent installation package to the local of the Failback Host.
+#### Download the Agent installation package to the local of the Takeover Host.
 
 Click on the **'DR'** tab above, then select **'Host Failback'** on the left. Click on **'Add Host'**, choose the Agent mode.
 
@@ -170,28 +170,28 @@ In the **'Windows'** section, select the installation package corresponding to y
 
 #### **Antivirus Software Inspection and Measures on Source Windows Host**
 
-Refer to the following documentation and perform the operations on the Windows Failback Host.
+Refer to the following documentation and perform the operations on the Windows Takeover Host.
 
 Documentation Link：[https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#antivirus-software-inspection-and-measures-on-source-windows-host](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#antivirus-software-inspection-and-measures-on-source-windows-host)
 
-#### **Install Agent on the Windows Failback Host**
+#### **Install Agent on the Windows Takeover Host**
 
-Refer to the following documentation and perform the operations on the Windows Failback Host.
+Refer to the following documentation and perform the operations on the Windows Takeover Host.
 
 Documentation Link：[https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#install-agent-on-the-source-windows-host](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#install-agent-on-the-source-windows-host)
 
-## (Intranet VPN Access) Test the network connectivity between the Failback Host and Huawei Cloud OBS
+## (Intranet VPN Access) Test the network connectivity between the Takeover Host and Huawei Cloud OBS
 
 ::: tip
 The VPN service has been configured on the Huawei cloud side, and the Huawei cloud side has connected to the production site through the VPN. You can perform the following tests.
 :::
 
-### The Failback Host is Linux 
+### The Takeover Host is Linux 
 
-#### Log in to the Failback Host .
+#### Log in to the Takeover Host .
 
 ::: tip
-Ensure that the ssh command is running on the Failback Host.
+Ensure that the ssh command is running on the Takeover Host.
 :::
 
 #### Huawei Cloud Private DNS Connectivity Testing
@@ -225,12 +225,12 @@ Reference Link:  [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](htt
 :::
 
 
-### The Failback Host is Windows
+### The Takeover Host is Windows
 
-#### Log in to the Failback Host .
+#### Log in to the Takeover Host .
 
 ::: tip
-Ensure that the ssh command exists on the Failback Host, and open the CMD command line.
+Ensure that the ssh command exists on the Takeover Host, and open the CMD command line.
 :::
 
 #### Huawei Cloud Private DNS Connectivity Testing
@@ -263,22 +263,22 @@ This command is primarily used to test the accessibility of Huawei Cloud Object 
 Reference Link:  [https://developer.huaweicloud.com/intl/en-us/endpoint?OBS](https://developer.huaweicloud.com/intl/en-us/endpoint?OBS)
 :::
 
-## (Intranet VPN Access) Tests the network connectivity between the Failback Host and the Failback Transition Host
+## (Intranet VPN Access) Tests the network connectivity between the Takeover Host and the Failback Transition Host
 
 ::: tip
-If the switchback test environment is connected to the Intranet of the production site through VPN, you can perform this operation to test the network connectivity between the Failback Host and the Failback Transition Host.
+If the switchback test environment is connected to the Intranet of the production site through VPN, you can perform this operation to test the network connectivity between the Takeover Host and the Failback Transition Host.
 :::
 
-### The Failback Host is a Linux
+### The Takeover Host is a Linux
 
 #### Verification test procedure
 
-Log in to the Failback Host.
+Log in to the Takeover Host.
 
 #### Test access to port 10729 of the Failback Transition Host
 
 ::: tip
-Ensure that the ssh command is running on the Failback Host
+Ensure that the ssh command is running on the Takeover Host
 :::
 
 Test command:
@@ -289,16 +289,16 @@ ssh -p 10729 root@<Failback Transition Host Intranet IP>
 Verification results:
 If the password can be accessed normally, the access is normal.
 
-### The Failback Host is a Windows
+### The Takeover Host is a Windows
 
 #### Verification test procedure
 
-Log in to the Failback Host
+Log in to the Takeover Host
 
 #### Test access to port 10729 of the Failback Transition Host
 
 ::: tip
-Ensure that the ssh command exists on the Failback Host, and open the CMD command line
+Ensure that the ssh command exists on the Takeover Host, and open the CMD command line
 :::
 
 Test command:
