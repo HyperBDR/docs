@@ -75,8 +75,8 @@ module.exports = {
                 link: '/product-overview/'
               },
               {
-                text: 'Product Trainning',
-                link: '/product-trainning/'
+                text: 'Product Training',
+                link: '/product-training/'
               },
             ]
           },
@@ -226,13 +226,13 @@ module.exports = {
               ],
             }
           ], // end of /product-overview/
-          '/product-trainning/': [
+          '/product-training/': [
             {
-              title: 'Product Tranning',
+              title: 'Product Training',
               collapsable: false,
               children: [
                 {
-                  title: 'Tranning',
+                  title: 'Training',
                   collapsable: false,
                   children: [
                     'product-overview.md',
@@ -243,7 +243,7 @@ module.exports = {
                 }
               ],
             }
-          ] // end of /trainning/
+          ] // end of /training/
         }
       },
       // 中文文档目录结构与配置
