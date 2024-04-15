@@ -1,4 +1,4 @@
-## About Trainning
+## About Training
 
 This training aims to comprehensively analyze the application scenarios, product features, and project implementation plans of HyperBDR. In this training, you will gain the following insights:
 
