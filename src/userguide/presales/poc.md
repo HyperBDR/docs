@@ -8,7 +8,7 @@ HyperBDR offers Proof of Concept(PoC). This document will introduce the scope an
 |------------------------------|------------------------------------------------------------|
 | Investigation                | - Gathering and Assessment about detail technical specification requirements |
 |                              | - Information gathering & analysis                         |
-| Plan                         | - Provide deployment plan and timeline                     |
+| Schedule                     | - Provide PoC schedule                                     |
 | Deployment                   | - Provisioning Cloud (VM)                                  |
 |                              | - Setup HyperBDR Server (for x VM/Server)                  |
 |                              | - Setup HyperBDR Agent/Agentless (for x VM/Server)        |
@@ -20,7 +20,7 @@ HyperBDR offers Proof of Concept(PoC). This document will introduce the scope an
 
 ## HyperBDR UAT
 
-### In Scope
+### DR Scope
 
 | Solution Component          | In Scope                                                                 |
 |-----------------------------|--------------------------------------------------------------------------|
@@ -30,10 +30,19 @@ HyperBDR offers Proof of Concept(PoC). This document will introduce the scope an
 | Post Deployment             | Drill & Takeover:                                                       |
 |                             | - Testing Backup Process (Backup Policy, Incremental)                   |
 |                             | - Testing Drill & Takeover (to VM in Cloud)                              |
-|                             | Failback:                                                                |
+| Finalization                | - Hand over after deployment is ready in the production                  |
+
+### (Optional)Failback Scope
+
+| Solution Component          | In Scope                                                                 |
+|-----------------------------|--------------------------------------------------------------------------|
+| Configuration               | - Configuration HyperBDR System                                         |
+|                             | - Configuration OBS or Block storage failback mode on Cloud             |
+|                             | - Configure Production Site                                             |
+| Post Deployment             | Failback:                                                                |
 |                             | - Testing Failback Process (Full Data Transmission)                      |
 |                             | - Testing Failback Recovery (to VM in source production Site)           |
-| Finalization                | - Hand over after deployment is ready in the production and also provides deployment documents |
+| Finalization                | - Hand over after deployment is ready in the production                 |
 
 ### Out of Scope
 
@@ -77,7 +86,8 @@ This section is only applicable when users need to use an intranet for output tr
 | 5   | Hosts Register in HyperBDR Console    | ✓      |          |
 | 6   | Backup & Policy Settings              | ✓      |          |
 | 7   | Drill & Takeover                      | ✓      |          |
-| 8   | Restore Backup and validity after backup | ✓  |    ✓      |
+| 8   | Restore Backup                           | ✓  |           |
+| 9   | Validity after backup                    |    |    ✓      |
 
 ### Failback
 
@@ -89,7 +99,8 @@ This section is only applicable when users need to use an intranet for output tr
 | 4   | Failback Host Register in HyperBDR Console          |   ✓   |           |
 | 5   | On-Premises failback server / VM Preparations       |       |  ✓        |
 | 6   | Failback Full Data Sync                             |   ✓   |           |
-| 7   | Restore failback server / VM and validity after failback | ✓ | ✓ |
+| 7   | Restore failback server / VM                        | ✓ |   |
+| 8   | Validity after failback                             |   | ✓ |
 
 
 ## PoC Success Criteria
