@@ -1,4 +1,4 @@
-# Proof of Conecept
+# Proof of Concept
 
 HyperBDR offers Proof of Concept(PoC). This document will introduce the scope and objectives of PoC.
 
