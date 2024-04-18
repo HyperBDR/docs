@@ -9,12 +9,12 @@
 #### Installation Package
  
 > File Name: **HyperBDR_release_v5.3.0_20240331-20240403-2782.tar.gz**  
-> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.3.0_20240331-20240403-2782.tar.gz](https://downloads.oneprocloud.com/HyperBDR_release_v5.2.0_20240229-20240313-2642.tar.gz)  
+> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.3.0_20240331-20240403-2782.tar.gz](https://downloads.oneprocloud.com/HyperBDR_release_v5.3.0_20240331-20240403-2782.tar.gz)  
 
 #### MD5 Checksum File
 
 > File Name: **HyperBDR_release_v5.3.0_20240331-20240403-2782.tar.gz.md5**  
-> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.3.0_20240331-20240403-2782.tar.gz.md5](https://downloads.oneprocloud.com/HyperBDR_release_v5.2.0_20240229-20240313-2642.tar.gz.md5)  
+> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.3.0_20240331-20240403-2782.tar.gz.md5](https://downloads.oneprocloud.com/HyperBDR_release_v5.3.0_20240331-20240403-2782.tar.gz.md5)  
 
 ::: tip
 Log in to the HyperBDR host backend and execute the command.  
@@ -61,7 +61,7 @@ If the MD5 values obtained in `Step1` and `Step2` are the same, it indicates tha
 > Already logged in to the Huawei Cloud HyperBDR ECS instance backend by default
 
 ::: tip
-The operating system used for the installation must be CentOS7.x version.
+The operating system used for the installation must be Ubuntu 20.04 version.
 :::
 
 ### Unzip the HyperBDR installation package
