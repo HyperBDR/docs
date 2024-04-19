@@ -61,7 +61,7 @@ cat "$HYPERBDR_PACKAGE_MD5_NAME"
 > 默认已登录到华为云HyperBDR ECS实例的后端。
 
 ::: tip
-安装所使用的操作系统必须是CentOS 7.x版本。
+安装所使用的操作系统必须是 Ubuntu 20.04 版本。
 :::
 
 ### 解压HyperBDR安装包
