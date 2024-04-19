@@ -129,7 +129,7 @@ HyperBDR Security Group Name: SG-HyperBDR
 | Billing Mode        | Yearly/Monthly                                                  |
 | AZ                  | AZ1                                                             |
 | Flavor              | s6.2xlarge.2                                                    |
-| Image               | CentOS 7.9 64bit(40 GiB)(d580586a-1761-4f06-bb11-5f358ee29e40)  |
+| Image               | Ubuntu 20.04 server 64bit(40GiB)(cecc4bcf-b055-4d35-bd5f-693d4412eaef)  |
 | System Disk         | High IO 200GB                                                   |
 | Network             | <VPC-HyperBDR-172.16.0.0\>                                      |
 | Subnet              | <Subnet-HyperBDR-172.16.0.0\> (Automatically assign IP address) |
