@@ -129,7 +129,7 @@ HyperBDR 安全组名称: SG-HyperBDR
 | 计费模式            | 包年/包月                                                        |
 | 可用区              | 可用区1                                                          |
 | 规格                | s6.2xlarge.2                                                    |
-| 镜像                | CentOS 7.9 64bit(40 GiB)(d580586a-1761-4f06-bb11-5f358ee29e40)  |
+| 镜像                | Ubuntu 20.04 server 64bit(40GiB)(cecc4bcf-b055-4d35-bd5f-693d4412eaef)  |
 | 系统盘              | 高IO 200GB                                                      |
 | 网络                | <VPC-HyperBDR-172.16.0.0\>                                      |
 | 子网                | <Subnet-HyperBDR-172.16.0.0\> (Automatically assign IP address) |
