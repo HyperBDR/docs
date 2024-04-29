@@ -452,3 +452,40 @@ In the 'Quotas' page, click on 'Increase', and fill out the Huawei Cloud Ticket.
 
 After completing the form, check the agreement box and click 'Submit.' Wait and monitor the response from the Huawei Cloud Ticket for information regarding the increase quotas.
 
+## Modify the ssh policy of the Cloud Sync Gateway instance security group
+
+### Confirm the instance of Cloud Sync Gateway
+
+::: tip
+Login the HyperBDR console by default.
+:::
+
+![modify-the-policy-of-the-cloud-sync-gateway-1.png](./images/modify-the-policy-of-the-cloud-sync-gateway-1.png)
+
+![modify-the-policy-of-the-cloud-sync-gateway-2.png](./images/modify-the-policy-of-the-cloud-sync-gateway-2.png)
+
+![modify-the-policy-of-the-cloud-sync-gateway-3.png](./images/modify-the-policy-of-the-cloud-sync-gateway-3.png)
+
+Record the Link Address of the cloud sync gateway.
+
+### Modify the cloud sync gateway security group
+
+Log in to Huawei Cloud and use Link Address to find the cloud sync gateway instance.
+
+![modify-the-policy-of-the-cloud-sync-gateway-4.png](./images/modify-the-policy-of-the-cloud-sync-gateway-4.png)
+
+Modify security group
+
+![modify-the-policy-of-the-cloud-sync-gateway-5.png](./images/modify-the-policy-of-the-cloud-sync-gateway-5.png)
+
+Modify the Inbound Rules and set the source end of port 22 to the IP address of HyperBDR.
+
+::: tip
+If HyperBDR is deployed in a private network environment without a fixed public IP, you need to use HyperBDR's egress public IP as the source IP.
+:::
+
+![modify-the-policy-of-the-cloud-sync-gateway-6.png](./images/modify-the-policy-of-the-cloud-sync-gateway-6.png)
+
+![modify-the-policy-of-the-cloud-sync-gateway-7.png](./images/modify-the-policy-of-the-cloud-sync-gateway-7.png)
+
+
