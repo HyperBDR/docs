@@ -345,3 +345,34 @@ Please note that different servers and IPMI implementations may have slight vari
 Due to the diverse models of underlying hardware in physical machines and the potential need for different drivers to accommodate various hardware models, it is essential to proactively query the hardware information of the physical machine, including RAID cards, disks, network cards, etc., when migrating or reverting.  
 
 Currently, manual intervention is required for the adaptation and repair of physical machine drivers. This involves the installation of hardware drivers to ensure compatibility and functionality.
+
+## Configuring Firewall Settings
+
+To configure firewall settings in two different environments, please follow the steps below:
+
+### **1: Windows 2008/2012/2016**
+
+Access the "Windows Firewall" settings, add the "Windows Agent.exe" service to the "Allow another program through the firewall" list, as illustrated in the screenshots below:
+
+![windows-firewall-settings-1.png](./images/windows-firewall-settings-1.png)
+
+![windows-firewall-settings-2.png](./images/windows-firewall-settings-2.png)
+
+
+### **2. Windows 2003**
+
+Access the "Windows Firewall" settings; click on the "Exceptions" tab, select "Add a program, click "Browse" to locate the program you want to add:
+
+![windows-firewall-settings-3.png](./images/windows-firewall-settings-3.png)
+
+![windows-firewall-settings-4.png](./images/windows-firewall-settings-4.png)
+
+In Figure 3; select "DiskSyncAgent.exe", then click "Open".
+
+In Figure 4, you will see "DiskSyncAgent.exe" already selected in the "Add a Program" list. Click "OK" to complete the addition. Afterward, restart the system.
+
+
+_Note: The default directory for "DiskSync-Agent.exe" is "C:\Program Files\DiskSync-Agent\DiskSyncAgent.exe."_
+
+
+
