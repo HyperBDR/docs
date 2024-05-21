@@ -8,13 +8,13 @@
 
 #### Installation Package
  
-> File Name: **HyperBDR_release_v5.4.0_20240430-20240511-3091.tar.gz**  
-> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.4.0_20240430-20240511-3091.tar.gz](https://downloads.oneprocloud.com/HyperBDR_release_v5.4.0_20240430-20240511-3091.tar.gz)  HyperBDR_release_v5.4.0_20240430-20240511-3091.tar.gz
+> File Name: **HyperBDR_release_v5.4.0_20240430-20240521-3162.tar.gz**  
+> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.4.0_20240430-20240521-3162.tar.gz](https://downloads.oneprocloud.com/HyperBDR_release_v5.4.0_20240430-20240521-3162.tar.gz)  
 
 #### MD5 Checksum File
 
-> File Name: **HyperBDR_release_v5.4.0_20240430-20240511-3091.tar.gz.md5**  
-> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.4.0_20240430-20240511-3091.tar.gz.md5](https://downloads.oneprocloud.com/HyperBDR_release_v5.4.0_20240430-20240511-3091.tar.gz.md5)  
+> File Name: **HyperBDR_release_v5.4.0_20240430-20240521-3162.tar.gz.md5**  
+> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.4.0_20240430-20240521-3162.tar.gz.md5](https://downloads.oneprocloud.com/HyperBDR_release_v5.4.0_20240430-20240521-3162.tar.gz.md5)  
 
 ::: tip
 Log in to the HyperBDR host backend and execute the command.  
