@@ -2,16 +2,16 @@
 
 [[toc]]
 
-## 下载Hyperdoor镜像文件（ISO）并上传至VMware存储
+## 下载回切过渡主机镜像文件（ISO）并上传至VMware存储
 
-### 下载Hyperdoor镜像文件（ISO）
+### 下载回切过渡主机镜像文件（ISO）
 
 ::: tip
 请在文档中的下载地址下载ISO镜像。  
 文档链接： [https://docs.oneprocloud.com/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image](http://192.168.7.58:8080/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image)
 :::
 
-### 将Hyperdoor镜像文件（ISO）上传至VMware存储
+### 将回切过渡主机镜像文件（ISO）上传至VMware存储
 
 #### 登录VMware vSphere Client控制台
 
@@ -27,16 +27,16 @@
 
 ![complete-doc-for-block-storage-failback-11.png](./images/complete-doc-for-block-storage-failback-11.png)
 
-#### 选择下载的Hyperdoor镜像文件（iso），等待上传镜像完成
+#### 选择下载的回切过渡主机镜像文件（iso），等待上传镜像完成
 
 ![complete-doc-for-block-storage-failback-12.png](./images/complete-doc-for-block-storage-failback-12.png)
 
 ![complete-doc-for-block-storage-failback-13.png](./images/complete-doc-for-block-storage-failback-13.png)
 
 
-## 使用Hyperdoor镜像创建VMware虚拟机作为通用存储回切网关
+## 使用回切过渡主机镜像创建VMware虚拟机作为回切过渡主机
 
-### 创建通用存储回切网关
+### 创建回切过渡主机
 
 选择你的ESXi或数据中心，右击鼠标，选择[新建虚拟机]
 
@@ -81,14 +81,14 @@
 **Step 7-3: 自定义硬件，配置系统盘和数据盘**
 
 ::: warning
-通用存储回切网关虚拟机的系统盘和数据盘需要与回切主机一致。
+回切过渡主机虚拟机的系统盘和数据盘需要与回切主机一致。
 :::
 
 ![complete-doc-for-block-storage-failback-24.png](./images/complete-doc-for-block-storage-failback-24.png)
 
 ![complete-doc-for-block-storage-failback-25.png](./images/complete-doc-for-block-storage-failback-25.png)
 
-**Step 7-4: CD/DVD驱动配置，类型选择[数据存储ISO文件]，新窗口选择上传到存储的Hyperdoor镜像文件（ISO），并且勾选[打开电源时连接]选项；其他配置默认即可，配置完成后点击[NEXT]**
+**Step 7-4: CD/DVD驱动配置，类型选择[数据存储ISO文件]，新窗口选择上传到存储的回切过渡主机镜像文件（ISO），并且勾选[打开电源时连接]选项；**
 
 ![complete-doc-for-block-storage-failback-26.png](./images/complete-doc-for-block-storage-failback-26.png)
 
@@ -97,6 +97,12 @@
 ![complete-doc-for-block-storage-failback-28.png](./images/complete-doc-for-block-storage-failback-28.png)
 
 ![complete-doc-for-block-storage-failback-29.png](./images/complete-doc-for-block-storage-failback-29.png)
+
+**Step 7-5: 回切过渡主机虚拟机的磁盘SCSI控制器和VMware源机器的SCSI控制器相同。其他配置默认即可，配置完成后点击[NEXT]**
+
+![vmware-scsi-controller-zh-1.png](./images/vmware-scsi-controller-zh-1.png)
+
+![vmware-scsi-controller-zh-2.png](./images/vmware-scsi-controller-zh-2.png)
 
 **Step 8: 确认信息无误后，单击[FINISH]启动创建**
 
@@ -117,13 +123,13 @@
 ![complete-doc-for-block-storage-failback-33.png](./images/complete-doc-for-block-storage-failback-33.png)
 
 
-## 配置通用存储回切网关虚拟机的IP地址
+## 配置回切过渡主机虚拟机的IP地址
 
 ### 登录VMware vSphere Client控制台
 
 ![complete-doc-for-block-storage-failback-34.png](./images/complete-doc-for-block-storage-failback-34.png)
 
-### 控制台访问通用存储回切网关虚拟机
+### 控制台访问回切过渡主机虚拟机
 
 ![complete-doc-for-block-storage-failback-35.png](./images/complete-doc-for-block-storage-failback-35.png)
 

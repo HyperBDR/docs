@@ -88,7 +88,7 @@ The number and capacity of disks for the Failback Transition Host need to be con
 
 ![complete-doc-for-block-storage-failback-25.png](./images/complete-doc-for-block-storage-failback-25.png)
 
-**Step 7-4: Configure the CD/DVD drive. Choose the type as [Datastore ISO File], in the new window select the uploaded Transition Host Image file (ISO) from the storage, and check the option [Connect At Power On]. Leave other configurations as default, click [NEXT].**
+**Step 7-4: Configure the CD/DVD drive. Choose the type as [Datastore ISO File], in the new window select the uploaded Transition Host Image file (ISO) from the storage, and check the option [Connect At Power On].**
 
 ![complete-doc-for-block-storage-failback-26.png](./images/complete-doc-for-block-storage-failback-26.png)
 
@@ -97,6 +97,12 @@ The number and capacity of disks for the Failback Transition Host need to be con
 ![complete-doc-for-block-storage-failback-28.png](./images/complete-doc-for-block-storage-failback-28.png)
 
 ![complete-doc-for-block-storage-failback-29.png](./images/complete-doc-for-block-storage-failback-29.png)
+
+**Step 7-5: The SCSI controller of the disk for the universal storage Failback Transition Host is identical to that of the source machine in VMware.  Leave other configurations as default, click [NEXT].**
+
+![vmware-scsi-controller-en-1.png](./images/vmware-scsi-controller-en-1.png)
+
+![vmware-scsi-controller-en-2.png](./images/vmware-scsi-controller-en-2.png)
 
 **Step 8: After confirming that the information is correct, click [FINISH] to start the creation.**
 
