@@ -129,9 +129,6 @@ Test if Sync Proxy can connect to vCenter 443 port and ESXis 902 port which is m
 ### Test vCenter/ESXi Connectivity
 
 NOTE: Repeat this steps if you have multiple vCenter or ESXis to be protected.
-::: tip
-
-:::
 
 Test Port 443
 
