@@ -129,11 +129,14 @@ Proxy同步节点访问vCenter API接口进行身份验证，并通过调用灾�
 
 注意：如果有多个要保护的vCenter或ESXi，请重复这些步骤。
 
+测试443端口
+
 ```
 ssh -v -p 443 <vCenter/ESXi IP/Domain>
 ```
 
 成功响应:
+如果输出结果包含 "[debug1: Connection established.]" 信息，则表示网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -142,6 +145,24 @@ debug1: /etc/ssh/ssh_config line 58: Applying options for *
 debug1: Connecting to <vCenter/ESXi IP/Domain> [<vCenter/ESXi IP/Domain>] port 443.
 debug1: Connection established.
 ```
+
+测试902端口
+
+```
+ssh -v -p 902 <ESXi IP/Domain>
+```
+
+成功响应:
+如果输出结果包含 "[debug1: Connection established.]" 信息，则表示网络连接正常。
+
+```
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 58: Applying options for *
+debug1: Connecting to <SXi IP/Domain> [<vCenter/ESXi IP/Domain>] port 443.
+debug1: Connection established.
+```
+
 ## 测试Proxy到对象存储的网络连接
 
 ::: tip
@@ -254,7 +275,7 @@ Proxy ova的默认用户名和密码：
 ssh -v -p 10443 <HyperBDR Public IP>
 ```
 
-测试结果：如果输入结果包含 "[debug1: Connection established.]" 信息，则表示网络连接正常。
+测试结果：如果输出结果包含 "[debug1: Connection established.]" 信息，则表示网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017
@@ -268,7 +289,7 @@ debug1: Connection established.
 ssh -v -p 30080 <HyperBDR Public IP>
 ```
 
-测试结果：如果输入结果包含 "[debug1: Connection established.]" 信息，则表示网络连接正常。
+测试结果：如果输出结果包含 "[debug1: Connection established.]" 信息，则表示网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017
@@ -290,7 +311,7 @@ debug1: Connection established.
 ```sh
 ssh -v -p 10443 <HyperBDR Internal IP>
 ```
-测试结果：如果输入的结果包括信息 "[debug1: Connection established.]"，则表示网络连接正常。
+测试结果：如果输出的结果包括信息 "[debug1: Connection established.]"，则表示网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -306,7 +327,7 @@ debug1: Connection established.
 ssh -v -p 30080 <HyperBDR Internal IP>
 ```
 
-测试结果：如果输入结果包含信息 "[debug1: Connection established.]"，则表示网络连接正常。
+测试结果：如果输出结果包含信息 "[debug1: Connection established.]"，则表示网络连接正常。
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017

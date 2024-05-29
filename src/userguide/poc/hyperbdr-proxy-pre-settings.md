@@ -129,12 +129,20 @@ Test if Sync Proxy can connect to vCenter 443 port and ESXis 902 port which is m
 ### Test vCenter/ESXi Connectivity
 
 NOTE: Repeat this steps if you have multiple vCenter or ESXis to be protected.
+::: tip
+
+:::
+
+Test Port 443
 
 ```
 ssh -v -p 443 <vCenter/ESXi IP/Domain>
 ```
 
 Success Response:
+::: tip
+If it displays 'Connection established', it means the link port is normal.
+:::
 
 ```
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
@@ -143,6 +151,26 @@ debug1: /etc/ssh/ssh_config line 58: Applying options for *
 debug1: Connecting to <vCenter/ESXi IP/Domain> [<vCenter/ESXi IP/Domain>] port 443.
 debug1: Connection established.
 ```
+
+Test Port 902
+
+```
+ssh -v -p 902 <ESXi IP/Domain>
+```
+
+Success Response:
+::: tip
+If it displays 'Connection established', it means the link port is normal.
+:::
+
+```
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 58: Applying options for *
+debug1: Connecting to <vCenter/ESXi IP/Domain> [<vCenter/ESXi IP/Domain>] port 902.
+debug1: Connection established.
+```
+
 ## Test Network Connectivity from Sync Proxy to Object Storage
 
 ::: tip
