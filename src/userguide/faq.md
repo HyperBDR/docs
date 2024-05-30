@@ -375,4 +375,34 @@ In Figure 4, you will see "DiskSyncAgent.exe" already selected in the "Add a Pro
 _Note: The default directory for "DiskSync-Agent.exe" is "C:\Program Files\DiskSync-Agent\DiskSyncAgent.exe."_
 
 
+## How does Sync Proxy access EXSi using a domain name?
 
+In VMware production environment, maybe use a domain name to access EXSi. You need to configure domain name mapping or DNS service address for Sync Proxy to resolve the domain name.
+
+### Configure Sync Proxy's hosts domain name mapping
+
+In the HyperBDR/HyperMotion console, click [Setting] > [Global Settings] > [Source Domain Settings], add the EXSi domain name mapping, and click [Confirm Modifications] to save.
+
+![sync-proxy-for-exsi-domain-1.png](./images/sync-proxy-for-exsi-domain-1.png)
+
+### Modify Sync Proxy's Docker global configuration and add DNS address
+
+If VMware production environment use DNS service for domain name resolution, need to modify the Docker global configuration of Sync Proxy and add the DNS address.  
+Modify or create new file /etc/docker/daemon.json , and add NDS information.  
+```shell
+{
+  "default-ulimits": {
+    "nofile": {
+      "Name": "nofile",
+      "Hard": 1048576,
+      "Soft": 1048576
+    }
+  },
+  "dns": ["DNS1 IP", "DNS2 IP"]
+}
+```
+Restart the Docker service after modifying and saving the file.  
+
+```shell
+systemctl restart docker
+```
