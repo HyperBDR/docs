@@ -104,8 +104,11 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 ### 创建安全组规则
 
-> 注意：对于源IP范围，我们建议使用安全范围来替代0.0.0.0/0。
-> 例如，如果您的外部IP地址是110.242.68.66，源可以配置为110.242.68.66/32。
+::: warning
+注意：对于源IP范围，我们强烈建议将第 1 条 TCP:22 类型的来源访问设置为安全范围，而非 0.0.0.0/0。将范围设置为 0.0.0.0/0 意味着您的ECS主机暴露在互联网，任何人都可以访问并进行攻击，存在安全风险。
+
+例如: 如果您的外部IP地址是110.242.68.66，源IP范围可以配置为110.242.68.66/32。
+:::
 
 | No. | Action | Type | Protocol & Port | Source | Description |
 | --- | --- | --- | --- | --- | --- |
@@ -123,6 +126,10 @@ HyperBDR 安全组名称: SG-HyperBDR
 > 华为云文档 ：[https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html](https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html)  
 > HyperBDR服务器的资源配置如下:
 
+::: warning
+我们强烈建议在创建 ECS 云实例时，登录模式选择为 密钥对 进行登录，而不是密码登录，以保证您的服务器访问安全。
+:::
+
 | 配置项               | 参数                                                      |
 | :------------------ | :-------------------------------------------------------------- |
 | 区域                | <你的区域\>                                                      |
@@ -139,9 +146,11 @@ HyperBDR 安全组名称: SG-HyperBDR
 | 公网带宽             | 按流量计费                                                      |
 | 带宽大小             | 100Mbps                                                        |
 | 实例名称             | HyperBDR-Prod                                                  |
-| 登录凭证             | 密码                                                           |
-| 用户名               | root                                                            |
-| 密码                 | ec1@OneProCloud#!                                               |
+| 登录凭证             | 密钥对                                                         |
+| 密钥对               | <你的密钥对\>                                                            |
+
+> 关于密钥对登录模式，您可以查看以下链接了解详细信息：
+> [https://support.huaweicloud.com/usermanual-ecs/zh-cn_topic_0014250631.html](https://support.huaweicloud.com/usermanual-ecs/zh-cn_topic_0014250631.html)
 
 ## 镜像下载 & 上传
 

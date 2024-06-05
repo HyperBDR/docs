@@ -104,8 +104,11 @@ HyperBDR Security Group Name: SG-HyperBDR
 
 ### Create Security Group Rules
 
-> NOTE: For Source IP range, we recommend use safe range to replace 0.0.0.0/0.
-> For example, if your external ip address is 110.242.68.66, source can be configurated as 110.242.68.66/32.
+::: warning
+Note: For the source IP range, we strongly recommend setting the source access for TCP:22 to a secure range instead of 0.0.0.0/0. Setting it to 0.0.0.0/0 means your ECS host is exposed to the internet, allowing anyone to access and potentially attack it, posing a security risk.  
+
+For example, if your external IP address is 110.242.68.66, the source IP range can be configured as 110.242.68.66/32.
+:::
 
 | No. | Action | Type | Protocol & Port | Source | Description |
 | --- | --- | --- | --- | --- | --- |
@@ -123,6 +126,10 @@ HyperBDR Security Group Name: SG-HyperBDR
 > Huawei Cloud documentation ：[https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html](https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html)  
 > The resource configuration for HyperBDR servers is as follows:
 
+::: warning
+Notes: We strongly recommend that when creating an ECS cloud instance, the login mode is selected as KeyPair login instead of password login to ensure the security of your server access.
+:::
+
 | Configuration items | Parameters                                                      |
 | :------------------ | :-------------------------------------------------------------- |
 | Region              | <Your Region\>                                                  |
@@ -139,9 +146,11 @@ HyperBDR Security Group Name: SG-HyperBDR
 | Billed By           | Traffic                                                         |
 | Bandwidth Size      | 100Mbps                                                         |
 | ECS Name            | HyperBDR-Prod                                                   |
-| Login Mode          | Password                                                        |
-| Username            | root                                                            |
-| Password            | ec1@OneProCloud#!                                               |
+| Login Mode          | KeyPair                                                         |
+| Key Pair            | <Your KeyPair\>                                                 |
+
+> About Key Pair Login Mode, you can see the following link for details:
+> [https://support.huaweicloud.com/en-us/usermanual-ecs/en-us_topic_0014250631.html](https://support.huaweicloud.com/en-us/usermanual-ecs/en-us_topic_0014250631.html)  
 
 ## Image Download & Upload
 
