@@ -297,3 +297,35 @@ Click on the top menu bar "DR," "Host DR," click the "Add Host" button, select "
 
 ![add-vmware-hosts-in-hyperbdr-4.png](./images/add-vmware-hosts-in-hyperbdr-4.png)
 
+## Bind/Unbind Sync Proxy to VMware Production Site
+
+::: tip
+By default, each Sync Proxy supports up to 50 disks for simultaneous synchronization in Agentless mode. When the total number of disks to be synchronized on the source VMs is greater than 50, you need to expand the Agentless Sync Proxy. 
+:::
+
+### Configure Step
+::: tip
+Already logged in to the HyperBDR Console  by default.  
+Already Add VMware Connection to  the HyperBDR by default.
+:::
+
+1. Click on the top menu bar "**Configuration**" > "**Production Site**" > "**Sync Proxy**".
+> The installed Sync Proxy will be displayed on this page.
+![bind-sync-proxy-1.png](./images/bind-sync-proxy-1.png)
+
+2. Select the installed Sync Proxy, click "**Action**" > "**bind**".
+![bind-sync-proxy-2.png](./images/bind-sync-proxy-2.png)
+![bind-sync-proxy-3.png](./images/bind-sync-proxy-3.png)
+3. Select the required link to bind the new Sync Proxy to the Production VMware Site, click "**Submit**" after confirmation.
+![bind-sync-proxy-4.png](./images/bind-sync-proxy-4.png)
+![bind-sync-proxy-5.png](./images/bind-sync-proxy-5.png)
+4. View the Sync Proxy bundled with the Production VMware Site.
+![bind-sync-proxy-6.png](./images/bind-sync-proxy-6.png)
+![bind-sync-proxy-7.png](./images/bind-sync-proxy-7.png)
+5. Unbaind Sync Proxy.
+::: tip
+You can only unbind Sync Proxy that has no registered host.
+:::
+![bind-sync-proxy-8.png](./images/bind-sync-proxy-8.png)
+![bind-sync-proxy-9.png](./images/bind-sync-proxy-9.png)
+![bind-sync-proxy-10.png](./images/bind-sync-proxy-10.png)
