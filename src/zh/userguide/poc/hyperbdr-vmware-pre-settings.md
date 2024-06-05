@@ -34,8 +34,8 @@ export HYPERBDR_PACKAGE_MD5_NAME=<File Name for MD5 Checksum File>
 #### 下载文件
 
 ```sh
-curl -O "$HYPERBDR_PACKAGE"
-curl -O "$HYPERBDR_PACKAGE_MD5"
+curl -k -O "$HYPERBDR_PACKAGE"
+curl -k -O "$HYPERBDR_PACKAGE_MD5"
 ```
 
 ### 安装包一致性检查
