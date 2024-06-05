@@ -285,3 +285,35 @@ Windows UEFI 修复镜像使用您上传的私有 Windows 镜像。
 
 ![add-vmware-hosts-in-hyperbdr-4.png](./images/add-vmware-hosts-in-hyperbdr-4.png)
 
+
+## 绑定/解绑源端同步代理到 VMware 生产站点
+
+::: tip
+Agentless 模式下每个源端同步代理默认支持最多 50 块磁盘同时同步，当需要同步的源VMware虚拟机磁盘总数大于50块时，需要扩容 Agentless 源端同步代理。
+:::
+
+### 配置步骤
+::: tip
+默认已登录到HyperBDR控制台。  
+默认已在HyperBDR中添加了VMware连接。
+:::
+
+1. 点击顶部菜单栏 **配置管理** > **生产站点配置** > **源端同步代理**。
+> 已安装的源端同步代理将显示在此页面。
+![bind-sync-proxy-1.png](./images/bind-sync-proxy-1.png)
+2. 选择已安装的同步代理，点击 **更多操作** > **绑定**。
+![bind-sync-proxy-2.png](./images/bind-sync-proxy-2.png)
+![bind-sync-proxy-3.png](./images/bind-sync-proxy-3.png)
+3. 选择所需的源端链接将新的源端同步代理绑定到生产 VMware 站点，确认后单击 **确定**。
+![bind-sync-proxy-4.png](./images/bind-sync-proxy-4.png)
+![bind-sync-proxy-5.png](./images/bind-sync-proxy-5.png)
+4. 查看与生产 VMware 站点绑定的源端同步代理。
+![bind-sync-proxy-6.png](./images/bind-sync-proxy-6.png)
+![bind-sync-proxy-7.png](./images/bind-sync-proxy-7.png)
+5. 解绑源端同步节点。
+::: tip
+只能对没有注册主机的源端同步节点进行解绑操作。
+:::
+![bind-sync-proxy-8.png](./images/bind-sync-proxy-8.png)
+![bind-sync-proxy-9.png](./images/bind-sync-proxy-9.png)
+![bind-sync-proxy-10.png](./images/bind-sync-proxy-10.png)
