@@ -192,12 +192,12 @@ Choose the available image file according to the production environment on the s
 :::
 
 ### ISO格式镜像下载
-镜像下载地址：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso)  
-镜像MD5文件下载地址：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso.md5](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.iso.md5)
+镜像下载地址：[https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.iso](https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.iso)   
+镜像MD5文件下载地址：[https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.iso.md5](https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.iso.md5)
 
 ### QCOW2格式镜像下载
-镜像下载地址：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2)  
-镜像MD5文件下载地址：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Livecd-HyperDoor.qcow2)
+镜像下载地址：[https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.qcow2](https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.qcow2)  
+镜像MD5文件下载地址：[https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.qcow2.md5](https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.qcow2.md5)
 
 ## 添加对象存储（容灾回切）
 
