@@ -50,7 +50,7 @@ ip a
 #### Clear network configuration information
 
 ```shell
-ip addr flush dev eth0
+ip addr flush dev ens32 && ip link set ens32 down && ip link set ens32 up
 ```
 
 Configure a IP address and gateway
@@ -60,7 +60,7 @@ Configure with example information. Please replace the IP address/mask [192.168.
 :::
 
 ```shell
-ip addr add 192.168.x.x/20 dev ens160 && ip route add default via 192.168.0.1
+ip addr add 192.168.x.x/20 dev ens32 && ip route add default via 192.168.0.1 dev ens32
 ```
 
 #### View network configuration
