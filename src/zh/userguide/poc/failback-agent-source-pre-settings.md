@@ -50,7 +50,7 @@ ip a
 #### 清除网络配置信息
 
 ```shell
-ip addr flush dev eth0
+ip addr flush dev ens32 && ip link set ens32 down && ip link set ens32 up
 ```
 
 配置临时IP
@@ -60,7 +60,7 @@ ip addr flush dev eth0
 :::
 
 ```shell
-ip addr add 192.168.x.x/20 dev ens160 && ip route add default via 192.168.0.1
+ip addr add 192.168.x.x/20 dev ens32 && ip route add default via 192.168.0.1 dev ens32
 ```
 
 #### 查看网络配置
