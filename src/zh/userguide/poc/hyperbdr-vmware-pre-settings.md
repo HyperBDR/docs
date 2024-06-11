@@ -43,7 +43,7 @@ curl -k -O "$HYPERBDR_PACKAGE_MD5"
 - 步骤1: 生成已下载安装包的MD5值  
 
 ```sh
-md5sm "$HYPERBDR_PACKAGE_NAME"
+md5sum "$HYPERBDR_PACKAGE_NAME"
 ```
 - 步骤2: 检查MD5校验文件中记录的MD5值
 
