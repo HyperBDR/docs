@@ -43,7 +43,7 @@ curl -k -O "$HYPERBDR_PACKAGE_MD5"
 - Step1: Generate the MD5 value for the downloaded installation package  
 
 ```sh
-md5sm "$HYPERBDR_PACKAGE_NAME"
+md5sum "$HYPERBDR_PACKAGE_NAME"
 ```
 - Step2: Check the MD5 value recorded in the MD5 checksum file
 
