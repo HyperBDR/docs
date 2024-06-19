@@ -185,6 +185,13 @@ module.exports = {
                     'dr-usage-guide/dr-operations-manual-huaweicloud-block',
                   ]
                 },
+                                {
+                  title: 'Huawei Cloud Stack 8.2.x/8.3.x',
+                  collapsable: false,
+                  children: [
+                    'dr-usage-guide/dr-operations-manual-hcs8-block',
+                  ]
+                },
                 {
                   title: 'TM CAE',
                   collapsable: false,
