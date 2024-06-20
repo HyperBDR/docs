@@ -116,6 +116,7 @@ module.exports = {
                   children: [
                     'poc/agent-pre-settings',
                     'poc/vmware-pre-settings',
+                    'poc/aws-pre-settings',
                   ]
                 },
                 {
