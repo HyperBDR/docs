@@ -114,9 +114,9 @@ Agent contains Windows Agent and Linux Agent.
 
 ![dr-network-planning-recommendations-5.jpeg](./images/dr-network-planning-recommendations-5.jpeg)
 
-## Failover Network Planning — Dedicated Line Solution
+## Failback Network Planning — Dedicated Line Solution
 
-During the failover process, due to the necessity for cloud takeover of the host with direct access to the production-side IP address, the current support is limited to dedicated line solutions.
+During the failback process, due to the necessity for cloud takeover of the host with direct access to the production-side IP address, the current support is limited to dedicated line solutions.
 
 ### Block Storage
 
