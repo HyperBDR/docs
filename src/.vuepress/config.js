@@ -104,6 +104,7 @@ module.exports = {
                 'presales/hyperbdr-rpo-rto-planning-best-practices',
                 'presales/cloud-platform-support-matrix',
                 'presales/poc',
+                'presales/aws-agentless-mode-cost-calculator',
               ]
             },
             {
