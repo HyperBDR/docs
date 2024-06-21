@@ -109,23 +109,6 @@ debug1: Connecting to <HyperBDR Intranet IP> [<HyperBDR Intranet IP>] port 30080
 debug1: Connection established.
 ```
 
-#### The HyperBDR is accessed on port 10081
-
-Test command:
-
-```
-ssh -v -p 10081 <HyperBDR Intranet IP>
-```
-
-Test result: If the following input result contains the information [debug1: Connection established.], the network connectivity is OK.
-
-```
-OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
-debug1: Reading configuration data /etc/ssh/ssh_config
-debug1: /etc/ssh/ssh_config line 58: Applying options for *
-debug1: Connecting to <HyperBDR Intranet IP> [<HyperBDR Intranet IP>] port 10081.
-debug1: Connection established.
-```
 
 ## Install Failback Agent on the Takeover Host and register with HyperBDR
 

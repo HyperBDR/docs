@@ -496,116 +496,15 @@ Click on the policy name, select the **"Associate Hosts"** or **"Associate Resou
 
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-76.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-76.png)
 
-## 6. Policy Management
-
-### 6.1. Create Policy
-
-Click **"Configuration"** on the top menu bar, select **"Policy Settings"** on the left, and click **"Create Policy"**.
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-66.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-66.png)
-
-The Create Policy page allows you to modify various parameters of the policy configuration.
-
-#### 6.1.1 Policy Name、Snapshot Retain Count、Policy Status
-
-| **Parameter** | **Description** |
-| :---: | --- |
-| Policy Name | Fill in the synchronization policy name and customize the configuration, which can be shared by other disaster recovery host groups. |
-| Snapshot Retain Count | The range of snapshot quantities is an integer between 1 and 128; if not set, the default is 128. Once the number of snapshots reaches the set quota, deletion will start from the earliest snapshot, always maintaining the set number of snapshots. |
-| Policy Status | Control the activation and deactivation of the synchronization policy. |
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-67.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-67.png)
-
-#### 6.1.2 Synchronization Policy
-
-Check **Synchronization Policy : Incremental Synchronization**, You can enable and configure parameters for the incremental synchronization policy.  
-
-Check **Synchronization Policy : Full Synchronization**, You can enable and configure parameters for the full synchronization policy.
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-68.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-68.png)
-
-| **Parameter** | **Description** |
-| :---: | --- |
-| Cycle | Sync policy execution cycle can be set to **Every N minutes**, **Every N hours**, **Every N days**, **Weekly**, **Monthly** for setting the triggering conditions for periodic sync tasks. |
-| Minutes | You can configure it when the **Cycle** is set to **Every N minutes**. <br> Execute once every N minutes, where N is an integer in the range [5-59].  |
-| Hours Amount | You can configure it when the **Cycle** is set to **Every N hours**. <br> Execute once every N hours, where N is an integer in the range [1-23]. |
-| Day | You can configure it when the **Cycle** is set to **Every N days**. <br> Execute once every N hours, where N is an integer in the range [1-30]. |
-| Date（Weekly） | You can configure it when the **Cycle** is set to **Weekly**. <br> Execute the synchronization policy on one day or days of the week every n week. <br> Execute once a week, where N can take values in the range [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday], and multiple selections are allowed. |
-| Date（Mouthly） | You can configure it when the **Cycle** is set to **Mouthly**. <br> Execute every certain date of the month, where the selectable range is [1-31, end of the month], and multiple selections are allowed. <br> **29**: The current option will only be executed in leap years of February and will be skipped in other years of February. <br> **30**: The current option will not be executed in February. <br> **31**: Only executes in January, March, May, July, August, October and December. <br> **E.O.M**: The current option will be executed in the last day of each month. |
-| Start Time | You can configure it when the **Cycle** is set to **Every N minutes **or** Every N hours**. <br> Setting the Start Time for Synchronization. |
-| Time（Weekly） | You can configure it when the **Cycle** is set to **Weekly**. <br> Setting the Start Time for Synchronization. |
-| Time（Mouthly） | You can configure it when the **Cycle** is set to **Mouthly**. <br> Setting the Start Time for Synchronization. |
-
-#### 6.1.3 Speed Limit Policy
-
-Support Multi-time period speed limiting(Supports setting different speed limits for different time periods within the same cycle, only supports selecting one cycle mode.)
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-69.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-69.png)
-
-
-| **Parameter** | **Description** |
-| --- | --- |
-| Cycle | Speed Limit Policy execution cycle can be set to **Every N days**, **Weekly**, **Monthly** for setting the triggering conditions for speed limit tasks. |
-| Day | You can configure it when the **Cycle** is set to **Every N days**. <br> Execute once every N days, where N is an integer in the range [1-30]. |
-| Date（Weekly） | You can configure it when the **Cycle** is set to **Weekly**. <br> Execute the speed limit policy on one day or days of the week every n week. <br> Execute once a week, where N can take values in the range [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday], and multiple selections are allowed. |
-| Date（Monthly） | You can configure it when the **Cycle** is set to **Mouthly**. <br> Execute every certain date of the month, where the selectable range is [1-31, end of the month], and multiple selections are allowed. <br> **29**: The current option will only be executed in leap years of February and will be skipped in other years of February. <br> **30**: The current option will not be executed in February. <br> **31**: Only executes in January, March, May, July, August, October and December. <br> **E.O.M**: The current option will be executed in the last day of each month. |
-| Speed Limit Time | Set the time for speed limit tasks |
-| Host Speed Limit | The host speed limit value should be an integer ≥1. Unit: Mbps |
-
-#### 6.1.4 Retention Policy
-
-Check **"Sequence Retention"**, enabling and configuring the snapshot retention policy. (Set snapshot retention based on sequence to retain snapshots at specific time points for a specified duration. For example, retain the first snapshot of each month for 3 weeks. Note: Ensure sufficient quota is available for creating new snapshots during the setup, otherwise data synchronization may fail.)
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-70.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-70.png)
-
-### 6.2. Modify Policy
-
-Check the created Policy, click on **"Action"** select **"Modify"** and you can modify the parameters of the policy.
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-71.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-71.png)
-
-### 6.3. Policy Associated Host
-
-Select the created policy, click on **"Action"** choose **"Associate Host"** check the hosts that are not associated with the strategy, and click **"Submit"** to establish the association.
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-72.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-72.png)
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-73.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-73.png)
-
-### 6.4. Delete Policy
-
-Select the created policy, click on **"Action"** choose **"Delete"** and click **"Submit"** to delete the that is not associated with any hosts.
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-74.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-74.png)
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-75.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-75.png)
-
-::: tip
-If the policy is already associated with resources (hosts, resource groups), deletion is not supported. Please unbind the associated resources (hosts, resource groups) before deleting them.
-:::
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-76.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-76.png)
-
-### 6.5 Policy Unbind Associated Resources (Host, Resource Group)
-
-Click on the policy name, select the **"Associate Hosts"** or **"Associate Resource Group"** tab, check the resources to unbind, click the **"Unbind Hosts"** or **"Unbind Resource Group"** button, and confirm to unbind the associated resources.
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-77.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-77.png)
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-78.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-78.png)
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-79.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-79.png)
-
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-80.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-80.png)
-
-## 7. Alarm Management
+## 6. Alarm Management
 
 ::: tip
 Currently, two methods of Email alerts and SMS alerts are supported.
 :::
 
-### 7.1 Alarm Sending Configuration
+### 6.1 Alarm Sending Configuration
 
-#### 7.1.1 Use Email Alerts
+#### 6.1.1 Use Email Alerts
 
 1. Log in the Broadview coss console
 
@@ -629,7 +528,7 @@ Currently, two methods of Email alerts and SMS alerts are supported.
 
 ![alarmconfiguration-5.png](./images/alarmconfiguration-5.png)
 
-#### 7.1.2 Use SMS Alerts
+#### 6.1.2 Use SMS Alerts
 
 1. Log in the Broadview coss console
 
@@ -651,7 +550,7 @@ Currently, two methods of Email alerts and SMS alerts are supported.
 
 ![alarmconfiguration-10.png](./images/alarmconfiguration-10.png)
 
-### 7.2 Notification Configuration
+### 6.2 Notification Configuration
 
 > Logged into the HyperBDR console by default
 
@@ -664,9 +563,9 @@ Currently, two methods of Email alerts and SMS alerts are supported.
 
 ![alarmconfiguration-12.png](./images/alarmconfiguration-12.png)
 
-### 7.3 Alarm Rule Configuration
+### 6.3 Alarm Rule Configuration
 
-#### 7.3.1 Resource Alert
+#### 6.3.1 Resource Alert
 
 1. Create Resource Alert
 
@@ -676,7 +575,7 @@ Currently, two methods of Email alerts and SMS alerts are supported.
 
 ![alarmconfiguration-14.png](./images/alarmconfiguration-14.png)
 
-#### 7.3.2 Event Alert
+#### 6.3.2 Event Alert
 
 1. Create Event Alert
 
