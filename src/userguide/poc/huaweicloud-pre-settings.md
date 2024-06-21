@@ -157,28 +157,39 @@ Notes: We strongly recommend that when creating an ECS cloud instance, the login
 ### Image Download
 
 ::: tip
-Overseas Huawei Cloud does not have Windows images. Windows images are primarily used for disaster recovery with UEFI Windows as the source host, while Linux images are used in block storage mode and serve as the base image for cloud sync gateway creation. 
+We need to use three image files to import four images in Huawei Cloud.
+Linux BIOS Image is used to create a cloud synchronization gateway and boot Linux hosts with DR; Windows BIOS Image is used for DR to boot Windows hosts; Linux/Windows UEFI Image is used for DR to boot UEFI hosts.
 :::
 
 ::: tip
-Download Windows/Linux images to your local machine through the provided image links. 
+Download images to your local machine through the provided image links. 
 :::
 
 ### Image Info
 
 #### Linux Image
 
-* Version：CentOS 8.4 64bit
-* Size： 1.22 GB
-* Download Link：[https://downloads.oneprocloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2](https://downloads.oneprocloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) 
-* MD5 Value of the Image: fe9f21a75a80d12159030fff76e1c8a5
+* File Name：ubuntu-20.04-server-cloudimg-amd64.qcow2
+* Version：ubuntu 20.04 server
+* Size：596.75 MB
+* Download Link：[https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloudimg-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloudimg-amd64.qcow2) 
+* MD5 Value of the Image: 723e03ccdda891e3da905c7892184370
 
 #### Windows Image
 
+* File Name：Windows_Server_2016_Datacenter_64bit_English_40G.qcow2
 * Version：Windows Server 2016 Datacenter 64bit English
 * Size：12.11 GB
-* Download Link：[https://downloads.oneprocloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://downloads.oneprocloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
+* Download Link：[https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
 * MD5 Value of the Image: 519444d4b0343e15fa014c50d906a832
+
+#### UEFI Image
+
+* File Name：HuaweiCloud_UEFI_GenericImage.qcow2
+* Version：HuaweiCloud_UEFI_GenericImage
+* Size：554.69 MB
+* Download Link：[https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) 
+* MD5 Value of the Image: 7814209a573666f2701b35236764723d
 
 ### Upload Image to Huawei Cloud Object Storage
 
@@ -190,18 +201,24 @@ Huawei Cloud official documentation link:
 ### Import Image
 
 ::: tip
-Huawei Cloud official documentation link:
-[https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0206.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0206.html)
+Huawei Cloud official documentation link:  
+[https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0206.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0206.html)  
 [https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0211.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0211.html)
 :::
 
-#### Step1: Access the IMS console.
+#### Import BIOS Image
+
+::: tip
+Use **[ubuntu-20.04-server-cloudimg-amd64.qcow2]** and **[Windows_Server_2016_Datacenter_64bit_English_40G.qcow2]** qcow2 files in Huawei Cloud OBS to import the Linux BIOS Image and Windows BIOS Image respectively.
+:::
+
+##### Step1: Access the IMS console.
 
 - Log in to the management console.
 - Under Compute, click Image Management Service.The IMS console is displayed.Register an external image file as a private image.
   ![upload-custom-windowslinux-images-to-huawei-cloud-1.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-1.png)
 
-#### Step2: Register an external image file as a private image
+##### Step2: Register an external image file as a private image
 
 - Click Create Image in the upper right corner
   ![upload-custom-windowslinux-images-to-huawei-cloud-2.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-2.png)
@@ -209,12 +226,13 @@ Huawei Cloud official documentation link:
 ::: warning 
 1.The name must be one of the following and cannot have additional characters.  
 2.Due to the diverse versions of Windows on the source hosts, select the generic option for the operating system.  
-3.Linux image is primarily used for creating an HD. The recommended version for the current release is CentOS 8+  
+3.Linux image is primarily used for creating an HD. The recommended version for the current release is Ubuntu 20.04  
 :::
+
+**Windows BIOS Image**  
+
 Supported Windows image names
 
-> Windows Server 2012 R2 Standard 64bit  
-> Windows Server 2012 R2 Datacenter 64bit  
 > Windows Server 2016 Standard 64bit  
 > Windows Server 2016 Standard 64bit English  
 > Windows Server 2016 Datacenter 64bit  
@@ -222,27 +240,72 @@ Supported Windows image names
 > Windows Server 2019 Datacenter 64bit  
 > Windows Server 2019 Datacenter 64bit English
 
+::: warning
+The size of the System disk must be 40G.
+:::
+
 ![upload-custom-windowslinux-images-to-huawei-cloud-3.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-3.png)
+
+**Linux BIOS Image**  
+
+Supported Linux image names
+
+> Ubuntu 20.04 server 64bit  
+
+![upload-custom-windowslinux-images-to-huawei-cloud-7.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-7.png)
+
+##### Step3: Confirm and submit
+
+- Click Next and confirm the image specifications. Select Statement of Commitment to Image Creation and Huawei Image Disclaimer. Click Submit.
+
+- Go back to the Private Images page. The image is successfully registered when its status becomes Normal.
+
+#### Import UEFI Image
+
+::: tip
+Use the **[HuaweiCloud_UEFI_GenericImage.qcow2]** qcow2 file in Huawei Cloud OBS to import the Linux UEFI image and Windows UEFI image respectively.
+:::
+
+##### Step1: Access the IMS console.
+
+- Log in to the management console.
+- Under Compute, click Image Management Service.The IMS console is displayed.Register an external image file as a private image.
+  ![upload-custom-windowslinux-images-to-huawei-cloud-9.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-1.png)
+
+##### Step2: Register an external image file as a private image
+
+- Click Create Image in the upper right corner
+  ![upload-custom-windowslinux-images-to-huawei-cloud-2.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-2.png)
+
+::: warning 
+1.The name must be one of the following and cannot have additional characters.  
+2.Due to the diverse versions of Windows on the source hosts, select the generic option for the operating system.  
+3.Linux image is primarily used for creating an HD. The recommended version for the current release is Ubuntu 20.04  
+:::
+
+**Windows UEFI Image**  
+
+Supported Windows image names
+
+> Windows Server 2016 Standard 64bit English UEFI  
+> Windows Server 2019 Datacenter 64bit UEFI  
+> Windows Server 2019 Datacenter 64bit English UEFI
 
 ::: warning
 The size of the System disk must be 40G.
 :::
 
-![upload-custom-windowslinux-images-to-huawei-cloud-4.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-4.png)
+![upload-custom-windowslinux-images-to-huawei-cloud-9.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-9.png)
+
+**Linux UEFI Image**  
 
 Supported Linux image names
 
-> CentOS 8.4 64bit  
-> CentOS 8.3 64bit  
-> CentOS 8.2 64bit  
-> CentOS 8.1 64bit  
-> CentOS 8.5 64bit
+> Ubuntu 20.04 server 64bit UEFI  
 
-![upload-custom-windowslinux-images-to-huawei-cloud-7.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-7.png)
+![upload-custom-windowslinux-images-to-huawei-cloud-10.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-10.png)
 
-![upload-custom-windowslinux-images-to-huawei-cloud-8.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-8.png)
-
-#### Step3: Confirm and submit
+##### Step3: Confirm and submit
 
 - Click Next and confirm the image specifications. Select Statement of Commitment to Image Creation and Huawei Image Disclaimer. Click Submit.
 
