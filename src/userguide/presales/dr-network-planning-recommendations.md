@@ -2,6 +2,10 @@
 
 [[toc]]
 
+:::tip
+This document of AWS part will apply only to HyperBDR version 5.6.0 and above. HyperBDR version 5.6.0 is scheduled for release on June 30, 2024.
+:::
+
 This document primarily focuses on the rational planning of the HyperBDR network and disaster recovery takeover, as well as the network used for drills, prior to the commencement of the project. The following are fundamental principles for network planning:
 
 
@@ -55,6 +59,18 @@ Agent contains Windows Agent and Linux Agent.
 | 7 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow |  |
 | 8 | Transition Host | Object Storage Service | TCP Unidirectional | 443 | Data Flow |  |
 
+#### AWS Agentless
+
+| **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Sync Proxy | AWS API Endpoint | TCP Unidirectional | 443 | Control Flow |  |
+| 2 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |  |
+| 3 | Sync Proxy | Object Storage Service | TCP Unidirectional | 443 | Data Flow |  |
+| 4 | HyperBDR | Object Storage Service | TCP Unidirectional | 443 | Control Flow |  |
+| 5 | HyperBDR Console | Transition Host | TCP Unidirectional | 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
+| 6 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow |  |
+| 7 | Transition Host | Object Storage Service | TCP Unidirectional | 443 | Data Flow |
+
 
 ### Deployment Architecture
 
@@ -62,13 +78,27 @@ Agent contains Windows Agent and Linux Agent.
 
 ![dr-network-planning-recommendations-1.jpeg](./images/dr-network-planning-recommendations-1.jpeg)
 
+#### AWS(Internet)
+
+![dr-network-planning-recommendations-aws-1.jpeg](./images/dr-network-planning-recommendations-aws-1.jpeg)
+
 #### Dedicated Network Connection
 
 ![dr-network-planning-recommendations-2.jpeg](./images/dr-network-planning-recommendations-2.jpeg)
 
+#### AWS(Dedicated Network Connection)
+
+![dr-network-planning-recommendations-2.jpeg](./images/dr-network-planning-recommendations-aws-2.jpeg)
+
+
 #### Hybrid Network
 
 ![dr-network-planning-recommendations-3.jpeg](./images/dr-network-planning-recommendations-3.jpeg)
+
+#### AWS(Hybrid Network)
+
+![dr-network-planning-recommendations-aws-hybrid](./images/dr-network-planning-recommendations-aws-hybrid.jpeg)
+
 
 ## Deployment Solution for Block Storage
 
@@ -104,19 +134,36 @@ Agent contains Windows Agent and Linux Agent.
 | 5 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
 | 6 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
 
+#### AWS Agentless
+| **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Sync Proxy | AWS API Endpoint | TCP Unidirectional | 443 | Control Flow |  |
+| 2 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |  |
+| 3 | Sync Proxy | Cloud Sync Gateway | TCP Unidirectional | 3260 | Data Flow |  |
+| 4 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
+| 5 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
+
 ### Deployment Architecture
 
 #### Internet
 
 ![dr-network-planning-recommendations-4.jpeg](./images/dr-network-planning-recommendations-4.jpeg)
 
+#### AWS(Internet)
+
+![dr-network-planning-recommendations-aws-3.jpeg](./images/dr-network-planning-recommendations-aws-3.jpeg)
+
 #### Dedicated Network Connection
 
 ![dr-network-planning-recommendations-5.jpeg](./images/dr-network-planning-recommendations-5.jpeg)
 
-## Failover Network Planning — Dedicated Line Solution
+#### AWS(Dedicated Network Connection)
 
-During the failover process, due to the necessity for cloud takeover of the host with direct access to the production-side IP address, the current support is limited to dedicated line solutions.
+![dr-network-planning-recommendations-aws-4.jpeg](./images/dr-network-planning-recommendations-aws-4.jpeg)
+
+## Failback Network Planning — Dedicated Line Solution
+
+During the failback process, due to the necessity for cloud takeover of the host with direct access to the production-side IP address, the current support is limited to dedicated line solutions.
 
 ### Block Storage
 
