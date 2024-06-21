@@ -158,7 +158,7 @@ Notes: We strongly recommend that when creating an ECS cloud instance, the login
 
 ::: tip
 We need to use three image files to import four images in Huawei Cloud.
-Linux BIOS Image is used to create a cloud synchronization gateway and boot Linux hosts with DR; Windows BIOS Image is used for DR to boot Windows hosts; Linux/Windows UEFI Image is used for DR to boot UEFI hosts.
+Linux BIOS Image is used to create a cloud sync gateway and boot Linux hosts with DR; Windows BIOS Image is used for DR to boot Windows hosts; Linux/Windows UEFI Image is used for DR to boot UEFI hosts.
 :::
 
 ::: tip
