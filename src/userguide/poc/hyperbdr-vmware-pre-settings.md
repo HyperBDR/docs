@@ -192,6 +192,11 @@ Click on the top menu bar 'Configuration,' 'Production Site,' 'VMware.' Click th
 
 ![add-vmware-credentials-3.png](./images/add-vmware-credentials-3.png)
 
+::: warning
+If the EXSi host where the synchronized VM is located uses domain name, Sync Proxy will be unable to access the EXSi host because it cannot resolve the domain name. Need to configure source domain setting on HyperBDR/HyperMotion.  
+Please refer to the documentation for configuration: [https://qa.oneprocloud.com/questions/D1E4](https://qa.oneprocloud.com/questions/D1E4)
+:::
+
 | Auth Url | https://\<vCenter IP/Domain Name\>:443 |
 | --- | --- |
 | user | \<vCenter user\> |
