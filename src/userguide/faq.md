@@ -406,3 +406,83 @@ Restart the Docker service after modifying and saving the file.
 ```shell
 systemctl restart docker
 ```
+
+## How to obtain Huawei Cloud HCS 8.x Platform Credentials information?
+
+When targeting the Huawei Cloud HCS 8.x version, the following authentication information of the HCS 8.x platform is required to complete the authentication docking of the API interface.
+
+![hcs8.x_platform_credentials_information-1.png](./images/hcs8.x_platform_credentials_information-1.png)
+
+![hcs8.x_platform_credentials_information-2.png](./images/hcs8.x_platform_credentials_information-2.png)
+| Parameter | Link |
+| :---: | :---: |
+| **Auth Url** | [[How to obtain Huawei Cloud HCS 8.x Platform Credentials information]](#_1-auth-url) |
+| **Tenant ID** | [[How to obtain Huawei Cloud HCS 8.x Platform Credentials information]](#_1-auth-url) |
+| **Username** | [[How to obtain Huawei Cloud HCS 8.x Platform Credentials information]](#_1-auth-url) |
+| **Password** | The current user's authenticated login access password |
+| **Project Domain ID** | [[How to obtain Huawei Cloud HCS 8.x Platform Credentials information]](#_1-auth-url) |
+| **Resource Space Name** | [[How to obtain Huawei Cloud HCS 8.x Platform Credentials information]](#_1-auth-url) |
+| **Resource Space(Region)** | [[How to obtain Huawei Cloud HCS 8.x Platform Credentials information]](#_1-auth-url) |
+| **Storage AZ** | [[How to obtain Huawei Cloud HCS 8.x Platform Credentials information]](#_1-auth-url) |
+
+### 1. Auth Url
+
+You can get the endpoint of a zone, for example: **iam-apigateway-proxy.{external_global_domain_name}**, the prefix is usually **iam-aigateway-proxy**., and **{external_global_name_name}** is a variable value. You need to modify it according to the domain name of the current network environment.  
+
+For example: **iam-apigateway-proxy.oneprocloud.com**  
+
+Auth Url: **https://iam-apigateway-proxy.oneprocloud.com/v3**
+
+### 2. User Domain ID
+
+Log in to the HCS tenant side platform, click the User name in the upper right corner, then click **"My Settings"**, and find the **"Tenant ID"** value on this page.
+
+![hcs8.x_platform_credentials_information-3.png](./images/hcs8.x_platform_credentials_information-3.png)
+
+### 3. Username
+
+The user name in the upper right corner is Username.
+
+![hcs8.x_platform_credentials_information-4.png](./images/hcs8.x_platform_credentials_information-4.png)
+
+### 4. Password
+
+Usename login access password.
+
+### 5. Project Domain ID
+
+Click on the User name in the upper right corner, then click **"My Settings"**, find the value of "Tenant ID" and **"Project Domain ID"** on this page.
+
+![hcs8.x_platform_credentials_information-5.png](./images/hcs8.x_platform_credentials_information-5.png)
+
+### 6. Resource Space Name
+
+Click on the User name in the upper right corner, then click **"My Settings"**. Find the content displayed in **"Resource Spaces"** or **"Resource Set List"** on this page, and the value displayed in the **"Resource Space Name"** or **"Name"** table header.
+
+> Note: There may be multiple **"Resource Spaces"** on the platform here, so you need to obtain relevant information based on the **"Resource Spaces"** you need to connect to.
+
+![hcs8.x_platform_credentials_information-6.png](./images/hcs8.x_platform_credentials_information-6.png)
+
+### 7. Resource Space(Region)
+
+Click on the User name in the upper right corner, then click **"My Settings"**. Find the content displayed in **"Resource Spaces"** or **"Resource Set List"** on this page, and the first half of the value displayed in the **"Resource Space Name"** or **"Name"** table header (the first half of the underlined value).
+
+> Note: There may be multiple **"Resource Spaces"** on the platform here, so you need to obtain relevant information based on the **"Resource Spaces"** you need to connect to.
+
+![hcs8.x_platform_credentials_information-7.png](./images/hcs8.x_platform_credentials_information-7.png)
+
+### 8. Storage AZ
+
+Click **"Resources"** at the top, **"Allocated Resources"** on the right, select **"Elastic Volume Service"**, expand one of the volumes in the displayed volume list, and find the value of **"Availability Zone"** in the displayed volume details information as **"Storage AZ"**.  
+
+#### 8.1. How to get the display page of Storage Availability Zone in HCS 8.2.x version 
+
+![hcs8.x_platform_credentials_information-8.png](./images/hcs8.x_platform_credentials_information-8.png)
+
+If the corresponding value of **"Availability Zone"** is empty, it may be necessary to synchronize the background information before it will be displayed. You can also look for other volumes that have already been synchronized.  
+
+![hcs8.x_platform_credentials_information-9.png](./images/hcs8.x_platform_credentials_information-9.png)
+
+#### 8.2. How to obtain the display page of Storage Availability Zone in HCS 8.3.x version
+
+![hcs8.x_platform_credentials_information-10.png](./images/hcs8.x_platform_credentials_information-10.png)
