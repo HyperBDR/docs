@@ -486,3 +486,7 @@ If the corresponding value of **"Availability Zone"** is empty, it may be necess
 #### 8.2. How to obtain the display page of Storage Availability Zone in HCS 8.3.x version
 
 ![hcs8.x_platform_credentials_information-10.png](./images/hcs8.x_platform_credentials_information-10.png)
+
+## What to do if kernel panic occurs when Oracle Linux 6.6 is booted in the cloud?
+
+- [Kernel Panic when Oracle Linux 6.6 Boot in Cloud](https://qa.oneprocloud.com/questions/D1s4)
