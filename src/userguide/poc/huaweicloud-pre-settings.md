@@ -169,18 +169,18 @@ Download images to your local machine through the provided image links.
 
 #### Linux Image
 
-* File Name：ubuntu-20.04-server-cloudimg-amd64.qcow2
+* File Name：Ubuntu-20.04-server-64bit.qcow2
 * Version：ubuntu 20.04 server
-* Size：596.75 MB
-* Download Link：[https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloudimg-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloudimg-amd64.qcow2) 
-* MD5 Value of the Image: 723e03ccdda891e3da905c7892184370
+* Size：5.85 GB
+* Download Link：[https://downloads.oneprocloud.com/docs_images/Ubuntu-20.04-server-64bit.qcow2](https://downloads.oneprocloud.com/docs_images/Ubuntu-20.04-server-64bit.qcow2) 
+* MD5 Value of the Image: b608febbe32daa6e4ec61b7166c706da
 
 #### Windows Image
 
 * File Name：Windows_Server_2016_Datacenter_64bit_English_40G.qcow2
 * Version：Windows Server 2016 Datacenter 64bit English
 * Size：12.11 GB
-* Download Link：[https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
+* Download Link: [https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
 * MD5 Value of the Image: 519444d4b0343e15fa014c50d906a832
 
 #### UEFI Image
@@ -188,14 +188,13 @@ Download images to your local machine through the provided image links.
 * File Name：HuaweiCloud_UEFI_GenericImage.qcow2
 * Version：HuaweiCloud_UEFI_GenericImage
 * Size：554.69 MB
-* Download Link：[https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) 
+* Download Link: [https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) 
 * MD5 Value of the Image: 7814209a573666f2701b35236764723d
 
 ### Upload Image to Huawei Cloud Object Storage
 
 ::: tip
-Huawei Cloud official documentation link:
-[https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0205.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0205.html) 
+Huawei Cloud official documentation link: [https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0205.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0205.html) 
 :::
 
 ### Import Image
