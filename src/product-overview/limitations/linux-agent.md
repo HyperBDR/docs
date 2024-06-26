@@ -63,6 +63,3 @@ Due to the involvement of kernel modules during runtime, the installation and ex
 ### Application Conflict Check:
 - Components identical to the Linux Agent must not exist in the system.
 
-### Known Issues
-
-- [Kernel Panic when Oracle Linux 6.6 Boot in Cloud](https://qa.oneprocloud.com/questions/D1s4)
