@@ -48,19 +48,15 @@ This user guide explains the use of HyperBDR to backup various types of hosts fr
 
 - Enable the network policy for the VMware virtual machines on production platform to HyperBDR and the cloud synchronization gateway.
 
-**Step 1:** Click **"Configuration"**, click on **"Production Sit"** in the left menu, click on the **"VMware"** selection box.
+**Step 1:** Click **"Configuration"**, click on **"Production Site"** in the left menu, and than click the **""+Add""** button to add the agentless proxy component **"Hamal"** in the **VMware** tab.  
+
+>  For the initial addition of VMware, you need to install the **"Hamal"** component (refer to Step 2).
 
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-4.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-4.png)
 
-**Step 2:** Click on the **"+Add"** button to add the agentless proxy component **"Hamal"**.
+**Step 2:** Install Hamal as per the prompts
 
->  For the initial addition of VMware, you need to install the **"Hamal"** component (refer to step 3).
-
-![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-5.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-5.png)
-
-**Step 3:** Install Hamal as per the prompts
-
-> If you have already installed Hamal as outlined in the VMware DR Solution POC Preparation Doc, you can proceed directly to **Step 4**.
+> If you have already installed Hamal as outlined in the VMware DR Solution POC Preparation Doc, you can proceed directly to **Step 3**.
 
 (1) Download the OVA to the VMware end or prepare a CentOS7.x version virtual machine at the source end.
 
@@ -77,7 +73,7 @@ Please operate according to the current display information on the disaster reco
 > _Please refer to the following document for the procedure to deploy Hamal on the VMware side using the OVA template._
 > _Documentation Link：_[_https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#import-ova-images-and-create-proxy-virtual-machine-in-vmware_](https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#import-ova-images-and-create-proxy-virtual-machine-in-vmware)
 
-**Step 4:** Fill in the relevant information in the pop-up box to complete configurations
+**Step 3:** Fill in the relevant information in the pop-up box to complete configurations
 
 
 | **Auth Url** | vCenter/ESXi Url |
@@ -146,29 +142,45 @@ Document Link: [https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.ht
 (2) Follow the steps below to fill in the information and add Huawei Cloud platform
 Choose Huawei Cloud as the **"Recovery/Block Platform"**.
 Follow the steps below to fill in the authentication information for Huawei Cloud when adding the target disaster recovery platform:
+::: tip
+Huawei Cloud API has been updated to SDK v3. It is recommended to use Huawei Cloud (SDK v3.1.86) as the Block Storage Platform.
+:::
 
 - Access Key ID: Huawei Cloud account"s Access Key ID
 - Access Key Secret: Huawei Cloud account"s Access Key Secret
-- Project Name: Optional, you can leave it blank
-- Project ID: Optional, you can leave it blank
-- Skip Driver Adaption: Optional
+- Project Name: The key for accessing Huawei Cloud API with full account permissions.
 
 After confirming the entered information, click the **"Next"** button.
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-15.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-15.png)
 
-(3) Select the information for creating the HyperGate instance under the authenticated tenant and click the **"Next"** button.
-![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16.png)
+(3) Select the information for creating the HyperGate instance under the authenticated tenant and click the **"Next"** button.  
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16-1.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16-1.png)
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16-2.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16-2.png)
 
-(4)  After the **"Create Cloud Storage Gateway"** is complete, click the **"Complete"** button.
-![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-17.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-17.png)
+(4) After configure the Cloud Sync Gateway network, click the **"Next"** button.  
 
-(5) On the **"Block Storage"** - **"Cloud Sync Gateway"** page, check the status, and it should display as **"Available."**
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16-3.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16-3.png)
+
+(5) Target Start Setting, click the **"Complete"** button.  
+::: tip
+Please select a 64-bit image of Windows Server 2019/2016.
+Main Functions of This Image:
+1. Converts Windows UEFI boot mode to BIOS boot mode.
+2. Adapts drivers during the boot process.
+3. Creates disk types that meet cloud platform requirements during the boot process.
+If you cannot find this version in the public, private, or shared image repositories, you can resolve it by following these steps:
+1. Upload to the Private Image Repository: Upload the image file to object storage and then import it from object storage into the private image repository.
+2. Obtain a Shared Image: If another account in the same region has the mentioned Windows version, you can request them to share it with you for use.
+:::
+
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16-4.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16-4.png)
+
+(6) On the **"Block Storage"** - **"Cloud Sync Gateway"** page, check the status, and it should display as **"Available."**
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-18.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-18.png)
 
 After configuring the Recovery/Block Platform on Huawei Cloud, you can proceed to [[1. Configure the production platform]](#_1-configure-the-production-platform) or proceed to [[3. Perform disaster recovery operations]](#_3-perform-disaster-recovery-operations)
 
 ---
-
 
 ## 3. Perform Disaster Recovery Operations
 
@@ -196,13 +208,15 @@ Choose **"Block Storage"** as the storage type, and select the configured cloud 
 
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-23.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-23.png)
 
-**Disaster recovery configuration step 3:** Specify Volume Type; Choose the volume type used by the disaster recovery host on the target disaster recovery platform. If there are multiple volumes, you can configure them separately for system and data volumes. Once configured, click the **"Next"** button.
-
-![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-24.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-24.png)
-
-**Disaster recovery configuration step 4:** Computing Resource Configuration; Select the flavor and OS type for the disaster recovery host on the target disaster recovery platform. Once configured, click on the **"Next"** button.
+**Disaster recovery configuration step 3:** Computing Resource Configuration; Select the flavor and OS type for the disaster recovery host on the target disaster recovery platform. Once configured, click on the **"Next"** button.
 
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-25.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-25.png)
+
+**Disaster recovery configuration step 4:** Specify Volume Type; Choose the volume type used by the disaster recovery host on the target disaster recovery platform. If there are multiple volumes, you can configure them separately for system and data volumes. Once configured, click the **"Next"** button.
+
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-24-1.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-24-1.png)
+
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-24-2.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-24-2.png)
 
 **Disaster recovery configuration step 5:** Network Congfiguration; Select the VPC network, Subnet, and whether to specify an IP address at startup, configure a public IP, and security group for the disaster recovery host on the target disaster recovery platform. Once configured, click the **"Next"** button.
 
@@ -210,7 +224,33 @@ Choose **"Block Storage"** as the storage type, and select the configured cloud 
 
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-26.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-26.png)
 
-**Disaster recovery configuration step 6:** Associat Policy;  Associate the corresponding disaster recovery policy with the standby host (association can be skipped for now). If there is no policy, you can create a new one. After completion, click the **"Submit"** button.
+**Disaster recovery configuration step 6:** Advanced Configuration; Configure driver injection switch and Custom Pre & Post Scripts.
+
+::: tip
+With this option enabled, it will automatically load the necessary drivers for the target platform, including disk and network drivers.  
+It is enabled by default.
+:::
+
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-77-1.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-77-1.png)  
+
+::: tip
+Custom Pre and Post Scripts can be used to assist users in executing custom scripts before and after the host is started. This is primarily used to execute commands during a reboot to ensure business continuity.
+> The pre-script runs last during the driver adaptation process. It works on Ubuntu 20.04 and needs to be written in Linux Bash. This script can change settings in your root disk.
+If you need to change data in other disks, it's better to use the post-script.
+You can access your root disk folder through $HOST_ROOT_PATH.
+For example, on Linux, $HOST_ROOT_PATH means the system root directory; on Windows, it's the C drive.
+For example, if you want to modify a program configuration file in CentOS 7, you can do it like this: sed -i 's/old_text/new_text/g' $HOST_ROOT_PATH/path/to/config/file  
+
+>The post-script runs after the system starts.
+Use Bash on Linux and bat files on Windows.
+This script can handle system-related tasks flexibly, like starting or stopping services. It can also modify settings files and add entries to the Windows registry.
+:::
+
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-77-2.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-77-2.png)  
+
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-77-3.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-77-3.png)  
+
+**Disaster recovery configuration step 7:** Associat Policy;  Associate the corresponding disaster recovery policy with the standby host (association can be skipped for now). If there is no policy, you can create a new one. After completion, click the **"Submit"** button.
 
 > Before starting the policy configuration, the hosts that have already been configured will automatically enter the **"Start DR"** phase.
 

@@ -48,19 +48,15 @@ This user guide explains the use of HyperBDR to backup various types of hosts fr
 
 - Enable the network policy for the VMware virtual machines on production platform to HyperBDR and the cloud synchronization gateway.
 
-**Step 1:** Click **"Configuration"**, click on **"Production Sit"** in the left menu, click on the **"VMware"** selection box.
+**Step 1:** Click **"Configuration"**, click on **"Production Site"** in the left menu, and than click the **""+Add""** button to add the agentless proxy component **"Hamal"** in the **VMware** tab.  
 
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-4.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-4.png)
+>  For the initial addition of VMware, you need to install the **"Hamal"** component (refer to Step 2).  
 
-**Step 2:** Click on the **"+Add"** button to add the agentless proxy component **"Hamal"**.
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-4.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-4.png)
 
-> For the initial addition of VMware, you need to install the **"Hamal"** component (refer to step 3).
+**Step 2:** Install Hamal as per the prompts
 
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-5.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-5.png)
-
-**Step 3:** Install Hamal as per the prompts
-
-> If you have already installed Hamal as outlined in the VMware DR Solution POC Preparation Doc, you can proceed directly to **Step 4**.
+> If you have already installed Hamal as outlined in the VMware DR Solution POC Preparation Doc, you can proceed directly to **Step 3**.
 
 (1) Download the OVA to the VMware end or prepare a CentOS7.x version virtual machine at the source end.
 
@@ -70,7 +66,7 @@ Note: Please operate according to the current display information on the disaste
 
 (3) After installation, return to the disaster recovery tool and click on the **"Next"** button.
 
-![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-6.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-6.png)
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-6.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-6.png)
 
 > _Please refer to the following document for the procedure to deploy Hamal on the VMware side using the OVA template._
 > _Documentation Link：_[_https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#import-ova-images-and-create-proxy-virtual-machine-in-vmware_](https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#import-ova-images-and-create-proxy-virtual-machine-in-vmware)
