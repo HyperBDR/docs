@@ -279,7 +279,7 @@ Select the snapshot time point when starting the disaster recovery hosts and cli
 After the disaster recovery host is started, if the host startup status displays the relevant configuration information of the host on the disaster recovery platform, it means that the disaster recovery drill/disaster recovery takeover was successful. You can log in to Huawei Cloud Stack to view the running status of the disaster recovery host:
 > Click Remote login to open VNC to the Drill/Takeover host.  
 
-![hyperbdruserguide-tohcs8-blockstoragemode-21.png](/images/hyperbdruserguide-tohcs8-blockstoragemode-21.png)  
+![hyperbdruserguide-tohcs8-blockstoragemode-21.png](./images/hyperbdruserguide-tohcs8-blockstoragemode-21.png)  
 
 ![hyperbdruserguide-tohcs8-blockstoragemode-22.png](./images/hyperbdruserguide-tohcs8-blockstoragemode-22.png)  
 
