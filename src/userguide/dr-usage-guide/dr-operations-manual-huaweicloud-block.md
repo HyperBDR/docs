@@ -301,10 +301,19 @@ Select the snapshot time point when starting the disaster recovery hosts and cli
 ---
 
 ### 3.4. View Disaster Recovery Result
-After the disaster recovery host is started, if the host startup status displays the relevant configuration information of the host on the disaster recovery platform, it means that the disaster recovery drill/disaster recovery takeover was successful. You can log in to Huawei Cloud to view the running status of the disaster recovery host:
+After the disaster recovery host is started, if the host startup status displays the relevant configuration information of the host on the disaster recovery platform, it means that the disaster recovery drill/disaster recovery takeover was successful. You can log in to Huawei Cloud to view the running status of the disaster recovery host:  
+
+> Click Remote login to open VNC to the Drill/Takeover host.  
+
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-36.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-36.png)
 
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-37.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-37.png)
+
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-37-1.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-37-1.png)
+
+Or you can go to Huawei Cloud Platform to view cloud instances.
+
+![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-37-2.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-37-2.png)
 
 ### 3.5. Clean Up Verification Host
 Select the host that needs to be **"Clean Up Verification Host"**, and in the **"Action"** section, click on the **"Clean Up Verification Host"** option. Wait for the cleaning process to complete.
