@@ -217,4 +217,4 @@ Next step, you can configration the Sync Proxy node IP Address.
 
 The Sync Proxy limits data synchronization based on the number of disks on the source host. According to best practices for the project, to ensure timely synchronization, each 4-core 8GB Sync Proxy can support up to 50 disks simultaneously. You can also increase the Sync Proxy specifications, such as using an 8-core 16GB host, to support the simultaneous synchronization of 100 disks.
 
-[How can I increse max mounts disks in sync proxy?](https://qa.oneprocloud.com/questions/D1p)
+[How can I increse max mounts disks in sync proxy?](https://qa.oneprocloud.com/questions/D1p4/E1r4)
