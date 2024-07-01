@@ -8,13 +8,13 @@
 
 #### 安装包
  
-> 文件名称: **HyperBDR_release_v5.5.0_20240531-20240531-3334.tar.gz**  
-> 下载链接: [https://downloads.oneprocloud.com/HyperBDR_release_v5.5.0_20240531-20240531-3334.tar.gz](https://downloads.oneprocloud.com/HyperBDR_release_v5.5.0_20240531-20240531-3334.tar.gz)  
+> 文件名称: **HyperBDR_release_v5.6.0_20240630-20240630-3633.tar.gz**  
+> 下载链接: [https://downloads.oneprocloud.com/HyperBDR_release_v5.6.0_20240630-20240630-3633.tar.gz](https://downloads.oneprocloud.com/HyperBDR_release_v5.6.0_20240630-20240630-3633.tar.gz)   
 
 #### MD5校验文件
 
-> 文件名称: **HyperBDR_release_v5.5.0_20240531-20240531-3334.tar.gz.md5**  
-> 下载链接: [https://downloads.oneprocloud.com/HyperBDR_release_v5.5.0_20240531-20240531-3334.tar.gz.md5](https://downloads.oneprocloud.com/HyperBDR_release_v5.5.0_20240531-20240531-3334.tar.gz.md5)  
+> 文件名称: **HyperBDR_release_v5.6.0_20240630-20240630-3633.tar.gz.md5**  
+> 下载链接: [https://downloads.oneprocloud.com/HyperBDR_release_v5.6.0_20240630-20240630-3633.tar.gz.md5](https://downloads.oneprocloud.com/HyperBDR_release_v5.6.0_20240630-20240630-3633.tar.gz.md5)  
 
 ::: tip
 登录到HyperBDR主机后端并执行命令。  
