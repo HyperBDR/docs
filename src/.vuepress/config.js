@@ -105,6 +105,7 @@ module.exports = {
                 'presales/cloud-platform-support-matrix',
                 'presales/poc',
                 'presales/aws-agentless-mode-cost-calculator',
+                'presales/compatibility-and-limitations',
               ]
             },
             {
@@ -224,7 +225,7 @@ module.exports = {
                   ]
                 },
                 {
-                  title: 'Compatibility & Limitations',
+                  title: 'Production Site Compatibility & Limitations',
                   collapsable: false,
                   children: [
                     'limitations/linux-agent.md',
