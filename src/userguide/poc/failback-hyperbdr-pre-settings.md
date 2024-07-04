@@ -195,12 +195,13 @@ Choose the available Failback Transition Image file according to the production 
 :::
 
 ### Download ISO Format Image
-Failback Transition Image download link：[https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.iso](https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.iso)  
-Failback Transition Image MD5 file download link：[https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.iso.md5](https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.iso.md5)
+Failback Transition Image download link：[https://downloads.oneprocloud.com/Livecd-HyperDoor.iso](https://downloads.oneprocloud.com/Livecd-HyperDoor.iso)  
 
 ### Download QCOW2 Format Image
-Failback Transition Image download link：[https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.qcow2](https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.qcow2)  
-Failback Transition Image image MD5 file download link：[https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.qcow2.md5](https://downloads.oneprocloud.com/Livecd-HyperDoor-5.5.1.dev688.qcow2.md5)
+Failback Transition Image download link：[https://downloads.oneprocloud.com/Livecd-HyperDoor.qcow2](https://downloads.oneprocloud.com/Livecd-HyperDoor.qcow2)  
+
+### Download VMDK Format Image
+Failback Transition Image download link：[https://downloads.oneprocloud.com/Livecd-HyperDoor.vmdk](https://downloads.oneprocloud.com/Livecd-HyperDoor.vmdk)  
 
 ## Add Huawei Cloud Object Storage (Failback)
 
