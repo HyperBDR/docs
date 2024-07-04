@@ -10,7 +10,7 @@
 Default username and password for Sync Proxy ova:
 
 * Username: root
-* Password: onepro
+* Password: Acb@132.Inst
 :::
 
 Use vCenter Web Console to login the Sync Proxy VM and to the following configurations.
@@ -288,7 +288,7 @@ This step needs to be tested after the installation of HyperBDR is completed.
 Default username and password for Sync Proxy ova:
 
 * Username: root
-* Password: onepro
+* Password: Acb@132.Inst
 
 If you don't know how to use SSH on a Windows system, please refer to the following link:
 
@@ -381,7 +381,7 @@ If your disaster recovery environment is interconnected with the production site
 Default username and password for Sync Proxy ova:
 
 * Username: root
-* Password: onepro
+* Password: Acb@132.Inst
 
 If you don't know how to use SSH on a Windows system, please refer to the following link:
 
@@ -428,7 +428,7 @@ Sync Proxy should be installation after the completion of the HyperBDR installat
 Default username and password for Sync Proxy ova:
 
 * Username: root
-* Password: onepro
+* Password: Acb@132.Inst
 
 If you don't know how to use SSH on a Windows system, please refer to the following link:
 

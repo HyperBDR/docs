@@ -9,7 +9,7 @@
 ::: tip
 Proxy ova的默认用户名和密码:
 * 用户名: root
-* 密码: onepro
+* 密码: Acb@132.Inst
 :::
 
 使用vCenter Web Console登录Proxy VM并进行以下配置。
@@ -255,7 +255,7 @@ curl https://obs.ap-southeast-3.myhuaweicloud.com
 Proxy ova的默认用户名和密码：
 
 * 用户名: root
-* 密码: onepro
+* 密码: Acb@132.Inst
 
 如果您不知道如何在Windows系统上使用SSH，请参考以下链接：
 
@@ -347,7 +347,7 @@ debug1: Connection established.
 Proxy ova 的默认用户名和密码：
 
 * 用户名: root
-* 密码: onepro
+* 密码: Acb@132.Inst
 
 如果您不知道如何在 Windows 系统上使用 SSH，请参考以下链接：
 
@@ -377,7 +377,7 @@ Proxy应在HyperBDR安装过程完成后安装。
 Proxy ova 的默认用户名和密码：
 
 * 用户名: root
-* 密码: onepro
+* 密码: Acb@132.Inst
 
 如果您不知道如何在 Windows 系统上使用 SSH，请参考以下链接：
 

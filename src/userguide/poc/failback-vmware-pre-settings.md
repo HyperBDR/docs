@@ -8,7 +8,7 @@
 
 ::: tip
 Download the ISO image to the download address in the document.  
-Document link: [https://docs.oneprocloud.com/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image](http://192.168.7.58:8080/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image)
+Document link: [https://docs.oneprocloud.com/userguide/poc/failback-hyperbdr-pre-settings.html#download-the-failback-transition-image-for-the-failback-transition-host](https://docs.oneprocloud.com/userguide/poc/failback-hyperbdr-pre-settings.html#download-the-failback-transition-image-for-the-failback-transition-host)
 :::
 
 ### Upload the Transition Host Image file (ISO) to the VMware storage
