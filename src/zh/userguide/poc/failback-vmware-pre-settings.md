@@ -8,7 +8,7 @@
 
 ::: tip
 请在文档中的下载地址下载ISO镜像。  
-文档链接： [https://docs.oneprocloud.com/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image](http://192.168.7.58:8080/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image)
+文档链接： [https://docs.oneprocloud.com/userguide/poc/failback-hyperbdr-pre-settings.html#download-iso-format-image](https://docs.oneprocloud.com/zh/userguide/poc/failback-hyperbdr-pre-settings.html#%E4%B8%8B%E8%BD%BD%E9%80%9A%E7%94%A8%E5%AD%98%E5%82%A8%E5%9B%9E%E5%88%87%E7%BD%91%E5%85%B3%E6%89%80%E4%BD%BF%E7%94%A8%E7%9A%84hyperdoor%E9%95%9C%E5%83%8F)
 :::
 
 ### 将回切过渡主机镜像文件（ISO）上传至VMware存储
