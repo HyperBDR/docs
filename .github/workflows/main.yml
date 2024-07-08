@@ -28,3 +28,13 @@ jobs:
           remote_port: ${{ vars.DEPLOY_PORT }}
           remote_user: ${{ vars.DEPLOY_USER }}
           remote_key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: Refresh CDN
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ vars.DEPLOY_HOST }}
+          username: ${{ vars.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ vars.DEPLOY_PORT }}
+          script: |
+            bash /root/tools/refresh_cdn/refresh_docs.sh
