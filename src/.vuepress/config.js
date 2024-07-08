@@ -208,7 +208,8 @@ module.exports = {
               title: 'FAQ',
               collapsable: false,
               children: [
-                'faq.md',
+                'faq/faq',
+                'faq/configure-vpn-huaweicloud',
               ]
             }
           ],
@@ -397,7 +398,7 @@ module.exports = {
               title: 'FAQ常见问题解答',
               collapsable: false,
               children: [
-                'faq.md',
+                'faq/faq',
               ]
             }
           ],
