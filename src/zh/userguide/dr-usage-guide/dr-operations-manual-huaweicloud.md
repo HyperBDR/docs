@@ -195,7 +195,7 @@ vCenter/ESXI 被成功加入到容灾生产平台中，重复以上步骤可以�
 
 ---
 
-## 4.执行容灾操作
+## 4. 执行容灾操作
 
 如果已经添加了待容灾主机，那么选择待容灾主机，点击下一步到容灾配置页面
 
@@ -512,7 +512,63 @@ vCenter/ESXI 被成功加入到容灾生产平台中，重复以上步骤可以�
 
 ![dr-operations-manual-huaweicloud-157.png](./images/dr-operations-manual-huaweicloud-157.png)
 
-## 7. 清理资源
+## 7. 告警设置
+
+::: tip
+Currently, two methods of Email alerts and SMS alerts are supported.
+:::
+
+### 7.1 告警发送配置
+
+#### 7.1.1 Email 邮件告警
+
+1. Log in the Broadview coss console
+
+> Login Address：https://<HyperBDR IP\>:30443  
+> Default administrator user：admin  
+> Default administrator password：P@ssw0rd
+
+2. Configure SMTP
+
+3. Send Test Email
+
+#### 7.1.2 SMS 短信告警
+
+1. Log in the Broadview coss console
+
+> Login Address：https://<HyperBDR IP\>:30443  
+> Default administrator user：admin  
+> Default administrator password：P@ssw0rd
+
+2. Configure SMS Service
+
+3. Send Test SMS
+
+### 7.2 通知配置
+
+> Logged into the HyperBDR console by default
+
+1. Add Notufication
+
+
+2. Configure Notufication
+
+
+### 7.3 告警规则配置
+
+#### 7.3.1 资源告警
+
+1. Create Resource Alert
+
+2. Configure Resource Alert
+
+#### 7.3.2 事件告警
+
+1. Create Event Alert
+
+2. Configure Event Alert
+
+## 8. 清理资源
 
 清理资源，将添加到容灾平台的容灾主机进行清理删除操作，该步骤完成后，所选主机无法进行容灾操作。
 
