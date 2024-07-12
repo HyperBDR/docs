@@ -6,8 +6,8 @@ actionLink: /userguide/
 features:
 - title: Solutions
   details: HyperBDR Solutions
-- title: Mannual
-  details: HyperBDR User Mannual
+- title: Manual
+  details: HyperBDR User Manual
 - title: FAQ
   details: Frequently Asked Questions
 footer: OnePro Cloud HyperBDR Documentation
