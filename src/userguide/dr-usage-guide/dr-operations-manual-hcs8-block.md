@@ -147,7 +147,7 @@ Document Link: [https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.ht
 Choose **Huawei Cloud Stack(HCS) 8.2.x / 8.3.x** as the **"Recovery/Block Platform"**.
 Follow the steps below to fill in the authentication information for Huawei Cloud Stack when adding the target disaster recovery platform:
 > For detailed information on health information, please see the linked document:  
-> [How to obtain Huawei Cloud HCS 8.x Platform Credentials information?](https://docs.oneprocloud.com/userguide/faq.html#how-to-obtain-huawei-cloud-hcs-8-x-platform-credentials-information)
+> [How to obtain Huawei Cloud HCS 8.x Platform Credentials information?](https://docs.oneprocloud.com/userguide/faq/faq.html#how-to-obtain-huawei-cloud-hcs-8-x-platform-credentials-information)
 
 After confirming the entered information, click the **"Next"** button.
 ![hyperbdruserguide-tohcs8-blockstoragemode-1.png](./images/hyperbdruserguide-tohcs8-blockstoragemode-1.png)  
