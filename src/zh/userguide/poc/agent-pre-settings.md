@@ -724,8 +724,8 @@ debug1: Connection established.
 
 在安装Windows Agent之前检查主机中是否运行防毒软件，并进行以下措施避免Windows Agent无法正常安装或运行的情况。
 
-#### 如果您的主机正在运行卡巴斯基软件，请单击 [这里](https://docs.oneprocloud.com/userguide/faq.html#kaspersky).
-#### 如果您的主机正在运行McAfee，请单击 [这里](https://docs.oneprocloud.com/userguide/faq.html#mcafee).
+#### 如果您的主机正在运行卡巴斯基软件，请单击 [这里](https://docs.oneprocloud.com/userguide/faq/faq.html#kaspersky).
+#### 如果您的主机正在运行McAfee，请单击 [这里](https://docs.oneprocloud.com/userguide/faq/faq.html#mcafee).
 
 如果在您的主机上没有找到正在运行的杀毒软件，请继续浏览本文档的内容。
 

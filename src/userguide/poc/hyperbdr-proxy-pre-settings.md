@@ -123,7 +123,7 @@ Sync Proxy nodes access the vCenter API interface for authentication, and they r
 
 ::: tip
 In VMware production environment, maybe use domain name to access EXSi. You need to configure domain name mapping or DNS service address for Sync Proxy to resolve the domain name.
-Reference Documentation: [How does Sync Proxy access EXSi using a domain name?](https://docs.oneprocloud.com/userguide/faq.html#how-does-sync-proxy-access-exsi-using-a-domain-name)
+Reference Documentation: [How does Sync Proxy access EXSi using a domain name?](https://docs.oneprocloud.com/userguide/faq/faq.html#how-does-sync-proxy-access-exsi-using-a-domain-name)
 :::
 
 
