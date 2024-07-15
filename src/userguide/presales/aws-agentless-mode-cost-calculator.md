@@ -121,35 +121,43 @@ Based on the calculation process provided, here's how you would determine the co
 
 ##### Calculate Total Block Count:
 
-- Total data size in KiB = 1225 GB * 1024 * 1024 KiB/GB = 1,259,520,000 KiB
-- Block size = 512 KiB
-- Total blocks = Total data size / Block size = 1,259,520,000 KiB / 512 KiB = 2,456,250 blocks
+```
+Total data size in KiB = 1225 GB * 1024 * 1024 KiB/GB = 1,259,520,000 KiB
+Block size = 512 KiB
+Total blocks = Total data size / Block size = 1,259,520,000 KiB / 512 KiB = 2,456,250 blocks
+```
 
 ##### Calculate GetSnapshotBlock API Cost:
 
-- Total SnapshotAPIUnits = Total blocks = 2,456,250 blocks
-- Cost per 1,000 SnapshotAPIUnits = $0.003
-- GetSnapshotBlock API cost = (Total SnapshotAPIUnits / 1,000) * Cost per 1,000 SnapshotAPIUnits
-  - = (2,456,250 / 1,000) * $0.003
-  - = 2,456.25 * $0.003
-  - = $7.36875
+```
+Total SnapshotAPIUnits = Total blocks = 2,456,250 blocks
+Cost per 1,000 SnapshotAPIUnits = $0.003
+GetSnapshotBlock API cost = (Total SnapshotAPIUnits / 1,000) * Cost per 1,000 SnapshotAPIUnits
+  = (2,456,250 / 1,000) * $0.003
+  = 2,456.25 * $0.003
+  = $7.36875
+```
 
 ##### Calculate ListSnapshotBlocks and ListChangedBlocks API Cost:
 
-- Total requests for List APIs = Total blocks / 512 blocks per request
-  - = 2,456,250 blocks / 512 blocks per request
-  - ≈ 4,796.68 requests (rounded up from 4,796.6796875)
-- Cost per 1,000 requests = $0.0006
-- List APIs cost = (Total requests / 1,000) * Cost per 1,000 requests
-  - = (4,796.68 / 1,000) * $0.0006
-  - = 4.79668 * $0.0006
-  - = $0.002878008
+```
+Total requests for List APIs = Total blocks / 512 blocks per request
+  = 2,456,250 blocks / 512 blocks per request
+  ≈ 4,796.68 requests (rounded up from 4,796.6796875)
+Cost per 1,000 requests = $0.0006
+List APIs cost = (Total requests / 1,000) * Cost per 1,000 requests
+  = (4,796.68 / 1,000) * $0.0006
+  = 4.79668 * $0.0006
+  = $0.002878008
+```
 
 ##### Total Cost:
 
-- Total cost = GetSnapshotBlock API cost + List APIs cost
-  - = $7.36875 + $0.002878008
-  - ≈ $7.371628
+```
+Total cost = GetSnapshotBlock API cost + List APIs cost
+  = $7.36875 + $0.002878008
+  ≈ $7.371628
+```
 
 Therefore, the estimated cost for managing 1225GB of data using AWS EBS Direct APIs is approximately **$7.37**. This calculation includes the costs for retrieving snapshot blocks and listing snapshot information based on the specified data size.
 
