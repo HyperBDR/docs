@@ -8,13 +8,13 @@
 
 #### Installation Package
  
-> File Name: **HyperBDR_release_v5.6.0_20240630-20240703-3663.tar.gz**  
-> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.6.0_20240630-20240703-3663.tar.gz](https://downloads.oneprocloud.com/HyperBDR_release_v5.6.0_20240630-20240703-3663.tar.gz)  
+> File Name: **HyperBDR_release_v5.6.1_20240715-20240717-3769.tar.gz**  
+> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.6.1_20240715-20240717-3769.tar.gz](https://downloads.oneprocloud.com/HyperBDR_release_v5.6.1_20240715-20240717-3769.tar.gz)  
 
 #### MD5 Checksum File
 
-> File Name: **HyperBDR_release_v5.6.0_20240630-20240703-3663.tar.gz.md5**  
-> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.6.0_20240630-20240703-3663.tar.gz.md5](https://downloads.oneprocloud.com/HyperBDR_release_v5.6.0_20240630-20240703-3663.tar.gz.md5)  
+> File Name: **HyperBDR_release_v5.6.1_20240715-20240717-3769.tar.gz.md5**  
+> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.6.1_20240715-20240717-3769.tar.gz.md5](https://downloads.oneprocloud.com/HyperBDR_release_v5.6.1_20240715-20240717-3769.tar.gz.md5)  
 
 ::: tip
 Log in to the HyperBDR host backend and execute the command.  
