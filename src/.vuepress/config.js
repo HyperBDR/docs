@@ -211,6 +211,7 @@ module.exports = {
               children: [
                 'faq/faq',
                 'faq/configure-vpn-huaweicloud',
+                'faq/collect-logs',
               ]
             }
           ],
@@ -400,6 +401,7 @@ module.exports = {
               collapsable: false,
               children: [
                 'faq/faq',
+                'faq/collect-logs',
               ]
             }
           ],
