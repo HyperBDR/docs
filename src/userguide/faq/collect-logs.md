@@ -17,7 +17,7 @@ If you encounter obstacles or operation errors when using HyperBDR / HyerMotion 
         <th>Link</th>
     </tr>
     <tr>
-        <td rowspan="2">AgentLess</td>
+        <td rowspan="2">Agentless</td>
         <td>Console</td>
         <td><a href="https://qa.oneprocloud.com/questions/D1I4" target="_blank">How to collect Console logs?</a></td>
     </tr>

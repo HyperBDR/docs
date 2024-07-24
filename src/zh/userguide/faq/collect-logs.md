@@ -17,7 +17,7 @@
         <th>Link</th>
     </tr>
     <tr>
-        <td rowspan="2">AgentLess</td>
+        <td rowspan="2">Agentless</td>
         <td>Console</td>
         <td><a href="https://qa.oneprocloud.com/questions/D1I4" target="_blank">如何收集控制台日志？</a></td>
     </tr>
