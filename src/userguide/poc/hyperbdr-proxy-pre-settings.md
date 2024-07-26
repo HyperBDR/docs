@@ -17,37 +17,58 @@ Use vCenter Web Console to login the Sync Proxy VM and to the following configur
 ![vcenter-web-console-1.png](./images/vcenter-web-console-1.png)  
 ![vcenter-web-console-2.png](./images/vcenter-web-console-2.png)  
 
-### Modify network interface configuration file
+### Configure Sync Proxy VM network
 
-NOTE: Before you run this command, make sure replace following variables:
+::: tip
+The Sync Proxy ova is configured with default DHCP mode for networking. If the source production environment network you selected supports DHCP, confirm the virtual machine's IP and proceed. If the source production environment network does not use DHCP, manual configuration of the machine's network is required.
+:::
 
-* ipaddress: Assign IPv4 network according to real network
-* netmask
-* gateway
-* dns1
-* dns2
+#### Confirm the virtual machine's network adapter device name
 
+```shell
+ip a
 ```
-cat <<EOF >> /etc/sysconfig/network-scripts/ifcfg-ens160
-TYPE=Ethernet
 
-BOOTPROTO=static
-DEFROUTE=yes
-NAME=ens160
-DEVICE=ens160
-ONBOOT=yes
-IPADDR=<ipaddress>
-PREFIX=<netmask>
-GATEWAY=<gateway>
-DNS1=<dns1>
-DNS2=<dns2>
-EOF
+![confirm-vm-network-device-name-1.png](./images/confirm-vm-network-device-name-1.png)
+
+#### Configure a IP address and gateway
+
+::: tip
+Configuring the network of the Sync Proxy VM using the command method is temporary. An unexpected restart will lose the network configuration. It is recommended to configure the network using the configuration file method.
+:::
+
+```shell
+sudo ifconfig eth0 192.168.7.48/20 && sudo route add default gw 192.168.0.1 eth0
 ```
+![configure-ip-address-and-gateway-1.png](./images/configure-ip-address-and-gateway-1.png)
+
+#### Modify network interface configuration file
+
+Confirm the network interface configuration file
+
+> The file extension is usually [.yaml]
+
+![configure-ip-address-and-gateway-2.png](./images/configure-ip-address-and-gateway-2.png)
+
+The following command will directly overwrite the specified network configuration content into the specified configuration file. Please modify the network parameters (such as IP address, gateway, DNS, etc.) according to your actual needs.  
+
+```shell
+echo "network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      addresses:
+        - 192.168.7.48/20
+      gateway4: 192.168.0.1
+" | sudo tee /etc/netplan/70-netplan-set.yaml && sudo netplan apply
+```
+![configure-ip-address-and-gateway-3.png](./images/configure-ip-address-and-gateway-3.png)
 
 ### Restart Network
 
 ```
-systemctl restart network
+sudo systemctl restart systemd-networkd
 ```
 
 ### Testing
