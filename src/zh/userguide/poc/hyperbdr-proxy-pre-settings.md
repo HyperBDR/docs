@@ -16,37 +16,58 @@ Proxy ova的默认用户名和密码:
 ![vcenter-web-console-1.png](./images/vcenter-web-console-1.png)  
 ![vcenter-web-console-2.png](./images/vcenter-web-console-2.png)  
 
-### Modify network interface configuration file
+### 配置同步代理虚拟机网络
 
-注意：在运行此命令之前，请确保替换以下变量：
+::: tip
+Sync Proxy ova 默认配置为 DHCP 模式进行联网。如果您选择的源生产环境网络支持 DHCP，请确认虚拟机的 IP 并继续。如果源生产环境网络不使用 DHCP，则需要手动配置机器的网络。
+:::
 
-* ipaddr: 分配IPV4地址
-* netmask: 子网掩码
-* gateway: 网关
-* dns1: 主DNS
-* dns2: 备DNS
+#### 确认虚拟机的网络适配器设备名称
 
+```shell
+ip a
 ```
-cat <<EOF >> /etc/sysconfig/network-scripts/ifcfg-ens160
-TYPE=Ethernet
 
-BOOTPROTO=static
-DEFROUTE=yes
-NAME=ens160
-DEVICE=ens160
-ONBOOT=yes
-IPADDR=<ipaddress>
-PREFIX=<netmask>
-GATEWAY=<gateway>
-DNS1=<dns1>
-DNS2=<dns2>
-EOF
+![confirm-vm-network-device-name-1.png](./images/confirm-vm-network-device-name-1.png)
+
+#### 配置 IP 地址和网关
+
+::: tip
+使用命令方法配置 Sync Proxy VM 的网络是临时的，意外重启会导致网络配置丢失，建议使用配置文件方法配置网络。
+:::
+
+```shell
+sudo ifconfig eth0 192.168.7.48/20 && sudo route add default gw 192.168.0.1 eth0
 ```
+![configure-ip-address-and-gateway-1.png](./images/configure-ip-address-and-gateway-1.png)
+
+#### 修改网络接口配置文件
+
+确认网络接口配置文件
+
+> 文件扩展名通常为[.yaml]
+
+![configure-ip-address-and-gateway-2.png](./images/configure-ip-address-and-gateway-2.png)
+
+以下命令会将指定的网络配置内容直接覆盖到指定的配置文件中，请根据实际需要修改网络参数（如IP地址、网关、DNS等）。
+
+```shell
+echo "network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      addresses:
+        - 192.168.7.48/20
+      gateway4: 192.168.0.1
+" | sudo tee /etc/netplan/70-netplan-set.yaml && sudo netplan apply
+```
+![configure-ip-address-and-gateway-3.png](./images/configure-ip-address-and-gateway-3.png)
 
 ### 重启网络服务
 
 ```
-systemctl restart network
+sudo systemctl restart systemd-networkd
 ```
 
 ### 测试网络
