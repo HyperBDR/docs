@@ -5,7 +5,7 @@
 ## Configure the time synchronization service for the source host
 
 ::: tip
-Ensure synchronization between the host time and the network time. The provided example is for reference purposes only, please configure based on the specific circumstances of the standby disaster recovery host.
+Ensure that the host time is synchronized with the network time.
 :::
 
 ### Windows
@@ -38,7 +38,6 @@ Click "Update now" to test the connection and wait for confirmation. Click "OK" 
 
 #### Configure automatic synchronization with the local time synchronization server.
 
- 
 If your host is in an intranet environment, you need to configure the address to be your local time synchronization server address.
 
 ::: tip
@@ -153,7 +152,7 @@ Please make sure to replace **time.example.com** with the actual NTP server addr
 ## Verify that the time on the source host is synchronized with Coordinated Universal Time (UTC)
 
 ::: tip
-For security purposes, OBS verifies the time difference between the client and server. If the time difference is longer than 15 minutes, the OBS server will reject your requests and this error message is reported. To resolve this problem, adjust your local time (UTC) and try again. 
+For security purposes, Object Storage Service verifies the time difference between the client and server. If the time difference is longer than 15 minutes, the Object Storage Service will reject your requests and this error message is reported. To resolve this problem, adjust your local time (UTC) and try again. 
 :::
 
 ### Viewing the time on Windows system
