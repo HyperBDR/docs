@@ -152,7 +152,7 @@ Please make sure to replace **time.example.com** with the actual NTP server addr
 ## Verify that the time on the source host is synchronized with Coordinated Universal Time (UTC)
 
 ::: tip
-For security purposes, Object Storage Service verifies the time difference between the client and server. If the time difference is longer than 15 minutes, the Object Storage Service will reject your requests and this error message is reported. To resolve this problem, adjust your local time (UTC) and try again. 
+For security purposes, Object Storage Service verifies the time difference between the client and server. If the time difference is longer than 15 minutes, the Object Storage Service will reject your requests and this error message is reported.
 :::
 
 ### Viewing the time on Windows system
