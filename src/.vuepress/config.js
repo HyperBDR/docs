@@ -86,29 +86,74 @@ module.exports = {
           }
         ],
         sidebar: {
-          '/userguide/': [
+          '/userguide/checklist/': [
             {
               title: 'Checklist',
               collapsable: false,
               children: [
-                'checklist/dr-checklist',
+                'dr-checklist',
               ]
             },
+          ],
+          '/userguide/presales/': [
             {
               title: 'Pre Sales',
               collapsable: false,
               children: [
-                'presales/hyperbdr-vmware-investigation',
-                'presales/hyperbdr-agent-investigation',
-                'presales/dr-network-planning-recommendations',
-                'presales/hyperbdr-rpo-rto-planning-best-practices',
-                'presales/cloud-platform-support-matrix',
-                'presales/poc',
-                'presales/aws-agentless-mode-cost-calculator',
-                'presales/compatibility-and-limitations',
-                'presales/hyperbdr-license-purchasing-guide',
+                'hyperbdr-vmware-investigation',
+                'hyperbdr-agent-investigation',
+                'dr-network-planning-recommendations',
+                'hyperbdr-rpo-rto-planning-best-practices',
+                'cloud-platform-support-matrix',
+                'poc',
+                'aws-agentless-mode-cost-calculator',
+                'compatibility-and-limitations',
+                'hyperbdr-license-purchasing-guide',
               ]
             },
+          ],
+          '/userguide/dr-usage-guide/': [
+            {
+              title: 'HyperBDR User Manual',
+              collapsable: false,
+              children: [
+                {
+                  title: 'Huawei Cloud',
+                  collapsable: false,
+                  children: [
+                    'dr-operations-manual-huaweicloud-object',
+                    'dr-operations-manual-huaweicloud-block',
+                  ]
+                },
+                {
+                  title: 'Huawei Cloud Stack 8.2.x/8.3.x',
+                  collapsable: false,
+                  children: [
+                    'dr-operations-manual-hcs8-block',
+                  ]
+                },
+                {
+                  title: 'TM CAE',
+                  collapsable: false,
+                  children: [
+                    'dr-operations-manual-tmcae-object',
+                  ]
+                },
+              ]
+            }
+          ],
+          '/userguide/faq/': [
+            {
+              title: 'FAQ',
+              collapsable: false,
+              children: [
+                'faq',
+                'configure-vpn-huaweicloud',
+                'collect-logs',
+              ]
+            }
+          ],
+          '/userguide/': [
             {
               title: 'DR Prerequisites',
               collapsable: false,
@@ -177,43 +222,6 @@ module.exports = {
                 }
               ]
             },
-            {
-              title: 'HyperBDR User Manual',
-              collapsable: false,
-              children: [
-                {
-                  title: 'Huawei Cloud',
-                  collapsable: false,
-                  children: [
-                    'dr-usage-guide/dr-operations-manual-huaweicloud-object',
-                    'dr-usage-guide/dr-operations-manual-huaweicloud-block',
-                  ]
-                },
-                {
-                  title: 'Huawei Cloud Stack 8.2.x/8.3.x',
-                  collapsable: false,
-                  children: [
-                    'dr-usage-guide/dr-operations-manual-hcs8-block',
-                  ]
-                },
-                {
-                  title: 'TM CAE',
-                  collapsable: false,
-                  children: [
-                    'dr-usage-guide/dr-operations-manual-tmcae-object',
-                  ]
-                },
-              ]
-            },
-            {
-              title: 'FAQ',
-              collapsable: false,
-              children: [
-                'faq/faq',
-                'faq/configure-vpn-huaweicloud',
-                'faq/collect-logs',
-              ]
-            }
           ],
           '/product-overview/': [
             {
@@ -264,7 +272,63 @@ module.exports = {
                 }
               ],
             }
-          ] // end of /training/
+          ], // end of /training/
+          '/aws-userguide/': [
+            {
+              title: 'DR Prerequisites',
+              collapsable: false,
+              children: [
+                {
+                  title: 'Production Site',
+                  collapsable: false,
+                  children: [
+                  ]
+                },
+                {
+                  title: 'DR Site',
+                  collapsable: false,
+                  children: [
+                  ]
+                },
+                {
+                  title: 'HyperBDR',
+                  collapsable: false,
+                  children: [
+                  ]
+                }
+              ]
+            },
+            {
+              title: 'Failback Prerequisites',
+              collapsable: false,
+              children: [
+                {
+                  title: 'Failback Network Requirement',
+                  collapsable: false,
+                  children: [
+                  ]
+                },
+                {
+                  title: 'Failback Source',
+                  collapsable: false,
+                  children: [
+                  ]
+                },
+                {
+                  title: 'Failback Target',
+                  collapsable: false,
+                  children: [
+                  ]
+                },
+                {
+                  title: 'HyperBDR',
+                  collapsable: false,
+                  children: [
+                  ]
+                }
+              ]
+            },
+          ],
         }
       },
       // 中文文档目录结构与配置
@@ -435,7 +499,7 @@ module.exports = {
       ],
     }
   },
-
+  
   /*locales: {
     // 键名是该语言所属的子路径
     // 作为特例，默认语言可以使用 '/' 作为其路径。
