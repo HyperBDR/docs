@@ -27,6 +27,14 @@ Please fill out the form to complete the preliminary investigation on the host.
 | Linux/Windows Host | Object Storage | Intranet VPN | [View Checklist](https://docs.google.com/forms/d/1RxodRq6e5E4TlYOf2dcVHUXwxzPv2-HgMRmGLiiGwYM/prefill) |
 | Linux/Windows Host | Object Storage | Public Network | [View Checklist](https://docs.google.com/forms/d/1pSLsAd2cTMACrxsPPVNkinLgtT-4mj4NjI2W3dun4cs/prefill) |
 
+<!--
+| AWS(Agentless) | Block Storage | Intranet VPN | [View Checklist](https://docs.google.com/forms/d/1oyZ8s6Fa5lcyCwQeC1nKGWfbytzxZuZ0M_kU6rCFp-0/prefill) |
+| AWS(Agentless) | Block Storage | Public Network | [View Checklist](https://docs.google.com/forms/d/1nUGOF_td-ySjd3G2KoxCn1Vv1ULD-sNLzv2vJSe1SDU/prefill) |
+| AWS(Agentless) | Object Storage | Intranet VPN | [View Checklist](https://docs.google.com/forms/d/1HPUsodtGiLn6i5bk2l6g6UwV-DLViG2VBuCj4ZCEHj4/prefill) |
+| AWS(Agentless) | Object Storage | Public Network | [View Checklist](https://docs.google.com/forms/d/1pt2ejTZfJe4Z43gLpENso55WlpGMNjsAAfZcQ6bPz5I/prefill) |
+-->
+
+
 ### Failback Checklist
 
 | Failback Source | Storage | Network Connection | Failback Target | Checklist |

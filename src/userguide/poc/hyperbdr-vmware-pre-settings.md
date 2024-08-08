@@ -205,6 +205,34 @@ Please refer to the documentation for configuration: [https://qa.oneprocloud.com
 
 ![add-vmware-credentials-4.png](./images/add-vmware-credentials-4.png)
 
+## Add AWS Credentials
+
+::: tip
+Using the pre-prepared AWS account information, add AWS to the HyperBDR platform as a disaster recovery source-side production platform.
+:::
+
+::: tip
+Already logged in to the HyperBDR Console  by default.
+:::
+
+![add-aws-credentials-1.png](./images/add-aws-credentials-1.png)
+
+### Add AWS to the HyperBDR
+
+Click on the top menu bar 'Configuration,' 'Production Site', 'AWS' Click the 'Add' button, then on the popped-up page, click the 'Next' button. Follow the prompts to fill in the VMware information and click the 'Submit' button.
+
+![add-aws-credentials-2.png](./images/add-aws-credentials-2.png)
+![add-aws-credentials-3.png](./images/add-aws-credentials-3.png)
+
+| Item | Description |
+| --- | --- |
+| Access Key ID | Access to AWS Access Key, which has full permissions for the account. |
+| Access Key Secret | Get the AWS Access Key Secret and have full permissions for the account. |
+| Region | The region of the machine to be synchronized. |
+| Sync Proxy | The host IP of the Sync Proxy installed. |
+
+![add-aws-credentials-4.png](./images/add-aws-credentials-4.png)
+
 ## Verify VMware Status in HyperBDR
 
 ::: tip
@@ -218,6 +246,22 @@ Already logged in to the HyperBDR Console  by default.
 Click on the top menu bar 'Configuration,' 'Production Site,' 'VMware' to view the status of the added source-side VMware account, as well as obtain information such as the number of hosts. You can also click on the VMware name to check the detailed information and host details. If everything is normal, you can proceed with the subsequent configuration operations.
 
 ![verify-vmware-status-in-hyperbdr-1.png](./images/verify-vmware-status-in-hyperbdr-1.png)
+
+If the status is 'Online,' it indicates that the addition was successful.
+
+## Verify AWS Status in HyperBDR
+
+::: tip
+Already logged in to the HyperBDR Console  by default.
+:::
+
+![verify-aws-status-in-hyperbdr-1.png](./images/verify-aws-status-in-hyperbdr-1.png)
+
+### Check the status of the AWS Connection
+
+Click on the top menu bar 'Configuration,' 'Production Site,' 'AWS' to view the status of the added source-side AWS account, as well as obtain information such as the number of hosts. You can also click on the AWS  connections name to check the detailed information and host details. If everything is normal, you can proceed with the subsequent configuration operations.
+
+![verify-aws-status-in-hyperbdr-2.png](./images/verify-aws-status-in-hyperbdr-2.png)
 
 If the status is 'Online,' it indicates that the addition was successful.
 
@@ -301,6 +345,29 @@ Click on the top menu bar "DR," "Host DR," click the "Add Host" button, select "
 ![add-vmware-hosts-in-hyperbdr-3.png](./images/add-vmware-hosts-in-hyperbdr-3.png)
 
 ![add-vmware-hosts-in-hyperbdr-4.png](./images/add-vmware-hosts-in-hyperbdr-4.png)
+
+## Add AWS EC2 to HyperBDR
+
+::: tip
+Already logged in to the HyperBDR Console  by default.  
+Already Add AWS Connection to  the HyperBDR by default.
+:::
+
+![add-aws-ec2-to-hyperbdr-1.png](./images/add-aws-ec2-to-hyperbdr-1.png)
+
+### Configure Step
+
+Click on the top menu bar "DR," "Host DR," click the "Add Host" button, select "Agentless," "AWS", choose the previously added AWS account, filter and select the desired disaster recovery hosts, and finally click confirm. Once the selection is complete, click confirm to add the AWS disaster recovery EC2 to the disaster recovery platform.
+
+![add-aws-ec2-to-hyperbdr-2.png](./images/add-aws-ec2-to-hyperbdr-2.png)
+![add-aws-ec2-to-hyperbdr-3.png](./images/add-aws-ec2-to-hyperbdr-3.png)
+![add-aws-ec2-to-hyperbdr-4.png](./images/add-aws-ec2-to-hyperbdr-4.png)
+
+::: tip
+If the EC2 you newly created on the cloud platform is not displayed in the list below, please click the "Reload Virtual Machine" button to reload it into this list.
+:::
+
+![add-aws-ec2-to-hyperbdr-5.png](./images/add-aws-ec2-to-hyperbdr-5.png)
 
 ## Bind/Unbind Sync Proxy to VMware Production Site
 
