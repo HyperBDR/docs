@@ -490,3 +490,50 @@ If the corresponding value of **"Availability Zone"** is empty, it may be necess
 ## What to do if kernel panic occurs when Oracle Linux 6.6 is booted in the cloud?
 
 - [Kernel Panic when Oracle Linux 6.6 Boot in Cloud](https://qa.oneprocloud.com/questions/D1s4)
+
+## How to obtain ApsaraStack authentication information during object storage disaster recovery
+
+To target the ApsaraStack version of Aliyun's ApsaraStack cloud, the following authentication information from the ApsaraStack platform is required to complete the API interface authentication integration.
+
+![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-1.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-1.png)
+
+### 1. Obtain ApsaraStack authentication information
+
+#### 1.1 Region ID
+
+![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-2.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-2.png)
+
+#### 1.2 ASAPI Endpoint
+
+Log in to the ApsaraStack tenant platform, click on the "Products" menu in the upper right corner, and then click "API Directory" on the left side. On the page, you will find the ASAPI Endpoint address.
+
+![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-3.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-3.png)
+
+#### 1.3 S3 Endpoint
+
+On the "Overview" page of the OSS service, you can find the endpoint address for object storage.
+
+![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-4.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-4.png)
+
+#### 1.4 S3 KeyID & KeySecret
+
+![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-5.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-5.png)
+
+#### 1.5 Access Endpoint
+
+Obtaining the access endpoint is a bit complex. Please follow the steps below patiently.
+
+![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-6.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-6.png)
+![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-7.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-7.png)
+![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-8.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-8.png)
+![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-9.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-9.png)
+![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-10.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-10.png)
+![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-11.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-11.png)
+
+#### 1.6 Access Key ID & Key Secret
+
+Click on the username in the upper right corner to find the corresponding User's AKSK.
+
+![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-12.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-12.png)
+
+
