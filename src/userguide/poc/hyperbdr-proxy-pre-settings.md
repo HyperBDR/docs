@@ -538,3 +538,85 @@ Check the "Block Storage" - "Cloud Sync Gateway" page, and the status should be 
 
 ![add-and-configure-hypergate-6.png](./images/add-and-configure-hypergate-6.png)
 
+## AWS Site Sync Proxy network configuration
+
+Access an Amazon Web Services service using an interface VPC endpoint.
+
+::: tip
+AWS Reference Documentation：  
+[https://docs.amazonaws.cn/en_us/vpc/latest/privatelink/create-interface-endpoint.html#create-interface-endpoint-aws](https://docs.amazonaws.cn/en_us/vpc/latest/privatelink/create-interface-endpoint.html#create-interface-endpoint-aws)
+:::
+
+### Prerequisites
+
+::: tip
+AWS Reference Documentation：  
+[https://docs.amazonaws.cn/en_us/vpc/latest/privatelink/create-interface-endpoint.html#prerequisites-interface-endpoints](https://docs.amazonaws.cn/en_us/vpc/latest/privatelink/create-interface-endpoint.html#prerequisites-interface-endpoints)
+:::
+
+Create a security group for the endpoint network interface that allows the expected traffic from the resources in your VPC. For example, to ensure that the Amazon CLI can send HTTPS requests to the Amazon Web Services service, the security group must allow inbound HTTPS traffic.
+
+![aws-site-sync-proxy-network-configuration-1.png](./images/aws-site-sync-proxy-network-configuration-1.png)
+
+To use private DNS, you must enable DNS hostnames and DNS resolution for your VPC. For more information, see View and update DNS attributes in the Amazon VPC User Guide.
+
+![aws-site-sync-proxy-network-configuration-2.png](./images/aws-site-sync-proxy-network-configuration-2.png)
+
+### Create VPC Endpoints Step
+
+1. Open the Amazon VPC console
+
+![aws-site-sync-proxy-network-configuration-3.png](./images/aws-site-sync-proxy-network-configuration-3.png)
+
+2. In the navigation pane, choose Endpoints.
+
+![aws-site-sync-proxy-network-configuration-4.png](./images/aws-site-sync-proxy-network-configuration-4.png)
+
+3. Choose Create endpoint.
+
+![aws-site-sync-proxy-network-configuration-5.png](./images/aws-site-sync-proxy-network-configuration-5.png)
+
+4. To access the AWS API for EC2 and EBS services, create service endpoints for each.
+
+![aws-site-sync-proxy-network-configuration-6.png](./images/aws-site-sync-proxy-network-configuration-6.png)
+
+![aws-site-sync-proxy-network-configuration-7.png](./images/aws-site-sync-proxy-network-configuration-7.png)
+
+5. Wait for the status to become available.
+
+![aws-site-sync-proxy-network-configuration-8.png](./images/aws-site-sync-proxy-network-configuration-8.png)
+
+## Test network connectivity of the Sync Proxy to AWS Service Endpoints
+
+::: tip
+ Find the Service endpoints based on the region you are using.
+:::
+
+**AWS International EC2 Service endpoints:**  
+[https://docs.aws.amazon.com/general/latest/gr/ec2-service.html#ec2_region](https://docs.aws.amazon.com/general/latest/gr/ec2-service.html#ec2_region)  
+**AWS International EBS Service endpoints:**  
+[https://docs.aws.amazon.com/general/latest/gr/ebs-service.html#ebs_region](https://docs.aws.amazon.com/general/latest/gr/ebs-service.html#ebs_region)  
+
+**AWS China Service endpoints:**  
+[https://docs.amazonaws.cn/aws/latest/userguide/endpoints-Beijing.html](https://docs.amazonaws.cn/aws/latest/userguide/endpoints-Beijing.html)  
+[https://docs.amazonaws.cn/aws/latest/userguide/endpoints-Ningxia.html](https://docs.amazonaws.cn/aws/latest/userguide/endpoints-Ningxia.html)  
+
+### Test AWS API Connectivity
+
+::: tip
+Log in to Sync Proxy EC2 by default.
+:::
+
+Execute the following command on Sync Proxy:
+
+
+```sh
+## Please use the Service endpoints in the actual area.
+ssh -v -p ec2.cn-north-1.amazonaws.com.cn
+ssh -v -p ebs.cn-north-1.amazonaws.com
+```
+
+![test-network-connectivity-of-the-sync-proxy-to-aws-service-endpoints-1.png](./images/test-network-connectivity-of-the-sync-proxy-to-aws-service-endpoints-1.png)  
+
+If it displays 'Connection established', it means the link port is normal. 
+If your scenario uses VPN or dedicated line instead of EIP, the resolution address will be the intranet of the same subnet.
