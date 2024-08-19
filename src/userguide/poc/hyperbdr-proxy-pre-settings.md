@@ -612,8 +612,8 @@ Execute the following command on Sync Proxy:
 
 ```sh
 ## Please use the Service endpoints in the actual area.
-ssh -v -p ec2.cn-north-1.amazonaws.com.cn
-ssh -v -p ebs.cn-north-1.amazonaws.com
+ssh -v -p 443 ec2.cn-north-1.amazonaws.com.cn
+ssh -v -p 443 ebs.cn-north-1.amazonaws.com
 ```
 
 ![test-network-connectivity-of-the-sync-proxy-to-aws-service-endpoints-1.png](./images/test-network-connectivity-of-the-sync-proxy-to-aws-service-endpoints-1.png)  
