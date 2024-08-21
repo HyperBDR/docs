@@ -152,3 +152,188 @@ We'll first create this Sync Proxy host, and then proceed with necessary softwar
    - Test the connection from the Sync Proxy instance to HyperBDR Console:
      - Ensure the Sync Proxy can establish a network connection with HyperBDR Console to verify communication integrity.
 
+## AWS and Huawei Cloud establish Site to Site VPN
+
+### Huawei Cloud Site Create VPN
+
+#### VPN Gateway
+
+Create S2C VPN Gateway
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-1.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-1.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-2.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-2.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-3.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-3.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-4.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-4.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-5.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-5.png)
+
+#### Customer Gateway
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-6.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-6.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-7.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-7.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-8.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-8.png)
+
+#### VPN Connections
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-9.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-9.png)
+
+### AWS Site Create VPN
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-10.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-10.png)
+
+
+Just keep PSK and Confirm PSK consistent with those on the AWS side.
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-11.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-11.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-12.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-12.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-13.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-13.png)
+
+#### Customer Gateway
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-14.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-14.png)
+
+
+- For IP address, select the public IP address of Huawei Cloud, which is the address information displayed in the Gateway IP Address column of VPN Gateway. If you choose the active-standby or Active-Active mode, select the address of EIP 1.
+
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-15.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-15.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-16.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-16.png)
+
+#### Virtual private gateways
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-17.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-17.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-18.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-18.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-19.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-19.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-20.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-20.png)
+
+#### Site-to-Site VPN Connections
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-21.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-21.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-22.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-22.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-23.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-23.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-24.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-24.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-25.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-25.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-26.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-26.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-27.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-27.png)
+
+
+- Get the default PSK authentication code
+
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-28.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-28.png)
+
+Select the VPN Tunnel address, copy the value of the Pre-shared key option, and then use this value to fill in the connection PSK box on the Huawei Cloud side. You can also make custom modifications here as long as both sides are consistent.
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-29.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-29.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-30.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-30.png)
+
+#### Adding routes on the VPC
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-31.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-31.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-32.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-32.png)
+
+Add a static route to the target Huawei Cloud VPC network. Select Virtual Private Gateway for Target and the created VGW resource for Resource.
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-33.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-33.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-34.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-34.png)
+
+### AWS ec2 accesses Huawei Cloud object storage through the intranet
+
+::: tip
+If object storage mode is not used, this configuration is not required.
+:::
+
+#### Huawei Cloud VPN adds object storage (100.125.0.0/16) network
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-35.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-35.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-36.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-36.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-37.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-37.png)
+
+#### Add VPC Endpoint Service (DNS & OBS) on Huawei Cloud
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-38.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-38.png)
+
+#### Modify the local and remote IPv4 network CIDR addresses on AWS
+
+Change the addresses allowed through VPN on both ends to 0.0.0.0/0
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-39.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-39.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-40.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-40.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-41.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-41.png)
+
+#### VPN Connections adds routes to the 100.125.0.0/16 network segment
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-42.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-42.png)
+
+#### Add a route to the 100.125.0.0/16 network segment in the VPC routing table
+
+The next hop address is selected as the VGW device of the VPN VPG
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-43.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-43.png)
+
+![aws-and-huawei-cloud-establish-site-to-site-vpn-44.png](./images/aws-and-huawei-cloud-establish-site-to-site-vpn-44.png)
+
+#### Configure Sync Proxy EC2 to access DNS and OBS
+
+**Modify the DNS configuration of Sync Proxy EC2**
+
+> Log in to Sync Proxy EC2 by default.
+
+Execute Command:
+
+```
+
+echo -e "\n[Resolve]\nDNS=10.10.0.23\nDomains=~myhuaweicloud.com" >> /etc/systemd/resolved.conf && systemctl restart systemd-resolved
+
+cat /etc/systemd/resolved.conf
+
+```
+
+**Modify the daemon.json file of docker service and add DNS configuration.**
+
+> Sync Proxy is installed by default.
+
+```json
+{
+  "default-ulimits": {
+    "nofile": {
+      "Name": "nofile",
+      "Hard": 1048576,
+      "Soft": 1048576
+    }
+  },
+  "dns": ["127.0.0.53"]
+}
+```
+
+Restart the Docker service.
+
+```
+
+sudo systemctl retsart docker
+
+```
