@@ -3,17 +3,24 @@ name: Deploy to doc(s).oneprocloud.com
 on:
   push:
     branches:
-      - main  # 这里的意思是当 main分支发生push的时候，运行下面的jobs，这里先改为github-actions
+      - main  # 这里的意思是当 main 分支发生 push 的时候，运行下面的 jobs，这里先改为 github-actions
 
 jobs:
   deploy: # 任务名自取
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: 'yarn'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Prepare Yarn
+        run: corepack prepare yarn@4.4.0 --activate
 
       - name: Build vuepress
         run: yarn && yarn docs:build
