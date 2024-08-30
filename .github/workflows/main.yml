@@ -15,15 +15,6 @@ jobs:
           node-version: 18
           cache: 'yarn'
 
-      - name: Build check
-        run: |
-          yarn --version 
-          node --version 
-          yarn install
-          yarn why sass
-          yarn why sass-loader
-          yarn why vuepress-plugin-search-pro
-
       - name: Build vuepress
         run: yarn && yarn docs:build
 

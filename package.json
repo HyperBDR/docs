@@ -1,32 +1,26 @@
 {
-  "name": "hyperbdr-docs",
-  "version": "2.0.0",
+  "name": "vuepress-theme-hope-template",
   "description": "A project of vuepress-theme-hope",
-  "main": "index.js",
+  "version": "2.0.0",
+  "license": "MIT",
   "type": "module",
-  "authors": {
-    "name": "Ray Sun",
-    "email": "ray.sun@oneprocloud.com"
-  },
-  "repository": "hyperbdr-docs/hyperbdr-docs",
   "scripts": {
     "docs:build": "vuepress-webpack build src",
     "docs:clean-dev": "vuepress-webpack dev src --clean-cache",
     "docs:dev": "vuepress-webpack dev src",
     "docs:update-package": "yarn dlx vp-update"
   },
-  "license": "MIT",
   "devDependencies": {
     "@vuepress/bundler-webpack": "2.0.0-rc.14",
-    "@vuepress/plugin-docsearch": "^2.0.0-rc.42",
-    "@vuepress/plugin-search": "^2.0.0-rc.42",
-    "sass-loader": "^14.2.1",
+    "sass-loader": "^16.0.1",
     "vue": "^3.4.31",
     "vuepress": "2.0.0-rc.14",
     "vuepress-theme-hope": "2.0.0-rc.52"
   },
+  "packageManager": "yarn@4.4.0",
   "dependencies": {
-    "@vuepress/plugin-pwa": "npm:2.0.0-rc.39"
-  },
-  "packageManager": "yarn@4.4.1"
+    "@vuepress/plugin-docsearch": "2.0.0-rc.39",
+    "@vuepress/plugin-pwa": "2.0.0-rc.39",
+    "sass": "^1.77.8"
+  }
 }
