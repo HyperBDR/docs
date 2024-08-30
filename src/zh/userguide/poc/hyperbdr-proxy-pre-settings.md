@@ -280,7 +280,7 @@ Proxy ova的默认用户名和密码：
 
 如果您不知道如何在Windows系统上使用SSH，请参考以下链接：
 
-[How do I connect to SSH on Windows?](../faq.md)
+[How do I connect to SSH on Windows?](../faq/faq.md)
 :::
 
 ### 选项 1: 公网访问
@@ -372,7 +372,7 @@ Proxy ova 的默认用户名和密码：
 
 如果您不知道如何在 Windows 系统上使用 SSH，请参考以下链接：
 
-[怎么在windows上使用ssh工具?](../faq.md)
+[怎么在windows上使用ssh工具?](../faq/faq.md)
 :::
 
 ### 配置DNS域名
@@ -402,7 +402,7 @@ Proxy ova 的默认用户名和密码：
 
 如果您不知道如何在 Windows 系统上使用 SSH，请参考以下链接：
 
-[怎么在windows上使用ssh工具?](../faq.md)
+[怎么在windows上使用ssh工具?](../faq/faq.md)
 :::
 
 ### 登录HyperBDR主控台

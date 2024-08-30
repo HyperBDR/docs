@@ -1,1 +1,0 @@
-export default {"/zh/": () => import('./zh.js'),"/": () => import('./root.js')}

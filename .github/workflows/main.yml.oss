@@ -16,12 +16,6 @@ jobs:
           node-version: 20
           cache: 'yarn'
 
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Prepare Yarn
-        run: corepack prepare yarn@4.4.0 --activate
-
       - name: Build vuepress
         run: yarn && yarn docs:build
 
