@@ -6443,7 +6443,6 @@ __metadata:
     sass-loader: "npm:^14.2.1"
     vue: "npm:^3.4.31"
     vuepress: "npm:2.0.0-rc.14"
-    vuepress-plugin-search-pro: "npm:^2.0.0-rc.52"
     vuepress-theme-hope: "npm:2.0.0-rc.52"
   languageName: unknown
   linkType: soft
@@ -9411,13 +9410,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slimsearch@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "slimsearch@npm:2.1.1"
-  checksum: 10c0/d8335ccb661b99520ca9884744814d9ffdc5f39b44337b88997d17db0007b432fbbded93a8386078fd4dd789021ebac1e43a7a5a9dda96a9811337e6cb47e9d4
-  languageName: node
-  linkType: hard
-
 "smart-buffer@npm:^4.2.0":
   version: 4.2.0
   resolution: "smart-buffer@npm:4.2.0"
@@ -10406,28 +10398,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-plugin-search-pro@npm:^2.0.0-rc.52":
-  version: 2.0.0-rc.52
-  resolution: "vuepress-plugin-search-pro@npm:2.0.0-rc.52"
-  dependencies:
-    "@vuepress/helper": "npm:2.0.0-rc.39"
-    "@vuepress/plugin-sass-palette": "npm:2.0.0-rc.39"
-    "@vueuse/core": "npm:^10.11.0"
-    cheerio: "npm:1.0.0-rc.12"
-    chokidar: "npm:^3.6.0"
-    slimsearch: "npm:^2.1.1"
-    vue: "npm:^3.4.33"
-    vuepress-shared: "npm:2.0.0-rc.52"
-  peerDependencies:
-    sass-loader: ^14.0.0
-    vuepress: 2.0.0-rc.14
-  peerDependenciesMeta:
-    sass-loader:
-      optional: true
-  checksum: 10c0/b943158c78c2fdb4482743e7abc1d57f615c3c7e6b7c7125b76c17eb54fb43d37bfaae6eaaadc963fa7b1cc51dfb49142113a8906f073ebd1e2bd1d36be8026d
-  languageName: node
-  linkType: hard
-
 "vuepress-shared@npm:2.0.0-rc.52":
   version: 2.0.0-rc.52
   resolution: "vuepress-shared@npm:2.0.0-rc.52"
@@ -10555,9 +10525,9 @@ __metadata:
   linkType: hard
 
 "watermark-js-plus@npm:^1.5.2":
-  version: 1.5.3
-  resolution: "watermark-js-plus@npm:1.5.3"
-  checksum: 10c0/f0c65ff755166b6c5ff312819f389316de936ecb4676a7e885fe3f37cd035835ba8d5471cb9928d979fdce940dd7b139ad44d846c1da478188e68f9c024805d7
+  version: 1.5.4
+  resolution: "watermark-js-plus@npm:1.5.4"
+  checksum: 10c0/615742bb414d01d978ec1ee98e05c53d8916bb4a5840c5d6c8d2b6903b3cee44c7d929e1ebe9743e0c9501fd6a863bc45027b7354e8b2291b1d64565a1204c14
   languageName: node
   linkType: hard
 
