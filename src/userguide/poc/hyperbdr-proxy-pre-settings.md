@@ -313,7 +313,7 @@ Default username and password for Sync Proxy ova:
 
 If you don't know how to use SSH on a Windows system, please refer to the following link:
 
-[How do I connect to SSH on Windows?](../faq.md)
+[How do I connect to SSH on Windows?](../faq/faq.md)
 :::
 
 ### Option 1: Public Network Access
@@ -406,7 +406,7 @@ Default username and password for Sync Proxy ova:
 
 If you don't know how to use SSH on a Windows system, please refer to the following link:
 
-[How do I connect to SSH on Windows?](../faq.md)
+[How do I connect to SSH on Windows?](../faq/faq.md)
 :::
 
 ### Get DNS domain name
@@ -453,7 +453,7 @@ Default username and password for Sync Proxy ova:
 
 If you don't know how to use SSH on a Windows system, please refer to the following link:
 
-[How do I connect to SSH on Windows?](../faq.md)
+[How do I connect to SSH on Windows?](../faq/faq.md)
 :::
 
 ### Log in to the HyperBDR console
