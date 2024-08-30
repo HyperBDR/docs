@@ -15,8 +15,11 @@ jobs:
           node-version: 18
           cache: 'yarn'
 
-      - name: Build vuepress
-        run: yarn && yarn docs:build
+      - name: Build check
+        run: yarn --version && node --version && yarn docs:build
+
+      # - name: Build vuepress
+      #   run: yarn && yarn docs:build
 
       - name: rsync deployments
         uses: burnett01/rsync-deployments@7.0.1
