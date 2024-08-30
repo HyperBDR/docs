@@ -20,7 +20,9 @@ jobs:
           yarn --version 
           node --version 
           yarn install
-          yarn info sass-loader
+          yarn why sass
+          yarn why sass-loader
+          yarn why vuepress-plugin-search-pro
 
       - name: Build vuepress
         run: yarn && yarn docs:build
