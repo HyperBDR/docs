@@ -1,27 +1,33 @@
 {
   "name": "hyperbdr-docs",
-  "version": "0.0.1",
-  "description": "",
+  "version": "2.0.0",
+  "description": "A project of vuepress-theme-hope",
   "main": "index.js",
+  "type": "module",
   "authors": {
     "name": "Ray Sun",
     "email": "ray.sun@oneprocloud.com"
   },
   "repository": "hyperbdr-docs/hyperbdr-docs",
   "scripts": {
-    "dev": "vuepress dev src",
-    "build": "vuepress build src"
+    "docs:build": "vuepress-webpack build src",
+    "docs:clean-dev": "vuepress-webpack dev src --clean-cache",
+    "docs:dev": "vuepress-webpack dev src",
+    "docs:update-package": "yarn dlx vp-update"
   },
   "license": "MIT",
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.9.10",
-    "@vuepress/plugin-medium-zoom": "^1.9.10",
-    "vuepress": "^1.5.3",
-    "vuepress-plugin-container": "^2.1.5",
-    "vuepress-plugin-right-anchor": "^0.5.5"
+    "@vuepress/bundler-webpack": "2.0.0-rc.14",
+    "@vuepress/plugin-docsearch": "^2.0.0-rc.42",
+    "@vuepress/plugin-search": "^2.0.0-rc.42",
+    "sass-loader": "^14.2.1",
+    "vue": "^3.4.31",
+    "vuepress": "2.0.0-rc.14",
+    "vuepress-plugin-search-pro": "^2.0.0-rc.52",
+    "vuepress-theme-hope": "2.0.0-rc.52"
   },
   "dependencies": {
-    "vuepress-plugin-baidu-tongji-analytics": "^1.0.2",
-    "yarn": "^1.22.21"
-  }
+    "@vuepress/plugin-pwa": "npm:2.0.0-rc.39"
+  },
+  "packageManager": "yarn@4.4.1"
 }
