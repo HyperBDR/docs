@@ -196,7 +196,7 @@ export default hopeTheme({
     // Install @vuepress/plugin-pwa and uncomment these if you want a PWA
     pwa: {
       favicon: "/favicon.ico",
-      shouldPrefetch: false,
+      // shouldPrefetch: false,
       //   cacheHTML: true,
       //   cacheImage: true,
       //   appendBase: true,
