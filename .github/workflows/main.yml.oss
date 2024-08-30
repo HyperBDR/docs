@@ -16,7 +16,7 @@ jobs:
           cache: 'yarn'
 
       - name: Build vuepress
-        run: yarn && yarn build
+        run: yarn && yarn docs:build
 
       # Use --strip-components=1 to ignore directory inside tar.gz
       - name: Install Huawei Object Storage CLI
