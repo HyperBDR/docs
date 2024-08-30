@@ -16,7 +16,11 @@ jobs:
           cache: 'yarn'
 
       - name: Build check
-        run: yarn --version && node --version && yarn install
+        run: |
+          yarn --version 
+          node --version 
+          yarn install
+          yarn info sass-loader
 
       - name: Build vuepress
         run: yarn && yarn docs:build
