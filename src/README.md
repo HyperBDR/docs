@@ -69,26 +69,26 @@ For related descriptions of configuration items, please see [Project HomePage La
 <!-- 在首页或其他Markdown文件中直接插入HTML -->
 <div class="features-container">
   <div class="feature">
-    <h2><i class="fas fa-thumbs-up"></i> Solutions</h2>
+    <h2><i class="fas fa-thumbs-up feature-icon"></i> Solutions</h2>
     <ul>
       <li><a href="/userguide/">Huawei Cloud</a></li>
       <!-- <li><a href="/aws-userguide/">AWS</a></li> -->
     </ul>
   </div>
   <div class="feature">
-    <h2><i class="fas fa-handshake"></i> Pre Sales</h2>
+    <h2><i class="fas fa-handshake feature-icon"></i> Pre Sales</h2>
     <ul>
       <li><a href="/userguide/presales/">HyperBDR Pre Sales</a></li>
     </ul>
   </div>
   <div class="feature">
-    <h2><i class="fas fa-book"></i> Manual</h2>
+    <h2><i class="fas fa-book feature-icon"></i> Manual</h2>
     <ul>
       <li><a href="/userguide/dr-usage-guide/">HyperBDR User Manual</a></li>
     </ul>
   </div>
   <div class="feature">
-    <h2><i class="fas fa-person-circle-question"></i> FAQ</h2>
+    <h2><i class="fas fa-person-circle-question feature-icon"></i> FAQ</h2>
     <ul>
       <li><a href="/userguide/faq/faq">Frequently Asked Questions</a></li>
     </ul>
@@ -96,6 +96,8 @@ For related descriptions of configuration items, please see [Project HomePage La
 </div>
 
 <style>
+/* 确保样式表文件被正确加载，并在 <head> 中优先引入 */
+
 .features-container {
   display: flex;
   justify-content: center;
@@ -121,6 +123,7 @@ For related descriptions of configuration items, please see [Project HomePage La
 
 .feature ul {
   padding-left: 1rem;
+  list-style: none; /* 去掉默认的列表样式 */
 }
 
 .feature a {
@@ -131,4 +134,5 @@ For related descriptions of configuration items, please see [Project HomePage La
 .feature a:hover {
   text-decoration: underline;
 }
+
 </style>
