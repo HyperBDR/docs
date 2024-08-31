@@ -123,7 +123,7 @@ For example, if your external IP address is 110.242.68.66, the source IP range c
 
 ### Create ECS Cloud Instance based on Configuration Information
 
-> Huawei Cloud documentation ：[https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html](https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html)  
+> Huawei Cloud documentation : [https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html](https://support.huaweicloud.com/intl/en-us/qs-ecs/ecs_02_0009.html)  
 > The resource configuration for HyperBDR servers is as follows:
 
 ::: warning
@@ -169,25 +169,25 @@ Download images to your local machine through the provided image links.
 
 #### Linux Image
 
-* File Name：Ubuntu-20.04-server-64bit.qcow2
-* Version：ubuntu 20.04 server
-* Size：5.85 GB
-* Download Link：[https://downloads.oneprocloud.com/docs_images/Ubuntu-20.04-server-64bit.qcow2](https://downloads.oneprocloud.com/docs_images/Ubuntu-20.04-server-64bit.qcow2) 
+* File Name: Ubuntu-20.04-server-64bit.qcow2
+* Version: ubuntu 20.04 server
+* Size: 5.85 GB
+* Download Link: [https://downloads.oneprocloud.com/docs_images/Ubuntu-20.04-server-64bit.qcow2](https://downloads.oneprocloud.com/docs_images/Ubuntu-20.04-server-64bit.qcow2) 
 * MD5 Value of the Image: b608febbe32daa6e4ec61b7166c706da
 
 #### Windows Image
 
-* File Name：Windows_Server_2016_Datacenter_64bit_English_40G.qcow2
-* Version：Windows Server 2016 Datacenter 64bit English
-* Size：12.11 GB
+* File Name: Windows_Server_2016_Datacenter_64bit_English_40G.qcow2
+* Version: Windows Server 2016 Datacenter 64bit English
+* Size: 12.11 GB
 * Download Link: [https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
 * MD5 Value of the Image: 519444d4b0343e15fa014c50d906a832
 
 #### UEFI Image
 
-* File Name：HuaweiCloud_UEFI_GenericImage.qcow2
-* Version：HuaweiCloud_UEFI_GenericImage
-* Size：554.69 MB
+* File Name: HuaweiCloud_UEFI_GenericImage.qcow2
+* Version: HuaweiCloud_UEFI_GenericImage
+* Size: 554.69 MB
 * Download Link: [https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) 
 * MD5 Value of the Image: 7814209a573666f2701b35236764723d
 
@@ -324,7 +324,7 @@ Supported Linux image names
 > You need to purchase two VPC Endpoint services, one for OBS and the other for DNS.
 
 > Huawei Cloud official definition: If you want to access OBS services from a local data center via VPN or Cloud Connect using an intranet method, you can achieve this by connecting through terminal endpoints to access terminal endpoint services.  
-> Document Link：[https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html](https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html)
+> Document Link: [https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html](https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html)
 
 ### Configure DNS Interface Type for Terminal Endpoints
 

@@ -13,7 +13,7 @@ If the VPC network where the HyperBDR resides has been connected to the vCenter/
 
 Configure VPN. For details, see TM CAE official documentation.
 
-Document Link：[https://support.alphaedge.tmone.com.my/en-us/usermanual/vpn/en-us_topic_0133627788.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/vpn/en-us_topic_0133627788.html)
+Document Link: [https://support.alphaedge.tmone.com.my/en-us/usermanual/vpn/en-us_topic_0133627788.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/vpn/en-us_topic_0133627788.html)
 
 ## (Internal VPN Access) - Create VPC Endpoint service
 
@@ -30,7 +30,7 @@ If you have purchased and configured the Endpoint service in the VPC when the di
 
  
 TM CAE official definition: If you want to access OBS services from a local data center via VPN or Cloud Connect using an intranet method, you can achieve this by connecting through terminal endpoints to access terminal endpoint services.  
-Document Link：[https://support.alphaedge.tmone.com.my/usermanual/vpcep/vpcep_02_0301.html](https://support.alphaedge.tmone.com.my/usermanual/vpcep/vpcep_02_0301.html)
+Document Link: [https://support.alphaedge.tmone.com.my/usermanual/vpcep/vpcep_02_0301.html](https://support.alphaedge.tmone.com.my/usermanual/vpcep/vpcep_02_0301.html)
 
 ## (Intranet VPN Access) Create and configure the VPN service - Agent
 
@@ -41,7 +41,7 @@ Note: If the VPC network where the HyperBDR resides has been connected to the so
 
 ### Configuration document
 Configure VPN. For details, see TM CAE official documentation.
-Document Link：[https://support.alphaedge.tmone.com.my/en-us/usermanual/vpn/en-us_topic_0133627788.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/vpn/en-us_topic_0133627788.html)
+Document Link: [https://support.alphaedge.tmone.com.my/en-us/usermanual/vpn/en-us_topic_0133627788.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/vpn/en-us_topic_0133627788.html)
 
 ## (Intranet VPN Access) Create and Configure VPN Service - VMware
 
@@ -62,7 +62,7 @@ If the purchase and configuration of VPC Endpoint services have already been com
 :::
 
 TM CAE official definition: If you want to access OBS services from a local data center via VPN or Cloud Connect using an intranet method, you can achieve this by connecting through terminal endpoints to access terminal endpoint services.  
-Document Link：[https://support.alphaedge.tmone.com.my/usermanual/vpcep/vpcep_02_0301.html](https://support.alphaedge.tmone.com.my/usermanual/vpcep/vpcep_02_0301.html)
+Document Link: [https://support.alphaedge.tmone.com.my/usermanual/vpcep/vpcep_02_0301.html](https://support.alphaedge.tmone.com.my/usermanual/vpcep/vpcep_02_0301.html)
 
 ## (Intranet VPN Access) Test the network connectivity between the Failback Host and TM CAE OBS
 
@@ -82,7 +82,7 @@ Ensure that the ssh command is running on the Failback Host.
 
 ::: tip
 Refer to the following document to find the Private DNS server addresses based on the used object storage region.  
-Reference documents：[https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html)
+Reference documents: [https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html)
 :::
 
 ```shell
@@ -129,7 +129,7 @@ Ensure that the ssh command exists on the Failback Host, and open the CMD comman
 
 ::: tip
 Refer to the following document to find the Private DNS server addresses based on the used object storage region.  
-Reference documents：[https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html)
+Reference documents: [https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html)
 :::
 
 ```shell
@@ -188,8 +188,8 @@ Reference Link: [https://support.alphaedge.tmone.com.my/en-us/endpoint/index.htm
 ### Login Failback Transition Host System
 
 ::: tip
-Default User：root  
-Default Password：Acb@132.Inst
+Default User: root  
+Default Password: Acb@132.Inst
 :::
 
 ![test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-1.png](./images/test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-1.png)

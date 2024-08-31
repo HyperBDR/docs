@@ -324,7 +324,7 @@ Test the network connectivity from the production site to Huawei Cloud HyperBDR
 
 - Step2: Test Access to HyperBDR Port 10443 and Port 30080
 
-Execute Command：
+Execute Command: 
 ```sh
 ssh -v -p 10443 <HyperBDR Public IP>
 ```
@@ -338,7 +338,7 @@ debug1: /etc/ssh/ssh_config line 58: Applying options for *
 debug1: Connecting to <HyperBDR Public IP> [<HyperBDR Public IP>] port 10443.
 debug1: Connection established.
 ```
-Execute Command：
+Execute Command: 
 ```sh
 ssh -v -p 30080 <HyperBDR Public IP>
 ```
@@ -375,7 +375,7 @@ debug1: Connecting to <HyperBDR Internal IP> [<HyperBDR Internal IP>] port 10443
 debug1: Connection established.
 ```
 
-Execute Command：
+Execute Command: 
 
 ```sh
 ssh -v -p 30080 <HyperBDR Internal IP>
@@ -434,7 +434,7 @@ The following operations are performed in the firewall web management interface.
 
 ::: tip
 Configure the Huawei Cloud internal DNS address based on the region where you use Huawei Cloud resources.  
-Huawei Cloud internal DNS service address at： [https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
+Huawei Cloud internal DNS service address at:  [https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
 :::
 
 ![configure-a-huawei-cloud-intranet-dns-address-for-the-network-device-1.png](./images/configure-a-huawei-cloud-intranet-dns-address-for-the-network-device-1.png)
@@ -543,14 +543,14 @@ Check the "Block Storage" - "Cloud Sync Gateway" page, and the status should be 
 Access an Amazon Web Services service using an interface VPC endpoint.
 
 ::: tip
-AWS Reference Documentation：  
+AWS Reference Documentation:   
 [https://docs.amazonaws.cn/en_us/vpc/latest/privatelink/create-interface-endpoint.html#create-interface-endpoint-aws](https://docs.amazonaws.cn/en_us/vpc/latest/privatelink/create-interface-endpoint.html#create-interface-endpoint-aws)
 :::
 
 ### Prerequisites
 
 ::: tip
-AWS Reference Documentation：  
+AWS Reference Documentation:   
 [https://docs.amazonaws.cn/en_us/vpc/latest/privatelink/create-interface-endpoint.html#prerequisites-interface-endpoints](https://docs.amazonaws.cn/en_us/vpc/latest/privatelink/create-interface-endpoint.html#prerequisites-interface-endpoints)
 :::
 

@@ -202,7 +202,7 @@ timedatectl
 ### Get the Windows operating system version
 
 ::: tip
-Example OS：Microsoft Windows Server 2016 Datacenter
+Example OS: Microsoft Windows Server 2016 Datacenter
 :::
 
 #### Get the Windows OS version through the Control Panel
@@ -223,7 +223,7 @@ From the output, you can view the OS name.
 > **OS Name:** Microsoft Windows Server 2016 Datacenter
 
 ### Get the Linux operating system version
-> Example OS：CentOS 7.9
+> Example OS: CentOS 7.9
 
 Run the following command to view the operating system version:
 ```shell
@@ -302,7 +302,7 @@ Open the Performance tab of Task Manager and view the available memory of the sy
 
 ### Download the installation package to the host system
  
-Login to the HyperBDR platform, navigate to **[Configuration]** -> **[Production Site]** -> **[Agent]**, and download the ZIP file：
+Login to the HyperBDR platform, navigate to **[Configuration]** -> **[Production Site]** -> **[Agent]**, and download the ZIP file: 
 ![agent-pre-settings-22.png](./images/agent-pre-settings-22.png)
 
 ![agent-pre-settings-23.png](./images/agent-pre-settings-23.png)
@@ -464,7 +464,7 @@ Perform testing operations using the Windows Command Prompt (CMD).
 
 ::: tip
 Refer to the following document to find the private NDS (Network Domain Service) address based on the used object storage region.  
-Reference documents：[https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
+Reference documents: [https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
 :::
 
 ```shell
@@ -547,7 +547,7 @@ Perform testing operations using the Windows Command Prompt (CMD).
 
 Test Access to HyperBDR Console Port 10443 and Port 30080
 
-Execute Command：
+Execute Command: 
 
 ```shell
 
@@ -559,7 +559,7 @@ Test Result: If the input results include the information "[debug1: Connection e
 
 ![agent-pre-settings-45.png](./images/agent-pre-settings-45.png)
 
-Execute Command：
+Execute Command: 
 
 ```shell
 
@@ -575,7 +575,7 @@ Test Result: If the input results include the information "[debug1: Connection e
 
 Test Access to HyperBDR Console Port 10443 and Port 30080
 
-Execute Command：
+Execute Command: 
 
 ```shell
 
@@ -599,7 +599,7 @@ debug1: Connection established.
 
 ```
 
-Execute Command：
+Execute Command: 
 
 ```shell
 
@@ -636,7 +636,7 @@ Test Access to HyperBDR Console Port 10443 and Port 30080
 Perform testing operations using the Windows Command Prompt (CMD).
 :::
 
-Execute Command：
+Execute Command: 
 
 ```shell
 
@@ -648,7 +648,7 @@ Test Result: If the input results include the information "[debug1: Connection e
 
 ![agent-pre-settings-47.png](./images/agent-pre-settings-47.png)
 
-Execute Command：
+Execute Command: 
 
 ```shell
 
@@ -686,7 +686,7 @@ debug1: Connection established.
 
 ```
 
-Execute Command：
+Execute Command: 
 
 ```shell
 
@@ -820,7 +820,7 @@ The following operations are performed in the firewall web management interface.
 
 ::: tip
 Configure the Huawei Cloud internal DNS address based on the region where you use Huawei Cloud resources.  
-Huawei Cloud internal DNS service address at： [https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
+Huawei Cloud internal DNS service address at:  [https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
 :::
 
 ![configure-a-huawei-cloud-intranet-dns-address-for-the-network-device-1.png](./images/configure-a-huawei-cloud-intranet-dns-address-for-the-network-device-1.png)

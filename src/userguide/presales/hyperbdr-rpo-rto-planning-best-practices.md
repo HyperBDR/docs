@@ -126,7 +126,7 @@ Below are some common specification recommendations and the host recovery time f
 
 #### Recommended Specifications for Object Storage Mode Disaster Recovery
 
-Documentation for Huawei Cloud Computing Specifications：[https://support.huaweicloud.com/intl/en-us/productdesc-ecs/ecs_01_0014.html](https://support.huaweicloud.com/intl/en-us/productdesc-ecs/ecs_01_0014.html)
+Documentation for Huawei Cloud Computing Specifications: [https://support.huaweicloud.com/intl/en-us/productdesc-ecs/ecs_01_0014.html](https://support.huaweicloud.com/intl/en-us/productdesc-ecs/ecs_01_0014.html)
 
 | Specifications | Recommendation |
 | --- | --- |

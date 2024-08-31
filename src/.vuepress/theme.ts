@@ -15,7 +15,7 @@ export default hopeTheme({
     ]
   ],
 
-  // pure: true,
+  pure: true,
 
   breadcrumb: true,
 
@@ -107,7 +107,7 @@ export default hopeTheme({
       apiKey: "1731a546fa8b11a8b118ac7e325a7c68",
       indexName: "oneprocloud",
     },
-    catalog: false,
+    // catalogPlugin: false,
     // Note: This is for testing ONLY!
     // You MUST generate and use your own comment service in production.
     // comment: {
@@ -196,7 +196,7 @@ export default hopeTheme({
     // Install @vuepress/plugin-pwa and uncomment these if you want a PWA
     pwa: {
       favicon: "/favicon.ico",
-      // shouldPrefetch: false,
+      shouldPrefetch: false,
       //   cacheHTML: true,
       //   cacheImage: true,
       //   appendBase: true,

@@ -114,7 +114,7 @@ If the installation is successful, you will see the prompted login information.
 [2023-03-30 23:08:36] [INFO] Enjoy using our product!
 [2023-03-30 23:08:36] [INFO] --------------------------------------------------
 ```
-Access HyperBDR Console   url：https://\<HyperBDR IP\>:10443
+Access HyperBDR Console   url: https://\<HyperBDR IP\>:10443
 
 ## Apply for HyperBDR License
 

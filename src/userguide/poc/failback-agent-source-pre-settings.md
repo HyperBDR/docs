@@ -9,7 +9,7 @@
 3. The Failback Transition Host serves requires a minimum configuration of 2 cores and 4 GB RAM. As this host is the recovery host during the final rollback, the general rule is to have a computing resource configuration consistent with the failback host.
 4. The Failback Transition Host serves storage configuration (disk number and disk capacity) for the Failback Transition Host should match that of the failback host.
 
-**Example：**
+**Example: **
 | Host configuration | Tackover Host configuration | Failback Transition Host configuration |
 | --- | --- | --- |
 | CPU | 4 | 4 |
@@ -27,8 +27,8 @@ The virtual machine/physical machine has already been created as a Failback Tran
 ### Login the Failback Transition Host system
 
 ::: tip
-Default User：root  
-Default Password：Acb@132.Inst
+Default User: root  
+Default Password: Acb@132.Inst
 :::
 
 ![configure-the-ip-address-for-the-failback-gateway-host---agent-1.png](./images/configure-the-ip-address-for-the-failback-gateway-host---agent-1.png)
@@ -82,8 +82,8 @@ ip route
 ### Login Failback Transition Host System
 
 ::: tip
-Default User：root  
-Default Password：Acb@132.Inst
+Default User: root  
+Default Password: Acb@132.Inst
 :::
 
 ![test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-1.png](./images/test-the-connectivity-from-the-failback-gateway-network-to-huawei-cloud-obs-network---agent-1.png)

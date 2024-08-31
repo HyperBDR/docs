@@ -119,7 +119,7 @@ HyperBDR Security Group Name: SG-HyperBDR
 
 ### Create ECS Cloud Instance based on Configuration Information
 
-> TM CAE documentation ：[https://support.alphaedge.tmone.com.my/en-us/usermanual/ecs/en-us_topic_0021831611.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/ecs/en-us_topic_0021831611.html)  
+> TM CAE documentation : [https://support.alphaedge.tmone.com.my/en-us/usermanual/ecs/en-us_topic_0021831611.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/ecs/en-us_topic_0021831611.html)  
 > The resource configuration for HyperBDR servers is as follows:
 
 | Configuration items | Parameters                                                      |
@@ -237,16 +237,16 @@ Download Windows/Linux images to your local machine through the provided image l
 
 #### Linux Image
 
-* Version：CentOS 8.4 64bit
-* Size： 1.22 GB
-* Download Link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) 
+* Version: CentOS 8.4 64bit
+* Size:  1.22 GB
+* Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) 
 * MD5 Value of the Image: fe9f21a75a80d12159030fff76e1c8a5
 
 #### Windows Image
 
-* Version：Windows Server 2016 Datacenter 64bit English
-* Size：12.11 GB
-* Download Link：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
+* Version: Windows Server 2016 Datacenter 64bit English
+* Size: 12.11 GB
+* Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
 * MD5 Value of the Image: 519444d4b0343e15fa014c50d906a832
 
 ### Upload Image to TM CAE Object Storage
@@ -335,7 +335,7 @@ Supported Linux image names
 > You need to purchase two VPC Endpoint services, one for OBS and the other for DNS.
 
 > Official definition: If you want to access OBS services from a local data center via VPN or Cloud Connect using an intranet method, you can achieve this by connecting through terminal endpoints to access terminal endpoint services.  
-> Document Link：[https://support.alphaedge.tmone.com.my/usermanual/vpcep/vpcep_02_0301.html](https://support.alphaedge.tmone.com.my/usermanual/vpcep/vpcep_02_0301.html)
+> Document Link: [https://support.alphaedge.tmone.com.my/usermanual/vpcep/vpcep_02_0301.html](https://support.alphaedge.tmone.com.my/usermanual/vpcep/vpcep_02_0301.html)
 
 ## Create VPC Peering
 
@@ -525,7 +525,7 @@ The following operations are performed in the firewall web management interface.
 
 ::: tip
 Configure the TM CAE internal DNS address based on the region where you use TM CAE resources.  
-TM CAE internal DNS service address at： [https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html)
+TM CAE internal DNS service address at:  [https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html)
 :::
 
 ![configure-a-huawei-cloud-intranet-dns-address-for-the-network-device-1.png](./images/configure-a-huawei-cloud-intranet-dns-address-for-the-network-device-1.png)
@@ -644,7 +644,7 @@ Perform testing operations using the Windows Command Prompt (CMD).
 
 ::: tip
 Refer to the following document to find the private NDS (Network Domain Service) address based on the used object storage region.  
-Reference documents：[https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html)
+Reference documents: [https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html](https://support.alphaedge.tmone.com.my/en-us/usermanual/dns/dns_faq_002.html)
 :::
 
 ```shell
