@@ -71,7 +71,7 @@ Please operate according to the current display information on the disaster reco
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-6.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-6.png)
 
 > _Please refer to the following document for the procedure to deploy Hamal on the VMware side using the OVA template._
-> _Documentation Link：_[_https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#import-ova-images-and-create-proxy-virtual-machine-in-vmware_](https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#import-ova-images-and-create-proxy-virtual-machine-in-vmware)
+> _Documentation Link: _[_https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#import-ova-images-and-create-proxy-virtual-machine-in-vmware_](https://docs.oneprocloud.com/userguide/poc/vmware-pre-settings.html#import-ova-images-and-create-proxy-virtual-machine-in-vmware)
 
 **Step 3:** Fill in the relevant information in the pop-up box to complete configurations
 
@@ -557,9 +557,9 @@ Currently, two methods of Email alerts and SMS alerts are supported.
 
 1. Log in the Broadview coss console
 
-> Login Address：https://<HyperBDR IP\>:30443  
-> Default administrator user：admin  
-> Default administrator password：P@ssw0rd
+> Login Address: https://<HyperBDR IP\>:30443  
+> Default administrator user: admin  
+> Default administrator password: P@ssw0rd
 
 ![alarmconfiguration-1.png](./images/alarmconfiguration-1.png)
 
@@ -581,9 +581,9 @@ Currently, two methods of Email alerts and SMS alerts are supported.
 
 1. Log in the Broadview coss console
 
-> Login Address：https://<HyperBDR IP\>:30443  
-> Default administrator user：admin  
-> Default administrator password：P@ssw0rd
+> Login Address: https://<HyperBDR IP\>:30443  
+> Default administrator user: admin  
+> Default administrator password: P@ssw0rd
 
 ![alarmconfiguration-6.png](./images/alarmconfiguration-6.png)
 

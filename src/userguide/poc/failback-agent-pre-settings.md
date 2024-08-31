@@ -155,13 +155,13 @@ In the **'Windows'** section, select the installation package corresponding to y
 
 Refer to the following documentation and perform the operations on the Windows Takeover Host.
 
-Documentation Link：[https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#antivirus-software-inspection-and-measures-on-source-windows-host](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#antivirus-software-inspection-and-measures-on-source-windows-host)
+Documentation Link: [https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#antivirus-software-inspection-and-measures-on-source-windows-host](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#antivirus-software-inspection-and-measures-on-source-windows-host)
 
 #### **Install Agent on the Windows Takeover Host**
 
 Refer to the following documentation and perform the operations on the Windows Takeover Host.
 
-Documentation Link：[https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#install-agent-on-the-source-windows-host](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#install-agent-on-the-source-windows-host)
+Documentation Link: [https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#install-agent-on-the-source-windows-host](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#install-agent-on-the-source-windows-host)
 
 ## (Intranet VPN Access) Test the network connectivity between the Takeover Host and Huawei Cloud OBS
 
@@ -181,7 +181,7 @@ Ensure that the ssh command is running on the Takeover Host.
 
 ::: tip
 Refer to the following document to find the Private DNS server addresses based on the used object storage region.  
-Reference documents：[https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
+Reference documents: [https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
 :::
 
 ```shell
@@ -220,7 +220,7 @@ Ensure that the ssh command exists on the Takeover Host, and open the CMD comman
 
 ::: tip
 Refer to the following document to find the Private DNS server addresses based on the used object storage region.  
-Reference documents：[https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
+Reference documents: [https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html](https://support.huaweicloud.com/intl/en-us/dns_faq/dns_faq_002.html)
 :::
 
 ```shell

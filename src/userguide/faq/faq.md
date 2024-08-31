@@ -260,7 +260,7 @@ Check the option "**Never**" under [**When do you want to resume Real-Time Scann
 
 #### Install Windows Agent and run Windows Agent
 
-Reference Document：[https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#unzip-the-installation-package-and-proceed-with-the-installation](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#unzip-the-installation-package-and-proceed-with-the-installation)
+Reference Document: [https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#unzip-the-installation-package-and-proceed-with-the-installation](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#unzip-the-installation-package-and-proceed-with-the-installation)
 
 #### Turn on Real-Time Scanning in McAfee and add Excluded files
 

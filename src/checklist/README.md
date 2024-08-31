@@ -6,4 +6,3 @@ category:
   - Guide
 ---
 
-<Catalog />

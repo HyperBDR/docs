@@ -13,7 +13,7 @@ If the VPC network where the HyperBDR resides has been connected to the vCenter/
 
 Configure VPN. For details, see Huawei Cloud official documentation.
 
-Document Link：[https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html](https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html)
+Document Link: [https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html](https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html)
 
 ## (Internal VPN Access) - Create VPC Endpoint service
 
@@ -29,7 +29,7 @@ If you have purchased and configured the Endpoint service in the VPC when the di
 ### Configure VPC Endpoint
 
  
-Huawei Cloud official definition: If you want to access OBS services from a local data center via VPN or Cloud Connect using an intranet method, you can achieve this by connecting through terminal endpoints to access terminal endpoint services. Document Link：[https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html](https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html)
+Huawei Cloud official definition: If you want to access OBS services from a local data center via VPN or Cloud Connect using an intranet method, you can achieve this by connecting through terminal endpoints to access terminal endpoint services. Document Link: [https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html](https://support.huaweicloud.com/intl/en-us/qs-vpcep/vpcep_02_0301.html)
 
 #### Configure DNS Interface Type for Terminal Endpoints
 
@@ -81,7 +81,7 @@ Note: If the VPC network where the HyperBDR resides has been connected to the so
 
 ### Configuration document
 Configure VPN. For details, see Huawei Cloud official documentation.
-Document Link：[https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html](https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html)
+Document Link: [https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html](https://support.huaweicloud.com/intl/en-us/qs-vpn/vpn_03_0001.html)
 
 ## (Intranet VPN Access) Create and Configure VPN Service - VMware
 
