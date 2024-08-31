@@ -108,3 +108,4 @@ src/examples/data.json
 src/tutorial/data.json
 src/.vuepress/.temp/
 draft.md
+.yarn/install-state.gz
