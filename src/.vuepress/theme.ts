@@ -104,7 +104,7 @@ export default hopeTheme({
       // 你的选项
       // appId, apiKey 和 indexName 是必填的
       appId: "8VQAQ77HJ4",
-      apiKey: "1731a546fa8b11a8b118ac7e325a7c68",
+      apiKey: "cbb4977028f83b9e1a9fa0f9dab08bab",
       indexName: "oneprocloud",
     },
     // catalogPlugin: false,
