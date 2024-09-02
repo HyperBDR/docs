@@ -71,7 +71,7 @@ For related descriptions of configuration items, please see [Project HomePage La
   <div class="feature">
     <h2><i class="fas fa-thumbs-up feature-icon"></i> Solutions</h2>
     <ul>
-      <li><a href="/userguide/">Huawei Cloud</a></li>
+      <li><a href="/userguide/poc/">Huawei Cloud</a></li>
       <!-- <li><a href="/aws-userguide/">AWS</a></li> -->
     </ul>
   </div>
