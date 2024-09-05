@@ -536,4 +536,41 @@ Click on the username in the upper right corner to find the corresponding User's
 
 ![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-12.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-12.png)
 
+## How to configure DNS for Sync Proxy
 
+- Sync Proxy is installed by default.
+- Please complete the DNS configuration before starting DR.
+
+Log in to Sync Proxy EC2 by default. Execute Command:
+
+- Please modify the DNS address according to the actual situation.
+
+```
+sudo echo -e "\n[Resolve]\nDNS=10.10.0.23" >> /etc/systemd/resolved.conf && systemctl restart systemd-resolved
+
+sudo cat /etc/systemd/resolved.conf
+
+[Resolve]
+DNS=10.10.0.23
+```
+
+Modify the daemon.json file of docker service and add DNS configuration.
+
+```
+{
+  "default-ulimits": {
+    "nofile": {
+      "Name": "nofile",
+      "Hard": 1048576,
+      "Soft": 1048576
+    }
+  },
+  "dns": ["127.0.0.53"]
+}
+```
+
+Restart the Docker service.
+
+```
+sudo systemctl retsart docker
+```
