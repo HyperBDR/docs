@@ -318,7 +318,7 @@ cat /etc/systemd/resolved.conf
 > Sync Proxy is installed by default.
 
 ```
-vim vim /etc/docker/daemon.json
+vim /etc/docker/daemon.json
 ```
 
 ```json
