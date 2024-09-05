@@ -317,6 +317,10 @@ cat /etc/systemd/resolved.conf
 
 > Sync Proxy is installed by default.
 
+```
+vim /etc/docker/daemon.json
+```
+
 ```json
 {
   "default-ulimits": {
@@ -334,6 +338,6 @@ Restart the Docker service.
 
 ```
 
-sudo systemctl retsart docker
+sudo systemctl restart docker
 
 ```
