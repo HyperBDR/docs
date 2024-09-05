@@ -90,7 +90,7 @@ For related descriptions of configuration items, please see [Project HomePage La
   <div class="feature">
     <h2><i class="fas fa-person-circle-question feature-icon"></i> FAQ</h2>
     <ul>
-      <li><a href="/userguide/faq/faq.md">Frequently Asked Questions</a></li>
+      <li><a href="/userguide/faq/">Frequently Asked Questions</a></li>
     </ul>
   </div>
 </div>
