@@ -7,29 +7,37 @@
 ### Installation Package Information
 
 #### Installation Package
- 
-> File Name: **HyperBDR_release_v5.8.0_20240831-20240908-4134.tar.gz**  
-> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.8.0_20240831-20240908-4134.tar.gz](https://downloads.oneprocloud.com/HyperBDR_release_v5.8.0_20240831-20240908-4134.tar.gz)  
+
+Access [https://install.oneprocloud.com/hyperbdr/latest](https://install.oneprocloud.com/hyperbdr/latest) through a browser to obtain the download package link.
 
 #### MD5 Checksum File
 
-> File Name: **HyperBDR_release_v5.8.0_20240831-20240908-4134.tar.gz.md5**  
-> Download Link: [https://downloads.oneprocloud.com/HyperBDR_release_v5.8.0_20240831-20240908-4134.tar.gz.md5](https://downloads.oneprocloud.com/HyperBDR_release_v5.8.0_20240831-20240908-4134.tar.gz.md5)  
+Access [https://install.oneprocloud.com/hyperbdr/latest](https://install.oneprocloud.com/hyperbdr/latest) through a browser to obtain the download package link. Then, add the `.md5` suffix after obtaining the link to obtain the MD5 file.
 
 ::: tip
 Log in to the HyperBDR host backend and execute the command.  
 :::
-
 
 ### Download Installation Package and MD5 Checksum File
 
 #### Set url in Shell
 
 ```sh
-export HYPERBDR_PACKAGE=<url for Installation Package>
-export HYPERBDR_PACKAGE_MD5=<url for MD5 Checksum File>
-export HYPERBDR_PACKAGE_NAME=<File Name for Installation Package>
-export HYPERBDR_PACKAGE_MD5_NAME=<File Name for MD5 Checksum File>
+# Retrieve the latest HyperBDR package URL
+HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/hyperbdr/latest)
+echo "HYPERBDR_PACKAGE: ${HYPERBDR_PACKAGE}"
+
+# Get the corresponding MD5 file URL
+HYPERBDR_PACKAGE_MD5="${HYPERBDR_PACKAGE}.md5"
+echo "HYPERBDR_PACKAGE_MD5: ${HYPERBDR_PACKAGE_MD5}"
+
+# Use string manipulation to extract the package name
+HYPERBDR_PACKAGE_NAME="${HYPERBDR_PACKAGE##*/}"
+echo "HYPERBDR_PACKAGE_NAME: ${HYPERBDR_PACKAGE_NAME}"
+
+# Extract the MD5 file name
+HYPERBDR_PACKAGE_MD5_NAME="${HYPERBDR_PACKAGE_NAME}.md5"
+echo "HYPERBDR_PACKAGE_MD5_NAME: ${HYPERBDR_PACKAGE_MD5_NAME}"
 ```
 #### Download File
 
@@ -51,7 +59,7 @@ md5sum "$HYPERBDR_PACKAGE_NAME"
 cat "$HYPERBDR_PACKAGE_MD5_NAME"
 ```
 
-- Step3: Compare MD5 Values 
+- Step3: Compare MD5 Values
  
 If the MD5 values obtained in `Step1` and `Step2` are the same, it indicates that the installation package is not corrupted. If the MD5 values are different, you can try re-downloading the file for comparison or contact us for assistance.
 
