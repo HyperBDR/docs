@@ -8,13 +8,11 @@
 
 #### 安装包
  
-> 文件名称: **HyperBDR_release_v5.7.0_20240731-20240731-3881.tar.gz**  
-> 下载链接: [https://downloads.oneprocloud.com/HyperBDR_release_v5.7.0_20240731-20240731-3881.tar.gz](https://downloads.oneprocloud.com/HyperBDR_release_v5.7.0_20240731-20240731-3881.tar.gz)  
+通过浏览器访问[https://install.oneprocloud.com/hyperbdr/latest](https://install.oneprocloud.com/hyperbdr/latest)获取安装包下载链接 
 
 #### MD5校验文件
 
-> 文件名称: **HyperBDR_release_v5.7.0_20240731-20240731-3881.tar.gz.md5**  
-> 下载链接: [https://downloads.oneprocloud.com/HyperBDR_release_v5.7.0_20240731-20240731-3881.tar.gz.md5](https://downloads.oneprocloud.com/HyperBDR_release_v5.7.0_20240731-20240731-3881.tar.gz.md5)  
+通过浏览器访问[https://install.oneprocloud.com/hyperbdr/latest](https://install.oneprocloud.com/hyperbdr/latest)获取安装包下载链接，在链接后增加`.md5`后缀来访问获取 MD5 检验文件
 
 ::: tip
 登录到HyperBDR主机后端并执行命令。  
@@ -26,10 +24,21 @@
 #### 在Shell中设置URL
 
 ```sh
-export HYPERBDR_PACKAGE=<url for Installation Package>
-export HYPERBDR_PACKAGE_MD5=<url for MD5 Checksum File>
-export HYPERBDR_PACKAGE_NAME=<File Name for Installation Package>
-export HYPERBDR_PACKAGE_MD5_NAME=<File Name for MD5 Checksum File>
+# 获取最新的 HyperBDR 软件包 URL
+HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/hyperbdr/latest)
+echo "HYPERBDR_PACKAGE: ${HYPERBDR_PACKAGE}"
+
+# 获取相应的 MD5 文件 URL
+HYPERBDR_PACKAGE_MD5="${HYPERBDR_PACKAGE}.md5"
+echo "HYPERBDR_PACKAGE_MD5: ${HYPERBDR_PACKAGE_MD5}"
+
+# 使用字符串操作提取包名称
+HYPERBDR_PACKAGE_NAME="${HYPERBDR_PACKAGE##*/}"
+echo "HYPERBDR_PACKAGE_NAME: ${HYPERBDR_PACKAGE_NAME}"
+
+# 提取 MD5 文件名
+HYPERBDR_PACKAGE_MD5_NAME="${HYPERBDR_PACKAGE_NAME}.md5"
+echo "HYPERBDR_PACKAGE_MD5_NAME: ${HYPERBDR_PACKAGE_MD5_NAME}"
 ```
 #### 下载文件
 
