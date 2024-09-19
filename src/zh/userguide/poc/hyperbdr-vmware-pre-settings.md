@@ -8,11 +8,11 @@
 
 #### 安装包
  
-通过浏览器访问[https://install.oneprocloud.com/hyperbdr/latest](https://install.oneprocloud.com/hyperbdr/latest)获取安装包下载链接 
+通过浏览器访问[https://install.oneprocloud.com/get_hyperbdr_latest](https://install.oneprocloud.com/get_hyperbdr_latest)获取安装包下载链接 
 
 #### MD5校验文件
 
-通过浏览器访问[https://install.oneprocloud.com/hyperbdr/latest](https://install.oneprocloud.com/hyperbdr/latest)获取安装包下载链接，在链接后增加`.md5`后缀来访问获取 MD5 检验文件
+通过浏览器访问[https://install.oneprocloud.com/get_hyperbdr_latest](https://install.oneprocloud.com/get_hyperbdr_latest)获取安装包下载链接，在链接后增加`.md5`后缀来访问获取 MD5 检验文件
 
 ::: tip
 登录到HyperBDR主机后端并执行命令。  
