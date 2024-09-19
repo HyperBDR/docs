@@ -24,7 +24,7 @@ Log in to the HyperBDR host backend and execute the command.
 
 ```sh
 # Retrieve the latest HyperBDR package URL
-HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/hyperbdr/latest)
+HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/get_hyperbdr_latest/latest)
 echo "HYPERBDR_PACKAGE: ${HYPERBDR_PACKAGE}"
 
 # Get the corresponding MD5 file URL

@@ -25,7 +25,7 @@
 
 ```sh
 # 获取最新的 HyperBDR 软件包 URL
-HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/hyperbdr/latest)
+HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/get_hyperbdr_latest/latest)
 echo "HYPERBDR_PACKAGE: ${HYPERBDR_PACKAGE}"
 
 # 获取相应的 MD5 文件 URL
