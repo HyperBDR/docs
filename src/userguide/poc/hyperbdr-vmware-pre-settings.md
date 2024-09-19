@@ -8,11 +8,11 @@
 
 #### Installation Package
 
-Access [https://install.oneprocloud.com/hyperbdr/latest](https://install.oneprocloud.com/hyperbdr/latest) through a browser to obtain the download package link.
+Access [https://install.oneprocloud.com/get_hyperbdr_latest](https://install.oneprocloud.com/get_hyperbdr_latest) through a browser to obtain the download package link.
 
 #### MD5 Checksum File
 
-Access [https://install.oneprocloud.com/hyperbdr/latest](https://install.oneprocloud.com/hyperbdr/latest) through a browser to obtain the download package link. Then, add the `.md5` suffix after obtaining the link to obtain the MD5 file.
+Access [https://install.oneprocloud.com/get_hyperbdr_latest](https://install.oneprocloud.com/get_hyperbdr_latest) through a browser to obtain the download package link. Then, add the `.md5` suffix after obtaining the link to obtain the MD5 file.
 
 ::: tip
 Log in to the HyperBDR host backend and execute the command.  
