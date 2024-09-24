@@ -53,7 +53,11 @@ export const enSidebar = sidebar({
           text: "DR Site",
           children: [
             'huaweicloud-pre-settings',
-            'tmcae-pre-settings'
+            'tmcae-pre-settings',
+            // 'opentelekomcloud-pre-settings',
+            // 'aws-target-pre-settings',
+            'hcs-pre-settings',
+            // 'googlecloud-pre-settings',
           ],
         },
         {
