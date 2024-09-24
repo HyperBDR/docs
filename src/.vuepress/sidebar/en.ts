@@ -54,7 +54,7 @@ export const enSidebar = sidebar({
           children: [
             'huaweicloud-pre-settings',
             'tmcae-pre-settings',
-            // 'opentelekomcloud-pre-settings',
+            'opentelekomcloud-pre-settings',
             // 'aws-target-pre-settings',
             'hcs-pre-settings',
             // 'googlecloud-pre-settings',
