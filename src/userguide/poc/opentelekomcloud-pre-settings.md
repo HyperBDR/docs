@@ -1,0 +1,1 @@
+# Open Telekom Cloud Pre-Settings
