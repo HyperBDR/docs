@@ -249,9 +249,42 @@ If VPCs of the same tenant need to communicate with each other, the operation us
 
 ## Test Network Access between VPCs
 
+::: tip
+[Create VPC Peering](https://docs.oneprocloud.com/userguide/poc/hcs-pre-settings.html#create-huawei-vpc-peering) configuration has been successfully completed, and routing entries have been added correctly.
+:::
+
 ### Test the network connectivity between the disaster recovery VPC and the business VPC
 
+- Step1: Login to Huawei Cloud Stack and create an ECS test cloud server  
+Create an ECS test cloud server (CentOS 7.6 operating system) on Huawei Cloud Stack. When configuring the network, choose the business VPC and subnet. Ensure that the security group of this newly created ECS test virtual machine has an inbound access policy allowing port 22.
+
+- Step2: Network testing access from the disaster recovery VPC to the business VPC
+
+Log in to the Huawei Cloud Stack console, access the HyperBDR ECS cloud server, and use the intranet IP to connect to the ECS host within the business VPC.
+
+Execute command:
+
+```sh
+ssh root@<The intranet IP address of the test ECS> 22
+```
+
+Test results:  
+If you can successfully access and enter the password, it indicates normal access.
+
 ### Test the network connectivity between business VPC
+
+- Setp1: Create a new ECS test cloud server with CentOS 7.6 operating system. When configuring the network, choose a different business VPC and subnet. Ensure that the security group of this newly created ECS test virtual machine has an inbound access policy allowing port 22
+
+- Sep2: Log in to different test cloud servers through the console and perform bidirectional command tests with the following commands
+
+Execute command:
+
+```sh
+ssh root@<The intranet IP of the test ECS> 22
+```
+
+Test results:  
+If you can successfully access and enter the password, it indicates normal access.
 
 ## Huawei Cloud platform account quota check
 
