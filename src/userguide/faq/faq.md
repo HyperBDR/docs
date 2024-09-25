@@ -536,6 +536,57 @@ Click on the username in the upper right corner to find the corresponding User's
 
 ![how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-12.png](./images/how-to-obtain-apsarastack-authentication-information-during-object-storage-disaster-recovery-12.png)
 
+## How to obtain Google Cloud Platform Credentials information?
+
+When targeting the **Google Cloud**, the following authentication information of the **Goole Cloud** platform is required to complete the authentication docking of the API interface.
+
+![how-to-obtain-google-cloud-platform-credentials-information-1.png](./images/how-to-obtain-google-cloud-platform-credentials-information-1.png)
+
+### 1. Project ID
+
+- Login to the [Manage resources](https://console.cloud.google.com/cloud-resource-manager), find the **ID** column value and copy it.
+
+Find the column corresponding to the project to which the service account belongs.
+
+![how-to-obtain-google-cloud-platform-credentials-information-2.png](./images/how-to-obtain-google-cloud-platform-credentials-information-2.png)
+
+### 2. Email
+
+- Login the [Service Accounts](https://console.cloud.google.com/iam-admin/serviceaccounts), find the **Email** column value and copy it.
+
+This service account must have Editor permissions and access to relevant projects.
+
+![how-to-obtain-google-cloud-platform-credentials-information-3.png](./images/how-to-obtain-google-cloud-platform-credentials-information-3.png)
+
+### 3. Private Key
+
+- In the Google Cloud console, go to the **[Service accounts](https://console.cloud.google.com/iam-admin/serviceaccounts)** page.
+
+- Select a project. 
+
+::: tip
+If you have already created a KEY, you can directly obtain the value of **private_key** from the downloaded key pair file.
+The downloaded key has the following format, where `PRIVATE_KEY` is the private portion of the public/private key pair:
+:::
+
+```
+{  
+    "type": "service_account",
+    "project_id": "PROJECT_ID",
+    "private_key_id": "KEY_ID",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nPRIVATE_KEY\n-----END PRIVATE KEY-----\n",
+    "client_email": "SERVICE_ACCOUNT_EMAIL",
+    "client_id": "CLIENT_ID",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://accounts.google.com/o/oauth2/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/SERVICE_ACCOUNT_EMAIL"  
+}
+```
+open it and locate the value of **private_key** and copy it.
+
+> If you do not already have a key or you want to create a new key, you can refer to the [Create Google Cloud service account and create a key DR purpose](https://docs.oneprocloud.com/userguide/poc/googlecloud-pre-settings.html#create-google-cloud-service-account-and-create-a-key-dr-purpose) document to do so
+
 ## How to configure DNS for Sync Proxy
 
 - Sync Proxy is installed by default.
@@ -574,3 +625,43 @@ Restart the Docker service.
 ```
 sudo systemctl retsart docker
 ```
+
+## What port strategies should be opened for HyperBDR and Cloud Sync Gateway?
+### HyperBDR required network policy
+
+::: warning
+**For the source IP range**
+
+We strongly recommend setting the source access for TCP:22 to a secure range instead of 0.0.0.0/0. Setting it to 0.0.0.0/0 means your Instances host is exposed to the internet, allowing anyone to access and potentially attack it, posing a security risk.
+
+For example, if your external IP address is 110.242.68.66, the source IP range can be configured as 110.242.68.66/32.
+:::
+
+| No. | Action | Type | Protocol & Port | Source    | Description                                                                    |
+| --- | ------ | ---- | --------------- | --------- | ------------------------------------------------------------------------------ |
+| 1   | Allow  | IPv4 | TCP:22          | 0.0.0.0/0 | Permit default Linux SSH port                                                  |
+| 2   | Allow  | IPv4 | TCP:10443       | 0.0.0.0/0 | Permit HyperBDR web console                                                    |
+| 3   | Allow  | IPv4 | TCP:30443       | 0.0.0.0/0 | Permit HyperBDR Operation and maintenance management platform web console port |
+| 4   | Allow  | IPv4 | TCP:30080       | 0.0.0.0/0 | Permit HyperBDR https services port                                            |
+
+### Cloud Sync Gateway required network policy
+
+::: warning
+**For the source IP range** 
+
+we strongly recommend setting the source access for TCP:22,10729, TCP:3260 to a secure range instead of 0.0.0.0/0. Setting it to 0.0.0.0/0 means your Instances host is exposed to the internet, allowing anyone to access and potentially attack it, posing a security risk.  
+
+**For TCP: 22,10729**
+
+If HyperBDR is deployed in a private network environment without a fixed public IP, you need to use HyperBDR's egress public IP as the source IP.
+For example, if your HyperBDR external IP address is 110.242.68.66, the source IP range can be configured as 110.242.68.66/32.
+
+**For TCP: 3260**
+
+You must obtain the communication addresses of all source-side backup hosts and cloud synchronization gateways, whether on the intranet or the public network, and add them to the source whitelist. This ensures the security of data transmission and prevents synchronization data failure caused by attacks on the cloud gateway by other machines on the Internet.
+:::
+
+| No. | Action | Type | Protocol & Port | Source    | Description                                  |
+| --- | ------ | ---- | --------------- | --------- | ---------------------------------------------|
+| 1   | Allow  | IPv4 | TCP:22,10729    | 0.0.0.0/0 | Permit default Linux Remote control SSH port |
+| 2   | Allow  | IPv4 | TCP:3260        | 0.0.0.0/0 | Data transfer port                           |

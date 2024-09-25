@@ -57,7 +57,7 @@ export const enSidebar = sidebar({
             'opentelekomcloud-pre-settings',
             // 'aws-target-pre-settings',
             'hcs-pre-settings',
-            // 'googlecloud-pre-settings',
+            'googlecloud-pre-settings',
           ],
         },
         {
