@@ -118,4 +118,4 @@ Business VPC network and subnet used for disaster takeover and drills.
 
 ![google-create-vpc-firewalls-for-hyperbdr-2.png](./images/google-create-vpc-firewalls-for-hyperbdr-2.png)
 
-Open policies required for HyperBDR & Cloud Sync Gateway: [What port strategies should be opened for HyperBDR and Cloud Sync Gateway?](userguide/faq/faq.html#what-port-strategies-should-be-opened-for-hyperbdr-and-cloud-sync-gateway)
+Open policies required for HyperBDR & Cloud Sync Gateway: [What port strategies should be opened for HyperBDR and Cloud Sync Gateway?](https://docs.oneprocloud.com/userguide/faq/faq.html#what-port-strategies-should-be-opened-for-hyperbdr-and-cloud-sync-gateway)
