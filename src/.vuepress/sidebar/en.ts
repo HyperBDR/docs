@@ -58,6 +58,7 @@ export const enSidebar = sidebar({
             'aws-target-pre-settings',
             'hcs-pre-settings',
             'googlecloud-pre-settings',
+            'xhere-pre-settings.md',
           ],
         },
         {
