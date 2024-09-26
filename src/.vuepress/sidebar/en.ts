@@ -55,7 +55,7 @@ export const enSidebar = sidebar({
             'huaweicloud-pre-settings',
             'tmcae-pre-settings',
             'opentelekomcloud-pre-settings',
-            // 'aws-target-pre-settings',
+            'aws-target-pre-settings',
             'hcs-pre-settings',
             'googlecloud-pre-settings',
           ],
