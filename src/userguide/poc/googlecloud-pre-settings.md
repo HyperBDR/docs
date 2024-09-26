@@ -110,6 +110,12 @@ Business VPC network and subnet used for disaster takeover and drills.
 
 ## Create VPC Firewalls for HyperBDR or Cloud Sync Gateway
 
+Open policies required for HyperBDR & Cloud Sync Gateway: [What port strategies should be opened for HyperBDR and Cloud Sync Gateway?](https://docs.oneprocloud.com/userguide/faq/faq.html#what-port-strategies-should-be-opened-for-hyperbdr-and-cloud-sync-gateway)
+
+::: tip
+Reference to Google Cloud official [Create VPC firewall rules](https://cloud.google.com/firewall/docs/using-firewalls#creating_firewall_rules) documentation
+:::
+
 1. Login to the [VPC networks](https://console.cloud.google.com/networking/networks/list), click you want used the **VPC Name**
 
 ![google-create-vpc-firewalls-for-hyperbdr-1.png](./images/google-create-vpc-firewalls-for-hyperbdr-1.png)
@@ -118,4 +124,12 @@ Business VPC network and subnet used for disaster takeover and drills.
 
 ![google-create-vpc-firewalls-for-hyperbdr-2.png](./images/google-create-vpc-firewalls-for-hyperbdr-2.png)
 
-Open policies required for HyperBDR & Cloud Sync Gateway: [What port strategies should be opened for HyperBDR and Cloud Sync Gateway?](https://docs.oneprocloud.com/userguide/faq/faq.html#what-port-strategies-should-be-opened-for-hyperbdr-and-cloud-sync-gateway)
+Configure according to the open policy list. For specific configuration steps, refer to the official documentation.
+
+## Configure disaster recovery drill network policy
+
+For specific network policy requirements, please refer to the [How to configure a disaster recovery network policy?](https://docs.oneprocloud.com/userguide/faq/faq.html#how-to-configure-a-disaster-recovery-network-policy) documentation.
+
+::: tip
+Reference to Google Cloud official [Peer two VPC networks](https://cloud.google.com/vpc/docs/peer-two-networks) documentation
+:::
