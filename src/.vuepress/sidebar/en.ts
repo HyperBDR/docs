@@ -194,6 +194,12 @@ export const enSidebar = sidebar({
             'dr-operations-manual-tmcae-object',
           ],
         },
+        {
+          text: "Installation and deployment",
+          children: [
+            'dr-operations-manual-installation',
+          ],
+        },
       ],
     },
   ],

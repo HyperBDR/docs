@@ -665,3 +665,17 @@ You must obtain the communication addresses of all source-side backup hosts and 
 | --- | ------ | ---- | --------------- | --------- | ---------------------------------------------|
 | 1   | Allow  | IPv4 | TCP:22,10729    | 0.0.0.0/0 | Permit default Linux Remote control SSH port |
 | 2   | Allow  | IPv4 | TCP:3260        | 0.0.0.0/0 | Data transfer port                           |
+
+## How to configure a disaster recovery network policy?
+
+::: tip
+This step is applicable to the disaster recovery architecture for intranet access. Data synchronization and disaster recovery communication through the public network are not within the scope of explanation in this chapter.
+:::
+
+When taking over during disaster recovery host drill, the disaster recovery program needs to perform a series of preparatory work. It is necessary to ensure that the disaster recovery program can normally access the network where the disaster recovery host is located. Otherwise, it cannot take over the disaster recovery host normally. Then the following prerequisite conditions for disaster recovery network need to be ensured.
+
+- The network where HyperBDR and Cloud Sync Gateway are located can communicate with the network where the disaster recovery drill/takeover host is located. Refer to the access port policy [What port strategies should be opened for HyperBDR and Cloud Sync Gateway?](#what-port-strategies-should-be-opened-for-hyperbdr-and-cloud-sync-gateway) documentation
+
+The technical configuration methods for communication between different cloud-set VPC networks vary. Please refer to the documentation provided by cloud service providers for configuration or request the help of MSP partners. 
+
+> The common implementation technology for accessing VPC network interconnection configuration is **VPC Peering** Connect.
