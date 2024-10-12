@@ -63,11 +63,10 @@ Download images to your local machine through the provided image links.
 
 #### Linux Image
 
-* File Name: Ubuntu-20.04-server-64bit.qcow2
+* File Name: ubuntu-20.04-server-cloud-init-amd64.qcow2
 * Version: ubuntu 20.04 server
 * Size: 5.85 GB
-* Download Link: [https://downloads.oneprocloud.com/docs_images/Ubuntu-20.04-server-64bit.qcow2](https://downloads.oneprocloud.com/docs_images/Ubuntu-20.04-server-64bit.qcow2) 
-* MD5 Value of the Image: b608febbe32daa6e4ec61b7166c706da
+* Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)  
 
 #### Windows Image
 
