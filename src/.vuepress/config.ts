@@ -1,4 +1,5 @@
 import { defineUserConfig } from "vuepress";
+import { hopeTheme } from "vuepress-theme-hope";
 
 import theme from "./theme.js";
 
@@ -19,7 +20,13 @@ export default defineUserConfig({
     },
   },
 
-  theme,
+  theme: hopeTheme({
+    plugins: {
+      mdEnhance: {
+        mermaid: true,
+      },
+    },
+  }),
 
   // Enable it with pwa
   // shouldPrefetch: false,

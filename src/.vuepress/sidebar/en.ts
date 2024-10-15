@@ -163,7 +163,7 @@ export const enSidebar = sidebar({
         'hyperbdr-rpo-rto-planning-best-practices',
         'cloud-platform-support-matrix',
         'poc',
-        'aws-agentless-mode-cost-calculator',
+        'deep-in-aws-agentless-mode',
         'compatibility-and-limitations',
         'hyperbdr-license-purchasing-guide',
       ],

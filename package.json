@@ -11,6 +11,7 @@
     "docs:update-package": "yarn dlx vp-update"
   },
   "devDependencies": {
+    "mermaid": "^11.3.0",
     "vue": "^3.4.31"
   },
   "packageManager": "yarn@4.4.0",
