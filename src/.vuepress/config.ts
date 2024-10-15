@@ -20,14 +20,8 @@ export default defineUserConfig({
     },
   },
 
-  theme: hopeTheme({
-    plugins: {
-      mdEnhance: {
-        mermaid: true,
-      },
-    },
-  }),
+  theme,
 
   // Enable it with pwa
-  // shouldPrefetch: false,
+  shouldPrefetch: false,
 });
