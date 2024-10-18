@@ -171,7 +171,7 @@ Download images to your local machine through the provided image links.
 
 * File Name: ubuntu-20.04-server-cloud-init-amd64.qcow2
 * Version: ubuntu 20.04 server
-* Size: 5.85 GB
+* Size: 596.38 MB
 * Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)  
 
 #### Windows Image
