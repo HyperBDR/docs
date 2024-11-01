@@ -1,4 +1,4 @@
-# DR Operations Manual Object Storage
+# DR OM Object Storage
 
 [[toc]]
 
