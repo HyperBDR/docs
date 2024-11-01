@@ -26,7 +26,7 @@ export default hopeTheme({
             s.parentNode.insertBefore(hm, s);
           })();
             `
-    ]
+    ],
   ],
 
   pure: true,
@@ -113,14 +113,14 @@ export default hopeTheme({
     //   indexContent: true, // 是否索引页面内容，默认为 true
     //   // 您可以根据需要添加更多的选项
     // },
-    // search: true,
-    docsearch: {
-      // 你的选项
-      // appId, apiKey 和 indexName 是必填的
-      appId: "8VQAQ77HJ4",
-      apiKey: "cbb4977028f83b9e1a9fa0f9dab08bab",
-      indexName: "oneprocloud",
-    },
+    search: true,
+    // docsearch: {
+    //   // 你的选项
+    //   // appId, apiKey 和 indexName 是必填的
+    //   appId: "8VQAQ77HJ4",
+    //   apiKey: "cbb4977028f83b9e1a9fa0f9dab08bab",
+    //   indexName: "oneprocloud",
+    // },
     // catalogPlugin: false,
     // Note: This is for testing ONLY!
     // You MUST generate and use your own comment service in production.
@@ -140,12 +140,12 @@ export default hopeTheme({
     mdEnhance: {
       align: true,
       attrs: true,
-      codetabs: true,
+      // codetabs: true,
       component: true,
       demo: true,
-      figure: true,
-      imgLazyload: true,
-      imgSize: true,
+      // figure: true,
+      // imgLazyload: true,
+      // imgSize: true,
       include: true,
       mark: true,
       plantuml: true,
@@ -165,7 +165,7 @@ export default hopeTheme({
       ],
       sub: true,
       sup: true,
-      tabs: true,
+      // tabs: true,
       tasklist: true,
       vPre: true,
       // Install chart.js before enabling it
@@ -205,12 +205,14 @@ export default hopeTheme({
 
       // Install sandpack-vue3 before enabling it
       // sandpack: true,
+      image: true, // 使用 @vuepress/plugin-markdown-image
+      tab: true,   // 使用 @vuepress/plugin-markdown-tab
     },
 
     // Install @vuepress/plugin-pwa and uncomment these if you want a PWA
     pwa: {
       favicon: "/favicon.ico",
-      shouldPrefetch: false,
+      // shouldPrefetch: false,
       //   cacheHTML: true,
       //   cacheImage: true,
       //   appendBase: true,

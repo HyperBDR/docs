@@ -10,9 +10,14 @@ tagline: Useful Disaster Recovery Tools —— HyperBDR
 # bgImageDark: /bg@1x.png
 actions:
   - text: Quick Start
-    icon: arrow-right
+    icon: signs-post
     link: ./checklist/dr-checklist.md
     type: primary
+
+  - text: Quick Installation
+    icon: lightbulb
+    link: ./userguide/dr-usage-guide/dr-operations-manual-installation.md
+    # type: primary
 
   # - text: Docs
   #   link: ./userguide/poc/

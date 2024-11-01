@@ -1,4 +1,4 @@
-# DR Operations Manual Block Storage
+# DR OM Block Storage
 
 [[toc]]
 

@@ -1,6 +1,6 @@
 ---
 title: DR Checklist
-# icon: checklist
+icon: list
 ---
 
 # DR Checklist

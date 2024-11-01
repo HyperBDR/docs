@@ -43,6 +43,7 @@ export const enSidebar = sidebar({
       children: [
         {
           text: "Production Site",
+          icon: "gear",
           children: [
             'agent-pre-settings',
             'vmware-pre-settings',
@@ -51,6 +52,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "DR Site",
+          icon: "wrench",
           children: [
             'huaweicloud-pre-settings',
             'tmcae-pre-settings',
@@ -63,6 +65,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "HyperBDR",
+          icon: "layer-group",
           children: [
             'hyperbdr-vmware-pre-settings',
             'hyperbdr-proxy-pre-settings',
@@ -80,6 +83,7 @@ export const enSidebar = sidebar({
       children: [
         {
           text: "Failback Network Requirement",
+          icon: "network-wired",
           children: [
             'failback-network-requirement-huaweicloud',
             'failback-network-requirement-tmcae',
@@ -87,12 +91,14 @@ export const enSidebar = sidebar({
         },
         {
           text: "Failback Source",
+          icon: "sourcetree",
           children: [
             'failback-agent-pre-settings',
           ],
         },
         {
           text: "Failback Target",
+          icon: "sourcetree",
           children: [
             'failback-vmware-pre-settings',
             'failback-agent-source-pre-settings',
@@ -100,6 +106,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "HyperBDR",
+          icon: "layer-group",
           children: [
             'failback-hyperbdr-pre-settings',
           ],
