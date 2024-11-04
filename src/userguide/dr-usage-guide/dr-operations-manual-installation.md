@@ -26,6 +26,10 @@ If the platform you are on does not have the `Ubuntu 20.04 Server 64bit` image, 
 Download Link: [Ubuntu-20.04-server-64bit.qcow2](https://downloads.oneprocloud.com/docs_images/Ubuntu-20.04-server-64bit.qcow2)
 :::
 
+## Installation Demo Video
+
+[![asciicast](https://asciinema.org/a/686760.svg)](https://asciinema.org/a/686760)
+
 ## Software installation
 
 ### Installation Package Information
