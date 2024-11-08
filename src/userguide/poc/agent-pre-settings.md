@@ -1,3 +1,7 @@
+---
+title: DR Checklist
+icon: list
+---
 # Agent Pre-Settings
 
 [[toc]]

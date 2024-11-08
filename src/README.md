@@ -102,6 +102,13 @@ For related descriptions of configuration items, please see [Project HomePage La
 
 <style>
 /* 确保样式表文件被正确加载，并在 <head> 中优先引入 */
+.theme-hope-content:not(.custom) {
+  max-width: var(--content-width, 740px);
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+      padding-top: 0 !important;
+}
+
 
 .features-container {
   display: flex;
@@ -138,6 +145,10 @@ For related descriptions of configuration items, please see [Project HomePage La
 
 .feature a:hover {
   text-decoration: underline;
+}
+
+#main-content .theme-hope-content:not(.custom) {
+    margin: auto;
 }
 
 </style>

@@ -623,7 +623,7 @@ Modify the daemon.json file of docker service and add DNS configuration.
 Restart the Docker service.
 
 ```
-sudo systemctl retsart docker
+sudo systemctl restart docker
 ```
 
 ## What port strategies should be opened for HyperBDR and Cloud Sync Gateway?
