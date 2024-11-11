@@ -1,3 +1,8 @@
+---
+title: General Platform Setup
+icon: fa-solid fa-sliders
+---
+
 # General Platform Setup
 
 [[toc]]

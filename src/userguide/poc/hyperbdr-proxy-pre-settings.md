@@ -1,3 +1,8 @@
+---
+title: Sync Proxy Setup
+icon: fa-solid fa-sliders
+---
+
 # Sync Proxy Setup
 
 [[toc]]

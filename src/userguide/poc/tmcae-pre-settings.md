@@ -1,3 +1,8 @@
+---
+title: TM CAE Pre-Settings
+icon: fa-solid fa-gear
+---
+
 # TM CAE Pre-Settings
 
 [[toc]]
