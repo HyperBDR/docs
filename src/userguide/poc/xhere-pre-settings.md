@@ -1,3 +1,8 @@
+---
+title: XHERE Pre-Settings
+icon: fa-solid fa-gear
+---
+
 # XHERE Pre-Settings
 
 ## Create & Configure XHERE Account for DR purpose

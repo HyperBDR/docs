@@ -1,3 +1,8 @@
+---
+title: Huawei Cloud Stack Pre-Settings
+icon: fa-solid fa-gear
+---
+
 # Huawei Cloud Stack Pre-Settings
 
 [[toc]]

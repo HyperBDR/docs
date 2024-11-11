@@ -1,3 +1,8 @@
+---
+title: Huawei Cloud Pre-Settings
+icon: fa-solid fa-gear
+---
+
 # Huawei Cloud Pre-Settings
 
 [[toc]]

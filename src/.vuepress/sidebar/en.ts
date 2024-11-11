@@ -43,7 +43,7 @@ export const enSidebar = sidebar({
       children: [
         {
           text: "Production Site",
-          icon: "gear",
+          icon: "fa-brands fa-sourcetree",
           children: [
             'agent-pre-settings',
             'vmware-pre-settings',
@@ -52,7 +52,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "DR Site",
-          icon: "wrench",
+          icon: "fa-solid fa-bullseye",
           children: [
             'huaweicloud-pre-settings',
             'tmcae-pre-settings',
@@ -91,14 +91,14 @@ export const enSidebar = sidebar({
         },
         {
           text: "Failback Source",
-          icon: "sourcetree",
+          icon: "fa-brands fa-sourcetree",
           children: [
             'failback-agent-pre-settings',
           ],
         },
         {
           text: "Failback Target",
-          icon: "sourcetree",
+          icon: "fa-solid fa-bullseye",
           children: [
             'failback-vmware-pre-settings',
             'failback-agent-source-pre-settings',

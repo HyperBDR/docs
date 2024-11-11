@@ -1,3 +1,8 @@
+---
+title: Agent Pre-Settings
+icon: fa-solid fa-gear
+---
+
 # Agent Pre-Settings
 
 [[toc]]
