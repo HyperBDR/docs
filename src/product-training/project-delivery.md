@@ -85,4 +85,4 @@ The Checklist is presented in a form format and needs to be completed step by st
 
 ### Checklist Links
 
-* [Checklist](/userguide/checklist/dr-checklist.html)
+* [Checklist](/checklist/dr-checklist.html)

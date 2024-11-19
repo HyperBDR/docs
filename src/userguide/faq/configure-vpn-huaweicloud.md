@@ -1,3 +1,7 @@
+---
+title: Configure the VPN connection
+---
+
 # Configure the VPN connection between Huawei Cloud and IDC
 
 [[toc]]

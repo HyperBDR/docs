@@ -176,6 +176,12 @@ export const zhSidebar = sidebar({
             'dr-operations-manual-huaweicloud',
           ],
         },
+        {
+          text: "安装与部署",
+          children: [
+            'dr-operations-manual-installation',
+          ],
+        },
         // {
         //   text: "Huawei Cloud Stack 8.2.x/8.3.x",
         //   children: [

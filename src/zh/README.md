@@ -14,6 +14,10 @@ actions:
     link: ./checklist/dr-checklist.md
     type: primary
 
+  - text: 快速安装
+    icon: lightbulb
+    link: ./userguide/dr-usage-guide/dr-operations-manual-installation.md
+
   # - text: Docs
   #   link: ./userguide/poc/
 

@@ -126,7 +126,7 @@ export const enSidebar = sidebar({
       ],
     },
     {
-      text: "Production Site Compatibility & Limitations",
+      text: "Compatibility & Limitations",
       icon: "book",
       prefix: "",
       children: [
