@@ -46,15 +46,15 @@ export const enNavbar = navbar([
       {
         text: "Checklist",
         icon: "list",
-        prefix: "userguide/checklist/",
-        link: "/userguide/checklist/",
+        prefix: "checklist/",
+        link: "/checklist/dr-checklist.md",
         children: [],
       },
       {
         text: "FAQ",
         icon: "person-circle-question",
         prefix: "userguide/faq/",
-        link: "/userguide/faq/",
+        link: "/userguide/faq/faq.md",
         children: [],
       },
     ],

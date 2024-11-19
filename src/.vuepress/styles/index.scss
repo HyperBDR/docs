@@ -36,7 +36,7 @@
 
 .vp-toc-placeholder #toc {
   inset-inline-start: 0;
-  position: fixed;
+  position: absolute;
   left: calc(100% - 300px);
 }
 
@@ -47,10 +47,15 @@
 }
 
 #main-content .theme-hope-content:not(.custom) {
-  margin: 0;
+  margin: inherit;
 }
 
 .vp-breadcrumb,
 .vp-page-title {
   max-width: 100%;
+}
+
+.vp-page-nav,
+.vp-page-meta {
+  margin-inline: unset;
 }
