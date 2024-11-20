@@ -72,27 +72,28 @@ To use this layout, you need to set `home: true` in the page front matter.
 For related descriptions of configuration items, please see [Project HomePage Layout Config](https://theme-hope.vuejs.press/guide/layout/home/). -->
 
 <!-- 在首页或其他Markdown文件中直接插入HTML -->
-<div class="features-container">
-  <div class="feature">
+
+<div class="features-container" id="home-features-container">
+  <div class="feature" id="home-solutions-feature">
     <h2><i class="fas fa-thumbs-up feature-icon"></i> Solutions</h2>
     <ul>
       <li><a href="/userguide/poc/">User Guide</a></li>
       <!-- <li><a href="/aws-userguide/">AWS</a></li> -->
     </ul>
   </div>
-  <div class="feature">
+  <div class="feature" id="home-solutions-feature">
     <h2><i class="fas fa-handshake feature-icon"></i> Pre Sales</h2>
     <ul>
       <li><a href="/userguide/presales/">HyperBDR Pre Sales</a></li>
     </ul>
   </div>
-  <div class="feature">
+  <div class="feature" id="home-solutions-feature">
     <h2><i class="fas fa-book feature-icon"></i> Manual</h2>
     <ul>
       <li><a href="/userguide/dr-usage-guide/">HyperBDR User Manual</a></li>
     </ul>
   </div>
-  <div class="feature">
+  <div class="feature" id="home-solutions-feature">
     <h2><i class="fas fa-person-circle-question feature-icon"></i> FAQ</h2>
     <ul>
       <li><a href="/userguide/faq/">Frequently Asked Questions</a></li>
@@ -147,8 +148,8 @@ For related descriptions of configuration items, please see [Project HomePage La
   text-decoration: underline;
 }
 
-#main-content .theme-hope-content:not(.custom) {
-    margin: auto;
+.vp-project-home #main-content .theme-hope-content:not(.custom) {
+  margin: auto; /* 设置特定页面的样式 */
 }
 
 </style>
