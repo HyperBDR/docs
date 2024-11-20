@@ -46,8 +46,8 @@
   width: auto;
 }
 
-#main-content .theme-hope-content:not(.custom) {
-  margin: inherit;
+.vp-toc-placeholder+.theme-hope-content:not(.custom) {
+  margin: initial;
 }
 
 .vp-breadcrumb,
