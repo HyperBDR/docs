@@ -1,6 +1,6 @@
 ---
-title: DR Checklist
-icon: list
+title: Agent Pre-Settings
+icon: fa-solid fa-gear
 ---
 
 # Agent Pre-Settings
