@@ -135,25 +135,25 @@ Document Link: [https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.ht
 
 ## 2. Object Storage Settings
 ### 2.1. Adding Object Storage
-**(1) Click on **"Configuration"** in the upper menu bar, select **"Object Storage"** under **"Storage"** on the left, and click on **"+Add"** .**
+**(1) Click on **"Configuration"** in the upper menu bar, select **"Object Storage"** under **"Storage"** on the left, and click on **"+Add"** .**  
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-14.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-14.png)
 
 ·       Object storage that supports the S3 protocol can be added, including public cloud object storage such as Huawei Cloud object storage and custom object storage deployed through Minio.
 
-**(2) In the **"Object Storage platform"**, select the Huawei Cloud Object Storage region you are using.**
+**(2) In the **"Object Storage platform"**, select the Huawei Cloud Object Storage region you are using.**  
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-15.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-15.png)
 
-**(3) Fill in the Access Key (AK) and Access Secret Key (SK) for authenticating against the Object Storage. After confirming, click **"Next"**.**
+**(3) Fill in the Access Key (AK) and Access Secret Key (SK) for authenticating against the Object Storage. After confirming, click **"Next"**.**  
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-16.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-16.png)
 
-**(4) Set the Object Storage bucket name and click **"Submit"**.**
+**(4) Set the Object Storage bucket name and click **"Submit"**.**  
 > You can either use an existing Object Storage bucket within the region or create a new one with a custom name.
 
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-17.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-17.png)
 
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-18.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-18.png)
 
-**(5) Object Storage has been successfully added.**
+**(5) Object Storage has been successfully added.**  
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-19.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-19.png)
 
 ---
@@ -203,27 +203,27 @@ After configuring the disaster recovery platform on Huawei Cloud, you can procee
 ---
 
 ## 4. Perform Disaster Recovery Operations
-When the hosts to be protected against disasters have already been added, select the hosts and click on the **"Next"** button to go to the disaster recovery configuration page:
+When the hosts to be protected against disasters have already been added, select the hosts and click on the **"Next"** button to go to the disaster recovery configuration page:  
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-25.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-25.png)
 
 ### 4.1. Disaster Recovery Configuration
-On the Hops DR page, select the hosts to be protected against disasters, click on the **"Setup DR"** button, select **"Object Storage Recovery"** and follow the configuration steps:
+On the Hops DR page, select the hosts to be protected against disasters, click on the **"Setup DR"** button, select **"Object Storage Recovery"** and follow the configuration steps:  
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-26.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-26.png)
 
 **Disaster recovery configuration step 1:** Specify DR Platform; Select the configuration information of the disaster recovery platform where the disaster recovery host is located, and click the "Next" button.
 
 > If the disaster recovery platform information is empty, it means that no disaster recovery platform has been added yet. You need to configure the disaster recovery recovery operation before proceeding with the subsequent operations.
 
-Choose "Object Storage" for the select storage type and select the configured object storage and recovery platform.
+Choose "Object Storage" for the select storage type and select the configured object storage and recovery platform.  
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-27.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-27.png)
 
-**Disaster recovery configuration step 2:** Computing Resource Configuration; Select the flavor and OS type for the disaster recovery host on the target disaster recovery platform. Once configured, click on the "Next" button.
+**Disaster recovery configuration step 2:** Computing Resource Configuration; Select the flavor and OS type for the disaster recovery host on the target disaster recovery platform. Once configured, click on the "Next" button.  
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-28.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-28.png)
 
-**Disaster recovery configuration step 3:** Specify Volume Type; Choose the volume type used by the disaster recovery host on the target disaster recovery platform. If there are multiple volumes, you can configure them separately for system and data volumes. Once configured, click the "Next" button.
+**Disaster recovery configuration step 3:** Specify Volume Type; Choose the volume type used by the disaster recovery host on the target disaster recovery platform. If there are multiple volumes, you can configure them separately for system and data volumes. Once configured, click the "Next" button.  
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-29.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-29.png)
 
-Select the disk for booting. If the first disk in your original system is not designated for booting, you must specify the boot disk here, or it may result in startup failure.
+Select the disk for booting. If the first disk in your original system is not designated for booting, you must specify the boot disk here, or it may result in startup failure.  
 > Note: In block storage mode, due to limitations in the cloud platform API interface, once data synchronization is completed, the option for the boot disk cannot be changed. Before initiating synchronization, please reconfirm the selected disk for booting. If chosen incorrectly, you will need to clear data and initiate synchronization again. Exercise caution to ensure the accurate selection of the boot disk and avoid unnecessary re-synchronization steps.
 
 ![hyperbdr-user-guide-to-tm-cae-object-storage-31.png](./images/hyperbdr-user-guide-to-tm-cae-object-storage-31.png)
@@ -286,7 +286,7 @@ Select the snapshot time point when starting the disaster recovery hosts and cli
 
 ### 4.4. View Disaster Recovery Result
 
-After the disaster recovery host is started, if the host startup status displays the relevant configuration information of the host on the disaster recovery platform, it means that the disaster recovery drill/disaster recovery takeover was successful. You can log in to Huawei Cloud to view the running status of the disaster recovery host:
+After the disaster recovery host is started, if the host startup status displays the relevant configuration information of the host on the disaster recovery platform, it means that the disaster recovery drill/disaster recovery takeover was successful. You can log in to Huawei Cloud to view the running status of the disaster recovery host:  
 
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-40.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-40.png)
 
@@ -332,7 +332,8 @@ Choose the policy used by the resource group. If a synchronization policy has be
 
 **Step4: Boot Sequence**
 
-Adjust the startup sequence of the host resources in the associated resources on the left, and click "Finish" after confirmation.
+Adjust the startup sequence of the host resources in the associated resources on the left, and click "Finish" after confirmation.  
+
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-47.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-47.png)
 
 ![hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-48.png](./images/hyperbdr-user-guide-vmware-to-huawei-cloud-object-storage-mode-48.png)

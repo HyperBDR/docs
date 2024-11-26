@@ -139,7 +139,7 @@ Document Link: [https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.ht
 
 ## 2. Recovery/Block Platform
 ### 2.1. Storage Configuration
-(1) Click on **"Configuration"** in the upper menu bar, select **"Block Storage"** under **"Storage"** on the left, and click on **"+Add"** .
+(1) Click on **"Configuration"** in the upper menu bar, select **"Block Storage"** under **"Storage"** on the left, and click on **"+Add"** .  
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-14.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-14.png)
 
 
@@ -149,7 +149,7 @@ Follow the steps below to fill in the authentication information for Huawei Clou
 > For detailed information on health information, please see the linked document:  
 > [How to obtain Huawei Cloud HCS 8.x Platform Credentials information?](https://docs.oneprocloud.com/userguide/faq/faq.html#how-to-obtain-huawei-cloud-hcs-8-x-platform-credentials-information)
 
-After confirming the entered information, click the **"Next"** button.
+After confirming the entered information, click the **"Next"** button.  
 ![hyperbdruserguide-tohcs8-blockstoragemode-1.png](./images/hyperbdruserguide-tohcs8-blockstoragemode-1.png)  
 ![hyperbdruserguide-tohcs8-blockstoragemode-2.png](./images/hyperbdruserguide-tohcs8-blockstoragemode-2.png)  
 
@@ -160,7 +160,7 @@ After confirming the entered information, click the **"Next"** button.
 ![hyperbdruserguide-tohcs8-blockstoragemode-3.png](./images/hyperbdruserguide-tohcs8-blockstoragemode-3.png)  
 ![hyperbdruserguide-tohcs8-blockstoragemode-4.png](./images/hyperbdruserguide-tohcs8-blockstoragemode-4.png)  
 
-(4)  After the **"Create Cloud Storage Gateway"** is complete, click the **"Complete"** button.
+(4)  After the **"Create Cloud Storage Gateway"** is complete, click the **"Complete"** button.  
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-17.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-17.png)
 
 (5) On the **"Block Storage"** - **"Cloud Sync Gateway"** page, check the status, and it should display as **"Available."**
@@ -286,7 +286,7 @@ After the disaster recovery host is started, if the host startup status displays
 ![hyperbdruserguide-tohcs8-blockstoragemode-23.png](./images/hyperbdruserguide-tohcs8-blockstoragemode-23.png)  
 
 ### 3.5. Clean Up Verification Host
-Select the host that needs to be **"Clean Up Verification Host"**, and in the **"Action"** section, click on the **"Clean Up Verification Host"** option. Wait for the cleaning process to complete.
+Select the host that needs to be **"Clean Up Verification Host"**, and in the **"Action"** section, click on the **"Clean Up Verification Host"** option. Wait for the cleaning process to complete.  
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-38.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-38.png)
 
 
