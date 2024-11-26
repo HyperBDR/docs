@@ -135,7 +135,7 @@ Document Link: [https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.ht
 
 ## 2. Recovery/Block Platform
 ### 2.1. Storage Configuration
-(1) Click on **"Configuration"** in the upper menu bar, select **"Block Storage"** under **"Storage"** on the left, and click on **"+Add"** .
+(1) Click on **"Configuration"** in the upper menu bar, select **"Block Storage"** under **"Storage"** on the left, and click on **"+Add"** .  
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-14.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-14.png)
 
 
@@ -150,10 +150,11 @@ Huawei Cloud API has been updated to SDK v3. It is recommended to use Huawei Clo
 - Access Key Secret: Huawei Cloud account"s Access Key Secret
 - Project Name: The key for accessing Huawei Cloud API with full account permissions.
 
-After confirming the entered information, click the **"Next"** button.
+After confirming the entered information, click the **"Next"** button.  
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-15.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-15.png)
 
 (3) Select the information for creating the HyperGate instance under the authenticated tenant and click the **"Next"** button.  
+
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16-1.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16-1.png)
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16-2.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-16-2.png)
 
@@ -266,7 +267,7 @@ This script can handle system-related tasks flexibly, like starting or stopping 
 ---
 
 ### 3.2. Data Synchronization (Full / Incremental)
-In the **"Start DR"** step, you can select one or more hosts to be protected against disasters, and click on the **"Sync"** button to synchronize data:
+In the **"Start DR"** step, you can select one or more hosts to be protected against disasters, and click on the **"Sync"** button to synchronize data:  
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-30.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-30.png)
 
 Confirm the disaster recovery hosts that need to be synchronized and click on the **"Submit"** button:
@@ -274,7 +275,7 @@ Confirm the disaster recovery hosts that need to be synchronized and click on th
 
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-31.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-31.png)
 
-Wait for the data synchronization of the disaster recovery hosts to complete.
+Wait for the data synchronization of the disaster recovery hosts to complete.  
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-32.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-32.png)
 
 
@@ -316,7 +317,7 @@ Or you can go to Huawei Cloud Platform to view cloud instances.
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-37-2.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-37-2.png)
 
 ### 3.5. Clean Up Verification Host
-Select the host that needs to be **"Clean Up Verification Host"**, and in the **"Action"** section, click on the **"Clean Up Verification Host"** option. Wait for the cleaning process to complete.
+Select the host that needs to be **"Clean Up Verification Host"**, and in the **"Action"** section, click on the **"Clean Up Verification Host"** option. Wait for the cleaning process to complete.  
 ![hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-38.png](./images/hyperbdruserguide-vmwaretohuaweicloud-blockstoragemode-38.png)
 
 
