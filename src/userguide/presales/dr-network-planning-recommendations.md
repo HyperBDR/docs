@@ -17,6 +17,32 @@ This document primarily focuses on the rational planning of the HyperBDR network
 
 - For stateful business system takeover, attention should be given to the firewall policy configuration of the network used for disaster recovery takeover, ensuring it aligns with the production network connection. This is to avoid incorrect data writes after the disaster recovery takeover system directly connects to the production end.
 
+## Network Recommendations
+
+:::tip
+Network bandwidth is closely related to the number of users, data volume, and RPO expectations. This recommendation represents the minimum standard, and implementation should be optimized based on actual business needs.
+:::
+
+### HyperBDR Block Storage
+
+1. **Bandwidth Requirements**
+
+   - **Minimum 20 Mbps**, with adjustments based on daily incremental data volume. Latency can be relaxed to **< 100 ms**, and packet loss should be kept below **< 1%**.
+
+2. **Optimization Suggestions**
+
+   - The network should support **QoS priority** to ensure stable disaster recovery traffic.
+
+### HyperBDR Object Storage
+
+1. **Bandwidth Requirements**
+
+   - **Minimum 10 Mbps**, with adjustments based on daily incremental data volume. Latency can be relaxed to **< 200 ms**, and packet loss should be kept below **< 1%**.
+
+2. **Optimization Suggestions**
+
+   - The network should support **QoS priority** to ensure the stability of disaster recovery traffic.
+
 ## Deployment Solution for Object Storage
 
 ### Networking Schemes
