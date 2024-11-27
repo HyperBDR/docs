@@ -14,7 +14,7 @@
 
 ## Guest OS Support
 
-Click [Cloud Platform Support Matrix](https://365.kdocs.cn/l/ctsKIt85ScaM) to view the compatibility list and get the latest support status.
+Click [Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/ItUJsXCqgh7tzmtRYygcCw7YnvK?from=from_copylink) to view the compatibility list and get the latest support status.
 
 ## Support and Limitations
 
