@@ -1,18 +1,18 @@
 // place your custom styles here
 
-.vp-sidebar-header {
-  font-size: 20px;
-  /* 根据需要调整字体大小 */
-}
+// .vp-sidebar-header {
+//   font-size: 20px;
+//   /* 根据需要调整字体大小 */
+// }
 
-.vp-sidebar-title {
-  font-size: 16px;
-  /* 根据需要调整字体大小 */
-}
+// .vp-sidebar-title {
+//   font-size: 16px;
+//   /* 根据需要调整字体大小 */
+// }
 
-.vp-sidebar-link {
-  font-size: 14px;
-}
+// .vp-sidebar-link {
+//   font-size: 14px;
+// }
 
 /* 如果只想更改特定的导航项，可以使用以下选择器 */
 .vp-dropdown-subtitle {
@@ -20,42 +20,42 @@
   /* 取消全大写 */
 }
 
-.theme-container {
-  display: flex;
-  justify-content: space-evenly;
-}
+// .theme-container {
+//   display: flex;
+//   justify-content: space-evenly;
+// }
 
-.theme-container .vp-page {
-  padding-inline-start: calc(var(--sidebar-space));
-  padding-inline-end: 0;
-}
+// .theme-container .vp-page {
+//   padding-inline-start: calc(var(--sidebar-space));
+//   padding-inline-end: 0;
+// }
 
-.vp-toc-placeholder {
-  max-width: calc(100vw - var(--sidebar-space));
-}
+// .vp-toc-placeholder {
+//   max-width: calc(100vw - var(--sidebar-space));
+// }
 
-.vp-toc-placeholder #toc {
-  inset-inline-start: 0;
-  position: absolute;
-  left: calc(100% - 300px);
-}
+// .vp-toc-placeholder #toc {
+//   inset-inline-start: 0;
+//   position: absolute;
+//   left: calc(100% - 300px);
+// }
 
-.vp-sidebar {
-  padding-inline-start: 0;
-  padding-left: 30px;
-  width: auto;
-}
+// .vp-sidebar {
+//   padding-inline-start: 0;
+//   padding-left: 30px;
+//   width: auto;
+// }
 
-.vp-toc-placeholder+.theme-hope-content:not(.custom) {
-  margin: initial;
-}
+// .vp-toc-placeholder+.theme-hope-content:not(.custom) {
+//   margin: initial;
+// }
 
-.vp-breadcrumb,
-.vp-page-title {
-  max-width: 100%;
-}
+// .vp-breadcrumb,
+// .vp-page-title {
+//   max-width: 100%;
+// }
 
-.vp-page-nav,
-.vp-page-meta {
-  margin-inline: unset;
-}
+// .vp-page-nav,
+// .vp-page-meta {
+//   margin-inline: unset;
+// }
