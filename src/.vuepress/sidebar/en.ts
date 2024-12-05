@@ -166,6 +166,7 @@ export const enSidebar = sidebar({
       children: [
         'hyperbdr-vmware-investigation',
         'hyperbdr-agent-investigation',
+        'auto-host-info-collector',
         'dr-network-planning-recommendations',
         'hyperbdr-rpo-rto-planning-best-practices',
         'cloud-platform-support-matrix',
