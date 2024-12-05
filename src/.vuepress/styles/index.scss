@@ -59,3 +59,7 @@
 // .vp-page-meta {
 //   margin-inline: unset;
 // }
+
+.theme-hope-content:not(.custom) > p {
+  text-align: start;
+}

@@ -1,4 +1,4 @@
-# Compatibility & Limitations
+# Compatibility and Limitations
 
 ## Production Site
 
