@@ -118,7 +118,18 @@ export const enSidebar = sidebar({
   ],
   "/product-overview/": [
     {
-      text: "HyperBDR Features Matrix",
+      text: "Product Overview",
+      icon: "book",
+      prefix: "",
+      children: [
+        'product-training/product-overview.md',
+        'product-training/scenarios.md',
+        'product-training/technical-highlights.md',
+        'product-training/project-delivery.md',
+      ],
+    },
+    {
+      text: "Features Matrix",
       icon: "book",
       prefix: "",
       children: [
@@ -145,19 +156,19 @@ export const enSidebar = sidebar({
       ],
     },
   ],
-  '/product-training/': [
-    {
-      text: "Training",
-      icon: "book",
-      prefix: "",
-      children: [
-        'product-overview.md',
-        'scenarios.md',
-        'technical-highlights.md',
-        'project-delivery.md',
-      ],
-    },
-  ],
+  //'/product-training/': [
+  //  {
+  //    text: "Training",
+  //    icon: "book",
+  //    prefix: "",
+  //    children: [
+  //      'product-overview.md',
+  //      'scenarios.md',
+  //      'technical-highlights.md',
+  //      'project-delivery.md',
+  //    ],
+  //  },
+  //],
   '/userguide/presales/': [
     {
       text: "Pre Sales",

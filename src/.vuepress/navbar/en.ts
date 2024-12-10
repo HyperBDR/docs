@@ -22,13 +22,15 @@ export const enNavbar = navbar([
         link: "/product-overview/",
         children: [],
       },
-      {
-        text: "Product Training",
-        icon: "dumbbell",
-        prefix: "product-training/",
-        link: "/product-training/",
-        children: [],
-      },
+      // NOTE(Ray): Merge Product Training with Product Overview
+      // Comment this top level menu item
+      //{
+      //  text: "Product Training",
+      //  icon: "dumbbell",
+      //  prefix: "product-training/",
+      //  link: "/product-training/",
+      //  children: [],
+      //},
       {
         text: "Pre Sales",
         icon: "handshake",

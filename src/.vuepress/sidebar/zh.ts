@@ -106,7 +106,7 @@ export const zhSidebar = sidebar({
   ],
   "/zh/product-overview/": [
     {
-      text: "HyperBDR Features Matrix",
+      text: "Features Matrix",
       icon: "book",
       prefix: "",
       children: [
