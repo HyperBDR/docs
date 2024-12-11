@@ -28,10 +28,23 @@ Click [Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/VRqks
    - **Memory Requirements:**
       - To ensure the normal operation of the DiskSyncAgent service, it is recommended to have at least 1 GB of available memory.
       - The DiskSyncAgent service typically occupies 220-350 MB of memory. Insufficient system memory may cause the DiskSyncAgent service to run slowly or crash.
-   - **Disk Space:** To ensure proper installation and operation of the software, it is recommended to reserve at least 200 MB of free space.
+   - **Agent Space Usage:** To ensure proper installation and operation of the software, it is recommended to reserve at least 200 MB of free space.
    - **Network Connection:** To ensure stability and speed of the connection to the target endpoint, it is recommended to use a network connection of at least 10 Mbps.
    - **System Firmware:** To ensure compatibility with the software, BIOS or UEFI firmware is required.
    - **Virtualization Support:** DiskSyncAgent supports full virtualization, but support for paravirtualization (e.g., XenServer) is limited. Manual repair may be required during final boot.
+
+### Disk Space Recommendation
+
+The Windows Agent uses Windows VSS to create consistent snapshots without interrupting system operations, ensuring data integrity and enabling quick recovery, thus improving synchronization efficiency and business continuity. Therefore, the following disk space requirements apply during the synchronization process.
+
+   - **Recommended Free Space for VSS Snapshots**: It is recommended that the free space on the volume used for VSS snapshots be at least 10%. If the volume data is frequently updated, the proportion of reserved free space should be increased to avoid synchronization failures due to insufficient space.
+
+   - **Impact of High Disk I/O on VSS Snapshots**: Excessive disk I/O during host synchronization can prevent VSS snapshot data from being maintained properly. The Windows system prioritizes business data access and may abandon VSS snapshot differential data, causing synchronization failures. This issue may occur during operations like data backups, large database transactions, table index updates, full disk searches, or heavy temporary table operations.
+
+   - **Recommended Actions to Address Synchronization Failures Due to High Disk I/O**:
+
+     1. **Reduce Disk I/O**: Adjust business operations, such as pausing backup tasks during synchronization or optimizing SQL queries to reduce disk I/O.
+     2. **Designate a Non-Synchronization Disk**: Assign a disk as a non-synchronization disk, or add a new disk and allocate a volume dedicated to VSS snapshot data. Then, configure the `VSS_SPEC_MAX_?` setting to direct VSS storage to the dedicated volume, which can help alleviate high I/O impact but may not fully resolve the issue.
    
 ### Disk Volume Requirements
    - The number of disks must be fewer than 32.
