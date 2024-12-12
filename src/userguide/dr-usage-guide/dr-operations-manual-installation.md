@@ -18,7 +18,7 @@ Notes: We strongly recommend that when preparing HyperBDR console host resources
 | Mem                 | 16 GiB                                                          |
 | Image               | Ubuntu 20.04 server 64bit                                       |
 | System Disk         | High IO 200GB                                                   |
-| Firewall Rule       | [HyperBDR Open Network Plicy](https://docs.oneprocloud.com/userguide/faq/faq.html#hyperbdr-required-network-policy) |
+| Firewall Rule       | [HyperBDR Open Network Policy](https://docs.oneprocloud.com/userguide/faq/faq.html#hyperbdr-required-network-policy) |
 
 ::: tip
 If the platform you are on does not have the `Ubuntu 20.04 Server 64bit` image, then you can download the standard image provided by us and import it to the platform for installation.
