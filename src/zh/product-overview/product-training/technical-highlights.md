@@ -1,84 +1,78 @@
-# Technical Highlights
+# 技术亮点
 
-## Implementation
+## 实现
 
-The process of migration / disaster recovery can be simplified into three main steps: syncing data, storing it, and recovering it when needed, like bringing back hosts.
+迁移/灾难恢复的过程可以简化为三个主要步骤：同步数据、存储数据，并在需要时恢复数据，比如恢复主机。
 
 ![Implementation](./images/technical-highlights-implementation.png)
 
-HyperMotion & HyperBDR tackles these key challenges:
+云迁移平台（HyperMotion）和云容灾平台（HyperBDR）解决了以下关键挑战：
 
-* Getting Data Back: Since HyperMotion & HyperBDR focuses on keeping hosts safe, the main task is figuring out how to grab data from your systems, especially at the basic level.
-* Storing Data Right: Designed for cloud platforms, HyperMotion & HyperBDR ensures data is stored sensibly in cloud services, ready for quick recovery.
-* Making Everything Work Together: Unlike old-school setups, cloud platforms can be orchestrated easily. HyperMotion & HyperBDR taps into this capability to swiftly restore business systems.
-* Simplifying Learning: Lastly, it aims for an easy-to-use interface, making it simple for users to understand and operate, thus reducing the learning curve.
+* 获取数据：由于云迁移平台（HyperMotion）与云容灾平台（HyperBDR）专注于保护主机，主要任务是确定如何从系统中获取数据，特别是在基础层面。
+* 正确存储数据：云迁移平台（HyperMotion）与云容灾平台（HyperBDR）专为云平台设计，确保数据以合理的方式存储在云服务中，为快速恢复做好准备。
+* 实现一体化：与传统的系统设置不同，云平台可以轻松进行编排。云迁移平台（HyperMotion）与云容灾平台（HyperBDR）充分利用这一能力，迅速恢复业务系统。
+* 简化学习：云迁移平台（HyperMotion）与云容灾平台（HyperBDR）提供易于使用的界面，简化用户操作，降低学习曲线。
 
-## Block-level full incremental replication technology
+## 块级全量增量复制技术
 
-Let's delve into how HyperMotion & HyperBDR reads and stores data.
+让我们深入了解云迁移平台（HyperMotion）和云容灾平台（HyperBDR）如何读取和存储数据。
 
 ![Block-level full incremental replication technology](./images/technical-highlights-block-level-sync.png)
 
-As mentioned earlier, to achieve host-level backup and recovery, HyperMotion & HyperBDR employs block-level data synchronization, meaning it can back up data on all disks of the hosts using this method. It's important to note that these disks do not include network disks, such as NFS.
+如前所述，为实现主机级备份和恢复，云迁移平台（HyperMotion）和云容灾平台（HyperBDR）采用块级数据同步，这意味着它可以通过这种方法备份主机上所有磁盘的数据。需要注意的是，这些磁盘不包括网络磁盘，如NFS。
 
-Once the synchronization level is determined, the next step is to address the issue of data synchronization, specifically acquiring full and incremental data.
+确定同步级别后，接下来是解决数据同步的问题，特别是获取完整数据和增量数据。
 
-In HyperMotion & HyperBDR, there are primarily three methods for data synchronization:
+在云迁移平台（HyperMotion）与云容灾平台（HyperBDR）中，主要有三种数据同步方式：
 
-- For Agent synchronization, incremental data is obtained mainly through kernel module I/O capture technology.
-- For VMware, we primarily utilize CBT technology to capture incremental data from users.
-- For OpenStack platforms using Ceph storage, we leverage the RBD interface to obtain data.
+- 对于Agent同步，增量数据主要通过内核模块I/O捕获技术获取。
+- 对于VMware平台，主要利用CBT技术捕获用户的增量数据。
+- 对于使用Ceph存储的OpenStack平台，我们通过RBD接口获取数据。
 
-In block storage mode, data is directly written to the corresponding location of the cloud platform's block storage.
+在块存储模式下，数据直接写入云平台块存储的相应位置。
 
-As mentioned before, during the data synchronization process, HyperMotion & HyperBDR directly stores the captured data from the source host in cloud storage. Specifically, in block storage mode, data is directly written to the corresponding location of the cloud platform's block storage through the **Cloud Sync Gateway**. Finally, by calling the cloud platform's block storage snapshot interface, the data after each synchronization is locked.
+如前所述，在数据同步过程中，云迁移平台（HyperMotion）与云容灾平台（HyperBDR）会直接将从源主机捕获的数据存储到云存储中。具体而言，在块存储模式下，数据通过云同步网关（Cloud Sync Gateway）直接写入云平台的块存储相应位置。最后，通过调用云平台的块存储快照接口，锁定每次同步后的数据。
 
-The advantage of this approach is that during the data synchronization phase, there is no need to establish a one-to-one mapping between the source and target hosts. Only an appropriate number of cloud synchronization gateways and corresponding disks are needed.
+这种方法的优势在于，在数据同步阶段，无需建立源主机和目标主机之间的一对一映射。只需适当数量的云同步网关和相应的磁盘即可。
 
-A question that is often asked is, how many cloud synchronization gateways do I need during data synchronization?
+一个常见问题是，在数据同步过程中，我需要多少个云同步网关（Cloud Sync Gateway）？
 
-First, the number of **Cloud Sync Gateways** does not directly correspond to the number of production environment hosts.
-Secondly, the number of disks mounted on the cloud synchronization gateway corresponds one-to-one with the total number of disks on the production environment hosts. For example, if there are 10 hosts at the source, each with two disks, then only one **Cloud Sync Gateway** is needed on Huawei Cloud because each cloud host on Huawei Cloud can mount 20 disks.
+首先，云同步网关（Cloud Sync Gateway）的数量与生产环境主机的数量并无直接关系。 其次，云同步网关上挂载的磁盘数量与生产环境主机的总磁盘数量一一对应。例如，如果源端有10台主机，每台主机有两个磁盘，那么在华为云上只需要一个云同步网关（Cloud Sync Gateway），因为华为云上的每台云主机可以挂载20个磁盘。
 
-In object storage mode, data is divided into regions of default 4 MB size. When a change is detected in a particular region, the data in that region is stored in the object storage, while the corresponding metadata information is stored in HyperMotion & HyperBDR. Since the access interface for object storage itself uses HTTP, no additional computing resources are required for storage.
+在对象存储模式下，数据被划分为默认4MB大小的区域。当检测到某一特定区域的变化时，该区域的数据会存储在对象存储中，而对应的元数据存储在云迁移平台（HyperMotion）与云容灾平台（HyperBDR）中。由于对象存储的访问接口本身使用HTTP，因此无需额外的计算资源来进行存储。
 
 ## Boot-in-Cloud
 
-Boot-in-Cloud is a unique technology of HyperMotion & HyperBDR, which implements one-click host startup function by comprehensively using the orchestration ability of cloud APIs and driver adaptation ability.
+Boot-in-Cloud是云迁移平台（HyperMotion）和云容灾平台（HyperBDR）独特的技术，通过全面利用云API的编排能力和驱动适配能力，实现一键主机启动功能。
 
 ![Boot in Cloud](./images/technical-highlights-boot-in-cloud.png)
 
-In block storage mode, the startup process includes the following steps:
+在块存储模式下，启动过程包括以下步骤：
 
-Firstly, it is necessary to restore the block storage snapshot to a volume and repair the drive of the system's boot disk.
-When finally recovering the host, since each cloud platform uses slightly different methods, for example, on Huawei Cloud, startup can be achieved by swapping the system disk and data disk.
-The final host startup process is completed according to the specifications, volume types, boot disks, networks, and other information specified by the user in the disaster recovery configuration.
+首先，需要将块存储快照恢复到卷，并修复系统启动磁盘的驱动。最终恢复主机时，由于每个云平台使用的方法略有不同，例如，在华为云上，可以通过交换系统磁盘和数据磁盘来实现启动。最终的主机启动过程会根据灾难恢复配置中指定的规格、卷类型、启动磁盘、网络等信息完成。
 
-In object storage mode, the startup process is slightly different:
+在对象存储模式下，启动过程稍有不同：
 
-Firstly, the target platform needs to upload two custom types of images, one for the Linux system and one for the Windows system.
-During the startup of the object storage host, firstly, a temporary recovery host is started, and the corresponding disks are created and mounted.
-Then, the data is restored from the object storage to the block storage, and the drive repair process is carried out.
-After completion, the temporary host will automatically restart, and once the restart is completed, the host startup is finished.
+首先，目标平台需要上传两种自定义类型的镜像，一种用于Linux系统，一种用于Windows系统。在对象存储主机启动过程中，首先启动一个临时恢复主机，并创建和挂载相应的磁盘。然后，将数据从对象存储恢复到块存储，并进行驱动修复过程。 完成后，临时主机将自动重启，一旦重启完成，主机启动也就完成。
 
-## Boot-in-Cloud In-Depth
+## Boot-in-Cloud深入解析
 
-In the Boot-in-Cloud process, Driver Adaptation is a crucial step and a key factor in HyperMotion & HyperBDR's success in recovering hosts across different platforms.
+在Boot-in-Cloud过程中，驱动适配是一个关键步骤，也是云迁移平台（HyperMotion）和云容灾平台（HyperBDR）能够成功恢复不同平台主机的关键因素。
 
 ![Boot in Cloud In-Depth](./images/technical-highlights-boot-in-cloud-in-depth.png)
 
-Driver Adaptation primarily includes the following:
+驱动适配主要包括以下内容：
 
-* Adaptation of drivers for different platforms: For instance, when transitioning from VMware to KVM platforms, it's necessary to inject virtio-related drivers to ensure the host can boot up properly and the network functions correctly.
-* Conversion from UEFI to BIOS boot: Since cloud platforms have limited support for UEFI boot, if the source system uses UEFI boot, it needs to be automatically converted to BIOS boot at the cloud end.
-* Network configuration: As most cloud platforms use DHCP for address allocation, while traditional environments typically use static IP addresses, adjustments to network configurations are needed during startup.
-* Modification of configuration files: Primarily done to ensure compliance with the target cloud platform's operations. For example, after restoring a VMware host to a cloud platform, certain actions such as disabling vmware-tools may be necessary.
-* Driver repair involves numerous tasks, which are not listed here. Unlike other disaster recovery software, HyperMotion & HyperBDR's driver repair occurs after the fact. Regardless of whether it's in Agent or Agentless mode, no drivers or configurations are installed or injected in advance on the source production environment hosts, aiming to minimize the impact on the source production environment.
+* 不同平台驱动适配：例如，当从VMware平台迁移到KVM平台时，需要注入virtio相关驱动程序，以确保主机能够正确启动，网络功能正常。
+* 从UEFI到BIOS的启动转换：由于云平台对UEFI启动的支持有限，如果源系统使用的是UEFI启动，需要在云端自动转换为BIOS启动。
+* 网络配置：由于大多数云平台使用DHCP进行地址分配，而传统环境通常使用静态IP地址，因此在启动过程中需要调整网络配置。
+* 配置文件修改：主要是确保符合目标云平台的操作要求。例如，在将VMware主机恢复到云平台后，可能需要禁用vmware-tools等操作。
+* 驱动修复涉及多个任务，在此不一一列举。与其他灾难恢复软件不同，云迁移平台（HyperMotion）和云容灾平台（HyperBDR）的驱动修复发生在事后。无论是Agent模式还是Agentless模式，源生产环境主机上都不会提前安装或注入驱动或配置，旨在最大程度减少对源生产环境的影响。
 
-## Wizard-style minimal operation
+## 向导式最简操作
 
-Despite the complexity of its underlying logic, HyperMotion & HyperBDR simplifies the user experience by abstracting intricate processes into three simple steps: Select Host, Configure Disaster Recovery, and Start Recovery.
+尽管其底层逻辑复杂，但云迁移平台（HyperMotion）与云容灾平台（HyperBDR）通过将复杂的过程抽象为三个简单的步骤，简化了用户体验：选择主机、配置灾难恢复、启动恢复。
 
 ![HyperMotion & HyperBDR Wizard](./images/technical-highlights-wizard-ui.png)
 
-With these three steps, users can almost entirely complete all operational procedures within HyperMotion & HyperBDR's Graphical User Interface (GUI) without the need for frequent logins to the production environment and target cloud platform.
+通过这三步，用户几乎可以完全通过云迁移平台（HyperMotion）或云容灾平台（HyperBDR）的图形用户界面（GUI）完成所有操作流程，无需频繁登录生产环境和目标云平台。
