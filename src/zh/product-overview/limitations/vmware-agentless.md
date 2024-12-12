@@ -1,37 +1,38 @@
-# VMware Agentless
+# VMware无代理模式
 
-## VMWare Compatibility
+## VMware兼容性
 
 * vCenter Server 5.1, 5.5, 6.0, 6.5, 6.7, 7.0, 8.0(RC)
 * ESXi 5.0, 5.1, 5.5, 6.0, 6.5, 6.7, 7.0, 8.0(RC)
 * VMFS 5.1, 5.2, 5.5, 5.8, 6.0, 6.5
 * VSAN 6.5, 6.6, 7.0
 
-## Guest OS Support
+## 客户机操作系统支持
 
-Click [Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/WjvRswHPPh4UUgtLlxucQ9R8nwf) to view the compatibility list and get the latest support status.
+点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=0MJNYC)查看兼容性列表及最新支持状态。
 
-## Support and Limitations
+## 支持与限制
 
-### VMware Storage Support and Limitations
-  - Incremental data synchronization is not supported for virtual machines with version 4 (only full data synchronization is supported).
-  - Data synchronization for disks larger than 2TB is not supported under ESXi 5.0 and 5.1 versions (single disk capacity < 2032GB).
+### VMware存储支持与限制
+  - 虚拟机版本4不支持增量数据同步，仅支持全量数据同步。
+  - 在ESXi 5.0和5.1版本下，不支持同步大于2TB的磁盘（单磁盘容量<2032GB）。
 
-### Sync Proxy Network Requirements
-  - A CentOS 7 system with a minimum of 2 cores and 4GB of RAM is required as a **Sync Proxy** node.
-  - Access to the vCenter management network address and port is required.
-  - Access to port 902 of ESXi managed under the vCenter is required.
-  - Access to the management network address of **HyperMotion/HyperBDR Console** is required.
+### 源端同步代理（Sync Proxy）网络要求
+  - 需要一台最低配置为2核CPU和4GB内存的CentOS 7系统作为**源端同步代理（Sync Proxy）**节点。
+  - 必须能够访问vCenter的管理网络地址及相关端口。
+  - 必须能够访问vCenter管理的ESXi的902端口。
+  - 必须能够访问**云迁移平台（HyperMotion）/云容灾平台（HyperBDR）控制台**的管理网络地址。
 
-### Sync Proxy Performance
-  - The maximum number of synchronized hosts per **Sync Proxy** is limited to 100.
-  - **Sync Proxy** rate configuration is related to the number of concurrent synchronized hosts:
-    - (Default Setting) When a higher rate is required, it is recommended to adjust vmware_release_cpu_time = 0 to improve synchronization efficiency.
-    - When there are many concurrent synchronized hosts, it is recommended to adjust vmware_release_cpu_time = the number of concurrent synchronized hosts.
+### 源端同步代理（Sync Proxy）性能
+  - 每个**源端同步代理**的最大同步主机数量限制为100台。
+  - **源端同步代理**的速率配置与并发同步主机数量相关:
+    - （默认设置）若需要更高速率，建议将vmware_release_cpu_time设置为0，以提升同步效率。
+    - 若并发同步主机数量较多，建议将vmware_release_cpu_time设置为并发同步主机的数量。
 
-### Guest OS Support and Limitations
-  - Virtual machines using remote RDM disks (directly accessing a storage LUN in SAN) are not supported.
-  - Network-shared mounted directories (e.g., accessing data through NFS/NAS in the virtual machine system via remote network) are not supported for synchronization. Use a file synchronization tool for this data.
-  - Independent-mode virtual disks are not supported and must be synchronized as basic disks.
-  - Virtual machines mounted with USB or PCI peripherals will fail to snapshot (e.g., encrypted dog devices, etc.).
-  - Virtual machines configured with shared disks need to change the shared disk to non-shared mode (modify the parameter iscsi1:0.sharing to mutil-write and change it to FALSE).
+### 客户机操作系统支持与限制
+  - 不支持同步使用远程RDM磁盘（直接访问SAN中的存储LUN）的虚拟机。
+  - 不支持同步网络共享挂载的目录（例如通过NFS/NAS在虚拟机系统中远程访问的数据）。此类数据需使用文件同步工具处理。
+  - 不支持独立模式的虚拟磁盘，需将其以基本磁盘模式进行同步。
+  - 挂载了USB或PCI外设的虚拟机无法创建快照（例如加密狗设备等）。
+  - 配置共享磁盘的虚拟机需要将共享磁盘修改为非共享模式（将参数 iscsi1:0.sharing 修改为 multi-write，并更改为FALSE）。
+    
