@@ -1,67 +1,80 @@
 # Windows Agent
 
-## OS Support
+## 操作系统支持
 
-Click [Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/WjvRswHPPh4UUgtLlxucQ9R8nwf?from=from_copylink) to view the compatibility list and get the latest support status.
+点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)查看兼容性列表及最新支持状态。 
 
-## FileSystem & Partition Types
+## 文件系统与分区类型
 
-### FileSystem
+### 文件系统
 
 * NTFS
 * FAT16
 * FAT32
 
-### Partitions
+### 分区类型
 
-* Primary/Extended
-* Logical Disk Manager(LDM)
-* Basic disk (Partition type: MBR/GPT)
+* 主分区/扩展分区
+* 逻辑磁盘管理器（LDM）
+* 基本磁盘（分区类型：MBR/GPT）
 
-## Support and Limitations
+## 支持与限制
 
-### Basic Requirements
-   - **CPU:** x86-64-bit processor
-      - **CPU Usage Control:** You can limit the average CPU usage of DiskSyncAgent by configuring the CPU_USAGE_SETTING option. By default, the CPU usage limit is set to 30%.
-      - **Increase Sync Speed:** If your network is sufficient, increasing the CPU usage limit can improve synchronization speed in object storage mode.
-      - It is important to note that increasing the CPU usage limit may slow down or destabilize the system if the user's computer performance is low or if other CPU-intensive tasks are running simultaneously. Therefore, before increasing the CPU usage limit, it is necessary to evaluate the system's performance and resource utilization.
-   - **Memory Requirements:**
-      - To ensure the normal operation of the DiskSyncAgent service, it is recommended to have at least 1 GB of available memory.
-      - The DiskSyncAgent service typically occupies 220-350 MB of memory. Insufficient system memory may cause the DiskSyncAgent service to run slowly or crash.
-   - **Disk Space:** To ensure proper installation and operation of the software, it is recommended to reserve at least 200 MB of free space.
-   - **Network Connection:** To ensure stability and speed of the connection to the target endpoint, it is recommended to use a network connection of at least 10 Mbps.
-   - **System Firmware:** To ensure compatibility with the software, BIOS or UEFI firmware is required.
-   - **Virtualization Support:** DiskSyncAgent supports full virtualization, but support for paravirtualization (e.g., XenServer) is limited. Manual repair may be required during final boot.
+### 基本要求
+   - **CPU:** x86-64 位处理器
+      - **CPU使用控制:** 您可以通过配置CPU_USAGE_SETTING选项限制DiskSyncAgent的平均CPU使用率。默认情况下，CPU使用限制设置为30%。
+      - **提高同步速度:** 如果您的网络带宽足够，增加CPU使用限制可提高对象存储模式下的同步速度。
+      - 注意:增加CPU使用限制可能会在计算机性能较低或同时运行其他CPU密集型任务时导致系统变慢或不稳定。因此，在增加CPU使用限制之前，请评估系统性能和资源利用情况。
+   - **内存要求:**
+      - 为确保DiskSyncAgent服务的正常运行，建议至少有1GB可用内存。
+      - DiskSyncAgent服务通常占用220-350MB的内存。内存不足可能会导致服务运行缓慢或崩溃。
+   - **代理软件空间:** 为确保软件的正常安装与运行，建议至少保留200MB的空闲空间。
+   - **网络连接:** 为确保与目标端点连接的稳定性与速度，建议使用至少10Mbps的网络连接。
+   - **系统固件:** 为确保与软件的兼容性，需要安装BIOS或UEFI固件。
+   - **虚拟化支持:** DiskSyncAgent支持完全虚拟化，但对半虚拟化（如 XenServer）的支持有限，可能需要在最终启动时进行手动修复。
+
+### 磁盘空间建议
+
+Windows Agent使用Windows VSS创建一致的快照，无需中断系统操作，确保数据完整性并支持快速恢复，从而提高同步效率和业务连续性。因此，在同步过程中，需要满足以下磁盘空间要求。
+
+   - **VSS快照的推荐空闲空间**: 建议用于VSS快照的卷应至少保留10%的空闲空间。如果卷数据频繁更新，建议增加预留空闲空间的比例，以避免由于空间不足导致同步失败。
+
+   - **高磁盘I/O对VSS快照的影响**: 在主机同步期间，过多的磁盘I/O可能导致VSS快照数据无法正常维护。Windows系统优先访问业务数据，可能会丢弃VSS快照的增量数据，导致同步失败。这种问题通常发生在数据备份、大型数据库事务、表索引更新、全盘搜索或临时表操作过多时。
+
+   - **应对高磁盘I/O导致同步失败的推荐措施**:
+
+     1. **减少磁盘I/O**: 调整业务操作，例如在同步期间暂停备份任务，或优化SQL查询以减少磁盘I/O。
+     2. **指定非同步磁盘**: 可以将一个磁盘指定为非同步磁盘，或者增加新的磁盘并分配专用于VSS快照数据的卷。然后，配置`VSS_SPEC_MAX_?`设置，将VSS存储定向到专用卷，帮助缓解高I/O影响，但可能无法完全解决问题。
    
-### Disk Volume Requirements
-   - The number of disks must be fewer than 32.
-   - Offline synchronization is not supported for source disks. All disks must be online before synchronization. You can configure disks that do not need data synchronization through the source configuration file.
-   - Disks that do not need synchronization (except boot disks) can be specified through configuration. Refer to the EXCLUDE_DISKS configuration item in the configuration file. Excluded disks can be offline. Note: Modifying the EXCLUDE_DISKS configuration item must be completed before the first service startup (node registration). Once the host node registration is completed, this configuration item cannot be modified. If you need to modify it, you need to clear the resources and re-register the node.
-   - If there are shared disks mounted to multiple hosts on the source side, only one host's shared disk can be selected for synchronization during migration. The shared disks on other hosts can be excluded through the EXCLUDE_DISK configuration item.
-   - The free space ratio of the volume should not be less than 3%. If the system incremental data is large, additional free space is required to reserve space for storing VSS snapshots. Insufficient space may cause snapshot abnormalities, leading to synchronization failure.
-   - Simple volumes and partition volumes synchronization are supported, but not volumes with areas, mirror volumes, or RAID volumes.
-   - Windows dynamic disks cannot be used as system boot partitions.
-   - Windows operating system UEFI boot is not supported.
+### 磁盘卷要求
+   - 支持的磁盘数量不超过32个。
+   - 不支持源磁盘的离线同步。所有磁盘必须在同步前保持在线。您可以通过源配置文件配置不需要同步的磁盘。
+   - 不需要同步的磁盘（除启动磁盘外）可通过配置进行排除。参考配置文件中的`EXCLUDE_DISKS`配置项。排除的磁盘可以离线。注意：修改`EXCLUDE_DISKS`配置项必须在首次启动服务（节点注册）之前完成。节点注册完成后，无法修改该配置项。如需修改，请清除资源并重新注册节点。
+   - 如果源端有共享磁盘挂载到多个主机，在迁移过程中只能选择其中一台主机的共享磁盘进行同步。其他主机上的共享磁盘可以通过`EXCLUDE_DISK`配置项排除。
+   - 卷的空闲空间比例应不低于3%。如果系统增量数据较大，需额外预留空间用于存储VSS快照。空间不足可能导致快照异常，进而导致同步失败。
+   - 支持同步简单卷和分区卷，但不支持带有区域的卷、镜像卷或RAID卷。
+   - Windows动态磁盘不能作为系统启动分区。
+   - 不支持Windows操作系统的UEFI启动。
    
-### File System and Volume Snapshot Requirements
-   - NTFS file system supports VSS synchronization mode, which only synchronizes valid data.
-   - Raw devices or other file systems outside of NTFS do not support VSS mode and are synchronized based on the actual disk capacity.
-   - In VSS mode, the VSS service on the source host must be running normally. You can use the vssadmin command line provided by Windows to create and delete shadows.
-   - In cloud disk mode, the MsiscsiService service must be running normally.
-   - During data synchronization on the source host, do not manually delete Windows VSS shadows. Otherwise, synchronization failure may occur, and you will need to restart full synchronization.
+### 文件系统与卷快照要求
+   - NTFS文件系统支持VSS同步模式，仅同步有效数据。
+   - 原始设备或其他非NTFS文件系统不支持VSS模式，基于实际磁盘容量同步。
+   - 在VSS模式下，源主机上的VSS服务必须正常运行。您可以使用Windows提供的`vssadmin`命令行工具来创建和删除快照。
+   - 在云磁盘模式下，`MsiscsiService`服务必须正常运行。
+   - 在源主机的同步过程中，请勿手动删除Windows VSS快照，否则会导致同步失败，并需要重新启动全量同步。
    
-### Network Requirements
-   - In cloud disk mode, the source host needs to be able to access port 3260 of the target endpoint and ensure that iSCSI communication is normal.
-   - In cloud disk mode, if the source disk contains iSCSI disks, use caution and do not change the original Initiator Name to avoid affecting the normal operation of the business system.
-   - In cloud disk mode synchronization, the network bandwidth from the source host to the target host should not be less than 5 Mbps to ensure the stability of the iSCSI target disk. Bandwidth less than 5 Mbps may cause instability of the iSCSI disk, resulting in synchronization failure. Ensure network stability, low latency, and low jitter.
-   - Support proxy mode, set the correct proxy server and port through the interface during installation and startup stages.
+### 网络要求
+   - 在云磁盘模式下，源主机需要能够访问目标端点的3260端口，并确保iSCSI通信正常。
+   - 在云磁盘模式下，如果源磁盘包含iSCSI磁盘，请谨慎操作，不要更改原始发起器名称，以避免影响业务系统的正常运行。
+   - 在云磁盘模式同步时，源主机到目标主机的网络带宽应不少于5Mbps，以确保iSCSI目标磁盘的稳定性。带宽低于5Mbps可能导致iSCSI磁盘不稳定，从而导致同步失败。确保网络稳定、低延迟和低抖动。
+   - 支持代理模式，可在安装和启动阶段通过界面设置正确的代理服务器和端口。
    
-### System Patch Requirements
-   - To ensure the normal operation of the DiskSyncAgent service, you need to install patch KB4474419 on three types of systems: Windows 2008 32-bit, Windows 2008 64-bit, and Windows 2008 R2 64-bit. After installing the patch, restart the system before starting the DiskSyncAgent service. For patch installation methods, please refer to the appendix.
+### 系统补丁要求
+   - 为确保DiskSyncAgent服务正常运行，需要在Windows 2008 32位、Windows 2008 64位和Windows 2008 R2 64位系统上安装补丁KB4474419。安装补丁后，请重启系统再启动DiskSyncAgent服务。有关补丁安装方法，请参考附录。
    
-### Security Software Requirements
-   - If your host has security software installed, it is recommended to completely disable it before synchronization (for some software, the exit function cannot completely disable the software. If you are unsure whether the software can be completely disabled, it is recommended to uninstall the related software first).
-   - If you cannot completely disable the software, pay attention to the security software's warning messages during the installation and startup of the Agent service. If a warning message window appears, be sure to set trust for all operations of the software to avoid interception or warning from the security software. Do not temporarily disable security software for the installation and startup of Windows Agent, as this may damage the Agent service. If this happens, you need to restart the host to restore the host service. For the list of security software that affects Agent data synchronization, please refer to Appendix 2.
+### 安全软件要求
+   - 如果主机已安装安全软件，建议在同步前完全禁用安全软件（对于某些软件，退出功能可能无法完全禁用该软件。如果不确定安全软件是否可以完全禁用，建议先卸载相关软件）。
+   - 如果无法完全禁用安全软件，在安装和启动Agent服务时请注意安全软件的警告信息。如果弹出警告信息窗口，请务必对所有操作设置信任，避免安全软件拦截或警告。请勿在安装和启动Windows Agent时暂时禁用安全软件，因为这可能会损害Agent服务。如果发生此问题，需重启主机以恢复服务。有关影响Agent数据同步的安全软件列表，请参考附录2。
    
-### Time Synchronization Requirements
-   - Under conditions where the host can connect to the Internet, it needs to synchronize with the Internet time to maintain consistency. If you cannot connect to the Internet, you need to synchronize with the time server within the intranet.
+### 时间同步要求
+   - 在主机可以连接到互联网的情况下，需要与互联网时间同步，以保持一致性。如果无法连接互联网，则需要与内网时间服务器同步。
