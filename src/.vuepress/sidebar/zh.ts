@@ -10,7 +10,7 @@ export const zhSidebar = sidebar({
     //   children: "structure",
     // },
     {
-      text: "Docs",
+      text: "文档中心",
       icon: "book",
       prefix: "guide/",
       children: "structure",
@@ -106,7 +106,18 @@ export const zhSidebar = sidebar({
   ],
   "/zh/product-overview/": [
     {
-      text: "Features Matrix",
+      text: "产品概览",
+      icon: "book",
+      prefix: "",
+      children: [
+        'product-training/product-overview.md',
+        'product-training/scenarios.md',
+        'product-training/technical-highlights.md',
+        'product-training/project-delivery.md',
+      ],
+    },
+    {
+      text: "功能矩阵",
       icon: "book",
       prefix: "",
       children: [
@@ -114,7 +125,7 @@ export const zhSidebar = sidebar({
       ],
     },
     {
-      text: "Production Site Compatibility & Limitations",
+      text: "兼容性与限制条件",
       icon: "book",
       prefix: "",
       children: [
@@ -125,7 +136,7 @@ export const zhSidebar = sidebar({
       ],
     },
     {
-      text: "HyperBDR Operation",
+      text: "操作指南",
       icon: "book",
       prefix: "",
       children: [

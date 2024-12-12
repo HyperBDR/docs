@@ -3,7 +3,7 @@ import { navbar } from "vuepress-theme-hope";
 export const zhNavbar = navbar([
   "/zh/",
   {
-    text: "Docs",
+    text: "文档中心",
     icon: "book",
     prefix: "/",
     children: [
@@ -15,13 +15,13 @@ export const zhNavbar = navbar([
         // children: ["baz", { text: "...", icon: "ellipsis", link: "#" }],
         children: [],
       },
-      // {
-      //   text: "Product Overview",
-      //   icon: "lightbulb",
-      //   prefix: "zh/product-overview/",
-      //   link: "/zh/product-overview/",
-      //   children: [],
-      // },
+      {
+        text: "产品概览",
+        icon: "lightbulb",
+        prefix: "zh/product-overview/",
+        link: "/zh/product-overview/",
+        children: [],
+      },
       // {
       //   text: "Product Training",
       //   icon: "lightbulb",
