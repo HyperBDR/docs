@@ -17,7 +17,7 @@ HyperBDR 支持单机离线部署。我们将提供离线安装包进行安装�
 | 内存     | 16 GiB                                                                                                              |
 | 操作系统   | Ubuntu 20.04 server 64bit                                                                                           |
 | 系统盘    | 200GB                                                                                                               |
-| 端口开放规则 | [HyperBDR Open Network Plicy](https://docs.oneprocloud.com/userguide/faq/faq.html#hyperbdr-required-network-policy) |
+| 端口开放规则 | [HyperBDR Open Network Policy](https://docs.oneprocloud.com/userguide/faq/faq.html#hyperbdr-required-network-policy) |
 
 ::: tip
 如果您所在的平台没有 Ubuntu 20.04 Server 64 位镜像，那么您可以下载我们提供的标准镜像，并将其导入平台进行安装。
