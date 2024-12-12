@@ -62,6 +62,11 @@ export const enNavbar = navbar([
     ],
   },
   {
+    text: "Get Support",
+    icon: "link",
+    link: "https://support.oneprocloud.com/",
+  },
+  {
     text: "OneProCloud",
     icon: "link",
     link: "https://oneprocloud.com/",

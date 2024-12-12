@@ -32,7 +32,12 @@ export const zhNavbar = navbar([
     ],
   },
   {
-    text: "OneProCloud",
+    text: "获取支持",
+    icon: "link",
+    link: "https://support.oneprocloud.com/",
+  },
+  {
+    text: "OneProCloud官网",
     icon: "link",
     link: "https://oneprocloud.com/",
   },
