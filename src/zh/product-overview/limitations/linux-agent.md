@@ -1,12 +1,12 @@
 # Linux Agent
 
-## OS Support
+## 操作系统支持
 
-Click [Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/WjvRswHPPh4UUgtLlxucQ9R8nwf?from=from_copylink) to view the compatibility list and get the latest support status.
+点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)查看兼容性列表及最新支持状态。
 
-## FileSystem & Partition Types
+## 文件系统与分区类型
 
-### FileSystem
+### 文件系统
 
 * EXT2
 * EXT3
@@ -15,51 +15,52 @@ Click [Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/WjvRs
 * FAT
 * exFAT
 
-### Partitions
+### 分区类型
 
-* Primary/ Extended 
-* Logical Volume Manager (LVM)
+* 主分区/扩展分区
+* 逻辑卷管理器（LVM）
 * MBR
 * GPT
 
-## Kernel Support
+## 内核支持
 
-Due to the involvement of kernel modules during runtime, the installation and execution of the Linux Agent depend on the version of the kernel modules. Currently, the supported kernel range is from version 2.6.32 to 5.8, and these kernel versions are built from standard community versions.
+由于运行时涉及内核模块的使用，Linux Agent的安装与执行取决于内核模块的版本。目前支持的内核版本范围为2.6.32到5.8，且这些版本均为标准社区版本构建。
 
-### Limitations
+### 限制
 
-* We currently do not support kernel versions with cloud tags. If there is a need for specific kernel versions, please contact us for support.
-* Regarding limitations, currently, for versions 4.17.0 and above, if the source host undergoes a restart, incremental transmission cannot continue, and HyperBDR will automatically revert to full synchronization.
+* 目前不支持带有云标签的内核版本。如果需要特定的内核版本支持，请联系技术支持。
+* 关于限制，目前版本4.17.0及以上的内核版本，如果源主机重启，增量传输将无法继续，云容灾平台（HyperBDR）会自动切换回全量同步模式。
 
 
-## Support and Limitations
+## 基本要求
 
-### Basic Requirements:
-- **CPU:** x86-64-bit processor (i386 or later)
-- **Memory:** Each mounted point consumes approximately 300MB of cache space. For example, if there are 3 mounted points, around 1000MB of memory will be consumed.
-- **Disk Space:**
-  - *Software Space:* 100MB of available space for software installation.
-  - *Cache Space:* Each filesystem must have remaining space greater than 10%.
-- **Network Connection:** At least 10 Mbps connection to the target endpoint.
-- **System Firmware:** BIOS or UEFI.
-- **Disk Layout:** MBR or GPT.
-- **Virtualization Support:** Full virtualization is supported, but support for paravirtualization (e.g., XenServer) is limited. Manual repair may be required during final boot.
+### 硬件要求:
+- **CPU:** x86-64位处理器（i386或更高版本）
+- **内存:** 每个挂载点大约消耗300MB的缓存空间。例如，如果有3个挂载点，大约需要1000MB内存。
+- **磁盘空间:**
+  - *软件空间:* 软件安装需至少100MB可用空间。
+  - *缓存空间:* 每个文件系统需保留大于10%的可用空间。
+- **网络连接:** 至少10Mbps的连接带宽，连接至目标端点。
+- **系统固件:** BIOS或UEFI.
+- **磁盘布局:** MBR或GPT.
+- **虚拟化支持:** 支持完全虚拟化，但对半虚拟化（如XenServer）支持有限，可能在最终启动时需要手动修复。
 
-### System Boot:
-- Systems bootable with both grub and grub2 methods are synchronized and started.
-- Host driver repair using LILO boot method is not supported.
-- If there is a separate /boot partition, it must be defined in /etc/fstab; otherwise, repair during boot driver recovery will fail, resulting in boot failure. If this definition is indeed missing, manual addition is recommended (the partition is not mounted in the fstab table).
-- The first disk in the host must be the boot disk. Disaster recovery settings specifying the boot disk are currently not supported.
+### 系统启动要求:
+- 支持grub和grub2启动方法的系统可同步并启动。
+- 不支持LILO启动方法的主机驱动修复。
+- 如果存在单独的/boot分区，它必须在/etc/fstab中定义；否则，启动驱动修复时会失败，导致启动失败。如果该定义缺失，建议手动添加（该分区没有挂载在fstab表中）。
+- 主机的第一块磁盘必须是启动磁盘。目前不支持在灾难恢复设置中指定启动磁盘。
 
-### Disk and Partition Restrictions:
-- When a shared disk is mounted for use by multiple hosts on the source side, it is migrated according to the hosts, so the shared disk will be migrated multiple times. After reaching the target side, there will be multiple identical disks, so redundant disks need to be manually cleaned up, leaving only one shared disk shared among multiple hosts.
-- Multipath remote disks (FC, IP SAN) are currently not supported.
-- Unmounted partitions and disks (raw disks not mounted to specific directories) are currently not supported.
-- Encryption of LUKS disks/partitions is currently not supported.
-- Network-shared mount directories (e.g., NFS/NAS remote network access data) require the use of separate file-level synchronization tools for data synchronization.
-- When using hosts with iSCSI disks, care must be taken not to modify the original Initiator Name to avoid affecting business systems.
-- Btrfs file system is currently not supported.
+### 磁盘与分区限制:
+- 当一个共享磁盘被多个源主机挂载使用时，它会根据主机进行迁移，因此该共享磁盘会被多次迁移，目标端会有多个相同的磁盘，需要手动清理冗余磁盘，只保留一个共享的磁盘供多个主机共享。
+- 当前不支持多路径远程磁盘（FC、IP SAN）。
+- 当前不支持未挂载的分区和磁盘（未挂载到特定目录的裸磁盘）。
+- LUKS 加密磁盘/分区不支持。
+- 网络共享挂载目录（如NFS/NAS远程网络访问数据）需要使用独立的文件级同步工具进行数据同步。
+- 使用iSCSI磁盘时，注意不要修改原始发起器名称，以免影响业务系统。
+- 当前不支持Btrfs文件系统。
+- 不支持LVM精简逻辑卷。
 
-### Application Conflict Check:
-- Components identical to the Linux Agent must not exist in the system.
+### 应用冲突检查:
+- 系统中不得存在与Linux Agent相同的组件。
 
