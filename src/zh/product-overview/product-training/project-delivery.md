@@ -1,86 +1,86 @@
-# Project Delivery
+# 项目交付
 
-## Can we do this project?
+## 我们能做这个项目吗？
 
-When we first talk to a user, how do we decide if we can recommend HyperMotion & HyperBDR disaster recovery to them?
+当我们首次与用户沟通时，如何判断我们是否可以向他们推荐云迁移平台（HyperMotion）与云容灾平台（HyperBDR）的灾难恢复解决方案？
 
 ![can we do this project](./images/project-delivery-can-we-do-this-project.png)
 
-Here's a simple way to decide:
-* Firstly, if the user's business systems are running on servers and they need disaster recovery, then they might be a potential customer. If they use Oracle RAC or cloud-native relational database services partially, they might need a hybrid solution we mentioned before. If they only want to protect Oracle or use cloud-native services entirely, they might not be able to use Hyper BDR for disaster recovery.
-* Secondly, currently, HyperMotion & HyperBDR mainly works with X86 architecture servers. It doesn't work with ARM or IBM Power series for now.
-* Thirdly, they should be using common operating systems like CentOS, Redhat, SUSE, Windows, etc. However, some operating systems provided by cloud providers might be customized with modified kernels, so standard HyperMotion & HyperBDR products may not work directly, and custom development might be needed.
-* Finally, if the user can accept a recovery point objective (RPO) of minutes, then they are likely potential users of HyperMotion & HyperBDR.
+以下是判断是否可以推荐的一种简单方法：
+* 首先，如果用户的业务系统运行在服务器上，并且他们需要灾难恢复，那么他们可能是潜在客户。如果他们部分使用Oracle RAC或云原生关系数据库服务，可能需要我们之前提到的混合解决方案。如果他们只想保护Oracle或者完全使用云原生服务，可能无法使用云容灾平台（HyperBDR）进行灾难恢复。
+* 其次，目前云迁移平台（HyperMotion）与云容灾平台（HyperBDR）主要支持X86架构的服务器，暂不支持ARM或IBM Power系列。
+* 第三，用户应使用常见操作系统，如CentOS、Redhat、SUSE、Windows等。然而，一些云服务商提供的操作系统可能会经过定制，修改了内核，因此标准的云迁移平台（HyperMotion）与云容灾平台（HyperBDR）产品可能无法直接使用，可能需要进行定制开发。
+* 最后，如果用户能接受分钟级的恢复点目标（RPO），那么他们很可能是云迁移平台（HyperMotion）与云容灾平台（HyperBDR）的潜在用户。
 
-## Project Gantt Overview
+## 项目甘特图概览
 
-To facilitate understanding of the entire project delivery process, we use Gantt charts for illustration:
+为了便于理解整个项目交付流程，我们使用甘特图进行说明：
 
 ![project delivery gantt overview](./images/project-delivery-gantt.png)
 
-1. After confirming that HyperMotion & HyperBDR can meet the customer's requirements, we need to conduct research on the customer's business systems to determine the scope of support.
+1. 在确认云迁移平台（HyperMotion）与云容灾平台（HyperBDR）可以满足客户需求后，我们需要对客户的业务系统进行调研，以确定支持范围。
 
-2. Based on the research findings, we determine the types of cloud storage to be used based on the requirements for disaster recovery networks, RPO, and RTO, ultimately forming a delivery plan.
+2. 根据调研结果，我们根据灾难恢复网络、RPO和RTO的要求，决定使用的云存储类型，并最终形成交付计划。
 
-3. Once the project enters the delivery phase, pre-configuration is conducted for the user's source end and network environment according to the checklist. Simultaneously, network configuration and HyperMotion & HyperBDR installation and configuration are performed in the cloud.
+3. 一旦项目进入交付阶段，我们根据清单对用户的源端和网络环境进行预配置。同时，在云平台上进行网络配置及云迁移平台（HyperMotion）或云容灾平台（HyperBDR）的安装和配置。
 
-4. After the installation and configuration of the production environment and HyperMotion & HyperBDR are completed, we enter the product usage phase, synchronizing data according to the schedule. The amount of data synchronized depends on factors such as data volume and bandwidth.
+4. 在生产环境和云迁移平台（HyperMotion）或云容灾平台（HyperBDR）安装配置完成后，我们进入产品使用阶段，根据计划进行数据同步。同步的数据量取决于数据量和带宽等因素。
 
-5. After the initial synchronization is completed, it is recommended to conduct a drill to confirm the integrity of disaster recovery data.
+5. 初始同步完成后，建议进行演练，以确认灾难恢复数据的完整性。
 
-6. Finally, HyperMotion & HyperBDR is monitored, and alarm configurations are made, completing the project delivery and entering the maintenance phase.
+6. 最后，进行云迁移平台（HyperMotion）或云容灾平台（HyperBDR）的监控，并进行报警配置，完成项目交付，进入维护阶段。
 
-## Investigation
+## 调研
 
-Disaster recovery research mainly involves three aspects: host, network, and applications.
+灾难恢复调研主要涉及三个方面：主机、网络和应用。
 
 ![project delivery investigation](./images/project-delivery-investigation.png)
 
-1. When conducting host research, we need to gather detailed information about the hosts to determine if HyperMotion & HyperBDR fully supports them. We can use methods provided in the official HyperMotion & HyperBDR documentation for this.
+1. 进行主机调研时，我们需要收集主机的详细信息，以确定云迁移平台（HyperMotion）或云容灾平台（HyperBDR）是否完全支持它们。可以使用官方文档中提供的方法进行此操作。
 
-2. Network research aims to determine the existing network topology and bandwidth situation of the users. With this information, we can plan the disaster recovery network on the cloud platform and decide if VPN or dedicated connections are needed between the user's production and backup sites.
+2. 网络调研旨在确定用户现有的网络拓扑和带宽情况。通过这些信息，我们可以在云平台上规划灾难恢复网络，并决定是否需要在用户的生产站点与备份站点之间使用VPN或专线。
 
-3. Application system research can be carried out concurrently with host research. It mainly involves determining the importance of user business systems and configuring different disaster recovery strategies in HyperMotion & HyperBDR based on their importance levels. Additionally, we need to establish the sequence for taking over systems during disaster recovery based on their interdependencies.
+3. 应用系统调研可以与主机调研同时进行，主要是确定用户业务系统的重要性，并根据重要性级别在云迁移平台（HyperMotion）或云容灾平台（HyperBDR）中配置不同的灾难恢复策略。此外，我们需要根据系统之间的相互依赖关系，确定灾难恢复期间系统接管的顺序。
 
-### Useful Links
+### 有用链接
 
-* [OS & Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/ItUJsXCqgh7tzmtRYygcCw7YnvK?from=from_copylink)
-* [Linux Agent Compatibility & Limitations](/product-overview/limitations/linux-agent.html)
-* [Windows Agent Compatibility & Limitations](/product-overview/limitations/windows-agent.html)
-* [VMware Agentless Compatibility & Limitations](/product-overview/limitations/vmware-agentless.html)
+* [操作系统和云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/ItUJsXCqgh7tzmtRYygcCw7YnvK?from=from_copylink)
+* [Linux Agent兼容性及限制](/product-overview/limitations/linux-agent.html)
+* [Windows Agent兼容性及限制](/product-overview/limitations/windows-agent.html)
+* [VMware无代理兼容性及限制](/product-overview/limitations/vmware-agentless.html)
 
-## RPO & RTO Planning
+## RPO与RTO规划
 
-Planning for RPO and RTO needs to be based on the requirements of the user's business systems. Here are some best practices for RPO and RTO planning, which you can read by clicking the link provided.
+RPO和RTO的规划需要基于用户业务系统的要求。以下是一些RPO和RTO规划的最佳实践，您可以通过点击链接了解更多内容。
 
 ![project delivery rpo rto planning](./images/project-delivery-rpo-rto-planning.png)
 
-Currently, the minimum RPO time for HyperMotion & HyperBDR is 5 minutes, and it needs to be matched with the corresponding network bandwidth based on the size of data increments.
+目前，云迁移平台（HyperMotion）与云容灾平台（HyperBDR）的最小RPO时间为5分钟，并需要根据数据增量的大小匹配相应的网络带宽。
 
-In terms of RTO planning, the Huawei Cloud block storage mode is independent of data volume, with recovery times always within 15 minutes. However, the object storage mode is related to data volume. Specific indicator parameters can be referred to in the content of best practices.
+在RTO规划方面，云平台的块存储模式与数据量无关，恢复时间始终在15分钟内。而对象存储模式则与数据量相关，具体的指标参数可以参考最佳实践内容。
 
-Based on the expected RTO of the user's business system, choose the appropriate storage type reasonably.
+根据用户业务系统的预期RTO，合理选择适当的存储类型。
 
-## Workload DR Network Planning
+## 工作负载灾难恢复网络规划
 
-User's disaster recovery network planning is directly related to the connection between the production network and the disaster recovery network. Here, we also provide some best practice content for your reference. However, network planning is often a complex topic that requires experienced network engineers to make reasonable plans based on actual conditions. Here, based on some typical cases, we provide some suggestions:
+用户的灾难恢复网络规划与生产网络和灾难恢复网络之间的连接直接相关。这里，我们还提供了一些最佳实践内容供您参考。然而，网络规划通常是一个复杂的话题，需要经验丰富的网络工程师根据实际情况制定合理的规划。基于一些典型案例，以下是一些建议：
 
 ![DR Network Planning](./images/project-delivery-network-planning.png)
 
-If the user synchronizes data using the public network, the addresses of the production network and the disaster recovery network can remain the same.
+如果用户通过公网同步数据，生产网络和灾难恢复网络的地址可以保持一致。
 
-If the user connects the production center and the disaster recovery center using VPNs and dedicated lines, it is recommended to choose different takeover networks. This can effectively avoid the impact on the production environment during drills or takeovers.
+如果用户使用VPN和专线连接生产中心与灾难恢复中心，建议选择不同的接管网络。这样可以有效避免在演练或接管过程中对生产环境的影响。
 
-## Use Checklist for Deployment
+## 部署清单使用
 
-As we officially enter the deployment phase, it's crucial to use a Checklist along with the delivery process. The Checklist provides clear guidance for users to follow through each step of the operation.
+当我们正式进入部署阶段时，使用清单与交付流程相结合至关重要。清单为用户提供了明确的指导，帮助其逐步完成每个操作步骤。
 
 ![DR Checklist](./images/project-delivery-checklist.png)
 
-When selecting the Checklist, start by choosing based on the type of source system. Then, select the storage type of the cloud platform being used, followed by deciding on the network connection, whether it's through the public network or via VPN or dedicated lines. Finally, locate the corresponding Checklist.
+选择清单时，首先根据源系统的类型进行选择。然后选择所使用的云平台存储类型，接着决定网络连接方式，是通过公网还是通过VPN或专线。最后，定位到对应的清单。
 
-The Checklist is presented in a form format and needs to be completed step by step according to the guidance to finish the installation and configuration work of HyperMotion & HyperBDR.
+清单以表单格式呈现，用户需要根据指导逐步填写完成，以完成云迁移平台（HyperMotion）或云容灾平台（HyperBDR）的安装和配置工作。
 
-### Checklist Links
+### 清单链接
 
-* [Checklist](/checklist/dr-checklist.html)
+* [清单](/checklist/dr-checklist.html)
