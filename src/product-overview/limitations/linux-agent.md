@@ -31,7 +31,6 @@ Due to the involvement of kernel modules during runtime, the installation and ex
 * We currently do not support kernel versions with cloud tags. If there is a need for specific kernel versions, please contact us for support.
 * Regarding limitations, currently, for versions 4.17.0 and above, if the source host undergoes a restart, incremental transmission cannot continue, and HyperBDR will automatically revert to full synchronization.
 
-
 ## Support and Limitations
 
 ### Basic Requirements:
@@ -64,3 +63,10 @@ Due to the involvement of kernel modules during runtime, the installation and ex
 ### Application Conflict Check:
 - Components identical to the Linux Agent must not exist in the system.
 
+::: warning
+
+When using the Linux Agent, make sure to monitor memory usage carefully. If the system is handling long data transfers with tools like `scp` or `rsync` and memory usage stays above 70% for a long time, avoid enabling the Linux Agent. This may cause the system to run out of memory (OOM), leading to service interruptions or even a system reboot.  
+
+To reduce the risk, consider optimizing resource usage or running the Linux Agent during less busy times.
+
+:::
