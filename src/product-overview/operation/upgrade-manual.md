@@ -25,8 +25,9 @@ tar zxvf upgrade_incremental_4.4.0_to_4.9.0.tar.gz -C /tmp/
 ```shell
 cat /opt/installer/Version 
 HyperBDR_release_v4.9.0_20230928-20230927-1437.tar.gz 
-## The installed version is HyperBDR_release_v4.9.0_20230928
 ```
+
+The installed version is HyperBDR_release_v4.9.0_20230928
 
 > If the HyperBDR version is earlier than 4.6.0, perform the following additional steps:
 
@@ -75,9 +76,9 @@ After the upgrade is completed, execute the following command to view the curren
 [root@localhost installer]# cat /opt/installer/Version 
 
 HyperBDR_release_v5.2.0_20230928-20230927-1437.tar.gz 
-
-## The installed version is HyperBDR_release_v5.2.0_20230928
 ```
+
+The installed version is HyperBDR_release_v5.2.0_20230928
 
 ## Update **Linux Agent**, **Windows Agent** and Agentless **Sync Proxy**
 
