@@ -82,7 +82,7 @@ The operating system used for the installation must be Ubuntu 20.04 version.
 - Execute the following command to unzip the installation package  
 
 ```sh
-tar -zxvf "$HYPERBDR_PACKAGE_NAME" -C /mnt/  
+rm -rf /mnt/installer && tar -zxvf "$HYPERBDR_PACKAGE_NAME" -C /mnt/  
 ```
 ### Run the installation script
 
