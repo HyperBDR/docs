@@ -125,6 +125,7 @@ export const enSidebar = sidebar({
         'product-training/product-overview.md',
         'product-training/scenarios.md',
         'product-training/technical-highlights.md',
+        'product-training/data-sync-fundamentals.md',
         'product-training/project-delivery.md',
       ],
     },
