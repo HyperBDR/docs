@@ -6,6 +6,8 @@ The Linux Agent consists of user-space and kernel-space modules. The kernel-spac
 
 The kernel module manages snapshots and tracks changes using a copy-on-write (COW) system. When first initialized, it creates a COW datastore file on the drive and intercepts writes at the block level. Before completing a write, it copies data that is about to be changed into the snapshot store, maintaining a consistent snapshot of the filesystem even during ongoing writes. The module uses an index at the start of the on-disk COW file to manage and access snapshot data, enabling reliable, consistent point-in-time block-level images that are more dependable than alternative methods.
 
+![Linux Agent Data Sync](./images/data-sync-fundamentals-1.png)
+
 ## Windows Agent
 
 **Windows Agent** is divided into two main layers: kernel mode and application layer.
@@ -17,6 +19,8 @@ The kernel module manages snapshots and tracks changes using a copy-on-write (CO
 3. **Snapshots and Synchronization**: Data synchronization is done at the block level. The application layer analyzes each protected disk to identify the start and end positions of each volume and creates a mapping. This helps the system quickly locate and read each block of data from the corresponding volume or disk.
     
 4. **Efficient Data Synchronization**: To enhance synchronization efficiency, the application layer only synchronizes valid data from the volumes. It reads the metadata of each volume to check a bitmap that shows which sectors contain valid data and which do not. During data synchronization, the system skips invalid data areas to optimize the process.
+
+![Windows Agent Data Sync](./images/data-sync-fundamentals-2.png)
 
 ## VMware Agentless
 
