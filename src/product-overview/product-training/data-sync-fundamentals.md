@@ -1,12 +1,14 @@
 # Data Sync Fundamentals
 
+This document aims to provide a detailed explanation of the source-side synchronization principle, covering the underlying implementation technologies of both Agent-based and Agentless modes. As one of the core technologies for data backup and recovery solutions, the efficiency and reliability of source-side synchronization directly impact the overall performance of disaster recovery systems. This document will focus on the core implementation mechanisms of our product in these two modes and provide an in-depth explanation of the incremental data acquisition principle, helping readers gain a comprehensive understanding of the key technologies behind data synchronization.
+
 ## Linux Agent
 
 The Linux Agent consists of user-space and kernel-space modules. The kernel-space module captures I/O changes and monitors read and write operations in the file system. The user-space module transfers the captured data to the target storage using different protocols and manages the process of full and incremental backups. Through the collaboration of the kernel-space and user-space modules, the Linux Agent efficiently performs data synchronization and backup tasks.
 
 The kernel module manages snapshots and tracks changes using a copy-on-write (COW) system. When first initialized, it creates a COW datastore file on the drive and intercepts writes at the block level. Before completing a write, it copies data that is about to be changed into the snapshot store, maintaining a consistent snapshot of the filesystem even during ongoing writes. The module uses an index at the start of the on-disk COW file to manage and access snapshot data, enabling reliable, consistent point-in-time block-level images that are more dependable than alternative methods.
 
-![Linux Agent Data Sync](./images/data-sync-fundamentals-1.png)
+![Linux Agent Data Sync](./images/data-sync-fundamentals-1-linux-agent.png)
 
 ## Windows Agent
 
@@ -20,7 +22,7 @@ The kernel module manages snapshots and tracks changes using a copy-on-write (CO
     
 4. **Efficient Data Synchronization**: To enhance synchronization efficiency, the application layer only synchronizes valid data from the volumes. It reads the metadata of each volume to check a bitmap that shows which sectors contain valid data and which do not. During data synchronization, the system skips invalid data areas to optimize the process.
 
-![Windows Agent Data Sync](./images/data-sync-fundamentals-2.png)
+![Windows Agent Data Sync](./images/data-sync-fundamentals-2-windows-agent.png)
 
 ## VMware Agentless
 
@@ -32,11 +34,16 @@ Before each synchronization, to ensure data consistency and integrity, the syste
 
 During incremental backups, the CBT mechanism marks modified data blocks (Changed Blocks) on the disk. This allows the system to efficiently identify and sync only the changed data, without retransmitting the entire virtual machine disk content. This not only saves bandwidth and storage space but also significantly reduces the time required for backups.
 
+![VMware Agentless Data Sync](./images/data-sync-fundamentals-3-vmware.png)
+
+
 ## OpenStack Ceph Agentless
 
 In agentless mode, data synchronization for an OpenStack cloud platform based on Ceph storage relies on the cooperation between the source sync proxy node, Ceph storage, and OpenStack API interfaces. This synchronization method uses incremental snapshot technology to ensure an efficient data synchronization process with optimized bandwidth utilization. Below is a detailed description of this data synchronization principle:
 
 **Note**: Currently, this synchronization method is only applicable to OpenStack platforms using Ceph storage with RBD connection support, and no modifications are made to the OpenStack API. This mode does not support OpenStack platforms using commercial storage solutions at this time.
+
+![OpenStack Ceph Agentless Data Sync](./images/data-sync-fundamentals-4-openstack-ceph.png)
 
 ### 1. Source Sync Proxy Node
 

@@ -1,12 +1,14 @@
 # 数据同步原理
 
+本⽂档旨在详细介绍源端同步的原理，涵盖代理（Agent-based）和无代理（Agentless）两种模式的底层实现技术。作为数据备份与恢复解决方案的核心技术之一，源端同步的效率与可靠性直接影响灾备系统的整体性能。本文将重点解析本产品在这两种模式下的核心实现机制，并深入阐述增量数据获取的原理，以帮助读者更全面地理解数据同步的关键技术。
+
 ## Linux Agent
 
 Linux Agent 主要由用户态和内核态模块组成。内核态模块负责捕获 I/O 变化，实时监控文件系统的读写操作；用户态模块则将捕获到的数据通过不同协议传输至目标存储，并管理全量和增量备份的流程。通过内核态和用户态模块的协同工作，Linux Agent 能够高效地执行数据同步和备份任务。
 
 Linux Agent内核模块通过实现写时复制（COW）系统来管理快照并跟踪更改。当首次为块设备初始化时，内核模块会在驱动器上创建一个 COW 数据存储文件。内核模块拦截所有块级写操作，并在写入完成之前将即将被更改的数据复制到快照存储中。通过这种方式，即使写操作正在进行，该模块也可以维护文件系统的完整和一致的快照。快照数据由内核模块通过位于磁盘上 COW 文件开头的索引进行管理和访问。此实现使我们的写时复制系统能够在块级别可靠地维护驱动器的完整时间点镜像，从而比其他方法更稳定和一致。
 
-![Linux Agent Data Sync](./images/data-sync-fundamentals-1.png)
+![Linux Agent Data Sync](./images/data-sync-fundamentals-1-linux-agent.png)
 
 ## Windows Agent
 
@@ -20,7 +22,7 @@ Linux Agent内核模块通过实现写时复制（COW）系统来管理快照并
     
 4. **有效数据同步**：应用层仅同步卷中的有效数据。通过读取每个卷的元数据中的位图（bitmap），计算有效和无效数据扇区，系统在数据同步时跳过无效区域，以优化同步过程。
 
-![Windows Agent Data Sync](./images/data-sync-fundamentals-2.png)
+![Windows Agent Data Sync](./images/data-sync-fundamentals-2-windows-agent.png)
 
 
 ## VMware无代理方式
@@ -33,11 +35,15 @@ VMware 无代理方式的数据同步主要通过 VMware 的 Changed Block Track
 
 在增量备份过程中，CBT 机制会标记磁盘中已修改的数据块（Changed Blocks）。通过这种方式，系统能够高效地识别并仅同步这些变化的数据，而无需重新传输整个虚拟机的磁盘内容。这样，不仅节省了带宽和存储空间，还显著减少了备份所需的时间。
 
+![VMware Agentless Data Sync](./images/data-sync-fundamentals-3-vmware.png)
+
 ## OpenStack Ceph无代理方式
 
 在无代理模式下，基于Ceph存储的OpenStack云平台的数据同步依赖于源端同步代理节点、Ceph存储和OpenStack API接口之间的协作。该同步方式通过增量快照技术，确保数据同步过程高效且带宽利用最大化。以下是该数据同步原理的详细描述：
 
 **注意**：当前该同步模式仅适用于使用Ceph存储并支持RBD连接的OpenStack平台，且OpenStack API未做修改。对于采用商业化存储的OpenStack平台，该模式暂时不支持。
+
+![OpenStack Ceph Agentless Data Sync](./images/data-sync-fundamentals-4-openstack-ceph.png)
 
 ### 1. 源端同步代理节点
 
