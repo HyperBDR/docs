@@ -72,4 +72,14 @@ VMware 无代理方式的数据同步主要通过 VMware 的 Changed Block Track
 
 ## AWS无代理方式
 
-[Deep in AWS Agentless Mode](../../userguide/presales/aws-agentless-mode-cost-calculator.md)
+AWS EC2 无代理同步模式的优势主要得益于 AWS 云平台提供的 AWS EBS Direct API。这项技术使用户能够在无需安装任何代理的情况下，快速高效地对 EC2 实例进行备份和数据同步。AWS EBS Direct API 的工作原理与 VMware CBT（Changed Block Tracking）有一定的相似性，利用 REST API 提供接口，使得这一功能不仅灵活且易于集成。与传统的代理方式相比，EBS Direct API 无代理备份模式显著降低了操作复杂度，并提升了备份任务的性能。
+
+需要特别指出的是，当前在全球范围内的主要云平台（无论是公有云还是私有云），只有 AWS 提供了这种无代理接口的能力，允许用户在不部署代理程序的情况下，对云主机进行备份和数据同步。这一模式极大简化了运维流程，减少了部署和维护代理的负担，同时也有效降低了对主机性能的影响。
+
+尽管 Oracle Cloud 也提供了类似的解决方案，但其实现方式与 AWS 的有所不同。Oracle Cloud 并没有通过 REST API 提供无代理备份功能，而是通过 SCSI（Small Computer System Interface）协议中的底层特性来实现。这种方式相比于 AWS 的 REST API 方法，在集成和应用上显得更加复杂，且灵活性较差。
+
+对于其他云平台，如微软 Azure、Google Cloud、阿里云、华为云等，当前依然主要依赖代理方式进行数据同步。尽管这些云平台也提供了强大的云存储服务，但它们尚未支持通过 REST API 或类似的无代理技术，直接对云主机进行备份和数据同步。因此，用户在这些平台上进行备份时，仍然需要通过代理来实现增量同步或全量备份。如果要实现无代理的同步方式，需要云平台主动开放相关接口和能力，现阶段其他平台尚无法通过无代理方式进行数据同步。
+
+综上所述，AWS 通过 EBS Direct API 提供的无代理同步模式，是目前唯一支持这一技术的云平台之一。这一创新功能为用户提供了更加便捷、可靠的备份解决方案，同时也推动了无代理备份技术在云计算领域的发展。随着无代理同步技术的成熟，我们有理由相信，未来会有更多的云平台跟随 AWS 的步伐，推动这一技术的普及。
+
+更多详细的内容请参考：[Deep in AWS Agentless Mode](../../../userguide/presales/aws-agentless-mode-cost-calculator.md)

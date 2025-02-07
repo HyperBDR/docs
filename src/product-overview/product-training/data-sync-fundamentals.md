@@ -72,4 +72,14 @@ After data synchronization is completed, the source synchronization node perform
 
 ## AWS Agentless
 
-[Deep in AWS Agentless Mode](../../userguide/presales/aws-agentless-mode-cost-calculator.md)
+The advantage of AWS EC2's agentless synchronization mode mainly comes from the AWS cloud platform's AWS EBS Direct API. This technology allows users to back up and synchronize EC2 instances efficiently without installing any agents. The AWS EBS Direct API is similar in principle and mechanism to VMware CBT (Changed Block Tracking), but it provides an interface through a REST API, making it easier to integrate. Compared to traditional agent-based methods, the agentless backup mode of the EBS Direct API significantly reduces complexity and improves backup performance.
+
+It is important to note that, currently, only AWS offers this agentless interface capability among major global cloud platforms (both public and private clouds). This allows users to back up and synchronize cloud hosts without deploying agents. This mode not only simplifies operations but also reduces the impact on host performance.
+
+Although Oracle Cloud also provides a similar solution, its implementation differs from AWS. Oracle Cloud does not offer this capability via REST API but instead uses low-level features of the SCSI (Small Computer System Interface) protocol to achieve agentless backup. This method is more complex in terms of integration and application compared to AWS's REST API.
+
+For other cloud platforms like Microsoft Azure, Google Cloud, Alibaba Cloud, and Huawei Cloud, agent-based methods are still required for data synchronization. While these cloud platforms offer powerful cloud storage services, they do not yet support direct backup and data synchronization via REST API or similar agentless technologies. Therefore, users still need to use agents for incremental or full backups. To achieve agentless synchronization, cloud platforms would need to actively expose relevant APIs and capabilities, which are currently not available for agentless data synchronization.
+
+In conclusion, AWS is currently the only cloud platform that supports agentless synchronization via EBS Direct API. This innovative feature provides users with a more convenient and reliable backup solution and contributes to the development of agentless backup technology in the cloud computing industry.
+
+More details: [Deep in AWS Agentless Mode](../../userguide/presales/aws-agentless-mode-cost-calculator.md)
