@@ -23,7 +23,7 @@ Notes: We strongly recommend that when preparing HyperBDR console host resources
 ::: tip
 If the platform you are on does not have the `Ubuntu 20.04 Server 64bit` image, then you can download the standard image provided by us and import it to the platform for installation.
 
-Download Link: [Ubuntu-20.04-server-64bit.qcow2](https://downloads.oneprocloud.com/docs_images/Ubuntu-20.04-server-64bit.qcow2)
+Download Link: [ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
 :::
 
 ## Installation Demo Video
