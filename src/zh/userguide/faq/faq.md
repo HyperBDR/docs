@@ -345,3 +345,140 @@ Please note that different servers and IPMI implementations may have slight vari
 Due to the diverse models of underlying hardware in physical machines and the potential need for different drivers to accommodate various hardware models, it is essential to proactively query the hardware information of the physical machine, including RAID cards, disks, network cards, etc., when migrating or reverting.  
 
 Currently, manual intervention is required for the adaptation and repair of physical machine drivers. This involves the installation of hardware drivers to ensure compatibility and functionality.
+
+## SmartX导入和创建模板
+
+### **镜像源文件**
+
+华为云HyperOne国内账户 / 亚太-新加坡 / 对象存储 / 存储桶private-image-zl /SmartX
+
+
+### **镜像信息**
+
+#### **linux**
+
+版本：Ubuntu 20.04
+
+
+大小： 1.70 GB
+
+
+存储位置：
+
+[http://downloads.oneprocloud.com/smartx/linux/zl-20.04-template_t8jclld4.ovf](http://downloads.oneprocloud.com/smartx/linux/zl-20.04-template_t8jclld4.ovf)  
+
+[http://downloads.oneprocloud.com/smartx/linux/zl-ubuntu22.04-1.vmdk](http://downloads.oneprocloud.com/smartx/linux/zl-ubuntu22.04-1.vmdk)
+
+
+#### **windows**
+
+版本：Windows Server 2019
+
+
+大小：5.08 GB
+
+
+存储位置：
+
+[http://downloads.oneprocloud.com/smartx/windows/123123-1.vmdk](http://downloads.oneprocloud.com/smartx/windows/123123-1.vmdk)  
+
+[http://downloads.oneprocloud.com/smartx/windows/zl-2019-lastest.ovf](http://downloads.oneprocloud.com/smartx/windows/zl-2019-lastest.ovf)
+
+
+### **导入模板**
+
+如果厂商已经提供了镜像模版，那么直接按步骤导入即可。如若需要再次制作镜像模版，可参考下面“制作模版”的步骤。
+
+
+#### **导入windows模板-图示**
+
+![smartx-import-and-create-templates-1.png](./images/smartx-import-and-create-templates-1.png)
+
+
+![smartx-import-and-create-templates-2.png](./images/smartx-import-and-create-templates-2.png)
+
+
+![smartx-import-and-create-templates-3.png](./images/smartx-import-and-create-templates-3.png)
+
+
+![smartx-import-and-create-templates-4.png](./images/smartx-import-and-create-templates-4.png)
+
+
+![smartx-import-and-create-templates-5.png](./images/smartx-import-and-create-templates-5.png)
+
+
+![smartx-import-and-create-templates-6.png](./images/smartx-import-and-create-templates-6.png)
+
+
+![smartx-import-and-create-templates-7.png](./images/smartx-import-and-create-templates-7.png)
+
+
+#### **导入linux模板-图示**
+
+参考上述windows镜像导入
+
+
+### **制作模板**
+
+文档下载地址：
+[SmartX TAP-LAB快速上手指南.pdf](http://downloads.oneprocloud.com/smartx/SmartX%20TAP-LAB%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97.pdf)
+
+
+#### **制作windows模板**
+
+**下载****windows2019****的****iso****镜像，并导入****smartx****内容库**
+
+
+![smartx-import-and-create-templates-8.png](./images/smartx-import-and-create-templates-8.png)
+
+
+**创建空白虚拟机，并添加对应的****CD-ROM**
+
+
+![smartx-import-and-create-templates-9.png](./images/smartx-import-and-create-templates-9.png)
+
+
+**根据****smartx****文档，构建对应的启动模板**
+
+
+
+
+文档下载地址：
+[SMTX_OS_cloudbase-init_虚拟机初始化配置指南 (1).pdf](http://downloads.oneprocloud.com/smartx/SMTX_OS_cloudbase-init_%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97%20(1).pdf)
+
+
+
+
+windows创建时设置Administrator用户，密码设置 Abc999@123.Instance （因windows模板无法修改密码）
+
+
+#### **制作linux模板**
+
+**下载****ubuntu20.04****的****iso****镜像，并导入****smartx****内容库**
+
+
+![smartx-import-and-create-templates-10.png](./images/smartx-import-and-create-templates-10.png)
+
+
+**创建空白虚拟机，并添加对应的****CD-ROM**
+
+
+![smartx-import-and-create-templates-11.png](./images/smartx-import-and-create-templates-11.png)
+
+
+**根据****smartx****文档，构建对应的启动模板**
+
+
+
+
+文档下载地址：
+[SMTX OS cloud-init 虚拟机初始化配置指南-6.0.0.pdf](http://downloads.oneprocloud.com/smartx/SMTX%20OS%20cloud-init%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97-6.0.0.pdf)
+
+
+
+
+ubuntu需要配置root用户登录，创建的模板名称不可带有ubuntu字符。（unicloud模块检测模板名称带有ubuntu，会使用ubuntu用户连接）
+
+
+
+
