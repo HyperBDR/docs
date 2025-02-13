@@ -132,9 +132,22 @@ export default hopeTheme({
     //   categoryId: "DIC_kwDOG_Pt2M4COD69",
     // },
 
-    // components: {
-    //   components: ["Badge", "VPCard"],
-    // },
+    components: {
+      components: [
+        "ArtPlayer",
+        "Badge",
+        "BiliBili",
+        "CodePen",
+        "PDF",
+        "Share",
+        "SiteInfo",
+        "StackBlitz",
+        "VPBanner",
+        "VPCard",
+        "VidStack",
+        "XiGua",
+      ],
+    },
 
     // All features are enabled for demo, only preserve features you need here
     mdEnhance: {
