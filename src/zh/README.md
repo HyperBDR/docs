@@ -18,45 +18,23 @@ actions:
     icon: lightbulb
     link: ./userguide/dr-usage-guide/dr-operations-manual-installation.md
 
-  # - text: Docs
-  #   link: ./userguide/poc/
-
 features:
   - title: 解决方案
-    icon: thumbs-up
-    details: |
-      <ul>
-        <li><a href="/zh/userguide/poc/" target="_blank" rel="noopener" style="color: #8cccd5;">华为云</a></li>
-      </ul>
+    icon: fa-brands fa-glide
+    details: 本用户指南支持用户进行产品实施和 PoC 评估，提供简明的说明、最佳实践和故障排除，以确保顺利部署并获得最佳结果。
+    link: /zh/userguide/poc/
 
   - title: 售前
-    icon: handshake
-    details: |
-      <ul>
-        <li><a href="/zh/userguide/presales/" target="_blank" rel="noopener" style="color: #8cccd5;">HyperBDR 售前</a></li>
-      </ul>   
+    icon: fa-solid fa-universal-access
+    details: 涵盖主机评估，网络计划，RPO-RTO设计，兼容性检查和许可请求，并支持彻底的预售准备。
+    link: /zh/userguide/presales/
 
   - title: 手册
-    icon: book
-    details: |
-      <ul>
-        <li><a href="/zh/userguide/dr-usage-guide/" target="_blank" rel="noopener" style="color: #8cccd5;">HyperBDR 用户手册</a></li>
-      </ul>
+    icon: fa-solid fa-book
+    details: 本用户手册旨在指导用户完成安装过程和产品的主要功能，确保顺利启动和最佳使用。
+    link: /zh/userguide/dr-usage-guide/
 
   - title: FAQ
-    icon: person-circle-question
-    details: |
-      <ul>
-        <li><a href="/zh/userguide/faq/" target="_blank" rel="noopener" style="color: #8cccd5;">常见问题解答</a></li>
-      </ul>
-
-
-copyright: false
-# footer: Theme by <a href="https://theme-hope.vuejs.press/" target="_blank">VuePress Theme Hope</a> | MIT Licensed, Copyright © 2019-present Mr.Hope
----
-
-<!-- This is an example of a project homepage. You can place your main content here.
-
-To use this layout, you need to set `home: true` in the page front matter.
-
-For related descriptions of configuration items, please see [Project HomePage Layout Config](https://theme-hope.vuejs.press/guide/layout/home/). -->
+    icon: fa-solid fa-circle-question
+    details: 本节涵盖了用户在产品使用过程中可能会遇到的常见问题，提供解决方案以帮助快速有效地解决它们。
+    link: /zh/userguide/faq/
