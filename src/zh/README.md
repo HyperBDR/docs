@@ -47,7 +47,7 @@ features:
     icon: person-circle-question
     details: |
       <ul>
-        <li><a href="/zh/userguide/faq/faq.md" target="_blank" rel="noopener" style="color: #8cccd5;">常见问题解答</a></li>
+        <li><a href="/zh/userguide/faq/" target="_blank" rel="noopener" style="color: #8cccd5;">常见问题解答</a></li>
       </ul>
 
 
