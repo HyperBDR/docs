@@ -104,3 +104,8 @@ Oracle Cloud提供的无代理备份方案利用SCSI协议的GET LBA STATUS命�
 5. **清理资源**：完成同步后，依次执行卷的断开连接、卸载和删除操作。
 
 ![Oracle Cloud Agentless Data Sync](./images/data-sync-fundamentals-6-oracle-cloud.png)
+
+### 参考文档
+
+- [Announcing OCI Block Volume Direct APIs for changed block tracking between backups](https://www.oracle.com/news/announcement/announcement-triton-2024-09-10/)
+- [Direct APIs for Changed Block Tracking Between Two Backups](https://docs.oracle.com/en-us/iaas/Content/Block/Tasks/restoringdeltabetweenbackups.htm)

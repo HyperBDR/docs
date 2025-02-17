@@ -103,3 +103,8 @@ Oracle Cloud's agentless backup solution utilizes the SCSI protocol's GET LBA ST
 5. **Clean Up Resources**: After synchronization, the volume is disconnected, unmounted, and deleted in sequence.
 
 ![Oracle Cloud Agentless Data Sync](./images/data-sync-fundamentals-6-oracle-cloud.png)
+
+### Reference
+
+- [Announcing OCI Block Volume Direct APIs for changed block tracking between backups](https://www.oracle.com/news/announcement/announcement-triton-2024-09-10/)
+- [Direct APIs for Changed Block Tracking Between Two Backups](https://docs.oracle.com/en-us/iaas/Content/Block/Tasks/restoringdeltabetweenbackups.htm)
