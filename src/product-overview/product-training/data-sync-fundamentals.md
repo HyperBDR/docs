@@ -45,7 +45,7 @@ In agentless mode, data synchronization for an OpenStack cloud platform based on
 
 ![OpenStack Ceph Agentless Data Sync](./images/data-sync-fundamentals-4-openstack-ceph.png)
 
-### 1. Source Sync Proxy Node
+1. Source Sync Proxy Node
 
 The source sync proxy node needs to have the following two access capabilities:
 
@@ -54,19 +54,19 @@ The source sync proxy node needs to have the following two access capabilities:
 
 The source sync proxy node obtains the status information of virtual machines via the OpenStack API and triggers snapshot operations. It also needs to access the Ceph storage network to obtain metadata associated with the snapshot (including block device version information, modification timestamps, etc.), enabling incremental data comparison and synchronization.
 
-### 2. Snapshot Operation
+2. Snapshot Operation
 
 During incremental synchronization, the source sync proxy node first triggers a snapshot operation on the target virtual machine via the OpenStack API, generating a complete data snapshot of the virtual machine's current state. The system then calls the Ceph RBD interface to obtain the metadata of the Ceph snapshot corresponding to this snapshot. Using this metadata, the system identifies which data blocks have changed since the previous snapshot.
 
-### 3. Differential Data Comparison
+3. Differential Data Comparison
 
 After obtaining the metadata of the current and previous snapshots, the system compares their differences to identify the changed data blocks. The differential comparison process relies on Ceph's incremental snapshot mechanism, with the system using version information, modification timestamps, and other metadata features to precisely identify the data blocks that need to be synchronized. Once the changed data blocks are identified, the source synchronization node reads the content of these blocks from the Ceph storage network and prepares them for synchronization to the target storage.
 
-### 4. Data Synchronization to Target Storage
+4. Data Synchronization to Target Storage
 
 Once the changed data blocks are identified, the source sync proxy node synchronizes these differential data blocks to the target storage. By using incremental synchronization, only the changed data is synchronized, significantly reducing bandwidth requirements and minimizing unnecessary storage usage. This approach ensures the efficiency of data synchronization while minimizing resource consumption.
 
-### 5. Snapshot Cleanup
+5. Snapshot Cleanup
 
 After data synchronization is completed, the source synchronization node performs a snapshot cleanup operation. Specifically, it deletes the previous snapshot and retains the current snapshot for the next differential data comparison. This operation helps effectively release storage space while ensuring the continuity and consistency of the synchronization process, avoiding redundant storage and unnecessary resource usage.
 
@@ -83,3 +83,23 @@ For other cloud platforms like Microsoft Azure, Google Cloud, Alibaba Cloud, and
 In conclusion, AWS is currently the only cloud platform that supports agentless synchronization via EBS Direct API. This innovative feature provides users with a more convenient and reliable backup solution and contributes to the development of agentless backup technology in the cloud computing industry.
 
 More details: [Deep in AWS Agentless Mode](../../userguide/presales/aws-agentless-mode-cost-calculator.md)
+
+## Huawei FusionCompute Agentless
+
+Huawei FusionCompute is a virtualization platform that supports agentless data synchronization. Its incremental snapshot function is similar to VMware's Changed Block Tracking (CBT) technology. FusionCompute uses APIs and socket interfaces to fetch incremental snapshot data for synchronization. Specifically, the API is used to request incremental snapshot information, while the socket interface is used for real-time transmission of the incremental data.
+
+Unlike VMware, FusionCompute does not abstract the virtual machine storage layer (Datastore). VMware interacts directly with the virtual machine's disk (VMDK) through the hypervisor, allowing it to detect disk changes and perform incremental tracking. Therefore, to implement incremental snapshots (CBT), FusionCompute requires a lightweight agent to be installed on each physical host. This agent is responsible for monitoring the local host's storage layer and capturing incremental change data for each virtual machine. Due to the lack of a storage layer abstraction, FusionCompute relies on host-level agents as a supplement to achieve incremental synchronization similar to VMware.
+
+![Huawei FusionCompute Agentless Data Sync](./images/data-sync-fundamentals-5-huawei-fusioncompute.png)
+
+## Oracle Cloud Agentless
+
+Oracle Cloud's agentless backup solution utilizes the SCSI protocol's GET LBA STATUS command to achieve block-level differential replication. This solution leverages the underlying hardware control capabilities of the SCSI protocol to accurately detect changes in data blocks on storage volumes. The implementation process is as follows:
+
+1. **Create Volume Group Backups**: To ensure data integrity, a consistent backup group for the host volumes is created first.
+2. **Generate Incremental Volume**: Based on the OCIDs of the previous and current backups, an incremental volume containing the changed data blocks is created.
+3. **Mount Storage Volume**: The incremental volume is mounted to a Linux instance using the iSCSI protocol.
+4. **Identify Changed Data and Synchronize**: The SCSI GET LBA STATUS command is used to scan the mounted volume, identify and extract the changed data blocks, and synchronize them to the target storage.
+5. **Clean Up Resources**: After synchronization, the volume is disconnected, unmounted, and deleted in sequence.
+
+![Oracle Cloud Agentless Data Sync](./images/data-sync-fundamentals-6-oracle-cloud.png)

@@ -45,7 +45,7 @@ VMware 无代理方式的数据同步主要通过 VMware 的 Changed Block Track
 
 ![OpenStack Ceph Agentless Data Sync](./images/data-sync-fundamentals-4-openstack-ceph.png)
 
-### 1. 源端同步代理节点
+1. 源端同步代理节点
 
 源端同步代理节点需要具备以下两种访问能力：
 
@@ -54,19 +54,19 @@ VMware 无代理方式的数据同步主要通过 VMware 的 Changed Block Track
 
 源端同步代理节点通过OpenStack API获取虚拟机的状态信息并触发快照操作。同时，该节点还需要通过Ceph存储网络获取与快照相关的元数据（包括块设备的版本信息、修改时间戳等），以便进行增量数据的比较和同步。
 
-### 2. 快照操作
+2. 快照操作
 
 在增量同步过程中，首先，源端同步代理节点会通过OpenStack API接口对目标虚拟机执行快照操作，生成虚拟机当前状态的完整数据快照。接着，系统通过调用Ceph的RBD接口，获取与该快照关联的Ceph快照元数据信息。通过这些元数据，系统能够识别哪些数据块在上次快照之后发生了变化。
 
-### 3. 差量数据比较
+3. 差量数据比较
 
 在获取当前快照和上次快照的元数据信息后，系统将对比两者的差异，识别出已发生变化的数据块。差异比较过程基于Ceph增量快照机制，系统通过对比元数据中的版本信息、修改时间戳等特征，精确识别需要同步的数据块。变化的数据块被标识后，源端同步节点将通过Ceph存储网络读取这些数据块的内容，并准备将其同步到目标存储。
 
-### 4. 数据同步至目标存储
+4. 数据同步至目标存储
 
 一旦变化的数据块被识别，源端同步代理节点将这些差异数据同步到目标存储。通过增量同步的方式，系统仅同步发生变化的数据，显著降低了带宽需求并减少了不必要的存储占用。此策略确保了数据同步的高效性和最小化的资源消耗。
 
-### 5. 快照清理
+5. 快照清理
 
 数据同步完成后，源端同步节点会执行快照清理操作。具体而言，它将删除上一次的快照，并保留当前快照，以便用于下一次的差量数据比较。此操作有助于有效释放存储空间，同时确保同步过程的连续性与一致性，避免了存储的冗余与不必要的资源占用。
 
@@ -83,3 +83,24 @@ AWS EC2 无代理同步模式的优势主要得益于 AWS 云平台提供的 AWS
 综上所述，AWS 通过 EBS Direct API 提供的无代理同步模式，是目前唯一支持这一技术的云平台之一。这一创新功能为用户提供了更加便捷、可靠的备份解决方案，同时也推动了无代理备份技术在云计算领域的发展。随着无代理同步技术的成熟，我们有理由相信，未来会有更多的云平台跟随 AWS 的步伐，推动这一技术的普及。
 
 更多详细的内容请参考：[Deep in AWS Agentless Mode](../../../userguide/presales/aws-agentless-mode-cost-calculator.md)
+
+## Huawei FusionCompute无代理方式
+
+Huawei FusionCompute 是一款虚拟化平台，支持通过无代理方式进行数据同步，其增量快照功能与 VMware 的 Changed Block Tracking（CBT）技术相似。FusionCompute 通过 API 和 Socket 接口获取增量快照数据，进而进行数据同步。具体而言，API 用于请求增量快照信息，而 Socket 接口则用于实时传输增量数据。
+
+
+与 VMware 不同，FusionCompute 并未抽象出虚拟机存储层（Datastore）。VMware通过虚拟化管理程序（hypervisor）直接与虚拟机的磁盘（VMDK）交互，它能够感知虚拟机磁盘的变化并进行增量追踪， 因此在实现增量快照（CBT）时，必须在每台物理主机上安装一个轻量级的 Agent。这个 Agent 负责监控本地主机的存储层，并捕获每个虚拟机的增量变化数据。由于缺少存储层抽象，FusionCompute 依赖主机级 Agent 作为补充来实现类似 VMware 的增量同步功能。
+
+![Huawei FusionCompute Agentless Data Sync](./images/data-sync-fundamentals-5-huawei-fusioncompute.png)
+
+## Oracle Cloud无代理方式
+
+Oracle Cloud提供的无代理备份方案利用SCSI协议的GET LBA STATUS命令实现块级别的差量复制。该方案通过SCSI协议的底层硬件控制能力，精确检测存储卷上的数据块变化。具体实现流程如下：
+
+1. **创建卷组备份**：为确保数据完整性，首先创建主机卷的一致性备份组。
+2. **生成增量卷**：基于前后两次备份的OCID，创建包含变更数据块的增量卷。
+3. **挂载存储卷**：通过iSCSI协议将增量卷挂载至Linux实例。
+4. **识别变更数据并同步**：利用SCSI GET LBA STATUS命令扫描挂载卷，识别并提取变更数据块，并同步至目标存储。
+5. **清理资源**：完成同步后，依次执行卷的断开连接、卸载和删除操作。
+
+![Oracle Cloud Agentless Data Sync](./images/data-sync-fundamentals-6-oracle-cloud.png)
