@@ -13,7 +13,7 @@ To use the agentless mode in FusionCompute, the guest operating system (Guest OS
 
 ## Supported Guest OS
 
-Click [Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=0MJNYC) to view the compatibility list and the latest support status.
+Click [Source Features:](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=M57AtF) to view the compatibility list and the latest support status.
 
 ## Support and Limitations
 

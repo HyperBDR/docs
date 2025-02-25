@@ -46,7 +46,9 @@ Disaster recovery research mainly involves three aspects: host, network, and app
 
 ### Useful Links
 
-* [OS & Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/ItUJsXCqgh7tzmtRYygcCw7YnvK?from=from_copylink)
+* [Public Cloud Boot in Cloud Features](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=o9tX6a)
+* [Private Cloud Boot in Cloud Features](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=g5grTH)
+* [Source Features:](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=M57AtF)
 * [Linux Agent Compatibility & Limitations](/product-overview/limitations/linux-agent.html)
 * [Windows Agent Compatibility & Limitations](/product-overview/limitations/windows-agent.html)
 * [VMware Agentless Compatibility & Limitations](/product-overview/limitations/vmware-agentless.html)

@@ -44,7 +44,9 @@
 
 ### 有用链接
 
-* [操作系统和云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/ItUJsXCqgh7tzmtRYygcCw7YnvK?from=from_copylink)
+* [公有云Boot in Cloud功能特性矩阵](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=1OatFu)
+* [专有云Boot in Cloud功能特性矩阵](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=2fOzMl)
+* [源端功能支持矩阵](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=0hEfBi)
 * [Linux Agent兼容性及限制](/product-overview/limitations/linux-agent.html)
 * [Windows Agent兼容性及限制](/product-overview/limitations/windows-agent.html)
 * [VMware无代理兼容性及限制](/product-overview/limitations/vmware-agentless.html)

@@ -8,7 +8,7 @@ Windows Agent 通过 Windows VSS（卷影复制服务）和磁盘过滤驱动程
 
 ## 操作系统支持
 
-点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)查看兼容性列表及最新支持状态。 
+点击[源端功能支持矩阵](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=0hEfBi)查看兼容性列表及最新支持状态。 
 
 ## 文件系统与分区类型
 
