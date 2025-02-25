@@ -1,5 +1,11 @@
 # Windows Agent
 
+## 重要提醒：Windows Agent 与备份软件兼容性说明
+
+Windows Agent 通过 Windows VSS（卷影复制服务）和磁盘过滤驱动程序来捕获 I/O 变动。然而，由于 Windows VSS 的限制，若两个软件在重叠的时间范围内同时调用 VSS 服务，可能导致 VSS 快照失败，从而无法满足预定的 RPO 要求。因此，Windows Agent 无法与使用相同机制的其他备份软件（如 Acronis、Veeam、Veritas、Commvault 等）同时运行。
+
+如果系统中已安装类似机制的备份软件，建议在安装 Windows Agent 之前暂停或卸载该软件，以避免冲突。此外，用户可考虑咨询现有平台方，确认是否支持无代理方式进行数据备份，这样可以避免不同备份软件之间的冲突，确保系统备份和恢复的正常进行。
+
 ## 操作系统支持
 
 点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)查看兼容性列表及最新支持状态。 
