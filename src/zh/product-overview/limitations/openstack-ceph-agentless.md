@@ -14,7 +14,7 @@
 
 ## 客户机操作系统支持
 
-点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=0MJNYC)查看兼容性列表及最新支持状态。
+点击[源端功能支持矩阵](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=0hEfBi)查看兼容性列表及最新支持状态。
 
 ## 支持与限制
 
