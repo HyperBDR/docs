@@ -1,5 +1,11 @@
 # Windows Agent
 
+## Important Notice: Compatibility of Windows Agent with Other Backup Software
+
+The Windows Agent captures I/O changes through Windows VSS (Volume Shadow Copy Service) and disk filtering drivers. However, due to limitations of Windows VSS, if two software applications attempt to invoke VSS services during overlapping time periods, it may cause VSS snapshot failures and prevent the system from meeting the predefined RPO requirements. Therefore, the Windows Agent cannot run concurrently with other backup software that uses the same mechanism, such as Acronis, Veeam, Veritas, Commvault, etc.
+
+If similar backup software is already installed on the system, it is recommended to pause or uninstall that software before installing the Windows Agent to avoid conflicts. Additionally, users may consider consulting their platform provider to confirm whether agentless data backup is supported, which can help prevent conflicts between different backup solutions and ensure proper system backup and recovery.
+
 ## OS Support
 
 Click [Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO) to view the compatibility list and get the latest support status.
