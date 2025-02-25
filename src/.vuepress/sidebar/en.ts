@@ -146,6 +146,7 @@ export const enSidebar = sidebar({
         'limitations/windows-agent.md',
         'limitations/vmware-agentless.md',
         'limitations/openstack-ceph-agentless.md',
+        'limitations/huawei-fusioncompute-agentless.md',
       ],
     },
     {
