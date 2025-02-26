@@ -43,7 +43,7 @@
 3. 应用系统调研可以与主机调研同时进行，主要是确定用户业务系统的重要性，并根据重要性级别在云迁移平台（HyperMotion）或云容灾平台（HyperBDR）中配置不同的灾难恢复策略。此外，我们需要根据系统之间的相互依赖关系，确定灾难恢复期间系统接管的顺序。
 
 ### 有用链接
-
+* [云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)
 * [公有云Boot in Cloud功能特性矩阵](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=1OatFu)
 * [专有云Boot in Cloud功能特性矩阵](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=2fOzMl)
 * [源端功能支持矩阵](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=0hEfBi)
