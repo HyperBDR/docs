@@ -179,7 +179,7 @@ export const zhSidebar = sidebar({
   ],
   '/zh/userguide/dr-usage-guide/': [
     {
-      text: "HyperBDR 用户手册",
+      text: "用户手册",
       icon: "book",
       prefix: "",
       children: [
@@ -193,6 +193,7 @@ export const zhSidebar = sidebar({
           text: "安装与部署",
           children: [
             'dr-operations-manual-installation',
+            'agent-batch-installation',
           ],
         },
         // {

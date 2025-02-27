@@ -192,7 +192,7 @@ export const enSidebar = sidebar({
   ],
   '/userguide/dr-usage-guide/': [
     {
-      text: "HyperBDR User Manual",
+      text: "User Manual",
       icon: "book",
       prefix: "",
       children: [
@@ -219,6 +219,7 @@ export const enSidebar = sidebar({
           text: "Installation and deployment",
           children: [
             'dr-operations-manual-installation',
+            'agent-batch-installation',
           ],
         },
       ],

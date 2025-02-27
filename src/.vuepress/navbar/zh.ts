@@ -36,13 +36,13 @@ export const zhNavbar = navbar([
         link: "/zh/userguide/presales/",
         children: [],
       },
-      // {
-      //   text: "Manual",
-      //   icon: "book",
-      //   prefix: "userguide/dr-usage-guide/",
-      //   link: "/userguide/dr-usage-guide/",
-      //   children: [],
-      // },
+      {
+        text: "用户手册",
+        icon: "book",
+        prefix: "zh/userguide/dr-usage-guide/",
+        link: "/zh/userguide/dr-usage-guide/",
+        children: [],
+      },
       {
         text: "云容灾检查清单",
         icon: "list",

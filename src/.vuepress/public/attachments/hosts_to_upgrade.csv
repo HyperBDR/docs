@@ -1,0 +1,5 @@
+ip,protocol,port,username,password,os_type,tag,hostname,os_name,status,node_uuid,error
+192.168.1.10,ssh,22,root,private_key_linux,linux,,,,,,
+192.168.1.20,winrm,5985,admin,,windows,,,,,,
+192.168.1.30,ssh,22,root,private_key_linux,linux,,,,,,
+192.168.1.40,winrm,5985,administrator,,windows,,,,,,

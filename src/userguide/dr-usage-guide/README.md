@@ -1,1 +1,1 @@
-# HyperBDR User Manual
+# User Manual
