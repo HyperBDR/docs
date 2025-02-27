@@ -123,18 +123,12 @@ export const enSidebar = sidebar({
       prefix: "",
       children: [
         'product-training/product-overview.md',
+        'presales/hyperbdr-rpo-rto-planning-best-practices',
+        'presales/dr-network-planning-recommendations',
         'product-training/scenarios.md',
         'product-training/technical-highlights.md',
         'product-training/data-sync-fundamentals.md',
-        'product-training/project-delivery.md',
-      ],
-    },
-    {
-      text: "Features Matrix",
-      icon: "book",
-      prefix: "",
-      children: [
-        'features/features-matrix.md',
+        'presales/deep-in-aws-agentless-mode',
       ],
     },
     {
@@ -142,6 +136,7 @@ export const enSidebar = sidebar({
       icon: "book",
       prefix: "",
       children: [
+        'limitations/product-support-overview',
         'limitations/linux-agent.md',
         'limitations/windows-agent.md',
         'limitations/vmware-agentless.md',
@@ -150,11 +145,23 @@ export const enSidebar = sidebar({
       ],
     },
     {
-      text: "HyperBDR Operation",
+      text: "Project Overview",
       icon: "book",
       prefix: "",
       children: [
-        'operation/upgrade-manual',
+        'product-training/project-delivery.md',
+        'presales/poc',
+        'presales/hyperbdr-license-purchasing-guide',
+      ],
+    },
+    {
+      text: "Hosts Investigation",
+      icon: "book",
+      prefix: "",
+      children: [
+        'presales/hyperbdr-agent-investigation',
+        'presales/hyperbdr-vmware-investigation',
+        'presales/auto-host-info-collector',
       ],
     },
   ],
@@ -192,6 +199,23 @@ export const enSidebar = sidebar({
   ],
   '/userguide/dr-usage-guide/': [
     {
+      text: "Installation and deployment",
+      icon: "book",
+      prefix: "",
+      children: [
+        'dr-operations-manual-installation',
+        'agent-batch-installation',
+      ],
+    },
+    {
+      text: "Operation",
+      icon: "book",
+      prefix: "",
+      children: [
+        'operation/upgrade-manual',
+      ],
+    },
+    {
       text: "User Manual",
       icon: "book",
       prefix: "",
@@ -213,13 +237,6 @@ export const enSidebar = sidebar({
           text: "TM CAE",
           children: [
             'dr-operations-manual-tmcae-object',
-          ],
-        },
-        {
-          text: "Installation and deployment",
-          children: [
-            'dr-operations-manual-installation',
-            'agent-batch-installation',
           ],
         },
       ],

@@ -3,6 +3,12 @@ import { navbar } from "vuepress-theme-hope";
 export const enNavbar = navbar([
   "/",
   {
+    text: "Product Overview",
+    icon: "eye",
+    prefix: "/product-overview/",
+    link: "/product-overview/",
+  },
+  {
     text: "Docs",
     icon: "book",
     prefix: "/",
@@ -15,13 +21,16 @@ export const enNavbar = navbar([
         // children: ["baz", { text: "...", icon: "ellipsis", link: "#" }],
         children: [],
       },
-      {
-        text: "Product Overview",
-        icon: "eye",
-        prefix: "product-overview/",
-        link: "/product-overview/",
-        children: [],
-      },
+
+      // NOTE(Ray): Move Product Overview to the top level menu
+      //{
+      //  text: "Product Overview",
+      //  icon: "eye",
+      //  prefix: "product-overview/",
+      //  link: "/product-overview/",
+      //  children: [],
+      //},
+
       // NOTE(Ray): Merge Product Training with Product Overview
       // Comment this top level menu item
       //{
@@ -31,13 +40,15 @@ export const enNavbar = navbar([
       //  link: "/product-training/",
       //  children: [],
       //},
-      {
-        text: "Pre Sales",
-        icon: "handshake",
-        prefix: "userguide/presales/",
-        link: "/userguide/presales/",
-        children: [],
-      },
+
+      // NOTE(Ray): Merge Pre Sales with Product Overview
+      //{
+      //  text: "Pre Sales",
+      //  icon: "handshake",
+      //  prefix: "userguide/presales/",
+      //  link: "/userguide/presales/",
+      //  children: [],
+      //},
       {
         text: "Manual",
         icon: "book",

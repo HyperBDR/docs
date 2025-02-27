@@ -2,7 +2,7 @@
 
 ## OS Support
 
-Click [Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO) to view the compatibility list and get the latest support status.
+Click [Agent Support Matrix](./product-support-overview.md) to view the compatibility list and get the latest support status.
 
 ## FileSystem & Partition Types
 

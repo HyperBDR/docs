@@ -1,7 +1,7 @@
-# HyperBDR License Purchasing Guide
+# (Huawei KooGallery)License Purchasing Guide
 
-[[toc]]
 ## Step
+
 1. Please click [URL](https://marketplace.huaweicloud.com/intl/contents/281e1ea5-f5a6-4adf-b6e0-f13436db2c65) to visit.
 
 2. Select the Specification / Quantity / Billing Mode / Duration.
