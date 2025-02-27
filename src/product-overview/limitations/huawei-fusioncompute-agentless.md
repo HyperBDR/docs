@@ -8,8 +8,8 @@ To use the agentless mode in FusionCompute, the guest operating system (Guest OS
 
 | Module                        | Version |
 |-------------------------------|---------|
-| FusionCompute                  | 6.3.0   |
-| FusionCompute VRM Interface    | 8.7.0   |
+| FusionCompute                  | 8.6.0   |
+| FusionCompute VRM Interface    | 8.6.0   |
 
 ## Supported Guest OS
 
