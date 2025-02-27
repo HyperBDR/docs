@@ -8,8 +8,8 @@
 
 | 模块                | 版本   |
 |---------------------|--------|
-| FusionCompute       | 6.3.0  |
-| FusionCompute VRM接口 | 8.7.0  |
+| FusionCompute       | 8.6.0  |
+| FusionCompute VRM接口 | 8.6.0  |
 
 ## 客户机操作系统支持
 
