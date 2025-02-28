@@ -178,25 +178,25 @@ export const enSidebar = sidebar({
   //    ],
   //  },
   //],
-  '/userguide/presales/': [
-    {
-      text: "Pre Sales",
-      icon: "book",
-      prefix: "",
-      children: [
-        'hyperbdr-vmware-investigation',
-        'hyperbdr-agent-investigation',
-        'auto-host-info-collector',
-        'dr-network-planning-recommendations',
-        'hyperbdr-rpo-rto-planning-best-practices',
-        'cloud-platform-support-matrix',
-        'poc',
-        'deep-in-aws-agentless-mode',
-        'compatibility-and-limitations',
-        'hyperbdr-license-purchasing-guide',
-      ],
-    },
-  ],
+  //'/userguide/presales/': [
+  //  {
+  //    text: "Pre Sales",
+  //    icon: "book",
+  //    prefix: "",
+  //    children: [
+  //      'hyperbdr-vmware-investigation',
+  //      'hyperbdr-agent-investigation',
+  //      'auto-host-info-collector',
+  //      'dr-network-planning-recommendations',
+  //      'hyperbdr-rpo-rto-planning-best-practices',
+  //      'cloud-platform-support-matrix',
+  //      'poc',
+  //      'deep-in-aws-agentless-mode',
+  //      'compatibility-and-limitations',
+  //      'hyperbdr-license-purchasing-guide',
+  //    ],
+  //  },
+  //],
   '/userguide/dr-usage-guide/': [
     {
       text: "Installation and deployment",

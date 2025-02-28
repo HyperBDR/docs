@@ -1,6 +1,6 @@
 # Proof of Concept
 
-HyperBDR offers Proof of Concept(PoC). This document will introduce the scope and objectives of PoC.
+This document is primarily intended to describe how to provide Proof of Concept (PoC) for HyperMotion & HyperBDR before the project.
 
 ## PoC Scope Overview
 
@@ -10,11 +10,11 @@ HyperBDR offers Proof of Concept(PoC). This document will introduce the scope an
 |                              | - Information gathering & analysis                         |
 | Schedule                     | - Provide PoC schedule                                     |
 | Deployment                   | - Provisioning Cloud (VM)                                  |
-|                              | - Setup HyperBDR Server (for x VM/Server)                  |
-|                              | - Setup HyperBDR Agent/Agentless (for x VM/Server)        |
-|                              | - Setup and Configuration DR Backup (Source VM/Server to Cloud) |
-| Functional Testing           | - Backup                                                   |
-|                              | - Backup Policy                                            |
+|                              | - Setup HyperMotion & HyperBDR Server (for x VM/Server)                  |
+|                              | - Setup HyperMotion & HyperBDR Agent/Agentless (for x VM/Server)        |
+|                              | - Setup and Configuration Migration/DR Backup (Source VM/Server to Cloud) |
+| Functional Testing           | - Data Sync
+|                              | - Data Sync Policy                                            |
 |                              | - Drill Testing                                            |
 |                              | - (Optional) Failback Testing (for x VM/Server)           |
 
@@ -24,11 +24,11 @@ HyperBDR offers Proof of Concept(PoC). This document will introduce the scope an
 
 | Solution Component          | In Scope                                                                 |
 |-----------------------------|--------------------------------------------------------------------------|
-| Configuration               | - Configuration HyperBDR System                                         |
+| Configuration               | - Configuration HyperMotion & HyperBDR                                      |
 |                             | - Configuration OBS or Block storage backup mode on Cloud                |
-|                             | - Configure Cloud as the DR Recovery Site                               |
+|                             | - Configure Cloud as the Migration/DR Recovery Site                               |
 | Post Deployment             | Drill & Takeover:                                                       |
-|                             | - Testing Backup Process (Backup Policy, Incremental)                   |
+|                             | - Testing Data Sync Process (Policy, Incremental)                   |
 |                             | - Testing Drill & Takeover (to VM in Cloud)                              |
 | Finalization                | - Hand over after deployment is ready in the production                  |
 
@@ -69,8 +69,8 @@ This section is only applicable when users need to use an intranet for output tr
 
 | No  | Item                                  | OnePro | Customer |
 |-----|---------------------------------------|:--------:|:----------:|
-| 1   | Cloud VPN settings(VPN Service or Open Source Solution) |✓       |          |
-| 2   | Private credentails for VPN                             |✓       |          |
+| 1   | Cloud VPN settings(VPN Service or Open Source Solution) |Assist       | ✓         |
+| 2   | Private credentails for VPN                             |Assist       | ✓         |
 | 3   | Firewall Settings                     |        | ✓        |
 | 4   | Connectivity Testing                  |        | ✓        |
 
@@ -82,12 +82,12 @@ This section is only applicable when users need to use an intranet for output tr
 | 1   | On-Premises backup server / VM        |        | ✓        |
 | 2   | Accessing Remote                      |        | ✓        |
 | 3   | Cloud Provisioning                    | ✓      |          |
-| 4   | Setup HyperBDR (Backup System)        | ✓      |          |
-| 5   | Hosts Register in HyperBDR Console    | ✓      |          |
-| 6   | Backup & Policy Settings              | ✓      |          |
+| 4   | Setup HyperMotion & HyperBDR        | ✓      |          |
+| 5   | Hosts Register in Console    | ✓      |          |
+| 6   | Data Sync & Policy Settings              | ✓      |          |
 | 7   | Drill & Takeover                      | ✓      |          |
-| 8   | Restore Backup                           | ✓  |           |
-| 9   | Validity after backup                    |    |    ✓      |
+| 8   | Make sure host boot to login status                            | ✓  |           |
+| 9   | Business System Validation                    |    |    ✓      |
 
 ### Failback
 
@@ -100,7 +100,7 @@ This section is only applicable when users need to use an intranet for output tr
 | 5   | On-Premises failback server / VM Preparations       |       |  ✓        |
 | 6   | Failback Full Data Sync                             |   ✓   |           |
 | 7   | Restore failback server / VM                        | ✓ |   |
-| 8   | Validity after failback                             |   | ✓ |
+| 8   | Business System Validation                    |   | ✓ |
 
 
 ## PoC Success Criteria

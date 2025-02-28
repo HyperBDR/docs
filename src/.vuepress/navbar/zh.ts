@@ -3,6 +3,12 @@ import { navbar } from "vuepress-theme-hope";
 export const zhNavbar = navbar([
   "/zh/",
   {
+    text: "产品概览",
+    icon: "eye",
+    prefix: "zh/product-overview/",
+    link: "/zh/product-overview/",
+  },
+  {
     text: "文档中心",
     icon: "book",
     prefix: "/",
@@ -15,13 +21,13 @@ export const zhNavbar = navbar([
         // children: ["baz", { text: "...", icon: "ellipsis", link: "#" }],
         children: [],
       },
-      {
-        text: "产品概览",
-        icon: "lightbulb",
-        prefix: "zh/product-overview/",
-        link: "/zh/product-overview/",
-        children: [],
-      },
+      //{
+      //  text: "产品概览",
+      //  icon: "lightbulb",
+      //  prefix: "zh/product-overview/",
+      //  link: "/zh/product-overview/",
+      //  children: [],
+      //},
       // {
       //   text: "Product Training",
       //   icon: "lightbulb",
@@ -29,13 +35,13 @@ export const zhNavbar = navbar([
       //   link: "/zh/product-training/",
       //   children: [],
       // },
-      {
-        text: "售前",
-        icon: "handshake",
-        prefix: "zh/userguide/presales/",
-        link: "/zh/userguide/presales/",
-        children: [],
-      },
+      //{
+      //  text: "售前",
+      //  icon: "handshake",
+      //  prefix: "zh/userguide/presales/",
+      //  link: "/zh/userguide/presales/",
+      //  children: [],
+      //},
       {
         text: "用户手册",
         icon: "book",

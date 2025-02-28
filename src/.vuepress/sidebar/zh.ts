@@ -111,18 +111,12 @@ export const zhSidebar = sidebar({
       prefix: "",
       children: [
         'product-training/product-overview.md',
+        'presales/hyperbdr-rpo-rto-planning-best-practices',
+        'presales/dr-network-planning-recommendations',
         'product-training/scenarios.md',
         'product-training/technical-highlights.md',
         'product-training/data-sync-fundamentals.md',
-        'product-training/project-delivery.md',
-      ],
-    },
-    {
-      text: "功能矩阵",
-      icon: "book",
-      prefix: "",
-      children: [
-        'features/features-matrix.md',
+        'presales/deep-in-aws-agentless-mode',
       ],
     },
     {
@@ -130,6 +124,7 @@ export const zhSidebar = sidebar({
       icon: "book",
       prefix: "",
       children: [
+        'limitations/product-support-overview',
         'limitations/linux-agent.md',
         'limitations/windows-agent.md',
         'limitations/vmware-agentless.md',
@@ -138,78 +133,83 @@ export const zhSidebar = sidebar({
       ],
     },
     {
-      text: "操作指南",
+      text: "Project Overview",
       icon: "book",
       prefix: "",
       children: [
-        'operation/upgrade-manual',
+        'product-training/project-delivery.md',
+        'presales/poc',
+        //'presales/hyperbdr-license-purchasing-guide',
       ],
     },
-  ],
-  '/zh/product-training/': [
     {
-      text: "Training",
+      text: "Hosts Investigation",
       icon: "book",
       prefix: "",
       children: [
-        'product-overview.md',
-        'scenarios.md',
-        'technical-highlights.md',
-        'project-delivery.md',
+        'presales/hyperbdr-agent-investigation',
+        'presales/hyperbdr-vmware-investigation',
+        'presales/auto-host-info-collector',
       ],
     },
   ],
-  '/zh/userguide/presales/': [
-    {
-      text: "售前",
-      icon: "book",
-      prefix: "",
-      children: [
-        'hyperbdr-vmware-investigation',
-        'hyperbdr-agent-investigation',
-        // 'dr-network-planning-recommendations',
-        'hyperbdr-rpo-rto-planning-best-practices',
-        'cloud-platform-support-matrix',
-        // 'poc',
-        // 'aws-agentless-mode-cost-calculator',
-        // 'compatibility-and-limitations',
-        // 'hyperbdr-license-purchasing-guide',
-      ],
-    },
-  ],
+  //'/zh/product-training/': [
+  //  {
+  //    text: "Training",
+  //    icon: "book",
+  //    prefix: "",
+  //    children: [
+  //      'product-overview.md',
+  //      'scenarios.md',
+  //      'technical-highlights.md',
+  //      'project-delivery.md',
+  //    ],
+  //  },
+  //],
   '/zh/userguide/dr-usage-guide/': [
     {
-      text: "用户手册",
+      text: "Installation and deployment",
       icon: "book",
       prefix: "",
       children: [
-        {
-          text: "华为云",
-          children: [
-            'dr-operations-manual-huaweicloud',
-          ],
-        },
-        {
-          text: "安装与部署",
-          children: [
-            'dr-operations-manual-installation',
-            'agent-batch-installation',
-          ],
-        },
-        // {
-        //   text: "Huawei Cloud Stack 8.2.x/8.3.x",
-        //   children: [
-        //     'dr-operations-manual-hcs8-block',
-        //   ],
-        // },
-        // {
-        //   text: "TM CAE",
-        //   children: [
-        //     'dr-operations-manual-tmcae-object',
-        //   ],
-        // },
+        'dr-operations-manual-installation',
+        'agent-batch-installation',
       ],
     },
+    //{
+    //  text: "Operation",
+    //  icon: "book",
+    //  prefix: "",
+    //  children: [
+    //    'operation/upgrade-manual',
+    //  ],
+    //},
+    //{
+    //  text: "用户手册",
+    //  icon: "book",
+    //  prefix: "",
+    //  children: [
+    //    {
+    //      text: "Huawei Cloud",
+    //      children: [
+    //        'dr-operations-manual-huaweicloud-object',
+    //        'dr-operations-manual-huaweicloud-block',
+    //      ],
+    //    },
+    //    {
+    //      text: "Huawei Cloud Stack 8.2.x/8.3.x",
+    //      children: [
+    //        'dr-operations-manual-hcs8-block',
+    //      ],
+    //    },
+    //    {
+    //      text: "TM CAE",
+    //      children: [
+    //        'dr-operations-manual-tmcae-object',
+    //      ],
+    //    },
+    //  ],
+    //},
   ],
   '/zh/userguide/faq/': [
     {

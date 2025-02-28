@@ -5,7 +5,7 @@ icon: home
 title: "Home"
 heroText: HyperMotion & HyperBDR Docs
 #heroImage: /logo@1x.png
-tagline: The World's Leading Cloud-Native Migration and Disaster Recovery Solution
+tagline: The world’s leading cloud-native migration and disaster recovery solution, empowering seamless migration and reliable backup across multi-cloud environments
 #bgImage: /bg@1x.png
 #bgImageDark: /bg@1x.png
 actions:
@@ -32,7 +32,7 @@ features:
 
   - title: User Manual
     icon: fa-solid fa-book
-    details: This user manual is designed to guide users through the installation process and key features of the product, ensuring a smooth start and optimal use.
+    details: The user manual mainly covers product installation, usage, and maintenance from the perspective of its features.
     link: /userguide/dr-usage-guide/
 
   - title: FAQ
