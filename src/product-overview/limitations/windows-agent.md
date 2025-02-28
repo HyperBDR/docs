@@ -84,3 +84,13 @@ The Windows Agent uses Windows VSS to create consistent snapshots without interr
    
 ### Time Synchronization Requirements
    - Under conditions where the host can connect to the Internet, it needs to synchronize with the Internet time to maintain consistency. If you cannot connect to the Internet, you need to synchronize with the time server within the intranet.
+
+### Language Support
+
+The Windows Agent currently supports the following system languages:
+
+- Chinese (中文)
+- English
+- Spanish (Español)
+
+
