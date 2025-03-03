@@ -9,7 +9,7 @@ icon: fa-solid fa-gear
 
 ## VMware Environemnt Preparation
 
-1. Export host information via vCenter: [VMware Quick Investigation](../presales/hyperbdr-vmware-investigation.md)
+1. Export host information via vCenter: [VMware Quick Investigation](../../product-overview/presales/hyperbdr-vmware-investigation.md)
 2. Fill in detail VM host information based on the export inf, which will be used for DR setup .
 
 ## VMware User Permission Requirements
