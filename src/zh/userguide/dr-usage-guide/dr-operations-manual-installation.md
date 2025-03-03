@@ -100,7 +100,7 @@ cat "$HYPERBDR_PACKAGE_MD5_NAME"
 - 执行以下命令解压安装包。
 
 ```sh
-tar -zxvf "$HYPERBDR_PACKAGE_NAME" -C /mnt/  
+rm -rf /mnt/installer && tar -zxvf "$HYPERBDR_PACKAGE_NAME" -C /mnt/  
 ```
 #### 运行安装脚本
 
