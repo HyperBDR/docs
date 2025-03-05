@@ -34,7 +34,7 @@
    - 对于从镜像启动的主机，需提供对应主机本地卷的存储池信息。通常对应的存储池为vms，平台卷类型的默认值为 CEPH_GLANCE_VMS。
 
 ### 源端同步代理（Sync Proxy）要求:
-   - 需要一台最低配置为2核CPU和4GB内存的CentOS 7系统作为**源端同步代理（Sync Proxy）** 节点。
+   - 需要一台最低配置为2核CPU和4GB内存的Ubuntu 20.04系统作为**源端同步代理（Sync Proxy）** 节点。
    - 必须能够访问Ceph Monitor（默认端口为6789）并读取OSD（默认端口为6800）中的相应数据。
    - 必须能够访问OpenStack平台API接口。
    - 必须能够访问**云迁移平台（HyperMotion）/云容灾平台（HyperBDR）控制台**的管理网络地址。

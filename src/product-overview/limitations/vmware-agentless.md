@@ -18,7 +18,7 @@ Click [Agentless Support Matrix](./product-support-overview.md) to view the comp
   - Data synchronization for disks larger than 2TB is not supported under ESXi 5.0 and 5.1 versions (single disk capacity < 2032GB).
 
 ### Sync Proxy Network Requirements
-  - A CentOS 7 system with a minimum of 2 cores and 4GB of RAM is required as a **Sync Proxy** node.
+  - A Ubuntu 20.04 system with a minimum of 2 cores and 4GB of RAM is required as a **Sync Proxy** node.
   - Access to the vCenter management network address and port is required.
   - Access to port 902 of ESXi managed under the vCenter is required.
   - Access to the management network address of **HyperMotion/HyperBDR Console** is required.
