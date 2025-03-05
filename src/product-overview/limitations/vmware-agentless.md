@@ -35,3 +35,4 @@ Click [Agentless Support Matrix](./product-support-overview.md) to view the comp
   - Independent-mode virtual disks are not supported and must be synchronized as basic disks.
   - Virtual machines mounted with USB or PCI peripherals will fail to snapshot (e.g., encrypted dog devices, etc.).
   - Virtual machines configured with shared disks need to change the shared disk to non-shared mode (modify the parameter iscsi1:0.sharing to mutil-write and change it to FALSE).
+  - Virtual machines mounted partition must have more than 100MB of remaining availble space (e.g. Linux: /var,/boot/ or others partition. Windows: C:).
