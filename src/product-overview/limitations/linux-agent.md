@@ -58,6 +58,7 @@ Due to the involvement of kernel modules during runtime, the installation and ex
 - Network-shared mount directories (e.g., NFS/NAS remote network access data) require the use of separate file-level synchronization tools for data synchronization.
 - When using hosts with iSCSI disks, care must be taken not to modify the original Initiator Name to avoid affecting business systems.
 - Btrfs file system is currently not supported.
+- OracleASM disks are currently not supported.
 - Not support LVM thin logical volumes.
 
 ### Application Conflict Check:
