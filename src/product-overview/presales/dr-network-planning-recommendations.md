@@ -177,6 +177,17 @@ Agent contains Windows Agent and Linux Agent.
 | 4 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
 | 5 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
 
+#### FusionCompute Agentless
+| **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Sync Proxy | VRM API Endpoint | TCP Unidirectional | 7443 | Control Flow | Default port, if there is a change to the other correct port. |
+| 2 | Sync Proxy | CNA Node Socket Interface | TCP Unidirectional | 35001 | Control Flow | Default port, if there is a change to the other correct port, Port 35001 for all CNA Node managed by VRM. |
+| 3 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |  |
+| 4 | Sync Proxy | Cloud Sync Gateway | TCP Unidirectional | 3260 | Data Flow |  |
+| 5 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
+| 6 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
+
+
 ### Deployment Architecture
 
 #### Internet
