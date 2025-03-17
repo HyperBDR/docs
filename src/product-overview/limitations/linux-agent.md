@@ -61,7 +61,11 @@ Due to the involvement of kernel modules during runtime, the installation and ex
 - OracleASM disks are currently not supported.
 - Not support LVM thin logical volumes.
 
-### Application Conflict Check:
+## Best Practice
+
+Before using the Linux Agent, please read this section carefully to avoid synchronization failures or conflicts with source applications due to incompatible scenarios, which may affect the stable operation of the system.
+
+### Application Conflict Check
 - Components identical to the Linux Agent must not exist in the system.
 
 ::: warning
@@ -69,5 +73,15 @@ Due to the involvement of kernel modules during runtime, the installation and ex
 When using the Linux Agent, make sure to monitor memory usage carefully. If the system is handling long data transfers with tools like `scp` or `rsync` and memory usage stays above 70% for a long time, avoid enabling the Linux Agent. This may cause the system to run out of memory (OOM), leading to service interruptions or even a system reboot.  
 
 To reduce the risk, consider optimizing resource usage or running the Linux Agent during less busy times.
+
+:::
+
+### Kernel Upgrade Notice
+
+::: warning
+
+In real-world projects, we have observed that certain Linux distributions (such as Ubuntu) enable automatic kernel upgrades by default. Since the operation of the Linux Agent relies on specific kernel modules that must strictly match the kernel version at the time of installation, upgrading the kernel may cause synchronization failures even if the modules are reloaded.  
+
+To ensure the long-term stable operation of the Linux Agent, it is recommended to disable automatic kernel upgrades and avoid cross-version upgrades (e.g., upgrading directly from 5.4 to 5.15) as much as possible to reduce compatibility risks. If a kernel upgrade occurs, the Linux Agent and its corresponding kernel modules must be manually updated, followed by a full synchronization to ensure data consistency and proper system operation.
 
 :::
