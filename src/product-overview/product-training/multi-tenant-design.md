@@ -33,15 +33,17 @@ This role-based access control ensures that users operate within appropriate per
 ## 5. Resource Management Diagram
 
 ```mermaid
-graph TD;
+graph LR;
     A[Tenant] -->|Manage| B[Tenant Administrator]
     A -->|View| C[Read-Only User]
     A -->|Operate Specific Resources| D[Operational User]
+
     B -->|Manage| E[Host]
     B -->|Manage| F[Sync Proxy]
     B -->|Manage| G[Block Storage]
     B -->|Manage| H[Object Storage]
     B -->|Manage| I[Policies & Tags]
+
     D -->|Operate| J[Launch Test Host]
 ```
 
