@@ -129,6 +129,7 @@ export const enSidebar = sidebar({
         'product-training/technical-highlights.md',
         'product-training/data-sync-fundamentals.md',
         'presales/deep-in-aws-agentless-mode',
+        'product-training/multi-tenant-design.md',
       ],
     },
     {
