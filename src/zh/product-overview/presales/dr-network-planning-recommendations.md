@@ -86,9 +86,10 @@
 | **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |
-| 2 | Agent | Cloud Sync Gateway | TCP 单向 | 3260 | 数据流 |
+| 2 | Agent | Cloud Sync Gateway | TCP 单向 | 3260 / 13260 | 数据流 |
 | 3 | HyperBDR Console | Cloud Sync Gateway | TCP 单向 | 22 / 10729 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
-| 4 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |
+| 4 | Cloud Sync Gateway | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |
+| 5 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |
 
 #### 无代理
 
