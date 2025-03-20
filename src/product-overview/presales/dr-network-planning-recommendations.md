@@ -153,9 +153,10 @@ Agent contains Windows Agent and Linux Agent.
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow | 
-| 2 | Agent | Cloud Sync Gateway | TCP Unidirectional | 3260 | Data Flow | 
-| 3 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
-| 4 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
+| 2 | Agent | Cloud Sync Gateway | TCP Unidirectional | 3260 / 13260 | Data Flow | 
+| 3 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 / 16100 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
+| 4 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |
+| 5 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
 
 #### Agentless
 
@@ -164,18 +165,20 @@ Agent contains Windows Agent and Linux Agent.
 | 1 | Sync Proxy | vCenter | TCP Unidirectional | 443 | Control Flow |  |
 | 2 | Sync Proxy | ESXi | TCP Unidirectional | 902 | Data Flow | Port 902 for all ESXis managed by vCenter |
 | 3 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |  |
-| 4 | Sync Proxy | Cloud Sync Gateway | TCP Unidirectional | 3260 | Data Flow |  |
-| 5 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
-| 6 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
+| 4 | Sync Proxy | Cloud Sync Gateway | TCP Unidirectional | 3260 / 13260 | Data Flow |  |
+| 5 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 / 16100 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
+| 6 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |
+| 7 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
 
 #### AWS Agentless
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Sync Proxy | AWS API Endpoint | TCP Unidirectional | 443 | Control Flow |  |
 | 2 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |  |
-| 3 | Sync Proxy | Cloud Sync Gateway | TCP Unidirectional | 3260 | Data Flow |  |
-| 4 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
-| 5 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
+| 3 | Sync Proxy | Cloud Sync Gateway | TCP Unidirectional | 3260 / 13260 | Data Flow |  |
+| 4 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 / 16100 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
+| 5 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 / 30080 |
+| 6 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
 
 #### FusionCompute Agentless
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
@@ -183,9 +186,10 @@ Agent contains Windows Agent and Linux Agent.
 | 1 | Sync Proxy | VRM API Endpoint | TCP Unidirectional | 7443 | Control Flow | Default port, if there is a change to the other correct port. |
 | 2 | Sync Proxy | CNA Node Socket Interface | TCP Unidirectional | 35001 | Control Flow | Default port, if there is a change to the other correct port, Port 35001 for all CNA Node managed by VRM. |
 | 3 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |  |
-| 4 | Sync Proxy | Cloud Sync Gateway | TCP Unidirectional | 3260 | Data Flow |  |
-| 5 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
-| 6 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
+| 4 | Sync Proxy | Cloud Sync Gateway | TCP Unidirectional | 3260 / 13260 | Data Flow |  |
+| 5 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 / 16100 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
+| 6 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 /30080 | Control Flow |
+| 7 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
 
 
 ### Deployment Architecture
@@ -221,8 +225,9 @@ During the failback process, due to the necessity for cloud takeover of the host
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Failback Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow | 
-| 2 | Failback Agent | Failback Transition Host | TCP Unidirectional | 3260 | Data Flow | 
+| 2 | Failback Agent | Failback Transition Host | TCP Unidirectional | 3260 / 13260 | Data Flow | 
 | 3 | HyperBDR Console | Failback Transition Host | TCP Unidirectional | 10729 | Control Flow | 
+| 4 | Failback Transition Host | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |
 
 ### Object Storage
 
