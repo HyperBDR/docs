@@ -17,7 +17,7 @@ When using the Windows Agent, the following VolSnap events are common when worki
 
 To avoid unexpected snapshot deletions due to high I/O or insufficient storage, Microsoft recommends moving VSS snapshots to a disk with more available space or using a separate disk not involved in VSS snapshots. This helps ensure snapshot stability and business continuity.
 
-::: TIP
+::: tip
 Starting from version v6.2.0, if a VSS exception occurs (e.g., the VSS snapshot is deleted due to high I/O load), the Windows Agent will be unable to continue reading incremental data. In this case, a full synchronization will be automatically performed upon the next sync trigger to ensure data integrity.
 :::
 
