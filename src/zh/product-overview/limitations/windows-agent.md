@@ -8,45 +8,6 @@ Windows Agent 通过 Windows VSS（卷影复制服务）和磁盘过滤驱动程
 
 如果系统中已安装类似机制的备份软件，建议在安装 Windows Agent 之前暂停或卸载该软件，以避免冲突。此外，用户可考虑咨询现有平台方，确认是否支持无代理方式进行数据备份，这样可以避免不同备份软件之间的冲突，确保系统备份和恢复的正常进行。
 
-### 在同步过程中针对 VolSnap Diff Area Integrity 的建议
-
-在使用 Windows 代理时，以下 VolSnap 事件在处理 Windows VSS 时较为常见：
-
-- **事件 ID 23 (VS_DIFF_AREA_CREATE_FAILED_LOW_DISK_SPACE)和事件 ID 36(VS_ABORT_NO_DIFF_AREA_SPACE_USER_IMPOSED)**：当 VSS 保留的存储空间快速被占满时，会触发自动快照清理。
-- **事件 ID 25 (VS_ABORT_SNAPSHOTS_OUT_OF_DIFF_AREA)**：当系统无法处理增量数据写入时，会导致快照清理，以保持正常的 I/O 操作。
-
-更多的与VolSnap相关的事件ID请查看：
-
-| 事件 ID | 来源    | 消息 |
-|---------|---------|------|
-| 1  | VolSnap | 无法在卷 %3 上创建卷 %2 的影子副本差异区域文件。 |
-| 2  | VolSnap | 无法创建卷 %2 的影子副本，因为指定为差异区域一部分的卷 %3 不是 NTFS 卷，或者在尝试确定该卷的文件系统类型时遇到错误。 |
-| 3  | VolSnap | 无法锁定卷 %3 上的影子副本差异区域文件的位置，以创建卷 %2 的影子副本。 |
-| 14 | VolSnap | 由于卷 %3 上的 IO 故障，卷 %2 的影子副本已中止。 |
-| 16 | VolSnap | 由于包含影子副本差异区域文件的卷 %3 被强制卸载，卷 %2 的影子副本已中止。 |
-| 23 | VolSnap | 由于卷 %3 上的磁盘空间不足，无法创建卷 %2 的影子副本。差异区域文件创建失败。 |
-| 24 | VolSnap | 由于卷 %3 上的磁盘空间不足，无法扩展 %2 的影子副本差异区域。因此，卷 %2 的所有影子副本都有被删除的风险。 |
-| 25 | VolSnap | 由于差异区域文件未能及时增长，卷 %2 的影子副本已中止。请考虑减少系统上的 IO 负载，以避免此问题再次发生。 |
-| 33 | VolSnap | 删除了卷 %2 的最旧影子副本，以保持影子副本的磁盘空间使用量低于用户定义的限制。 |
-| 35 | VolSnap | 由于差异区域文件未能增长，卷 %2 的影子副本已中止。 |
-| 36 | VolSnap | 由于用户设定的限制导致差异区域文件无法增长，卷 %2 的影子副本已中止。 |
-| 38 | VolSnap | 用户设定的限制阻止了使用卷 %3 上的磁盘空间来扩展 %2 的影子副本差异区域。因此，卷 %2 的所有影子副本都有被删除的风险。 |
-| 40 | VolSnap | 由于卷 %3 已被卸载，卷 %2 的影子副本已中止。 |
-| 41 | VolSnap | 在为卷 %2 准备新的影子副本时，卷 %3 上的影子副本存储没有足够大的连续块。请考虑删除影子副本存储卷上的不必要文件，或使用不同的影子副本存储卷。 |
-
-为了避免因高 I/O 或存储不足导致的快照意外删除，微软建议将 VSS 快照移动到具有更多可用空间的磁盘，或者使用与 VSS 快照无关的独立磁盘。这有助于确保快照的稳定性和业务连续性。
-
-::: tip
-从 v6.2.0 版本开始，如果发生 VSS 异常（例如，由于高 I/O 负载导致 VSS 快照被删除），Windows 代理将无法继续读取增量数据。在这种情况下，下次同步触发时将自动执行全量同步，以确保数据完整性。
-:::
-
-#### 参考文献
-
-- [微软关于事件 ID 23 的文档](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd364930(v=ws.10)?redirectedfrom=MSDN)
-- [微软关于事件 ID 36 的文档](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364636(v=ws.10))
-- [微软关于事件 ID 25 的论坛](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/1886c270-fc4c-41b5-b25f-3a8d52a4a8a7)
-- [Diff Area Integrity](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364947(v=ws.10))
-
 ## 操作系统支持
 
 点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)查看兼容性列表及最新支持状态。 
@@ -133,3 +94,44 @@ Windows Agent使用Windows VSS创建一致的快照，无需中断系统操作�
 - 中文
 - 英文
 - 西班牙语 (Español)
+
+## 常见问题
+
+### 在同步过程中针对 VolSnap Diff Area Integrity 的建议
+
+在使用 Windows 代理时，以下 VolSnap 事件在处理 Windows VSS 时较为常见：
+
+- **事件 ID 23 (VS_DIFF_AREA_CREATE_FAILED_LOW_DISK_SPACE)和事件 ID 36(VS_ABORT_NO_DIFF_AREA_SPACE_USER_IMPOSED)**：当 VSS 保留的存储空间快速被占满时，会触发自动快照清理。
+- **事件 ID 25 (VS_ABORT_SNAPSHOTS_OUT_OF_DIFF_AREA)**：当系统无法处理增量数据写入时，会导致快照清理，以保持正常的 I/O 操作。
+
+更多的与VolSnap相关的事件ID请查看：
+
+| 事件 ID | 来源    | 消息 |
+|---------|---------|------|
+| 1  | VolSnap | 无法在卷 %3 上创建卷 %2 的影子副本差异区域文件。 |
+| 2  | VolSnap | 无法创建卷 %2 的影子副本，因为指定为差异区域一部分的卷 %3 不是 NTFS 卷，或者在尝试确定该卷的文件系统类型时遇到错误。 |
+| 3  | VolSnap | 无法锁定卷 %3 上的影子副本差异区域文件的位置，以创建卷 %2 的影子副本。 |
+| 14 | VolSnap | 由于卷 %3 上的 IO 故障，卷 %2 的影子副本已中止。 |
+| 16 | VolSnap | 由于包含影子副本差异区域文件的卷 %3 被强制卸载，卷 %2 的影子副本已中止。 |
+| 23 | VolSnap | 由于卷 %3 上的磁盘空间不足，无法创建卷 %2 的影子副本。差异区域文件创建失败。 |
+| 24 | VolSnap | 由于卷 %3 上的磁盘空间不足，无法扩展 %2 的影子副本差异区域。因此，卷 %2 的所有影子副本都有被删除的风险。 |
+| 25 | VolSnap | 由于差异区域文件未能及时增长，卷 %2 的影子副本已中止。请考虑减少系统上的 IO 负载，以避免此问题再次发生。 |
+| 33 | VolSnap | 删除了卷 %2 的最旧影子副本，以保持影子副本的磁盘空间使用量低于用户定义的限制。 |
+| 35 | VolSnap | 由于差异区域文件未能增长，卷 %2 的影子副本已中止。 |
+| 36 | VolSnap | 由于用户设定的限制导致差异区域文件无法增长，卷 %2 的影子副本已中止。 |
+| 38 | VolSnap | 用户设定的限制阻止了使用卷 %3 上的磁盘空间来扩展 %2 的影子副本差异区域。因此，卷 %2 的所有影子副本都有被删除的风险。 |
+| 40 | VolSnap | 由于卷 %3 已被卸载，卷 %2 的影子副本已中止。 |
+| 41 | VolSnap | 在为卷 %2 准备新的影子副本时，卷 %3 上的影子副本存储没有足够大的连续块。请考虑删除影子副本存储卷上的不必要文件，或使用不同的影子副本存储卷。 |
+
+为了避免因高 I/O 或存储不足导致的快照意外删除，微软建议将 VSS 快照移动到具有更多可用空间的磁盘，或者使用与 VSS 快照无关的独立磁盘。这有助于确保快照的稳定性和业务连续性。
+
+::: tip
+从 v6.2.0 版本开始，如果发生 VSS 异常（例如，由于高 I/O 负载导致 VSS 快照被删除），Windows 代理将无法继续读取增量数据。在这种情况下，下次同步触发时将自动执行全量同步，以确保数据完整性。
+:::
+
+#### 参考文献
+
+- [微软关于事件 ID 23 的文档](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd364930(v=ws.10)?redirectedfrom=MSDN)
+- [微软关于事件 ID 36 的文档](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364636(v=ws.10))
+- [微软关于事件 ID 25 的论坛](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/1886c270-fc4c-41b5-b25f-3a8d52a4a8a7)
+- [Diff Area Integrity](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364947(v=ws.10))
