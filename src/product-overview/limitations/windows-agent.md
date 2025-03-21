@@ -8,45 +8,6 @@ The Windows Agent captures I/O changes through Windows VSS (Volume Shadow Copy S
 
 If similar backup software is already installed on the system, it is recommended to pause or uninstall that software before installing the Windows Agent to avoid conflicts. Additionally, users may consider consulting their platform provider to confirm whether agentless data backup is supported, which can help prevent conflicts between different backup solutions and ensure proper system backup and recovery.
 
-### Recommendations for VolSnap Diff Area Integrity Issues
-
-When using the Windows Agent, the following VolSnap events are common when working with Windows VSS:
-
-- **Event ID 23 (VS_DIFF_AREA_CREATE_FAILED_LOW_DISK_SPACE) and Event ID 36(VS_ABORT_NO_DIFF_AREA_SPACE_USER_IMPOSED)**: This occurs when VSS reserved storage space is quickly used up, triggering an automatic snapshot cleanup.
-- **Event ID 25 (VS_ABORT_SNAPSHOTS_OUT_OF_DIFF_AREA)**: This happens when the system cannot handle differential data writes, causing snapshot cleanup to maintain normal I/O operations.
-
-More VolSnap Issues Please check:
-
-| Event ID | Source  | Message |
-|----------|---------|---------|
-| 1  | VolSnap | The shadow copy of volume %2 could not create a diff area file on volume %3. |
-| 2  | VolSnap | The shadow copy of volume %2 could not be created because volume %3, which is specified as part of the diff area, is not an NTFS volume or an error was encountered while trying to determine the file system type of this volume. |
-| 3  | VolSnap | The shadow copy of volume %2 could not lock down the location of the diff area file on volume %3. |
-| 14 | VolSnap | The shadow copies of volume %2 were aborted because of an IO failure on volume %3. |
-| 16 | VolSnap | The shadow copies of volume %2 were aborted because volume %3, which contains a diff area file for this shadow copy, was force dismounted. |
-| 23 | VolSnap | There was insufficient disk space on volume %3 to create the shadow copy of volume %2. Diff area file creation failed. |
-| 24 | VolSnap | There was insufficient disk space on volume %3 to grow the diff area for shadow copies of %2. As a result of this failure all shadow copies of volume %2 are at risk of being deleted. |
-| 25 | VolSnap | The shadow copies of volume %2 were aborted because the diff area file could not grow in time. Consider reducing the IO load on this system to avoid this problem in the future. |
-| 33 | VolSnap | The oldest shadow copy of volume %2 was deleted to keep disk space usage for shadow copies of volume %2 below the user defined limit. |
-| 35 | VolSnap | The shadow copies of volume %2 were aborted because the diff area file failed to grow. |
-| 36 | VolSnap | The shadow copies of volume %2 were aborted because the diff area file could not grow due to a user imposed limit. |
-| 38 | VolSnap | There was a user imposed limit that prevented disk space on volume %3 from being used to grow the diff area for shadow copies of %2. As a result of this failure all shadow copies of volume %2 are at risk of being deleted. |
-| 40 | VolSnap | The shadow copies of volume %2 were aborted because volume %3 has been dismounted. |
-| 41 | VolSnap | When preparing a new volume shadow copy for volume %2, the shadow copy storage on volume %3 did not have sufficiently large contiguous blocks. Consider deleting unnecessary files on the shadow copy storage volume or use a different shadow copy storage volume. |
-
-To avoid unexpected snapshot deletions due to high I/O or insufficient storage, Microsoft recommends moving VSS snapshots to a disk with more available space or using a separate disk not involved in VSS snapshots. This helps ensure snapshot stability and business continuity.
-
-::: tip
-Starting from version v6.2.0, if a VSS exception occurs (e.g., the VSS snapshot is deleted due to high I/O load), the Windows Agent will be unable to continue reading incremental data. In this case, a full synchronization will be automatically performed upon the next sync trigger to ensure data integrity.
-:::
-
-#### References
-
-- [Microsoft Documentation on Event ID 23](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd364930(v=ws.10)?redirectedfrom=MSDN)
-- [Microsoft Documentation on Event ID 36](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364636(v=ws.10))
-- [Microsoft Forum on Event ID 25](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/1886c270-fc4c-41b5-b25f-3a8d52a4a8a7)
-- [Diff Area Integrity](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364947(v=ws.10))
-
 ## OS Support
 
 Click [Agent Support Matrix](./product-support-overview.md) to view the compatibility list and get the latest support status.
@@ -134,4 +95,43 @@ The Windows Agent currently supports the following system languages:
 - English
 - Spanish (Español)
 
+## FAQ
 
+### Recommendations for VolSnap Diff Area Integrity Issues
+
+When using the Windows Agent, the following VolSnap events are common when working with Windows VSS:
+
+- **Event ID 23 (VS_DIFF_AREA_CREATE_FAILED_LOW_DISK_SPACE) and Event ID 36(VS_ABORT_NO_DIFF_AREA_SPACE_USER_IMPOSED)**: This occurs when VSS reserved storage space is quickly used up, triggering an automatic snapshot cleanup.
+- **Event ID 25 (VS_ABORT_SNAPSHOTS_OUT_OF_DIFF_AREA)**: This happens when the system cannot handle differential data writes, causing snapshot cleanup to maintain normal I/O operations.
+
+More VolSnap Issues Please check:
+
+| Event ID | Source  | Message |
+|----------|---------|---------|
+| 1  | VolSnap | The shadow copy of volume %2 could not create a diff area file on volume %3. |
+| 2  | VolSnap | The shadow copy of volume %2 could not be created because volume %3, which is specified as part of the diff area, is not an NTFS volume or an error was encountered while trying to determine the file system type of this volume. |
+| 3  | VolSnap | The shadow copy of volume %2 could not lock down the location of the diff area file on volume %3. |
+| 14 | VolSnap | The shadow copies of volume %2 were aborted because of an IO failure on volume %3. |
+| 16 | VolSnap | The shadow copies of volume %2 were aborted because volume %3, which contains a diff area file for this shadow copy, was force dismounted. |
+| 23 | VolSnap | There was insufficient disk space on volume %3 to create the shadow copy of volume %2. Diff area file creation failed. |
+| 24 | VolSnap | There was insufficient disk space on volume %3 to grow the diff area for shadow copies of %2. As a result of this failure all shadow copies of volume %2 are at risk of being deleted. |
+| 25 | VolSnap | The shadow copies of volume %2 were aborted because the diff area file could not grow in time. Consider reducing the IO load on this system to avoid this problem in the future. |
+| 33 | VolSnap | The oldest shadow copy of volume %2 was deleted to keep disk space usage for shadow copies of volume %2 below the user defined limit. |
+| 35 | VolSnap | The shadow copies of volume %2 were aborted because the diff area file failed to grow. |
+| 36 | VolSnap | The shadow copies of volume %2 were aborted because the diff area file could not grow due to a user imposed limit. |
+| 38 | VolSnap | There was a user imposed limit that prevented disk space on volume %3 from being used to grow the diff area for shadow copies of %2. As a result of this failure all shadow copies of volume %2 are at risk of being deleted. |
+| 40 | VolSnap | The shadow copies of volume %2 were aborted because volume %3 has been dismounted. |
+| 41 | VolSnap | When preparing a new volume shadow copy for volume %2, the shadow copy storage on volume %3 did not have sufficiently large contiguous blocks. Consider deleting unnecessary files on the shadow copy storage volume or use a different shadow copy storage volume. |
+
+To avoid unexpected snapshot deletions due to high I/O or insufficient storage, Microsoft recommends moving VSS snapshots to a disk with more available space or using a separate disk not involved in VSS snapshots. This helps ensure snapshot stability and business continuity.
+
+::: tip
+Starting from version v6.2.0, if a VSS exception occurs (e.g., the VSS snapshot is deleted due to high I/O load), the Windows Agent will be unable to continue reading incremental data. In this case, a full synchronization will be automatically performed upon the next sync trigger to ensure data integrity.
+:::
+
+#### References
+
+- [Microsoft Documentation on Event ID 23](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd364930(v=ws.10)?redirectedfrom=MSDN)
+- [Microsoft Documentation on Event ID 36](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364636(v=ws.10))
+- [Microsoft Forum on Event ID 25](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/1886c270-fc4c-41b5-b25f-3a8d52a4a8a7)
+- [Diff Area Integrity](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364947(v=ws.10))
