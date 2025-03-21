@@ -8,11 +8,11 @@ The Windows Agent captures I/O changes through Windows VSS (Volume Shadow Copy S
 
 If similar backup software is already installed on the system, it is recommended to pause or uninstall that software before installing the Windows Agent to avoid conflicts. Additionally, users may consider consulting their platform provider to confirm whether agentless data backup is supported, which can help prevent conflicts between different backup solutions and ensure proper system backup and recovery.
 
-### Recommendations for VolSnap Event ID 23 and 25 During Sync
+### Recommendations for VolSnap Event ID 23 / 25 / 36 During Sync
 
 When using the Windows Agent, the following VolSnap events are common when working with Windows VSS:
 
-- **Event ID 23 (VS_DIFF_AREA_CREATE_FAILED_LOW_DISK_SPACE)**: This occurs when VSS reserved storage space is quickly used up, triggering an automatic snapshot cleanup.
+- **Event ID 23 (VS_DIFF_AREA_CREATE_FAILED_LOW_DISK_SPACE) and Event ID 36(VS_ABORT_NO_DIFF_AREA_SPACE_USER_IMPOSED)**: This occurs when VSS reserved storage space is quickly used up, triggering an automatic snapshot cleanup.
 - **Event ID 25 (VS_ABORT_SNAPSHOTS_OUT_OF_DIFF_AREA)**: This happens when the system cannot handle differential data writes, causing snapshot cleanup to maintain normal I/O operations.
 
 To avoid unexpected snapshot deletions due to high I/O or insufficient storage, Microsoft recommends moving VSS snapshots to a disk with more available space or using a separate disk not involved in VSS snapshots. This helps ensure snapshot stability and business continuity.
@@ -24,6 +24,7 @@ Starting from version v6.2.0, if a VSS exception occurs (e.g., the VSS snapshot 
 #### References
 
 - [Microsoft Documentation on Event ID 23](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd364930(v=ws.10)?redirectedfrom=MSDN)
+- [Microsoft Documentation on Event ID 36](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364636(v=ws.10))
 - [Microsoft Forum on Event ID 25](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/1886c270-fc4c-41b5-b25f-3a8d52a4a8a7)
 
 ## OS Support
