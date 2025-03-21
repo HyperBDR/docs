@@ -1,10 +1,30 @@
 # Windows Agent
 
-## 重要提醒：Windows Agent 与备份软件兼容性说明
+## 重要提醒
+
+### Windows Agent 与备份软件兼容性说明
 
 Windows Agent 通过 Windows VSS（卷影复制服务）和磁盘过滤驱动程序来捕获 I/O 变动。然而，由于 Windows VSS 的限制，若两个软件在重叠的时间范围内同时调用 VSS 服务，可能导致 VSS 快照失败，从而无法满足预定的 RPO 要求。因此，Windows Agent 无法与使用相同机制的其他备份软件（如 Acronis、Veeam、Veritas、Commvault 等）同时运行。
 
 如果系统中已安装类似机制的备份软件，建议在安装 Windows Agent 之前暂停或卸载该软件，以避免冲突。此外，用户可考虑咨询现有平台方，确认是否支持无代理方式进行数据备份，这样可以避免不同备份软件之间的冲突，确保系统备份和恢复的正常进行。
+
+### 在同步过程中针对 VolSnap 事件 ID 23 和 25 的建议
+
+在使用 Windows 代理时，以下 VolSnap 事件在处理 Windows VSS 时较为常见：
+
+- **事件 ID 23 (VS_DIFF_AREA_CREATE_FAILED_LOW_DISK_SPACE)**：当 VSS 保留的存储空间快速被占满时，会触发自动快照清理。
+- **事件 ID 25 (VS_ABORT_SNAPSHOTS_OUT_OF_DIFF_AREA)**：当系统无法处理增量数据写入时，会导致快照清理，以保持正常的 I/O 操作。
+
+为了避免因高 I/O 或存储不足导致的快照意外删除，微软建议将 VSS 快照移动到具有更多可用空间的磁盘，或者使用与 VSS 快照无关的独立磁盘。这有助于确保快照的稳定性和业务连续性。
+
+::: 提示
+从 v6.2.0 版本开始，如果发生 VSS 异常（例如，由于高 I/O 负载导致 VSS 快照被删除），Windows 代理将无法继续读取增量数据。在这种情况下，下次同步触发时将自动执行全量同步，以确保数据完整性。
+:::
+
+#### 参考文献
+
+- [微软关于事件 ID 23 的文档](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd364930(v=ws.10)?redirectedfrom=MSDN)
+- [微软关于事件 ID 25 的论坛](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/1886c270-fc4c-41b5-b25f-3a8d52a4a8a7)
 
 ## 操作系统支持
 
