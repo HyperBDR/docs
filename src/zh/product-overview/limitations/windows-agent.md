@@ -97,14 +97,32 @@ Windows Agent使用Windows VSS创建一致的快照，无需中断系统操作�
 
 ## 常见问题
 
-### 在同步过程中针对 VolSnap Diff Area Integrity 的建议
+**Windows Agent同步失败解决方案（153315 / 154000 / 154001 等）**
 
-在使用 Windows 代理时，以下 VolSnap 事件在处理 Windows VSS 时较为常见：
+在使用Windows Agent时，常见的错误代码包括153315、154000、154001等。这些错误通常与Windows VSS（卷影复制服务）VolSnap事件相关。以下是对这些问题的详细分析：
 
-- **事件 ID 23 (VS_DIFF_AREA_CREATE_FAILED_LOW_DISK_SPACE)和事件 ID 36(VS_ABORT_NO_DIFF_AREA_SPACE_USER_IMPOSED)**：当 VSS 保留的存储空间快速被占满时，会触发自动快照清理。
-- **事件 ID 25 (VS_ABORT_SNAPSHOTS_OUT_OF_DIFF_AREA)**：当系统无法处理增量数据写入时，会导致快照清理，以保持正常的 I/O 操作。
+1. **VSS保留存储空间耗尽**：当VSS保留存储空间快速耗尽时，会导致自动快照清理。此问题可以通过多个事件ID出现，例如事件ID 23（VS_DIFF_AREA_CREATE_FAILED_LOW_DISK_SPACE）和事件ID 36（VS_ABORT_NO_DIFF_AREA_SPACE_USER_IMPOSED），也可能会以其他事件ID出现。
 
-更多的与VolSnap相关的事件ID请查看：
+2. **差异数据写入失败**：当系统无法处理差异数据写入时，会触发快照清理以确保正常的I/O操作继续进行。为了防止因高I/O或存储空间不足导致的快照意外删除，微软建议将VSS快照移动到空间更充足的磁盘上，或者使用不参与VSS快照的独立磁盘。这有助于确保快照的稳定性和业务连续性。此问题通常与事件ID 25（VS_ABORT_SNAPSHOTS_OUT_OF_DIFF_AREA）相关，但也可能与其他事件ID一起发生。
+
+::: tip
+从 v6.2.0 版本开始，如果发生 VSS 异常（例如，由于高 I/O 负载导致 VSS 快照被删除），Windows 代理将无法继续读取增量数据。在这种情况下，下次同步触发时将自动执行全量同步，以确保数据完整性。
+:::
+
+#### How to Resolve?
+
+- [How to resolve the "Issue [153315]" problem when Windows Agent fails to synchronize data?](https://support.oneprocloud.com/questions/D166)
+- [How to resolve the "Issue [153313]" problem when Windows Agent fails to synchronize data?](https://support.oneprocloud.com/questions/D196)
+- [How to resolve the "Issue [154001]" problem when Windows Agent fails to synchronize data?](https://support.oneprocloud.com/questions/D186)
+- [How to resolve the "Issue [154000]" problem when Windows Agent fails to synchronize data?](https://support.oneprocloud.com/questions/D176)
+
+#### 参考文献
+
+- [微软关于事件 ID 23 的文档](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd364930(v=ws.10)?redirectedfrom=MSDN)
+- [微软关于事件 ID 36 的文档](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364636(v=ws.10))
+- [微软关于事件 ID 25 的论坛](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/1886c270-fc4c-41b5-b25f-3a8d52a4a8a7)
+- [Diff Area Integrity](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364947(v=ws.10))
+- 更多的与VolSnap相关的事件ID请查看：
 
 | 事件 ID | 来源    | 消息 |
 |---------|---------|------|
@@ -122,16 +140,3 @@ Windows Agent使用Windows VSS创建一致的快照，无需中断系统操作�
 | 38 | VolSnap | 用户设定的限制阻止了使用卷 %3 上的磁盘空间来扩展 %2 的影子副本差异区域。因此，卷 %2 的所有影子副本都有被删除的风险。 |
 | 40 | VolSnap | 由于卷 %3 已被卸载，卷 %2 的影子副本已中止。 |
 | 41 | VolSnap | 在为卷 %2 准备新的影子副本时，卷 %3 上的影子副本存储没有足够大的连续块。请考虑删除影子副本存储卷上的不必要文件，或使用不同的影子副本存储卷。 |
-
-为了避免因高 I/O 或存储不足导致的快照意外删除，微软建议将 VSS 快照移动到具有更多可用空间的磁盘，或者使用与 VSS 快照无关的独立磁盘。这有助于确保快照的稳定性和业务连续性。
-
-::: tip
-从 v6.2.0 版本开始，如果发生 VSS 异常（例如，由于高 I/O 负载导致 VSS 快照被删除），Windows 代理将无法继续读取增量数据。在这种情况下，下次同步触发时将自动执行全量同步，以确保数据完整性。
-:::
-
-#### 参考文献
-
-- [微软关于事件 ID 23 的文档](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd364930(v=ws.10)?redirectedfrom=MSDN)
-- [微软关于事件 ID 36 的文档](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364636(v=ws.10))
-- [微软关于事件 ID 25 的论坛](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/1886c270-fc4c-41b5-b25f-3a8d52a4a8a7)
-- [Diff Area Integrity](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364947(v=ws.10))
