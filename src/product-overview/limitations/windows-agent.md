@@ -97,14 +97,32 @@ The Windows Agent currently supports the following system languages:
 
 ## FAQ
 
-### Recommendations for VolSnap Diff Area Integrity Issues
+### Solutions for Windows Agent Synchronization Failures (153315 / 154000 / 154001 / etc.)
 
-When using the Windows Agent, the following VolSnap events are common when working with Windows VSS:
+When using the Windows Agent, common error codes include 153315, 154000, and 154001, etc. These errors are usually related to Windows VSS (Volume Shadow Copy Service) VolSnap events. Below is a detailed analysis of these errors.
 
-- **Event ID 23 (VS_DIFF_AREA_CREATE_FAILED_LOW_DISK_SPACE) and Event ID 36(VS_ABORT_NO_DIFF_AREA_SPACE_USER_IMPOSED)**: This occurs when VSS reserved storage space is quickly used up, triggering an automatic snapshot cleanup.
-- **Event ID 25 (VS_ABORT_SNAPSHOTS_OUT_OF_DIFF_AREA)**: This happens when the system cannot handle differential data writes, causing snapshot cleanup to maintain normal I/O operations.
+- **VSS Reserved Storage Space Exhaustion**: This issue occurs when the VSS reserved storage space is quickly used up, leading to an automatic snapshot cleanup. It can manifest under various event IDs, including **Event ID 23 (VS_DIFF_AREA_CREATE_FAILED_LOW_DISK_SPACE)** and **Event ID 36 (VS_ABORT_NO_DIFF_AREA_SPACE_USER_IMPOSED)**, but may also appear with other IDs.
+- **Differential Data Write Failure**: This happens when the system is unable to handle differential data writes, triggering a snapshot cleanup to ensure normal I/O operations continue. To avoid unexpected snapshot deletions due to high I/O or insufficient storage, Microsoft recommends moving VSS snapshots to a disk with more available space or using a separate disk not involved in VSS snapshots. This helps ensure snapshot stability and business continuity. This problem is typically associated with **Event ID 25 (VS_ABORT_SNAPSHOTS_OUT_OF_DIFF_AREA)**, but could also occur with other event IDs.
 
-More VolSnap Issues Please check:
+::: tip
+Starting from version v6.2.0, if a VSS exception occurs (e.g., the VSS snapshot is deleted due to high I/O load), the Windows Agent will be unable to continue reading incremental data. In this case, a full synchronization will be automatically performed upon the next sync trigger to ensure data integrity.
+:::
+
+
+#### How to Resolve?
+
+- [How to resolve the "Issue [153315]" problem when Windows Agent fails to synchronize data?](https://support.oneprocloud.com/questions/D166)
+- [How to resolve the "Issue [153313]" problem when Windows Agent fails to synchronize data?](https://support.oneprocloud.com/questions/D196)
+- [How to resolve the "Issue [154001]" problem when Windows Agent fails to synchronize data?](https://support.oneprocloud.com/questions/D186)
+- [How to resolve the "Issue [154000]" problem when Windows Agent fails to synchronize data?](https://support.oneprocloud.com/questions/D176)
+
+#### References
+
+- [Microsoft Documentation on Event ID 23](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd364930(v=ws.10)?redirectedfrom=MSDN)
+- [Microsoft Documentation on Event ID 36](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364636(v=ws.10))
+- [Microsoft Forum on Event ID 25](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/1886c270-fc4c-41b5-b25f-3a8d52a4a8a7)
+- [Diff Area Integrity](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364947(v=ws.10))
+- More VolSnap Issues Please check:
 
 | Event ID | Source  | Message |
 |----------|---------|---------|
@@ -122,16 +140,3 @@ More VolSnap Issues Please check:
 | 38 | VolSnap | There was a user imposed limit that prevented disk space on volume %3 from being used to grow the diff area for shadow copies of %2. As a result of this failure all shadow copies of volume %2 are at risk of being deleted. |
 | 40 | VolSnap | The shadow copies of volume %2 were aborted because volume %3 has been dismounted. |
 | 41 | VolSnap | When preparing a new volume shadow copy for volume %2, the shadow copy storage on volume %3 did not have sufficiently large contiguous blocks. Consider deleting unnecessary files on the shadow copy storage volume or use a different shadow copy storage volume. |
-
-To avoid unexpected snapshot deletions due to high I/O or insufficient storage, Microsoft recommends moving VSS snapshots to a disk with more available space or using a separate disk not involved in VSS snapshots. This helps ensure snapshot stability and business continuity.
-
-::: tip
-Starting from version v6.2.0, if a VSS exception occurs (e.g., the VSS snapshot is deleted due to high I/O load), the Windows Agent will be unable to continue reading incremental data. In this case, a full synchronization will be automatically performed upon the next sync trigger to ensure data integrity.
-:::
-
-#### References
-
-- [Microsoft Documentation on Event ID 23](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd364930(v=ws.10)?redirectedfrom=MSDN)
-- [Microsoft Documentation on Event ID 36](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364636(v=ws.10))
-- [Microsoft Forum on Event ID 25](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/1886c270-fc4c-41b5-b25f-3a8d52a4a8a7)
-- [Diff Area Integrity](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364947(v=ws.10))
