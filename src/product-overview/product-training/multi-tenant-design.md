@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/09cf6b1d-eb85-4c85-aeba-3346bb562a59)# Multi-Tenant System
+# Multi-Tenant System
 
 ## 1. Design Concept
 
