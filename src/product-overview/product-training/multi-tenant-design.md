@@ -1,4 +1,4 @@
-# Multi-Tenant System
+![image](https://github.com/user-attachments/assets/09cf6b1d-eb85-4c85-aeba-3346bb562a59)# Multi-Tenant System
 
 ## 1. Design Concept
 
@@ -35,8 +35,15 @@ This role-based access control ensures that users operate within appropriate per
 ```mermaid
 graph LR;
     A[Tenant] -->|Manage| B[Tenant Administrator]
+    A -->|Manage| K[Platform Administrator - Global]
     A -->|View| C[Read-Only User]
     A -->|Operate Specific Resources| D[Operational User]
+
+    K --> |Manage| L[User & Tenant]
+    K --> |Manage| M[DR Resources]
+    K --> |Manage| N[Monitor & Alarm & Notification]
+    K --> |Manage| O[Operations]
+    K --> |Manage| P[License]
 
     B -->|Manage| E[Host]
     B -->|Manage| F[Sync Proxy]
