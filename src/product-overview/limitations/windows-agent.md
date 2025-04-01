@@ -95,6 +95,10 @@ The Windows Agent currently supports the following system languages:
 - English
 - Spanish (Español)
 
+### HyperBDR configuration requirements
+
+If the boot mode of the source Windows host is UEFI and the target platform does not support native UEFI boot, a public network needs to participate in UEFI repair transition host.
+
 ## FAQ
 
 ### Solutions for Windows Agent Synchronization Failures (153315 / 154000 / 154001 / etc.)

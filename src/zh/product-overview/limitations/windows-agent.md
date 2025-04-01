@@ -95,6 +95,10 @@ Windows Agent使用Windows VSS创建一致的快照，无需中断系统操作�
 - 英文
 - 西班牙语 (Español)
 
+### HyperBDR配置要求
+
+如果源端Windows主机的启动模式是UEFI，且目标平台不支持原生UEFI启动的情况下，需要共有网络参与UEFI修复过渡主机。
+
 ## 常见问题
 
 **Windows Agent同步失败解决方案（153315 / 154000 / 154001 等）**
