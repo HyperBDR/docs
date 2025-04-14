@@ -61,6 +61,7 @@ export const enSidebar = sidebar({
             'hcs-pre-settings',
             'googlecloud-pre-settings',
             'xhere-pre-settings.md',
+            'azure-target-pre-settings.md',
           ],
         },
         {
