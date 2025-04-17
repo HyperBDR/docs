@@ -39,10 +39,12 @@ Due to the involvement of kernel modules during runtime, the installation and ex
 - **Disk Space:**
   - *Software Space:* 100MB of available space for software installation.
   - *Cache Space:* Each filesystem must have remaining space greater than 10%.
+  - System partition must have more than 100MB of remaining availble space (e.g. Linux: /var,/boot/ or others partition.).
 - **Network Connection:** At least 10 Mbps connection to the target endpoint.
 - **System Firmware:** BIOS or UEFI.
 - **Disk Layout:** MBR or GPT.
 - **Virtualization Support:** Full virtualization is supported, but support for paravirtualization (e.g., XenServer) is limited. Manual repair may be required during final boot.
+
 
 ### System Boot:
 - Systems bootable with both grub and grub2 methods are synchronized and started.
