@@ -52,7 +52,7 @@ Log in to the HyperBDR host backend and execute the command.
 
 ```sh
 # Retrieve the latest HyperBDR package URL
-HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/get_hyperbdr_latest/latest)
+HYPERBDR_PACKAGE="https://hyperbdr-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v6.3.0_20250331-20250417-958.tar.gz"
 echo "HYPERBDR_PACKAGE: ${HYPERBDR_PACKAGE}"
 
 # Get the corresponding MD5 file URL
