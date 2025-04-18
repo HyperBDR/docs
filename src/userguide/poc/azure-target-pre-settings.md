@@ -111,6 +111,12 @@ As noted earlier, don't block the creation of resources for a resource provider 
 
 ![azure-target-pre-settings-15.png](./images/azure-target-pre-settings-15.png)
 
+9. Register the following resource providers
+
+![azure-target-pre-settings-30.png](./images/azure-target-pre-settings-30.png)
+
+![azure-target-pre-settings-31.png](./images/azure-target-pre-settings-31.png)
+
 ## Add Access control (IAM)
 
 Assign the Owner role to your Subscription
