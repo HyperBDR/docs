@@ -47,7 +47,7 @@ HyperBDR 支持单机离线部署。我们将提供离线安装包进行安装�
 
 ```sh
 # 获取最新的 HyperBDR 软件包 URL。
-HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/get_hyperbdr_latest/latest)
+HYPERBDR_PACKAGE="https://hyperbdr-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/HyperBDR_release_v6.3.0_20250331-20250417-958.tar.gz"
 echo "HYPERBDR_PACKAGE: ${HYPERBDR_PACKAGE}"
 
 # 获取相应的 MD5 文件 URL。
