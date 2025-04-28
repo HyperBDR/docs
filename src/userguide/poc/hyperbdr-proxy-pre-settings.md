@@ -80,61 +80,81 @@ sudo systemctl restart systemd-networkd
 
 Try to ping VMware vCenter IP or ESXi IP, check if you can get correct response.
 
-```
+```bash
 ping <vcenter ip or esxi ip>
 ```
 
 ## Configure NTP Server
 
-### Download and Upload to Sync Proxy
-
-Download these packages and upload to Sync Proxy, save in /root/ntp-packages/
-
-* [ntp-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntp-4.2.6p5-28.el7.centos.x86_64.rpm)
-* [autogen-libopts-5.18-5.el7.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/autogen-libopts-5.18-5.el7.x86_64.rpm)
-* [ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm](https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm)
-
-In Sync Proxy Terminal, you can use these commands to download these packages:
-
-```sh
-mkdir /root/ntp-packages && cd /root/ntp-packages  
-curl -O https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntp-4.2.6p5-28.el7.centos.x86_64.rpm
-curl -O https://vault.centos.org/7.5.1804/os/x86_64/Packages/autogen-libopts-5.18-5.el7.x86_64.rpm  
-curl -O https://vault.centos.org/7.5.1804/os/x86_64/Packages/ntpdate-4.2.6p5-28.el7.centos.x86_64.rpm  
-```
-
-### Installation
+### Check Current Time Synchronization Status
 
 ```bash
-cd /root/ntp-packages/
-yum install -y *.rpm
+timedatectl status
 ```
+This command shows the current system time, time synchronization status, and the NTP server in use.
 
-### NTP Configuration
+### Modify timesyncd Configuration
 
-To edit the /etc/ntp.conf file, you can use the vi editor.
-
-- Find the following lines in the file:
+Edit the configuration file /etc/systemd/timesyncd.conf:
 
 ```bash
-#server 0.centos.pool.ntp.org iburst
-#server 1.centos.pool.ntp.org iburst
-#server 2.centos.pool.ntp.org iburst
-#server 3.centos.pool.ntp.org iburst
+sudo vim /etc/systemd/timesyncd.conf
 ```
-- uncomment and add the following to the file.
+
+Find and modify the [Time] section as below:
 
 ```bash
-server ntp.server.ip.address
+[Time]
+NTP=ntp.aliyun.com
+FallbackNTP=ntp1.aliyun.com ntp2.aliyun.com
 ```
 
-There **<ntp.server.ip.address>** is your ntp server ip address.
+- NTP: Preferred NTP server.
+- FallbackNTP: Backup servers if the primary fails.
 
-### Start Service
+There **<ntp.aliyun.com>** is your ntp server ip address or FQDN domain name.
+There **<ntp1.aliyun.com>** **<ntp2.aliyun.com>** is your backup ntp server ip address or FQDN domain name, if you don't have this, you use # to annotation on this line begen.
+
+Save and exit the editor.
+
+### Restart timesyncd Service
+
+After modifying the configuration, restart the service:
 
 ```bash
-systemctl enable ntpd && systemctl start ntpd
+systemctl restart systemd-timesyncd
 ```
+
+Enable the service to start automatically on boot:
+
+```bash
+systemctl enable systemd-timesyncd
+```
+
+### Verify Synchronization
+
+Check synchronization status again:
+
+```bash
+timedatectl status
+```
+
+You should see System clock synchronized: yes.
+To view detailed synchronization logs:
+
+```bash
+journalctl -u systemd-timesyncd
+```
+
+### (Optional) Set the Correct Timezone
+
+If necessary, set the correct system timezone, for example:
+
+```bash
+sudo timedatectl set-timezone Asia/Shanghai
+```
+
+There **<Asia/Shanghai>** is your local timezone.
 
 ## Enable Access Policy for Sync Proxy
 
