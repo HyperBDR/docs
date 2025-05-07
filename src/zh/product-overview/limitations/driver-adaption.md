@@ -17,6 +17,12 @@
 
 * **旧版本 Windows 系统兼容性问题**：某些版本的 Windows 2003/2008（32 位或 64 位）在特定云平台上可能无法正常启动，或启动后网卡驱动无法自动加载。建议在使用前向云平台厂商确认是否完全支持该操作系统版本。
 
+#### 参考链接
+
+* [Dynamic Disks are Deprecated](https://learn.microsoft.com/en-us/windows/win32/fileio/basic-and-dynamic-disks#dynamic-disks)
+* [Do not use ReFS for Security Reasons](https://techcommunity.microsoft.com/discussions/sql_server/what-to-use-refs-or-ntfs/3046795)
+* [Features and functionality removed in Windows client](https://learn.microsoft.com/en-us/windows/whats-new/removed-features)
+
 ### Linux 系统
 
 * **分区结构异常**：若主机中存在不规范的分区结构，例如分区之间存在空间重叠，或挂载点无法访问，可能导致驱动修复失败。请确保源端分区结构规范后再尝试修复。

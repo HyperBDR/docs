@@ -22,6 +22,12 @@ We employ various efficient and cost-effective automated solutions to improve co
 * **Compatibility issues with legacy Windows versions**
   Certain Windows 2003/2008 (32-bit or 64-bit) versions may fail to boot or auto-load network drivers on some cloud platforms. Please confirm with your cloud provider whether the OS version is fully supported.
 
+#### References
+
+* [Dynamic Disks are Deprecated](https://learn.microsoft.com/en-us/windows/win32/fileio/basic-and-dynamic-disks#dynamic-disks)
+* [Do not use ReFS for Security Reasons](https://techcommunity.microsoft.com/discussions/sql_server/what-to-use-refs-or-ntfs/3046795)
+* [Features and functionality removed in Windows client](https://learn.microsoft.com/en-us/windows/whats-new/removed-features)
+
 ### Linux Systems
 
 * **Abnormal partition structure**
