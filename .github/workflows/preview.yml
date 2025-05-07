@@ -1,0 +1,30 @@
+name: Deploy Preview to doc-preview.oneprocloud.com
+
+on:
+  push:
+    branches:
+      - preview
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 14
+          cache: 'yarn'
+
+      - name: Build vuepress
+        run: yarn && yarn build
+
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avzr --delete
+          path: src/.vuepress/dist/*
+          remote_path: ${{ vars.PREVIEW_DEPLOY_PATH }}
+          remote_host: ${{ vars.DEPLOY_HOST }}
+          remote_port: ${{ vars.DEPLOY_PORT }}
+          remote_user: ${{ vars.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
