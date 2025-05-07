@@ -12,11 +12,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 14
+          node-version: 20
           cache: 'yarn'
 
       - name: Build vuepress
-        run: yarn && yarn build
+        run: yarn && yarn docs:build
 
       - name: rsync deployments
         uses: burnett01/rsync-deployments@7.0.1
