@@ -21,7 +21,7 @@ export const enSidebar = sidebar({
     //   link: "https://plugin-md-enhance.vuejs.press/guide/content/revealjs/demo.html",
     // },
   ],
-  "/checklist": [
+  "/userguide/checklist": [
     {
       text: "Checklist",
       icon: "book",
@@ -202,23 +202,6 @@ export const enSidebar = sidebar({
   //],
   '/userguide/dr-usage-guide/': [
     {
-      text: "Installation and deployment",
-      icon: "book",
-      prefix: "",
-      children: [
-        'dr-operations-manual-installation',
-        'agent-batch-installation',
-      ],
-    },
-    {
-      text: "Operation",
-      icon: "book",
-      prefix: "",
-      children: [
-        'operation/upgrade-manual',
-      ],
-    },
-    {
       text: "User Manual",
       icon: "book",
       prefix: "",
@@ -245,6 +228,127 @@ export const enSidebar = sidebar({
       ],
     },
   ],
+  '/userguide/installation/': [
+    {
+      text: "Installation",
+      icon: "book",
+      prefix: "",
+      children: [
+        'quick-installation.md',
+        'agent-batch-installation.md'
+      ],
+    },
+  ],
+  '/userguide/migration/': [
+    {
+      text: "Migration",
+      icon: "book",
+      prefix: "",
+      children: [
+        {
+          text: "Login",
+          icon: "",
+          children: [
+            {
+              text: "Login",
+              icon: "",
+              link: "login.md"
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  '/userguide/dr/': [
+    {
+      text: "User Platform",
+      icon: "book",
+      prefix: "",
+      children: [
+        {
+          text: "Login",
+          icon: "",
+          prefix: "login/",
+          children: [
+            "login.md",
+          ],
+        },
+        {
+          text: "Dashboard",
+          icon: "",
+          prefix: "dashboard/",
+          children: [
+            "profile.md",
+            "logout.md",
+            "language-switch.md",
+          ],
+        },
+        {
+          text: "Configuration",
+          icon: "",
+          prefix: "configuration/",
+          children: [
+            "production-site.md",
+            "dr-site.md",
+            "storage-configuration.md",
+            "dr-site-configuration.md",
+            "policy-settings.md",
+          ]
+        },
+        {
+          text: "DR",
+          icon: "",
+          prefix: "dr/",
+          children: [
+            "host-dr.md",
+            "host-failback.md",
+          ]
+        },
+        {
+          text: "Orchestration",
+          icon: "",
+          prefix: "orchestration/",
+          children: [
+            "dr-group.md"
+          ]
+        },
+        {
+          text: "Operations",
+          icon: "",
+          prefix: "operations/",
+          children: [
+            "audit-logs.md",
+            "task-management.md",
+            "download-logs.md",
+            "upgrade.md",
+            "reports.md",
+            "tag-management.md",
+          ]
+        },
+        {
+          text: "Monitor & Alerts",
+          icon: "",
+          prefix: "monitor-alerts/",
+          children: [
+            "system-monitor.md",
+            "alarm.md",
+            "notification.md",
+            "alerts.md",
+          ]
+        },
+        {
+          text: "Settings",
+          icon: "",
+          prefix: "settings/",
+          children: [
+            "global-settings.md",
+            "license-management.md",
+            "versions.md",
+          ]
+        },
+      ],
+    },
+  ],
   '/userguide/faq/': [
     {
       text: "FAQ",
@@ -257,4 +361,31 @@ export const enSidebar = sidebar({
       ],
     },
   ],
+  '/userguide/operations/': [
+    {
+      text: "Operations",
+      icon: "",
+      children: [
+        "upgrade-manual.md",
+      ]
+    }
+  ],
+  '/userguide/tools/': [
+    {
+      text: "Calculator",
+      icon: "",
+      prefix: "calculator/",
+      children: [
+        "calculator.md"
+      ]
+    },
+    {
+      text: "License Management",
+      icon: "",
+      prefix: "license-management/",
+      children: [
+        "license-management.md"
+      ]
+    },
+  ]
 },);

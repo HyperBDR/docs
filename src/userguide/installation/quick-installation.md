@@ -1,4 +1,4 @@
-# HyperBDR Installation
+# Quick Installation
 
 [[toc]]
 
@@ -12,12 +12,12 @@ HyperBDR supports single-machine offline deployment. We will provide an offline 
 Notes: We strongly recommend that when preparing HyperBDR console host resources, if HyperBDR uses public network access, then select key pair login instead of password login for the host login mode to ensure the security of server access.
 :::
 
-| Configuration items | Parameters                                                      |
-| :------------------ | :-------------------------------------------------------------- |
-| Cpu                 | 8 C                                                             |
-| Mem                 | 16 GiB                                                          |
-| Image               | Ubuntu 20.04 server 64bit                                       |
-| System Disk         | High IO 200GB                                                   |
+| Configuration items | Parameters                                                                                                           |
+| :------------------ | :------------------------------------------------------------------------------------------------------------------- |
+| Cpu                 | 8 C                                                                                                                  |
+| Mem                 | 16 GiB                                                                                                               |
+| Image               | Ubuntu 20.04 server 64bit                                                                                            |
+| System Disk         | High IO 200GB                                                                                                        |
 | Firewall Rule       | [HyperBDR Open Network Policy](https://docs.oneprocloud.com/userguide/faq/faq.html#hyperbdr-required-network-policy) |
 
 ::: tip
@@ -67,26 +67,30 @@ echo "HYPERBDR_PACKAGE_NAME: ${HYPERBDR_PACKAGE_NAME}"
 HYPERBDR_PACKAGE_MD5_NAME="${HYPERBDR_PACKAGE_NAME}.md5"
 echo "HYPERBDR_PACKAGE_MD5_NAME: ${HYPERBDR_PACKAGE_MD5_NAME}"
 ```
+
 #### Download File
 
 ```sh
 curl -k -O "$HYPERBDR_PACKAGE"
 curl -k -O "$HYPERBDR_PACKAGE_MD5"
 ```
+
 ### Installation Package Consistency Check
 
-- Step1: Generate the MD5 value for the downloaded installation package  
+- Step1: Generate the MD5 value for the downloaded installation package
 
 ```sh
 md5sum "$HYPERBDR_PACKAGE_NAME"
 ```
+
 - Step2: Check the MD5 value recorded in the MD5 checksum file
 
 ```sh
 cat "$HYPERBDR_PACKAGE_MD5_NAME"
 ```
+
 - Step3: Compare MD5 Values
- 
+
 If the MD5 values obtained in `Step1` and `Step2` are the same, it indicates that the installation package is not corrupted. If the MD5 values are different, you can try re-downloading the file for comparison or contact us for assistance.
 
 ### Install HyperBDR
@@ -100,16 +104,17 @@ The operating system used for the installation must be Ubuntu 20.04 version.
 
 #### Unzip the HyperBDR installation package
 
-- Execute the following command to unzip the installation package  
+- Execute the following command to unzip the installation package
 
 ```sh
-rm -rf /mnt/installer && tar -zxvf "$HYPERBDR_PACKAGE_NAME" -C /mnt/  
+rm -rf /mnt/installer && tar -zxvf "$HYPERBDR_PACKAGE_NAME" -C /mnt/
 ```
+
 #### Run the installation script
 
 ##### Enable public access to the HyperBDR platform
 
-- Execute the command  
+- Execute the command
 
 ```sh
 bash /mnt/installer/install.sh -i <HyperBDR Public IP>
@@ -121,16 +126,17 @@ The Public IP specified by -i can be understood as your external Internet addres
 
 ##### Access the HyperBDR platform through an internal VPN
 
-- Execute the command  
+- Execute the command
 
 ```sh
 bash /mnt/installer/install.sh
 ```
+
 ::: warning
-By default, the installation script uses the address of the first network interface card as the platform service address. 
+By default, the installation script uses the address of the first network interface card as the platform service address.
 :::
 
-If the installation is successful, you will see the prompted login information.  
+If the installation is successful, you will see the prompted login information.
 
 ```
 [2023-03-30 23:08:36] [INFO] --------------------------------------------------
@@ -148,6 +154,7 @@ If the installation is successful, you will see the prompted login information.
 [2023-03-30 23:08:36] [INFO] Enjoy using our product!
 [2023-03-30 23:08:36] [INFO] --------------------------------------------------
 ```
-- Access HyperBDR Console       url: https://\<HyperBDR IP\>:10443
-- Access HyperMotion Console    url: https://\<HyperBDR IP\>:20443
-- Access Admin Portal Console   url: https://\<HyperBDR IP\>:30443
+
+- Access HyperBDR Console url: https://\<HyperBDR IP\>:10443
+- Access HyperMotion Console url: https://\<HyperBDR IP\>:20443
+- Access Admin Portal Console url: https://\<HyperBDR IP\>:30443

@@ -9,17 +9,63 @@ export const enNavbar = navbar([
     link: "/product-overview/",
   },
   {
-    text: "Docs",
+    text: "Documentation",
     icon: "book",
     prefix: "/",
     children: [
       {
-        text: "User Guide",
+        text: "Installation",
         icon: "thumbs-up",
-        prefix: "userguide/poc/",
-        link: "/userguide/poc/",
         // children: ["baz", { text: "...", icon: "ellipsis", link: "#" }],
-        children: [],
+        children: [
+          {
+            text: "Installation",
+            icon: "book",
+            link: "/userguide/installation/",
+          }
+        ],
+      },
+      {
+        text: "Migration",
+        icon: "thumbs-up",
+        children: [
+          {
+            text: "HyperMotion Mannual",
+            icon: "book",
+            link: "/userguide/migration/",
+          },
+        ], 
+      },
+      {
+        text: "Disaster Recovery",
+        icon: "thumbs-up",
+        children: [
+          { 
+            text: "User Guide",
+            icon: "book",
+            link: "/userguide/poc/",
+          },
+          { 
+            text: "HyperBDR Manual(About to be abandoned)",
+            icon: "book",
+            link: "/userguide/dr-usage-guide/",
+          },
+          { 
+            text: "HyperBDR Manual",
+            icon: "book",
+            link: "/userguide/dr/",
+          },
+        ], 
+      },
+      {
+        text: "Tools",
+        icon: "thumbs-up",
+        children: [
+          {
+            text: "Calculator",
+            link: "/userguide/tools/",
+          }
+        ], 
       },
 
       // NOTE(Ray): Move Product Overview to the top level menu
@@ -50,25 +96,31 @@ export const enNavbar = navbar([
       //  children: [],
       //},
       {
-        text: "Manual",
-        icon: "book",
-        prefix: "userguide/dr-usage-guide/",
-        link: "/userguide/dr-usage-guide/",
-        children: [],
+        text: "Operations",
+        icon: "",
+        children: [
+          {
+            text: "Operation Platform Mannual",
+            icon: "book",
+            link: "/userguide/operations/"
+          }
+        ],
       },
       {
-        text: "Checklist",
+        text: "Others",
         icon: "list",
-        prefix: "checklist/",
-        link: "/checklist/dr-checklist.md",
-        children: [],
-      },
-      {
-        text: "FAQ",
-        icon: "person-circle-question",
-        prefix: "userguide/faq/",
-        link: "/userguide/faq/faq.md",
-        children: [],
+        children: [
+          {
+            text: "Checklist",
+            icon: "list",
+            link: "/userguide/checklist/"
+          },
+          {
+            text: "FAQ",
+            icon: "person-circle-question",
+            link: "/userguide/faq/faq.md"
+          }
+        ],
       },
     ],
   },
@@ -81,5 +133,10 @@ export const enNavbar = navbar([
     text: "OneProCloud",
     icon: "link",
     link: "https://oneprocloud.com/",
+  },
+  {
+    text: "Calculator",
+    icon: "link",
+    link: "https://calculator.oneprocloud.com/",
   },
 ]);
