@@ -23,8 +23,8 @@ tar zxvf upgrade_incremental_4.4.0_to_4.9.0.tar.gz -C /tmp/
 ### Check the current installed version
 
 ```shell
-cat /opt/installer/Version 
-HyperBDR_release_v4.9.0_20230928-20230927-1437.tar.gz 
+cat /opt/installer/Version
+HyperBDR_release_v4.9.0_20230928-20230927-1437.tar.gz
 ```
 
 The installed version is HyperBDR_release_v4.9.0_20230928
@@ -60,11 +60,11 @@ cp /tmp/upgrade/scripts/hmctl /opt/installer/production/scripts/
 ### Update the configuration files
 
 ```shell
-mv /opt/installer/production/config/newmuse/json/config.json.bak /opt/installer/production/config/newmuse/json/config.json 
-mv /opt/installer/production/config/newmuse/json/s3.json.bak /opt/installer/production/config/newmuse/json/s3.json 
-mv /opt/installer/production/config/newmuse/json/targetClouds.json.bak /opt/installer/production/config/newmuse/json/targetClouds.json 
-mv /opt/installer/production/config/newmuse-motion/json/config.json.bak /opt/installer/production/config/newmuse-motion/json/config.json 
-mv /opt/installer/production/config/newmuse-motion/json/s3.json.bak /opt/installer/production/config/newmuse-motion/json/s3.json 
+mv /opt/installer/production/config/newmuse/json/config.json.bak /opt/installer/production/config/newmuse/json/config.json
+mv /opt/installer/production/config/newmuse/json/s3.json.bak /opt/installer/production/config/newmuse/json/s3.json
+mv /opt/installer/production/config/newmuse/json/targetClouds.json.bak /opt/installer/production/config/newmuse/json/targetClouds.json
+mv /opt/installer/production/config/newmuse-motion/json/config.json.bak /opt/installer/production/config/newmuse-motion/json/config.json
+mv /opt/installer/production/config/newmuse-motion/json/s3.json.bak /opt/installer/production/config/newmuse-motion/json/s3.json
 mv /opt/installer/production/config/newmuse-motion/json/targetClouds.json.bak /opt/installer/production/config/newmuse-motion/json/targetClouds.json
 ```
 
@@ -73,9 +73,9 @@ mv /opt/installer/production/config/newmuse-motion/json/targetClouds.json.bak /o
 After the upgrade is completed, execute the following command to view the current HyperBDR version:
 
 ```shell
-[root@localhost installer]# cat /opt/installer/Version 
+[root@localhost installer]# cat /opt/installer/Version
 
-HyperBDR_release_v5.2.0_20230928-20230927-1437.tar.gz 
+HyperBDR_release_v5.2.0_20230928-20230927-1437.tar.gz
 ```
 
 The installed version is HyperBDR_release_v5.2.0_20230928
@@ -88,15 +88,16 @@ The installed version is HyperBDR_release_v5.2.0_20230928
 > Versions before V4.10.1 installation package cannot be directly updated using the update script.
 > Updating operations are prohibited during tasks such as syncing hosts or starting hosts.
 
-### Agentless Sync Proxy 
+### Agentless Sync Proxy
 
-- Step 1. Log in to the Agentless *Sync Proxy** server
+- Step 1. Log in to the Agentless \*Sync Proxy\*\* server
 
 ```shell
 
 ssh root@<Agentless Sync Proxy Server IP\>
 
 ```
+
 - Step 2. Get the latest update script
 
 ```shell
@@ -104,6 +105,7 @@ ssh root@<Agentless Sync Proxy Server IP\>
 curl -k -o /usr/local/hyper_exporter/upgrade_hamal.sh https://<HyperBDR IP\>:30080/softwares/upgrade_hamal.sh
 
 ```
+
 - Step 3. Grant execution permissions
 
 ```shell
@@ -111,6 +113,7 @@ curl -k -o /usr/local/hyper_exporter/upgrade_hamal.sh https://<HyperBDR IP\>:300
 chmod +x /root/upgrade.hamal.sh
 
 ```
+
 - Step 4. Execute the update command
 
 ```shell
@@ -181,4 +184,3 @@ https://<HyperBDR IP\>:30080/softwares/windows-agent-new/upgrade_to_xxx_x86.zip
 The Source Object DR Gateway needs to be re-uploaded image to the cloud platform.
 
 ![upgrade-hyperbdr-offline-upgrade-5.png](./images/upgrade-hyperbdr-offline-upgrade-5.png)
-

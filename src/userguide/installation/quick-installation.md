@@ -24,8 +24,8 @@ For disaster recovery use cases, confirm whether the product’s RPO and RTO ali
 
 Ensure the product meets the user’s environment requirements by performing a host-level assessment:
 
-* [General Host Assessment](../../product-overview/presales/hyperbdr-agent-investigation.md)
-* [VMware Host Assessment](../../product-overview/presales/hyperbdr-vmware-investigation.md)
+- [General Host Assessment](../../product-overview/presales/hyperbdr-agent-investigation.md)
+- [VMware Host Assessment](../../product-overview/presales/hyperbdr-vmware-investigation.md)
 
 ### 3. Select Storage Type
 
@@ -34,7 +34,7 @@ The product supports two storage types: block storage and object storage. Choose
 | Scenario          | Recommended Storage | Notes                                                                |
 | ----------------- | ------------------- | -------------------------------------------------------------------- |
 | Migration         | Block Storage       | Short RTO, suitable for limited downtime windows                     |
-| Migration         | General Mode         | Broader compatibility, suitable for environments without API support |
+| Migration         | General Mode        | Broader compatibility, suitable for environments without API support |
 | Disaster Recovery | Block Storage       | Low RTO, relies on cloud platform capabilities                       |
 | Disaster Recovery | Object Storage      | Cost-effective, trades longer RTO for lower costs                    |
 
@@ -42,8 +42,8 @@ The product supports two storage types: block storage and object storage. Choose
 
 #### Communication Matrix
 
-* [Object Storage Mode](../../product-overview/presales/dr-network-planning-recommendations.md#list-of-open-ports)
-* [Block Storage Mode](../../product-overview/presales/dr-network-planning-recommendations.md#list-of-open-ports-1)
+- [Object Storage Mode](../../product-overview/presales/dr-network-planning-recommendations.md#list-of-open-ports)
+- [Block Storage Mode](../../product-overview/presales/dr-network-planning-recommendations.md#list-of-open-ports-1)
 
 #### Planning Guide
 
@@ -61,7 +61,7 @@ If the host is exposed to the public internet, we strongly recommend:
 1. Disabling password-based remote login; use SSH key authentication instead.
 2. Restricting inbound access to trusted IP addresses only.
 3. Enabling the firewall and opening only necessary ports.
-:::
+   :::
 
 | Configuration | Value                      |
 | ------------- | -------------------------- |
@@ -110,7 +110,7 @@ Skip this step if the package has already been downloaded.
 
 If the installation host has no internet access, use another device to visit:
 
-* [https://install.oneprocloud.com/get\_hyperbdr\_latest](https://install.oneprocloud.com/get_hyperbdr_latest)
+- [https://install.oneprocloud.com/get_hyperbdr_latest](https://install.oneprocloud.com/get_hyperbdr_latest)
 
 Add `.md5` to the URL to obtain the corresponding checksum file, then manually transfer the package to the host.
 
@@ -118,19 +118,19 @@ Add `.md5` to the URL to obtain the corresponding checksum file, then manually t
 
 To validate the installation package:
 
-* Step 1: Generate MD5 checksum for the downloaded package:
+- Step 1: Generate MD5 checksum for the downloaded package:
 
 ```sh
 md5sum "$HYPERBDR_PACKAGE_NAME"
 ```
 
-* Step 2: Check the MD5 value in the .md5 file:
+- Step 2: Check the MD5 value in the .md5 file:
 
 ```sh
 cat "$HYPERBDR_PACKAGE_MD5_NAME"
 ```
 
-* Step 3: Compare values.
+- Step 3: Compare values.
 
 If the values match, the package is intact. If not, try downloading again or contact support.
 
@@ -143,9 +143,9 @@ Before proceeding, ensure that:
 2. The MD5 checksum has been verified.
 3. The host OS is Ubuntu 20.04 (64-bit).
 4. The system time is properly synchronized.
-:::
+   :::
 
-* Extract the installation package:
+- Extract the installation package:
 
 ```sh
 rm -rf /mnt/installer && tar -zxvf "$HYPERBDR_PACKAGE_NAME" -C /mnt/
@@ -205,4 +205,4 @@ Upon successful installation, you will see:
 
 ## Reference Links
 
-* [Get Product Support](https://support.oneprocloud.com)
+- [Get Product Support](https://support.oneprocloud.com)
