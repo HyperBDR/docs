@@ -75,7 +75,7 @@ export const enNavbar = navbar([
             text: "Operation Platform Mannual",
             icon: "book",
             link: "/userguide/operations/"
-          }
+          },
         ],
       },
       {
