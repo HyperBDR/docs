@@ -67,34 +67,6 @@ export const enNavbar = navbar([
           }
         ], 
       },
-
-      // NOTE(Ray): Move Product Overview to the top level menu
-      //{
-      //  text: "Product Overview",
-      //  icon: "eye",
-      //  prefix: "product-overview/",
-      //  link: "/product-overview/",
-      //  children: [],
-      //},
-
-      // NOTE(Ray): Merge Product Training with Product Overview
-      // Comment this top level menu item
-      //{
-      //  text: "Product Training",
-      //  icon: "dumbbell",
-      //  prefix: "product-training/",
-      //  link: "/product-training/",
-      //  children: [],
-      //},
-
-      // NOTE(Ray): Merge Pre Sales with Product Overview
-      //{
-      //  text: "Pre Sales",
-      //  icon: "handshake",
-      //  prefix: "userguide/presales/",
-      //  link: "/userguide/presales/",
-      //  children: [],
-      //},
       {
         text: "Operations",
         icon: "",

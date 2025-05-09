@@ -6,62 +6,92 @@ export const zhNavbar = navbar([
     text: "产品概览",
     icon: "eye",
     prefix: "zh/product-overview/",
-    link: "/zh/product-overview/",
+    link: "zh/product-overview/",
   },
   {
     text: "文档中心",
     icon: "book",
-    prefix: "/",
+    prefix: "/zh/",
     children: [
       {
-        text: "用户指南",
+        text: "安装指南",
         icon: "lightbulb",
-        prefix: "zh/userguide/poc/",
-        link: "/zh/userguide/poc/",
-        // children: ["baz", { text: "...", icon: "ellipsis", link: "#" }],
-        children: [],
-      },
-      //{
-      //  text: "产品概览",
-      //  icon: "lightbulb",
-      //  prefix: "zh/product-overview/",
-      //  link: "/zh/product-overview/",
-      //  children: [],
-      //},
-      // {
-      //   text: "Product Training",
-      //   icon: "lightbulb",
-      //   prefix: "zh/product-training/",
-      //   link: "/zh/product-training/",
-      //   children: [],
-      // },
-      //{
-      //  text: "售前",
-      //  icon: "handshake",
-      //  prefix: "zh/userguide/presales/",
-      //  link: "/zh/userguide/presales/",
-      //  children: [],
-      //},
-      {
-        text: "用户手册",
-        icon: "book",
-        prefix: "zh/userguide/dr-usage-guide/",
-        link: "/zh/userguide/dr-usage-guide/",
-        children: [],
+        children: [
+          {
+            text: "产品安装",
+            icon: "book",
+            link: "/zh/userguide/installation/",
+          }
+        ],
       },
       {
-        text: "云容灾检查清单",
+        text: "迁移指南",
+        icon: "thumbs-up",
+        children: [
+          {
+            text: "HyperMotion 使用手册",
+            icon: "book",
+            link: "/zh/userguide/migration/",
+          },
+        ], 
+      },
+      {
+        text: "容灾指南",
+        icon: "thumbs-up",
+        children: [
+          { 
+            text: "用户指南",
+            icon: "book",
+            link: "/zh/userguide/poc/",
+          },
+          { 
+            text: "HyperBDR 使用手册(即将废弃)",
+            icon: "book",
+            link: "/zh/userguide/dr-usage-guide/",
+          },
+          { 
+            text: "HyperBDR 使用手册",
+            icon: "book",
+            link: "/zh/userguide/dr/",
+          },
+        ], 
+      },
+      {
+        text: "工具指南",
+        icon: "thumbs-up",
+        children: [
+          {
+            text: "容灾计算器",
+            link: "/zh/userguide/tools/",
+          }
+        ], 
+      },
+      {
+        text: "运维指南",
+        icon: "",
+        children: [
+          {
+            text: "运维平台使用手册",
+            icon: "book",
+            link: "/zh/userguide/operations/"
+          }
+        ],
+      },
+      {
+        text: "其他文档",
         icon: "list",
-        prefix: "zh/checklist/",
-        link: "/zh/checklist/dr-checklist.md",
-        children: [],
-      },
-      {
-        text: "FAQ",
-        icon: "person-circle-question",
-        prefix: "zh/userguide/faq/",
-        link: "/zh/userguide/faq/faq.md",
-        children: [],
+        children: [
+          {
+            text: "云容灾检查清单",
+            icon: "list",
+            link: "/zh/userguide/checklist/"
+          },
+          {
+            text: "FAQ",
+            icon: "person-circle-question",
+            link: "/zh/userguide/faq/faq.md"
+          }
+        ],
       },
     ],
   },
@@ -74,5 +104,10 @@ export const zhNavbar = navbar([
     text: "OneProCloud官网",
     icon: "link",
     link: "https://oneprocloud.com/",
+  },
+  {
+    text: "容灾计算器",
+    icon: "link",
+    link: "https://calculator.oneprocloud.com/",
   },
 ]);

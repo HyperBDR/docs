@@ -2,33 +2,20 @@ import { sidebar } from "vuepress-theme-hope";
 
 export const enSidebar = sidebar({
   "/": [
-    // {
-    //   text: "Demo",
-    //   icon: "laptop-code",
-    //   prefix: "demo/",
-    //   link: "demo/",
-    //   children: "structure",
-    // },
     {
       text: "Docs",
       icon: "book",
       prefix: "guide/",
       children: "structure",
     },
-    // {
-    //   text: "Slides",
-    //   icon: "person-chalkboard",
-    //   link: "https://plugin-md-enhance.vuejs.press/guide/content/revealjs/demo.html",
-    // },
   ],
   "/userguide/checklist": [
     {
       text: "Checklist",
       icon: "book",
       prefix: "",
-      // children: "structure",
       children: [
-        "dr-checklist.md", // 指定 dr-checklist.md 文件
+        "dr-checklist.md",
       ],
       collapsible: true,
       expanded: true,
@@ -80,7 +67,6 @@ export const enSidebar = sidebar({
       text: "Failback Prerequisites",
       icon: "book",
       prefix: "",
-      // children: "structure",
       children: [
         {
           text: "Failback Network Requirement",
@@ -168,38 +154,6 @@ export const enSidebar = sidebar({
       ],
     },
   ],
-  //'/product-training/': [
-  //  {
-  //    text: "Training",
-  //    icon: "book",
-  //    prefix: "",
-  //    children: [
-  //      'product-overview.md',
-  //      'scenarios.md',
-  //      'technical-highlights.md',
-  //      'project-delivery.md',
-  //    ],
-  //  },
-  //],
-  //'/userguide/presales/': [
-  //  {
-  //    text: "Pre Sales",
-  //    icon: "book",
-  //    prefix: "",
-  //    children: [
-  //      'hyperbdr-vmware-investigation',
-  //      'hyperbdr-agent-investigation',
-  //      'auto-host-info-collector',
-  //      'dr-network-planning-recommendations',
-  //      'hyperbdr-rpo-rto-planning-best-practices',
-  //      'cloud-platform-support-matrix',
-  //      'poc',
-  //      'deep-in-aws-agentless-mode',
-  //      'compatibility-and-limitations',
-  //      'hyperbdr-license-purchasing-guide',
-  //    ],
-  //  },
-  //],
   '/userguide/dr-usage-guide/': [
     {
       text: "User Manual",
@@ -284,18 +238,6 @@ export const enSidebar = sidebar({
           ],
         },
         {
-          text: "Configuration",
-          icon: "",
-          prefix: "configuration/",
-          children: [
-            "production-site.md",
-            "dr-site.md",
-            "storage-configuration.md",
-            "dr-site-configuration.md",
-            "policy-settings.md",
-          ]
-        },
-        {
           text: "DR",
           icon: "",
           prefix: "dr/",
@@ -310,6 +252,18 @@ export const enSidebar = sidebar({
           prefix: "orchestration/",
           children: [
             "dr-group.md"
+          ]
+        },
+        {
+          text: "Configuration",
+          icon: "",
+          prefix: "configuration/",
+          children: [
+            "production-site.md",
+            "dr-site.md",
+            "storage-configuration.md",
+            "dr-site-configuration.md",
+            "policy-settings.md",
           ]
         },
         {
@@ -364,9 +318,11 @@ export const enSidebar = sidebar({
   '/userguide/operations/': [
     {
       text: "Operations",
-      icon: "",
+      icon: "book",
+      prefix: "",
       children: [
         "upgrade-manual.md",
+        "hyperbdr-operation-and-maintenance-manual.md",
       ]
     }
   ],
