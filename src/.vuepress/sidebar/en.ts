@@ -367,6 +367,7 @@ export const enSidebar = sidebar({
       icon: "",
       children: [
         "upgrade-manual.md",
+        "HyperBDR-Operation-and-Maintenance-Manual.md",
       ]
     }
   ],
