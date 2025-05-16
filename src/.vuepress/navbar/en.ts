@@ -34,28 +34,44 @@ export const enNavbar = navbar([
             icon: "book",
             link: "/userguide/migration/",
           },
-        ], 
+        ],
       },
       {
         text: "Disaster Recovery",
         icon: "thumbs-up",
         children: [
-          { 
+          {
             text: "User Guide",
             icon: "book",
             link: "/userguide/poc/",
           },
-          { 
+          {
             text: "HyperBDR Manual(About to be abandoned)",
             icon: "book",
             link: "/userguide/dr-usage-guide/",
           },
-          { 
+          {
             text: "HyperBDR Manual",
             icon: "book",
             link: "/userguide/dr/",
           },
-        ], 
+        ],
+      },
+      {
+        text: "Operations",
+        icon: "",
+        children: [
+          {
+            text: "Operation Mannual",
+            icon: "book",
+            link: "/userguide/operations/"
+          },
+          {
+            text: "O&M Guide",
+            icon: "book",
+            link: "/userguide/om-guide/"
+          },
+        ],
       },
       {
         text: "Tools",
@@ -65,17 +81,6 @@ export const enNavbar = navbar([
             text: "Calculator",
             link: "/userguide/tools/",
           }
-        ], 
-      },
-      {
-        text: "Operations",
-        icon: "",
-        children: [
-          {
-            text: "Operation Platform Mannual",
-            icon: "book",
-            link: "/userguide/operations/"
-          },
         ],
       },
       {

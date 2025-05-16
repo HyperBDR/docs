@@ -1,78 +1,76 @@
-# Agent Batch Installation
+# Agent 批量安装
 
-## 1. Overview
+## 1. 概述
 
-This manual is applicable for the batch installation of Linux and Windows Agents for HyperMotion and HyperBDR, as well as for the batch installation and upgrade of HyperBDR rollback Agents.
+本手册适用于 HyperMotion 和 HyperBDR 的 Linux 和 Windows Agent 批量安装，以及 HyperBDR 回滚 Agent 的批量安装和升级。
 
-During execution, if any tasks fail, only the failed tasks will be retried to improve installation efficiency.
+在执行过程中，如果出现任务失败，系统将只重试失败的任务，以提高安装效率。
 
-## 2. Installation Environment Requirements
+## 2. 安装环境要求
 
-### 2.1 Operating Environment
+### 2.1 运行环境
 
-The batch installation program must be deployed independently and is recommended to run in a production environment. The specific requirements are as follows:
+批量安装程序需要独立部署，建议在生产环境中运行。具体要求如下：
 
-- Operating System: Ubuntu 20.04
-- Container Environment: Docker
+- 操作系统：Ubuntu 20.04
+- 容器环境：Docker
 
-### 2.2 Network Architecture
+### 2.2 网络架构
 
-![Network Architecture](./images/agent-batch-installation-1.png)
+![网络架构](./images/agent-batch-installation-1.png)
 
-## 3. Host Requirements
+## 3. 主机要求
 
-| Operating System | Restrictions                                                                                                                  | Network Requirements                                                  | Permission Requirements                                                                                                                   |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows          | ✅ Windows Server 2012 and above <br> ❌ Not supported for Windows Server 2008 and below (requires additional system patches) | - WinRM service must be enabled <br> - Ensure port 5985 is accessible | Must use Administrator user                                                                                                               |
-| Linux            | Python ≥ 2.7 (manual installation required for lower versions)                                                                | Must support SSH connection                                           | ✅ Supports direct installation by root user <br> ✅ Supports installation with sudo permissions (passwordless switch must be configured) |
+| 操作系统 | 限制条件 | 网络要求 | 权限要求 |
+|---------|---------|---------|---------|
+| Windows | ✅ Windows Server 2012 及以上版本<br>❌ 不支持 Windows Server 2008 及以下版本（需要额外系统补丁） | - 必须启用 WinRM 服务<br>- 确保 5985 端口可访问 | 必须使用 Administrator 用户 |
+| Linux | Python ≥ 2.7（低版本需要手动安装） | 必须支持 SSH 连接 | ✅ 支持 root 用户直接安装<br>✅ 支持 sudo 权限安装（需配置免密切换） |
 
-Here is a simple English translation:
+## 4. 工具准备
 
-## 4. Tool Preparation
-
-### 4.1 Tool Installation
+### 4.1 工具安装
 
 ```bash
-# Pull the deployment image
+# 拉取部署镜像
 docker pull registry.cn-beijing.aliyuncs.com/oneprocloud-opensource/massdeploy:latest
 ```
 
-### 4.2 Tool Verification
+### 4.2 工具验证
 
 ```bash
 docker run --rm registry.cn-beijing.aliyuncs.com/oneprocloud-opensource/massdeploy:latest mass-deploy -version
-# Output: mass-deploy 2025-02-27
+# 输出：mass-deploy 2025-02-27
 
 docker run --rm registry.cn-beijing.aliyuncs.com/oneprocloud-opensource/massdeploy:latest hyperbdr -version
-# Output: hyperbdr 0.0.1
+# 输出：hyperbdr 0.0.1
 ```
 
-## 5. Batch Installation Process
+## 5. 批量安装流程
 
-### 5.1 Configure Host List
+### 5.1 配置主机列表
 
 ```bash
 mkdir -p ./mass-deploy && cd ./mass-deploy
 ```
 
-Create the `hosts_to_install.csv` ([download](/attachments/hosts_to_install.csv)) file for batch installation. The field descriptions are as follows:
+创建 `hosts_to_install.csv`（[下载](/attachments/hosts_to_install.csv)）文件用于批量安装。字段说明如下：
 
-| Field Name | Required | Description                                                                                                                                                                                  |
-| ---------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ip         | Yes      | Host accessible IP address                                                                                                                                                                   |
-| protocol   | Yes      | Communication protocol (winrm/ssh)                                                                                                                                                           |
-| port       | Yes      | Service port (WinRM:5985 / SSH:22)                                                                                                                                                           |
-| username   | Yes      | Authentication username                                                                                                                                                                      |
-| password   | Yes      | Authentication password/key file path (key must be in the same directory as CSV)<br> Key file permissions should be set to 600 <br> It is recommended to use relative paths for the key file |
-| os_type    | Yes      | Operating system type (windows/linux)                                                                                                                                                        |
-| tag        | No       | Automatically generated by the program, task tag, blank means no tag set                                                                                                                     |
-| hostname   | No       | Automatically generated by the program, hostname, blank means hostname not obtained                                                                                                          |
-| os_name    | No       | Automatically generated by the program, OS name, blank means OS not recognized                                                                                                               |
-| status     | No       | Automatically generated by the program, task status: deploying=deploying, success=success, failed=failed                                                                                     |
-| node_uuid  | No       | Automatically generated by the program, HyperBDR registration ID, blank means not registered                                                                                                 |
-| error      | No       | Automatically generated by the program, error details, shown when deployment fails                                                                                                           |
+| 字段名 | 是否必填 | 说明 |
+|--------|---------|------|
+| ip | 是 | 主机可访问的 IP 地址 |
+| protocol | 是 | 通信协议（winrm/ssh） |
+| port | 是 | 服务端口（WinRM:5985 / SSH:22） |
+| username | 是 | 认证用户名 |
+| password | 是 | 认证密码/密钥文件路径（密钥必须与 CSV 在同一目录）<br>密钥文件权限应设置为 600<br>建议使用相对路径指定密钥文件 |
+| os_type | 是 | 操作系统类型（windows/linux） |
+| tag | 否 | 程序自动生成，任务标签，空白表示未设置标签 |
+| hostname | 否 | 程序自动生成，主机名，空白表示未获取主机名 |
+| os_name | 否 | 程序自动生成，操作系统名称，空白表示未识别操作系统 |
+| status | 否 | 程序自动生成，任务状态：deploying=部署中，success=成功，failed=失败 |
+| node_uuid | 否 | 程序自动生成，HyperBDR 注册 ID，空白表示未注册 |
+| error | 否 | 程序自动生成，错误详情，部署失败时显示 |
 
-### 5.2 Start Deployment Container
+### 5.2 启动部署容器
 
 ```bash
 docker run -itd --rm --name massdeploy \
@@ -80,36 +78,36 @@ docker run -itd --rm --name massdeploy \
   registry.cn-beijing.aliyuncs.com/oneprocloud-opensource/massdeploy:latest bash
 ```
 
-### 5.3 Target Host Connectivity Check
+### 5.3 目标主机连通性检查
 
 ```bash
 docker exec massdeploy mass-deploy ping
 ```
 
-For unreachable machines, the status will be changed to `unreachable`. Subsequent connectivity checks will only check the hosts with the `unreachable` status. Sample output:
+对于无法访问的机器，状态将更改为 `unreachable`。后续的连通性检查将只检查状态为 `unreachable` 的主机。示例输出：
 
 ```
 # docker exec massdeploy mass-deploy ping
-2025-02-27 05:54:29,432 - INFO - The current working directory is /root
-2025-02-27 05:54:29,433 - INFO - Successfully read 3 hosts
-2025-02-27 05:54:34,345 - INFO - Host 192.168.8.21 is ok
-2025-02-27 05:54:34,384 - INFO - Host 192.168.8.22 is ok
-2025-02-27 05:54:35,103 - WARNING - Host 192.168.8.23 is unreachable, Failed to connect to the host via ssh: ssh: connect to host 192.168.8.23 port 22: No route to host
-2025-02-27 05:54:36,803 - INFO - Host check completed. A total of 3 hosts were tested, and 1 host failed the connectivity check.
-2025-02-27 05:54:36,803 - INFO - The CSV file has been saved successfully.
+2025-02-27 05:54:29,432 - INFO - 当前工作目录为 /root
+2025-02-27 05:54:29,433 - INFO - 成功读取 3 台主机
+2025-02-27 05:54:34,345 - INFO - 主机 192.168.8.21 正常
+2025-02-27 05:54:34,384 - INFO - 主机 192.168.8.22 正常
+2025-02-27 05:54:35,103 - WARNING - 主机 192.168.8.23 无法访问，通过 ssh 连接主机失败：ssh: connect to host 192.168.8.23 port 22: No route to host
+2025-02-27 05:54:36,803 - INFO - 主机检查完成。共测试 3 台主机，1 台主机连通性检查失败。
+2025-02-27 05:54:36,803 - INFO - CSV 文件已成功保存。
 ```
 
-### 5.4 Obtain Agent Installation Package
+### 5.4 获取 Agent 安装包
 
 ```bash
-docker exec massdeploy bash download-hyperbdr-agent <ConsoleIP>:Port <Username> <Password>
+docker exec massdeploy bash download-hyperbdr-agent <控制台IP>:端口 <用户名> <密码>
 ```
 
-- The HyperBDR Console URL is usually: `https://<ConsoleIP>:10443`
-- The HyperBDR rollback console URL is usually: `https://<ConsoleIP>:20443`
-- The HyperMotion Console URL is usually: `https://<ConsoleIP>:20443`
+- HyperBDR 控制台地址通常为：`https://<控制台IP>:10443`
+- HyperBDR 回滚控制台地址通常为：`https://<控制台IP>:20443`
+- HyperMotion 控制台地址通常为：`https://<控制台IP>:20443`
 
-After execution, an `agents` directory will be created under the `mass-deploy` folder, containing the following four files if the download is successful:
+执行成功后，将在 `mass-deploy` 文件夹下创建 `agents` 目录，包含以下四个文件：
 
 ```
 install-cli.bat
@@ -118,132 +116,132 @@ Windows_server_32bit_beta.zip
 Windows_server_64bit_beta.zip
 ```
 
-### 5.5 Execute Batch Deployment
+### 5.5 执行批量部署
 
 ```bash
 docker exec massdeploy mass-deploy deploy
 ```
 
-After deployment, the status for successful hosts will be `success`, and for failed hosts, it will be `failed`.
+部署完成后，成功的主机状态为 `success`，失败的主机状态为 `failed`。
 
-Sample output:
+示例输出：
 
 ```
 [root@localhost ~]# docker exec massdeploy mass-deploy deploy
-2025-02-27 06:14:40,538 - INFO - The current working directory is /root
-2025-02-27 06:14:40,538 - INFO - Successfully read 2 hosts
-2025-02-27 06:14:40,539 - INFO - Starting the deploy of 0 hosts. A total of 2 hosts, with 2 remaining.
-2025-02-27 06:14:40,539 - INFO - Starting the deploy of 1 hosts. A total of 2 hosts, with 1 remaining.
-2025-02-27 06:14:48,181 - ERROR - Host 192.168.7.232 deployment failed, info {"msg": "The linux agent already exists", "_ansible_no_log": null, "changed": false}
-2025-02-27 06:14:48,182 - INFO - The CSV file has been saved successfully.
-2025-02-27 06:17:23,404 - INFO - Host 192.168.7.235 has been successfully deployed.
-2025-02-27 06:17:23,404 - INFO - The CSV file has been saved successfully.
-2025-02-27 06:17:23,405 - INFO - The CSV file has been saved successfully.
+2025-02-27 06:14:40,538 - INFO - 当前工作目录为 /root
+2025-02-27 06:14:40,538 - INFO - 成功读取 2 台主机
+2025-02-27 06:14:40,539 - INFO - 开始部署 0 台主机。共 2 台主机，剩余 1 台。
+2025-02-27 06:14:40,539 - INFO - 开始部署 1 台主机。共 2 台主机，剩余 1 台。
+2025-02-27 06:14:48,181 - ERROR - 主机 192.168.7.232 部署失败，信息 {"msg": "linux agent 已存在", "_ansible_no_log": null, "changed": false}
+2025-02-27 06:14:48,182 - INFO - CSV 文件已成功保存。
+2025-02-27 06:17:23,404 - INFO - 主机 192.168.7.235 已成功部署。
+2025-02-27 06:17:23,404 - INFO - CSV 文件已成功保存。
+2025-02-27 06:17:23,405 - INFO - CSV 文件已成功保存。
 ```
 
-Successful host log example:
+成功主机日志示例：
 
 ```
-INFO - Host 192.168.7.235 has been successfully deployed.
+INFO - 主机 192.168.7.235 已成功部署。
 ```
 
-Failed host log example:
+失败主机日志示例：
 
 ```
-ERROR - Host 192.168.7.232 deployment failed, info {"msg": "The linux agent already exists", "_ansible_no_log": null, "changed": false}
+ERROR - 主机 192.168.7.232 部署失败，信息 {"msg": "linux agent 已存在", "_ansible_no_log": null, "changed": false}
 ```
 
-## 6. Batch Upgrade Process
+## 6. 批量升级流程
 
-This tool supports batch upgrading of Agents, and upgrades can also be performed via the product page.
+本工具支持 Agent 的批量升级，也可以通过产品页面进行升级。
 
-After completing the upgrade on the control side, you need to obtain the upgrade package and execute the upgrade command.
+在控制端完成升级后，需要获取升级包并执行升级命令。
 
-### 6.1 Configure Host List for Upgrade
+### 6.1 配置升级主机列表
 
-Create the `hosts_to_upgrade.csv` ([download](/attachments/hosts_to_upgrade.csv)) file for batch upgrade.
+创建 `hosts_to_upgrade.csv`（[下载](/attachments/hosts_to_upgrade.csv)）文件用于批量升级。
 
-### 6.2 Get the Upgrade Package
+### 6.2 获取升级包
 
 ```bash
-# Download the upgrade package
-wget -O ./agents/upgrade_x86.zip https://<ConsoleIP>:30080/softwares/windows-agent-new/upgrade_x86.zip
-wget -O ./agents/upgrade_agent.sh https://<ConsoleIP>:30080/softwares/upgrade_agent.sh
+# 下载升级包
+wget -O ./agents/upgrade_x86.zip https://<控制台IP>:30080/softwares/windows-agent-new/upgrade_x86.zip
+wget -O ./agents/upgrade_agent.sh https://<控制台IP>:30080/softwares/upgrade_agent.sh
 ```
 
-### 6.3 Perform Batch Upgrade
+### 6.3 执行批量升级
 
-```
+```bash
 docker exec massdeploy mass-deploy upgrade
 ```
 
-## 7. Advanced Features
+## 7. 高级功能
 
-### 7.1 Batch Command Execution
+### 7.1 批量命令执行
 
 :::warning
-This tool supports batch command execution, allowing you to customize the commands to be executed, but does not support scripts.
+本工具支持批量命令执行，允许您自定义要执行的命令，但不支持脚本。
 :::
 
 ```bash
 docker exec massdeploy mass-deploy -t unsupported_kernel shell -os linux "uname -a"
 ```
 
-- Query the kernel version of the host machines:
+- 查询主机内核版本：
 
 ```bash
 docker exec massdeploy mass-deploy shell -os linux "uname -a"
 ```
 
-- Check if the host can connect to HyperBDR:
+- 检查主机是否可以连接 HyperBDR：
 
 ```bash
-docker exec massdeploy mass-deploy shell -os linux ping -c 2 -w 5 <HyperBDRConsoleIP>
+docker exec massdeploy mass-deploy shell -os linux ping -c 2 -w 5 <HyperBDR控制台IP>
 ```
 
-## Appendix
+## 附录
 
-### How to Install Docker on Ubuntu 20.04?
+### 如何在 Ubuntu 20.04 上安装 Docker？
 
 ```bash
-# Update the existing package list
+# 更新现有软件包列表
 sudo apt update
 
-# Install necessary packages to allow apt to use repositories over HTTPS
+# 安装必要的软件包，允许 apt 通过 HTTPS 使用仓库
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 
-# Add Docker’s official GPG key
+# 添加 Docker 的官方 GPG 密钥
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-# Add Docker stable repository
+# 添加 Docker 稳定版仓库
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-# Update the package list again
+# 再次更新软件包列表
 sudo apt update
 
-# Install Docker
+# 安装 Docker
 sudo apt install docker-ce
 
-# Start Docker and enable it to start on boot
+# 启动 Docker 并设置开机自启
 sudo systemctl start docker
 sudo systemctl enable docker
 ```
 
-### Common Error Messages
+### 常见错误信息
 
-| Error Message                                                        | Cause Analysis                                                                             |
-| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| `The linux agent directory already exists`                           | The target host already has the Agent installation directory                               |
-| `cat: /var/lib/egisplus-agent/registered: No such file or directory` | The Agent service was not successfully registered (usually due to service startup failure) |
-| `Sorry, the current kernel version ... is not supported`             | Incompatible Linux kernel version                                                          |
-| `ansible-core requires a minimum of Python2 version 2.7...`          | The Python runtime version is too low                                                      |
+| 错误信息 | 原因分析 |
+|---------|---------|
+| `linux agent 目录已存在` | 目标主机已存在 Agent 安装目录 |
+| `cat: /var/lib/egisplus-agent/registered: No such file or directory` | Agent 服务未成功注册（通常由于服务启动失败） |
+| `抱歉，当前内核版本 ... 不受支持` | Linux 内核版本不兼容 |
+| `ansible-core 需要 Python2 最低版本 2.7...` | Python 运行时版本过低 |
 
-## Version Update Log
+## 版本更新日志
 
-| Date           | Update Content                                                                             |
-| -------------- | ------------------------------------------------------------------------------------------ |
-| **2024/12/06** | ✅ Added label filtering feature <br> ✅ Supports task execution by specified label/IP     |
-| **2024/12/02** | 🔄 Code architecture refactor <br> ⏱️ Optimized timeout mechanism (check 60s/deploy 10min) |
-| **2024/11/29** | 🚦 Added unreachable status recognition <br> ⏭️ Automatically skips unreachable hosts      |
-| **2024/11/28** | 👥 Supports Linux non-root user deployment                                                 |
-| **2024/11/27** | 🛠️ Optimized Windows QEMU Guest Agent service handling logic                               |
+| 日期 | 更新内容 |
+|------|---------|
+| **2024/12/06** | ✅ 新增标签过滤功能<br>✅ 支持按指定标签/IP 执行任务 |
+| **2024/12/02** | 🔄 代码架构重构<br>⏱️ 优化超时机制（检查 60s/部署 10min） |
+| **2024/11/29** | 🚦 新增不可达状态识别<br>⏭️ 自动跳过不可达主机 |
+| **2024/11/28** | 👥 支持 Linux 非 root 用户部署 |
+| **2024/11/27** | 🛠️ 优化 Windows QEMU Guest Agent 服务处理逻辑 |

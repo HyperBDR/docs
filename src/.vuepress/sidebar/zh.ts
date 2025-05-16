@@ -314,13 +314,140 @@ export const zhSidebar = sidebar({
   ],
   '/zh/userguide/operations/': [
     {
-      text: "Operations",
+      text: "运维指南",
       icon: "book",
       prefix: "",
       children: [
         "upgrade-manual.md",
         "hyperbdr-operation-and-maintenance-manual.md",
       ]
+    }
+  ],
+  '/zh/userguide/om-guide/': [
+    {
+      text: "运维指南",
+      icon: "book",
+      prefix: "",
+      children: [
+        {
+          text: "概览",
+          icon: "book",
+          prefix: "overview/",
+          children: [
+            "overview.md"
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "系统架构",
+          icon: "book",
+          prefix: "system-architecture/",
+          children: [
+            "system-architecture.md"
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "运维管理",
+          icon: "book",
+          prefix: "om-management/",
+          children: [
+            "daliy-om.md",
+            "services-component-om.md",
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "升级维护",
+          icon: "book",
+          prefix: "upgrade-maintenance/",
+          children: [
+            "console.md",
+            "sync-proxy.md",
+            "linux-agent.md",
+            "windows-agent.md",
+            "cloud-sync-gateway.md",
+            "transition-host-image.md",
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "报告管理",
+          icon: "book",
+          prefix: "report-export/",
+          children: [
+            "report-type.md",
+            "report-export.md",
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "监控告警",
+          icon: "book",
+          prefix: "monitor-alerts/",
+          children: [
+            "overview-display.md",
+            "key-indicators.md",
+            "alarm-configuration.md",
+            "alarm-best-practice.md",
+            "usage-scenarios.md",
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "容灾演练",
+          icon: "book",
+          prefix: "dr-drill/",
+          children: [
+            "drill-preparation.md",
+            "drill-process.md",
+            "drill-report.md",
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "容灾接管",
+          icon: "book",
+          prefix: "dr-takeover/",
+          children: [
+            "takeover-prerequisites.md",
+            "takeover-process.md",
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "附录",
+          icon: "book",
+          prefix: "appendix/",
+          children: [
+            "commands-tools.md",
+            "question-submit.md",
+            "change-record.md",
+          ],
+          collapsible: true,
+          expanded: false,
+        },
+        {
+          text: "结语",
+          icon: "book",
+          prefix: "end-summary/",
+          children: [
+            "summary.md",
+          ],
+          collapsible: true,
+          expanded: false,
+        },
+      ],
+      collapsible: true,
+      expanded: true,
     }
   ],
   '/zh/userguide/tools/': [
