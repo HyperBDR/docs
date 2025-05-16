@@ -61,7 +61,7 @@ export const zhNavbar = navbar([
         icon: "",
         children: [
           {
-            text: "操作手册",
+            text: "管理指南",
             icon: "book",
             link: "/zh/userguide/operations/"
           },
@@ -69,6 +69,11 @@ export const zhNavbar = navbar([
             text: "运维指南",
             icon: "book",
             link: "/zh/userguide/om-guide/"
+          },
+          {
+            text: "管理门户手册",
+            icon: "book",
+            link: "/zh/userguide/admin-portal/"
           },
         ],
       },
