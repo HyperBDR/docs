@@ -1,6 +1,6 @@
 # Version Change Records
 
-# | Version | Date       | Change Description                             | Author                                |
+| Version | Date       | Change Description                             | Author                                |
 |----|------------|-------------------------------------------------|----------------------------------------|
 | 1  | 8/20/2024  | Initial version release                         | Disaster Recovery Product Operations Team |
 | 2  | 12/10/2024 | Update alarm configuration                      | Disaster Recovery Product Operations Team |

@@ -1,546 +1,585 @@
-# Service Component Operation Maintenance
+# Service Component Maintenance
 
-## 控制台运维
+## Console Operations Maintenance
 
-### 运行环境说明
+### Runtime Environment
 
-控制台是安装在一台Linux主机内（例如：Ubuntu 20.04），控制台所有服务运行在容器内部，数据库及中间件包括MariaDB, Redis, RabbitMQ和InfluxDB。
+The Console is installed on a Linux host (e.g., Ubuntu 20.04). All console services run inside containers, with databases and middleware including MariaDB, Redis, RabbitMQ, and InfluxDB.
 
-系统安装在/opt/installer目录中，主要的文件及目录结构：
+The system is installed under `/opt/installer`. The main files and directory structure are:
 
 ```bash
 /opt/installer
-├── HyperBDR_release_v6.4.0_20250430-20250430-1079.tar.gz.version  # 安装包版本信息
-├── Version                                                         # 系统整体版本号
-├── production/                                                     # 控制台核心运行目录
-│   ├── config/                         # 各服务配置文件（如 mariadb, redis, proxy 等）
-│   ├── data/                           # 中间件持久化数据（MySQL, Redis, RabbitMQ, InfluxDB）
-│   ├── databackup/                     # MySQL、Redis 和配置文件的备份目录
-│   ├── docker-compose-hyperbdr.yml     # HyperBDR 的容器编排配置
-│   ├── docker-compose-hypermotion.yml  # HyperMotion 的容器编排配置
-│   ├── entrypoint.sh                   # 系统初始化和启动的入口脚本
+├── HyperBDR_release_v6.4.0_20250430-20250430-1079.tar.gz.version  # Installation package version info
+├── Version                                                        # Overall system version info
+├── production/                                                   # Core directory for console operation
+│   ├── config/                         # Service configuration files (e.g., MariaDB, Redis, Proxy)
+│   ├── data/                           # Middleware persistent data (MySQL, Redis, RabbitMQ, InfluxDB)
+│   ├── databackup/                     # Backup directory for MySQL, Redis, and configuration files
+│   ├── docker-compose-hyperbdr.yml     # HyperBDR container orchestration config
+│   ├── docker-compose-hypermotion.yml  # HyperMotion container orchestration config
+│   ├── entrypoint.sh                   # System initialization and startup script
 │   ├── init/
-│   │   └── 01.sql                      # 数据库初始化 SQL 脚本
-│   ├── logs/                           # 各服务运行日志（便于排查问题）
-│   ├── openssl.cnf                     # OpenSSL 配置（如证书生成）
-│   ├── scripts/                        # 安装、升级、卸载、备份等 Shell 脚本
-│   ├── softwares/                      # 附带的第三方工具包（如 curl、ossutil、ttyd）
-│   ├── ttyd                            # ttyd 可执行程序（Web终端服务）
-│   ├── venvs/                          # 各服务的 Python 虚拟环境（venv 隔离依赖）
-│   └── version                         # 当前部署版本信息
+│   │   └── 01.sql                      # Database initialization SQL script
+│   ├── logs/                           # Service logs (for troubleshooting)
+│   ├── openssl.cnf                     # OpenSSL configuration (e.g., certificate generation)
+│   ├── scripts/                        # Shell scripts for installation, upgrade, uninstall, backup, etc.
+│   ├── softwares/                      # Bundled third-party tools (e.g., curl, ossutil, ttyd)
+│   ├── ttyd                            # ttyd executable (web terminal service)
+│   ├── venvs/                         # Python virtual environments for each service
+│   └── version                        # Current deployment version info
 ```
 
+### Service Health Status
 
+All services run as Docker containers. O\&M staff can check the service status using the `hmctl` command.
 
-### 服务健康状态
+Example:
 
-所有服务均以 Docker 容器方式运行，运维人员可通过 `hmctl` 命令检查服务状态。
-
-返回结果包括：
-
-```plain&#x20;text
+```bash
 /opt/installer/production/scripts/hmctl status
 ```
 
-> 注意：可为其增加系统环境变量使其全局调用
+> **Tip:** Add the scripts directory to your PATH for global access:
 
-```plain&#x20;text
+```bash
 echo 'export PATH=$PATH:/opt/installer/production/scripts' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-* 当前服务健康状况
+* The `State` column indicates service health status:
 
-关键是看 `State` 列：
+  * `Up`: Service is running normally
+  * `Up (healthy)`: Container is running and health check passed
+  * `Exit` / `Restarting`: Service is abnormal or failed to start
 
-### 服务启动/停止/重启
+![](./image/servicecomponentoperationandmaintenance-consoleoperationandmaintenance-1.png)
 
-运维人员可通过 `hmctl` 命令对服务进行启动、停止、重启操作。
+* Log disk usage
 
-> ###### 注意：如果已经加入全局变量则直接执行：hmctl  命令参数
+![](./image/servicecomponentoperationandmaintenance-consoleoperationandmaintenance-2.png)
 
-* **启动服务**
+* Program disk usage
 
-  * 启动全部服务
+![](./image/servicecomponentoperationandmaintenance-consoleoperationandmaintenance-3.png)
 
-  ```plain&#x20;text
+* Remaining disk space
+
+![](./image/servicecomponentoperationandmaintenance-consoleoperationandmaintenance-4.png)
+
+* Health of service port 10443
+
+![](./image/servicecomponentoperationandmaintenance-consoleoperationandmaintenance-5.png)
+
+### Service Start/Stop/Restart
+
+O\&M staff can start, stop, or restart services using the `hmctl` command.
+
+> **Note:** If the command is in your PATH, simply run: `hmctl <command>`
+
+* **Start all services**
+
+  ```bash
   /opt/installer/production/scripts/hmctl start
   ```
 
-  * 启动单个服务
+* **Start a specific service**
 
-  ```plain&#x20;text
-  /opt/installer/production/scripts/hmctl start <服务名>
+  ```bash
+  /opt/installer/production/scripts/hmctl start <service-name>
   ```
 
-* **停止服务**
+* **Stop all services**
 
-  * 停止全部服务
-
-  ```plain&#x20;text
+  ```bash
   /opt/installer/production/scripts/hmctl stop
   ```
 
-  * 停止单个服务
+* **Stop a specific service**
 
-  ```plain&#x20;text
-  /opt/installer/production/scripts/hmctl stop <服务名>
+  ```bash
+  /opt/installer/production/scripts/hmctl stop <service-name>
   ```
 
-* **重启服务**
+* **Restart all services**
 
-  * 重启全部服务
-
-  ```plain&#x20;text
+  ```bash
   /opt/installer/production/scripts/hmctl restart
   ```
 
-  * 重启单个服务
+* **Restart a specific service**
 
-  ```plain&#x20;text
-  /opt/installer/production/scripts/hmctl restart <服务名>
+  ```bash
+  /opt/installer/production/scripts/hmctl restart <service-name>
   ```
 
-* **重新加载服务**
+* **Reload services**
 
-  > **注意：该命令只用于基础镜像有更新的情况下使用**
+  > **Note:** Use this command only after updating the base image.
 
-  ```plain&#x20;text
+  ```bash
   /opt/installer/production/scripts/hmctl reload
   ```
 
-### 日志管理
+### Log Management
 
-所有系统日志文件存储在 `/var/log/installer` 目录中。运维人员可以通过查看，日志文件，监控系统运行状态，排查故障，或提供相关文件给到对应项目负责人，确保系统稳定性。
-
-```python
-/var/log/installer/
-├── autoinstall-user-data                  # 自动安装用户数据配置文件
-├── block                                  # 存放与磁盘块相关的数据，通常用于分区信息
-├── casper-md5check.json                   # 用于验证安装镜像的MD5值，确保镜像文件完整性
-├── curtin-install-cfg.yaml                # Curtin安装工具的配置文件，控制安装过程
-├── curtin-install.log                     # Curtin安装过程的日志文件，记录安装的详细步骤和错误
-├── installer-journal.txt                  # 安装过程中的重要事件日志
-├── media-info                             # 安装介质的信息文件，通常包括介质类型等
-├── subiquity-client-debug.log -> subiquity-client-debug.log.2396    # Subiquity客户端调试日志的符号链接，指向日志文件 .2396
-├── subiquity-client-debug.log.2396        # Subiquity客户端调试日志文件
-├── subiquity-client-info.log -> subiquity-client-info.log.2396      # Subiquity客户端详细日志的符号链接，指向日志文件 .2396
-├── subiquity-client-info.log.2396         # Subiquity客户端的详细日志文件
-├── subiquity-curtin-apt.conf              # Curtin安装过程中APT包管理器的配置文件
-├── subiquity-curtin-install.conf          # Curtin安装过程的具体配置文件
-├── subiquity-server-debug.log -> subiquity-server-debug.log.2463    # Subiquity服务器端调试日志的符号链接，指向日志文件 .2463
-├── subiquity-server-debug.log.2463       # Subiquity服务器端调试日志文件
-├── subiquity-server-info.log -> subiquity-server-info.log.2463      # Subiquity服务器端详细日志的符号链接，指向日志文件 .2463
-└── subiquity-server-info.log.2463        # Subiquity服务器端的详细日志文件
-```
-
-### 配置文件管理
-
-系统的所有配置文件存储在 `/opt/installer/production/config` 目录中。运维人员可根据需求修改配置文件，以调整系统行为和功能设置。
-
-> 由于配置文件繁多此处不一一列举
-
-下列为`ant`服务配置文件实例：
+All system log files are located under `/var/log/installer`. O\&M staff can monitor system status, troubleshoot issues, or provide logs to project managers as needed.
 
 ```bash
+/var/log/installer/
+├── autoinstall-user-data                  # Auto-install user data config
+├── block                                  # Disk block data, usually partition info
+├── casper-md5check.json                   # MD5 check for installation image
+├── curtin-install-cfg.yaml                # Curtin installation tool config
+├── curtin-install.log                     # Curtin installation log
+├── installer-journal.txt                  # Key installation event logs
+├── media-info                             # Installation media information
+├── subiquity-client-debug.log -> subiquity-client-debug.log.2396
+├── subiquity-client-debug.log.2396
+├── subiquity-client-info.log -> subiquity-client-info.log.2396
+├── subiquity-client-info.log.2396
+├── subiquity-curtin-apt.conf
+├── subiquity-curtin-install.conf
+├── subiquity-server-debug.log -> subiquity-server-debug.log.2463
+├── subiquity-server-debug.log.2463
+├── subiquity-server-info.log -> subiquity-server-info.log.2463
+└── subiquity-server-info.log.2463
+```
+
+### Configuration File Management
+
+All system configuration files are stored in `/opt/installer/production/config`. O\&M staff can edit these files as necessary.
+
+> Due to the large number of configuration files, only an example for the `ant` service is shown below:
+
+```ini
 [DEFAULT]
-# 调试和日志
-debug = False                             # 是否开启调试模式
-verbose = False                           # 是否启用详细日志
-ant_api_listen = 0.0.0.0                  # API监听地址
-ant_api_listen_port = 10082               # API监听端口
-transport_url = rabbit://guest:fs82BgKdU2QTr4Oy@rabbitmq:5672//  # RabbitMQ连接URL
+# Debug and logging options
+debug = False
+verbose = False
+ant_api_listen = 0.0.0.0
+ant_api_listen_port = 10082
+transport_url = rabbit://guest:fs82BgKdU2QTr4Oy@rabbitmq:5672//
 
-# 日志轮转设置（已注释，按需启用）
-# log_rotation_type = size                # 设置日志轮转方式（可选：size, time）
-# max_logfile_count = 10                  # 最大日志文件数量
-# max_logfile_size_mb = 64                # 最大日志文件大小（MB）
+# Log rotation (commented out, enable if needed)
+# log_rotation_type = size
+# max_logfile_count = 10
+# max_logfile_size_mb = 64
 
-# API服务设置
-ant_api_workers = 1                       # 启动的API工作线程数
-proxy_base_url = http://proxy-api:18768   # 代理服务的基本URL
-porter_base_url = http://porter-api:18766 # Porter服务的基本URL
-porter_proxys_url = http://porter-api:18766/proxys  # Porter代理接口URL
-storplus_base_url = http://storplus-api:18765  # Storplus服务的基本URL
-OWL_BASE_URL = "http://owl-api:16700"     # OWL服务的基本URL
+# API service settings
+ant_api_workers = 1
+proxy_base_url = http://proxy-api:18768
+porter_base_url = http://porter-api:18766
+porter_proxys_url = http://porter-api:18766/proxys
+storplus_base_url = http://storplus-api:18765
+OWL_BASE_URL = "http://owl-api:16700"
 
 [database]
-# 数据库连接配置
-backend = sqlalchemy                      # 使用的ORM后端（如：sqlalchemy）
-connection = mysql://ant:antPass@mysql:3306/ant?charset=utf8  # MySQL数据库连接字符串
-use_db_reconnect = True                   # 是否启用数据库自动重连
-max_pool_size = 30                        # 数据库连接池最大连接数
-max_overflow = 20                         # 数据库连接池的最大溢出连接数
-pool_timeout = 30                         # 获取数据库连接的超时时间（秒）
-connection_recycle_time = 300            # 连接重用时间（秒），超过此时间后连接会被关闭并重新创建
+backend = sqlalchemy
+connection = mysql://ant:antPass@mysql:3306/ant?charset=utf8
+use_db_reconnect = True
+max_pool_size = 30
+max_overflow = 20
+pool_timeout = 30
+connection_recycle_time = 300
 
 [period]
-# 定时任务相关配置
-interval = 5                              # 定时任务的执行间隔（秒）
-timeout = 86400                           # 定时任务的超时时间（秒），默认一天（86400秒）
+interval = 5
+timeout = 86400
 ```
 
 
+## (Agentless Mode) Sync Proxy Operations Maintenance
 
-## (Agentless模式)同步代理端程序运维
+### **Runtime Environment**
 
-### **运行环境说明**
+The agentless proxy is installed on the source host and captures data changes directly through the cloud platform's API or virtualization management interfaces (such as VMware vCenter). This enables non-intrusive data synchronization, making it suitable for virtualized environments, simplifying deployment, and reducing system resource usage.
 
-在源端主机安装代理程序，直接通过云平台的 API 接口或虚拟化平台的管理接口（如 VMware vCenter）捕获数据变化，实现无侵入的数据同步，适用于虚拟化环境，简化部署并降低系统资源占用。
+The Linux agentless proxy is deployed on an Ubuntu 20.04 host. The recommended configuration is 4-core CPU, 8GB RAM, 200GB disk, using ext4 or xfs file systems (LVM partitions are not supported).
 
-Linux Agentless 部署在 Ubuntu 20.04 主机上，推荐配置为 4 核 CPU、8GB 内存、200GB 硬盘，使用 ext4 或 xfs 文件系统（不支持 LVM 分区）。
+The system is installed in the /opt/hamal directory. The main files and directory structure are as follows:
 
-系统安装在/opt/hamal目录中，主要的文件及目录结构：
-
-```python
+```bash
 /opt/hamal
-├── docker-compose-hamal.yaml      # Docker Compose 配置文件，用于部署 Hamal 服务
-├── hamal-venv                     # Python 源码包
-│   ├── bin                        # Python 的可执行文件
-│   ├── etc                        # 配置文件目录
-│   ├── hamal3-changelog.txt       # Hamal 版本更新日志
-│   ├── include                    # 包含目录（通常是 C 库等）
-│   ├── lib                        # Python 库文件
-│   ├── project_etc                # 项目专用的配置文件
-│   ├── pyvenv.cfg                 # Python 虚拟环境配置文件
-│   ├── tools                      # 工具集文件目录
-│   └── version                    # 版本文件，标记当前虚拟环境版本
-├── uninstall_hamal.sh             # 卸载 Hamal 服务的脚本
-└── update_sync_proxy.sh           # 更新同步代理的脚本
+├── docker-compose-hamal.yaml      # Docker Compose configuration for Hamal services
+├── hamal-venv                     # Python source package
+│   ├── bin                        # Python executables
+│   ├── etc                        # Configuration files
+│   ├── hamal3-changelog.txt       # Hamal version changelog
+│   ├── include                    # Include directory (typically C libraries, etc.)
+│   ├── lib                        # Python library files
+│   ├── project_etc                # Project-specific configuration files
+│   ├── pyvenv.cfg                 # Python virtual environment config
+│   ├── tools                      # Tools directory
+│   └── version                    # Version file for the current virtual environment
+├── uninstall_hamal.sh             # Script to uninstall Hamal services
+└── update_sync_proxy.sh           # Script to update the sync proxy
 ```
 
-### 服务健康状态
+### Service Health Status
 
-Agentless 服务以 Docker 容器方式运行，运维人员可通过以下命令检查服务状态：
+Agentless services run as Docker containers. Operations staff can check service status with the following command:
 
-```plain&#x20;text
+```plain
 cd /opt/hamal
 docker-compose -f docker-compose-hamal.yaml ps
 ```
 
-执行后将显示服务的运行状态信息，如下所示：
+The output will show the running status of the services. Pay attention to the `State` column:
 
-关键是看 `State` 列：
+- `Up`: Service is running normally
+- `Up (healthy)`: Container is running and health check passed
+- `Exit` / `Restarting`: Service is abnormal or failed to start
 
-![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=NzZiMGVjOTUwMGMzNTdhM2RmY2U4N2ZhOGNhM2Y2ZmVfQThuVzhhdDZvcFNNSkIxZlpVSUhKSHRIVEtTRUZCaGZfVG9rZW46UU5VZWJUbWlEb1JlTkp4NlBwTWNhcVpxbjNiXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+![](./image/timedtaskrelatedconfiguration-agentlessmode_synchronousagentprogramoperationandmaintenance-1.png)
 
-### 服务启动/停止/重启
+### Service Start/Stop/Restart
 
-运维人员可以使用 `docker-compose` 管理 Agentless 服务的启动、停止和重启操作
+Operations staff can use `docker-compose` to manage the start, stop, and restart of agentless services.
 
-* **启动服务：**
+* **Start service:**
 
-  ```plain&#x20;text
+  ```plain
   docker-compose -f /opt/hamal/docker-compose-hamal.yaml up -d
   ```
 
-* **停止服务：**
+* **Stop service:**
 
-  ```plain&#x20;text
+  ```plain
   docker-compose -f /opt/hamal/docker-compose-hamal.yaml down
   ```
 
-* **重启服务：**
+* **Restart service:**
 
-  ```plain&#x20;text
+  ```plain
   docker-compose -f /opt/hamal/docker-compose-hamal.yaml restart
   ```
 
-### 日志管理
+### Log Management
 
-所有系统日志文件存储在`/var/log/hamal`目录中。运维人员可以通过查看，日志文件，监控系统运行状态，排查故障，或提供相关文件给到对应项目负责人，确保系统稳定性。
+All system log files are stored in the `/var/log/hamal` directory. Operations staff can check log files to monitor system status, troubleshoot issues, or provide relevant files to project managers to ensure system stability.
 
-```plain&#x20;text
+```plain
 /var/log/hamal
-├── hamal-period.log                   # Hamal 定时任务的主日志（约 188KB）
-├── hamal-period-subprocess.log        # Hamal 定时任务中子进程的日志（约 10KB）
-├── ip_mapping.backup                  # IP 映射的备份文件（当前为空）
-├── vm-kylin_v10_Agent-<UUID>.log      # 虚拟机代理相关，可以通过vm开头的日志，来判断是否同步状态
+├── hamal-period.log                   # Main log for Hamal scheduled tasks (about 188KB)
+├── hamal-period-subprocess.log        # Subprocess log for Hamal scheduled tasks (about 10KB)
+├── ip_mapping.backup                  # Backup file for IP mapping (currently empty)
+├── vm-kylin_v10_Agent-<UUID>.log      # VM agent logs, can be used to determine sync status
 ```
 
-### 配置文件管理
+### Configuration File Management
 
-Linux Agent 的主要配置文件位于 /etc/hamal 目录下，文件名为 hamal.conf 。该文件包含了 Agentless 的各项配置信息，包括服务连接、数据库、同步任务、日志、S3 配置等。
+The main configuration file for the Linux agentless proxy is located at `/etc/hamal/hamal.conf`. This file contains all configuration information for agentless mode, including service connections, database, sync tasks, logs, S3 settings, and more.
 
-以下是该配置文件的各个部分及其作用说明：
+Below are the main sections of the configuration file and their descriptions:
 
-```yaml
+```ini
 [DEFAULT]
-debug = False                                # 是否启用调试日志
-verbose = False                              # 是否启用详细日志
-log_rotation_type = size                     # 日志轮转方式：按大小轮转
-max_logfile_count = 10                       # 最大日志文件数量
-max_logfile_size_mb = 64                     # 单个日志文件最大大小（单位：MB）
-hamal_lib_dir = /var/lib/hamal/              # 程序数据目录
-hamal_info_path = /var/lib/hamal/hamal_info  # 程序信息文件路径
+debug = False                                # Enable debug logs
+verbose = False                              # Enable verbose logs
+log_rotation_type = size                     # Log rotation by size
+max_logfile_count = 10                       # Max number of log files
+max_logfile_size_mb = 64                     # Max size per log file (MB)
+hamal_lib_dir = /var/lib/hamal/              # Program data directory
+hamal_info_path = /var/lib/hamal/hamal_info  # Program info file path
 
 [period]
-interval = 60                                # 执行周期任务的间隔（单位：秒）
-task_update_wait_time = 1                    # 任务更新时间等待间隔（单位：秒）
-openstack_release_cpu_time = 0               # OpenStack 每 MB 数据释放占用 CPU 时间（单位：毫秒）
-vmware_release_cpu_time = 0                  # VMware 每 MB 数据释放占用 CPU 时间（单位：毫秒）
+interval = 60                                # Interval for scheduled tasks (seconds)
+task_update_wait_time = 1                    # Wait time for task updates (seconds)
+openstack_release_cpu_time = 0               # CPU time per MB for OpenStack (ms)
+vmware_release_cpu_time = 0                  # CPU time per MB for VMware (ms)
 
 [mass]
-mass_endpoint = https://192.168.7.141:10443/hypermotion/v1  # Mass 服务 API 地址
-auth_key = 315d65ca-ef28-4e63-ad72-1260a91adf23              # 鉴权使用的密钥
-hyper_exporter_id = aaeb0d1fbbb14093837fb5f900b9f8ce         # Hyper Exporter 的唯一 ID
-public_key_path = /etc/hamal/public_key                     # 公钥路径
-default_request_timeout = 600                               # 请求超时时间（单位：秒）
-enable_get_public_ips = False                               # 是否获取公网 IP
-get_public_ip_timeout = 5                                   # 获取公网 IP 的超时时间（单位：秒）
-enable_heartbeat_msg = True                                 # 是否启用心跳上报
+mass_endpoint = https://192.168.7.141:10443/hypermotion/v1  # Mass service API address
+auth_key = 315d65ca-ef28-4e63-ad72-1260a91adf23             # Auth key
+hyper_exporter_id = aaeb0d1fbbb14093837fb5f900b9f8ce        # Unique ID for Hyper Exporter
+public_key_path = /etc/hamal/public_key                     # Public key path
+default_request_timeout = 600                               # Request timeout (seconds)
+enable_get_public_ips = False                               # Enable public IP retrieval
+get_public_ip_timeout = 5                                   # Public IP retrieval timeout (seconds)
+enable_heartbeat_msg = True                                 # Enable heartbeat reporting
 
 [vmware]
-skip_disk_flag = False                                       # 是否跳过磁盘标识检查
-disk_flag_size = 48                                          # 标识磁盘的最小容量（单位：MB）
-max_read_blocks = 1024                                       # 单次读取的最大块数
+skip_disk_flag = False                                      # Skip disk flag check
+disk_flag_size = 48                                         # Minimum disk size for flag (MB)
+max_read_blocks = 1024                                      # Max blocks per read
 
 [openstack_ceph]
-skip_disk_flag = False                                       # 是否跳过磁盘标识检查
-disk_flag_size = 48                                          # 标识磁盘的最小容量（单位：MB）
+skip_disk_flag = False                                      # Skip disk flag check
+disk_flag_size = 48                                         # Minimum disk size for flag (MB)
 
 [sync]
-save_local_snapshot_metadata = False                         # 是否本地保存快照元数据
-upload_metadata_to_oss = False                               # 是否上传元数据到 OSS
+save_local_snapshot_metadata = False                        # Save snapshot metadata locally
+upload_metadata_to_oss = False                              # Upload metadata to OSS
 
 [data_sync_v2]
-fsync_period_frequency = 3                                   # 元数据周期同步频率（单位：秒）
-fsync_timeout = 0                                            # 同步超时时间（单位：秒）
-parallel_sync_disks_count = 4                                # 并行同步磁盘数量
-pre_disk_readers_count = 2                                   # 预处理磁盘读取线程数
-max_parallel_sync_disks_count = 16                           # 最大并行磁盘同步数量
-max_pre_disk_readers_count = 16                              # 最大预处理磁盘读取线程数
+fsync_period_frequency = 3                                  # Metadata sync frequency (seconds)
+fsync_timeout = 0                                           # Sync timeout (seconds)
+parallel_sync_disks_count = 4                               # Number of disks to sync in parallel
+pre_disk_readers_count = 2                                  # Preprocessing disk reader threads
+max_parallel_sync_disks_count = 16                          # Max parallel disk syncs
+max_pre_disk_readers_count = 16                             # Max preprocessing disk readers
 
 [fusion_compute]
-task_timeout = 3600                                          # 任务超时时间（单位：秒）
-create_snap_task_timeout = 3600                              # 创建快照超时时间（单位：秒）
-delete_snap_task_timeout = 3600                              # 删除快照超时时间（单位：秒）
-local_host_ip = ""                                           # 当前主机 IP（可选）
-max_socket_connections_per_host = 8                          # 单主机最大连接数
-max_writer_num = 10                                          # 最大写入线程数
+task_timeout = 3600                                         # Task timeout (seconds)
+create_snap_task_timeout = 3600                             # Snapshot creation timeout (seconds)
+delete_snap_task_timeout = 3600                             # Snapshot deletion timeout (seconds)
+local_host_ip = ""                                          # Local host IP (optional)
+max_socket_connections_per_host = 8                         # Max connections per host
+max_writer_num = 10                                         # Max writer threads
 ```
 
-## Linux Agent运维
+## Linux Agent Operations Maintenance
 
-### **运行环境说明**
+### Runtime Environment
 
-通过在源端服务器上部署 Agent 程序，实时捕获文件系统或块设备的变化，实现对数据的持续同步，适用于物理服务器、非虚拟化环境或需要更精细控制的场景。
+By deploying the Agent program on the source server, the system can capture real-time changes in the file system or block devices to achieve continuous data synchronization. This is suitable for physical servers, non-virtualized environments, or scenarios requiring more granular control.
 
-Linux Agent 支持部署在以下版本的 Linux 操作系统上：CentOS 6.5+、CentOS 7.x/8.x、RHEL 6.x/7.x/8.x、SLES 11 SP1/SP3/SP4，以及 Ubuntu Server 12.04/14.04/16.04/18.04/20.04（均为 64 位）。
+Linux Agent supports deployment on the following Linux operating systems: CentOS 6.5+, CentOS 7.x/8.x, RHEL 6.x/7.x/8.x, SLES 11 SP1/SP3/SP4, and Ubuntu Server 12.04/14.04/16.04/18.04/20.04 (all 64-bit).
 
-系统安装在/var/lib/egisplus-agent目录中，主要的文件及目录结构：
+The system is installed in the /var/lib/egisplus-agent directory. The main files and directory structure are as follows:
 
-```python
+```bash
 egisplus-agent/
-├── agent-sync.db              # 本地同步数据库，存储代理同步状态
-├── agent-sync.db-shm          # SQLite 共享内存文件
-├── agent-sync.db-wal          # SQLite 写前日志文件
-├── collect_system_info.sh     # 采集系统信息的脚本
-├── config.ini                 # 主配置文件（如服务地址、认证信息等）
-├── disk_uuid_map              # 磁盘 UUID 与设备路径映射
-├── egisplus-agent             # 主执行程序（代理核心）
-├── egisplus_version           # Agent 的版本信息
-├── fstab.bak                  # `/etc/fstab` 文件备份（挂载点信息）
-├── hw_serial                  # 主机硬件序列号（用于唯一标识）
-├── protect_type               # 保护类型定义（如全量、增量）
-├── public_key                 # 与服务端通信使用的公钥
-├── registered                 # 是否注册标记（通常空文件表示已注册）
-├── uninstall_agent.sh         # 卸载脚本，清理安装和配置
-├── upgrade_agent.sh           # 升级脚本，用于更新 agent 版本
-└── version                    # 版本号文件，标识当前运行版本
+├── agent-sync.db              # Local sync database, stores agent sync status
+├── agent-sync.db-shm          # SQLite shared memory file
+├── agent-sync.db-wal          # SQLite write-ahead log file
+├── collect_system_info.sh     # Script to collect system information
+├── config.ini                 # Main configuration file (service address, authentication, etc.)
+├── disk_uuid_map              # Mapping between disk UUID and device path
+├── egisplus-agent             # Main executable (agent core)
+├── egisplus_version           # Agent version information
+├── fstab.bak                  # Backup of `/etc/fstab` (mount point info)
+├── hw_serial                  # Host hardware serial number (for unique identification)
+├── protect_type               # Protection type definition (e.g., full, incremental)
+├── public_key                 # Public key for communication with the server
+├── registered                 # Registration flag (usually an empty file means registered)
+├── uninstall_agent.sh         # Uninstall script to clean up installation and config
+├── upgrade_agent.sh           # Upgrade script for updating agent version
+└── version                    # Version file, indicates current running version
 ```
 
-### 服务健康状态
+### Service Health Status
 
-Linux Agent 安装完成后，通过 `egisplus-cli` 工具进行运行和管理。运维人员可使用相关命令检查服务状态与执行控制操作。
+After installing the Linux Agent, use the `egisplus-cli` tool for operation and management. Operations staff can use related commands to check service status and perform control operations.
 
-&#x20;命令结构说明：
+Command structure:
 
-下列示例为执行一次代理状态检查：
+```plain
+egisplus-cli agent <subcommand>
 
-返回的是 `egisplus-cli` 程序的运行状态检查结果：
+Subcommand      Description
+check           Check agent status, health or running status
+clean           Clean certain caches or temporary data
+cow             Copy-On-Write related operations
+devices         Show or manage devices (disks, partitions, etc.)
+fs              File system operations (mount, check, etc.)
+log             View agent-related logs
+read_rate       View or set read rate limits
+version         Show `egisplus-cli` tool version
+```
 
-### 服务启动/停止/重启
+Example of checking agent status:
 
-运维人员可通过`systemd`用以下命令对 `egisplus-agent.service` 进行管理：
+```plain
+egisplus-cli agent check
+```
 
-* **启动服务**
+The output shows the status check result of the `egisplus-cli` program:
 
-  ```plain&#x20;text
+```yaml
+Service status
+    Agent service is started: Yes.                        ##Agent service is running
+    iSCSI service is started: Yes.                        ##iSCSI service is also running, indicating this node may be used for block storage or backup mounting
+Agent status
+    This agent is registered: Yes.                        ##This agent has been successfully registered to HyperBDR
+    This agent is protected : No.                         ##No means data sync has not started yet
+    Heartbeat of this agent : 305.                        ##Agent has heartbeat connection with the controller, value indicates normal connection
+File system
+    block       mount   fs      free    used    path
+    /dev/dm-0   /       xfs     185G    4%      /dev/mapper/centos-root    ##Current system mounted disks and usage
+    /dev/sda1   /boot   xfs     853M    16%     /dev/sda1                  ##Current system mounted disks and usage
+```
+
+### Service Start/Stop/Restart
+
+Operations staff can use `systemd` to manage the `egisplus-agent.service` with the following commands:
+
+* **Start service**
+
+  ```plain
   systemctl start egisplus-agent.service
   ```
 
-* **停止服务**
+* **Stop service**
 
-  ```plain&#x20;text
+  ```plain
   systemctl stop egisplus-agent.service
   ```
 
-* **重启服务**
+* **Restart service**
 
-  ```plain&#x20;text
+  ```plain
   systemctl restart egisplus-agent.service
   ```
 
-### 日志管理
+### Log Management
 
-所有系统日志文件存储在 /var/log/egisplus-agent 目录中。运维人员可以通过查看，日志文件，监控系统运行状态，排查故障，或提供相关文件给到对应项目负责人，确保系统稳定性。
+All system log files are stored in the /var/log/egisplus-agent directory. Operations staff can view log files to monitor system status, troubleshoot issues, or provide relevant files to project managers to ensure system stability.
 
-```plain&#x20;text
+```plain
 egisplus-agent/
-├── agent-syncer.log              # 与控制中心/云端同步任务的运行日志
-├── agent-syncer-panic.log        # 同步任务的异常/崩溃日志，问题排查首选
-├── db.log                        # 与本地状态数据库或元数据相关的操作日志
-├── linux_agent.log               # 主代理程序的核心运行日志，记录服务启动、注册、调度等
-└── linux_agent.log-20250511.gz   # 自动轮转的归档历史日志，gzip 压缩格式
+├── agent-syncer.log              # Log for sync tasks with control center/cloud
+├── agent-syncer-panic.log        # Exception/crash log for sync tasks, primary for troubleshooting
+├── db.log                        # Log for local state database or metadata operations
+├── linux_agent.log               # Core runtime log for the main agent program, records service start, registration, scheduling, etc.
+└── linux_agent.log-20250511.gz   # Rotated historical log, gzip compressed
 ```
 
-### 配置文件管理
+### Configuration File Management
 
-Linux Agent 的主要配置文件位于 /var/lib/egisplus-agent 目录下，文件名为 config.ini。该文件包含了 Linux Agent 的各项配置信息，包括服务连接、数据库、同步任务、日志、S3 配置等。
+The main configuration file for Linux Agent is located in /var/lib/egisplus-agent and named config.ini. This file contains all configuration information for the Linux Agent, including service connections, database, sync tasks, logs, S3 settings, and more.
 
-以下是该配置文件的各个部分及其作用说明：
+Below are the main sections of the configuration file and their descriptions:
 
-```bash
+```ini
 [INFO]
 Version = 6.1.0
-# 应用版本号
+# Application version
 
 [DEFAULT]
-ServerAddress = 127.0.0.1:19982       # 服务监听地址与端口
-ServerCertFile =                      # 服务端SSL证书文件路径（可选）
-ServerKeyFile =                       # 服务端SSL密钥文件路径（可选）
-ReadTimeout = 20                      # 请求读取超时时间（秒）
-WriteTimeout = 20                     # 响应写入超时时间（秒）
-StopTimeout = 10                      # 服务停止前的等待超时（秒）
-MaxHeaderBytes = 1048576              # HTTP请求头最大大小（字节）
+ServerAddress = 127.0.0.1:19982       # Service listen address and port
+ServerCertFile =                      # Server SSL certificate file path (optional)
+ServerKeyFile =                       # Server SSL key file path (optional)
+ReadTimeout = 20                      # Request read timeout (seconds)
+WriteTimeout = 20                     # Response write timeout (seconds)
+StopTimeout = 10                      # Wait timeout before service stops (seconds)
+MaxHeaderBytes = 1048576              # Max HTTP request header size (bytes)
 
 [DATABASE]
-DatabaseFile = /var/lib/egisplus-agent/agent-sync.db  # SQLite 数据库文件路径
-DBLogFile = /var/log/egisplus-agent/db.log            # 数据库操作日志路径
+DatabaseFile = /var/lib/egisplus-agent/agent-sync.db  # SQLite database file path
+DBLogFile = /var/log/egisplus-agent/db.log            # Database operation log path
 
 [SYNC]
-Deduplicate = true                    # 是否开启去重
-Compress = ""                         # 数据压缩方式（空表示不开启）
-Encrypt = ""                          # 数据加密方式（空表示不开启）
-IndexPath = /var/lib/egisplus-agent/index  # 索引数据存储路径
-DirectIO = false                      # 是否启用Direct I/O
-WorkersPerBlock = 2                  # 每块数据的处理线程数
-BuffersPerBlock = 8                  # 每块数据的缓冲区数量
-SaveIndexInterval = 30              # 索引保存间隔（秒）
-SaveBlobInterval = 10               # Blob数据保存间隔（秒）
-ConcurrentThreads = 2               # 同步任务并发线程数
-SyncBufferSize = 8                  # 同步缓冲区大小
-EnableRetry = true                  # 是否启用失败重试
-RetryCount = 10                     # 最大重试次数
-RetryInterval = 30                  # 重试间隔（秒）
-CheckDup = true                     # 是否检查重复数据
+Deduplicate = true                    # Enable deduplication
+Compress = ""                         # Data compression method (empty means disabled)
+Encrypt = ""                          # Data encryption method (empty means disabled)
+IndexPath = /var/lib/egisplus-agent/index  # Index data storage path
+DirectIO = false                      # Enable Direct I/O
+WorkersPerBlock = 2                   # Number of processing threads per data block
+BuffersPerBlock = 8                   # Number of buffers per data block
+SaveIndexInterval = 30                # Index save interval (seconds)
+SaveBlobInterval = 10                 # Blob data save interval (seconds)
+ConcurrentThreads = 2                 # Number of concurrent sync threads
+SyncBufferSize = 8                    # Sync buffer size
+EnableRetry = true                    # Enable retry on failure
+RetryCount = 10                       # Max retry count
+RetryInterval = 30                    # Retry interval (seconds)
+CheckDup = true                       # Check for duplicate data
 
 [S3]
-AccessKey = ak                      # S3访问密钥
-SecretKey = sk                      # S3密钥
-Region = region                     # S3区域
-BucketName = bucket                # S3桶名称
-StorageClass = standard            # 存储类型（如 standard, infrequent-access）
-URL = https://                     # S3服务地址
-UseTLS = true                      # 是否启用TLS连接
+AccessKey = ak                        # S3 access key
+SecretKey = sk                        # S3 secret key
+Region = region                       # S3 region
+BucketName = bucket                   # S3 bucket name
+StorageClass = standard               # Storage class (e.g., standard, infrequent-access)
+URL = https://                        # S3 service address
+UseTLS = true                         # Enable TLS connection
 
 [CLIENT]
-ClientCertFile = /var/lib/egisplus-agent/client_cert_file  # 客户端证书文件路径
-ClientKeyFile = /var/lib/egisplus-agent/client_key_file    # 客户端密钥文件路径
-ClientUploadURL = 120               # 客户端上传URL的超时时间（秒）
-ClientTimeout = 120                 # 客户端请求超时时间（秒）
-SendContentMd5 = true               # 是否发送Content-MD5头
-DisableContentSha256 = true         # 是否禁用Content-SHA256校验
+ClientCertFile = /var/lib/egisplus-agent/client_cert_file  # Client certificate file path
+ClientKeyFile = /var/lib/egisplus-agent/client_key_file    # Client key file path
+ClientUploadURL = 120               # Client upload URL timeout (seconds)
+ClientTimeout = 120                 # Client request timeout (seconds)
+SendContentMd5 = true               # Send Content-MD5 header
+DisableContentSha256 = true         # Disable Content-SHA256 check
 
 [LOG]
-LogPath = /var/log/egisplus-agent   # 日志文件路径
-LogFileName = agent-syncer.log      # 日志文件名
-LogLevel = info                     # 日志等级（如 debug, info, warn, error）
-LogFileMaxSize = 64                 # 单个日志文件最大大小（MB）
-LogFileMaxBackups = 10              # 保留的历史日志文件数量
-LogMaxAge = 28                      # 日志文件最长保留天数
-LogCompress = true                 # 是否压缩历史日志
-LogStdout = false                  # 是否输出日志到控制台
+LogPath = /var/log/egisplus-agent   # Log file path
+LogFileName = agent-syncer.log      # Log file name
+LogLevel = info                     # Log level (e.g., debug, info, warn, error)
+LogFileMaxSize = 64                 # Max size per log file (MB)
+LogFileMaxBackups = 10              # Number of historical log files to keep
+LogMaxAge = 28                      # Max log retention days
+LogCompress = true                  # Compress historical logs
+LogStdout = false                   # Output logs to console
 ```
 
 
+## Windows Agent Operations Maintenance
 
-## Windows Agent运维
+### Runtime Environment
 
-### 运行环境说明
+By deploying the Agent program on the source server, the system can capture real-time changes in the file system or block devices to achieve continuous data synchronization. This is suitable for physical servers, non-virtualized environments, or scenarios requiring more granular control.
 
-通过在源端服务器上部署 Agent 程序，实时捕获文件系统或块设备的变化，实现对数据的持续同步，适用于物理服务器、非虚拟化环境或需要更精细控制的场景。
+Windows Agent supports deployment on the following Windows Server operating systems: 2003 SP2/R2, 2008, 2008 R2, 2012, 2012 R2, 2016, 2019 (all 64-bit).
 
-Windows Agent 支持部署在以下版本的 Windows Server 操作系统上：2003 SP2/R2、2008、2008 R2、2012、2012 R2、2016、2019（均为 64 位）。
+The system is installed in the `C:\Program Files (x86)\DiskSync-Agent` directory (the actual path depends on your installation choice). The main files and directory structure are as follows:
 
-系统安装在 C:\Program Files (x86)\DiskSync-Agent 目录中（具体路径以实际选择安装路径为准），主要的文件及目录结构：
+![](./image/applicationversionnumber-windowsagentoperationandmaintenance-1.png)
 
-![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjQ2Y2ZhMGI5ZjViYTQ1NzA1M2NhMGJiMDQ1ZWViYjBfdVlsdGgwSVNIckJ0VDJtNklOalRBNkhVTFJ2b3JMczNfVG9rZW46VExMQ2IwSUlGb1Z2NkN4RUZvQmNVemRubjNnXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+### Service Health Status
 
-### 服务监控状态
+Operations staff can check the service status using Windows Task Manager to confirm whether the service is running properly.
 
-运维人员可以通过 Windows 任务管理器检查服务的运行状态，确认服务是否正常运行。
+* Ways to open Task Manager:
 
-* 任务管理器服务开启方式：
+  * Method 1:
 
-  * 方法1：
-
-    ```plain&#x20;text
-    同时按下键盘上 <Ctrl + Alt + Del>
+    ```plain
+    Press <Ctrl + Alt + Del> on your keyboard at the same time.
     ```
 
-  * 方法2
+  * Method 2:
 
-    ```plain&#x20;text
-    按下 Win + R 打开运行窗口。
-    输入 taskmgr，然后按 回车。
+    ```plain
+    Press Win + R to open the Run dialog.
+    Enter taskmgr and press Enter.
     ```
 
-    ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=YTk4ZmIwYmFlMTI3ZGNiNzMxYzhhYmY0Y2Q4ZTk0YTlfbEhDWjkzWjVCQ1NsdHZoNnFMRmQ5WkRUVjBidXNiVG9fVG9rZW46VEN4Q2JxWFBzb3pSWlp4aUcyZWNtZW9vbnFlXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+    ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-2.png)
 
-### 服务启动/停止/重启
+### Service Start/Stop/Restart
 
-* **启动服务：**
+* **Start Service:**
 
-  * 右键点击桌面的Windows Agent快捷程序，以管理员权限运行。
+  * Right-click the Windows Agent shortcut on the desktop and run as administrator.
 
-  ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=NmViZjc2MTQ4MDIyNTkzMTczYjI5Njg3ZDYzOWY1NGJfSVdQbTNIeUtnTVp0WWJhQVowTmdKTTY4TDJ0WnNobEhfVG9rZW46SmFNTWJpQ29Lb1Z3MVZ4WWFPOGNNWHFHbnpkXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+  ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-3.png)
 
-  * 左键点击Start Service
+  * Left-click "Start Service".
 
-  ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjVkMDgwNjE1ZmI4ZmY0OWIzZDdkMjFmYTkzYWNmYTVfckM5WVpLV3lJc0RjTnNsckhzeTZaSGhPaDFnMWxZVUhfVG9rZW46RmsxcGI2YktPb29sV014RXpvdGNkSGlvbk9jXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+  ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-4.png)
 
-  * 警告信息（忽略即可）
+  * Warning message (can be ignored).
 
-  ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=OTFjYTEyOTExNDMyMDE2YjNiNjE2MmQ0YzhiYzRkNTdfQnFadkd4TVJETFZhcmdDTUZCcW9GVU12bjh2dXl0OTBfVG9rZW46UXBhY2JDcjJib2VZckh4OG95QWN4ZkdkbktkXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+  ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-5.png)
 
-  ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=NmZjOWYzMGE0ZjgxNzRmNjkzNzRjNGE2Njc2MzRmZTFfQWE0bnJUbVp1Y0xETjlJR0tvTWt5T1NkYlpMZjFGNERfVG9rZW46TUljMmIwNGJob0dJTEh4OWZYWmM0RTRBblNiXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+  ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-6.png)
 
-  * 服务启动正常
+  * Service started successfully.
 
-  ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=NjZhMTI1M2U0ODgxYjMwMzYzMGYyNmU0NmFhM2Q0MThfZ2JDMnVyb3RmRmpSSkhwandIR2l6eWZHVVI1NHVBd3hfVG9rZW46SHduMGJtbnZZb1Yyb3N4VkpsWGN6V0YzbkNjXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+  ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-7.png)
 
-* **停止服务：**
+* **Stop Service:**
 
-  * 点击Stop Service即可停止服务
+  * Click "Stop Service" to stop the service.
 
-  ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmE2Mjc0OWE0NjExM2E3MmVjNmU2YjkyYTQ0OTQ1MWZfbW9wa1RtanlTelBtOWNaQnlnSmV6eFJYUFF6SGJLbm5fVG9rZW46QVVDYmJTUWE5b1NkWll4NTUwMWNFZUhSblNiXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+  ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-8.png)
 
-### 日志管理
+### Log Management
 
-所有系统日志文件存储在`C:\Program Files (x86)\DiskSync-Agent\log`目录中（具体路径以安装选择路径为准\log）。运维人员可以通过查看，日志文件，监控系统运行状态，排查故障，或提供相关文件给到对应项目负责人，确保系统稳定性。
+All system log files are stored in the `C:\Program Files (x86)\DiskSync-Agent\log` directory (the actual path depends on your installation choice). Operations staff can view log files to monitor system status, troubleshoot issues, or provide relevant files to project managers to ensure system stability.
 
-![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=Nzk5NjY5M2I0MzM4ZWM1YmYyNTg1NDNiODkxYzc4NDNfNE1jSU95V2N4VGNUdXhuc3gzaTVKanE1N2tISVpPQnFfVG9rZW46VzI4cWJYam1zbzFiQ1B4VnVTdWNESHMybnNkXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+![](./image/applicationversionnumber-windowsagentoperationandmaintenance-9.png)
 
-### 配置文件管理
+### Configuration File Management
 
-Windows Agent 的主要配置文件位于 `C:\Program Files (x86)\DiskSync-Agent\config` 目录下（具体路径以实际选择安装路径为准\config），文件名为 `Sysconfig.ini`。该文件包含了 Windows Agent 的各项配置信息，包括服务连接、数据库、同步任务、日志、S3 配置等。
+The main configuration file for Windows Agent is located in the `C:\Program Files (x86)\DiskSync-Agent\config` directory (the actual path depends on your installation choice), and the file name is `Sysconfig.ini`. This file contains all configuration information for the Windows Agent, including service connections, database, sync tasks, logs, S3 settings, and more.
 
-以下是该配置文件的各个部分及其作用说明：
+Below are the main sections of the configuration file and their descriptions:
 
-```c++
-
+```ini
 [SysParam]
 HM_URL =https://192.168.7.141:10443/hypermotion/v1
 SYNC_NODE_KEY =da8aae5b-facb-452f-8161-5c866f8fafaa
@@ -551,7 +590,7 @@ LOGFLAG=2
 ;Filename of successful host registration
 REG_FILE=registered        
 
-;Heartbeat interval (seconds)"
+;Heartbeat interval (seconds)
 HEARTBEAT_INTERVAL=50
 
 ;Whether to modify the iscsi initiator name tag, 1: modify; 0: not modify.
@@ -624,51 +663,124 @@ LOCAL_LAN=1
 use_proxy=0
 VSS_CHECK_RESULT=1
 ```
-## 云同步网关运维
 
-### 运行环境说明
 
-云同步网关是连接源端与目标云平台的关键组件，负责接收并处理源端的全量和增量数据，将其同步至云平台的存储中，实现高效、低成本的数据备份与灾难恢复。
 
-平台会自动创建默认云同网关环境，通常为 2 核 CPU、4GB 内存、50GB 硬盘的 Ubuntu 20.04 系统。
+## Cloud Sync Gateway Operations & Maintenance
 
-系统安装在 `/var/lib/sgateway` 目录中（位置可选），主要的文件及目录结构：
+### Runtime Environment
+
+The Cloud Sync Gateway is a key component that connects the source and target cloud platforms. It is responsible for receiving and processing both full and incremental data from the source, synchronizing it to the cloud platform's storage, and enabling efficient, cost-effective data backup and disaster recovery.
+
+The platform automatically creates a default Cloud Sync Gateway environment, typically using Ubuntu 20.04 with 2 CPU cores, 4GB RAM, and a 50GB disk.
+
+The system is installed in the `/var/lib/sgateway` directory (location is configurable). The main files and directory structure are as follows:
 
 ```bash
 /var/lib/sgateway/
-├── certs                   # 存放 TLS/SSL 证书的目录（含私钥、公钥等）
-├── config                  # 存放配置文件的目录（如 s3block_config.ini）
-├── confmgmt                # 配置管理目录，可能用于集中配置同步或版本控制
-├── diskdir                 # 本地数据目录，用于对象存储数据或缓存
-├── dr                      # 灾难恢复（Disaster Recovery）相关目录（当前可能为空或预留）
-├── logs                    # 日志目录，记录 s3block 和 watchman 的运行日志
-├── s3block                 # s3block 主程序，可执行文件，提供核心数据服务
-├── s3block.db              # s3block 的本地数据库文件，存储任务状态、元信息等
-├── s3block.service         # systemd 服务定义文件，用于管理 s3block 的启动和运行
-├── s3block_version         # s3block 的版本信息文件
-├── version                 # 系统或模块的版本号标识文件
-├── watchman                # watchman 主程序，可执行文件，负责监控、同步触发等功能
-└── watchman.service        # systemd 服务定义文件，用于管理 watchman 的启动和运行
+├── certs                   # Directory for TLS/SSL certificates (including private/public keys)
+├── config                  # Directory for configuration files (e.g., s3block_config.ini)
+├── confmgmt                # Configuration management directory, possibly for centralized config or version control
+├── diskdir                 # Local data directory, used for object storage data or cache
+├── dr                      # Disaster Recovery related directory (may be empty or reserved)
+├── logs                    # Log directory, stores s3block and watchman logs
+├── s3block                 # s3block main executable, provides core data services
+├── s3block.db              # s3block local database file, stores task status, metadata, etc.
+├── s3block.service         # systemd service file for managing s3block startup and operation
+├── s3block_version         # s3block version information file
+├── version                 # System or module version identifier file
+├── watchman                # watchman main executable, responsible for monitoring and sync triggers
+└── watchman.service        # systemd service file for managing watchman startup and operation
 ```
 
-### 服务监控状态
+### Service Health Status
 
-### 服务启动/停止/重启
+After the Cloud Sync Gateway is installed, it is managed and operated via `systemd`. Operations staff can use `systemctl` commands to check service status and perform control operations. The Cloud Sync Gateway requires attention to three services: `s3block.service`, `watchman.service`, and `hyper_exporter.service`.
 
-### 日志管理
+| **Service**              | **Status Field** | **Service Status**     |
+|-------------------------|------------------|-----------------------|
+| s3block.service         | `Active`         | `active (running)`    |
+| watchman.service        | `Active`         | `active (running)`    |
+| hyper_exporter.service  | `Active`         | `active (running)`    |
 
-### 配置文件管理
+Check service status with `systemctl status <service-name>`. Any status other than `active` is abnormal and requires further troubleshooting. Example:
 
-## 临时过渡主机镜像运维
+```plain
+systemctl status s3block.service
+```
 
-### 运行环境说明
+### Service Start/Stop/Restart
 
-“临时过渡主机镜像”是用于在系统迁移、故障恢复或测试验证等场景下，快速创建云主机的临时镜像，确保业务平稳过渡。
+Operations staff can use `systemd` to manage `s3block.service` and `watchman.service` with the following commands:
 
-### 服务监控状态
+* **Start Service**
 
-### 服务启动/停止/重启
+  * `s3block.service`
+    ```plain
+    systemctl start s3block.service
+    ```
+  * `watchman.service`
+    ```plain
+    systemctl start watchman.service
+    ```
 
-### 日志管理
+* **Stop Service**
 
-### 配置文件管理
+  * `s3block.service`
+    ```plain
+    systemctl stop s3block.service
+    ```
+  * `watchman.service`
+    ```plain
+    systemctl stop watchman.service
+    ```
+
+* **Restart Service**
+
+  * `s3block.service`
+    ```plain
+    systemctl restart s3block.service
+    ```
+  * `watchman.service`
+    ```plain
+    systemctl restart watchman.service
+    ```
+
+### Log Management
+
+All system log files are stored in the `/var/log/sgateway` directory. Operations staff can check log files to monitor system status, troubleshoot issues, or provide relevant files to project managers to ensure system stability.
+
+```plain
+/var/log/sgateway/
+├── s3block_20250514.log       # s3block log for 2025-05-14
+├── s3block_20250515.log       # s3block log for 2025-05-15
+├── watchman_20250514.log      # watchman log for 2025-05-14
+└── watchman_20250515.log      # watchman log for 2025-05-15
+```
+
+### Configuration File Management
+
+The main configuration file for the Cloud Sync Gateway is `s3block_config.ini`, located in the `/var/lib/sgateway/config` directory. This file contains key information such as gateway ID, public IP, WebSocket service address, local data directory, log level, S3 storage credentials, endpoint address, and more, supporting data sync and communication between the gateway and central services.
+
+Below are the main sections of the configuration file and their descriptions:
+
+```ini
+[system]
+gateway_uuid     = 41f2ef9e-50c7-430f-b316-e9e4ec5516d4     # Unique gateway identifier (UUID)
+websocket_server = wss://192.168.7.141:10443/duplex/gateway/v1  # WebSocket address for bidirectional communication with the server
+filedir          = diskdir                                 # Local data storage directory (relative path)
+log_level        = 1                                       # Log level (1 means INFO)
+multi_srv        = true                                    # Enable multi-service mode (true means enabled)
+public_ip        = 192.168.14.65                           # Public IP address for gateway communication
+accessKey        = wCi7qC8RlFydraCugWWa                    # Object storage access key
+secretAccessKey  = TH5g4gbJKsK2YEsBLj7GaFpbWTiGYarRQSu1B59t # Object storage secret key
+localdisksaved   =                                         # Local disk persistence directory (empty means default)
+endpoint         = https://192.168.14.65:13260             # Object storage endpoint (API address)
+bucketcreated    = true                                    # Whether the bucket is created (true means created)
+```
+
+## Temporary Transition Host Image Operations & Maintenance
+
+### Runtime Environment
+
+The "Temporary Transition Host Image" is used to quickly create a temporary cloud host image for scenarios such as system migration, disaster recovery, or testing and validation, ensuring smooth business transition. When creating, the configuration should match the failback host.
