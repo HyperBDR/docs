@@ -68,7 +68,7 @@ export const zhNavbar = navbar([
           {
             text: "运维指南",
             icon: "book",
-            link: "/userguide/om-guide/"
+            link: "/zh/userguide/om-guide/"
           },
         ],
       },
