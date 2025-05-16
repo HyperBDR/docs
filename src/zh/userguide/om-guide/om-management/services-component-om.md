@@ -53,11 +53,34 @@ source ~/.bashrc
 
 关键是看 `State` 列：
 
+ `Up`：表示服务运行正常
+
+ `Up (healthy)`：表示容器正在运行且健康检查通过。
+
+ `Exit` / `Restarting`：表示服务异常或未能启动
+
+![](./image/servicecomponentoperationandmaintenance-consoleoperationandmaintenance-1.png)
+
+- 日志占用空间
+
+![](./image/servicecomponentoperationandmaintenance-consoleoperationandmaintenance-2.png)
+
+- 程序占用空间
+
+![](./image/servicecomponentoperationandmaintenance-consoleoperationandmaintenance-3.png)
+
+- 磁盘剩余空间
+
+![](./image/servicecomponentoperationandmaintenance-consoleoperationandmaintenance-4.png)
+
+- 10443服务端口健康状况
+
+![](./image/servicecomponentoperationandmaintenance-consoleoperationandmaintenance-5.png)
 ### 服务启动/停止/重启
 
 运维人员可通过 `hmctl` 命令对服务进行启动、停止、重启操作。
 
-> ###### 注意：如果已经加入全局变量则直接执行：hmctl  命令参数
+> 注意：如果已经加入全局变量则直接执行：hmctl  <命令参数>
 
 * **启动服务**
 
@@ -222,7 +245,13 @@ docker-compose -f docker-compose-hamal.yaml ps
 
 关键是看 `State` 列：
 
-![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=NzZiMGVjOTUwMGMzNTdhM2RmY2U4N2ZhOGNhM2Y2ZmVfQThuVzhhdDZvcFNNSkIxZlpVSUhKSHRIVEtTRUZCaGZfVG9rZW46UU5VZWJUbWlEb1JlTkp4NlBwTWNhcVpxbjNiXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+ `Up`：表示服务运行正常
+
+ `Up (healthy)`：表示容器正在运行且健康检查通过。
+
+ `Exit` / `Restarting`：表示服务异常或未能启动
+
+![](./image/timedtaskrelatedconfiguration-agentlessmode_synchronousagentprogramoperationandmaintenance-1.png)
 
 ### 服务启动/停止/重启
 
@@ -354,11 +383,43 @@ egisplus-agent/
 
 Linux Agent 安装完成后，通过 `egisplus-cli` 工具进行运行和管理。运维人员可使用相关命令检查服务状态与执行控制操作。
 
-&#x20;命令结构说明：
+ 命令结构说明：
+
+```Plain
+egisplus-cli agent <子命令>
+
+子命令            说明
+check         检查代理状态，可能是健康检查或运行状况检查
+clean         清理某些缓存或临时数据
+cow           可能是 Copy-On-Write 相关操作
+devices       显示或管理设备（磁盘、分区等
+fs            文件系统相关操作（如挂载、检测
+log           查看代理相关的日志 
+read_rate     查看或配置读取速率限制
+version       显示 `egisplus-cli` 工具的版本信息
+```
 
 下列示例为执行一次代理状态检查：
 
+```Plain
+egisplus-cli agent check
+```
+
 返回的是 `egisplus-cli` 程序的运行状态检查结果：
+
+```YAML
+Service status
+    Agent service is started: Yes.                        ##Agent 服务正在运行
+    iSCSI service is started: Yes.                        ##iSCSI 服务也已启动，说明该节点可能用于块级存储或备份挂载
+Agent status
+    This agent is registered: Yes.                        ##表示这个代理已经成功注册到HyperBDR
+    This agent is protected : No.                         ##这里的no表示还没有开始同步数据
+    Heartbeat of this agent : 305.                        ##表示代理与控制端有心跳连接，数值显示连接正常
+File system
+    block       mount   fs      free    used    path
+    /dev/dm-0   /       xfs     185G    4%      /dev/mapper/centos-root    ##这部分显示了当前系统的挂载磁盘和使用情况
+    /dev/sda1   /boot   xfs     853M    16%     /dev/sda1                  ##这部分显示了当前系统的挂载磁盘和使用情况
+```
 
 ### 服务启动/停止/重启
 
@@ -476,7 +537,7 @@ Windows Agent 支持部署在以下版本的 Windows Server 操作系统上：20
 
 系统安装在 C:\Program Files (x86)\DiskSync-Agent 目录中（具体路径以实际选择安装路径为准），主要的文件及目录结构：
 
-![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjQ2Y2ZhMGI5ZjViYTQ1NzA1M2NhMGJiMDQ1ZWViYjBfdVlsdGgwSVNIckJ0VDJtNklOalRBNkhVTFJ2b3JMczNfVG9rZW46VExMQ2IwSUlGb1Z2NkN4RUZvQmNVemRubjNnXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+![](./image/applicationversionnumber-windowsagentoperationandmaintenance-1.png)
 
 ### 服务监控状态
 
@@ -497,7 +558,7 @@ Windows Agent 支持部署在以下版本的 Windows Server 操作系统上：20
     输入 taskmgr，然后按 回车。
     ```
 
-    ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=YTk4ZmIwYmFlMTI3ZGNiNzMxYzhhYmY0Y2Q4ZTk0YTlfbEhDWjkzWjVCQ1NsdHZoNnFMRmQ5WkRUVjBidXNiVG9fVG9rZW46VEN4Q2JxWFBzb3pSWlp4aUcyZWNtZW9vbnFlXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+    ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-2.png)
 
 ### 服务启动/停止/重启
 
@@ -505,33 +566,33 @@ Windows Agent 支持部署在以下版本的 Windows Server 操作系统上：20
 
   * 右键点击桌面的Windows Agent快捷程序，以管理员权限运行。
 
-  ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=NmViZjc2MTQ4MDIyNTkzMTczYjI5Njg3ZDYzOWY1NGJfSVdQbTNIeUtnTVp0WWJhQVowTmdKTTY4TDJ0WnNobEhfVG9rZW46SmFNTWJpQ29Lb1Z3MVZ4WWFPOGNNWHFHbnpkXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+  ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-3.png)
 
   * 左键点击Start Service
 
-  ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjVkMDgwNjE1ZmI4ZmY0OWIzZDdkMjFmYTkzYWNmYTVfckM5WVpLV3lJc0RjTnNsckhzeTZaSGhPaDFnMWxZVUhfVG9rZW46RmsxcGI2YktPb29sV014RXpvdGNkSGlvbk9jXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+  ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-4.png)
 
   * 警告信息（忽略即可）
 
-  ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=OTFjYTEyOTExNDMyMDE2YjNiNjE2MmQ0YzhiYzRkNTdfQnFadkd4TVJETFZhcmdDTUZCcW9GVU12bjh2dXl0OTBfVG9rZW46UXBhY2JDcjJib2VZckh4OG95QWN4ZkdkbktkXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+  ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-5.png)
 
-  ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=NmZjOWYzMGE0ZjgxNzRmNjkzNzRjNGE2Njc2MzRmZTFfQWE0bnJUbVp1Y0xETjlJR0tvTWt5T1NkYlpMZjFGNERfVG9rZW46TUljMmIwNGJob0dJTEh4OWZYWmM0RTRBblNiXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+  ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-6.png)
 
   * 服务启动正常
 
-  ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=NjZhMTI1M2U0ODgxYjMwMzYzMGYyNmU0NmFhM2Q0MThfZ2JDMnVyb3RmRmpSSkhwandIR2l6eWZHVVI1NHVBd3hfVG9rZW46SHduMGJtbnZZb1Yyb3N4VkpsWGN6V0YzbkNjXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+  ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-7.png)
 
 * **停止服务：**
 
   * 点击Stop Service即可停止服务
 
-  ![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmE2Mjc0OWE0NjExM2E3MmVjNmU2YjkyYTQ0OTQ1MWZfbW9wa1RtanlTelBtOWNaQnlnSmV6eFJYUFF6SGJLbm5fVG9rZW46QVVDYmJTUWE5b1NkWll4NTUwMWNFZUhSblNiXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+  ![](./image/applicationversionnumber-windowsagentoperationandmaintenance-8.png)
 
 ### 日志管理
 
 所有系统日志文件存储在`C:\Program Files (x86)\DiskSync-Agent\log`目录中（具体路径以安装选择路径为准\log）。运维人员可以通过查看，日志文件，监控系统运行状态，排查故障，或提供相关文件给到对应项目负责人，确保系统稳定性。
 
-![](https://tcnquu760t2x.feishu.cn/space/api/box/stream/download/asynccode/?code=Nzk5NjY5M2I0MzM4ZWM1YmYyNTg1NDNiODkxYzc4NDNfNE1jSU95V2N4VGNUdXhuc3gzaTVKanE1N2tISVpPQnFfVG9rZW46VzI4cWJYam1zbzFiQ1B4VnVTdWNESHMybnNkXzE3NDcyOTY4NDU6MTc0NzMwMDQ0NV9WNA)
+![](./image/applicationversionnumber-windowsagentoperationandmaintenance-9.png)
 
 ### 配置文件管理
 
@@ -624,6 +685,9 @@ LOCAL_LAN=1
 use_proxy=0
 VSS_CHECK_RESULT=1
 ```
+
+
+
 ## 云同步网关运维
 
 ### 运行环境说明
@@ -651,24 +715,102 @@ VSS_CHECK_RESULT=1
 └── watchman.service        # systemd 服务定义文件，用于管理 watchman 的启动和运行
 ```
 
-### 服务监控状态
+### 服务健康状态
+
+云同步网关创建安装完成后，通过 `systemd`工具进行运行和管理。运维人员可使用`systemctl`相关命令检查服务状态与执行控制操作。云同步网关需要关注两个服务分别是：`s3block.service`、`watchman.service`和`hyper_exporter.service`
+
+| **服务项**                 | **关注字段** | **服务状态**           |
+| ----------------------- | -------- | ------------------ |
+| s3block.service         | `Active` | `active (running)` |
+| watchman.service        | `Active` | `active (running)` |
+| hyper\_exporter.service | `Active` | `active (running)` |
+
+可以通过systemctl status <服务名称>进行检查服务状态，非active状态以外都为异常，需要进行一步排查问题并解决。下列为查询示例：
+```Plain
+systemctl status s3block.service
+```
 
 ### 服务启动/停止/重启
 
+运维人员可通过`systemd`用以下命令对 `s3block.service`和`watchman.service`进行管理：
+
+* **启动服务**
+
+  * `s3block.service`
+
+  ```plain&#x20;text
+  systemctl start s3block.service
+  ```
+
+  * `watchman.service`
+
+  ```plain&#x20;text
+  systemctl start watchman.service
+  ```
+
+* **停止服务**
+
+  * `s3block.service`
+
+  ```plain&#x20;text
+  systemctl stop s3block.service
+  ```
+
+  * `watchman.service`
+
+  ```plain&#x20;text
+  systemctl stop watchman.service
+  ```
+
+* **重启服务**
+
+  * `s3block.service`
+
+  ```plain&#x20;text
+  systemctl restart s3block.service
+  ```
+
+  * `watchman.service`
+
+  ```plain&#x20;text
+  systemctl restart watchman.service
+  ```
+
 ### 日志管理
 
+所有系统日志文件存储在/var/log/sgateway 目录中。运维人员可以通过查看，日志文件，监控系统运行状态，排查故障，或提供相关文件给到对应项目负责人，确保系统稳定性。
+```Plain
+/var/log/sgateway/
+├── s3block_20250514.log       # s3block 模块在 2025-05-14 的运行日志
+├── s3block_20250515.log       # s3block 模块在 2025-05-15 的运行日志
+├── watchman_20250514.log      # watchman 模块在 2025-05-14 的运行日志
+└── watchman_20250515.log      # watchman 模块在 2025-05-15 的运行日志
+```
+
 ### 配置文件管理
+
+云同步网关的主要配置文件为 `s3block_config.ini`，位于 `/var/lib/sgateway/config` 目录下。该文件包含网关标识、公网 IP、WebSocket 服务地址、本地数据目录、日志等级、S3 存储访问凭证、端点地址等关键信息，用于支撑网关与中心服务之间的数据同步与通信。
+
+以下是该配置文件的各个部分及其作用说明：
+以下是该配置文件的各个部分及其作用说明：
+
+```bash
+[system]
+gateway_uuid     = 41f2ef9e-50c7-430f-b316-e9e4ec5516d4     # 网关唯一标识符（UUID）
+websocket_server = wss://192.168.7.141:10443/duplex/gateway/v1  # 与服务端建立 WebSocket 双向通信的地址
+filedir          = diskdir                                 # 本地数据存储目录路径（相对路径）
+log_level        = 1                                       # 日志等级（1 表示 INFO 级别）
+multi_srv        = true                                    # 是否启用多服务模式（true 表示启用）
+public_ip        = 192.168.14.65                           # 网关对外通信的公网 IP 地址
+accessKey        = wCi7qC8RlFydraCugWWa                    # 对象存储服务的访问密钥（Access Key）
+secretAccessKey  = TH5g4gbJKsK2YEsBLj7GaFpbWTiGYarRQSu1B59t # 对象存储服务的密钥（Secret Access Key）
+localdisksaved   =                                          # 本地磁盘持久化目录（当前为空，可能为默认路径）
+endpoint         = https://192.168.14.65:13260             # 对象存储服务的 endpoint（API 请求地址）
+bucketcreated    = true                                    # Bucket 是否已创建（true 表示已创建）
+```
 
 ## 临时过渡主机镜像运维
 
 ### 运行环境说明
 
-“临时过渡主机镜像”是用于在系统迁移、故障恢复或测试验证等场景下，快速创建云主机的临时镜像，确保业务平稳过渡。
-
-### 服务监控状态
-
-### 服务启动/停止/重启
-
-### 日志管理
-
-### 配置文件管理
+“临时过渡主机镜像”是用于在系统迁移、故障恢复或测试验证等场景下，快速创建云主机的临时镜像，确保业务平稳过渡。创建时需要保持与回切主机配置一致
