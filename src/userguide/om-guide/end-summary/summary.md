@@ -1,0 +1,3 @@
+# Doucment Summary
+
+This operation and maintenance manual focuses on the key aspects of HyperBDR in a production environment, including daily operations, the use of monitoring dashboards, disaster recovery drills, and failure takeover. It provides a systematic operation process and best practices. The operation and maintenance team should review this manual regularly and update it according to the actual situation to ensure the continuous and stable operation of the HyperBDR system and promptly meet the disaster recovery and high - availability requirements of the business.

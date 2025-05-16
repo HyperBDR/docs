@@ -33,28 +33,44 @@ export const zhNavbar = navbar([
             icon: "book",
             link: "/zh/userguide/migration/",
           },
-        ], 
+        ],
       },
       {
         text: "容灾指南",
         icon: "thumbs-up",
         children: [
-          { 
+          {
             text: "用户指南",
             icon: "book",
             link: "/zh/userguide/poc/",
           },
-          { 
+          {
             text: "HyperBDR 使用手册(即将废弃)",
             icon: "book",
             link: "/zh/userguide/dr-usage-guide/",
           },
-          { 
+          {
             text: "HyperBDR 使用手册",
             icon: "book",
             link: "/zh/userguide/dr/",
           },
-        ], 
+        ],
+      },
+      {
+        text: "运维指南",
+        icon: "",
+        children: [
+          {
+            text: "操作手册",
+            icon: "book",
+            link: "/zh/userguide/operations/"
+          },
+          {
+            text: "运维指南",
+            icon: "book",
+            link: "/userguide/om-guide/"
+          },
+        ],
       },
       {
         text: "工具指南",
@@ -63,17 +79,6 @@ export const zhNavbar = navbar([
           {
             text: "容灾计算器",
             link: "/zh/userguide/tools/",
-          }
-        ], 
-      },
-      {
-        text: "运维指南",
-        icon: "",
-        children: [
-          {
-            text: "运维平台使用手册",
-            icon: "book",
-            link: "/zh/userguide/operations/"
           }
         ],
       },
