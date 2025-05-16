@@ -62,9 +62,14 @@ export const enNavbar = navbar([
         icon: "",
         children: [
           {
-            text: "Operation Mannual",
+            text: "Administration Guide",
             icon: "book",
             link: "/userguide/operations/"
+          },
+          {
+            text: "Admin Portal Manual",
+            icon: "book",
+            link: "/userguide/admin-portal/"
           },
           {
             text: "O&M Guide",

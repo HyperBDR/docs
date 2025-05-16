@@ -314,7 +314,7 @@ export const zhSidebar = sidebar({
   ],
   '/zh/userguide/operations/': [
     {
-      text: "运维指南",
+      text: "管理指南",
       icon: "book",
       prefix: "",
       children: [
@@ -449,6 +449,15 @@ export const zhSidebar = sidebar({
       collapsible: true,
       expanded: true,
     }
+  ],
+  '/zh/userguide/admin-portal/': [
+    {
+      text: "管理门户",
+      icon: "book",
+      prefix: "",
+      children: [
+      ]
+    },
   ],
   '/zh/userguide/tools/': [
     {

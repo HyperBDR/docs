@@ -453,6 +453,15 @@ export const enSidebar = sidebar({
       expanded: true,
     }
   ],
+  '/userguide/admin-portal/': [
+    {
+      text: "Admin Portal",
+      icon: "book",
+      prefix: "",
+      children: [
+      ]
+    },
+  ],
   '/userguide/tools/': [
     {
       text: "Calculator",
