@@ -82,7 +82,7 @@ AWS EC2 无代理同步模式的优势主要得益于 AWS 云平台提供的 AWS
 
 综上所述，AWS 通过 EBS Direct API 提供的无代理同步模式，是目前唯一支持这一技术的云平台之一。这一创新功能为用户提供了更加便捷、可靠的备份解决方案，同时也推动了无代理备份技术在云计算领域的发展。随着无代理同步技术的成熟，我们有理由相信，未来会有更多的云平台跟随 AWS 的步伐，推动这一技术的普及。
 
-更多详细的内容请参考：[Deep in AWS Agentless Mode](../../../userguide/presales/aws-agentless-mode-cost-calculator.md)
+更多详细的内容请参考：[深入AWS无代理模式](../presales/deep-in-aws-agentless-mode.md)
 
 ## Huawei FusionCompute无代理方式
 

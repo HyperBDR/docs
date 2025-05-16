@@ -82,7 +82,7 @@ For other cloud platforms like Microsoft Azure, Google Cloud, Alibaba Cloud, and
 
 In conclusion, AWS is currently the only cloud platform that supports agentless synchronization via EBS Direct API. This innovative feature provides users with a more convenient and reliable backup solution and contributes to the development of agentless backup technology in the cloud computing industry.
 
-More details: [Deep in AWS Agentless Mode](../../userguide/presales/aws-agentless-mode-cost-calculator.md)
+More details: [Deep in AWS Agentless Mode](../presales/deep-in-aws-agentless-mode.md)
 
 ## Huawei FusionCompute Agentless
 
