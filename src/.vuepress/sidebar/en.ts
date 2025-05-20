@@ -12,7 +12,7 @@ export const enSidebar = sidebar({
   "/userguide/checklist": [
     {
       text: "Checklist",
-      icon: "book",
+      icon: "check",
       prefix: "",
       children: [
         "dr-checklist.md",
@@ -26,7 +26,6 @@ export const enSidebar = sidebar({
       text: "DR Prerequisites",
       icon: "book",
       prefix: "",
-      // children: "structure",
       children: [
         {
           text: "Production Site",
@@ -53,7 +52,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "HyperBDR",
-          icon: "layer-group",
+          icon: "shield",
           children: [
             'hyperbdr-vmware-pre-settings',
             'hyperbdr-proxy-pre-settings',
@@ -93,7 +92,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "HyperBDR",
-          icon: "layer-group",
+          icon: "shield",
           children: [
             'failback-hyperbdr-pre-settings',
           ],
@@ -106,7 +105,7 @@ export const enSidebar = sidebar({
   "/product-overview/": [
     {
       text: "Product Overview",
-      icon: "book",
+      icon: "circle-info",
       prefix: "",
       children: [
         'product-training/product-overview.md',
@@ -121,7 +120,7 @@ export const enSidebar = sidebar({
     },
     {
       text: "Compatibility & Limitations",
-      icon: "book",
+      icon: "triangle-exclamation",
       prefix: "",
       children: [
         'limitations/product-support-overview',
@@ -135,7 +134,7 @@ export const enSidebar = sidebar({
     },
     {
       text: "Project Overview",
-      icon: "book",
+      icon: "project-diagram",
       prefix: "",
       children: [
         'product-training/project-delivery.md',
@@ -145,7 +144,7 @@ export const enSidebar = sidebar({
     },
     {
       text: "Hosts Investigation",
-      icon: "book",
+      icon: "magnifying-glass",
       prefix: "",
       children: [
         'presales/hyperbdr-agent-investigation',
@@ -157,11 +156,12 @@ export const enSidebar = sidebar({
   '/userguide/dr-usage-guide/': [
     {
       text: "User Manual",
-      icon: "book",
+      icon: "circle-info",
       prefix: "",
       children: [
         {
           text: "Huawei Cloud",
+          icon: "cloud",
           children: [
             'dr-operations-manual-huaweicloud-object',
             'dr-operations-manual-huaweicloud-block',
@@ -169,12 +169,14 @@ export const enSidebar = sidebar({
         },
         {
           text: "Huawei Cloud Stack 8.2.x/8.3.x",
+          icon: "cloud",
           children: [
             'dr-operations-manual-hcs8-block',
           ],
         },
         {
           text: "TM CAE",
+          icon: "cloud",
           children: [
             'dr-operations-manual-tmcae-object',
           ],
@@ -185,7 +187,7 @@ export const enSidebar = sidebar({
   '/userguide/installation/': [
     {
       text: "Installation",
-      icon: "book",
+      icon: "download",
       prefix: "",
       children: [
         'quick-installation.md',
@@ -196,32 +198,12 @@ export const enSidebar = sidebar({
   '/userguide/migration/': [
     {
       text: "Migration",
-      icon: "book",
+      icon: "arrow-right-arrow-left",
       prefix: "",
       children: [
         {
           text: "Login",
-          icon: "",
-          children: [
-            {
-              text: "Login",
-              icon: "",
-              link: "login.md"
-            },
-          ],
-        },
-      ],
-    },
-  ],
-  '/userguide/dr/': [
-    {
-      text: "User Platform",
-      icon: "book",
-      prefix: "",
-      children: [
-        {
-          text: "Login",
-          icon: "",
+          icon: "user",
           prefix: "login/",
           children: [
             "login.md",
@@ -229,7 +211,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "Dashboard",
-          icon: "",
+          icon: "gauge",
           prefix: "dashboard/",
           children: [
             "profile.md",
@@ -238,37 +220,28 @@ export const enSidebar = sidebar({
           ],
         },
         {
-          text: "DR",
-          icon: "",
-          prefix: "dr/",
+          text: "Migration",
+          icon: "shuffle",
+          prefix: "migration/",
           children: [
-            "host-dr.md",
-            "host-failback.md",
-          ]
-        },
-        {
-          text: "Orchestration",
-          icon: "",
-          prefix: "orchestration/",
-          children: [
-            "dr-group.md"
+            "host-migration.md",
           ]
         },
         {
           text: "Configuration",
-          icon: "",
+          icon: "gear",
           prefix: "configuration/",
           children: [
-            "production-site.md",
-            "dr-site.md",
+            "source-site.md",
+            "target-site.md",
             "storage-configuration.md",
-            "dr-site-configuration.md",
+            "target-site-configuration.md",
             "policy-settings.md",
           ]
         },
         {
           text: "Operations",
-          icon: "",
+          icon: "gears",
           prefix: "operations/",
           children: [
             "audit-logs.md",
@@ -281,7 +254,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "Monitor & Alerts",
-          icon: "",
+          icon: "chart-line",
           prefix: "monitor-alerts/",
           children: [
             "system-monitor.md",
@@ -292,7 +265,97 @@ export const enSidebar = sidebar({
         },
         {
           text: "Settings",
-          icon: "",
+          icon: "wrench",
+          prefix: "settings/",
+          children: [
+            "global-settings.md",
+            "license-management.md",
+            "versions.md",
+          ]
+        },
+      ],
+    },
+  ],
+  '/userguide/dr/': [
+    {
+      text: "User Platform",
+      icon: "book",
+      prefix: "",
+      children: [
+        {
+          text: "Login",
+          icon: "user",
+          prefix: "login/",
+          children: [
+            "login.md",
+          ],
+        },
+        {
+          text: "Dashboard",
+          icon: "dashboard",
+          prefix: "dashboard/",
+          children: [
+            "profile.md",
+            "logout.md",
+            "language-switch.md",
+          ],
+        },
+        {
+          text: "DR",
+          icon: "shield",
+          prefix: "dr/",
+          children: [
+            "host-dr.md",
+            "host-failback.md",
+          ]
+        },
+        {
+          text: "Orchestration",
+          icon: "paper-plane",
+          prefix: "orchestration/",
+          children: [
+            "dr-group.md"
+          ]
+        },
+        {
+          text: "Configuration",
+          icon: "gear",
+          prefix: "configuration/",
+          children: [
+            "production-site.md",
+            "dr-site.md",
+            "storage-configuration.md",
+            "dr-site-configuration.md",
+            "policy-settings.md",
+          ]
+        },
+        {
+          text: "Operations",
+          icon: "gears",
+          prefix: "operations/",
+          children: [
+            "audit-logs.md",
+            "task-management.md",
+            "download-logs.md",
+            "upgrade.md",
+            "reports.md",
+            "tag-management.md",
+          ]
+        },
+        {
+          text: "Monitor & Alerts",
+          icon: "chart-line",
+          prefix: "monitor-alerts/",
+          children: [
+            "system-monitor.md",
+            "alarm.md",
+            "notification.md",
+            "alerts.md",
+          ]
+        },
+        {
+          text: "Settings",
+          icon: "wrench",
           prefix: "settings/",
           children: [
             "global-settings.md",
@@ -306,7 +369,7 @@ export const enSidebar = sidebar({
   '/userguide/faq/': [
     {
       text: "FAQ",
-      icon: "book",
+      icon: "question",
       prefix: "",
       children: [
         'faq',
@@ -317,8 +380,8 @@ export const enSidebar = sidebar({
   ],
   '/userguide/operations/': [
     {
-      text: "Operations",
-      icon: "book",
+      text: "Administration Guide",
+      icon: "user-gear",
       prefix: "",
       children: [
         "upgrade-manual.md",
@@ -329,12 +392,12 @@ export const enSidebar = sidebar({
   '/userguide/om-guide/': [
     {
       text: "O&M Guide",
-      icon: "book",
+      icon: "guide",
       prefix: "",
       children: [
         {
           text: "Overview",
-          icon: "book",
+          icon: "info",
           prefix: "overview/",
           children: [
             "overview.md"
@@ -344,7 +407,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "System Architecture",
-          icon: "book",
+          icon: "structure",
           prefix: "system-architecture/",
           children: [
             "system-architecture.md"
@@ -354,7 +417,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "O&M Management",
-          icon: "book",
+          icon: "management",
           prefix: "om-management/",
           children: [
             "daliy-om.md",
@@ -365,7 +428,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "Upgrade Maintenance",
-          icon: "book",
+          icon: "upgrade",
           prefix: "upgrade-maintenance/",
           children: [
             "console.md",
@@ -380,7 +443,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "Report Management",
-          icon: "book",
+          icon: "report",
           prefix: "report-export/",
           children: [
             "report-type.md",
@@ -391,7 +454,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "Monitor & Alerts",
-          icon: "book",
+          icon: "monitor",
           prefix: "monitor-alerts/",
           children: [
             "overview-display.md",
@@ -405,7 +468,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "DR Drill",
-          icon: "book",
+          icon: "drill",
           prefix: "dr-drill/",
           children: [
             "drill-preparation.md",
@@ -417,7 +480,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "DR Takeover",
-          icon: "book",
+          icon: "takeover",
           prefix: "dr-takeover/",
           children: [
             "takeover-prerequisites.md",
@@ -428,7 +491,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "Appendix",
-          icon: "book",
+          icon: "appendix",
           prefix: "appendix/",
           children: [
             "commands-tools.md",
@@ -440,7 +503,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "End Summary",
-          icon: "book",
+          icon: "summary",
           prefix: "end-summary/",
           children: [
             "summary.md",
@@ -455,8 +518,8 @@ export const enSidebar = sidebar({
   ],
   '/userguide/admin-portal/': [
     {
-      text: "Admin Portal",
-      icon: "book",
+      text: "Admin Portal Manual",
+      icon: "admin",
       prefix: "",
       children: [
       ]
@@ -465,7 +528,7 @@ export const enSidebar = sidebar({
   '/userguide/tools/': [
     {
       text: "Calculator",
-      icon: "",
+      icon: "calculator",
       prefix: "calculator/",
       children: [
         "calculator.md"
@@ -473,11 +536,11 @@ export const enSidebar = sidebar({
     },
     {
       text: "License Management",
-      icon: "",
+      icon: "license",
       prefix: "license-management/",
       children: [
         "license-management.md"
       ]
     },
   ]
-},);
+});

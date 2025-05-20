@@ -1,8 +1,3 @@
----
-title: TM CAE
-icon: fa-solid fa-diagram-project
----
-
 # TM CAE
 
 [[toc]]

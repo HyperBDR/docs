@@ -1,8 +1,3 @@
----
-title: AWS(Target) Pre-Settings
-icon: fa-solid fa-gear
----
-
 # AWS(Target) Pre-Settings
 
 ## Create AWS IAM account for DR purpose

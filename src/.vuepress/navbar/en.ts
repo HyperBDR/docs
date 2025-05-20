@@ -4,7 +4,7 @@ export const enNavbar = navbar([
   "/",
   {
     text: "Product Overview",
-    icon: "eye",
+    icon: "lightbulb",
     prefix: "/product-overview/",
     link: "/product-overview/",
   },
@@ -15,30 +15,29 @@ export const enNavbar = navbar([
     children: [
       {
         text: "Installation",
-        icon: "thumbs-up",
-        // children: ["baz", { text: "...", icon: "ellipsis", link: "#" }],
+        icon: "download",
         children: [
           {
             text: "Installation",
-            icon: "book",
+            icon: "download",
             link: "/userguide/installation/",
           }
         ],
       },
       {
         text: "Migration",
-        icon: "thumbs-up",
+        icon: "exchange",
         children: [
           {
             text: "HyperMotion Mannual",
-            icon: "book",
+            icon: "exchange",
             link: "/userguide/migration/",
           },
         ],
       },
       {
         text: "Disaster Recovery",
-        icon: "thumbs-up",
+        icon: "shield",
         children: [
           {
             text: "User Guide",
@@ -47,59 +46,60 @@ export const enNavbar = navbar([
           },
           {
             text: "HyperBDR Manual(About to be abandoned)",
-            icon: "book",
+            icon: "warning",
             link: "/userguide/dr-usage-guide/",
           },
           {
             text: "HyperBDR Manual",
-            icon: "book",
+            icon: "shield",
             link: "/userguide/dr/",
           },
         ],
       },
       {
         text: "Operations",
-        icon: "",
+        icon: "gear",
         children: [
           {
             text: "Administration Guide",
-            icon: "book",
+            icon: "user-gear",
             link: "/userguide/operations/"
           },
           {
             text: "Admin Portal Manual",
-            icon: "book",
+            icon: "window-maximize",
             link: "/userguide/admin-portal/"
           },
           {
             text: "O&M Guide",
-            icon: "book",
+            icon: "tools",
             link: "/userguide/om-guide/"
           },
         ],
       },
       {
         text: "Tools",
-        icon: "thumbs-up",
+        icon: "wrench",
         children: [
           {
             text: "Calculator",
+            icon: "calculator",
             link: "/userguide/tools/",
           }
         ],
       },
       {
         text: "Others",
-        icon: "list",
+        icon: "ellipsis",
         children: [
           {
             text: "Checklist",
-            icon: "list",
+            icon: "check-square",
             link: "/userguide/checklist/"
           },
           {
             text: "FAQ",
-            icon: "person-circle-question",
+            icon: "question-circle",
             link: "/userguide/faq/faq.md"
           }
         ],
@@ -108,17 +108,17 @@ export const enNavbar = navbar([
   },
   {
     text: "Get Support",
-    icon: "link",
+    icon: "headset",
     link: "https://support.oneprocloud.com/",
   },
   {
     text: "OneProCloud",
-    icon: "link",
+    icon: "cloud",
     link: "https://oneprocloud.com/",
   },
   {
     text: "Calculator",
-    icon: "link",
+    icon: "calculator",
     link: "https://calculator.oneprocloud.com/",
   },
 ]);
