@@ -1,9 +1,9 @@
-# Profile
+# 个人信息管理
 
-## Account
+## 账号
 
-## Change Password
+## 修改密码
 
-# Logout
+# 退出登录
 
-# Language Switch
+# 语言切换

@@ -1,8 +1,3 @@
----
-title: Google Cloud Stack Pre-Settings
-icon: fa-solid fa-gear
----
-
 # Google Cloud Stack Pre-Settings
 
 [[toc]]

@@ -182,7 +182,7 @@ export const zhSidebar = sidebar({
   '/zh/userguide/installation/': [
     {
       text: "安装指南",
-      icon: "book",
+      icon: "download",
       prefix: "",
       children: [
         'quick-installation.md',
@@ -199,13 +199,74 @@ export const zhSidebar = sidebar({
         {
           text: "登录",
           icon: "",
+          prefix: "login/",
           children: [
-            {
-              text: "Login",
-              icon: "",
-              link: "login.md"
-            },
+            "login.md",
           ],
+        },
+        {
+          text: "概览",
+          icon: "",
+          prefix: "dashboard/",
+          children: [
+            "profile.md",
+            "logout.md",
+            "language-switch.md",
+          ],
+        },
+        {
+          text: "资源迁移",
+          icon: "",
+          prefix: "migration/",
+          children: [
+            "host-migration.md",
+          ]
+        },
+        {
+          text: "配置管理",
+          icon: "",
+          prefix: "configuration/",
+          children: [
+            "source-site.md",
+            "target-site.md",
+            "storage-configuration.md",
+            "target-site-configuration.md",
+            "policy-settings.md",
+          ]
+        },
+        {
+          text: "运维管理",
+          icon: "",
+          prefix: "operations/",
+          children: [
+            "audit-logs.md",
+            "task-management.md",
+            "download-logs.md",
+            "upgrade.md",
+            "reports.md",
+            "tag-management.md",
+          ]
+        },
+        {
+          text: "监控与报警管理",
+          icon: "",
+          prefix: "monitor-alerts/",
+          children: [
+            "system-monitor.md",
+            "alarm.md",
+            "notification.md",
+            "alerts.md",
+          ]
+        },
+        {
+          text: "设置",
+          icon: "",
+          prefix: "settings/",
+          children: [
+            "global-settings.md",
+            "license-management.md",
+            "versions.md",
+          ]
         },
       ],
     },

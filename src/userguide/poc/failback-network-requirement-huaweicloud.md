@@ -1,8 +1,3 @@
----
-title: Huawei Cloud
-icon: fa-solid fa-diagram-project
----
-
 # Huawei Cloud
 
 [[toc]]

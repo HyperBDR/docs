@@ -1,8 +1,3 @@
----
-title: HyperBDR Setup
-icon: fa-solid fa-sliders
----
-
 # HyperBDR Setup
 
 [[toc]]

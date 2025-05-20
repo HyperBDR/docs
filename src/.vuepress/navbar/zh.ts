@@ -4,7 +4,7 @@ export const zhNavbar = navbar([
   "/zh/",
   {
     text: "产品概览",
-    icon: "eye",
+    icon: "lightbulb",
     prefix: "zh/product-overview/",
     link: "zh/product-overview/",
   },
@@ -15,29 +15,29 @@ export const zhNavbar = navbar([
     children: [
       {
         text: "安装指南",
-        icon: "lightbulb",
+        icon: "download",
         children: [
           {
             text: "产品安装",
-            icon: "book",
+            icon: "download",
             link: "/zh/userguide/installation/",
           }
         ],
       },
       {
         text: "迁移指南",
-        icon: "thumbs-up",
+        icon: "exchange",
         children: [
           {
             text: "HyperMotion 使用手册",
-            icon: "book",
+            icon: "exchange",
             link: "/zh/userguide/migration/",
           },
         ],
       },
       {
         text: "容灾指南",
-        icon: "thumbs-up",
+        icon: "shield",
         children: [
           {
             text: "用户指南",
@@ -46,59 +46,60 @@ export const zhNavbar = navbar([
           },
           {
             text: "HyperBDR 使用手册(即将废弃)",
-            icon: "book",
+            icon: "warning",
             link: "/zh/userguide/dr-usage-guide/",
           },
           {
             text: "HyperBDR 使用手册",
-            icon: "book",
+            icon: "shield",
             link: "/zh/userguide/dr/",
           },
         ],
       },
       {
         text: "运维指南",
-        icon: "",
+        icon: "gear",
         children: [
           {
             text: "管理指南",
-            icon: "book",
+            icon: "user-gear",
             link: "/zh/userguide/operations/"
           },
           {
-            text: "运维指南",
-            icon: "book",
-            link: "/zh/userguide/om-guide/"
+            text: "管理门户手册",
+            icon: "window-maximize",
+            link: "/zh/userguide/admin-portal/"
           },
           {
-            text: "管理门户手册",
-            icon: "book",
-            link: "/zh/userguide/admin-portal/"
+            text: "运维指南",
+            icon: "tools",
+            link: "/zh/userguide/om-guide/"
           },
         ],
       },
       {
         text: "工具指南",
-        icon: "thumbs-up",
+        icon: "wrench",
         children: [
           {
             text: "容灾计算器",
+            icon: "calculator",
             link: "/zh/userguide/tools/",
           }
         ],
       },
       {
         text: "其他文档",
-        icon: "list",
+        icon: "ellipsis",
         children: [
           {
             text: "云容灾检查清单",
-            icon: "list",
+            icon: "check-square",
             link: "/zh/userguide/checklist/"
           },
           {
             text: "FAQ",
-            icon: "person-circle-question",
+            icon: "question-circle",
             link: "/zh/userguide/faq/faq.md"
           }
         ],
@@ -107,17 +108,17 @@ export const zhNavbar = navbar([
   },
   {
     text: "获取支持",
-    icon: "link",
+    icon: "headset",
     link: "https://support.oneprocloud.com/",
   },
   {
     text: "OneProCloud官网",
-    icon: "link",
+    icon: "cloud",
     link: "https://oneprocloud.com/",
   },
   {
     text: "容灾计算器",
-    icon: "link",
+    icon: "calculator",
     link: "https://calculator.oneprocloud.com/",
   },
 ]);

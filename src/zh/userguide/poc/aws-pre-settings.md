@@ -1,8 +1,3 @@
----
-title: AWS Pre-Settings(RC)
-icon: fa-solid fa-gear
----
-
 # AWS Pre-Settings(RC)
 
 [[toc]]

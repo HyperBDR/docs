@@ -1,8 +1,3 @@
----
-title: Open Telekom Cloud Pre-Settings
-icon: fa-solid fa-gear
----
-
 # Open Telekom Cloud Pre-Settings
 
 [[toc]]
