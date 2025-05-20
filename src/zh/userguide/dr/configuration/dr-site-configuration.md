@@ -1,7 +1,7 @@
-# 容灾恢复平台配置
+# DR Site Configuration
 
-## 对象存储模式
+## Object Storage Mode
 
-## 块存储模式
+## Block Stroage Mode
 
-## 通用模式
+## Generic Mode

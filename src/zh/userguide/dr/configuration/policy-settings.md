@@ -1,1 +1,1 @@
-# 策略设置
+# Policy Settings
