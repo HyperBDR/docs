@@ -84,7 +84,12 @@ export const enNavbar = navbar([
           {
             text: "Calculator",
             icon: "calculator",
-            link: "/userguide/tools/",
+            link: "/userguide/calculator/",
+          },
+          {
+            text: "License Management",
+            icon: "key",
+            link: "/userguide/license-management/",
           }
         ],
       },

@@ -211,7 +211,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "Dashboard",
-          icon: "gauge",
+          icon: "dashboard",
           prefix: "dashboard/",
           children: [
             "profile.md",
@@ -392,12 +392,12 @@ export const enSidebar = sidebar({
   '/userguide/om-guide/': [
     {
       text: "O&M Guide",
-      icon: "guide",
+      icon: "tools",
       prefix: "",
       children: [
         {
           text: "Overview",
-          icon: "info",
+          icon: "circle-info",
           prefix: "overview/",
           children: [
             "overview.md"
@@ -407,7 +407,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "System Architecture",
-          icon: "structure",
+          icon: "window-restore",
           prefix: "system-architecture/",
           children: [
             "system-architecture.md"
@@ -417,7 +417,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "O&M Management",
-          icon: "management",
+          icon: "bars-progress",
           prefix: "om-management/",
           children: [
             "daliy-om.md",
@@ -428,7 +428,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "Upgrade Maintenance",
-          icon: "upgrade",
+          icon: "cloud-arrow-up",
           prefix: "upgrade-maintenance/",
           children: [
             "console.md",
@@ -443,7 +443,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "Report Management",
-          icon: "report",
+          icon: "file-export",
           prefix: "report-export/",
           children: [
             "report-type.md",
@@ -454,7 +454,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "Monitor & Alerts",
-          icon: "monitor",
+          icon: "chart-line",
           prefix: "monitor-alerts/",
           children: [
             "overview-display.md",
@@ -468,7 +468,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "DR Drill",
-          icon: "drill",
+          icon: "shield-halved",
           prefix: "dr-drill/",
           children: [
             "drill-preparation.md",
@@ -480,7 +480,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "DR Takeover",
-          icon: "takeover",
+          icon: "shield-halved",
           prefix: "dr-takeover/",
           children: [
             "takeover-prerequisites.md",
@@ -491,7 +491,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "Appendix",
-          icon: "appendix",
+          icon: "list-ul",
           prefix: "appendix/",
           children: [
             "commands-tools.md",
@@ -503,7 +503,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "End Summary",
-          icon: "summary",
+          icon: "mug-hot",
           prefix: "end-summary/",
           children: [
             "summary.md",
@@ -519,25 +519,27 @@ export const enSidebar = sidebar({
   '/userguide/admin-portal/': [
     {
       text: "Admin Portal Manual",
-      icon: "admin",
+      icon: "window-maximize",
       prefix: "",
       children: [
       ]
     },
   ],
-  '/userguide/tools/': [
+  '/userguide/calculator/': [
     {
       text: "Calculator",
       icon: "calculator",
-      prefix: "calculator/",
+      prefix: "",
       children: [
         "calculator.md"
       ]
     },
+  ],
+  '/userguide/license-management/': [
     {
       text: "License Management",
-      icon: "license",
-      prefix: "license-management/",
+      icon: "key",
+      prefix: "",
       children: [
         "license-management.md"
       ]

@@ -84,7 +84,12 @@ export const zhNavbar = navbar([
           {
             text: "容灾计算器",
             icon: "calculator",
-            link: "/zh/userguide/tools/",
+            link: "/zh/userguide/calculator/",
+          },
+          {
+            text: "授权管理平台",
+            icon: "key",
+            link: "/zh/userguide/license-management/",
           }
         ],
       },

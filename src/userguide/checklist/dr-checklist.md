@@ -1,8 +1,3 @@
----
-title: DR Checklist
-icon: list
----
-
 # DR Checklist
 
 [[toc]]
