@@ -1,4 +1,4 @@
-# Storage Configuration
+# 存储配置
 
 ## Object Stroage
 

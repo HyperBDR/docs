@@ -1,4 +1,4 @@
-# DR Site Configuration
+# 容灾恢复平台配置
 
 ## Object Storage Mode
 
