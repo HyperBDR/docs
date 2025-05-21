@@ -1,8 +1,3 @@
----
-title: Azure Pre-Settings
-icon: fa-solid fa-gear
----
-
 # Azure Pre-Settings
 
 [[toc]]
