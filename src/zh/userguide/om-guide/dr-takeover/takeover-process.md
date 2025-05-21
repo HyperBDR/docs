@@ -4,13 +4,13 @@
 
 * 在 HyperBDR 控制台选择对应业务主机的“容灾接管”功能，按照需求选择恢复快照时间点，并点击确定
 
-![](./image/faulttakeoverprocess-starttakeover-1.png)
+![](./images/faulttakeoverprocess-starttakeover-1.png)
 
-![](./image/faulttakeoverprocess-starttakeover-2.png)
+![](./images/faulttakeoverprocess-starttakeover-2.png)
 
 系统会根据预先配置的资源编排（计算、存储、网络等）自动化创建或启动目标端实例，等待启动完成，即可登录到目标平台进行验证配置及业务接管。
 
-![](./image/faulttakeoverprocess-starttakeover-3.png)
+![](./images/faulttakeoverprocess-starttakeover-3.png)
 
 ## **数据校验**
 
@@ -34,10 +34,10 @@
 
 可以通过平台侧的“报告导出”功能，选择本次接管的主机，导出主机容灾接管详细报告。
 
-![](./image/faulttakeoverprocess-exportbusinesstakeoverreport-1.png)
+![](./images/faulttakeoverprocess-exportbusinesstakeoverreport-1.png)
 
 
 
-![](./image/faulttakeoverprocess-exportbusinesstakeoverreport-2.png)
+![](./images/faulttakeoverprocess-exportbusinesstakeoverreport-2.png)
 
 将业务接管事件导出的报告进行留存并进一步分析，是否存在优化步骤及流程。

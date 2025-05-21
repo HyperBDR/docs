@@ -13,9 +13,9 @@
 
 可以通过平台侧的“报告导出”功能，选择本次演练的主机，导出主机容灾演练详细报告。
 
-![](./image/walkthroughverificationandreporting-writingofdrillreport-1.png)
+![](./images/walkthroughverificationandreporting-writingofdrillreport-1.png)
 
-![](./image/walkthroughverificationandreporting-writingofdrillreport-2.png)
+![](./images/walkthroughverificationandreporting-writingofdrillreport-2.png)
 
 * 分发给相关团队（业务、管理层、审计），形成闭环管理。
 

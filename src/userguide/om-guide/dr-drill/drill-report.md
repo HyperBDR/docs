@@ -12,9 +12,9 @@
 
 You can use the platform's "Operations -- Report" feature to select the host involved in this drill and export a detailed disaster recovery drill report.
 
-![](./image/walkthroughverificationandreporting-writingofdrillreport-1.png)
+![](./images/walkthroughverificationandreporting-writingofdrillreport-1.png)
 
-![](./image/walkthroughverificationandreporting-writingofdrillreport-2.png)
+![](./images/walkthroughverificationandreporting-writingofdrillreport-2.png)
 
 * Distribute the report to relevant teams (business, management, audit) to ensure closed-loop management.
 

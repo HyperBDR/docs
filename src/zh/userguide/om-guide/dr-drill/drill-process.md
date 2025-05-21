@@ -1,4 +1,3 @@
-
 # 演练流程
 
 ## **触发灾难场景**
@@ -11,13 +10,13 @@
 
 * 在 HyperBDR 控制台选择对应的容灾主机，点击“容灾演练”，选择恢复时间点，一键恢复容灾主机到目标环境。
 
-![](./image/drillprocess-startdisasterrecoverydrillprocess-1.png)
+![](./images/drillprocess-startdisasterrecoverydrillprocess-1.png)
 
-![](./image/drillprocess-startdisasterrecoverydrillprocess-2.png)
+![](./images/drillprocess-startdisasterrecoverydrillprocess-2.png)
 
 系统会根据预先配置的资源编排（计算、存储、网络等）自动化创建或启动目标端实例，等待启动完成，即可登录到目标平台进行验证配置及业务演练。
 
-![](./image/drillprocess-startdisasterrecoverydrillprocess-3.png)
+![](./images/drillprocess-startdisasterrecoverydrillprocess-3.png)
 
 监控恢复进度，确保在预期 RTO 内完成关键业务的演练。
 

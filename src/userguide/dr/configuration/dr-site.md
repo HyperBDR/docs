@@ -6,7 +6,7 @@ Note: If you can choose both block storage mode and object storage mode in the p
 
 Please follow the prompts to enter authentication information to configure the disaster recovery target platform.
 
-![](./image/drsite-2.png)
+![](./images/drsite-2.png)
 
 Reference for disaster recovery target configuration cloud providers:
 

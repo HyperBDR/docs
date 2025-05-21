@@ -8,13 +8,13 @@
 
 Currently, alarms can be created for both resources and events.
 
-![](./image/alarmconfigurationandresponse-alarmthresholdsetting-1.png)
+![](./images/alarmconfigurationandresponse-alarmthresholdsetting-1.png)
 
 * Create Resource Alarm
 
 Define the alarm name, alarm level, and resource type. Configure resource alarms for CPU, memory, disk, and processes. When the threshold is reached, an alarm event will be triggered.
 
-![](./image/alarmconfigurationandresponse-alarmthresholdsetting-2.png)
+![](./images/alarmconfigurationandresponse-alarmthresholdsetting-2.png)
 
 * Create Event Alarm
 
@@ -30,9 +30,9 @@ Define the event alarm name, alarm level, and event type. Configure event alarms
 
 Other monitoring metrics can be configured as needed.
 
-![](./image/alarmconfigurationandresponse-alarmthresholdsetting-3.png)
+![](./images/alarmconfigurationandresponse-alarmthresholdsetting-3.png)
 
-![](./image/alarmconfigurationandresponse-alarmthresholdsetting-4.png)
+![](./images/alarmconfigurationandresponse-alarmthresholdsetting-4.png)
 
 ## Multi-channel Notification
 
@@ -40,17 +40,17 @@ Other monitoring metrics can be configured as needed.
 
 * Email alarm channel
 
-![](./image/alarmconfigurationandresponse-multi-channelnotification-1.png)
+![](./images/alarmconfigurationandresponse-multi-channelnotification-1.png)
 
 * SMS alarm channel
 
-![](./image/alarmconfigurationandresponse-multi-channelnotification-2.png)
+![](./images/alarmconfigurationandresponse-multi-channelnotification-2.png)
 
 * WebHook alarm channel
 
-![](./image/alarmconfigurationandresponse-multi-channelnotification-3.png)
+![](./images/alarmconfigurationandresponse-multi-channelnotification-3.png)
 
-![](./image/alarmconfigurationandresponse-multi-channelnotification-4.png)
+![](./images/alarmconfigurationandresponse-multi-channelnotification-4.png)
 
 ## Alarm Response Process
 

@@ -1,20 +1,20 @@
-# Daliy Operation Maintenance
+# **Daliy Operation Maintenance**
 
-## Routine Checks
+## **Routine Checks**
 
 ### **System Health Check**
 
 * **Console Status**: Log in to the HyperBDR Operations & Maintenance Management Platform and check the running status of each module, as well as the usage of key resources such as CPU, memory, and storage.
 
-![](./image/dailyoperationandmaintenance-dailycheck-1.png)
+![](./images/dailyoperationandmaintenance-dailycheck-1.png)
 
 * **Backup Task List**: Review the execution status of all backup tasks to confirm if there are any failed or excessively delayed tasks.
 
-![](./image/dailyoperationandmaintenance-dailycheck-2.png)
+![](./images/dailyoperationandmaintenance-dailycheck-2.png)
 
 * **Logs and Alerts**: Use the log management module to check for abnormal alerts or error logs.
 
-![](./image/dailyoperationandmaintenance-dailycheck-3.png)
+![](./images/dailyoperationandmaintenance-dailycheck-3.png)
 
 ### **Network Connectivity**
 
@@ -22,7 +22,7 @@
 
 * If using VPN, dedicated line, or VPC Endpoint, regularly check the tunnel status.
 
-![](./image/dailyoperationandmaintenance-dailycheck-4.png)
+![](./images/dailyoperationandmaintenance-dailycheck-4.png)
 
 ### **Cloud Accounts and Authorization**
 
@@ -30,35 +30,35 @@
 
 * Review account permissions to avoid excessive privileges or missing critical permissions that could cause backup or recovery failures.
 
-![](./image/dailyoperationandmaintenance-dailycheck-5.png)
+![](./images/dailyoperationandmaintenance-dailycheck-5.png)
 
-## Resource Monitoring and Backup Task Inspection
+## **Resource Monitoring and Backup Task Inspection**
 
 ### **Resource Monitoring**
 
 * **Storage Space**: Check the remaining capacity of object storage, block storage, and database storage. If space is insufficient, expand capacity or clean up historical snapshots in time.
 
-![](./image/dailyoperationandmaintenance-resourcemonitoringandbackuptaskinspection-1.png)
+![](./images/dailyoperationandmaintenance-resourcemonitoringandbackuptaskinspection-1.png)
 
 * **Network Throughput**: Monitor bandwidth usage during backup peak periods. Upgrade bandwidth or adjust backup schedules as needed.
 
-![](./image/dailyoperationandmaintenance-resourcemonitoringandbackuptaskinspection-2.png)
+![](./images/dailyoperationandmaintenance-resourcemonitoringandbackuptaskinspection-2.png)
 
 ### **Backup Task Inspection**
 
 * **Backup Strategy**: Review backup strategies (full/incremental) weekly or monthly, and adjust backup frequency and retention periods according to business changes.
 
-![](./image/dailyoperationandmaintenance-resourcemonitoringandbackuptaskinspection-3.png)
+![](./images/dailyoperationandmaintenance-resourcemonitoringandbackuptaskinspection-3.png)
 
 * **Data Consistency Check**: Regularly verify backup data or perform sample recovery tests to ensure data integrity and availability.
 
-![](./image/dailyoperationandmaintenance-resourcemonitoringandbackuptaskinspection-4.png)
+![](./images/dailyoperationandmaintenance-resourcemonitoringandbackuptaskinspection-4.png)
 
 * **Handling Abnormal Tasks**: Analyze the causes of failed backup tasks (network, permissions, storage space, etc.), fix issues promptly, and re-execute the tasks.
 
-![](./image/dailyoperationandmaintenance-resourcemonitoringandbackuptaskinspection-5.png)
+![](./images/dailyoperationandmaintenance-resourcemonitoringandbackuptaskinspection-5.png)
 
-## Log Export
+## **Log Export**
 
 The log management feature allows you to quickly collect logs from service components for further analysis and troubleshooting when issues occur.
 
@@ -70,4 +70,4 @@ The log management feature allows you to quickly collect logs from service compo
 
 * Windows Host
 
-![](./image/dailyoperationandmaintenance-logexport-1.png)
+![](./images/dailyoperationandmaintenance-logexport-1.png)

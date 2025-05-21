@@ -1,4 +1,3 @@
-
 # 告警配置与响应
 
 ## **告警阈值设定**
@@ -9,13 +8,13 @@
 
 目前支持对资源和事件创建告警，
 
-![](./image/alarmconfigurationandresponse-alarmthresholdsetting-1.png)
+![](./images/alarmconfigurationandresponse-alarmthresholdsetting-1.png)
 
 * 创建资源报警器
 
 定义报警器名称、报警器级别、资源类型，包含CPU、内存、磁盘、进程进行资源告警配置，达到一定的阀值进行告警事件的发送。
 
-![](./image/alarmconfigurationandresponse-alarmthresholdsetting-2.png)
+![](./images/alarmconfigurationandresponse-alarmthresholdsetting-2.png)
 
 * 创建事件告警
 
@@ -31,9 +30,9 @@
 
 其他监控指标，可以按照需求进行配置。
 
-![](./image/alarmconfigurationandresponse-alarmthresholdsetting-3.png)
+![](./images/alarmconfigurationandresponse-alarmthresholdsetting-3.png)
 
-![](./image/alarmconfigurationandresponse-alarmthresholdsetting-4.png)
+![](./images/alarmconfigurationandresponse-alarmthresholdsetting-4.png)
 
 ## **多渠道通知**
 
@@ -41,17 +40,17 @@
 
 * 邮件告警通道
 
-![](./image/alarmconfigurationandresponse-multi-channelnotification-1.png)
+![](./images/alarmconfigurationandresponse-multi-channelnotification-1.png)
 
 * 短信告警通道
 
-![](./image/alarmconfigurationandresponse-multi-channelnotification-2.png)
+![](./images/alarmconfigurationandresponse-multi-channelnotification-2.png)
 
 * WebHook告警通道
 
-![](./image/alarmconfigurationandresponse-multi-channelnotification-3.png)
+![](./images/alarmconfigurationandresponse-multi-channelnotification-3.png)
 
-![](./image/alarmconfigurationandresponse-multi-channelnotification-4.png)
+![](./images/alarmconfigurationandresponse-multi-channelnotification-4.png)
 
 ## **告警响应流程**
 

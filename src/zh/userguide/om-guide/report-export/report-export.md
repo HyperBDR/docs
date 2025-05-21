@@ -8,20 +8,20 @@
 
   * 点击【操作】>【报表】，进入报表页面。
 
-    ![](./image/reportexport-reportexportoperationexample-1.png)
+    ![](./images/reportexport-reportexportoperationexample-1.png)
 
   * 收集报表
 
-    ![](./image/reportexport-reportexportoperationexample-2.png)
+    ![](./images/reportexport-reportexportoperationexample-2.png)
 
   * 根据需要选择报表类型、范围、时区、时间范围，确认信息后点击【提交】
 
-    ![](./image/reportexport-reportexportoperationexample-3.png)
+    ![](./images/reportexport-reportexportoperationexample-3.png)
 
   * 下载报告
 
     * 点击\[下载]报告
 
-    ![](./image/reportexport-reportexportoperationexample-4.png)
+    ![](./images/reportexport-reportexportoperationexample-4.png)
 
     *

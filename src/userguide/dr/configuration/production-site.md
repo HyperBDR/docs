@@ -24,7 +24,7 @@ The VMware platform page on the production site is mainly used for adding, delet
 
 Click **"Production Site"** in the left navigation bar, select **VMware**, and click the **"Add"** button. Follow the steps in the pop-up window to add the platform.
 
-![](./image/productionsiteconfiguration-vmware-1.png)
+![](./images/productionsiteconfiguration-vmware-1.png)
 
 #### **Deploy Sync Proxy**
 
@@ -66,7 +66,7 @@ Reference steps: Sync Proxy
 |        Memory         |           8GB              |
 |      System Disk      |           50GB             |
 
-![](./image/productionsiteconfiguration-vmware-2.png)
+![](./images/productionsiteconfiguration-vmware-2.png)
 
 #### **Create VMware Production Platform**
 
@@ -97,7 +97,7 @@ You need relevant VMware permissions to call the APIs. For details on permission
 
 After filling in the required authentication information, click the Confirm button to add.
 
-![](./image/productionsiteconfiguration-vmware-3.png)
+![](./images/productionsiteconfiguration-vmware-3.png)
 
 #### **Complete VMware Addition**
 
@@ -105,7 +105,7 @@ The VMware production platform configuration is complete. Wait until the platfor
 
 Note: You can repeat the above steps to add multiple VMware clusters, or add a single ESXi host.
 
-![](./image/productionsiteconfiguration-vmware-4.png)
+![](./images/productionsiteconfiguration-vmware-4.png)
 
 ---
 
@@ -117,7 +117,7 @@ The OpenStack page under the Production Platform section is mainly used for mana
 
 Click **"Production Site"** in the left navigation panel, select **OpenStack**, and click the **"Add"** button. Follow the step-by-step instructions in the pop-up window to add a platform.
 
-![](./image/productionsiteconfiguration-openstack-1.png)
+![](./images/productionsiteconfiguration-openstack-1.png)
 
 #### **Deploy Sync Proxy**
 
@@ -153,7 +153,7 @@ Note: This Ubuntu 20.04 image does not have a default login password. The image 
 | System Disk   |       50GB        |
 
 
-![](./image/productionsiteconfiguration-openstack-2.png)
+![](./images/productionsiteconfiguration-openstack-2.png)
 
 #### **Create OpenStack Production Platform**
 
@@ -180,7 +180,7 @@ Reference: \<FAQ How to obtain OpenStack authentication information>
 | Sync Proxy     | OpenStack    | 5000, 35357, 9696, 8774, 8776, 9292 | OpenStack authentication ports |
 
 
-![](./image/productionsiteconfiguration-openstack-3.png)
+![](./images/productionsiteconfiguration-openstack-3.png)
 
 2. Obtaining Ceph Authentication Information
 
@@ -205,7 +205,7 @@ If there are multiple Ceph clusters, you may repeat the above process to add eac
 |:----------:|:---------------------------:|:----:|:-------------------------------------------------------------------------:|
 | Sync Proxy | OpenStack Ceph Monitor Node | 6789 | Authentication port. Used for Ceph API access and backup data collection. |
 
-![](./image/productionsiteconfiguration-openstack-4.png)
+![](./images/productionsiteconfiguration-openstack-4.png)
 
 #### **Complete OpenStack Addition**
 
@@ -213,7 +213,7 @@ Once the OpenStack production platform configuration is completed and the platfo
 
 Note: You may repeat the above steps to add multiple OpenStack clusters.
 
-![](./image/productionsiteconfiguration-openstack-5.png)
+![](./images/productionsiteconfiguration-openstack-5.png)
 
 ---
 
@@ -225,7 +225,7 @@ The AWS production platform page primarily provides functions for adding, deleti
 
 Navigate to **"Production Site"** from the left sidebar, select **AWS**, and click the **"Add"** button. Follow the steps in the pop-up dialog to complete the configuration.
 
-![](./image/productionsiteconfiguration-aws-1.png)
+![](./images/productionsiteconfiguration-aws-1.png)
 
 #### **Deploy Sync Proxy**
 
@@ -254,7 +254,7 @@ On the AWS platform, create a new cloud host using the native **AWS EC2 Ubuntu 2
 | Memory        | 8GB               |
 | System Disk   | 50GB              |
 
-![](./image/productionsiteconfiguration-aws-2.png)
+![](./images/productionsiteconfiguration-aws-2.png)
 
 #### **Create AWS Production Platform**
 
@@ -282,7 +282,7 @@ When using AWS Direct APIs for data backup, the account must have the required p
 
 [https://docs.oneprocloud.com/userguide/poc/aws-pre-settings.html#aws-iam-preparation](https://docs.oneprocloud.com/userguide/poc/aws-pre-settings.html#aws-iam-preparation)
 
-![](./image/productionsiteconfiguration-aws-3.png)
+![](./images/productionsiteconfiguration-aws-3.png)
 
 #### **Complete AWS Platform Addition**
 
@@ -290,7 +290,7 @@ Once the AWS production platform configuration is complete, wait for the platfor
 
 > **Note:** You can repeat the above steps to add multiple AWS regions.
 
-![](./image/productionsiteconfiguration-aws-4.png)
+![](./images/productionsiteconfiguration-aws-4.png)
 
 ---
 
@@ -329,15 +329,15 @@ Agent operating system support matrix: <https://oneprocloud.feishu.cn/sheets/VRq
 
 Click "Configuration Management" in the top menu bar, then click "Production Site" in the left navigation bar, select "Source Agent", and click "Copy Command" to get the Linux Agent installation command.
 
-![](./image/productionsiteconfiguration-sourceagent-1.png)
+![](./images/productionsiteconfiguration-sourceagent-1.png)
 
 Log in to the source Linux Host, paste and execute the command in the terminal.
 
-![](./image/productionsiteconfiguration-sourceagent-2.png)
+![](./images/productionsiteconfiguration-sourceagent-2.png)
 
 Wait for the command to finish executing. When the installation is successful, you can check the registered host on the platform.
 
-![](./image/productionsiteconfiguration-sourceagent-3.png)
+![](./images/productionsiteconfiguration-sourceagent-3.png)
 
 #### **Uninstall Linux Agent**
 
@@ -353,7 +353,7 @@ bash /var/lib/egisplus-agent/uninstall_agent.sh
 
 Wait for the script to finish executing. If "Uninstall successful" is displayed, it means the Linux Agent has been successfully uninstalled from the source host.
 
-![](./image/productionsiteconfiguration-sourceagent-4.png)
+![](./images/productionsiteconfiguration-sourceagent-4.png)
 
 ### **Windows Agent**
 
@@ -361,7 +361,7 @@ Wait for the script to finish executing. If "Uninstall successful" is displayed,
 
 Click "Configuration Management" in the top menu bar, then click "Production Site" in the left navigation bar, click "Source Agent", and download the Windows Agent installation package according to the source operating system version by clicking the "Download Now" button.
 
-![](./image/productionsiteconfiguration-sourceagent-5.png)
+![](./images/productionsiteconfiguration-sourceagent-5.png)
 
 1. Log in to the source Windows host
 
@@ -375,7 +375,7 @@ Extract the windows-agent.zip file as administrator
 
 * Extract the directory files
 
-![](./image/productionsiteconfiguration-sourceagent-6.png)
+![](./images/productionsiteconfiguration-sourceagent-6.png)
 
 4. Run the installer
 
@@ -383,11 +383,11 @@ Run install.exe in the extracted directory as administrator
 
 Right-click the Install.exe program and select "Run as administrator"
 
-![](./image/productionsiteconfiguration-sourceagent-7.png)
+![](./images/productionsiteconfiguration-sourceagent-7.png)
 
 In the pop-up installer window, select "Install >" to start the installation.
 
-![](./image/productionsiteconfiguration-sourceagent-8.png)
+![](./images/productionsiteconfiguration-sourceagent-8.png)
 
 In the pop-up prompt, make sure there is no security software running before installation. If security software is running, it may block the installation and operation of the Windows Agent program, or even identify it as a virus or illegal software and delete it, causing installation failure.
 
@@ -397,15 +397,15 @@ Due to the diversity of security software, please consult the relevant security 
 
 For reference on adding to the whitelist for some security software: <https://docs.oneprocloud.com/userguide/faq/faq.html#configuration-of-antivirus-software-on-windows-agent-source-host>
 
-![](./image/productionsiteconfiguration-sourceagent-9.png)
+![](./images/productionsiteconfiguration-sourceagent-9.png)
 
 If you have completed the above security settings, click OK to continue the installation.
 
-![](./image/productionsiteconfiguration-sourceagent-10.png)
+![](./images/productionsiteconfiguration-sourceagent-10.png)
 
 Wait for the installer to finish. When prompted that the installation is complete, you can click "Yes" to start the Windows Agent service.
 
-![](./image/productionsiteconfiguration-sourceagent-11.png)
+![](./images/productionsiteconfiguration-sourceagent-11.png)
 
 #### **Start Windows Agent**
 
@@ -413,7 +413,7 @@ On the Windows Agent service startup page, first click "Precheck" in the lower l
 
 The pre-check mainly verifies the Windows Agent runtime environment and internal dependencies of the host system. After all pre-checks pass, you can proceed to start the Windows Agent.
 
-![](./image/productionsiteconfiguration-sourceagent-12.png)
+![](./images/productionsiteconfiguration-sourceagent-12.png)
 
 * Precheck item description
 
@@ -431,25 +431,25 @@ The pre-check mainly verifies the Windows Agent runtime environment and internal
 
 According to the results of the precheck, handle any issues as prompted. Once all checks have passed, you can click "OK".
 
-![](./image/productionsiteconfiguration-sourceagent-13.png)
+![](./images/productionsiteconfiguration-sourceagent-13.png)
 
 At this point, you can click the "Start Services" button to start the Windows Agent service.
 
-![](./image/productionsiteconfiguration-sourceagent-14.png)
+![](./images/productionsiteconfiguration-sourceagent-14.png)
 
 Based on the warning messages, check again for any running security software. You must trust the Windows Agent program to avoid startup failures or data synchronization failures.
 
 If everything is confirmed to be normal, you can click "OK" to complete the startup of the Windows Agent service.
 
-![](./image/productionsiteconfiguration-sourceagent-15.png)
+![](./images/productionsiteconfiguration-sourceagent-15.png)
 
 If there are no other prompts, the Windows Agent has started successfully.
 
-![](./image/productionsiteconfiguration-sourceagent-16.png)
+![](./images/productionsiteconfiguration-sourceagent-16.png)
 
 Log in to the HyperBDR console to check the registration status and proceed with subsequent steps.
 
-![](./image/productionsiteconfiguration-sourceagent-17.png)
+![](./images/productionsiteconfiguration-sourceagent-17.png)
 
 #### **Uninstall Windows Agent**
 
@@ -457,23 +457,23 @@ Since uninstalling the Windows Agent follows the standard Windows software unins
 
 Click the Windows icon in the lower left corner and select "Control Panel".
 
-![](./image/productionsiteconfiguration-sourceagent-18.png)
+![](./images/productionsiteconfiguration-sourceagent-18.png)
 
 In the pop-up page, find "Programs" and click "Uninstall a program".
 
-![](./image/productionsiteconfiguration-sourceagent-19.png)
+![](./images/productionsiteconfiguration-sourceagent-19.png)
 
 Find Windows_Agent version number, published by OneProCloud, right-click and select "Uninstall/Change (U)".
 
-![](./image/productionsiteconfiguration-sourceagent-20.png)
+![](./images/productionsiteconfiguration-sourceagent-20.png)
 
 In the pop-up uninstall dialog, click "Yes" to confirm uninstallation.
 
-![](./image/productionsiteconfiguration-sourceagent-21.png)
+![](./images/productionsiteconfiguration-sourceagent-21.png)
 
 Wait for the uninstaller to finish, then click OK to complete the uninstallation of the Windows Agent program.
 
-![](./image/productionsiteconfiguration-sourceagent-22.png)
+![](./images/productionsiteconfiguration-sourceagent-22.png)
 
 ---
 
@@ -491,7 +491,7 @@ It is recommended to deploy the Sync Proxy on the source production platform sid
 
 This architecture is flexible, secure, and reliable, and is suitable for various production platform scenarios.
 
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-1.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-1.png)
 
 Multiple Sync Proxy nodes can be deployed. One Sync Proxy can be bound to one or more source production platforms, and multiple Sync Proxies can also be bound to a single source production platform.
 
@@ -503,11 +503,11 @@ The Source Sync Proxy is mainly used for management operations of agentless sync
 
 Select the Source Sync Proxy that has been added to the platform, click the "Actions" button, and select "Settings" to configure the relevant parameters of the Sync Proxy node.
 
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-2.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-2.png)
 
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-3.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-3.png)
 
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-4.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-4.png)
 
 * Description of configuration parameters
 
@@ -519,8 +519,8 @@ Select the Source Sync Proxy that has been added to the platform, click the "Act
 ### **Bind**
 
 Select the Source Sync Proxy that has been added to the platform, click the "Actions" button, and select "Bind". Choose an already added source production site to bind. After successful binding, this Sync Proxy will act as a node to call the bound source production site for data backup.
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-5.png)
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-6.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-5.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-6.png)
 
 Note:
 
@@ -536,8 +536,8 @@ Currently, multiple Sync Proxy nodes do not support failover. They only provide 
 ### **Unbind**
 
 Select the Source Sync Proxy that has been added to the platform, click the "Actions" button, and select "Unbind". Choose a bound source production site to unbind, and click "OK".
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-7.png)
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-8.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-7.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-8.png)
 
 Note:
 
@@ -547,6 +547,6 @@ Before unbinding, make sure that there are no backup tasks bound to the current 
 
 Select the Source Sync Proxy that has been added to the platform, click the "Actions" button, and select "Delete". Make sure that the current Sync Proxy node is not bound to any source production site. If there are bound source production sites, the delete button will be disabled. You need to "Unbind" first, and after successful unbinding, you can proceed with deletion.
 
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-9.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-9.png)
 
 ---

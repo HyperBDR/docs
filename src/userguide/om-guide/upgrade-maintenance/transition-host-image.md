@@ -14,8 +14,8 @@ Due to the special nature of the transition host, reconfiguration is required du
 
 * Configuration Management -- Disaster Recovery Platform Configuration -- General Mode -- Failback -- Add
 
-  ![](./image/temporarytransitionhostimage-upgradeoperation-1.png)
+  ![](./images/temporarytransitionhostimage-upgradeoperation-1.png)
 
 * Download the latest temporary transition host image as needed and recreate the temporary transition host.
 
-  ![](./image/temporarytransitionhostimage-upgradeoperation-2.png)
+  ![](./images/temporarytransitionhostimage-upgradeoperation-2.png)

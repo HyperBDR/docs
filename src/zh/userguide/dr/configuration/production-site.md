@@ -24,7 +24,7 @@
 
 点击左侧导航栏"生产站点配置"，选择VMware，点击 “添加” 按钮，在弹出的框中按照步骤引导来添加。
 
-![](./image/productionsiteconfiguration-vmware-1.png)
+![](./images/productionsiteconfiguration-vmware-1.png)
 
 #### **部署同步代理**
 
@@ -66,7 +66,7 @@ Sync Proxy扩展可以在多台Sync Proxy节点重复执行此操作步骤来进
 | Memory      | 8GB          |
 | System Disk | 50GB         |
 
-![](./image/productionsiteconfiguration-vmware-2.png)
+![](./images/productionsiteconfiguration-vmware-2.png)
 
 #### **创建VMware生产平台**
 
@@ -98,7 +98,7 @@ HyperBDR利用VMware的CBT技术实现增量数据同步。CBT (Change Block Tra
 
 按照所需认证信息填写完成后，点击 确定 按钮进行添加。
 
-![](./image/productionsiteconfiguration-vmware-3.png)
+![](./images/productionsiteconfiguration-vmware-3.png)
 
 #### **完成VMware添加**
 
@@ -106,7 +106,7 @@ VMware生产平台配置完成，等待平台状态为正常，且已经获取�
 
 注意：重复以上步骤可以添加多个VMware集群，你也可以单独添加某一个ESXi主机。
 
-![](./image/productionsiteconfiguration-vmware-4.png)
+![](./images/productionsiteconfiguration-vmware-4.png)
 
 ---
 
@@ -118,7 +118,7 @@ VMware生产平台配置完成，等待平台状态为正常，且已经获取�
 
 点击左侧导航栏"生产站点配置"，选择OpenStack，点击 “添加” 按钮，在弹出的框中按照步骤引导来添加。
 
-![](./image/productionsiteconfiguration-openstack-1.png)
+![](./images/productionsiteconfiguration-openstack-1.png)
 
 #### **部署同步代理**
 
@@ -152,7 +152,7 @@ Ubuntu 20.04 QCOW2 image download link- Ubuntu 20.04 QCOW2镜像下载链接：[
 | Memory      | 8GB          |
 | System Disk | 50GB         |
 
-![](./image/productionsiteconfiguration-openstack-2.png)
+![](./images/productionsiteconfiguration-openstack-2.png)
 
 #### **创建OpenStack生产平台**
 
@@ -177,7 +177,7 @@ Ubuntu 20.04 QCOW2 image download link- Ubuntu 20.04 QCOW2镜像下载链接：[
 | ---------- | --------- | ------------------------------ | ------------------ |
 | Sync Proxy | OpenStack | 5000、35357、9696、8774、8776、9292 | 与OpenStack服务认证通信端口 |
 
-![](./image/productionsiteconfiguration-openstack-3.png)
+![](./images/productionsiteconfiguration-openstack-3.png)
 
 2. Ceph认证信息获取
 
@@ -202,7 +202,7 @@ Ubuntu 20.04 QCOW2 image download link- Ubuntu 20.04 QCOW2镜像下载链接：[
 | Sync Proxy | OpenStack Ceph Monitor Node |        6789         | 认证端口，调用 Ceph API 接口认证，并从其他 Ceph 存储节点获取备份数据 |
 
 
-![](./image/productionsiteconfiguration-openstack-4.png)
+![](./images/productionsiteconfiguration-openstack-4.png)
 
 #### **完成OpenStack添加**
 
@@ -210,7 +210,7 @@ OpenStack生产平台配置完成，等待平台状态为正常，且已经获�
 
 注意：重复以上步骤可以添加多个OpenStack集群。
 
-![](./image/productionsiteconfiguration-openstack-5.png)
+![](./images/productionsiteconfiguration-openstack-5.png)
 
 ---
 
@@ -222,7 +222,7 @@ OpenStack生产平台配置完成，等待平台状态为正常，且已经获�
 
 点击左侧导航栏"生产站点配置"，选择AWS，点击 “添加” 按钮，在弹出的框中按照步骤引导来添加。
 
-![](./image/productionsiteconfiguration-aws-1.png)
+![](./images/productionsiteconfiguration-aws-1.png)
 
 #### **部署同步代理**
 
@@ -250,7 +250,7 @@ OpenStack生产平台配置完成，等待平台状态为正常，且已经获�
 | Memory      | 8GB          |
 | System Disk | 50GB         |
 
-![](./image/productionsiteconfiguration-aws-2.png)
+![](./images/productionsiteconfiguration-aws-2.png)
 
 #### **创建AWS生产平台**
 
@@ -280,7 +280,7 @@ OpenStack生产平台配置完成，等待平台状态为正常，且已经获�
 
 <https://docs.oneprocloud.com/userguide/poc/aws-pre-settings.html#aws-iam-preparation>
 
-![](./image/productionsiteconfiguration-aws-3.png)
+![](./images/productionsiteconfiguration-aws-3.png)
 
 #### **完成AWS添加**
 
@@ -288,7 +288,7 @@ AWS生产平台配置完成，等待平台状态为正常，且已经获取到EC
 
 注意：重复以上步骤可以添加多个AWS 区域。
 
-![](./image/productionsiteconfiguration-aws-4.png)
+![](./images/productionsiteconfiguration-aws-4.png)
 
 ---
 
@@ -330,15 +330,15 @@ Agent操作系统支持矩阵：<https://oneprocloud.feishu.cn/sheets/VRqksSPEPh
 
 点击顶部菜单栏 "配置管理", 点击左侧导航栏 "生产站点配置"，点击 "源端代理程序"，点击复制命令来获取Linux Agent的安装命令。
 
-![](./image/productionsiteconfiguration-sourceagent-1.png)
+![](./images/productionsiteconfiguration-sourceagent-1.png)
 
 登录源端Linux Host，在终端内粘贴执行命令运行即可。
 
-![](./image/productionsiteconfiguration-sourceagent-2.png)
+![](./images/productionsiteconfiguration-sourceagent-2.png)
 
 等待命令执行完毕，最终输出安装成功，可以登录平台侧查看注册主机。
 
-![](./image/productionsiteconfiguration-sourceagent-3.png)
+![](./images/productionsiteconfiguration-sourceagent-3.png)
 
 #### **卸载Linux Agent**
 
@@ -354,7 +354,7 @@ bash /var/lib/egisplus-agent/uninstall_agent.sh
 
 等待脚本执行完成，输出卸载成功，则表示源端Linux Agent卸载完成。
 
-![](./image/productionsiteconfiguration-sourceagent-4.png)
+![](./images/productionsiteconfiguration-sourceagent-4.png)
 
 ### **Windows Agent**
 
@@ -362,7 +362,7 @@ bash /var/lib/egisplus-agent/uninstall_agent.sh
 
 点击顶部菜单栏 "配置管理", 点击左侧导航栏 "生产站点配置"，点击 "源端代理程序"，根据源端操作系统版本进行点击"立即下载"按钮进行下载Windows Agent 安装包。
 
-![](./image/productionsiteconfiguration-sourceagent-5.png)
+![](./images/productionsiteconfiguration-sourceagent-5.png)
 
 1. 登录源端Windows主机
 
@@ -376,7 +376,7 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 * 解压目录文件
 
-![](./image/productionsiteconfiguration-sourceagent-6.png)
+![](./images/productionsiteconfiguration-sourceagent-6.png)
 
 4. 执行安装程序
 
@@ -384,11 +384,11 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 选择Install.exe程序，右击选择"以管理员身份运行(A)"
 
-![](./image/productionsiteconfiguration-sourceagent-7.png)
+![](./images/productionsiteconfiguration-sourceagent-7.png)
 
 在弹出的安装程序框中，选择"Install >" 执行安装。
 
-![](./image/productionsiteconfiguration-sourceagent-8.png)
+![](./images/productionsiteconfiguration-sourceagent-8.png)
 
 在弹出的提示信息中，在执行安装之前，确保系统中没有安全软件运行，如果有安全软件运行，可能阻止Windows Agent程序的安装运行，并且将Windows Agent程序识别为病毒或非法软件，将Windows Agent相关软件进行删除，导致安装失败。
 
@@ -398,15 +398,15 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 部分安全软件添加白名单步骤参考：<https://docs.oneprocloud.com/userguide/faq/faq.html#configuration-of-antivirus-software-on-windows-agent-source-host>
 
-![](./image/productionsiteconfiguration-sourceagent-9.png)
+![](./images/productionsiteconfiguration-sourceagent-9.png)
 
 如果你已经完成以上的安全设置，请点击确定继续安装程序。
 
-![](./image/productionsiteconfiguration-sourceagent-10.png)
+![](./images/productionsiteconfiguration-sourceagent-10.png)
 
 等待安装程序运行安装，提示已经安装程序，可以点击"是"来启动Windows Agent服务。
 
-![](./image/productionsiteconfiguration-sourceagent-11.png)
+![](./images/productionsiteconfiguration-sourceagent-11.png)
 
 #### **启动Windows Agent**
 
@@ -414,7 +414,7 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 预检查步骤主要是根据Windows Agent运行环境及主机系统内部的依赖等做提前的检查工作，确认预检查都通过后，再启动Windows Agent运行。
 
-![](./image/productionsiteconfiguration-sourceagent-12.png)
+![](./images/productionsiteconfiguration-sourceagent-12.png)
 
 * Precheck条目说明
 
@@ -434,25 +434,25 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 根据预检查的结果提示结果进行问题处理，检查全部通过，可点击"OK"
 
-![](./image/productionsiteconfiguration-sourceagent-13.png)
+![](./images/productionsiteconfiguration-sourceagent-13.png)
 
 此时可以点击"Start Services" 按钮来启动Windows Agent服务。
 
-![](./image/productionsiteconfiguration-sourceagent-14.png)
+![](./images/productionsiteconfiguration-sourceagent-14.png)
 
 根据警告信息提示，再次进行检查安全软件运行，必须信任Windows Agent程序，避免出现启动失败和同步数据失败的发生。
 
 如果确认一切正常，可以点击"OK"，完成Windows Agent服务的启动。
 
-![](./image/productionsiteconfiguration-sourceagent-15.png)
+![](./images/productionsiteconfiguration-sourceagent-15.png)
 
 此时如果没有其他提示信息，那么Windows Agent则启动一切正常
 
-![](./image/productionsiteconfiguration-sourceagent-16.png)
+![](./images/productionsiteconfiguration-sourceagent-16.png)
 
 登录到HyperBDR的控制台进行查看注册状态及后续其他步骤操作。
 
-![](./image/productionsiteconfiguration-sourceagent-17.png)
+![](./images/productionsiteconfiguration-sourceagent-17.png)
 
 #### **卸载Windows Agent**
 
@@ -460,23 +460,23 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 点击左下角Windows图标，点击"控制面板"
 
-![](./image/productionsiteconfiguration-sourceagent-18.png)
+![](./images/productionsiteconfiguration-sourceagent-18.png)
 
 在弹出的页面中，找到程序点击"卸载程序"
 
-![](./image/productionsiteconfiguration-sourceagent-19.png)
+![](./images/productionsiteconfiguration-sourceagent-19.png)
 
 找到Windows\_Agent <版本号>，发布者为 OneProCloud，选中右击选择 "卸载/更改(U)"
 
-![](./image/productionsiteconfiguration-sourceagent-20.png)
+![](./images/productionsiteconfiguration-sourceagent-20.png)
 
 在弹出的卸载框点击"是"进行确认卸载。
 
-![](./image/productionsiteconfiguration-sourceagent-21.png)
+![](./images/productionsiteconfiguration-sourceagent-21.png)
 
 等待卸载程序执行完成，点击确定及完成Windows Agent程序的卸载。
 
-![](./image/productionsiteconfiguration-sourceagent-22.png)
+![](./images/productionsiteconfiguration-sourceagent-22.png)
 
 ---
 
@@ -494,7 +494,7 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 此架构设计兼具灵活性、安全性和可靠性，适用于多种生产平台场景。
 
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-1.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-1.png)
 
 源端同步代理（Sync Proxy）可以有多个节点，一个源端同步代理（Sync Proxy）可以绑定一个或多个源生产平台，多个源端同步代理（Sync Proxy）也可以绑定一个源生产平台。
 
@@ -506,11 +506,11 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 选择已经添加到平台的源端同步代理，点击"更多操作"按钮，选择"设置"，可以设置源端同步代理节点相关配置
 
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-2.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-2.png)
 
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-3.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-3.png)
 
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-4.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-4.png)
 
 * 设置配置参数说明
 
@@ -523,8 +523,8 @@ Windows Agent 安装程序包：**windows-agent.zip**
 ### **绑定**
 
 选择已经添加到平台的源端同步代理，点击"更多操作"按钮，选择"绑定"，选择一个已经添加的源端生产站点进行绑定，绑定成功后，那么这个源端同步代理将会作为一个节点来调用绑定的源端生产站点进行数据备份获取。
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-5.png)
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-6.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-5.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-6.png)
 
 说明：
 
@@ -541,8 +541,8 @@ Windows Agent 安装程序包：**windows-agent.zip**
 ### **解绑**
 
 选择已经添加到平台的源端同步代理，点击"更多操作"按钮，选择"解绑"，选择一个已经绑定的源端生产站点进行解绑，点击"确定"即可。
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-7.png)
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-8.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-7.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-8.png)
 
 注意：
 
@@ -552,7 +552,7 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 选择已经添加到平台的源端同步代理，点击"更多操作"按钮，选择"删除"，确保当前源端同步代理节点没有绑定任何源端生产站点。如果有绑定的源端生产站点，则删除按钮会不可点击状态，你需要先行进行"解绑"，解绑成功后再进行删除操作。
 
-![](./image/productionsiteconfiguration-source-sidesynchronizationagent-9.png)
+![](./images/productionsiteconfiguration-source-sidesynchronizationagent-9.png)
 
 ####
 ---
