@@ -1,5 +1,5 @@
 # 存储配置
 
-## 对象存储
+## Object Stroage
 
-## 块存储
+## Block Storage
