@@ -19,19 +19,19 @@
 
 * 登录至运维管理平台：IP:30443
 
-  ![](./image/alarmconfigurationbestpractices-resourcealert-1.png)
+  ![](./images/alarmconfigurationbestpractices-resourcealert-1.png)
 
   * 监控与报警管理--报警器--创建报警器
 
-    ![](./image/alarmconfigurationbestpractices-resourcealert-2.png)
+    ![](./images/alarmconfigurationbestpractices-resourcealert-2.png)
 
   * 根据实际情况填写对应级别名称，并根据上述表格明确监控范围
 
-    ![](./image/alarmconfigurationbestpractices-resourcealert-3.png)
+    ![](./images/alarmconfigurationbestpractices-resourcealert-3.png)
 
   * 完成创建
 
-    ![](./image/alarmconfigurationbestpractices-resourcealert-4.png)
+    ![](./images/alarmconfigurationbestpractices-resourcealert-4.png)
 
 ## 事件告警
 
@@ -52,20 +52,20 @@
 
 * 登录至控制台：IP:10443
 
-  ![](./image/alarmconfigurationbestpractices-anincidentalarm-1.png)
+  ![](./images/alarmconfigurationbestpractices-anincidentalarm-1.png)
 
   * 监控与报警管理--报警器--事件报警器--创建报警器
 
-    ![](./image/alarmconfigurationbestpractices-anincidentalarm-2.png)
+    ![](./images/alarmconfigurationbestpractices-anincidentalarm-2.png)
 
   * 根据实际情况选择填写对应监控事件类型
 
-    ![](./image/alarmconfigurationbestpractices-anincidentalarm-3.png)
+    ![](./images/alarmconfigurationbestpractices-anincidentalarm-3.png)
 
   * 明确监控事件类型结果
 
-    ![](./image/alarmconfigurationbestpractices-anincidentalarm-4.png)
+    ![](./images/alarmconfigurationbestpractices-anincidentalarm-4.png)
 
   * 完成创建
 
-    ![](./image/alarmconfigurationbestpractices-anincidentalarm-5.png)
+    ![](./images/alarmconfigurationbestpractices-anincidentalarm-5.png)

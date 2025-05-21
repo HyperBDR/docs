@@ -8,18 +8,18 @@
 
   * Click [Operations] > [Report] to enter the report page.
 
-    ![](./image/reportexport-reportexportoperationexample-1.png)
+    ![](./images/reportexport-reportexportoperationexample-1.png)
 
   * Collect reports
 
-    ![](./image/reportexport-reportexportoperationexample-2.png)
+    ![](./images/reportexport-reportexportoperationexample-2.png)
 
   * Select the report type, scope, time zone, and time range as needed. After confirming the information, click [Submit].
 
-    ![](./image/reportexport-reportexportoperationexample-3.png)
+    ![](./images/reportexport-reportexportoperationexample-3.png)
 
   * Download the report
 
     * Click [Download] to get the report.
 
-    ![](./image/reportexport-reportexportoperationexample-4.png)
+    ![](./images/reportexport-reportexportoperationexample-4.png)

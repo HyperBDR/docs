@@ -15,4 +15,4 @@ Users can access the platform login page via a web browser and authenticate with
 
 * After completing steps 1 and 2, you will see an upgrade prompt at the corresponding location.
 
-  ![](./image/linuxagent-upgradeoperation-1.png)
+  ![](./images/linuxagent-upgradeoperation-1.png)

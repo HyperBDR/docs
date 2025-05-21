@@ -14,4 +14,4 @@
 
 * 当1.2步骤操作完成后，对应位置会有相应升级提示
 
-  ![](./image/linuxagent-upgradeoperation-1.png)
+  ![](./images/linuxagent-upgradeoperation-1.png)

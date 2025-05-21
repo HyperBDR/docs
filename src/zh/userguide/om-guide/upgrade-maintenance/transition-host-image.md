@@ -14,9 +14,9 @@
 
 * 配置管理--容灾恢复平台配置--通用模式--回切--添加
 
-  ![](./image/temporarytransitionhostimage-upgradeoperation-1.png)
+  ![](./images/temporarytransitionhostimage-upgradeoperation-1.png)
 
 * 根据实际情况下载最新临时过渡主机镜像，重新创建临时过渡主机
 
-  ![](./image/temporarytransitionhostimage-upgradeoperation-2.png)
+  ![](./images/temporarytransitionhostimage-upgradeoperation-2.png)
 

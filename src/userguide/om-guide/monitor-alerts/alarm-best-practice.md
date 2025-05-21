@@ -16,19 +16,19 @@ To ensure system stability and controllable resource usage, basic alarm threshol
 
 * Log in to the O&M management platform: IP:30443
 
-  ![](./image/alarmconfigurationbestpractices-resourcealert-1.png)
+  ![](./images/alarmconfigurationbestpractices-resourcealert-1.png)
 
   * Monitor and Alarm -- Alarm -- Create Alert
 
-    ![](./image/alarmconfigurationbestpractices-resourcealert-2.png)
+    ![](./images/alarmconfigurationbestpractices-resourcealert-2.png)
 
   * Fill in the corresponding level name as needed, and clarify the monitoring scope according to the table above
 
-    ![](./image/alarmconfigurationbestpractices-resourcealert-3.png)
+    ![](./images/alarmconfigurationbestpractices-resourcealert-3.png)
 
   * Complete the creation
 
-    ![](./image/alarmconfigurationbestpractices-resourcealert-4.png)
+    ![](./images/alarmconfigurationbestpractices-resourcealert-4.png)
 
 ## Event Alarm
 
@@ -44,20 +44,20 @@ To ensure the security and observability of system operations, event monitoring 
 
 * Log in to the console: IP:10443
 
-  ![](./image/alarmconfigurationbestpractices-anincidentalarm-1.png)
+  ![](./images/alarmconfigurationbestpractices-anincidentalarm-1.png)
 
   * Monitor & Alerts -- Alarm -- Event Alerts -- Create Alerts
 
-    ![](./image/alarmconfigurationbestpractices-anincidentalarm-2.png)
+    ![](./images/alarmconfigurationbestpractices-anincidentalarm-2.png)
 
   * Select and fill in the corresponding monitored event type as needed
 
-    ![](./image/alarmconfigurationbestpractices-anincidentalarm-3.png)
+    ![](./images/alarmconfigurationbestpractices-anincidentalarm-3.png)
 
   * Specify the event result type
 
-    ![](./image/alarmconfigurationbestpractices-anincidentalarm-4.png)
+    ![](./images/alarmconfigurationbestpractices-anincidentalarm-4.png)
 
   * Complete the creation
 
-    ![](./image/alarmconfigurationbestpractices-anincidentalarm-5.png)
+    ![](./images/alarmconfigurationbestpractices-anincidentalarm-5.png)
