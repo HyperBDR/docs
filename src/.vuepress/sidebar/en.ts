@@ -421,13 +421,18 @@ export const enSidebar = sidebar({
           prefix: "om-management/",
           children: [
             "daliy-om.md",
-            "services-component-om.md",
+            "console.md",
+            "sync-proxy.md",
+            "linux-agent.md",
+            "windows-agent.md",
+            "cloud-sync-gateway.md",
+            "transition-host-image.md",
           ],
           collapsible: true,
           expanded: true,
         },
         {
-          text: "Upgrade Maintenance",
+          text: "Upgrade Management",
           icon: "cloud-arrow-up",
           prefix: "upgrade-maintenance/",
           children: [
@@ -453,7 +458,7 @@ export const enSidebar = sidebar({
           expanded: true,
         },
         {
-          text: "Monitor & Alerts",
+          text: "Monitor & Alerts Management",
           icon: "chart-line",
           prefix: "monitor-alerts/",
           children: [

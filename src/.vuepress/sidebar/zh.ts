@@ -421,13 +421,18 @@ export const zhSidebar = sidebar({
           prefix: "om-management/",
           children: [
             "daliy-om.md",
-            "services-component-om.md",
+            "console.md",
+            "sync-proxy.md",
+            "linux-agent.md",
+            "windows-agent.md",
+            "cloud-sync-gateway.md",
+            "transition-host-image.md",
           ],
           collapsible: true,
           expanded: true,
         },
         {
-          text: "升级维护",
+          text: "升级管理",
           icon: "cloud-arrow-up",
           prefix: "upgrade-maintenance/",
           children: [
@@ -453,7 +458,7 @@ export const zhSidebar = sidebar({
           expanded: true,
         },
         {
-          text: "监控告警",
+          text: "监控告警管理",
           icon: "chart-line",
           prefix: "monitor-alerts/",
           children: [
