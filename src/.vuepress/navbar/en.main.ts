@@ -24,17 +24,17 @@ export const enNavbar = navbar([
           }
         ],
       },
-      {
-        text: "Migration",
-        icon: "exchange",
-        children: [
-          {
-            text: "HyperMotion Mannual",
-            icon: "exchange",
-            link: "/userguide/migration/",
-          },
-        ],
-      },
+      // {
+      //   text: "Migration",
+      //   icon: "exchange",
+      //   children: [
+      //     {
+      //       text: "HyperMotion Mannual",
+      //       icon: "exchange",
+      //       link: "/userguide/migration/",
+      //     },
+      //   ],
+      // },
       {
         text: "Disaster Recovery",
         icon: "shield",
@@ -49,27 +49,27 @@ export const enNavbar = navbar([
             icon: "warning",
             link: "/userguide/dr-usage-guide/",
           },
-          {
-            text: "HyperBDR Manual",
-            icon: "shield",
-            link: "/userguide/dr/",
-          },
+          // {
+          //   text: "HyperBDR Manual",
+          //   icon: "shield",
+          //   link: "/userguide/dr/",
+          // },
         ],
       },
       {
         text: "Operations",
         icon: "gear",
         children: [
-          {
-            text: "Administration Guide",
-            icon: "user-gear",
-            link: "/userguide/operations/"
-          },
-          {
-            text: "Admin Portal Manual",
-            icon: "window-maximize",
-            link: "/userguide/admin-portal/"
-          },
+          // {
+          //   text: "Administration Guide",
+          //   icon: "user-gear",
+          //   link: "/userguide/operations/"
+          // },
+          // {
+          //   text: "Admin Portal Manual",
+          //   icon: "window-maximize",
+          //   link: "/userguide/admin-portal/"
+          // },
           {
             text: "O&M Guide",
             icon: "tools",
@@ -77,22 +77,22 @@ export const enNavbar = navbar([
           },
         ],
       },
-      {
-        text: "Tools",
-        icon: "wrench",
-        children: [
-          {
-            text: "Calculator",
-            icon: "calculator",
-            link: "/userguide/calculator/",
-          },
-          {
-            text: "License Management",
-            icon: "key",
-            link: "/userguide/license-management/",
-          }
-        ],
-      },
+      // {
+      //   text: "Tools",
+      //   icon: "wrench",
+      //   children: [
+      //     {
+      //       text: "Calculator",
+      //       icon: "calculator",
+      //       link: "/userguide/calculator/",
+      //     },
+      //     {
+      //       text: "License Management",
+      //       icon: "key",
+      //       link: "/userguide/license-management/",
+      //     }
+      //   ],
+      // },
       {
         text: "Others",
         icon: "ellipsis",
