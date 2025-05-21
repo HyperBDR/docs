@@ -4,82 +4,126 @@ export const enNavbar = navbar([
   "/",
   {
     text: "Product Overview",
-    icon: "eye",
+    icon: "lightbulb",
     prefix: "/product-overview/",
     link: "/product-overview/",
   },
   {
-    text: "Docs",
+    text: "Documentation",
     icon: "book",
     prefix: "/",
     children: [
       {
-        text: "User Guide",
-        icon: "thumbs-up",
-        prefix: "userguide/poc/",
-        link: "/userguide/poc/",
-        // children: ["baz", { text: "...", icon: "ellipsis", link: "#" }],
-        children: [],
-      },
-
-      // NOTE(Ray): Move Product Overview to the top level menu
-      //{
-      //  text: "Product Overview",
-      //  icon: "eye",
-      //  prefix: "product-overview/",
-      //  link: "/product-overview/",
-      //  children: [],
-      //},
-
-      // NOTE(Ray): Merge Product Training with Product Overview
-      // Comment this top level menu item
-      //{
-      //  text: "Product Training",
-      //  icon: "dumbbell",
-      //  prefix: "product-training/",
-      //  link: "/product-training/",
-      //  children: [],
-      //},
-
-      // NOTE(Ray): Merge Pre Sales with Product Overview
-      //{
-      //  text: "Pre Sales",
-      //  icon: "handshake",
-      //  prefix: "userguide/presales/",
-      //  link: "/userguide/presales/",
-      //  children: [],
-      //},
-      {
-        text: "Manual",
-        icon: "book",
-        prefix: "userguide/dr-usage-guide/",
-        link: "/userguide/dr-usage-guide/",
-        children: [],
+        text: "Installation",
+        icon: "download",
+        children: [
+          {
+            text: "Installation",
+            icon: "download",
+            link: "/userguide/installation/",
+          }
+        ],
       },
       {
-        text: "Checklist",
-        icon: "list",
-        prefix: "checklist/",
-        link: "/checklist/dr-checklist.md",
-        children: [],
+        text: "Migration",
+        icon: "exchange",
+        children: [
+          {
+            text: "HyperMotion Mannual",
+            icon: "exchange",
+            link: "/userguide/migration/",
+          },
+        ],
       },
       {
-        text: "FAQ",
-        icon: "person-circle-question",
-        prefix: "userguide/faq/",
-        link: "/userguide/faq/faq.md",
-        children: [],
+        text: "Disaster Recovery",
+        icon: "shield",
+        children: [
+          {
+            text: "User Guide",
+            icon: "book",
+            link: "/userguide/poc/",
+          },
+          {
+            text: "HyperBDR Manual(About to be abandoned)",
+            icon: "warning",
+            link: "/userguide/dr-usage-guide/",
+          },
+          {
+            text: "HyperBDR Manual",
+            icon: "shield",
+            link: "/userguide/dr/",
+          },
+        ],
+      },
+      {
+        text: "Operations",
+        icon: "gear",
+        children: [
+          {
+            text: "Administration Guide",
+            icon: "user-gear",
+            link: "/userguide/operations/"
+          },
+          {
+            text: "Admin Portal Manual",
+            icon: "window-maximize",
+            link: "/userguide/admin-portal/"
+          },
+          {
+            text: "O&M Guide",
+            icon: "tools",
+            link: "/userguide/om-guide/"
+          },
+        ],
+      },
+      {
+        text: "Tools",
+        icon: "wrench",
+        children: [
+          {
+            text: "Calculator",
+            icon: "calculator",
+            link: "/userguide/calculator/",
+          },
+          {
+            text: "License Management",
+            icon: "key",
+            link: "/userguide/license-management/",
+          }
+        ],
+      },
+      {
+        text: "Others",
+        icon: "ellipsis",
+        children: [
+          {
+            text: "Checklist",
+            icon: "check-square",
+            link: "/userguide/checklist/"
+          },
+          {
+            text: "FAQ",
+            icon: "question-circle",
+            link: "/userguide/faq/faq.md"
+          }
+        ],
       },
     ],
   },
   {
     text: "Get Support",
-    icon: "link",
+    icon: "headset",
     link: "https://support.oneprocloud.com/",
   },
   {
     text: "OneProCloud",
-    icon: "link",
+    icon: "cloud",
     link: "https://oneprocloud.com/",
+  },
+  {
+    text: "Calculator",
+    icon: "calculator",
+    link: "https://calculator.oneprocloud.com/",
   },
 ]);

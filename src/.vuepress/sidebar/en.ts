@@ -2,33 +2,20 @@ import { sidebar } from "vuepress-theme-hope";
 
 export const enSidebar = sidebar({
   "/": [
-    // {
-    //   text: "Demo",
-    //   icon: "laptop-code",
-    //   prefix: "demo/",
-    //   link: "demo/",
-    //   children: "structure",
-    // },
     {
       text: "Docs",
       icon: "book",
       prefix: "guide/",
       children: "structure",
     },
-    // {
-    //   text: "Slides",
-    //   icon: "person-chalkboard",
-    //   link: "https://plugin-md-enhance.vuejs.press/guide/content/revealjs/demo.html",
-    // },
   ],
-  "/checklist": [
+  "/userguide/checklist": [
     {
       text: "Checklist",
-      icon: "book",
+      icon: "check",
       prefix: "",
-      // children: "structure",
       children: [
-        "dr-checklist.md", // 指定 dr-checklist.md 文件
+        "dr-checklist.md",
       ],
       collapsible: true,
       expanded: true,
@@ -39,7 +26,6 @@ export const enSidebar = sidebar({
       text: "DR Prerequisites",
       icon: "book",
       prefix: "",
-      // children: "structure",
       children: [
         {
           text: "Production Site",
@@ -66,7 +52,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "HyperBDR",
-          icon: "layer-group",
+          icon: "shield",
           children: [
             'hyperbdr-vmware-pre-settings',
             'hyperbdr-proxy-pre-settings',
@@ -80,7 +66,6 @@ export const enSidebar = sidebar({
       text: "Failback Prerequisites",
       icon: "book",
       prefix: "",
-      // children: "structure",
       children: [
         {
           text: "Failback Network Requirement",
@@ -107,7 +92,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "HyperBDR",
-          icon: "layer-group",
+          icon: "shield",
           children: [
             'failback-hyperbdr-pre-settings',
           ],
@@ -120,7 +105,7 @@ export const enSidebar = sidebar({
   "/product-overview/": [
     {
       text: "Product Overview",
-      icon: "book",
+      icon: "circle-info",
       prefix: "",
       children: [
         'product-training/product-overview.md',
@@ -135,7 +120,7 @@ export const enSidebar = sidebar({
     },
     {
       text: "Compatibility & Limitations",
-      icon: "book",
+      icon: "triangle-exclamation",
       prefix: "",
       children: [
         'limitations/product-support-overview',
@@ -149,7 +134,7 @@ export const enSidebar = sidebar({
     },
     {
       text: "Project Overview",
-      icon: "book",
+      icon: "project-diagram",
       prefix: "",
       children: [
         'product-training/project-delivery.md',
@@ -159,7 +144,7 @@ export const enSidebar = sidebar({
     },
     {
       text: "Hosts Investigation",
-      icon: "book",
+      icon: "magnifying-glass",
       prefix: "",
       children: [
         'presales/hyperbdr-agent-investigation',
@@ -168,63 +153,15 @@ export const enSidebar = sidebar({
       ],
     },
   ],
-  //'/product-training/': [
-  //  {
-  //    text: "Training",
-  //    icon: "book",
-  //    prefix: "",
-  //    children: [
-  //      'product-overview.md',
-  //      'scenarios.md',
-  //      'technical-highlights.md',
-  //      'project-delivery.md',
-  //    ],
-  //  },
-  //],
-  //'/userguide/presales/': [
-  //  {
-  //    text: "Pre Sales",
-  //    icon: "book",
-  //    prefix: "",
-  //    children: [
-  //      'hyperbdr-vmware-investigation',
-  //      'hyperbdr-agent-investigation',
-  //      'auto-host-info-collector',
-  //      'dr-network-planning-recommendations',
-  //      'hyperbdr-rpo-rto-planning-best-practices',
-  //      'cloud-platform-support-matrix',
-  //      'poc',
-  //      'deep-in-aws-agentless-mode',
-  //      'compatibility-and-limitations',
-  //      'hyperbdr-license-purchasing-guide',
-  //    ],
-  //  },
-  //],
   '/userguide/dr-usage-guide/': [
     {
-      text: "Installation and deployment",
-      icon: "book",
-      prefix: "",
-      children: [
-        'dr-operations-manual-installation',
-        'agent-batch-installation',
-      ],
-    },
-    {
-      text: "Operation",
-      icon: "book",
-      prefix: "",
-      children: [
-        'operation/upgrade-manual',
-      ],
-    },
-    {
       text: "User Manual",
-      icon: "book",
+      icon: "circle-info",
       prefix: "",
       children: [
         {
           text: "Huawei Cloud",
+          icon: "cloud",
           children: [
             'dr-operations-manual-huaweicloud-object',
             'dr-operations-manual-huaweicloud-block',
@@ -232,12 +169,14 @@ export const enSidebar = sidebar({
         },
         {
           text: "Huawei Cloud Stack 8.2.x/8.3.x",
+          icon: "cloud",
           children: [
             'dr-operations-manual-hcs8-block',
           ],
         },
         {
           text: "TM CAE",
+          icon: "cloud",
           children: [
             'dr-operations-manual-tmcae-object',
           ],
@@ -245,10 +184,192 @@ export const enSidebar = sidebar({
       ],
     },
   ],
+  '/userguide/installation/': [
+    {
+      text: "Installation",
+      icon: "download",
+      prefix: "",
+      children: [
+        'quick-installation.md',
+        'agent-batch-installation.md'
+      ],
+    },
+  ],
+  '/userguide/migration/': [
+    {
+      text: "Migration",
+      icon: "arrow-right-arrow-left",
+      prefix: "",
+      children: [
+        {
+          text: "Login",
+          icon: "user",
+          prefix: "login/",
+          children: [
+            "login.md",
+          ],
+        },
+        {
+          text: "Dashboard",
+          icon: "dashboard",
+          prefix: "dashboard/",
+          children: [
+            "profile.md",
+            "logout.md",
+            "language-switch.md",
+          ],
+        },
+        {
+          text: "Migration",
+          icon: "shuffle",
+          prefix: "migration/",
+          children: [
+            "host-migration.md",
+          ]
+        },
+        {
+          text: "Configuration",
+          icon: "gear",
+          prefix: "configuration/",
+          children: [
+            "source-site.md",
+            "target-site.md",
+            "storage-configuration.md",
+            "target-site-configuration.md",
+            "policy-settings.md",
+          ]
+        },
+        {
+          text: "Operations",
+          icon: "gears",
+          prefix: "operations/",
+          children: [
+            "audit-logs.md",
+            "task-management.md",
+            "download-logs.md",
+            "upgrade.md",
+            "reports.md",
+            "tag-management.md",
+          ]
+        },
+        {
+          text: "Monitor & Alerts",
+          icon: "chart-line",
+          prefix: "monitor-alerts/",
+          children: [
+            "system-monitor.md",
+            "alarm.md",
+            "notification.md",
+            "alerts.md",
+          ]
+        },
+        {
+          text: "Settings",
+          icon: "wrench",
+          prefix: "settings/",
+          children: [
+            "global-settings.md",
+            "license-management.md",
+            "versions.md",
+          ]
+        },
+      ],
+    },
+  ],
+  '/userguide/dr/': [
+    {
+      text: "User Platform",
+      icon: "book",
+      prefix: "",
+      children: [
+        {
+          text: "Login",
+          icon: "user",
+          prefix: "login/",
+          children: [
+            "login.md",
+          ],
+        },
+        {
+          text: "Dashboard",
+          icon: "dashboard",
+          prefix: "dashboard/",
+          children: [
+            "profile.md",
+            "logout.md",
+            "language-switch.md",
+          ],
+        },
+        {
+          text: "DR",
+          icon: "shield",
+          prefix: "dr/",
+          children: [
+            "host-dr.md",
+            "host-failback.md",
+          ]
+        },
+        {
+          text: "Orchestration",
+          icon: "paper-plane",
+          prefix: "orchestration/",
+          children: [
+            "dr-group.md"
+          ]
+        },
+        {
+          text: "Configuration",
+          icon: "gear",
+          prefix: "configuration/",
+          children: [
+            "production-site.md",
+            "dr-site.md",
+            "storage-configuration.md",
+            "dr-site-configuration.md",
+            "policy-settings.md",
+          ]
+        },
+        {
+          text: "Operations",
+          icon: "gears",
+          prefix: "operations/",
+          children: [
+            "audit-logs.md",
+            "task-management.md",
+            "download-logs.md",
+            "upgrade.md",
+            "reports.md",
+            "tag-management.md",
+          ]
+        },
+        {
+          text: "Monitor & Alerts",
+          icon: "chart-line",
+          prefix: "monitor-alerts/",
+          children: [
+            "system-monitor.md",
+            "alarm.md",
+            "notification.md",
+            "alerts.md",
+          ]
+        },
+        {
+          text: "Settings",
+          icon: "wrench",
+          prefix: "settings/",
+          children: [
+            "global-settings.md",
+            "license-management.md",
+            "versions.md",
+          ]
+        },
+      ],
+    },
+  ],
   '/userguide/faq/': [
     {
       text: "FAQ",
-      icon: "book",
+      icon: "question",
       prefix: "",
       children: [
         'faq',
@@ -257,4 +378,176 @@ export const enSidebar = sidebar({
       ],
     },
   ],
-},);
+  '/userguide/operations/': [
+    {
+      text: "Administration Guide",
+      icon: "user-gear",
+      prefix: "",
+      children: [
+        "upgrade-manual.md",
+        "hyperbdr-operation-and-maintenance-manual.md",
+      ]
+    }
+  ],
+  '/userguide/om-guide/': [
+    {
+      text: "O&M Guide",
+      icon: "tools",
+      prefix: "",
+      children: [
+        {
+          text: "Overview",
+          icon: "circle-info",
+          prefix: "overview/",
+          children: [
+            "overview.md"
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "System Architecture",
+          icon: "window-restore",
+          prefix: "system-architecture/",
+          children: [
+            "system-architecture.md"
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "O&M Management",
+          icon: "bars-progress",
+          prefix: "om-management/",
+          children: [
+            "daliy-om.md",
+            "console.md",
+            "sync-proxy.md",
+            "linux-agent.md",
+            "windows-agent.md",
+            "cloud-sync-gateway.md",
+            "transition-host-image.md",
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "Upgrade Management",
+          icon: "cloud-arrow-up",
+          prefix: "upgrade-maintenance/",
+          children: [
+            "console.md",
+            "sync-proxy.md",
+            "linux-agent.md",
+            "windows-agent.md",
+            "cloud-sync-gateway.md",
+            "transition-host-image.md",
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "Report Management",
+          icon: "file-export",
+          prefix: "report-export/",
+          children: [
+            "report-type.md",
+            "report-export.md",
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "Monitor & Alerts Management",
+          icon: "chart-line",
+          prefix: "monitor-alerts/",
+          children: [
+            "overview-display.md",
+            "key-indicators.md",
+            "alarm-configuration.md",
+            "alarm-best-practice.md",
+            "usage-scenarios.md",
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "DR Drill",
+          icon: "shield-halved",
+          prefix: "dr-drill/",
+          children: [
+            "drill-preparation.md",
+            "drill-process.md",
+            "drill-report.md",
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "DR Takeover",
+          icon: "shield-halved",
+          prefix: "dr-takeover/",
+          children: [
+            "takeover-prerequisites.md",
+            "takeover-process.md",
+          ],
+          collapsible: true,
+          expanded: true,
+        },
+        {
+          text: "Appendix",
+          icon: "list-ul",
+          prefix: "appendix/",
+          children: [
+            "commands-tools.md",
+            "question-submit.md",
+            "change-record.md",
+          ],
+          collapsible: true,
+          expanded: false,
+        },
+        {
+          text: "End Summary",
+          icon: "mug-hot",
+          prefix: "end-summary/",
+          children: [
+            "summary.md",
+          ],
+          collapsible: true,
+          expanded: false,
+        },
+      ],
+      collapsible: true,
+      expanded: true,
+    }
+  ],
+  '/userguide/admin-portal/': [
+    {
+      text: "Admin Portal Manual",
+      icon: "window-maximize",
+      prefix: "",
+      children: [
+      ]
+    },
+  ],
+  '/userguide/calculator/': [
+    {
+      text: "Calculator",
+      icon: "calculator",
+      prefix: "",
+      children: [
+        "calculator.md"
+      ]
+    },
+  ],
+  '/userguide/license-management/': [
+    {
+      text: "License Management",
+      icon: "key",
+      prefix: "",
+      children: [
+        "license-management.md"
+      ]
+    },
+  ]
+});

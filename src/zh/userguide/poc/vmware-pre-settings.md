@@ -4,7 +4,7 @@
 
 ## VMware环境准备
 
-1. 通过vCenter导出主机信息：[VMware快速调查](../presales/hyperbdr-vmware-investigation.md)
+1. 通过vCenter导出主机信息：[VMware快速调查](../../product-overview/presales/hyperbdr-vmware-investigation.md)
 2. 根据导出的信息填写虚拟机主机的详细信息，用于容灾设置。
 
 ## VMware用户权限要求

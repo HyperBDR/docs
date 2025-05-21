@@ -1,8 +1,3 @@
----
-title: VMware Pre-Settings
-icon: fa-solid fa-gear
----
-
 # VMware Pre-Settings
 
 [[toc]]
