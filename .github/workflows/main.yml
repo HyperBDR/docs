@@ -16,6 +16,11 @@ jobs:
           node-version: 20
           cache: 'yarn'
 
+      - name: Copy main navigation files
+        run: |
+          cp src/.vuepress/navbar/en.main.ts src/.vuepress/navbar/en.ts
+          cp src/.vuepress/navbar/zh.main.ts src/.vuepress/navbar/zh.ts
+
       - name: Build vuepress
         run: yarn && yarn docs:build
 
