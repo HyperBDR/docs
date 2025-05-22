@@ -1,125 +1,6 @@
-# HyperBDR部署与配置
+# HyperBDR配置
 
 [[toc]]
-
-## 下载 HyperBDR 安装包
-
-### 安装包信息
-
-#### 安装包
- 
-通过浏览器访问[https://install.oneprocloud.com/get_hyperbdr_latest](https://install.oneprocloud.com/get_hyperbdr_latest)获取安装包下载链接 
-
-#### MD5校验文件
-
-通过浏览器访问[https://install.oneprocloud.com/get_hyperbdr_latest](https://install.oneprocloud.com/get_hyperbdr_latest)获取安装包下载链接，在链接后增加`.md5`后缀来访问获取 MD5 检验文件
-
-::: tip
-登录到HyperBDR主机后端并执行命令。  
-:::
-
-
-### 下载安装包和MD5校验文件
-
-#### 在Shell中设置URL
-
-```sh
-# 获取最新的 HyperBDR 软件包 URL
-HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/get_hyperbdr_latest/latest)
-echo "HYPERBDR_PACKAGE: ${HYPERBDR_PACKAGE}"
-
-# 获取相应的 MD5 文件 URL
-HYPERBDR_PACKAGE_MD5="${HYPERBDR_PACKAGE}.md5"
-echo "HYPERBDR_PACKAGE_MD5: ${HYPERBDR_PACKAGE_MD5}"
-
-# 使用字符串操作提取包名称
-HYPERBDR_PACKAGE_NAME="${HYPERBDR_PACKAGE##*/}"
-echo "HYPERBDR_PACKAGE_NAME: ${HYPERBDR_PACKAGE_NAME}"
-
-# 提取 MD5 文件名
-HYPERBDR_PACKAGE_MD5_NAME="${HYPERBDR_PACKAGE_NAME}.md5"
-echo "HYPERBDR_PACKAGE_MD5_NAME: ${HYPERBDR_PACKAGE_MD5_NAME}"
-```
-#### 下载文件
-
-```sh
-curl -k -O "$HYPERBDR_PACKAGE"
-curl -k -O "$HYPERBDR_PACKAGE_MD5"
-```
-
-### 安装包一致性检查
-
-- 步骤1: 生成已下载安装包的MD5值  
-
-```sh
-md5sum "$HYPERBDR_PACKAGE_NAME"
-```
-- 步骤2: 检查MD5校验文件中记录的MD5值
-
-```sh
-cat "$HYPERBDR_PACKAGE_MD5_NAME"
-```
-
-- Step3: 比较MD5值 
- 
-如果步骤1和步骤2中获取的MD5值相同，则表示安装包未损坏。如果MD5值不同，您可以尝试重新下载文件进行比较，或者联系我们寻求帮助。
-
-## 安装 HyperBDR
-
-> 完成HyperBDR安装包的下载后，您可以继续进行安装。  
-> 默认已登录到华为云HyperBDR ECS实例的后端。
-
-::: tip
-安装所使用的操作系统必须是 Ubuntu 20.04 版本。
-:::
-
-### 解压HyperBDR安装包
-
-- 执行以下命令解压安装包  
-
-```sh
-rm -rf /mnt/installer && tar -zxvf "$HYPERBDR_PACKAGE_NAME" -C /mnt/ 
-```
-### 运行安装脚本
-
-#### 启用HyperBDR平台的公共访问
-
-- 执行命令 
-
-```sh
-bash /mnt/installer/install.sh -i <HyperBDR EIP>
-```
-
-#### 通过内部VPN访问HyperBDR平台
-
-- 执行命令  
-
-```sh
-bash /mnt/installer/install.sh
-```
-::: warning
-默认情况下，安装脚本使用第一个网络接口卡的地址作为平台服务地址。 
-:::
-
-如果安装成功，您将看到提示的登录信息。  
-
-```
-[2023-03-30 23:08:36] [INFO] --------------------------------------------------
-[2023-03-30 23:08:36] [INFO] Congratulations! The installation of HyperBDR is complete.
-[2023-03-30 23:08:36] [INFO]
-[2023-03-30 23:08:36] [INFO] DR        : https://192.168.12.81:10443
-[2023-03-30 23:08:36] [INFO] Migration : https://192.168.12.81:20443
-[2023-03-30 23:08:36] [INFO] Admin     : https://192.168.12.81:30443
-[2023-03-30 23:08:36] [INFO]
-[2023-03-30 23:08:36] [INFO] The default username and password : admin / P@ssw0rd
-[2023-03-30 23:08:36] [INFO]
-[2023-03-30 23:08:36] [INFO] If you have any questions or need assistance, please refer
-[2023-03-30 23:08:36] [INFO] to the user manual or contact our support team.
-[2023-03-30 23:08:36] [INFO]
-[2023-03-30 23:08:36] [INFO] Enjoy using our product!
-[2023-03-30 23:08:36] [INFO] --------------------------------------------------
-```
-访问HyperBDR控制台URL：https://\<HyperBDR IP\>:10443
 
 ## 申请HyperBDR授权
 
@@ -147,7 +28,7 @@ bash /mnt/installer/install.sh
 请确保申请表上提供的电子邮件地址是正确的，否则将无法收到激活码。  
 :::
 
-#### II. 通过使用激活码激活授权
+#### II. 通过使用注册码激活授权
 
 ![hyperbdr-license-activation-guide-3.png](./images/hyperbdr-license-activation-guide-3.png) 
 
@@ -156,7 +37,7 @@ bash /mnt/installer/install.sh
 填写激活码并点击[激活]按钮。
 
 ::: tip
-用户可以将注册码发送给OnePro Cloud销售代表或者 _[enquiry@oneprocloud.com](mailto:enquiry@oneprocloud.com)_._
+用户可以将注册码发送给OnePro Cloud销售代表或者 [enquiry@oneprocloud.com](mailto:enquiry@oneprocloud.com)邮箱来申请授权.
 :::
 
 ## 在HyperBDR中验证代理注册
