@@ -12,6 +12,22 @@ Click to [Microsoft Entra ID] → [App registrations], click the [New registrati
 
 ![azure-target-pre-settings-2.png](./images/azure-target-pre-settings-2.png)
 
+## Add APl Permissions
+
+Add APl permissions to your App in subscription.
+
+![azure-target-pre-settings-32.png](./images/azure-target-pre-settings-32.png)
+
+![azure-target-pre-settings-33.png](./images/azure-target-pre-settings-33.png)
+
+![azure-target-pre-settings-34.png](./images/azure-target-pre-settings-34.png)
+
+![azure-target-pre-settings-35.png](./images/azure-target-pre-settings-35.png)
+
+![azure-target-pre-settings-36.png](./images/azure-target-pre-settings-36.png)
+
+![azure-target-pre-settings-37.png](./images/azure-target-pre-settings-37.png)
+
 ## Create New client secret
 
 ::: tip
