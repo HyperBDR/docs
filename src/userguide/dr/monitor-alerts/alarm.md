@@ -9,7 +9,7 @@ To ensure system security, stability, and visibility of key events, the platform
 Go to:
 **Monitor & Alerts → Alarm → Resource Alert → Create Alert**
 
-On the creation page, configure the required parameters as needed and save to complete the alert setup.
+After navigating to the creation page, configure the required parameters based on your needs, then save to complete the setup of **DR** and **Failback** alerts.
 
 ![](./images/alarm-resourcealert-1.png)
 
@@ -31,15 +31,16 @@ On the creation page, configure the required parameters as needed and save to co
 | Notification      |                    | Who to notify when the alert is triggered (user or group).                                      |
 | Description       |                    | Optional. Record the purpose or notes for the alert for easier management.                       |
 
-- 监控资源类型说明
+- Resource Monitoring Types
 
-| **资源类型**  | **报警条目**          | **说明**                                |
-| ------------- | --------------------- | --------------------------------------- |
-| 源端同步代理  | CPU、内存、磁盘、进程 | 监控源端同步代理资源使用情况及进程状态  |
-| 云同步网关    | CPU、内存、磁盘、进程 | 监控云同步网关资源使用情况及进程状态    |
-| Linux Agent   | CPU、内存、磁盘、进程 | 监控Linux Agent资源使用情况及进程状态   |
-| Windows Agent | CPU、内存、磁盘、进程 | 监控Windows Agent资源使用情况及进程状态 |
-| 对象存储资源  | 对象存储容量          | 监控存储容量的使用情况                  |
+| **Resource Type** | **Alarm Items**           | **Description**                                       |
+|-------------------|---------------------------|-------------------------------------------------------|
+| Sync Proxy | CPU, RAM, Disk, Process | Monitors resource usage and process status of source sync proxy |
+| Cloud Sync Gateway | CPU, RAM, Disk, Process | Monitors resource usage and process status of cloud sync gateway |
+| Linux Agent       | CPU, RAM, Disk, Process | Monitors resource usage and process status of Linux Agent |
+| Windows Agent     | CPU, RAM, Disk, Process | Monitors resource usage and process status of Windows Agent |
+| Object Storage Resources   | Object Storage Capacity    | Monitors usage of storage capacity                   |
+
 
 ![](./images/alarm-resourcealert-2.png)
 
@@ -47,12 +48,38 @@ On the creation page, configure the required parameters as needed and save to co
 
 ![](./images/alarm-resourcealert-3.png)
 
+### **Action**
+
+#### **Edit**
+
+* Click [Edit] to go to the edit page, where you can update the alert configuration.
+
+![](./images/alarm-resourcealert-4.png)
+
+#### **Enable**
+
+* Enabled alerts cannot be edited. To change the configuration, please disable the alert first.
+
+![](./images/alarm-resourcealert-5.png)
+
+#### **Disable**
+
+* Disabled alerts cannot be edited. To change the configuration, please enable the alert first.
+
+![](./images/alarm-resourcealert-6.png)
+
+#### **Remove**
+
+* Click [Remove] to trigger a confirmation. After confirming, the system will delete the alert.
+
+![](./images/alarm-resourcealert-7.png)
+
 ## Event Alert
 
 Go to:
 **Monitor & Alerts → Alarm → Event Alert → Create Alert**
 
-On the creation page, configure the required parameters as needed and save to complete the alert setup.
+After navigating to the creation page, configure the required parameters based on your needs, then save to complete the setup of **DR** and **Failback** alerts.
 
 ![](./images/alarm-eventalert-1.png)
 
@@ -92,3 +119,28 @@ On the creation page, configure the required parameters as needed and save to co
 
 ![](./images/alarm-eventalert-3.png)
 
+### **Action**
+
+#### **Edit**
+
+* Click [Edit] to go to the edit page, where you can update the alert configuration.
+
+![](./images/alarm-eventalert-4.png)
+
+#### **Enable**
+
+* Enabled alerts cannot be edited. To change the configuration, please disable the alert first.
+
+![](./images/alarm-eventalert-5.png)
+
+#### **Disable**
+
+* Disabled alerts cannot be edited. To change the configuration, please enable the alert first.
+
+![](./images/alarm-eventalert-6.png)
+
+#### **Remove**
+
+* Click [Remove] to trigger a confirmation. After confirming, the system will delete the alert.
+
+![](./images/alarm-eventalert-7.png)
