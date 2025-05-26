@@ -50,7 +50,7 @@ After confirming the time range, the system will automatically start collecting 
 
 #### **Download Logs**
 
-After log collection is complete, the status will update to **"Downloadable"**. Users can click "View List" to see the log files and select files to download.
+After log collection is complete, the status will update to **"Available"**. Users can click "Click for list" to see the log files and select files to download.
 
 ![](./images/downloadlogs-dr-5.png)
 
@@ -101,7 +101,7 @@ After confirming the time range, the system will automatically start collecting 
 
 #### **Download Logs**
 
-After log collection is complete, the status will update to **"Downloadable"**. Users can click "View List" to see the log files and select files to download.
+After log collection is complete, the status will update to **"Available"**. Users can click "Click for list" to see the log files and select files to download.
 
 ![](./images/downloadlogs-failback-5.png)
 
