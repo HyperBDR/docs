@@ -365,6 +365,43 @@ export const enSidebar = sidebar({
           ]
         },
       ],
+      collapsible: true,
+      expanded: true, 
+    },
+    {
+      text: "Cloud & Storage Guide",
+      icon: "book",
+      prefix: "",
+      children: [
+        {
+          text: "OBS Setup",
+          icon: "book",
+          prefix: "obs-configuration/",
+          children: [
+            "others",
+            "alibaba",
+            "huaweicloud"
+          ],
+        },
+        {
+          text: "DR Site Setup(Block Storage)",
+          icon: "book",
+          prefix: "dr-site-configuration-block/",
+          children: [
+            "alibaba",
+          ],
+        },
+        {
+          text: "DR Site Setup(Object Storage)",
+          icon: "book",
+          prefix: "dr-site-configuration-obs/",
+          children: [
+            "alibaba",
+          ],
+        },
+      ],
+      collapsible: true,
+      expanded: true,
     },
   ],
   '/userguide/faq/': [
