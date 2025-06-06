@@ -295,6 +295,7 @@ export const enSidebar = sidebar({
           icon: "dashboard",
           prefix: "dashboard/",
           children: [
+            "dashboard.md",
             "profile.md",
             "logout.md",
             "language-switch.md",
@@ -364,6 +365,43 @@ export const enSidebar = sidebar({
           ]
         },
       ],
+      collapsible: true,
+      expanded: true, 
+    },
+    {
+      text: "Cloud & Storage Guide",
+      icon: "book",
+      prefix: "",
+      children: [
+        {
+          text: "OBS Setup",
+          icon: "gear",
+          prefix: "obs-configuration/",
+          children: [
+            "others",
+            "alibaba",
+            "huaweicloud"
+          ],
+        },
+        {
+          text: "DR Site Setup(Block Storage)",
+          icon: "gear",
+          prefix: "dr-site-configuration-block/",
+          children: [
+            "alibaba",
+          ],
+        },
+        {
+          text: "DR Site Setup(Object Storage)",
+          icon: "gear",
+          prefix: "dr-site-configuration-obs/",
+          children: [
+            "alibaba",
+          ],
+        },
+      ],
+      collapsible: true,
+      expanded: true,
     },
   ],
   '/userguide/faq/': [

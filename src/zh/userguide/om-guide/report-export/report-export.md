@@ -24,4 +24,3 @@
 
     ![](./images/reportexport-reportexportoperationexample-4.png)
 
-    *
