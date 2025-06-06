@@ -388,6 +388,7 @@ export const zhSidebar = sidebar({
           icon: "gear",
           prefix: "dr-site-configuration-block/",
           children: [
+            "aws",
             "alibaba",
           ],
         },
