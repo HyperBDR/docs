@@ -365,6 +365,43 @@ export const zhSidebar = sidebar({
           ]
         },
       ],
+            collapsible: true,
+      expanded: true, 
+    },
+    {
+      text: "云存储配置指南",
+      icon: "book",
+      prefix: "",
+      children: [
+        {
+          text: "对象存储",
+          icon: "book",
+          prefix: "obs-configuration/",
+          children: [
+            "others",
+            "alibaba",
+            "huaweicloud"
+          ],
+        },
+        {
+          text: "容灾恢复平台配置(块存储)",
+          icon: "book",
+          prefix: "dr-site-configuration-block/",
+          children: [
+            "alibaba",
+          ],
+        },
+        {
+          text: "容灾恢复平台配置(对象存储)",
+          icon: "book",
+          prefix: "dr-site-configuration-obs/",
+          children: [
+            "alibaba",
+          ],
+        },
+      ],
+      collapsible: true,
+      expanded: true,
     },
   ],
   '/zh/userguide/faq/': [
