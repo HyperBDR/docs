@@ -375,7 +375,7 @@ export const enSidebar = sidebar({
       children: [
         {
           text: "OBS Setup",
-          icon: "book",
+          icon: "gear",
           prefix: "obs-configuration/",
           children: [
             "others",
@@ -385,7 +385,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "DR Site Setup(Block Storage)",
-          icon: "book",
+          icon: "gear",
           prefix: "dr-site-configuration-block/",
           children: [
             "alibaba",
@@ -393,7 +393,7 @@ export const enSidebar = sidebar({
         },
         {
           text: "DR Site Setup(Object Storage)",
-          icon: "book",
+          icon: "gear",
           prefix: "dr-site-configuration-obs/",
           children: [
             "alibaba",

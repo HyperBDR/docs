@@ -369,13 +369,13 @@ export const zhSidebar = sidebar({
       expanded: true, 
     },
     {
-      text: "云存储配置指南",
+      text: "恢复平台及存储配置指南",
       icon: "book",
       prefix: "",
       children: [
         {
           text: "对象存储",
-          icon: "book",
+          icon: "gear",
           prefix: "obs-configuration/",
           children: [
             "others",
@@ -384,16 +384,16 @@ export const zhSidebar = sidebar({
           ],
         },
         {
-          text: "容灾恢复平台配置(块存储)",
-          icon: "book",
+          text: "容灾恢复平台(块存储)",
+          icon: "gear",
           prefix: "dr-site-configuration-block/",
           children: [
             "alibaba",
           ],
         },
         {
-          text: "容灾恢复平台配置(对象存储)",
-          icon: "book",
+          text: "容灾恢复平台(对象存储)",
+          icon: "gear",
           prefix: "dr-site-configuration-obs/",
           children: [
             "alibaba",

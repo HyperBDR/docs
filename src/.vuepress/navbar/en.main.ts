@@ -49,11 +49,11 @@ export const enNavbar = navbar([
             icon: "warning",
             link: "/userguide/dr-usage-guide/",
           },
-          // {
-          //   text: "HyperBDR Manual",
-          //   icon: "shield",
-          //   link: "/userguide/dr/",
-          // },
+          {
+            text: "HyperBDR Manual",
+            icon: "shield",
+            link: "/userguide/dr/",
+          },
         ],
       },
       {
