@@ -49,11 +49,11 @@ export const zhNavbar = navbar([
             icon: "warning",
             link: "/zh/userguide/dr-usage-guide/",
           },
-          // {
-          //   text: "HyperBDR 使用手册",
-          //   icon: "shield",
-          //   link: "/zh/userguide/dr/",
-          // },
+          {
+            text: "HyperBDR 使用手册",
+            icon: "shield",
+            link: "/zh/userguide/dr/",
+          },
         ],
       },
       {
