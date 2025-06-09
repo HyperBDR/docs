@@ -397,6 +397,7 @@ export const enSidebar = sidebar({
           icon: "gear",
           prefix: "dr-site-configuration-obs/",
           children: [
+            "aws",
             "alibaba",
           ],
         },
