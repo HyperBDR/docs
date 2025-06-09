@@ -19,5 +19,5 @@ tar zxvf <更新包>.tar.gz -C /更新包解压后路径
 * 执行升级命令，系统将自动加载更新内容至运行目录 `/opt/installer/production/venvs`：
 
 ```plain&#x20;text
-hmctl upgrade <更新包解压路径>
+hmctl upgrade /<更新包解压路径>/installer/venvs
 ```
