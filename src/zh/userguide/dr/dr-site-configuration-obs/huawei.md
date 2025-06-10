@@ -60,6 +60,9 @@
 | Windows过渡主机镜像 (UEFI转BIOS) | Windows Server-2019-English-Full-Base-2025.05.15   | 该镜像主要的作用为：<br>1. 用于将 Windows UEFI 启动方式转换为 BIOS 启动方式。<br>2. 用于在启动过程中进行驱动适配。<br>3. 用于启动过程中制作符合云平台需求的磁盘类型。<br><br>若从公共、私有和共享镜像库中没找到该版本，可通过如下方式解决：<br>1. 上传到私有镜像库：将镜像文件上传到对象存储，再将该文件从对象存储中导入到私有镜像库中。<br>2. 获得共享镜像：如果在同一个地域的其它账户里有上述的 Windows 版本，可让其共享给您使用。 |
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7014f4a (Tencent Cloud Storage Configuration Manual Update)
 其他设置完成后，点击 **“完成”** ，系统将开始自动创建过渡主机镜像
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addobjectstorage-4.png)
@@ -69,8 +72,11 @@
 创建过程中，点击“点击查看详细”可查看任务创建过程中产生的详细日志，便于快速掌握执行状态以及故障排除。
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addobjectstorage-5.png)
+<<<<<<< HEAD
 =======
 >>>>>>> 3f7947e (Huawei Cloud Storage Configuration Manual Update)
+=======
+>>>>>>> 7014f4a (Tencent Cloud Storage Configuration Manual Update)
 
 ## **更多操作**
 
