@@ -6,7 +6,7 @@ export default defineClientConfig({
     if (typeof window !== 'undefined') {
       // 插入 Dify 脚本
       const script = document.createElement('script')
-      script.src = 'http://ai.oneprocloud.com/embed.min.js'
+      script.src = 'https://ai.oneprocloud.com/embed.min.js'
       script.defer = true
       script.id = 'qWGp3yX8ain2550b'
       document.body.appendChild(script)
@@ -14,7 +14,7 @@ export default defineClientConfig({
       // 设置全局配置变量
       window.difyChatbotConfig = {
         token: 'qWGp3yX8ain2550b',
-        baseUrl: 'http://ai.oneprocloud.com',
+        baseUrl: 'https://ai.oneprocloud.com',
         systemVariables: {
           // user_id: 'YOUR_USER_ID',
           // conversation_id: 'YOUR_CONVERSATION_ID',
