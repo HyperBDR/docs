@@ -106,7 +106,10 @@
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addblockstorage-6.png)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3f7947e (Huawei Cloud Storage Configuration Manual Update)
 ## **更多操作**
 
 ### **修改**
@@ -139,4 +142,9 @@
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-7.png)
 
+<<<<<<< HEAD
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-8.png)
+=======
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-8.png)
+
+>>>>>>> 3f7947e (Huawei Cloud Storage Configuration Manual Update)
