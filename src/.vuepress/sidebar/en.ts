@@ -390,6 +390,7 @@ export const enSidebar = sidebar({
           children: [
             "aws",
             "huawei",
+            "tengxun",
             "alibaba",
           ],
         },
@@ -400,6 +401,7 @@ export const enSidebar = sidebar({
           children: [
             "aws",
             "huawei",
+            "tengxun",
             "alibaba",
           ],
         },
