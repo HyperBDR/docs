@@ -10,7 +10,7 @@ Select "Huawei Cloud(Recommended, SDK v3.1.86)" from the block storage platform 
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addblockstorage-1.png)
 
-* Auth Info Description
+* **Auth Info Description**
 
 | **Field**              | **Example**                            | **Description**                                                                                                                           |
 |------------------------|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|

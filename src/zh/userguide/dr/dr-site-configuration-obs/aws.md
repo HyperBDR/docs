@@ -68,7 +68,7 @@
 
 创建过程中，点击“点击查看详细”可查看任务创建过程中产生的详细日志，便于快速掌握执行状态以及故障排除。
 
-![](./images/awschina_sdkv1_34_93-addto-4.png)
+![](./images/awschina_sdkv1_34_93-addto-5.png)
 
 ## **更多操作**
 
