@@ -1,39 +1,39 @@
-# **AWS China (SDK v1.34.93)**
+# **Huawei Cloud (Recommended, SDK v3.1.86)**
 
 ## **Add Object Storage**
 
-From the top navigation bar, select **"Configuration" → "DR Site Configuration" → "Object Storage Mode"** to enter the object storage page. Click the "Add" button to configure a new object storage.
+From the top navigation bar, select **"Configuration" → "DR Site Configuration" → "Object Storage"** to enter the object storage page. Click the "Add" button to add a new object storage configuration.
 
 ### **Authentication Information**
 
-In the recovery platform dropdown, select "AWS China (SDK v1.34.93)". Fill in the following authentication information according to your actual access situation:
+In the recovery platform dropdown, select "Huawei Cloud (Recommended, SDK v3.1.86)". Fill in the following authentication information based on your actual situation:
 
-![](./images/awschina_sdkv1_34_93-addto-1.png)
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addobjectstorage-1.png)
 
-* Authentication Information Description
+* **Authentication Information Description**
 
-| **Item**                | **Example**                           | **Description**                                                                                                                                                                               |
-|-------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Select Recovery Platform| AWS China (SDK v1.34.93)              | Select AWS China (SDK v1.34.93) from the dropdown list.                                                                                                |
-| Access Key ID           | AKIA5SII3Q•••••••••••••••             | The key ID for accessing AWS API with full account permissions.<br>How to get: Log in to the AWS console → hover over the top-right [Username] → click [My Credentials] → select [Users].      |
-| Access Key Secret       | ••••••••••••••••••••••••••••••••      | The secret key for accessing AWS API with full account permissions.<br>How to get: same as above. It is recommended to hide the value when entering.                                          |
-| Region                  | Automatic / Custom                     | If set to automatic, click "Retrieve" to get the latest region information. You can also select the AWS region manually from the dropdown list.                                               |
+| **Item**                | **Example**                          | **Description**                                                                                                      |
+|-------------------------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| Select Recovery Platform| Huawei Cloud (Recommended, SDK v3.1.86) | Select Huawei Cloud (Recommended, SDK v3.1.86) from the dropdown list.                                               |
+| Access Key ID           | AKIA5SII3Q•••••••••••••••            | The key for accessing Huawei Cloud API with full account permissions.<br>How to get: Log in to the management console, hover over the top-right [Username] → click [My Credentials] → select [Access Key]. |
+| Access Key Secret       | ••••••••••••••••••••••••••••••••     | The secret key for accessing Huawei Cloud API with full account permissions.<br>How to get: same as above.           |
+| Project Name            | cn-east-5                            | The project name for accessing Huawei Cloud API.<br>How to get: Log in to the management console, hover over the top-right [Username] → click [My Credentials] → [API Credentials] → [Project Name]. |
 
 After filling in the authentication information, click **"Next"** to proceed to **"Target Configuration"**.
 
 ### **Target Configuration**
 
-![](./images/awschina_sdkv1_34_93-addto-2.png)
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addobjectstorage-2.png)
 
 * **Target Configuration Description**
 
 | **Item**                        | **Example**                             | **Description**                                                                                                                                                                                                                                                           |
 |----------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Region                           | AWS China (Beijing)[cn-north-1]         | Selected based on authentication information and cannot be changed.<br>For public cloud, it is recommended to select the same region as the object storage to avoid extra traffic charges.                                          |
+| Region                           | CN North-Beijing4                       | Selected based on authentication information and cannot be changed.<br>For public cloud, it is recommended to select the same region as the object storage to avoid extra traffic charges.                                          |
 | Create Transition Host Image     | Automatic / Custom                      | If set to automatic, the system will create the transition host image as required. If set to custom, you need to select zone, system type, and other settings. See the custom creation instructions below.                         |
 | Console to Transition Host Network | Private Network / Public Network       | Used for communication between the console and the transition host.<br>Private cloud: select private network if direct communication is possible.<br>Public cloud: select public network if there is no dedicated line.             |
 | Transition Host to Console Network | Default / Custom                       | Mainly used for real-time notifications such as recovery progress between the transition host and the console.<br>If the console is deployed in the cloud, it is recommended to use the internal network.                         |
-| Advanced Setting                 | Name: AWS China (SDK v1.34.93)-cn-north-1 | If you do not enter an ID, the system will generate one automatically.                                                                                                                      |
+| Advanced Setting                 | Name: Huawei Cloud (Recommended, SDK v3.1.86)-cn-north-4 | If you do not enter an ID, the system will generate one automatically.                                                                                                                      |
 
 * **Custom Transition Host Creation Instructions**
 
@@ -49,7 +49,7 @@ After filling in the authentication information, click **"Next"** to proceed to 
 
 ### **Other Settings**
 
-![](./images/awschina_sdkv1_34_93-addto-3.png)
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addobjectstorage-3.png)
 
 * **Other Settings Description**
 
@@ -59,13 +59,13 @@ After filling in the authentication information, click **"Next"** to proceed to 
 
 After completing the other settings, click **"Submit"**. The system will automatically create the transition host image.
 
-![](./images/awschina_sdkv1_34_93-addto-4.png)
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addobjectstorage-4.png)
 
 ### **View Details**
 
 During the creation process, click "Click for details" to view detailed logs, which helps you quickly understand the execution status and troubleshoot issues.
 
-![](./images/awschina_sdkv1_34_93-addto-5.png)
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addobjectstorage-5.png)
 
 ## **Action**
 
@@ -73,7 +73,7 @@ During the creation process, click "Click for details" to view detailed logs, wh
 
 Click "Modify" to edit authentication information, target configuration, and other settings.
 
-![](./images/awschina_sdkv1_34_93-moreoperations-1.png)
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-1.png)
 
 ### **Modify Image**
 
@@ -83,11 +83,11 @@ Click "Modify Image" to rebuild the transition host image.
 
 If you select automatic creation, the system will use the default settings. For custom creation, you need to select zone, system type, and other settings. See the custom creation instructions above.
 
-![](./images/awschina_sdkv1_34_93-moreoperations-2.png)
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-2.png)
 
 ### **Delete**
 
-![](./images/awschina_sdkv1_34_93-moreoperations-3.png)
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-3.png)
 
-![](./images/awschina_sdkv1_34_93-moreoperations-4.png)
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-4.png)
 

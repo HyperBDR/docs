@@ -87,7 +87,7 @@ Configure the key parameters required for starting the target during recovery or
 | **Windows Transition Host Image** | Windows Server-2019-English-Full-Base-2025.05.15 | Please select a 64-bit image of Windows Server 2019/2016.<br><br>**Main Functions:**<br>1. Convert Windows UEFI boot mode to BIOS boot mode.<br>2. Adapt drivers during boot.<br>3. Create disk types that meet cloud platform requirements.<br><br>If you cannot find this version in the public, private, or shared image repositories, you can:<br>1. **Upload to Private Image Repository**: Upload the image file to object storage, then import it into the private image repository.<br>2. **Obtain a Shared Image**: If another account in the same region has this Windows version, you can request them to share it with you. |
 | **Image Access Method**  | Default / Custom                                   | If you cannot inject username and password when creating an instance with this image, use the available username and password for the image. |
 
-After completing the target start settings, click **"Finish"**. The system will automatically create the Cloud Sync Gateway and transition host image.
+After completing the target start settings, click **"Complete"**. The system will automatically create the Cloud Sync Gateway and transition host image.
 
 ![](./images/awschina_sdkv1_34_93-addto-5.png)
 
