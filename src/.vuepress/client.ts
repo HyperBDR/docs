@@ -28,8 +28,8 @@ export default defineClientConfig({
           background-color: #1C64F2 !important;
         }
         #dify-chatbot-bubble-window {
-          width: 24rem !important;
-          height: 40rem !important;
+          width: 35rem !important;
+          height: 80rem !important;
         }
       `
       document.head.appendChild(style)
