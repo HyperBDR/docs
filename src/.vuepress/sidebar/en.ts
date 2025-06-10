@@ -389,6 +389,7 @@ export const enSidebar = sidebar({
           prefix: "dr-site-configuration-block/",
           children: [
             "aws",
+            "huawei",
             "alibaba",
           ],
         },
@@ -398,6 +399,7 @@ export const enSidebar = sidebar({
           prefix: "dr-site-configuration-obs/",
           children: [
             "aws",
+            "huawei",
             "alibaba",
           ],
         },
