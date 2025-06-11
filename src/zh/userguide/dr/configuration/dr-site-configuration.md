@@ -16,17 +16,17 @@
 
 | 云厂商名称                           | 配置说明 |
 | ------------------------------- | ---- |
-| 阿里云                             |      |
+| 阿里云                             |[点击查看](../dr-site-configuration-obs/alibaba.md)      |
 | 阿里云 专有云(wv3.16.x)               |      |
 | 阿里云 专有云(v3.18.x)                |      |
-| 华为云                             |      |
+| 华为云                             |[点击查看](../dr-site-configuration-obs/huawei.md)      |
 | 华为云 HCS Online(v23.3)           |      |
 | 火山引擎                            |      |
-| 腾讯云                             |      |
+| 腾讯云                             |[点击查看](../dr-site-configuration-obs/tengxun.md)      |
 | 天翼云合营云                          |      |
 | 移动云                             |      |
 | AWS(SDK v1.34.93)               |      |
-| AWS中国(SDK v1.34.93)             |      |
+| AWS中国(SDK v1.34.93)             |[点击查看](../dr-site-configuration-obs/aws.md)      |
 | GDS 万国数据本地云                     |      |
 | Open Telekom Cloud(SDK v3.1.86) |      |
 | OpenStack社区版本(Juno+)            |      |
