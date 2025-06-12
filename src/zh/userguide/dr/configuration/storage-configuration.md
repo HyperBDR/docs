@@ -96,10 +96,14 @@
 | FiXo Cloud BS                   |      |
 | Google Cloud(SDK v1.19.0)       |[点击查看](../dr-site-configuration-block/google.md)      |
 <<<<<<< HEAD
+<<<<<<< HEAD
 | Microsoft Azure(SDK v30.3)      |[点击查看](../dr-site-configuration-block/azure.md)      |
 =======
 | Microsoft Azure(SDK v30.3)      |      |
 >>>>>>> 454eacb (Google Cloud Storage Configuration Manual Update)
+=======
+| Microsoft Azure(SDK v30.3)      |[点击查看](../dr-site-configuration-block/azure.md)      |
+>>>>>>> d1e0c08 (Azure Storage Configuration Manual Update and Partial Link Update)
 | Open Telekom Cloud(SDK v3.1.86) |      |
 | OpenStack社区版本(uno+)             |      |
 | SMTX OS(v6.x.x)                 |      |
