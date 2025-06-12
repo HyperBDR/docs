@@ -89,7 +89,7 @@ You can click the "Configuration Guide" link next to each cloud platform in the 
 | Huawei Cloud Stack (HCS) (v8.2.x/v8.3.x)    |         |
 | Huawei Cloud (Recommended, SDK v3.1.86)     |[Click to View](../dr-site-configuration-block/huawei.md)         |
 | Jinshan Cloud                               |         |
-| Microsoft Azure (SDK v30.3)                 |         |
+| Microsoft Azure (SDK v30.3)                 |[Click to View](../dr-site-configuration-block/azure.md)         |
 | Open Telekom Cloud (SDK v3.1.86)            |         |
 | OpenStack Community (Uno+)                  |         |
 | Oracle Cloud (SDK v2.126.3)                 |         |

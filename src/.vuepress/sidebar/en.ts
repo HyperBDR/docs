@@ -393,6 +393,7 @@ export const enSidebar = sidebar({
             "tengxun",
             "alibaba",
             "google",
+            "azure",
           ],
         },
         {
