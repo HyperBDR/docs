@@ -75,26 +75,26 @@
 
 | 云厂商名称                           | 配置说明 |
 | ------------------------------- | ---- |
-| 阿里云                             |      |
+| 阿里云                             | [点击查看](../dr-site-configuration-block/alibaba.md)     |
 | 阿里云 专有云(v3.16.x)                |      |
 | 阿里云 专有云(v3.18.x)                |      |
 | 华为云 HCS Online(v23.3)           |      |
-| 华为云(推荐使用，SDK v3.1.86)           |      |
+| 华为云(推荐使用，SDK v3.1.86)           |[点击查看](../dr-site-configuration-block/huawei.md)      |
 | 华为云Stack(HCS)(v8.2.x/v8.3.x)    |      |
 | 甲骨文云(SDK v2.126.3)              |      |
 | 金山云                             |      |
 | 绿能云                             |      |
 | 青云                              |      |
-| 腾讯云                             |      |
+| 腾讯云                             |[点击查看](../dr-site-configuration-block/tengxun.md)      |
 | 腾讯云 TStack旗舰版                   |      |
 | 腾讯云 TStack企业版                   |      |
 | 天翼云4.0                          |      |
 | 移动和云                            |      |
 | 移动云                             |      |
 | AWS(SDK v1.34.93)               |      |
-| AWS中国(SDK v1.34.93)             |      |
+| AWS中国(SDK v1.34.93)             |[点击查看](../dr-site-configuration-block/aws.md)      |
 | FiXo Cloud BS                   |      |
-| Google Cloud(SDK v1.19.0)       |      |
+| Google Cloud(SDK v1.19.0)       |[点击查看](../dr-site-configuration-block/google.md)      |
 | Microsoft Azure(SDK v30.3)      |      |
 | Open Telekom Cloud(SDK v3.1.86) |      |
 | OpenStack社区版本(uno+)             |      |
