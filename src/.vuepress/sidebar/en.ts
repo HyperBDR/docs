@@ -374,16 +374,6 @@ export const enSidebar = sidebar({
       prefix: "",
       children: [
         {
-          text: "OBS Setup",
-          icon: "gear",
-          prefix: "obs-configuration/",
-          children: [
-            "others",
-            "alibaba",
-            "huaweicloud"
-          ],
-        },
-        {
           text: "DR Site Setup(Block Storage)",
           icon: "gear",
           prefix: "dr-site-configuration-block/",
@@ -405,7 +395,6 @@ export const enSidebar = sidebar({
             "huawei",
             "tengxun",
             "alibaba",
-            "google",
           ],
         },
       ],
