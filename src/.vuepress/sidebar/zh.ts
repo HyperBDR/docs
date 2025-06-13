@@ -395,7 +395,6 @@ export const zhSidebar = sidebar({
             "huawei",
             "tengxun",
             "alibaba",
-            "google",
           ],
         },
       ],

@@ -395,7 +395,6 @@ export const enSidebar = sidebar({
             "huawei",
             "tengxun",
             "alibaba",
-            "google",
           ],
         },
       ],
