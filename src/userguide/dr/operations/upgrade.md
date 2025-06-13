@@ -51,7 +51,7 @@ https://install.oneprocloud.com/get_hyperbdr_latest
 Use the following command to extract it to the specified directory:
 
 ```plain&#x20;text
-tar zxvf <更新包>.tar.gz -C /更新包解压后路径
+tar zxvf <update-package>.tar.gz -C /path/to/extract
 ```
 
 ### **Execute Upgrade**
@@ -59,7 +59,7 @@ tar zxvf <更新包>.tar.gz -C /更新包解压后路径
 Run the upgrade command, and the system will automatically load the update content to the running directory `/opt/installer/production/venvs`:
 
 ```plain&#x20;text
-/opt/installer/production/scripts/hmctl upgrade <更新包解压路径>
+/opt/installer/production/scripts/hmctl upgrade /<path-to-extracted-package>/installer/venvs
 ```
 
 ## **DR**

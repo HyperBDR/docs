@@ -19,5 +19,5 @@ tar zxvf <update-package>.tar.gz -C /path/to/extract
 * Run the upgrade command. The system will automatically load the update content into the running directory `/opt/installer/production/venvs`:
 
 ```plain
-hmctl upgrade <path-to-extracted-package>
+hmctl upgrade /<path-to-extracted-package>/installer/venvs
 ```
