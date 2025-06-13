@@ -97,7 +97,7 @@
 | Google Cloud(SDK v1.19.0)       |[点击查看](../dr-site-configuration-block/google.md)      |
 | Microsoft Azure(SDK v30.3)      |[点击查看](../dr-site-configuration-block/azure.md)      |
 | Open Telekom Cloud(SDK v3.1.86) |      |
-| OpenStack社区版本(uno+)             |      |
+| OpenStack社区版本(uno+)             |[点击查看](../dr-site-configuration-block/openstack.md)      |
 | SMTX OS(v6.x.x)                 |      |
 | TM CAE                          |      |
 | UCloudStack                     |      |
