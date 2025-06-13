@@ -10,5 +10,5 @@
 
 容灾目标配置云提供商参考：
 
-+ 对象存储模式
-+ 块存储模式
++ [对象存储模式](../configuration/storage-configuration.md#对象存储)
++ [块存储模式](../configuration/storage-configuration.md#块存储)

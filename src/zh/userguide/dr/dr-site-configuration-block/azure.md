@@ -8,6 +8,9 @@
 
 块存储平台通过下拉列表选择“Microsoft Azure(SDK v30.3)”，根据接入块存储的实际情况，填写以下平台鉴权信息：
 
+> 若您不确定相关信息如何获取，可点击下方“点击查看”了解详细操作说明。<br>
+> [👉 点击查看](../../poc/azure-target-pre-settings.html#obtain-the-required-authentication-information)
+
 ![](./images/microsoftazure_sdkv30_3-addblockstorage-1.png)
 
 * 鉴权信息说明
