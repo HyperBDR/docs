@@ -37,6 +37,7 @@ You can configure DR or failback strategies as needed to achieve end-to-end busi
 ## **Block Storage Mode**
 
 > Note: For all operations in [Block Storage Mode], go to [Storage Configuration] -> [Block Storage] -> [DR].
+> [👉Click to View](../configuration/storage-configuration.md#block-storage)
 
 ## **Generic Mode**
 
