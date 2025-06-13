@@ -374,16 +374,6 @@ export const zhSidebar = sidebar({
       prefix: "",
       children: [
         {
-          text: "对象存储",
-          icon: "gear",
-          prefix: "obs-configuration/",
-          children: [
-            "others",
-            "alibaba",
-            "huaweicloud"
-          ],
-        },
-        {
           text: "容灾恢复平台(块存储)",
           icon: "gear",
           prefix: "dr-site-configuration-block/",
@@ -405,7 +395,6 @@ export const zhSidebar = sidebar({
             "huawei",
             "tengxun",
             "alibaba",
-            "google",
           ],
         },
       ],
