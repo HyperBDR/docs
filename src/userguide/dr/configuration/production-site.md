@@ -92,8 +92,7 @@ Reference steps: Sync Proxy
 HyperBDR uses VMware's CBT (Change Block Tracking) technology to achieve incremental data synchronization. CBT tracks changed blocks on virtual disks, allowing only the changed data to be transferred during backup and replication.
 
 You need relevant VMware permissions to call the APIs. For details on permissions and account creation, refer to:
-
-<https://docs.oneprocloud.com/zh/userguide/poc/vmware-pre-settings.html#vmware%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E8%A6%81%E6%B1%82>
+[Click to View](../../poc/vmware-pre-settings.md#vmware-user-permission-requirements)
 
 After filling in the required authentication information, click the Confirm button to add.
 
@@ -127,7 +126,8 @@ Follow the guided steps below:
 
 You can manually create a VM using the Ubuntu 20.04 operating system. If using an OpenStack platform or other KVM-based virtualization platform, you can download and import a standard Ubuntu 20.04 QCOW2 image.
 
-Ubuntu 20.04 QCOW2 image download link: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
+> Ubuntu 20.04 QCOW2 image download link: 
+> [Click to Start Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
 
 Note: This Ubuntu 20.04 image does not have a default login password. The image includes the cloud-init service, so the cloud platform must support password injection via cloud-init. Otherwise, the image cannot be used.
 

@@ -8,6 +8,9 @@ From the top navigation bar, select **"Configuration" → "Storage Configuration
 
 Select "OpenStackCommunity(Juno+)" from the block storage platform dropdown list. Fill in the following platform authentication information according to your actual block storage environment:
 
+> If you're unsure how to obtain the relevant information, you can click 'Click to View' below for detailed instructions:<br>
+> [👉 Click to View](https://qa.oneprocloud.com/questions/D1n6)
+
 ![](./images/openstackcommunityversion_juno-addblockstorage-1.png)
 
 * Platform Account Description
