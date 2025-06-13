@@ -10,5 +10,5 @@ Please follow the prompts to enter authentication information to configure the d
 
 Reference for disaster recovery target configuration cloud providers:
 
-+ Object Storage Mode
-+ Block Storage Mode
++ [Object Storage Mode](../configuration/storage-configuration.md#object-storage)
++ [Block Storage Mode](../configuration/storage-configuration.md#block-storage)

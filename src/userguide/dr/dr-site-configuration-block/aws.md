@@ -8,6 +8,9 @@ From the top navigation bar, select **"Configuration" → "Storage Configuration
 
 Select "AWS China (SDK v1.34.93)" from the block storage platform dropdown list. Fill in the following authentication information according to your actual environment:
 
+> If you're unsure how to obtain the relevant information, you can click 'Click to View' below for detailed instructions:<br>
+> [👉 Click to View](../../poc/aws-target-pre-settings.html#create-aws-iam-account-for-dr-purpose)
+
 ![](./images/awschina_sdkv1_34_93-addto-1.png)
 
 * Auth Info Description

@@ -5,21 +5,23 @@ Defines the target storage for data during DR or backup. The system currently su
 
 ### **Supported Cloud Platforms**
 
-| Cloud Vendor         | Notes   |
-|----------------------|---------|
-| Other Platforms        |         |
-| Alibaba Cloud        |         |
-| AWS                  |         |
-| ctyun JC             |         |
-| ecloud               |         |
-| ecloud JC            |         |
-| GDS                  |         |
-| HCS Online           |         |
-| Huawei Cloud         |         |
-| Open Telekom Cloud (SDK v3.1.86) |   |
-| Tencent Cloud        |         |
-| TM CAE               |         |
-| Volcengine           |         |
+| Cloud Vendor         |
+|:----------------------:|
+| Other Platforms        |
+| Alibaba Cloud        |
+| AWS                  |
+| ctyun JC             |
+| ecloud               |
+| ecloud JC            |
+| GDS                  |
+| HCS Online           |
+| Huawei Cloud         |
+| Open Telekom Cloud (SDK v3.1.86) |
+| Tencent Cloud        |
+| TM CAE               |
+| Volcengine           |
+
+You can refer to the following 'Configuration Example' to complete the related setup. This article uses Huawei Cloud configuration as an example.
 
 ### **Configuration Example**
 

@@ -8,6 +8,9 @@ From the top navigation bar, select **"Configuration" → "Storage Configuration
 
 Select "Huawei Cloud(Recommended, SDK v3.1.86)" from the block storage platform dropdown list. Fill in the following authentication information according to your actual environment:
 
+> If you're unsure how to obtain the relevant information, you can click 'Click to View' below for detailed instructions:<br>
+> [👉 Click to View](https://qa.oneprocloud.com/questions/D1W2)
+
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addblockstorage-1.png)
 
 * **Auth Info Description**
