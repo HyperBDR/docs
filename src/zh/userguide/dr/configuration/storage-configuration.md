@@ -105,7 +105,7 @@
 | Microsoft Azure(SDK v30.3)      |[点击查看](../dr-site-configuration-block/azure.md)      |
 >>>>>>> d1e0c08 (Azure Storage Configuration Manual Update and Partial Link Update)
 | Open Telekom Cloud(SDK v3.1.86) |      |
-| OpenStack社区版本(uno+)             |      |
+| OpenStack社区版本(uno+)             |[点击查看](../dr-site-configuration-block/openstack.md)      |
 | SMTX OS(v6.x.x)                 |      |
 | TM CAE                          |      |
 | UCloudStack                     |      |

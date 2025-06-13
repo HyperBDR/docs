@@ -91,7 +91,7 @@ You can click the "Configuration Guide" link next to each cloud platform in the 
 | Jinshan Cloud                               |         |
 | Microsoft Azure (SDK v30.3)                 |[Click to View](../dr-site-configuration-block/azure.md)         |
 | Open Telekom Cloud (SDK v3.1.86)            |         |
-| OpenStack Community (Uno+)                  |         |
+| OpenStack Community (Uno+)                  |[Click to View](../dr-site-configuration-block/openstack.md)         |
 | Oracle Cloud (SDK v2.126.3)                 |         |
 | QingCloud                                   |         |
 | SMTX OS (v6.x.x)                            |         |
