@@ -47,9 +47,9 @@ TODO：
 
 * [添加AWS生产站点](../configuration/production-site.md#添加aws平台)
 
-* [添加FusionCompute生产站点]
+* [添加FusionCompute生产站点](../configuration/production-site.md#添加fusioncompute平台)
 
-* [添加Oracle生产站点]
+* [添加Oracle生产站点](../configuration/production-site.md#添加oracle平台)
 
 如果您的源端为**代理模式**或者您已经完成了**生产站点配置**请忽略此步骤。
 
@@ -115,11 +115,11 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 | 生产平台      | 基础条件                                              | 指导文档                                                                                                                   |
 | :----------: | :--------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
-| VMware       | 完成Sync Proxy同步代理的部署安装，完成源端VMware生产平台的添加        | [添加VMware平台](../configuration/production-site.md#添加vmware平台)           |
+| VMware       | 完成Sync Proxy同步代理的部署安装，完成源端VMware生产平台的添加        | [添加VMware生产平台](../configuration/production-site.md#添加vmware平台)           |
 | OpenStack    | 完成Sync Proxy同步代理的部署安装，完成源端OpenStack Ceph生产平台的添加 | [添加OpenStack生产平台](../configuration/production-site.md#添加openstack平台) |
 | AWS          | 完成Sync Proxy同步代理的部署安装，完成源端AWS生产平台的添加           | [添加AWS生产平台](../configuration/production-site.md#添加aws平台)             |
-| FusionCompute| 完成Sync Proxy同步代理的部署安装，完成源端FusionCompute生产平台的添加 | 创建FusionCompute生产平台                                                                                                  |
-| Oracle       | 完成Sync Proxy同步代理的部署安装，完成源端Oracle生产平台的添加        | 创建Oracle生产平台                                                                                                         |
+| FusionCompute| 完成Sync Proxy同步代理的部署安装，完成源端FusionCompute生产平台的添加 | [添加FusionCompute生产平台](../configuration/production-site.md#添加fusioncompute平台)                                                                                                  |
+| Oracle       | 完成Sync Proxy同步代理的部署安装，完成源端Oracle生产平台的添加        | [添加Oracle生产平台](../configuration/production-site.md#添加oracle平台)                                                                                                         |
 
 #### **VMware**
 
@@ -193,13 +193,13 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 点击 **"选择主机"** 菜单， 点击 **"+ 添加主机"** 按钮来添加主机，选择生产平台类型，选&#x62E9;**"源端无代理模式"**，并选&#x62E9;**"FusionCompute"**&#x5E73;台，选择生产平台中，选择已经添加完成的AWS平台链接，并点&#x51FB;**"下一步"**&#x8FDB;行选择FusionCompute待容灾主机列表。
 
-如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：添加FusionCompute生产平台
+如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加FusionCompute生产平台](../configuration/production-site.md#添加fusioncompute平台)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-10.png)
 
 从当前FusionCompute平台中勾选需要容灾备份的虚拟机，可以翻页进行手动进行批量勾选，也可以使用搜索功能根据名称和系统类型进行搜索需要备份的主机。
 
-在选择备份主机时，可以参考选择主机磁盘数量变化及源端同步代理信息，目前源端同步代理数量、最大挂载磁盘数量、已挂载磁盘数量及剩余可挂载磁盘数量，可以根据信息来随时扩展[源端同步代理](https://hypermotion.yuque.com/fe338c/qzb4z6/hbgii4h7vi73hh3k#k0D0X)的规格及数量来支持大批量的备份。
+在选择备份主机时，可以参考选择主机磁盘数量变化及源端同步代理信息，目前源端同步代理数量、最大挂载磁盘数量、已挂载磁盘数量及剩余可挂载磁盘数量，可以根据信息来随时扩展源端同步代理的规格及数量来支持大批量的备份。
 
 可以从列表中看到所有虚拟机的清单、包含操作系统、磁盘数量、磁盘总容量、支持同步及支持增量等内容。
 
@@ -211,13 +211,13 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 点击 **"选择主机"** 菜单， 点击 **"添加主机"** 按钮来添加主机，选择生产平台类型，选&#x62E9;**"源端无代理模式"**，并选&#x62E9;**"Oracle"**&#x5E73;台，选择生产平台中，选择已经添加完成的AWS平台链接，并点&#x51FB;**"下一步"**&#x8FDB;行选择Oracle待容灾主机列表。
 
-如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：添加Oracle生产平台
+如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加Oracle生产平台](../configuration/production-site.md#添加oracle平台)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-11.png)
 
 从当前FusionCompute平台中勾选需要容灾备份的虚拟机，可以翻页进行手动进行批量勾选，也可以使用搜索功能根据名称和系统类型进行搜索需要备份的主机。
 
-在选择备份主机时，可以参考选择主机磁盘数量变化及源端同步代理信息，目前源端同步代理数量、最大挂载磁盘数量、已挂载磁盘数量及剩余可挂载磁盘数量，可以根据信息来随时扩展[源端同步代理](https://hypermotion.yuque.com/fe338c/qzb4z6/hbgii4h7vi73hh3k#k0D0X)的规格及数量来支持大批量的备份。
+在选择备份主机时，可以参考选择主机磁盘数量变化及源端同步代理信息，目前源端同步代理数量、最大挂载磁盘数量、已挂载磁盘数量及剩余可挂载磁盘数量，可以根据信息来随时扩展源端同步代理的规格及数量来支持大批量的备份。
 
 可以从列表中看到所有虚拟机的清单、包含操作系统、磁盘数量、磁盘总容量、支持同步及支持增量等内容。
 
@@ -350,9 +350,11 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 ##### **支持的存储类型**
 
-[点击查看块存储配置](../configuration/storage-configuration.md#块存储)
+在进行配置前，请先完成块存储配置。如尚未添加，请点击下方按钮进入块存储配置页面。
 
-存储平台选择配置完成后点&#x51FB;**“下一步”**，开始**指定云同步网关**。
+[👉点击查看块存储配置](../configuration/storage-configuration.md#块存储)
+
+完成块存储配置后可通过下拉列表选择对应块存储平台，存储平台选择配置完成后点&#x51FB;**“下一步”**，开始**指定云同步网关**。
 
 #### **指定云同步网关**
 
