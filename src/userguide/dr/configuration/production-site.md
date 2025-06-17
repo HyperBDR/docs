@@ -6,7 +6,7 @@ Currently, the source production platform supports two modes: **Agent** and **Ag
 
   * Agent mode is suitable for various source operating system scenarios, including physical machines, virtual machines, and cloud hosts.
 
-  * Agentless mode supports: VMware, OpenStack + Ceph, AWS EC2, FusionCompute, and Google Cloud.
+  * Agentless mode supports: VMware, OpenStack + Ceph, AWS EC2, FusionCompute, and Oracle Cloud.
 
 * Source operating system support matrix
 

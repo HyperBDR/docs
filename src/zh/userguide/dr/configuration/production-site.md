@@ -6,7 +6,7 @@
 
   * Agent模式适用于各种源端的操作系统场景，包含物理机、虚拟机、云主机等
 
-  * Agentless模式支持：VMware、OpenStack + Ceph、AWS EC2、FusionCompute及Google Cloud
+  * Agentless模式支持：VMware、OpenStack + Ceph、AWS EC2、FusionCompute及Oracle Cloud
 
 * 源端操作系统支持矩阵Matrix
 

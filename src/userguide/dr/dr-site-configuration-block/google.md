@@ -1,4 +1,4 @@
-# **Google cloud(sDK v1.19.0)**
+# **Google Cloud(sDK v1.19.0)**
 
 ## **Add Block Storage**
 
