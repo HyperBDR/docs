@@ -6,6 +6,8 @@
 
 This guide is designed for technical professionals who are familiar with user requirements, usage scenarios, and product limitations. It provides streamlined instructions for planning and deploying the product efficiently, suitable for both proof-of-concept and production environments.
 
+This document can also be used as training material for users who are new to the product.
+
 If you are already familiar with the product's scope and limitations, you can proceed directly to [Product Installation](#product-installation).
 
 ## Getting Started
@@ -14,7 +16,17 @@ If you are already familiar with the product's scope and limitations, you can pr
 
 HyperMotion & HyperBDR is designed for host-level migration and disaster recovery. It supports various environments including physical servers, virtual machines, public clouds, private clouds, and hyper-converged platforms, as long as you have operating system access.
 
-[Product Environment Compatibility Guide](../../product-overview/limitations/product-support-overview.md)
+#### 1.1 Production Site
+
+1. Agent-based: Mainly supports common Linux and Windows operating systems. For a detailed support list, please refer to: [Agent Operation System Support](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)
+
+2. Agentless: Mainly supports platforms such as VMware, OpenStack (Ceph), AWS, Oracle Cloud, and Huawei FusionCompute. For a detailed support list, please refer to: [Agentless Operation System Support](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=0MJNYC)
+
+For more detailed support and limitation information, please refer to: [Compatibility Overview](../../product-overview/limitations/product-support-overview.md)
+
+#### 1.2 Confirm RPO and RTO for Disaster Recovery Scenarios
+
+- [Product Environment Compatibility Guide](../../product-overview/limitations/product-support-overview.md)
 
 For disaster recovery scenarios, please verify that the product's RPO and RTO meet your requirements:
 
@@ -27,7 +39,12 @@ After confirming that the product meets your requirements, please review:
 - [(General)Host Assessment Guide](../../product-overview/presales/hyperbdr-agent-investigation.md)
 - [VMware Host Assessment](../../product-overview/presales/hyperbdr-vmware-investigation.md)
 
-### 3. Storage Type Selection
+### 3. Target Site Support
+
+- [Public Cloud Support Capabilities](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=o9tX6a)
+- [Private Cloud Support Capabilities](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=g5grTH)
+
+### 4. Storage Type Selection
 
 The product supports two storage types: block storage and object storage. Choose based on your specific use case:
 
@@ -38,7 +55,7 @@ The product supports two storage types: block storage and object storage. Choose
 | DR | Block Storage | Low RTO, leverages cloud platform capabilities |
 | DR | Object Storage | Cost-effective solution with acceptable RTO trade-offs |
 
-### 4. Network Planning
+### 5. Network Planning
 
 #### Network Communication Matrix
 
@@ -47,7 +64,7 @@ The product supports two storage types: block storage and object storage. Choose
 
 #### Network Planning Guide
 
-[Network Planning Recommendations](../../product-overview/presales/dr-network-planning-recommendations.md)
+- [Network Planning Recommendations](../../product-overview/presales/dr-network-planning-recommendations.md)
 
 ## Product Installation
 
