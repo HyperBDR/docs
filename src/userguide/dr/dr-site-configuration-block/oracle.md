@@ -1,4 +1,4 @@
-# **Oracle cloud(SDK v2.126.3)**
+# **Oracle Cloud(SDK v2.126.3)**
 
 ## Add Block Storage
 
