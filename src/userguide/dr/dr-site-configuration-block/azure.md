@@ -8,6 +8,9 @@ From the top navigation bar, select **"Configuration" → "Storage Configuration
 
 Select "Microsoft Azure(SDK v30.3)" from the block storage platform dropdown. Fill in the following authentication information according to your actual Azure environment:
 
+> If you're unsure how to obtain the relevant information, you can click 'Click to View' below for detailed instructions:<br>
+> [👉 Click to View](../../poc/azure-target-pre-settings.html#obtain-the-required-authentication-information)
+
 ![](./images/microsoftazure_sdkv30_3-addblockstorage-1.png)
 
 * Auth Info Description

@@ -6,21 +6,23 @@
 
 ### **支持的云平台列表**
 
-| 云厂商名称                           | 配置说明 |
-| ------------------------------- | ---- |
-| 其它平台                            |      |
-| 阿里云                             |      |
-| 华为云                             |      |
-| 火山引擎                            |      |
-| 腾讯云                             |      |
-| 天翼合营云                           |      |
-| 移动和云                            |      |
-| 移动云                             |      |
-| AWS                             |      |
-| GDS 万国数据本地云                     |      |
-| HCS Online                      |      |
-| Open Telekom Cloud(SDK v3.1.86) |      |
-| TM CAE                          |      |
+| 云厂商名称                           |
+| :-------------------------------: |
+| 其它平台                            |
+| 阿里云                             |
+| 华为云                             |
+| 火山引擎                            |
+| 腾讯云                             |
+| 天翼合营云                           |
+| 移动和云                            |
+| 移动云                             |
+| AWS                             |
+| GDS 万国数据本地云                     |
+| HCS Online                      |
+| Open Telekom Cloud(SDK v3.1.86) |
+| TM CAE                          |
+
+您可参考下列“配置示例”完成相关设置，本文以华为云配置为示例。
 
 ### **配置示例**
 
@@ -95,9 +97,17 @@
 | AWS中国(SDK v1.34.93)             |[点击查看](../dr-site-configuration-block/aws.md)      |
 | FiXo Cloud BS                   |      |
 | Google Cloud(SDK v1.19.0)       |[点击查看](../dr-site-configuration-block/google.md)      |
+<<<<<<< HEAD
+<<<<<<< HEAD
 | Microsoft Azure(SDK v30.3)      |[点击查看](../dr-site-configuration-block/azure.md)      |
+=======
+| Microsoft Azure(SDK v30.3)      |      |
+>>>>>>> 454eacb (Google Cloud Storage Configuration Manual Update)
+=======
+| Microsoft Azure(SDK v30.3)      |[点击查看](../dr-site-configuration-block/azure.md)      |
+>>>>>>> d1e0c08 (Azure Storage Configuration Manual Update and Partial Link Update)
 | Open Telekom Cloud(SDK v3.1.86) |      |
-| OpenStack社区版本(uno+)             |      |
+| OpenStack社区版本(uno+)             |[点击查看](../dr-site-configuration-block/openstack.md)      |
 | SMTX OS(v6.x.x)                 |      |
 | TM CAE                          |      |
 | UCloudStack                     |      |

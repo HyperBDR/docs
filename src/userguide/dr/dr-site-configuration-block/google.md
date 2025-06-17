@@ -1,4 +1,4 @@
-# **Google cloud(sDK v1.19.0)**
+# **Google Cloud(sDK v1.19.0)**
 
 ## **Add Block Storage**
 
@@ -7,6 +7,9 @@ From the top navigation bar, select **"Configuration" → "Storage Configuration
 ### **Auth Info**
 
 Select "Google cloud(sDK v1.19.0)" from the block storage platform dropdown list. Fill in the following authentication information according to your actual environment:
+
+> If you're unsure how to obtain the relevant information, you can click 'Click to View' below for detailed instructions:<br>
+> [👉 Click to View](../../faq/faq.html#_1-project-id)
 
 ![](./images/google-addblockstorage-1.png)
 

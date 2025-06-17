@@ -6,7 +6,7 @@ Currently, the source production platform supports two modes: **Agent** and **Ag
 
   * Agent mode is suitable for various source operating system scenarios, including physical machines, virtual machines, and cloud hosts.
 
-  * Agentless mode supports: VMware, OpenStack + Ceph, AWS EC2, FusionCompute, and Google Cloud.
+  * Agentless mode supports: VMware, OpenStack + Ceph, AWS EC2, FusionCompute, and Oracle Cloud.
 
 * Source operating system support matrix
 
@@ -92,8 +92,7 @@ Reference steps: Sync Proxy
 HyperBDR uses VMware's CBT (Change Block Tracking) technology to achieve incremental data synchronization. CBT tracks changed blocks on virtual disks, allowing only the changed data to be transferred during backup and replication.
 
 You need relevant VMware permissions to call the APIs. For details on permissions and account creation, refer to:
-
-<https://docs.oneprocloud.com/zh/userguide/poc/vmware-pre-settings.html#vmware%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E8%A6%81%E6%B1%82>
+[Click to View](../../poc/vmware-pre-settings.md#vmware-user-permission-requirements)
 
 After filling in the required authentication information, click the Confirm button to add.
 
@@ -127,7 +126,8 @@ Follow the guided steps below:
 
 You can manually create a VM using the Ubuntu 20.04 operating system. If using an OpenStack platform or other KVM-based virtualization platform, you can download and import a standard Ubuntu 20.04 QCOW2 image.
 
-Ubuntu 20.04 QCOW2 image download link: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
+> Ubuntu 20.04 QCOW2 image download link: 
+> [Click to Start Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
 
 Note: This Ubuntu 20.04 image does not have a default login password. The image includes the cloud-init service, so the cloud platform must support password injection via cloud-init. Otherwise, the image cannot be used.
 
@@ -293,6 +293,162 @@ Once the AWS production platform configuration is complete, wait for the platfor
 ![](./images/productionsiteconfiguration-aws-4.png)
 
 ---
+
+## **FusionCompute**
+
+The FusionCompute production platform page is mainly used for adding, deleting, updating, and other management operations for the FusionCompute platform.
+
+### **Add FusionCompute Platform**
+
+Click "Production Site" in the left navigation bar, select FusionCompute, and click the "Add" button. Follow the step-by-step guide in the pop-up window to add the platform.
+
+![](./images/productionsiteconfiguration-fusioncompute-1.png)
+
+#### **Deploy Sync Proxy**
+
+Follow the guided steps below:
+
+* Step 1: Download the source sync proxy OVA file.
+
+  * Click the download link on the page
+
+  * Internet OVA download link: [\[Click to Download\]](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova)
+
+* Step 2: Use the OVA file to deploy a virtual machine on the FusionCompute cluster and configure the IP address.
+
+> Supported FusionCompute cluster version: FusionCompute 8.6.0
+
+* Usage Notes
+
+| **Category**   | **Content**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Prerequisites    | 1. Install and start Tools: The VM must have Tools installed and running to create CBT snapshots.<br>2. Snapshot limit: Up to 32 snapshots are supported. No new snapshots can be created beyond this limit.<br>3. VM status: The VM must be in "Running," "Suspended," or "Stopped" state to create a snapshot.<br>4. VM backup requirement: The backup will fail if the VM is powered off during the process.                                                                                                                                                                                                                                                                              |
+| Limitations    | 1. Shared disks not supported for snapshots: VMs using shared disks cannot create snapshots.<br>2. Independent disks not supported for backup: Independent disks cannot be backed up.<br>3. CBT failure: After operations like VM HA, snapshot recovery, volume expansion, or compute node reboot, CBT will fail and a full backup is required.<br>4. Task exclusivity: Creating a backup snapshot must not overlap with actions like starting VMs, online disk binding, VM shutdown, disk expansion, or storage migration.<br>5. Unsupported snapshot scenarios: Backup cannot be performed on linked clone VMs, template VMs, during storage migration, or disk expansion.<br>6. Storage space requirement: Sufficient space must be available on the target storage for snapshot merging, supporting up to 8 volumes at once.<br>7. Storage I/O performance impact: Backup and recovery may affect storage I/O performance. It’s recommended to perform backups during off-peak hours.<br>8. Cross-storage backup and recovery not supported: Backup and recovery cannot be performed across different storage types (e.g., virtualization storage and FusionStorage).<br>9. Max 8 Socket connections per host: A maximum of 8 Socket backup connections are supported per host. |
+
+* Step 3: Install the source sync proxy. Log in to the newly created sync proxy VM. The default username and password are (root/Acb@132.Inst)
+
+* Step 4: Copy and execute the sync proxy installation command.
+
+* Network policy requirements:
+
+| **Source**     | **Target**           | **Port** | **Description**    |
+| -------------- | -------------------- | -------- | ----------------- |
+| Sync Proxy     | HyperBDR Console     | 10443    | Authentication port    |
+| Sync Proxy     | HyperBDR Console     | 30080    | Installation package download port |
+
+* Sync Proxy resource specifications:
+
+| **Parameter**      | **Specification** |
+| ------------------ | ----------------- |
+| OS Version         | Ubuntu 20.04      |
+| CPU                | 4C                |
+| Memory             | 8GB               |
+| System Disk        | 50GB              |
+
+![](./images/productionsiteconfiguration-fusioncompute-2.png)
+
+#### **Create FusionCompute Production Platform**
+
+1. Obtain authentication information
+
+| **Parameter**     | **Example**                             | **Description**                                                                   |
+| ----------------- | --------------------------------------- | --------------------------------------------------------------------------------- |
+| **Auth URL**      | https://\<FusionCompute/Host>:7443      | When adding a FusionCompute link, if the source uses domain management, obtain the domain and IP mapping in advance and add it to the platform for proper resolution. |
+| **Username**      | Username for FusionCompute host         | Username for connecting to FusionCompute.                                         |
+| **Password**      | Password for FusionCompute host         | Password for connecting to FusionCompute.                                         |
+| **Sync Proxy**    | Sync Proxy host IP                      | After installation, you can select from the dropdown, no need to manually add the IP. |
+
+* Network policy requirements
+
+| Source     | Target                 | Port  | Description                                                                                  |
+| ---------- | ---------------------- | ----- | -------------------------------------------------------------------------------------------- |
+| Sync Proxy | FusionCompute Manager   | 7443  | Authentication port                                                                          |
+| Sync Proxy | Virtualization Compute Nodes | 21064 | Data port<br>Used for backup data reading. Please ensure Sync Proxy can access port 21064 on all target hosts. |
+
+After filling in the required authentication information, click the Confirm button to add.
+
+![](./images/productionsiteconfiguration-fusioncompute-3.png)
+
+#### **Complete FusionCompute Addition**
+
+FusionCompute production platform configuration is complete. Wait until the platform status is normal and the number of cluster hosts is obtained before proceeding with subsequent steps.
+
+Note: You can repeat the above steps to add multiple FusionCompute clusters, or add a single FusionCompute host.
+
+![](./images/productionsiteconfiguration-fusioncompute-4.png)
+
+---
+
+## **Oracle**
+
+The Oracle production platform page is mainly used for adding, deleting, updating, and other management operations for the Oracle platform.
+
+### **Add Oracle Platform**
+
+Click "Production Site" in the left navigation bar, select Oracle, and click the "Add" button. Follow the step-by-step guide in the pop-up window to add the platform.
+
+![](./images/productionsiteconfiguration-oracle-1.png)
+
+#### **Deploy Sync Proxy**
+
+Follow the guided steps below:
+
+* Step 1: Create a cloud host
+
+You can use the native Ubuntu 20.04 OS image to create a new VM on the FusionCompute platform for deploying the sync proxy.
+
+* Step 2: Copy and execute the sync proxy installation command
+
+* Network policy requirements:
+
+| **Source**     | **Target**           | **Port** | **Description**    |
+| -------------- | -------------------- | -------- | ----------------- |
+| Sync Proxy     | HyperBDR Console     | 10443    | Authentication port    |
+| Sync Proxy     | HyperBDR Console     | 30080    | Installation package download port |
+
+* Sync Proxy resource specifications:
+
+| **Parameter**      | **Specification** |
+| ------------------ | ----------------- |
+| OS Version         | Ubuntu 20.04      |
+| CPU                | 4C                |
+| Memory             | 8GB               |
+| System Disk        | 50GB              |
+
+![](./images/productionsiteconfiguration-oracle-2.png)
+
+#### **Create Oracle Production Platform**
+
+1. Obtain authentication information
+
+| Parameter      | Example                                     | Description                                                                                                     |
+| -------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Tenancy OCID   | ocid1.tenancy.oc1..aaaaaaaaxxxx             | Log in to the management console → hover over [Profile] in the top right → click [My profile] → select [API keys] → select a key and [View configuration file] → Field [tenancy] in the config file. |
+| User OCID      | ocid1.user.oc1..aaaaaaabbbbb                | Log in to the management console → hover over [Profile] in the top right → click [My profile] → select [API keys] → select a key and [View configuration file] → Field [user] in the config file. |
+| Secret Key     | oci\_api\_key.pem                           | Log in to the management console → hover over [Profile] in the top right → click [My profile] → select [API keys] → key created or uploaded when [Add API Key]. |
+| Secret Key Fingerprint | 20:3b:97:13:55:1c:8c:xx:xx:xx:xx:xx:xx | Log in to the management console → hover over [Profile] in the top right → click [My profile] → select [API keys] → select a key and [View configuration file] → Field [fingerprint] in the config file. |
+| Region         | ap-singapore-1                              | Log in to the management console → hover over [Profile] in the top right → click [My profile] → select [API keys] → select a key and [View configuration file] → Field [region] in the config file. |
+| Sync Proxy     | 192.168.1.100                               | The host IP of the sync proxy installed.                                                                        |
+| Advanced Setting | If not filled, the system will auto-generate a default name | If you do not fill in the name, the system will automatically generate a default name for you.                  |
+
+* Network policy requirements
+
+| Source     | Target                 | Port | Description                                                                                  |
+| ---------- | ---------------------- | ---- | -------------------------------------------------------------------------------------------- |
+| Sync Proxy | FusionCompute Manager   | 443  | Authentication port                                                                          |
+| Sync Proxy | Virtualization Compute Nodes | 1522 | Data port<br>Used for backup data reading. Please ensure Sync Proxy can access port 21064 on all target hosts. |
+
+After filling in the required authentication information, click the Confirm button to add.
+
+![](./images/productionsiteconfiguration-oracle-3.png)
+
+#### **Complete Oracle Addition**
+
+Oracle production platform configuration is complete. Wait until the platform status is normal and the number of EC2 hosts is obtained before proceeding with subsequent steps.
+
+Note: You can repeat the above steps to add multiple Oracle regions.
+
+![](./images/productionsiteconfiguration-oracle-4.png)
 
 ## **Source Agent**
 

@@ -384,6 +384,8 @@ export const zhSidebar = sidebar({
             "alibaba",
             "google",
             "azure",
+            "openstack",
+            "oracle",
           ],
         },
         {

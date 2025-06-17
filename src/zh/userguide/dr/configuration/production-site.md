@@ -6,7 +6,7 @@
 
   * Agent模式适用于各种源端的操作系统场景，包含物理机、虚拟机、云主机等
 
-  * Agentless模式支持：VMware、OpenStack + Ceph、AWS EC2、FusionCompute及Google Cloud
+  * Agentless模式支持：VMware、OpenStack + Ceph、AWS EC2、FusionCompute及Oracle Cloud
 
 * 源端操作系统支持矩阵Matrix
 
@@ -93,8 +93,7 @@ Sync Proxy扩展可以在多台Sync Proxy节点重复执行此操作步骤来进
 HyperBDR利用VMware的CBT技术实现增量数据同步。CBT (Change Block Tracking)是VMware中用于增量备份和复制的一种技术。它跟踪虚拟磁盘上发生更改的块，在备份和复制过程中只允许传输与这些更改相关的数据。
 
 需要有VMware相关权限才可以进行接口的调用，关于权限及账号的创建请参考文档：
-
-<https://docs.oneprocloud.com/zh/userguide/poc/vmware-pre-settings.html#vmware%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E8%A6%81%E6%B1%82>
+[点击查看](../../poc/vmware-pre-settings.md#vmware用户权限要求)
 
 按照所需认证信息填写完成后，点击 确定 按钮进行添加。
 
@@ -128,9 +127,8 @@ VMware生产平台配置完成，等待平台状态为正常，且已经获取�
 
 可以自行进行Ubuntu 20.04操作系统的虚拟机创建，如果为OpenStack平台或者其他KVM虚拟化平台，可以下载标准的Ubuntu 20.04 QCOW镜像导入进行使用。
 
-```plaintext
-Ubuntu 20.04 QCOW2 image download link- Ubuntu 20.04 QCOW2镜像下载链接：[https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
-```
+> Ubuntu 20.04 QCOW2 image download link- Ubuntu 20.04 QCOW2镜像下载链接：
+> [点击开始下载](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
 
 注意：此Ubuntu20.04的镜像是没有默认登录密码的，镜像内部包含cloud-init服务，要求你导入的云平台必须可以支持通过cloud-init服务进行密码的注入，否则无法使用此镜像。
 
@@ -289,6 +287,164 @@ AWS生产平台配置完成，等待平台状态为正常，且已经获取到EC
 注意：重复以上步骤可以添加多个AWS 区域。
 
 ![](./images/productionsiteconfiguration-aws-4.png)
+
+---
+
+## **FusionCompute**
+
+生产平台FusionCompute平台页面主要对OpenStack平台进行添加、删除、更新等相关管理操作。
+
+### **添加FusionCompute平台**
+
+点击左侧导航栏"生产站点配置"，选择FusionCompute，点击 “添加” 按钮，在弹出的框中按照步骤引导来添加。
+
+![](./images/productionsiteconfiguration-fusioncompute-1.png)
+
+#### **部署同步代理**
+
+按照引导步骤进行如下操作：
+
+* 第一步：下载源端同步代理OVA文件。
+
+  * 点击页面的下载链接即可
+
+  * 互联网OVA下载链接：[\[点击下载\]](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova)
+
+* 第二步：用OVA文件在FusionCompute集群上，部署一台虚拟机，并配置IP地址。
+
+> FusionCompute集群兼容的系统的版本：FusionCompute 8.6.0
+
+* 使用条件说明
+
+| **类别** | **内容**                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 前提条件   | 1.安装并启动Tools：虚拟机需安装Tools并启动，这是创建CBT快照的必要条件。&#xA;<br>2.备份虚拟机快照数量限制：最多支持32个快照，超过此限制无法创建新快照。&#xA;<br>3.虚拟机状态要求：虚拟机必须处于“运行”、“休眠”或“停止”状态，才能创建快照。&#xA;<br>4.备份虚拟机时要求：备份过程中虚拟机关机会导致备份失败。                                                                                                                                                                                                                                                                                    |
+| 限制条件   | 1.共享磁盘不支持快照：虚拟机不能使用共享磁盘，使用共享磁盘时无法创建快照。&#xA;<br>2.独立磁盘不支持备份：独立磁盘无法进行备份。&#xA;<br>3.CBT失效情形：虚拟机HA、恢复快照、卷扩容、计算节点故障重启等操作后，CBT会失效，需要执行全量备份。&#xA;<br>4.任务互斥性：创建备份快照与启动虚拟机、在线绑定磁盘、关闭虚拟机、磁盘扩容、存储迁移等操作必须互斥。&#xA;<br>5.快照不支持的场景：链接克隆虚拟机、模板虚拟机、不支持快照的存储迁移、磁盘扩容等情况下无法备份。&#xA;<br>6.存储空间要求：备份时需在目的卷所在存储上预留空间进行快照合并，最多支持同时备份8个卷。&#xA;<br>7.存储IO性能影响：备份和恢复期间会影响存储IO性能，建议在业务空闲时段进行备份恢复。&#xA;<br>8.不支持跨存储类型备份恢复：无法跨不同存储类型（如虚拟化存储与FusionStorage）进行备份恢复。&#xA;<br>9.单主机最大支持8个Socket链接：每个主机最多同时支持8个Socket备份连接。 |
+
+* 第三步：安装源端同步代理，登录新创建的同步代理虚拟机，默认用户名密码（root/Acb@132.Inst）
+
+* 第四步：复制并执行安装同步代理指令。
+
+* 网络策略要求：
+
+| **源端**     | **目标**           | **访问端口** | **说明**    |
+| ---------- | ---------------- | -------- | --------- |
+| Sync Proxy | HyperBDR Console | 10443    | 认证通信端口    |
+| Sync Proxy | HyperBDR Console | 30080    | 安装包下载访问端口 |
+
+* Sync Proxy的资源规格：
+
+| **参数**      | **规格**       |
+| ----------- | ------------ |
+| OS Version  | Ubuntu 20.04 |
+| CPU         | 4C           |
+| Memory      | 8GB          |
+| System Disk | 50GB         |
+
+![](./images/productionsiteconfiguration-fusioncompute-2.png)
+
+#### **创建FusionCompute生产平台**
+
+1. 认证信息获取
+
+| **参数**     | **示例**                             | **说明**                                                                   |
+| ---------- | ---------------------------------- | ------------------------------------------------------------------------ |
+| **鉴权地址**   | https://\<FusionCompute/Host>:7443 | 添加 FusionCompute 链接地址时，如果源端使用了域名进行管理，则需提前获取域名与 IP 地址的对应关系，并将记录添加到平台以支持解析。 |
+| **用户名**    | 连接 FusionCompute 主机的用户名            | 用于连接 FusionCompute 的用户名。                                                 |
+| **密码**     | 连接 FusionCompute 主机的密码             | 用于连接 FusionCompute 的密码。                                                  |
+| **源端同步代理** | 同步代理主机 IP                          | 安装完成后可在下拉菜单中选择，无需手动添加 IP。                                                |
+
+* 网络策略要求
+
+| 源端         | 目标                 | 访问端口  | 说明                                                       |
+| ---------- | ------------------ | ----- | -------------------------------------------------------- |
+| Sync Proxy | FusionCompute 管理节点 | 7443  | 认证通信端口                                                   |
+| Sync Proxy | 虚拟化平台各计算节点         | 21064 |  数据通信端口<br>用于备份数据读取。请确保 Sync Proxy 能访问所有目标主机的 21064 端口。 |
+
+按照所需认证信息填写完成后，点击 确定 按钮进行添加。
+
+![](./images/productionsiteconfiguration-fusioncompute-3.png)
+
+#### **完成FusionCompute添加**
+
+FusionCompute生产平台配置完成，等待平台状态为正常，且已经获取到集群主机数量，即可进行后续其他步骤操作。
+
+注意：重复以上步骤可以添加多个FusionCompute集群，你也可以单独添加某一个FusionCompute主机。
+
+![](./images/productionsiteconfiguration-fusioncompute-4.png)
+
+---
+
+## **Oracle**
+
+生产平台Oracle平台页面主要对OpenStack平台进行添加、删除、更新等相关管理操作。
+
+### **添加Oracle平台**
+
+点击左侧导航栏"生产站点配置"，选择Oracle，点击 “添加” 按钮，在弹出的框中按照步骤引导来添加。
+
+![](./images/productionsiteconfiguration-oracle-1.png)
+
+#### **部署同步代理**
+
+按照引导步骤进行如下操作：
+
+* 第一步：创建云主机
+
+可以在 FusionCompute 平台上，使用原生 Ubuntu 20.04 操作系统镜像创建一台新的虚拟机用于部署同步代理。
+
+* 第二步：复制并执行安装同步代理指令
+
+* 网络策略要求：
+
+| **源端**     | **目标**           | **访问端口** | **说明**    |
+| ---------- | ---------------- | -------- | --------- |
+| Sync Proxy | HyperBDR Console | 10443    | 认证通信端口    |
+| Sync Proxy | HyperBDR Console | 30080    | 安装包下载访问端口 |
+
+* Sync Proxy的资源规格：
+
+| **参数**      | **规格**       |
+| ----------- | ------------ |
+| OS Version  | Ubuntu 20.04 |
+| CPU         | 4C           |
+| Memory      | 8GB          |
+| System Disk | 50GB         |
+
+![](./images/productionsiteconfiguration-oracle-2.png)
+
+#### **创建Oracle生产平台**
+
+1. 认证信息获取
+
+| 参数      | 示例                                     | 说明                                                                                                     |
+| ------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| 租户 OCID | ocid1.tenancy.oc1..aaaaaaaaxxxx        | 登录管理控制台 → 指向右上角【概要信息】→ 点击【我的概要信息】→ 选择【API 密钥】→ 在 API 密钥中选择一个密钥【查看配置文件】→ 对应配置中的【tenancy】。               |
+| 用户 OCID | ocid1.user.oc1..aaaaaaabbbbb           | 连接 Oracle 主机的用户名。登录管理控制台 → 指向右上角【概要信息】→ 点击【我的概要信息】→ 选择【API 密钥】→ 在 API 密钥中选择一个密钥【查看配置文件】→ 对应配置中的【user】。 |
+| 密钥      | oci\_api\_key.pem                      | 连接 Oracle 主机的私钥文件路径。登录管理控制台 → 指向右上角【概要信息】→ 点击【我的概要信息】→ 选择【API 密钥】→ 【添加 API 密钥】时创建或上传的密钥。               |
+| 密钥指纹    | 20:3b:97:13:55:1c:8c:xx:xx:xx:xx:xx:xx | 登录管理控制台 → 指向右上角【概要信息】→ 点击【我的概要信息】→ 选择【API 密钥】→ 在 API 密钥中选择一个密钥【查看配置文件】→ 对应配置中的【fingerprint】。           |
+| 区域      | ap-singapore-1                         | 登录管理控制台 → 指向右上角【概要信息】→ 点击【我的概要信息】→ 选择【API 密钥】→ 在 API 密钥中选择一个密钥【查看配置文件】→ 对应配置中的【region】。                |
+| 源端同步代理  | 192.168.1.100                          | 安装了源端同步代理的主机 IP 地址。                                                                                    |
+| 高级设置    | 不填写名称时系统自动生成默认名称                       | 如果不填写名称，系统将自动为您生成一个默认的名称。                                                                              |
+
+* 网络策略要求
+
+| 源端         | 目标                 | 访问端口 | 说明                                                       |
+| ---------- | ------------------ | ---- | -------------------------------------------------------- |
+| Sync Proxy | FusionCompute 管理节点 | 443  | 认证通信端口                                                   |
+| Sync Proxy | 虚拟化平台各计算节点         | 1522 |  数据通信端口<br>用于备份数据读取。请确保 Sync Proxy 能访问所有目标主机的 21064 端口。 |
+
+按照所需认证信息填写完成后，点击 确定 按钮进行添加。
+
+![](./images/productionsiteconfiguration-oracle-3.png)
+
+#### **完成Oracle添加**
+
+Oracle生产平台配置完成，等待平台状态为正常，且已经获取到EC2主机数量，即可进行后续其他步骤操作。
+
+注意：重复以上步骤可以添加多个Oracle 区域。
+
+![](./images/productionsiteconfiguration-oracle-4.png)
 
 ---
 

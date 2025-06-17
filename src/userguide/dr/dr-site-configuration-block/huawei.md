@@ -8,6 +8,9 @@ From the top navigation bar, select **"Configuration" → "Storage Configuration
 
 Select "Huawei Cloud(Recommended, SDK v3.1.86)" from the block storage platform dropdown list. Fill in the following authentication information according to your actual environment:
 
+> If you're unsure how to obtain the relevant information, you can click 'Click to View' below for detailed instructions:<br>
+> [👉 Click to View](https://qa.oneprocloud.com/questions/D1W2)
+
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addblockstorage-1.png)
 
 * **Auth Info Description**
@@ -105,6 +108,8 @@ Select the corresponding host and click ">Click for details" to view detailed lo
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addblockstorage-6.png)
 
+<!-- #region snippet -->
+
 ## **Action**
 
 ### **Modify**
@@ -139,3 +144,4 @@ Select the report type, collection range, time zone, and time range, then click 
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-8.png)
 
+<!-- #endregion snippet -->

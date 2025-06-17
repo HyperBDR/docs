@@ -5,21 +5,23 @@ Defines the target storage for data during DR or backup. The system currently su
 
 ### **Supported Cloud Platforms**
 
-| Cloud Vendor         | Notes   |
-|----------------------|---------|
-| Other Platforms        |         |
-| Alibaba Cloud        |         |
-| AWS                  |         |
-| ctyun JC             |         |
-| ecloud               |         |
-| ecloud JC            |         |
-| GDS                  |         |
-| HCS Online           |         |
-| Huawei Cloud         |         |
-| Open Telekom Cloud (SDK v3.1.86) |   |
-| Tencent Cloud        |         |
-| TM CAE               |         |
-| Volcengine           |         |
+| Cloud Vendor         |
+|:----------------------:|
+| Other Platforms        |
+| Alibaba Cloud        |
+| AWS                  |
+| ctyun JC             |
+| ecloud               |
+| ecloud JC            |
+| GDS                  |
+| HCS Online           |
+| Huawei Cloud         |
+| Open Telekom Cloud (SDK v3.1.86) |
+| Tencent Cloud        |
+| TM CAE               |
+| Volcengine           |
+
+You can refer to the following 'Configuration Example' to complete the related setup. This article uses Huawei Cloud configuration as an example.
 
 ### **Configuration Example**
 
@@ -91,7 +93,7 @@ You can click the "Configuration Guide" link next to each cloud platform in the 
 | Jinshan Cloud                               |         |
 | Microsoft Azure (SDK v30.3)                 |[Click to View](../dr-site-configuration-block/azure.md)         |
 | Open Telekom Cloud (SDK v3.1.86)            |         |
-| OpenStack Community (Uno+)                  |         |
+| OpenStack Community (Uno+)                  |[Click to View](../dr-site-configuration-block/openstack.md)         |
 | Oracle Cloud (SDK v2.126.3)                 |         |
 | QingCloud                                   |         |
 | SMTX OS (v6.x.x)                            |         |
