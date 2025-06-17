@@ -1,96 +1,96 @@
-# **OpenStack社区版本(Juno+)**
+# **OpenStack Community Edition (Juno+)**
 
-## **添加块存储**
+## **Add Block Storage**
 
-通过顶部导航栏依次选择 **“配置管理” → “存储配置” → “块存储”** 进入块存储页面，点击右上角 “添加” 按钮，可进行块存储的新增配置操作。
+From the top navigation bar, select **"Configuration Management" → "Storage Configuration" → "Block Storage"** to enter the block storage page. Click the "Add" button in the upper right corner to add a new block storage configuration.
 
-### **添加平台账号**
+### **Add Platform Account**
 
-块存储平台通过下拉列表选择“OpenStack社区版本(Juno+)”，根据接入块存储的实际情况，填写以下平台鉴权信息：
+Select "OpenStack Community Edition (Juno+)" from the block storage platform dropdown list. Fill in the following platform authentication information according to your actual block storage environment:
 
-> 若您不确定相关信息如何获取，可点击下方“点击查看”了解详细操作说明。<br>
-> [👉 点击查看](https://qa.oneprocloud.com/questions/D1n6)
+> If you are not sure how to obtain the relevant information, click "Click to View" below for detailed instructions.<br>
+> [👉 Click to View](https://qa.oneprocloud.com/questions/D1n6)
 
 ![](./images/openstackcommunityversion_juno-addblockstorage-1.png)
 
-* 添加平台账号说明
+* Platform Account Description
 
-| **配置项**     | **示例值**                       | **说明**                                                                                          |
-| ----------- | ----------------------------- | ----------------------------------------------------------------------------------------------- |
-| 块存储平台       | OpenStack社区版本(Juno+)          | 通过下拉列表找到并选择阿里云                                                                                  |
-| 鉴权地址        | http://192.168.10.201:5000/v3 | 登录平台，点击右上角用户名，然后点击 【OpenStack RC 文件】，在此文件中找到【OS\_AUTH\_URL】值，例如: http://192.168.10.201:5000/v3。 |
-| 用户Domain ID | default                       | 登录平台，点击右上角用户名，然后点击 【OpenStack RC 文件】，在此文件中找到【OS\_USER\_DOMAIN\_NAME】值，一般默认值为default。            |
-| 用户名         | zhangweizhen                  | 登录平台，右上角用户名。                                                                                    |
-| 密码          | \*\*\*\*\*\*\*\*\*\*\*\*      | 用户名的登录访问密码。                                                                                     |
-| 项目Domain ID | default                       | 登录平台，点击右上角用户名，然后点击 【OpenStack RC 文件】，在此文件中找到【OS\_PROJECT\_DOMAIN\_ID】值，一般默认值为default。           |
-| 项目名称        | zhangweizhen                  | 该项填写值一般与用户名填写值保持相同。                                                                             |
-| 域名          | RegionOne                     | 登录平台，点击右上角用户名，然后点击 【OpenStack RC 文件】，在此文件中找到【OS\_REGION\_NAME】值，一般默认值为RegionOne。                |
-| 驱动程序注入      | 是 / 否                         | 仅适用于在相同虚拟化平台上启动主机时，需要跳过驱动适配的情况。&#xA;（不推荐）跳过驱动适配可能导致主机无法正常启动，请慎重考虑使用该选项。                         |
+| **Configuration Item**     | **Example Value**                | **Description**                                                                                                 |
+|---------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------|
+| Block Storage Platform    | OpenStack Community Edition (Juno+)| Find and select Alibaba Cloud from the dropdown list.                                                           |
+| Auth URL                  | http://192.168.10.201:5000/v3    | Log in to the platform, click the username in the upper right corner, then click [OpenStack RC File]. In this file, find the value for [OS_AUTH_URL], for example: http://192.168.10.201:5000/v3. |
+| User Domain ID            | default                          | Log in to the platform, click the username in the upper right corner, then click [OpenStack RC File]. In this file, find the value for [OS_USER_DOMAIN_NAME], usually "default". |
+| Username                  | zhangweizhen                     | The username in the upper right corner after logging in.                                                        |
+| Password                  | **********                       | The login password for the username.                                                                            |
+| Project Domain ID         | default                          | Log in to the platform, click the username in the upper right corner, then click [OpenStack RC File]. In this file, find the value for [OS_PROJECT_DOMAIN_ID], usually "default". |
+| Project Name              | zhangweizhen                     | Usually the same as the username.                                                                               |
+| Region                    | RegionOne                        | Log in to the platform, click the username in the upper right corner, then click [OpenStack RC File]. In this file, find the value for [OS_REGION_NAME], usually "RegionOne". |
+| Driver Injection          | Yes / No                         | Only applicable when starting a host on the same virtualization platform and you need to skip driver adaptation. (Not recommended) Skipping driver adaptation may cause the host to fail to start properly. Please use this option with caution. |
 
-* 高级设置说明
+* Advanced Setting Description
 
-| **配置项**            | **示例值**                                        | **说明**                                            |
-| ------------------ | ---------------------------------------------- | ------------------------------------------------- |
-| 云同步网关镜像 SSH 通讯端口   | 22                                             | 该项是登录云同步网关镜像时的 SSH 通讯端口，默认留空时为SSH端口为`22`          |
-| 云同步网关镜像 SSH root密码 | 请输入信息                                          | 该项是登录云同步网关镜像时的 SSH root 密码，默认留空时密码为`Acb@132.Inst` |
-| 过渡主机镜像用户名          | 请输入信息                                          | 过渡主机镜像用户名，默认留空是用户名为`root`                         |
-| 过渡主机镜像密码           | 请输入信息                                          | 该项是过渡主机镜像启动时的密码，默认留空时密码为`Acb@132.Inst`            |
-| 过渡主机镜像通讯端口         | 10729                                          | 过渡主机镜像通讯端口，默认留空时通讯端口为`10729`                      |
-| 驱动适配网络方式           | 公网网络不使用代理内网网络不使用代理公网网络并通过云同步网关代理内网网络并通过云同步网关代理 | 该选项是驱动适配主机的网络连接方式                                 |
+| **Configuration Item**                  | **Example Value**           | **Description**                                                                                 |
+|-----------------------------------------|----------------------------|-------------------------------------------------------------------------------------------------|
+| Cloud Sync Gateway SSH Communication Port | 22                         | SSH port for logging into the cloud sync gateway image. Default is `22` if left blank.           |
+| Cloud Sync Gateway SSH root Password    | Please input your value     | SSH root password for logging into the cloud sync gateway image. Default is `Acb@132.Inst` if left blank. |
+| Transition Host Image Username          | Please input your value     | Username for the transition host image. Default is `root` if left blank.                        |
+| Transition Host Image Password          | Please input your value     | Password for the transition host image. Default is `Acb@132.Inst` if left blank.                |
+| Transition Host Image Port              | 10729                      | Communication port for the transition host image. Default is `10729` if left blank.             |
+| Driver Adaption Network Mode            | Public Network without Proxy / Private Network without Proxy / Public Network with Cloud Sync Gateway Proxy / Private Network with Cloud Sync Gateway Proxy | Network connection mode for driver adaptation host.                                              |
 
-鉴权信息填写完毕后，点&#x51FB;**"下一步"**&#x5F00;始进&#x884C;**"设置云同步网关"**
+After filling in the authentication information, click **"Next"** to start **"Set Up Cloud Sync Gateway"**
 
-### **设置云同步网关**
+### **Set Up Cloud Sync Gateway**
 
-为云同步网关配置区域，子网等，确保其在目标环境中稳定高效运行。
+Configure region, subnet, etc. for the cloud sync gateway to ensure stable and efficient operation in the target environment.
 
 ![](./images/openstackcommunityversion_juno-addblockstorage-2.png)
 
-* 设置云同步网关说明
+* Cloud Sync Gateway Configuration Description
 
-| **配置项**         | **示例值**                                                 | **说明**                                                                                                                                                                                                                                        |
-| --------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 项目              | zhangweizhen                                            |                                                                                                                                                                                                                                               |
-| 地域              | RegionOne                                               |                                                                                                                                                                                                                                               |
-| 计算可用区           | nova                                                    | 此字段为计算可用区，默认值为nova。具体以实际为准                                                                                                                                                                                                                    |
-| 镜像              | ubuntu-20.04-XXXXXXXXXXXXX                              | 创建云同步网关时，应选择列表中Linux操作系统。如果列表中没有镜像，请手动上传一个Ubuntu 20.04版本的镜像。&#xA;注：为了防止镜像命名不规范，此处列出了所有镜像信息，请务必选择要求的操作系统镜像。                                                                                                                                    |
-| 规格              | 2C\_4GB 50GB(2C4G)                                      | 云同步网关主要用于数据同步，建议选择至少包含 2 vCPU \| 4 GB 及以上的实例，并确保基准带宽高于1Gbps，以保证云同步网关在接收和管理数据同步时的同步效率和性能稳定                                                                                                                                                     |
-| 网络              | project-vpc (xxx.xxx.xxx.xxx/xx)                        | 通过下拉列表选择云同步网关所属的私有网络，仅显示同地区的网络配置，具体以实际为准                                                                                                                                                                                                      |
-| 子网              | project-subnet-public1-cn-north-1a (xxx.xxx.xxx.xxx/xx) | 请选择子网并确保服务端能够与该子网正常通讯，具体以实际为准                                                                                                                                                                                                                 |
-| 指定IP            | x.x.x.x                                                 | 云同步网关使用的IP地址，默认为自动分配。指定该IP地址时，请确认该IP地址没有被占用。                                                                                                                                                                                                  |
-| 系统卷类型           | DEFAULT VOLUME TYPE\_DEFAULT\_                          | 具体以实际为准                                                                                                                                                                                                                                       |
-| 系统卷大小           | 50                                                      | 根据同步网关工作负载选择合适大小，默认为50G，建议大小50G                                                                                                                                                                                                               |
-| 块存储可用区          | nova                                                    | 该项填写值一般与计算可用区选项值保持相同，默认值为nova。                                                                                                                                                                                                                |
-| 是否使用Floating IP | 不使用Floating IP自动创建Floating IP手动选择FloatingIP             | 根据实际情况是否选择启动，选择自动创建时会调用接口在选择的忘了区域内自动创建对应Floating IP，选择手动创建时根据下拉列表选择对应已创建的Floating IP地址即可                                                                                                                                                      |
-| Windows过渡主机镜像   | WINSRV\_2019\_xxxxxxxx                                  | 该镜像主要的作用为：&#xA;1、用于将Windows UEFI启动方式转换为BIOS启动方式。&#xA;2、用于在启动过程中进行驱动适配。&#xA;3、用于启动过程中制作符合云平台需求的磁盘类型。&#xA;若从公共、私有和共享镜像库中没找到该版本。可通过如下方式解决：&#xA;1、上传到私有镜像库：将镜像文件上传到对象存储，再将该文件从对象存储中导入到私有镜像库中。&#xA;2、获得共享镜像：如果在同一个地域的其它账户里有上述的Windows版本，可让其共享给您使用。 |
-| 引导类型            | 卷启动 / 镜像启动                                              | 推荐使用卷启动方式缩短启动时间，但是由于平台限制无法使用卷启动时，可以使用镜像启动方式。                                                                                                                                                                                                  |
+| **Configuration Item**         | **Example Value**                                         | **Description**                                                                                                                                                                                                                                 |
+|-------------------------------|----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Project                       | zhangweizhen                                             |                                                                 |
+| Region                        | RegionOne                                                |                                                                 |
+| Compute Zone                  | nova                                                     | This field is the compute availability zone, default is "nova". Please refer to the actual situation.                                         |
+| Image                         | ubuntu-20.04-XXXXXXXXXXXXX                               | When creating a cloud sync gateway, select a Linux OS image from the list. If not available, manually upload an Ubuntu 20.04 image. Note: To avoid irregular image naming, all images are listed here. Please select the required OS image. |
+| Flavor                        | 2C\_4GB 50GB(2C4G)                                       | The cloud sync gateway is mainly used for data synchronization. It is recommended to select an instance with at least 2 vCPU and 4 GB memory, and ensure the bandwidth is above 1Gbps for efficient and stable data synchronization. |
+| Network                       | project-vpc (xxx.xxx.xxx.xxx/xx)                         | Select the private network for the cloud sync gateway from the dropdown list. Only networks in the same region are displayed. Please refer to the actual situation. |
+| Subnet                        | project-subnet-public1-cn-north-1a (xxx.xxx.xxx.xxx/xx)  | Please select a subnet and ensure the server can communicate with it. Please refer to the actual situation.                                                       |
+| Fixed IP                      | x.x.x.x                                                  | The IP address used by the cloud sync gateway. Default is auto-assigned. If specifying, make sure the IP is not occupied.                                         |
+| System Disk Type              | DEFAULT VOLUME TYPE_DEFAULT_                             | Please refer to the actual situation.                                                                                                                             |
+| System Disk Size              | 50                                                       | Select an appropriate size based on the workload. Default is 50G, recommended is also 50G.                                 |
+| Block Store Zone              | nova                                                     | Usually the same as the compute availability zone. Default is "nova".                                                      |
+| Whether to use Floating IP    | Don't use Floating IP / Auto-create Floating IP / Manually select Floating IP | Choose whether to enable based on actual needs. Auto-create will call the API to create a Floating IP in the selected region. Manual selection allows you to choose an existing Floating IP from the dropdown list. |
+| Windows Transition Host Image | WINSRV\_2019\_xxxxxxxx                                  | **This image is mainly used for:** 1. Converting Windows UEFI boot to BIOS; 2. Driver adaptation during boot; 3. Creating disk types that meet cloud platform requirements. If not found in public, private, or shared image libraries, you can: 1. Upload to private image library: upload the image file to object storage, then import it to the private image library. 2. Obtain a shared image: If another account in the same region has this Windows version, you can ask them to share it with you. |
+| Boot Type                     | Boot From Volume / Boot From Image                        | It is recommended to use volume booting to shorten the startup time. If platform limitations prevent the use of volume booting, you can use image booting instead. |
 
-* 网络高级设置说明
+* Network Advanced Settings Description
 
-| **配置项**   | **示例值**         | **说明**                                                       |
-| --------- | --------------- | ------------------------------------------------------------ |
-| 云同步网关控制网络 | 内网 / 公网         | 设置控制台与云同步网关之间的控制指令下发网络，例如：在使用 VPN 或者专线时，应当选择内网。              |
-| 自定义控制网络   | 请输入IPv4/IPv6/域名 | 默认情况下无需配置。只有在按需连接时（例如：进行NAT地址转换时）才需要进行配置。支持输入IPv4、IPv6地址和域名。 |
-| 数据传输网络    | 内网 / 公网         | 设置源端与云同步网关之间进行数据传输的网络，例如：在使用 VPN 或者专线时，应当选择内网。               |
-| 自定义数据传输网络 | 请输入IPv4/IPv6/域名 | 默认情况下无需配置。只有在按需连接时（例如：进行NAT地址转换时）才需要进行配置。支持输入IPv4、IPv6地址和域名。 |
+| **Configuration Item**                | **Example Value**                    | **Description**                                                                                 |
+|---------------------------------------|--------------------------------------|-------------------------------------------------------------------------------------------------|
+| Cloud Sync Gateway Control Network    | Private Network / Public Network     | Setting for the communication network between the console and cloud sync gateway. For example, when using VPN or dedicated lines, the intranet should be selected. |
+| Custom Control Network                | Please input IPv4/IPv6/Domain Name  | By default, no configuration is required. Only configure when needed (e.g., NAT address translation). Supports IPv4, IPv6, and domain names. |
+| Data Transmission Network             | Private Network / Public Network     | Setting for the communication network between the source and the cloud sync gateway. For example, when using VPN or dedicated lines, the intranet should be selected. |
+| Custom Data Transmission Network      | Please input IPv4/IPv6/Domain Name  | By default, no configuration is required. Only configure when needed (e.g., NAT address translation). Supports IPv4, IPv6, and domain names. |
 
-* 数据传输高级设置说明
+* Data Transfer Advanced Setting Description
 
-| **配置项** | **可选值**                   | **说明**                                                                                 |
-| ------- | ------------------------- | -------------------------------------------------------------------------------------- |
-| 数据传输协议  | S3Block / iSCSI(即将退役，不推荐) | 该选项是源端与同步网关之间的数据传输协议。&#xA;S3Block 在广域网中应用广泛，更加适合数据传输。&#xA;iSCSI 协议用于存储网络，适用于网络环境稳定的场景。 |
+| **Configuration Item**      | **Optional Values**                | **Description**                                                                                  |
+|----------------------------|------------------------------------|--------------------------------------------------------------------------------------------------|
+| Data Transfer Protocol      | S3Block / iSCSI (To be deprecated, not recommended)  | The data transfer protocol between the source and the sync gateway. S3Block is widely used in WAN and is more suitable for data transfer. iSCSI is used for storage networks and is suitable for stable network environments. |
 
-设置云同步网关完成后，点&#x51FB;**“完成”**，系统将开始自动创建云同步网关及过渡主机镜像
+After configuring the cloud sync gateway, click **"Complete"**. The system will automatically create the cloud sync gateway and transition host image.
 
 ![](./images/openstackcommunityversion_juno-addblockstorage-3.png)
 
-### **查看详情**
+### **View Details**
 
-创建过程中，点击“点击查看列表”即可查看创建云同网关详细列表。
+During creation, click "View List" to see the detailed list of created cloud sync gateways.
 
 ![](./images/openstackcommunityversion_juno-addblockstorage-4.png)
 
-选择相应主机并点击“点击查看详情”，可查看任务创建过程中产生的详细日志，便于快速掌握执行状态以及故障排除。
+Select the corresponding host and click "View Details" to see detailed logs generated during the task creation process, which helps you quickly understand the execution status and troubleshoot issues.
 
 ![](./images/openstackcommunityversion_juno-addblockstorage-5.png)
 

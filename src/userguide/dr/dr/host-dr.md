@@ -44,8 +44,8 @@ This step is for agentless mode on the source production platform, including fiv
 * [Add VMware production site](../configuration/production-site.md#add-vmware-platform)
 * [Add OpenStack production site](../configuration/production-site.md#add-openstack-platform)
 * [Add AWS production site](../configuration/production-site.md#add-aws-platform)
-* [Add FusionCompute production site]
-* [Add Oracle production site]
+* [Add FusionCompute production site](../configuration/production-site.md#add-fusioncompute-platform)
+* [Add Oracle production site](../configuration/production-site.md#add-oracle-platform)   
 
 If your source is in **Agent** or you have already completed the **production site configuration**, please skip this step.
 
@@ -111,11 +111,11 @@ QCOW image download link: [Download Here](https://downloads.oneprocloud.com/docs
 
 | Production Platform | Prerequisites                                             | Documentation                                                                                                               |
 | :-----------------: | :-------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: |
-| VMware              | Complete the deployment and installation of the Sync Proxy agent, then add the source VMware production platform.         | [Add VMware Platform](../configuration/production-site.md#add-vmware-platform)         |
+| VMware              | Complete the deployment and installation of the Sync Proxy agent, then add the source VMware production platform.         | [Add VMware Production Platform](../configuration/production-site.md#add-vmware-platform)         |
 | OpenStack           | Complete the deployment and installation of the Sync Proxy agent, then add the source OpenStack Ceph production platform.  | [Add OpenStack Production Platform](../configuration/production-site.md#add-openstack-platform) |
 | AWS                 | Complete the deployment and installation of the Sync Proxy agent, then add the source AWS production platform.             | [Add AWS Production Platform](../configuration/production-site.md#add-aws-platform)   |
-| FusionCompute       | Complete the deployment and installation of the Sync Proxy agent, then add the source FusionCompute production platform.   | Create FusionCompute Production Platform                                                                                     |
-| Oracle              | Complete the deployment and installation of the Sync Proxy agent, then add the source Oracle production platform.          | Create Oracle Production Platform                                                                                            |
+| FusionCompute       | Complete the deployment and installation of the Sync Proxy agent, then add the source FusionCompute production platform.   | [Add FusionCompute Production Platform](../configuration/production-site.md#add-fusioncompute-platform)                                                                                   |
+| Oracle              | Complete the deployment and installation of the Sync Proxy agent, then add the source Oracle production platform.          | [Add Oracle Production Platform](../configuration/production-site.md#add-oracle-platform)                                                                                             |
 
 
 #### **VMware**
@@ -168,7 +168,7 @@ Once added, you can check the virtual machines to be backed up, then click the *
 
 Click the **"Select Host"** menu, then click the **"+ Add Host"** button to add a host. Choose the production platform type, select **"Agentless"**, and select the **"AWS"** platform. In the production platform section, choose the already added AWS platform link, then click **"Next"** to proceed to select the AWS hosts for disaster recovery.
 
-If you have not added a production platform yet, you can click the **"Add New"** button to add a new AWS production platform. Refer to the steps here: [Add AWS Production Platform](../configuration/production-site.md#添加aws平台)
+If you have not added a production platform yet, you can click the **"Add New"** button to add a new AWS production platform. Refer to the steps here: [Add AWS Production Platform](../configuration/production-site.md#add-aws-platform)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-7.png)
 
@@ -194,13 +194,13 @@ Click the **"Select Host"** menu, then click the **"+ Add Host"** button to add 
 Select the production platform type, choose **"Agentless"**, and select the **"FusionCompute"** platform.  
 In the production platform list, select the already added FusionCompute platform link, then click **"Next"** to proceed to the list of FusionCompute disaster recovery hosts.
 
-If you have not added a production platform, click the **"Add New"** button to add a new FusionCompute production platform. Refer to the guide: Add FusionCompute Production Platform
+If you have not added a production platform, click the **"Add New"** button to add a new FusionCompute production platform. Refer to the guide: [Add FusionCompute Production Platform](../configuration/production-site.md#add-fusioncompute-platform)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-10.png)
 
 Select the virtual machines to be backed up from the current FusionCompute platform. You can select them manually page by page or use the search function to find hosts by name or operating system.
 
-When selecting backup hosts, refer to the host disk count and source sync agent information. The current number of sync agents, maximum mountable disks, mounted disks, and remaining mountable disks are displayed. You can scale the specifications and quantity of [source sync agents](https://hypermotion.yuque.com/fe338c/qzb4z6/hbgii4h7vi73hh3k#k0D0X) anytime to support large-scale backups.
+When selecting backup hosts, refer to the host disk count and source sync agent information. The current number of sync agents, maximum mountable disks, mounted disks, and remaining mountable disks are displayed. You can scale the specifications and quantity of source sync agents anytime to support large-scale backups.
 
 The list shows all virtual machines including operating system, disk count, total disk capacity, and support for sync and incremental backup.
 
@@ -212,13 +212,13 @@ Click the **"Select Host"** menu, then click the **"Add Host"** button to add a 
 Select the production platform type, choose **"Agentless"**, and select the **"Oracle"** platform.  
 In the production platform list, select the already added Oracle platform link, then click **"Next"** to proceed to the Oracle disaster recovery host list.
 
-If you have not added a production platform, click the **"Add New"** button to add a new Oracle production platform. Refer to the guide: Add Oracle Production Platform
+If you have not added a production platform, click the **"Add New"** button to add a new Oracle production platform. Refer to the guide: [Add Oracle Production Platform](../configuration/production-site.md#add-oracle-platform)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-11.png)
 
 Select the virtual machines to be backed up from the current Oracle platform. You can select them manually page by page or use the search function to find hosts by name or operating system.
 
-When selecting backup hosts, refer to the host disk count and source sync agent information. The current number of sync agents, maximum mountable disks, mounted disks, and remaining mountable disks are displayed. You can scale the specifications and quantity of [source sync agents](https://hypermotion.yuque.com/fe338c/qzb4z6/hbgii4h7vi73hh3k#k0D0X) anytime to support large-scale backups.
+When selecting backup hosts, refer to the host disk count and source sync agent information. The current number of sync agents, maximum mountable disks, mounted disks, and remaining mountable disks are displayed. You can scale the specifications and quantity of source sync agents anytime to support large-scale backups.
 
 The list shows all virtual machines including operating system, disk count, total disk capacity, and support for sync and incremental backup.
 
@@ -354,9 +354,11 @@ Specify the backup host to use the "Block Storage" type for backup, and select t
 
 ##### **Supported Storage Types**
 
-[Click to View Block Storage Configuration](../configuration/storage-configuration.md#block-storage)
+Before proceeding with the configuration, please complete the block storage setup. If you haven't added it yet, click the button below to go to the block storage configuration page.
 
-After completing **Specify DR Platform**, click **"Next"** to start **Specify Cloud Sync Gateway**.
+[👉Click to View Block Storage Configuration](../configuration/storage-configuration.md#block-storage)
+
+After completing the block storage setup, you can select the corresponding block storage platform from the dropdown list,After completing **Specify DR Platform**, click **"Next"** to start **Specify Cloud Sync Gateway**.
 
 #### **Specify Cloud Sync Gateway**
 
