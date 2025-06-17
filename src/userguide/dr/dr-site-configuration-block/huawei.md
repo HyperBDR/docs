@@ -13,15 +13,7 @@ Select "Huawei Cloud(Recommended, SDK v3.1.86)" from the block storage platform 
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addblockstorage-1.png)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 * **Auth Info Description**
-=======
-* Auth Info Description
->>>>>>> 3f7947e (Huawei Cloud Storage Configuration Manual Update)
-=======
-* **Auth Info Description**
->>>>>>> 7014f4a (Tencent Cloud Storage Configuration Manual Update)
 
 | **Field**              | **Example**                            | **Description**                                                                                                                           |
 |------------------------|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
@@ -116,6 +108,8 @@ Select the corresponding host and click ">Click for details" to view detailed lo
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addblockstorage-6.png)
 
+<!-- #region snippet -->
+
 ## **Action**
 
 ### **Modify**
@@ -150,3 +144,4 @@ Select the report type, collection range, time zone, and time range, then click 
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-8.png)
 
+<!-- #endregion snippet -->

@@ -4,29 +4,13 @@
 
 通过顶部导航栏依次选择 **“配置管理” → “存储配置” → “块存储”** 进入块存储页面，点击右上角 “添加” 按钮，可进行块存储的新增配置操作。
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ### **添加平台账号**
-=======
-### **鉴权信息**
->>>>>>> 7014f4a (Tencent Cloud Storage Configuration Manual Update)
-=======
-### **添加平台账号**
->>>>>>> 3867485 (Alibaba Cloud Storage Configuration Manual Update)
 
 块存储平台通过下拉列表选择“腾讯云”，根据接入块存储的实际情况，填写以下平台鉴权信息：
 
 ![](./images/tencentcloud-addblockstorage-1.png)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 * **添加平台账号说明**
-=======
-* **鉴权信息说明**
->>>>>>> 7014f4a (Tencent Cloud Storage Configuration Manual Update)
-=======
-* **添加平台账号说明**
->>>>>>> 3867485 (Alibaba Cloud Storage Configuration Manual Update)
 
 | **配置项**           | **示例值**                          | **说明**                                                                  |
 | ----------------- | -------------------------------- | ----------------------------------------------------------------------- |
