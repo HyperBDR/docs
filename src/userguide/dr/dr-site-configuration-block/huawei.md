@@ -108,6 +108,8 @@ Select the corresponding host and click ">Click for details" to view detailed lo
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addblockstorage-6.png)
 
+<!-- #region snippet -->
+
 ## **Action**
 
 ### **Modify**
@@ -142,3 +144,4 @@ Select the report type, collection range, time zone, and time range, then click 
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-8.png)
 
+<!-- #endregion snippet -->

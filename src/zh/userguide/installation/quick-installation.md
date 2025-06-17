@@ -6,6 +6,8 @@
 
 本文档为快速指南，适用于对用户需求、使用场景及产品限制条件有较清晰了解的技术人员，用于高效完成产品的规划与部署。本指南适用于方案验证阶段及正式交付阶段。
 
+本文档也可用于初次接触产品的培训文档。
+
 如果您已经对产品适用范围有充分的了解，可以直接跳转到[产品安装](#产品安装)。
 
 ## 开始之前
@@ -14,20 +16,33 @@
 
 本产品适用于主机级别的整体迁移与容灾。无论您的生产环境运行于物理机、虚拟机、公有云、私有云或超融合平台，只要具备对操作系统的访问权限，均可使用本产品实现高效迁移与容灾保护。
 
-[产品生产环境及目标环境兼容性说明](../../product-overview/limitations/product-support-overview.md)
+#### 1.1 生产平台支持
+
+1. 代理方式（Agent）：主要支持常见的 Linux 和 Windows 操作系统。详细支持列表可参考下方链接: [Agent Operation System Support](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)
+
+2. 无代理方式（Agentless）：主要支持 VMware、OpenStack（Ceph）、AWS、Oracle Cloud、华为 FusionCompute 等平台。详细支持列表可参考下方链接: [Agentless Operation System Support](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=0MJNYC)
+
+更详细的支持和限制条件请参考：[兼容性概述](../../product-overview/limitations/product-support-overview.md)
+
+#### 1.2 容灾场景确认RPO和RTO
 
 如果是容灾场景，还需要明确产品的 RPO 和 RTO 是否满足用户需求
 
-[RPO & RTO 最佳实践](../../product-overview/presales/hyperbdr-rpo-rto-planning-best-practices.md)
+- [RPO & RTO 最佳实践](../../product-overview/presales/hyperbdr-rpo-rto-planning-best-practices.md)
 
 ### 2. 用户生产环境主机调研
 
-在确定本产品能够满足用户需求后，
+在确定本产品能够满足用户需求后，需要对操作系统、虚拟化平台、云平台等进行必要的调研，进一步确认本产品可以满足项目需求。
 
-[主机调研](../../product-overview/presales/hyperbdr-agent-investigation.md)
-[VMware 主机调研](../../product-overview/presales/hyperbdr-vmware-investigation.md)
+- [主机调研](../../product-overview/presales/hyperbdr-agent-investigation.md)
+- [VMware 主机调研](../../product-overview/presales/hyperbdr-vmware-investigation.md)
 
-### 3. 存储类型选择
+### 3. 目标平台支持
+
+- [公有云支持能力](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=o9tX6a)
+- [专有云/私有云支持能力](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=g5grTH)
+
+### 4. 存储类型选择
 
 目前产品支持两种存储方式：块存储和对象存储。用户可根据实际使用场景选择合适的存储类型。在确定存储类型后，即可进行相应的网络规划和适用场景的配置。
 
@@ -38,17 +53,17 @@
 | 容灾场景 | 块存储       | RTO 时间通常较短，依赖云平台能力，适用于对业务连续性要求较高的场景          |
 | 容灾场景 | 对象存储     | 适用于对容灾成本敏感的客户，可接受适度延长 RTO 以降低整体成本               |
 
-### 4. 网络规划
+### 5. 网络规划
 
 #### 产品网络矩阵
 
-[对象存储模式网络通讯矩阵](../../product-overview/presales/dr-network-planning-recommendations.md#开放端口列表)
+- [块存储模式网络通讯矩阵](../../product-overview/presales/dr-network-planning-recommendations.md#开放端口列表-1)
+- [对象存储模式网络通讯矩阵](../../product-overview/presales/dr-network-planning-recommendations.md#开放端口列表)
 
-[块存储模式网络通讯矩阵](../../product-overview/presales/dr-network-planning-recommendations.md#开放端口列表-1)
 
 #### 网络规划
 
-[产品网络规划](../../product-overview/presales/dr-network-planning-recommendations.md)
+- [产品网络规划](../../product-overview/presales/dr-network-planning-recommendations.md)
 
 ## 产品安装
 

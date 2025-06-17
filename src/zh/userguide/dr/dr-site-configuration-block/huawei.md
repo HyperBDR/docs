@@ -109,6 +109,7 @@
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addblockstorage-6.png)
 
+<!-- #region snippet -->
 
 ## **更多操作**
 
@@ -141,5 +142,6 @@
 ### **删除**
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-7.png)
-
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-8.png)
+
+<!-- #endregion snippet -->

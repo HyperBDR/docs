@@ -385,6 +385,7 @@ export const enSidebar = sidebar({
             "google",
             "azure",
             "openstack",
+            "oracle",
           ],
         },
         {
