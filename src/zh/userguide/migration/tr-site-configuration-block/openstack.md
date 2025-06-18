@@ -17,7 +17,7 @@
 
 | **配置项**     | **示例值**                       | **说明**                                                                                          |
 | ----------- | ----------------------------- | ----------------------------------------------------------------------------------------------- |
-| 块存储平台       | OpenStack社区版本(Juno+)          | 通过下拉列表找到并选择OpenStack社区版本(Juno+)                                                                                |
+| 块存储平台       | OpenStack社区版本(Juno+)          | 通过下拉列表找到并选择OpenStack社区版本(Juno+)                                                                                 |
 | 鉴权地址        | http://192.168.10.201:5000/v3 | 登录平台，点击右上角用户名，然后点击 【OpenStack RC 文件】，在此文件中找到【OS\_AUTH\_URL】值，例如: http://192.168.10.201:5000/v3。 |
 | 用户Domain ID | default                       | 登录平台，点击右上角用户名，然后点击 【OpenStack RC 文件】，在此文件中找到【OS\_USER\_DOMAIN\_NAME】值，一般默认值为default。            |
 | 用户名         | zhangweizhen                  | 登录平台，右上角用户名。                                                                                    |
@@ -82,16 +82,4 @@
 
 设置云同步网关完成后，点击**“完成”**，系统将开始自动创建云同步网关及过渡主机镜像
 
-![](./images/openstackcommunityversion_juno-addblockstorage-3.png)
-
-### **查看详情**
-
-创建过程中，点击“点击查看列表”即可查看创建云同网关详细列表。
-
-![](./images/openstackcommunityversion_juno-addblockstorage-4.png)
-
-选择相应主机并点击“点击查看详情”，可查看任务创建过程中产生的详细日志，便于快速掌握执行状态以及故障排除。
-
-![](./images/openstackcommunityversion_juno-addblockstorage-5.png)
-
-<!-- @include: ./huawei.md{110-150} -->
+<!-- @include: ./huawei.md#snippet -->
