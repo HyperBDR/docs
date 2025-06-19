@@ -47,6 +47,8 @@ After filling in the authentication information, click **"Next"** to proceed to 
 | Windows Transition Host Base Image| Windows Server-2019-English-Full-Base-2025.05.15    | Temporary image for data recovery and driver adaptation.<br>Recommended: Windows Server 2016 / 2019 64bit.|
 | System Disk Type                  | General Purpose SSD (gp3)                           | Select the disk type according to performance requirements.                                               |
 
+<!-- #region snippet -->
+
 ### **Other Settings**
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-addobjectstorage-3.png)
@@ -91,3 +93,4 @@ If you select automatic creation, the system will use the default settings. For 
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-4.png)
 
+<!-- #endregion snippet -->
