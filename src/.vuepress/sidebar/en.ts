@@ -293,6 +293,7 @@ export const enSidebar = sidebar({
             "azure",
             "openstack",
             "oracle",
+            "tengxun-tce",
           ],
         },
         {
@@ -304,6 +305,7 @@ export const enSidebar = sidebar({
             "huawei",
             "tengxun",
             "alibaba",
+            "tengxun-tce"
           ],
         },
       ],
@@ -421,6 +423,7 @@ export const enSidebar = sidebar({
             "azure",
             "openstack",
             "oracle",
+            "tengxun-tce",
           ],
         },
         {
@@ -432,6 +435,7 @@ export const enSidebar = sidebar({
             "huawei",
             "tengxun",
             "alibaba",
+            "tengxun-tce",
           ],
         },
       ],
