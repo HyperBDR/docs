@@ -48,6 +48,7 @@
 | Windows过渡主机基础镜像 | Windows Server-2019-English-Full-Base-2025.05.15       | 用于数据恢复和驱动适配的临时主机镜像。<br>推荐 Windows Server 2016 / 2019 64bit。              |
 | 系统卷类型             | 通用型 SSD (gp3)                                       | 根据性能需求选择云盘类型                                                                      |
 
+<!-- #region snippet -->
 
 ### **其他设置**
 
@@ -93,3 +94,4 @@
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-moreoperations-4.png)
 
+<!-- #endregion snippet -->
