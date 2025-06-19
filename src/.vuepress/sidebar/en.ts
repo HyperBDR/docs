@@ -275,6 +275,43 @@ export const enSidebar = sidebar({
         },
       ],
     },
+        {
+      text: "Migration Target Site Guide",
+      icon: "book",
+      prefix: "",
+      children: [
+        {
+          text: "Target Site Setup(Block Storage)",
+          icon: "gear",
+          prefix: "tr-site-configuration-block/",
+          children: [
+            "aws",
+            "huawei",
+            "tengxun",
+            "alibaba",
+            "google",
+            "azure",
+            "openstack",
+            "oracle",
+            "tengxun-tce",
+          ],
+        },
+        {
+          text: "Target Site Setup(Object Storage)",
+          icon: "gear",
+          prefix: "tr-site-configuration-obs/",
+          children: [
+            "aws",
+            "huawei",
+            "tengxun",
+            "alibaba",
+            "tengxun-tce"
+          ],
+        },
+      ],
+      collapsible: true,
+      expanded: true,
+    },
   ],
   '/userguide/dr/': [
     {
@@ -386,6 +423,7 @@ export const enSidebar = sidebar({
             "azure",
             "openstack",
             "oracle",
+            "tengxun-tce",
           ],
         },
         {
@@ -397,6 +435,7 @@ export const enSidebar = sidebar({
             "huawei",
             "tengxun",
             "alibaba",
+            "tengxun-tce",
           ],
         },
       ],

@@ -275,6 +275,43 @@ export const zhSidebar = sidebar({
         },
       ],
     },
+        {
+      text: "迁移目标配置指南",
+      icon: "book",
+      prefix: "",
+      children: [
+        {
+          text: "迁移目标平台(块存储)",
+          icon: "gear",
+          prefix: "tr-site-configuration-block/",
+          children: [
+            "aws",
+            "huawei",
+            "tengxun",
+            "alibaba",
+            "google",
+            "azure",
+            "openstack",
+            "oracle",
+            "tengxun-tce",
+          ],
+        },
+        {
+          text: "迁移目标平台(对象存储)",
+          icon: "gear",
+          prefix: "tr-site-configuration-obs/",
+          children: [
+            "aws",
+            "huawei",
+            "tengxun",
+            "alibaba",
+            "tengxun-tce"
+          ],
+        },
+      ],
+      collapsible: true,
+      expanded: true,
+    },
   ],
   '/zh/userguide/dr/': [
     {
@@ -386,6 +423,7 @@ export const zhSidebar = sidebar({
             "azure",
             "openstack",
             "oracle",
+            "tengxun-tce",
           ],
         },
         {
@@ -397,6 +435,7 @@ export const zhSidebar = sidebar({
             "huawei",
             "tengxun",
             "alibaba",
+            "tengxun-tce",
           ],
         },
       ],

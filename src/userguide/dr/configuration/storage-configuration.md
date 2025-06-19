@@ -98,6 +98,7 @@ You can click the "Configuration Guide" link next to each cloud platform in the 
 | QingCloud                                   |         |
 | SMTX OS (v6.x.x)                            |         |
 | Tencent Cloud                               |[Click to View](../dr-site-configuration-block/tengxun.md)         |
+| Tencent Cloud Enterprise                              |[Click to View](../dr-site-configuration-block/tengxun-tce.md)         |
 | Tencent Cloud TStack Enterprise             |         |
 | Tencent Cloud TStack Ultimate               |         |
 | TM CAE                                      |         |
