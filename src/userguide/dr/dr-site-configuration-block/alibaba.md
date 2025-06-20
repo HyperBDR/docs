@@ -45,7 +45,7 @@ For the Cloud Sync Gateway, configure the region, subnet, etc., to ensure stable
 |-----------------------|------------------------------|------------------------------------------------------------------------------------------------|
 | Data Transfer Protocol| S3Block / iSCSI (Not Recommended) | The protocol for data transfer between the source and the sync gateway.<br>S3Block is widely used for WAN and is more suitable for data transfer.<br>iSCSI is for storage networks and suitable for stable network environments. |
 
-After completing the cloud sync gateway setup, click **"Finish"**. The system will automatically create the cloud sync gateway and transition host image.
+After completing the cloud sync gateway setup, click **"Complete"**. The system will automatically create the cloud sync gateway and transition host image.
 
 ### **View Details**
 
