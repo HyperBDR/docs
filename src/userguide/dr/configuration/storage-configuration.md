@@ -94,7 +94,7 @@ You can click the "Configuration Guide" link next to each cloud platform in the 
 | Microsoft Azure (SDK v30.3)                 |[Click to View](../dr-site-configuration-block/azure.md)         |
 | Open Telekom Cloud (SDK v3.1.86)            |         |
 | OpenStack Community (Uno+)                  |[Click to View](../dr-site-configuration-block/openstack.md)         |
-| Oracle Cloud (SDK v2.126.3)                 |         |
+| Oracle Cloud (SDK v2.126.3)                 |[Click to View](../dr-site-configuration-block/oracle.md)         |
 | QingCloud                                   |         |
 | SMTX OS (v6.x.x)                            |         |
 | Tencent Cloud                               |[Click to View](../dr-site-configuration-block/tengxun.md)         |

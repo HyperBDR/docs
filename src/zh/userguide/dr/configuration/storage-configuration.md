@@ -83,7 +83,7 @@
 | 华为云 HCS Online(v23.3)           |      |
 | 华为云(推荐使用，SDK v3.1.86)           |[点击查看](../dr-site-configuration-block/huawei.md)      |
 | 华为云Stack(HCS)(v8.2.x/v8.3.x)    |      |
-| 甲骨文云(SDK v2.126.3)              |      |
+| 甲骨文云(SDK v2.126.3)              |[点击查看](../dr-site-configuration-block/oracle.md)      |
 | 金山云                             |      |
 | 绿能云                             |      |
 | 青云                              |      |
