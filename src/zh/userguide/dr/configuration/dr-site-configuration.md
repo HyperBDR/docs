@@ -23,6 +23,7 @@
 | 华为云 HCS Online(v23.3)           |      |
 | 火山引擎                            |      |
 | 腾讯云                             |[点击查看](../dr-site-configuration-obs/tengxun.md)      |
+| 腾讯云 专有云企业版                             |[点击查看](../dr-site-configuration-obs/tengxun-tce.md)      |
 | 天翼云合营云                          |      |
 | 移动云                             |      |
 | AWS(SDK v1.34.93)               |      |
