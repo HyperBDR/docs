@@ -294,6 +294,7 @@ export const zhSidebar = sidebar({
             "openstack",
             "oracle",
             "tengxun-tce",
+            "huawei-hcs",
           ],
         },
         {
@@ -424,6 +425,7 @@ export const zhSidebar = sidebar({
             "openstack",
             "oracle",
             "tengxun-tce",
+            "huawei-hcs",
           ],
         },
         {
