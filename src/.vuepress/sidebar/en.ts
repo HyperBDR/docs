@@ -606,6 +606,92 @@ export const enSidebar = sidebar({
       icon: "window-maximize",
       prefix: "",
       children: [
+        {
+          text: "Login",
+          icon: "sign-in-alt",
+          prefix: "login/",
+          children: [
+            "login.md",
+          ],
+        },
+        {
+          text: "Dashboard",
+          icon: "dashboard",
+          prefix: "dashboard/",
+          children: [
+            "language-switch.md",
+            "profile.md",
+            "logout.md",
+          ],
+        },
+        {
+          text: "User",
+          icon: "user",
+          prefix: "user/",
+          children: [
+            "tenant",
+            "user",
+            "ak-sk",
+            "sso-config",
+          ],
+        },
+        {
+          text: "License",
+          icon: "lock",
+          prefix: "license/",
+          children: [
+            "license-list",
+          ],
+        },
+        {
+          text: "Monitor and Alarm",
+          icon: "chart-line",
+          prefix: "monitor/",
+          children: [
+            "system-monitor",
+            "alarm",
+            "notification",
+            "alerts",
+          ],
+        },
+        {
+          text: "Operations",
+          icon: "tools",
+          prefix: "operations/",
+          children: [
+            "audit-logs",
+            "task-management",
+            "download-logs",
+          ],
+        },
+        {
+          text: "User Hosts",
+          icon: "computer",
+          prefix: "user-host/",
+          children: [
+            "dr",
+            "migration",
+          ],
+        },
+        {
+          text: "Notification",
+          icon: "bell",
+          prefix: "notification/",
+          children: [
+            "email",
+            "mfa",
+            "sms",
+            "webhook",
+          ],
+        },
+        {
+          text: "Versions",
+          icon: "history",
+          prefix: "versions/",
+          children: [
+            "modules",
+          ],
+        },
       ]
     },
   ],
