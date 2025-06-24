@@ -214,6 +214,7 @@ export const enSidebar = sidebar({
           icon: "dashboard",
           prefix: "dashboard/",
           children: [
+            "dashboard.md",
             "profile.md",
             "logout.md",
             "language-switch.md",
