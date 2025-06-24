@@ -1,0 +1,3 @@
+This user manual is designed to provide users with a comprehensive and detailed guide to the system, helping them quickly understand the operation flow and various functional modules. Whether you are a system administrator or an end user, this manual will provide clear and easy-to-follow steps to help you efficiently manage and use system resources.
+
+The manual is divided into several chapters, each dedicated to explaining a specific functional module of the system. Users can quickly find the relevant content via the left-hand menu based on their needs.
