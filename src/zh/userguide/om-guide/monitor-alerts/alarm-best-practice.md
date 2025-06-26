@@ -50,7 +50,7 @@
 
 ### 配置示例：同步数据失败-告警配置
 
-* 登录至控制台：IP:10443
+* 登录至控制台：IP:30443
 
   ![](./images/alarmconfigurationbestpractices-anincidentalarm-1.png)
 
