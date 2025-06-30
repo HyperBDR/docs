@@ -28,6 +28,7 @@ You can configure DR or failback strategies as needed to achieve end-to-end busi
 | Open Telekom Cloud(SDK v3.1.86)             |         |
 | OpenStack Community (Juno+)                 |         |
 | Tencent Cloud                               |[Click to View](../dr-site-configuration-obs/tengxun.md)         |
+| Tencent Cloud Enterprise                              |[Click to View](../dr-site-configuration-obs/tengxun-tce.md)         |
 | TM CAE                                      |         |
 | UCloud                                      |         |
 | VMware                                      |         |

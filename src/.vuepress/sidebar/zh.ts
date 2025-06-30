@@ -129,6 +129,7 @@ export const zhSidebar = sidebar({
         'limitations/vmware-agentless.md',
         'limitations/openstack-ceph-agentless.md',
         'limitations/huawei-fusioncompute-agentless.md',
+        'limitations/huawei-hcs-agentless.md',
         'limitations/driver-adaption.md',
       ],
     },
@@ -195,6 +196,43 @@ export const zhSidebar = sidebar({
       ],
     },
   ],
+    '/zh/userguide/saas-license/': [
+    {
+      text: "SaaS授权购买激活指南",
+      icon: "shopping-cart",
+      prefix: "",
+      children: [
+      {
+          text: "HyperBDR",
+          icon: "shield",
+          prefix: "hyperbdr/",
+          children: [
+            "online-purchase.md",
+            "activation-code.md",
+          ],
+        },
+      {
+          text: "HyperMotion",
+          icon: "exchange",
+          prefix: "hypermotion/",
+          children: [
+            "online-purchase.md",
+            "activation-code.md",
+          ],
+        },
+      ],
+    },
+  ],
+    '/zh/userguide/standalone-license/': [
+    {
+      text: "单机授权激活指南",
+      icon: "key",
+      prefix: "",
+      children: [
+        'huawei-koogallery-license.md',
+      ],
+    },
+  ],
   '/zh/userguide/migration/': [
     {
       text: "迁移手册",
@@ -214,6 +252,7 @@ export const zhSidebar = sidebar({
           icon: "dashboard",
           prefix: "dashboard/",
           children: [
+            "dashboard.md",
             "profile.md",
             "logout.md",
             "language-switch.md",
@@ -294,6 +333,7 @@ export const zhSidebar = sidebar({
             "openstack",
             "oracle",
             "tengxun-tce",
+            "huawei-hcs",
           ],
         },
         {
@@ -319,6 +359,14 @@ export const zhSidebar = sidebar({
       icon: "book",
       prefix: "",
       children: [
+        {
+          text: "注册",
+          icon: "user-plus",
+          prefix: "register/",
+          children: [
+            "register.md",
+          ],
+        },
         {
           text: "登录",
           icon: "user",
@@ -424,6 +472,7 @@ export const zhSidebar = sidebar({
             "openstack",
             "oracle",
             "tengxun-tce",
+            "huawei-hcs",
           ],
         },
         {
@@ -604,6 +653,92 @@ export const zhSidebar = sidebar({
       icon: "window-maximize",
       prefix: "",
       children: [
+        {
+          text: "登录",
+          icon: "sign-in-alt",
+          prefix: "login/",
+          children: [
+            "login.md",
+          ],
+        },
+        {
+          text: "概览",
+          icon: "dashboard",
+          prefix: "dashboard/",
+          children: [
+            "language-switch.md",
+            "profile.md",
+            "logout.md",
+          ],
+        },
+        {
+          text: "用户",
+          icon: "user",
+          prefix: "user/",
+          children: [
+            "tenant",
+            "user",
+            "ak-sk",
+            "sso-config",
+          ],
+        },
+        {
+          text: "授权管理",
+          icon: "lock",
+          prefix: "license/",
+          children: [
+            "license-list",
+          ],
+        },
+        {
+          text: "监控与报警管理",
+          icon: "chart-line",
+          prefix: "monitor/",
+          children: [
+            "system-monitor",
+            "alarm",
+            "notification",
+            "alerts",
+          ],
+        },
+        {
+          text: "运维管理",
+          icon: "tools",
+          prefix: "operations/",
+          children: [
+            "audit-logs",
+            "task-management",
+            "download-logs",
+          ],
+        },
+        {
+          text: "用户主机",
+          icon: "computer",
+          prefix: "user-host/",
+          children: [
+            "dr",
+            "migration",
+          ],
+        },
+        {
+          text: "通知配置",
+          icon: "bell",
+          prefix: "notification/",
+          children: [
+            "email",
+            "mfa",
+            "sms",
+            "webhook",
+          ],
+        },
+        {
+          text: "版本管理",
+          icon: "history",
+          prefix: "versions/",
+          children: [
+            "modules",
+          ],
+        },
       ]
     },
   ],

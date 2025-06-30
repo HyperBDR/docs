@@ -25,6 +25,22 @@ export const enNavbar = navbar([
         ],
       },
       {
+        text: "Purchase & Activation",
+        icon: "file-invoice",
+        children: [
+          {
+            text: "SaaS License & Activation",
+            icon: "shopping-cart",
+            link: "/userguide/saas-license/",
+          },
+          {
+            text: "Standalone License & Activation",
+            icon: "key",
+            link: "/userguide/standalone-license/",
+          }
+        ],
+      },
+      {
         text: "Migration",
         icon: "exchange",
         children: [
