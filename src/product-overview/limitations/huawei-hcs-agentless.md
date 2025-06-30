@@ -1,11 +1,11 @@
-# Huawei Cloud Stack(HCS) Agentless Model
+# Huawei Cloud Stack(HCS) Agentless Mode
 
 ## Compatibility
 
-| Module                                | Version                  |
-| ------------------------------------- | ------------------------ |
-| Huawei Cloud Stack(HCS)               | 8.0.2                    |
-| Huawei Cloud Stack(HCS) Storage Model | OceanStor Dorado 8000 V6 |
+| Module                               | Version                  |
+| ------------------------------------ | ------------------------ |
+| Huawei Cloud Stack(HCS)              | 8.0.2                    |
+| Huawei Cloud Stack(HCS) Storage Type | OceanStor Dorado 8000 V6 |
 
 ::: warning
 Notes: Currently, Huawei Cloud Stack (HCS) 8.2.x / 8.3.x APIs differ significantly from Stack (HCS) 8.0.2, therefore HCS 8.2.x / 8.3.x are not supported at this time.
@@ -60,7 +60,7 @@ The following interface permissions are required:
 
 #### Storage Type Limitations
 
-- Only supports synchronizing host data from flash storage (Dorado), with current support for OceanStor Dorado 8000 V6. Synchronization of host data from distributed storage (Pacific) is not supported.
+- Only supports synchronization of host data from flash storage (Dorado), with current support for OceanStor Dorado 8000 V6. Synchronization of host data from distributed storage (Pacific) is not supported.
 
 #### Maximum Snapshot Limitations
 
