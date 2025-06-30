@@ -199,12 +199,12 @@ export const enSidebar = sidebar({
     '/userguide/saas-license/': [
     {
       text: "SaaS License & Activation",
-      icon: "file-invoice",
+      icon: "shopping-cart",
       prefix: "",
       children: [
       {
           text: "HyperBDR",
-          icon: "user",
+          icon: "shield",
           prefix: "hyperbdr/",
           children: [
             "online-purchase.md",
@@ -213,7 +213,7 @@ export const enSidebar = sidebar({
         },
       {
           text: "HyperMotion",
-          icon: "user",
+          icon: "exchange",
           prefix: "hypermotion/",
           children: [
             "online-purchase.md",
@@ -226,7 +226,7 @@ export const enSidebar = sidebar({
     '/userguide/standalone-license/': [
     {
       text: "Standalone License & Activation",
-      icon: "file-invoice",
+      icon: "key",
       prefix: "",
       children: [
         'huawei-koogallery-license.md',

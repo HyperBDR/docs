@@ -2,7 +2,7 @@
 
 ## **DR Authorization Steps**
 
-### **Already Have a Code**
+### **Already Have a Activation Code**
 
 1. After logging in to the console, click "Settings" > "License Management" > "DR License" in the top navigation bar to enter the license management page.
 
@@ -16,7 +16,7 @@
 
 ![](./images/activationcodeactivation-disasterresilienceauthorizationsteps-3.png)
 
-### **No Code – Request One**
+### **No Activation Code – Request One**
 
 1. After logging in to the console, click "Settings" > "License Management" > "DR License" in the top navigation bar to enter the license management page.
 
@@ -38,7 +38,7 @@ Copy the "Registration Code" below and share it with your contact:
 
 ## **Failback Authorization Steps**
 
-### **Already Have a Code**
+### **Already Have a Activation Code**
 
 1. After logging in to the console, click "Settings" > "License Management" > "Failback License" in the top navigation bar to enter the license management page.
 
@@ -52,7 +52,7 @@ Copy the "Registration Code" below and share it with your contact:
 
 ![](./images/activationcodeactivation-returnauthorizationsteps-3.png)
 
-### **No Code – Request One**
+### **No Activation Code – Request One**
 
 1. After logging in to the console, click "Settings" > "License Management" > "Failback License" in the top navigation bar to enter the license management page.
 
@@ -71,4 +71,3 @@ Copy the "Registration Code" below and share it with your contact:
 4. After obtaining the activation code, enter it in the input box below and click the **Activate** button to complete the authorization binding.
 
 ![](./images/activationcodeactivation-returnauthorizationsteps-7.png)
-

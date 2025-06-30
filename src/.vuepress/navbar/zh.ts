@@ -29,13 +29,13 @@ export const zhNavbar = navbar([
         icon: "file-invoice",
         children: [
           {
-            text: "SaaS购买授权激活",
-            icon: "file-invoice",
+            text: "SaaS授权购买激活",
+            icon: "shopping-cart",
             link: "/zh/userguide/saas-license/",
           },
           {
-            text: "单机购买授权激活",
-            icon: "file-invoice",
+            text: "单机授权激活",
+            icon: "key",
             link: "/zh/userguide/standalone-license/",
           }
         ],
