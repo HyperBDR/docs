@@ -30,12 +30,12 @@ export const enNavbar = navbar([
         children: [
           {
             text: "SaaS License & Activation",
-            icon: "file-invoice",
+            icon: "shopping-cart",
             link: "/userguide/saas-license/",
           },
           {
             text: "Standalone License & Activation",
-            icon: "file-invoice",
+            icon: "key",
             link: "/userguide/standalone-license/",
           }
         ],

@@ -24,17 +24,33 @@ export const zhNavbar = navbar([
           }
         ],
       },
-      // {
-      //   text: "迁移指南",
-      //   icon: "exchange",
-      //   children: [
-      //     {
-      //       text: "HyperMotion 使用手册",
-      //       icon: "exchange",
-      //       link: "/zh/userguide/migration/",
-      //     },
-      //   ],
-      // },
+      {
+        text: "购买与激活",
+        icon: "file-invoice",
+        children: [
+          {
+            text: "SaaS授权购买激活",
+            icon: "shopping-cart",
+            link: "/zh/userguide/saas-license/",
+          },
+          {
+            text: "单机授权激活",
+            icon: "key",
+            link: "/zh/userguide/standalone-license/",
+          }
+        ],
+      },
+      {
+        text: "迁移指南",
+        icon: "exchange",
+        children: [
+          {
+            text: "HyperMotion 使用手册",
+            icon: "exchange",
+            link: "/zh/userguide/migration/",
+          },
+        ],
+      },
       {
         text: "容灾指南",
         icon: "shield",
@@ -60,16 +76,16 @@ export const zhNavbar = navbar([
         text: "运维指南",
         icon: "gear",
         children: [
-          // {
-          //   text: "管理指南",
-          //   icon: "user-gear",
-          //   link: "/zh/userguide/operations/"
-          // },
-          // {
-          //   text: "管理门户手册",
-          //   icon: "window-maximize",
-          //   link: "/zh/userguide/admin-portal/"
-          // },
+          {
+            text: "管理指南",
+            icon: "user-gear",
+            link: "/zh/userguide/operations/"
+          },
+          {
+            text: "管理门户手册",
+            icon: "window-maximize",
+            link: "/zh/userguide/admin-portal/"
+          },
           {
             text: "运维指南",
             icon: "tools",

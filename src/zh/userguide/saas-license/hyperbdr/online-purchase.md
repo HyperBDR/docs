@@ -48,7 +48,7 @@
 
 ## **回切授权步骤**
 
-1. 登录控制台后，依次点击上方导航栏的“设置” > “授权管理” > “容灾授权”，进入授权管理页面。
+1. 登录控制台后，依次点击上方导航栏的“设置” > “授权管理” > “回切授权”，进入授权管理页面。
 
 ![](./images/onlinepurchaseactivation-back-cutauthorizationsteps-1.png)
 
@@ -93,4 +93,3 @@
 6. 授权订阅完成后，系统将自动跳转回控制台首页，用户即可正常访问并使用所订阅的功能与服务。
 
 ![](./images/onlinepurchaseactivation-back-cutauthorizationsteps-6.png)
-
