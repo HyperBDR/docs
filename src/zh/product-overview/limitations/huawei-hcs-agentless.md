@@ -60,7 +60,7 @@
 
 #### 存储类型限制
 
-- 仅支持从闪存存储（Dorado）同步主机数据，当前支持 OceanStor Dorado 8000 V6。不支持从分布式存储（Pacific）同步主机数据。
+- 仅支持使用 Dorado 存储（如 OceanStor Dorado 8000 V6）作为磁盘存储的主机。不支持使用分布式存储（Pacific）作为磁盘存储的主机。
 
 #### 最大快照限制
 
