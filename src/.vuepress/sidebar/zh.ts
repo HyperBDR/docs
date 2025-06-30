@@ -195,6 +195,43 @@ export const zhSidebar = sidebar({
       ],
     },
   ],
+    '/zh/userguide/saas-license/': [
+    {
+      text: "SaaS购买授权激活指南",
+      icon: "file-invoice",
+      prefix: "",
+      children: [
+      {
+          text: "HyperBDR",
+          icon: "user",
+          prefix: "hyperbdr/",
+          children: [
+            "online-purchase.md",
+            "activation-code.md",
+          ],
+        },
+      {
+          text: "HyperMotion",
+          icon: "user",
+          prefix: "hypermotion/",
+          children: [
+            "online-purchase.md",
+            "activation-code.md",
+          ],
+        },
+      ],
+    },
+  ],
+    '/zh/userguide/standalone-license/': [
+    {
+      text: "单机购买授权激活指南",
+      icon: "file-invoice",
+      prefix: "",
+      children: [
+        'huawei-koogallery-license.md',
+      ],
+    },
+  ],
   '/zh/userguide/migration/': [
     {
       text: "迁移手册",
@@ -321,6 +358,14 @@ export const zhSidebar = sidebar({
       icon: "book",
       prefix: "",
       children: [
+        {
+          text: "注册",
+          icon: "user-plus",
+          prefix: "register/",
+          children: [
+            "register.md",
+          ],
+        },
         {
           text: "登录",
           icon: "user",

@@ -195,6 +195,43 @@ export const enSidebar = sidebar({
       ],
     },
   ],
+    '/userguide/saas-license/': [
+    {
+      text: "SaaS License & Activation",
+      icon: "file-invoice",
+      prefix: "",
+      children: [
+      {
+          text: "HyperBDR",
+          icon: "user",
+          prefix: "hyperbdr/",
+          children: [
+            "online-purchase.md",
+            "activation-code.md",
+          ],
+        },
+      {
+          text: "HyperMotion",
+          icon: "user",
+          prefix: "hypermotion/",
+          children: [
+            "online-purchase.md",
+            "activation-code.md",
+          ],
+        },
+      ],
+    },
+  ],
+    '/userguide/standalone-license/': [
+    {
+      text: "Standalone License & Activation",
+      icon: "file-invoice",
+      prefix: "",
+      children: [
+        'huawei-koogallery-license.md',
+      ],
+    },
+  ],
   '/userguide/migration/': [
     {
       text: "Migration",
@@ -321,6 +358,14 @@ export const enSidebar = sidebar({
       icon: "book",
       prefix: "",
       children: [
+        {
+          text: "Register",
+          icon: "user-plus",
+          prefix: "register/",
+          children: [
+            "register.md",
+          ],
+        },
         {
           text: "Login",
           icon: "user",
