@@ -25,6 +25,22 @@ export const zhNavbar = navbar([
         ],
       },
       {
+        text: "购买与激活",
+        icon: "file-invoice",
+        children: [
+          {
+            text: "SaaS购买授权激活",
+            icon: "file-invoice",
+            link: "/zh/userguide/saas-license/",
+          },
+          {
+            text: "单机购买授权激活",
+            icon: "file-invoice",
+            link: "/zh/userguide/standalone-license/",
+          }
+        ],
+      },
+      {
         text: "迁移指南",
         icon: "exchange",
         children: [
