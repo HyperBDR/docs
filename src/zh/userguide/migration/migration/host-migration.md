@@ -41,15 +41,15 @@
 
 此步骤为源端生产平台无代理模式，包含源端为VMware、OpenStack、AWS 、FusionCompute、Oracle五种类型
 
-* [添加VMware生产站点](../configuration/production-site.md#添加vmware平台)
+* [添加VMware生产站点](../configuration/source-site.md#添加vmware平台)
 
-* [添加OpenStack生产站点](../configuration/production-site.md#添加openstack平台)
+* [添加OpenStack生产站点](../configuration/source-site.md#添加openstack平台)
 
-* [添加AWS生产站点](../configuration/production-site.md#添加aws平台)
+* [添加AWS生产站点](../configuration/source-site.md#添加aws平台)
 
-* [添加FusionCompute生产站点](../configuration/production-site.md#添加fusioncompute平台)
+* [添加FusionCompute生产站点](../configuration/source-site.md#添加fusioncompute平台)
 
-* [添加Oracle生产站点](../configuration/production-site.md#添加oracle平台)
+* [添加Oracle生产站点](../configuration/source-site.md#添加oracle平台)
 
 如果您的源端为**代理模式**或者您已经完成了**生产站点配置**请忽略此步骤。
 
@@ -115,17 +115,17 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 | 生产平台      | 基础条件                                              | 指导文档                                                                                                                   |
 | :----------: | :--------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
-| VMware       | 完成Sync Proxy同步代理的部署安装，完成源端VMware生产平台的添加        | [添加VMware生产平台](../configuration/production-site.md#添加vmware平台)           |
-| OpenStack    | 完成Sync Proxy同步代理的部署安装，完成源端OpenStack Ceph生产平台的添加 | [添加OpenStack生产平台](../configuration/production-site.md#添加openstack平台) |
-| AWS          | 完成Sync Proxy同步代理的部署安装，完成源端AWS生产平台的添加           | [添加AWS生产平台](../configuration/production-site.md#添加aws平台)             |
-| FusionCompute| 完成Sync Proxy同步代理的部署安装，完成源端FusionCompute生产平台的添加 | [添加FusionCompute生产平台](../configuration/production-site.md#添加fusioncompute平台)                                                                                                  |
-| Oracle       | 完成Sync Proxy同步代理的部署安装，完成源端Oracle生产平台的添加        | [添加Oracle生产平台](../configuration/production-site.md#添加oracle平台)                                                                                                         |
+| VMware       | 完成Sync Proxy同步代理的部署安装，完成源端VMware生产平台的添加        | [添加VMware生产平台](../configuration/source-site.md#添加vmware平台)           |
+| OpenStack    | 完成Sync Proxy同步代理的部署安装，完成源端OpenStack Ceph生产平台的添加 | [添加OpenStack生产平台](../configuration/source-site.md#添加openstack平台) |
+| AWS          | 完成Sync Proxy同步代理的部署安装，完成源端AWS生产平台的添加           | [添加AWS生产平台](../configuration/source-site.md#添加aws平台)             |
+| FusionCompute| 完成Sync Proxy同步代理的部署安装，完成源端FusionCompute生产平台的添加 | [添加FusionCompute生产平台](../configuration/source-site.md#添加fusioncompute平台)                                                                                                  |
+| Oracle       | 完成Sync Proxy同步代理的部署安装，完成源端Oracle生产平台的添加        | [添加Oracle生产平台](../configuration/source-site.md#添加oracle平台)                                                                                                         |
 
 #### **VMware**
 
 点击 **"选择主机"** 菜单， 点击 **"添加主机"** 按钮来添加主机，选择生产平台类型，选&#x62E9;**"源端无代理模式"**，并选&#x62E9;**"VMware"**&#x5E73;台，选择生产平台中，选择已经添加完成的VMware平台链接，并点&#x51FB;**"下一步"**&#x8FDB;行选择VMware待迁移主机列表。
 
-如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的VMware生产平台，参考步骤：[添加VMware平台](../configuration/production-site.md#添加vmware平台)
+如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的VMware生产平台，参考步骤：[添加VMware平台](../configuration/source-site.md#添加vmware平台)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-2.png)
 
@@ -147,7 +147,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 点击 **"选择主机"** 菜单， 点击 **"添加主机"** 按钮来添加主机，选择生产平台类型，选&#x62E9;**"源端无代理模式"**，并选&#x62E9;**"OpenStack"**&#x5E73;台，选择生产平台中，选择已经添加完成的OpenStack平台链接，并点&#x51FB;**"下一步"**&#x8FDB;行选择OpenStack待迁移主机列表。
 
-如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的OpenStack生产平台，参考步骤：[添加OpenStack生产平台](../configuration/production-site.md#添加openstack平台)
+如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的OpenStack生产平台，参考步骤：[添加OpenStack生产平台](../configuration/source-site.md#添加openstack平台)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-4.png)
 
@@ -171,7 +171,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 点击 **"选择主机"** 菜单， 点击 **"+ 添加主机"** 按钮来添加主机，选择生产平台类型，选&#x62E9;**"源端无代理模式"**，并选&#x62E9;**"AWS"**&#x5E73;台，选择生产平台中，选择已经添加完成的AWS平台链接，并点&#x51FB;**"下一步"**&#x8FDB;行选择AWS待迁移主机列表。
 
-如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加AWS生产平台](../configuration/production-site.md#添加aws平台)
+如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加AWS生产平台](../configuration/source-site.md#添加aws平台)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-7.png)
 
@@ -193,7 +193,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 点击 **"选择主机"** 菜单， 点击 **"+ 添加主机"** 按钮来添加主机，选择生产平台类型，选&#x62E9;**"源端无代理模式"**，并选&#x62E9;**"FusionCompute"**&#x5E73;台，选择生产平台中，选择已经添加完成的AWS平台链接，并点&#x51FB;**"下一步"**&#x8FDB;行选择FusionCompute待迁移主机列表。
 
-如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加FusionCompute生产平台](../configuration/production-site.md#添加fusioncompute平台)
+如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加FusionCompute生产平台](../configuration/source-site.md#添加fusioncompute平台)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-10.png)
 
@@ -211,7 +211,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 点击 **"选择主机"** 菜单， 点击 **"添加主机"** 按钮来添加主机，选择生产平台类型，选&#x62E9;**"源端无代理模式"**，并选&#x62E9;**"Oracle"**&#x5E73;台，选择生产平台中，选择已经添加完成的AWS平台链接，并点&#x51FB;**"下一步"**&#x8FDB;行选择Oracle待迁移主机列表。
 
-如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加Oracle生产平台](../configuration/production-site.md#添加oracle平台)
+如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加Oracle生产平台](../configuration/source-site.md#添加oracle平台)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-11.png)
 
@@ -231,7 +231,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 点击下方的安装命令，在源端Linux主机终端中执行即可完成Linux备份主机的添加。
 
-详细安装步骤操作参考：[点击查看](../configuration/production-site.md#linux-agent)
+详细安装步骤操作参考：[点击查看](../configuration/source-site.md#linux-agent)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-12.png)
 
@@ -247,7 +247,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 根据操作系统版本点&#x51FB;**"立即下载"**&#x6765;下载Windows Agent安装包，并将安装包上传至Windows主机进行安装
 
-详细安装步骤操作参考：[点击查看](../configuration/production-site.md#windows-agent)
+详细安装步骤操作参考：[点击查看](../configuration/source-site.md#windows-agent)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-14.png)
 
