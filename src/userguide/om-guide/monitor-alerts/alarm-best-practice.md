@@ -18,7 +18,7 @@ To ensure system stability and controllable resource usage, basic alarm threshol
 
   ![](./images/alarmconfigurationbestpractices-resourcealert-1.png)
 
-  * Monitor and Alarm -- Alarm -- Create Alert
+  * Monitor and Alarm -- Alarm -- Resource Alert -- Create Alert
 
     ![](./images/alarmconfigurationbestpractices-resourcealert-2.png)
 
@@ -42,11 +42,11 @@ To ensure the security and observability of system operations, event monitoring 
 
 ### Configuration Example: Sync Data Failure Alarm
 
-* Log in to the console: IP:10443
+* Log in to the console: IP:30443
 
   ![](./images/alarmconfigurationbestpractices-anincidentalarm-1.png)
 
-  * Monitor & Alerts -- Alarm -- Event Alerts -- Create Alerts
+  * Monitor & Alerts -- Alarm -- Event Alert -- Create Alerts
 
     ![](./images/alarmconfigurationbestpractices-anincidentalarm-2.png)
 

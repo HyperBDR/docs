@@ -129,6 +129,7 @@ export const enSidebar = sidebar({
         'limitations/vmware-agentless.md',
         'limitations/openstack-ceph-agentless.md',
         'limitations/huawei-fusioncompute-agentless.md',
+        'limitations/huawei-hcs-agentless.md',
         'limitations/driver-adaption.md',
       ],
     },
@@ -192,6 +193,43 @@ export const enSidebar = sidebar({
       children: [
         'quick-installation.md',
         'agent-batch-installation.md'
+      ],
+    },
+  ],
+    '/userguide/saas-license/': [
+    {
+      text: "SaaS License & Activation",
+      icon: "shopping-cart",
+      prefix: "",
+      children: [
+      {
+          text: "HyperBDR",
+          icon: "shield",
+          prefix: "hyperbdr/",
+          children: [
+            "online-purchase.md",
+            "activation-code.md",
+          ],
+        },
+      {
+          text: "HyperMotion",
+          icon: "exchange",
+          prefix: "hypermotion/",
+          children: [
+            "online-purchase.md",
+            "activation-code.md",
+          ],
+        },
+      ],
+    },
+  ],
+    '/userguide/standalone-license/': [
+    {
+      text: "Standalone License & Activation",
+      icon: "key",
+      prefix: "",
+      children: [
+        'huawei-koogallery-license.md',
       ],
     },
   ],
@@ -321,6 +359,14 @@ export const enSidebar = sidebar({
       icon: "book",
       prefix: "",
       children: [
+        {
+          text: "Register",
+          icon: "user-plus",
+          prefix: "register/",
+          children: [
+            "register.md",
+          ],
+        },
         {
           text: "Login",
           icon: "user",

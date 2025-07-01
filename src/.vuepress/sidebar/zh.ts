@@ -129,6 +129,7 @@ export const zhSidebar = sidebar({
         'limitations/vmware-agentless.md',
         'limitations/openstack-ceph-agentless.md',
         'limitations/huawei-fusioncompute-agentless.md',
+        'limitations/huawei-hcs-agentless.md',
         'limitations/driver-adaption.md',
       ],
     },
@@ -192,6 +193,43 @@ export const zhSidebar = sidebar({
       children: [
         'quick-installation.md',
         'agent-batch-installation.md'
+      ],
+    },
+  ],
+    '/zh/userguide/saas-license/': [
+    {
+      text: "SaaS授权购买激活指南",
+      icon: "shopping-cart",
+      prefix: "",
+      children: [
+      {
+          text: "HyperBDR",
+          icon: "shield",
+          prefix: "hyperbdr/",
+          children: [
+            "online-purchase.md",
+            "activation-code.md",
+          ],
+        },
+      {
+          text: "HyperMotion",
+          icon: "exchange",
+          prefix: "hypermotion/",
+          children: [
+            "online-purchase.md",
+            "activation-code.md",
+          ],
+        },
+      ],
+    },
+  ],
+    '/zh/userguide/standalone-license/': [
+    {
+      text: "单机授权激活指南",
+      icon: "key",
+      prefix: "",
+      children: [
+        'huawei-koogallery-license.md',
       ],
     },
   ],
@@ -321,6 +359,14 @@ export const zhSidebar = sidebar({
       icon: "book",
       prefix: "",
       children: [
+        {
+          text: "注册",
+          icon: "user-plus",
+          prefix: "register/",
+          children: [
+            "register.md",
+          ],
+        },
         {
           text: "登录",
           icon: "user",
