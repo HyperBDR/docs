@@ -34,7 +34,7 @@ After the Migration product is installed, you need to add a Migration product li
 
 TODO:
 
-[License application guidance steps](../../settings/license-management.md)
+[License application guidance steps](../settings/license-management.md)
 
 If you have already added a license, please skip this step.
 
