@@ -92,6 +92,10 @@
 下载链接: [ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
 :::
 
+::: warning
+在对象存储模式下，因 Redis 需存储元数据，8核16GB配置最多支持保护生产环境主机总容量约10TB的数据（128快照，增量小于5%）。当数据量超过10TB且不超过30TB时，建议将内存扩容至32GB；超过30TB且不超过50TB时，建议扩容至64GB；若数据量更大，建议单独部署 Redis 节点以满足内存需求。
+:::
+
 ### 2. 获取安装包
 
 如果用于控制台安装的主机可以直接访问公网，推荐使用本方式获取安装包。
