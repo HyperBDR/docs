@@ -139,7 +139,7 @@ Supported Linux image names
 
 > Ubuntu 20.04 server 64bit UEFI
 
-**60-Disk Cloud Sync Gateway Image Adaptation Plan**
+### 60-Disk Cloud Sync Gateway Image Adaptation Plan
 
 The default HCS image uses the virtio disk type. Cloud Sync Gateway instances created from this image support up to 20 attached disks by default.
 
@@ -247,15 +247,15 @@ if __name__ == "__main__":
 + [How to obtain Huawei Cloud HCS 8.x Platform Credentials information?](../../faq/faq.html#how-to-obtain-huawei-cloud-hcs-8-x-platform-credentials-information)
 :::
 
-  > auth_url
-  > user_domain_id
-  > username
-  > password
-  > project_domain_id
-  > project_name
-  > region_name
-  > image_id: The Ubuntu 20.04 Server image ID provided by OneProCloud for download and upload.
-  > image_url: kl-region-01 is the region_name, cloud.xxx.com.my is the domain name for auth_url.The values of region_name and auth_url should be replaced according to your actual environment.
+> auth_url  
+> user_domain_id  
+> username  
+> password  
+> project_domain_id  
+> project_name  
+> region_name  
+> image_id: The Ubuntu 20.04 Server image ID provided by OneProCloud for download and upload.  
+> image_url: kl-region-01 is the region_name, cloud.xxx.com.my is the domain name for auth_url.The values of region_name and auth_url should be replaced according to your actual environment.  
 
 - Step3: HyperBDR server Execute command:
 
