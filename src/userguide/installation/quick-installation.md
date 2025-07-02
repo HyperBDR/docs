@@ -94,6 +94,10 @@ If your platform doesn't have Ubuntu 20.04 Server 64-bit image, you can download
 Download link: [ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
 :::
 
+::: warning
+In object storage mode, because Redis stores metadata, an 8-core 16GB setup can support up to about 10TB of protected data in production (128 snapshots, increments less than 5%). If data exceeds 10TB but is under 30TB, it’s recommended to upgrade memory to 32GB. For data between 30TB and 50TB, upgrading to 64GB is advised. If data is larger, it’s best to deploy a separate Redis node to meet memory needs.
+:::
+
 ### 2. Obtain Installation Package
 
 If the console host has direct internet access, we recommend using this method to obtain the installation package.
