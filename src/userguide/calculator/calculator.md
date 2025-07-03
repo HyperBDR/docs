@@ -9,11 +9,17 @@ The Disaster Recovery (DR) Calculator is an online tool that helps users estimat
 
 ## How to Access
 
-Visit the OnePro official documentation website: <https://docs.oneprocloud.com/zh/>
+Method 1:
 
-Click **“Calculator”** in the top navigation bar to enter the calculator page.
+Visit the OnePro official documentation website: <https://docs.oneprocloud.com/>. Click **"Calculator"** in the top navigation bar to enter the calculator page.
 
 ![](./images/calculatormanual-accessmethods-1.png)
+
+Method 2:
+
+Click the link below to quickly go to the DR Calculator page:
+
+[👉 Go to Calculator](https://calculator.oneprocloud.com/home)
 
 ## Basic Service Configuration
 
