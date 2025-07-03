@@ -33,7 +33,7 @@
 迁移产品安装完成后，首先你需要添加一个迁移产品授权，你可以联系与您对接的项目经理或者发送邮件到<support@oneprocloud.com>来申请一个可用授权。
 
 
-[点击查看授权License申请指导步骤](../../poc/failback-hyperbdr-pre-settings.md#申请hyperbdr迁移回切授权)
+[点击查看授权License申请指导步骤](../settings/license-management.md#添加授权)
 
 如果您已经添加过授权，请忽略此步骤。&#x20;
 
