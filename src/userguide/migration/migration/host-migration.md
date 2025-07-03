@@ -34,7 +34,7 @@ After the Migration product is installed, you need to add a Migration product li
 
 TODO:
 
-[License application guidance steps](../../poc/failback-hyperbdr-pre-settings.md#apply-for-hyperbdr-failback-license)
+[License application guidance steps](../settings/license-management.md)
 
 If you have already added a license, please skip this step.
 
@@ -42,11 +42,11 @@ If you have already added a license, please skip this step.
 
 This step is for agentless mode on the source production platform, including five types: VMware, OpenStack, AWS, FusionCompute, and Oracle.
 
-* [Add VMware production site](../configuration/production-site.md#add-vmware-platform)
-* [Add OpenStack production site](../configuration/production-site.md#add-openstack-platform)
-* [Add AWS production site](../configuration/production-site.md#add-aws-platform)
-* [Add FusionCompute production site](../configuration/production-site.md#add-fusioncompute-platform)
-* [Add Oracle production site](../configuration/production-site.md#add-oracle-platform)   
+* [Add VMware production site](../configuration/source-site.md#add-vmware-platform)
+* [Add OpenStack production site](../configuration/source-site.md#add-openstack-platform)
+* [Add AWS production site](../configuration/source-site.md#add-aws-platform)
+* [Add FusionCompute production site](../configuration/source-site.md#add-fusioncompute-platform)
+* [Add Oracle production site](../configuration/source-site.md#add-oracle-platform)   
 
 If your source is in **Agent** or you have already completed the **production site configuration**, please skip this step.
 
@@ -112,18 +112,18 @@ QCOW image download link: [Download Here](https://downloads.oneprocloud.com/docs
 
 | Production Platform | Prerequisites                                             | Documentation                                                                                                               |
 | :-----------------: | :-------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: |
-| VMware              | Complete the deployment and installation of the Sync Proxy agent, then add the source VMware production platform.         | [Add VMware Production Platform](../configuration/production-site.md#add-vmware-platform)         |
-| OpenStack           | Complete the deployment and installation of the Sync Proxy agent, then add the source OpenStack Ceph production platform.  | [Add OpenStack Production Platform](../configuration/production-site.md#add-openstack-platform) |
-| AWS                 | Complete the deployment and installation of the Sync Proxy agent, then add the source AWS production platform.             | [Add AWS Production Platform](../configuration/production-site.md#add-aws-platform)   |
-| FusionCompute       | Complete the deployment and installation of the Sync Proxy agent, then add the source FusionCompute production platform.   | [Add FusionCompute Production Platform](../configuration/production-site.md#add-fusioncompute-platform)                                                                                   |
-| Oracle              | Complete the deployment and installation of the Sync Proxy agent, then add the source Oracle production platform.          | [Add Oracle Production Platform](../configuration/production-site.md#add-oracle-platform)                                                                                             |
+| VMware              | Complete the deployment and installation of the Sync Proxy agent, then add the source VMware production platform.         | [Add VMware Production Platform](../configuration/source-site.md#add-vmware-platform)         |
+| OpenStack           | Complete the deployment and installation of the Sync Proxy agent, then add the source OpenStack Ceph production platform.  | [Add OpenStack Production Platform](../configuration/source-site.md#add-openstack-platform) |
+| AWS                 | Complete the deployment and installation of the Sync Proxy agent, then add the source AWS production platform.             | [Add AWS Production Platform](../configuration/source-site.md#add-aws-platform)   |
+| FusionCompute       | Complete the deployment and installation of the Sync Proxy agent, then add the source FusionCompute production platform.   | [Add FusionCompute Production Platform](../configuration/source-site.md#add-fusioncompute-platform)                                                                                   |
+| Oracle              | Complete the deployment and installation of the Sync Proxy agent, then add the source Oracle production platform.          | [Add Oracle Production Platform](../configuration/source-site.md#add-oracle-platform)                                                                                             |
 
 
 #### **VMware**
 
 Click the **"Select Host"** menu, then click the **"Add Host"** button to add a host. Choose the production platform type, select **"Agentless"**, and select **"VMware"** platform. In the production platform, choose the already added VMware platform link, then click **"Next"** to proceed to select the VMware hosts for disaster recovery.
 
-If you have not added a production platform yet, you can click the **"Add New"** button to add a new VMware production platform. Refer to the steps here: [Add VMware Platform](../configuration/production-site.md#add-vmware-platform)
+If you have not added a production platform yet, you can click the **"Add New"** button to add a new VMware production platform. Refer to the steps here: [Add VMware Platform](../configuration/source-site.md#add-vmware-platform)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-2.png)
 
@@ -145,7 +145,7 @@ Once added, you can check the virtual machines to be backed up, then click the *
 
 Click the **"Select Host"** menu, then click the **"Add Host"** button to add a host. Choose the production platform type, select **"Agentless"**, and select the **"OpenStack"** platform. In the production platform section, choose the already added OpenStack platform link, then click **"Next"** to proceed to select the OpenStack hosts for disaster recovery.
 
-If you have not added a production platform yet, you can click the **"Add New"** button to add a new OpenStack production platform. Refer to the steps here: [Add OpenStack Production Platform](../configuration/production-site.md#add-openstack-platform)
+If you have not added a production platform yet, you can click the **"Add New"** button to add a new OpenStack production platform. Refer to the steps here: [Add OpenStack Production Platform](../configuration/source-site.md#add-openstack-platform)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-4.png)
 
@@ -169,7 +169,7 @@ Once added, you can check the virtual machines to be backed up, then click the *
 
 Click the **"Select Host"** menu, then click the **"+ Add Host"** button to add a host. Choose the production platform type, select **"Agentless"**, and select the **"AWS"** platform. In the production platform section, choose the already added AWS platform link, then click **"Next"** to proceed to select the AWS hosts for disaster recovery.
 
-If you have not added a production platform yet, you can click the **"Add New"** button to add a new AWS production platform. Refer to the steps here: [Add AWS Production Platform](../configuration/production-site.md#add-aws-platform)
+If you have not added a production platform yet, you can click the **"Add New"** button to add a new AWS production platform. Refer to the steps here: [Add AWS Production Platform](../configuration/source-site.md#add-aws-platform)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-7.png)
 
@@ -195,7 +195,7 @@ Click the **"Select Host"** menu, then click the **"+ Add Host"** button to add 
 Select the production platform type, choose **"Agentless"**, and select the **"FusionCompute"** platform.  
 In the production platform list, select the already added FusionCompute platform link, then click **"Next"** to proceed to the list of FusionCompute disaster recovery hosts.
 
-If you have not added a production platform, click the **"Add New"** button to add a new FusionCompute production platform. Refer to the guide: [Add FusionCompute Production Platform](../configuration/production-site.md#add-fusioncompute-platform)
+If you have not added a production platform, click the **"Add New"** button to add a new FusionCompute production platform. Refer to the guide: [Add FusionCompute Production Platform](../configuration/source-site.md#add-fusioncompute-platform)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-10.png)
 
@@ -213,7 +213,7 @@ Click the **"Select Host"** menu, then click the **"Add Host"** button to add a 
 Select the production platform type, choose **"Agentless"**, and select the **"Oracle"** platform.  
 In the production platform list, select the already added Oracle platform link, then click **"Next"** to proceed to the Oracle disaster recovery host list.
 
-If you have not added a production platform, click the **"Add New"** button to add a new Oracle production platform. Refer to the guide: [Add Oracle Production Platform](../configuration/production-site.md#add-oracle-platform)
+If you have not added a production platform, click the **"Add New"** button to add a new Oracle production platform. Refer to the guide: [Add Oracle Production Platform](../configuration/source-site.md#add-oracle-platform)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-11.png)
 
@@ -858,9 +858,9 @@ Click **"Actions"** to modify a host that has already been configured.
 
 Click **"Specify Migration Platform"** to modify the Migration platform. For details, refer to:
 
-Block Storage: [Click to View](#specify-Migration-platform)
+Block Storage: [Click to View](#specify-migration-platform)
 
-Object Storage: [Click to View](#specify-Migration-platform-1)
+Object Storage: [Click to View](#specify-migration-platform-1)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-68.png)
 
