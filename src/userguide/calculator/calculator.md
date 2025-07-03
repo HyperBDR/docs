@@ -5,15 +5,23 @@
 
 The Disaster Recovery (DR) Calculator is an online tool that helps users estimate the cost of DR services. It supports multiple service scenarios, cloud platforms, and configuration combinations. By filling in key parameters, the system automatically generates recommended resource specifications and a detailed cost breakdown, making it easier for users to plan before purchasing licenses.
 
-> **Note:** All configuration details will affect the final HyperBDR license cost estimation. Please fill in the information based on your actual DR needs. For assistance, contact your account manager.
+> **Friendly Reminder:** The following configuration information will help assess the overall scale and estimated cost of the HyperBDR disaster recovery solution. Please fill in according to your actual business needs to generate more valuable recommendations. If you have any questions, feel free to contact your account manager for support.
 
 ## How to Access
 
-Visit the OnePro official documentation website: <https://docs.oneprocloud.com/zh/>
 
-Click **“Calculator”** in the top navigation bar to enter the calculator page.
+Method 1: Access via official website
+
+Visit the OnePro official documentation site: <https://docs.oneprocloud.com/zh/>
+
+Click "**DR Calculator**" in the top navigation bar to enter the calculation page.
 
 ![](./images/calculatormanual-accessmethods-1.png)
+
+
+Method 2: Click the direct link below
+
+[Click here to go to the DR Calculator page](https://calculator.oneprocloud.com/home)
 
 ## Basic Service Configuration
 
@@ -79,6 +87,8 @@ You can click to view the **applicable scenarios** and **billing differences** f
 
 After filling out and batch importing the template, the source host area on the page will automatically add the corresponding host information. If you need to make adjustments later, you can use the page action buttons to modify or delete entries.
 
+> Note: When importing the template, some field information (such as CPU cores, memory size, etc.) may not have a corresponding configuration in the cloud vendor template, which may result in not matching a suitable instance host. In this case, you need to manually select the appropriate instance specification.
+
 ![](./images/calculatormanual-basicserviceconfiguration-5.png)
 
 
@@ -115,6 +125,8 @@ The cloud sync gateway is a DR software component automatically created by Hyper
 
 
 The HyperBDR Console is a DR software component used to manage the main DR control process (recommended disk capacity: 200GB, recommended spec: 8 vCPUs, 16GB RAM)
+
+> In object storage mode, because Redis stores metadata, an 8-core 16GB setup can support up to about 10TB of protected data in production (128 snapshots, increments less than 5%). If data exceeds 10TB but is under 30TB, it’s recommended to upgrade memory to 32GB. For data between 30TB and 50TB, upgrading to 64GB is advised. If data is larger, it’s best to deploy a separate Redis node to meet memory needs.
 
 | **Configuration Item**   | **Example**                | **Specification**                 | **Description**                                    |
 | ----------------------  | -------------------------- | --------------------------------- | -------------------------------------------------- |
