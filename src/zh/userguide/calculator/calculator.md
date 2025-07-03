@@ -8,11 +8,17 @@
 
 ## **访问方式**
 
-访问 OnePro 官方文档网站：<https://docs.oneprocloud.com/zh/>
+方法一：
 
-在顶部导航栏点击“**容灾计算器**”即可进入计算页面。
+访问 OnePro 官方文档网站：<https://docs.oneprocloud.com/zh/> ，在顶部导航栏点击 **“容灾计算器”**，即可进入计算器页面。
 
 ![](./images/disasterresiliencecalculatorusermanual-accessmethod-1.png)
+
+方法二：
+
+直接点击下方链接快速跳转至容灾计算器页面：
+
+[👉 前往容灾计算器](https://calculator.oneprocloud.com/home)
 
 ## **基础服务配置**
 
