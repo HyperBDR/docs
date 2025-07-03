@@ -128,9 +128,14 @@ export const zhNavbar = navbar([
     ],
   },
   {
-    text: "获取支持",
-    icon: "headset",
-    link: "https://support.oneprocloud.com/",
+    text: "AI支持",
+    icon: "robot",
+    link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+  },
+  {
+    text: "常见问题",
+    icon: "headphones",
+    link: "https://wenti.oneprocloud.com/",
   },
   {
     text: "OneProCloud官网",
