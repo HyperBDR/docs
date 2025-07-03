@@ -116,6 +116,7 @@ export const enSidebar = sidebar({
         'product-training/data-sync-fundamentals.md',
         'presales/deep-in-aws-agentless-mode',
         'product-training/multi-tenant-design.md',
+        'product-training/failback.md',
       ],
     },
     {
@@ -451,7 +452,7 @@ export const enSidebar = sidebar({
         },
       ],
       collapsible: true,
-      expanded: true, 
+      expanded: true,
     },
     {
       text: "Cloud & Storage Guide",

@@ -128,8 +128,13 @@ export const enNavbar = navbar([
     ],
   },
   {
-    text: "Get Support",
-    icon: "headset",
+    text: "AI Support",
+    icon: "robot",
+    link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+  },
+  {
+    text: "FAQ",
+    icon: "headphones",
     link: "https://support.oneprocloud.com/",
   },
   {
