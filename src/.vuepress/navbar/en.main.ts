@@ -93,22 +93,22 @@ export const enNavbar = navbar([
           },
         ],
       },
-      // {
-      //   text: "Tools",
-      //   icon: "wrench",
-      //   children: [
-      //     {
-      //       text: "Calculator",
-      //       icon: "calculator",
-      //       link: "/userguide/calculator/",
-      //     },
+      {
+         text: "Tools",
+         icon: "wrench",
+         children: [
+           {
+             text: "Calculator",
+             icon: "calculator",
+             link: "/userguide/calculator/",
+           },
       //     {
       //       text: "License Management",
       //       icon: "key",
       //       link: "/userguide/license-management/",
       //     }
-      //   ],
-      // },
+         ],
+       },
       {
         text: "Others",
         icon: "ellipsis",

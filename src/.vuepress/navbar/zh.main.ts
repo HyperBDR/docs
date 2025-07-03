@@ -93,22 +93,22 @@ export const zhNavbar = navbar([
           },
         ],
       },
-      // {
-      //   text: "工具指南",
-      //   icon: "wrench",
-      //   children: [
-      //     {
-      //       text: "容灾计算器",
-      //       icon: "calculator",
-      //       link: "/zh/userguide/calculator/",
-      //     },
+       {
+         text: "工具指南",
+         icon: "wrench",
+         children: [
+           {
+             text: "容灾计算器",
+             icon: "calculator",
+             link: "/zh/userguide/calculator/",
+           },
       //     {
       //       text: "授权管理平台",
       //       icon: "key",
       //       link: "/zh/userguide/license-management/",
       //     }
-      //   ],
-      // },
+         ],
+       },
       {
         text: "其他文档",
         icon: "ellipsis",
