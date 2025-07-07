@@ -66,6 +66,28 @@ The product supports two storage types: block storage and object storage. Choose
 
 - [Network Planning Recommendations](../../product-overview/presales/dr-network-planning-recommendations.md)
 
+
+### 6. Image Upload
+
+::: warning
+Since cloud platforms can differ, make sure to upload the required image for your chosen platform before installing the product. The product should only be installed after the image has been uploaded; otherwise, some features may not work properly.
+Please select and upload the correct image based on the cloud platform you’re using.
+   :::
+
+| Cloud Platform | Image Name | Download Link | MD5 | Details |
+|--------|----------|----------|-----|------|
+| Huawei Cloud | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/huaweicloud-pre-settings.md#image-download-upload) |
+| Huawei Cloud | CentOS-8-GenericCloud-<br>8.4.2105-20210603.0.<br>x86_64.qcow2 | [Download](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) | fe9f21a75a80d121<br>59030fff76e1c8a5 | [View Details](../poc/huaweicloud-pre-settings.md#image-download-upload) |
+| Huawei Cloud | HuaweiCloud_<br>UEFI_<br>GenericImage.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) | 7814209a573666f2<br>701b35236764723d | [View Details](../poc/huaweicloud-pre-settings.md#image-download-upload) |
+| TM CAE | CentOS-8-GenericCloud-<br>8.4.2105-20210603.0.<br>x86_64.qcow2 | [Download](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) | fe9f21a75a80d121<br>59030fff76e1c8a5 | [View Details](../poc/tmcae-pre-settings.md#image-download-upload) |
+| TM CAE | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/tmcae-pre-settings.md#image-download-upload) |
+| Open Telekom Cloud | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2) | -- | [View Details](../poc/opentelekomcloud-pre-settings.md#image-download-upload) |
+| Open Telekom Cloud | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/opentelekomcloud-pre-settings.md#image-download-upload) |
+| Open Telekom Cloud | HuaweiCloud_<br>UEFI_<br>GenericImage.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) | 7814209a573666f2<br>701b35236764723d | [View Details](../poc/opentelekomcloud-pre-settings.md#image-download-upload) |
+| Huawei Cloud Stack | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2) | -- | [View Details](../poc/hcs-pre-settings.md#image-download-upload) |
+| Huawei Cloud Stack | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/hcs-pre-settings.md#image-download-upload) |
+| Huawei Cloud Stack | HuaweiCloud_<br>UEFI_<br>GenericImage.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) | 7814209a573666f2<br>701b35236764723d | [View Details](../poc/hcs-pre-settings.md#image-download-upload) |
+
 ## Product Installation
 
 Both HyperMotion (migration) and HyperBDR (disaster recovery) products are deployed using a unified offline installation package. The package must be downloaded in an environment with internet access, but the installation process can be completed in an isolated environment.
