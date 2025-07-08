@@ -9,7 +9,7 @@
 块存储平台通过下拉列表选择“华为云Stack(HCS)(v8.2.x/v8.3.x)”，根据接入块存储的实际情况，填写以下平台鉴权信息：
 
 > 若您不确定相关信息如何获取，可点击下方“点击查看”了解详细操作说明。<br>
-> [👉 点击查看](../../../../../userguide/faq/faq.md#how-to-obtain-huawei-cloud-hcs-8-x-platform-credentials-information)
+> [👉 点击查看](../../../userguide/faq/faq.md#how-to-obtain-huawei-cloud-hcs-8-x-platform-credentials-information)
 
 ![](./images/huaweicloudstack_hcs__v8_2_x_v8_3_x-addblockstorage-1.png)
 ![](./images/huaweicloudstack_hcs__v8_2_x_v8_3_x-addblockstorage-2.png)
