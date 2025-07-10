@@ -323,6 +323,10 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 存储类型选择"块存储"，并按照所选信息进行块存储步骤配置，完成容灾配置操作。
 
+::: tip
+不同云平台在容灾配置流程中的步骤顺序可能存在细微差异，例如某些平台在配置计算资源之前设置卷类型，而有些平台则相反。建议在实际配置过程中，根据所使用的云平台对照界面指引，灵活调整操作顺序，确保配置顺利完成。
+   :::
+
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-27.png)
 
 #### **指定容灾平台**
@@ -364,16 +368,19 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 用户需为所选虚拟机的各个磁盘指定恢复目标云平台上的磁盘类型（卷类型），确保容灾恢复过程中目标端资源的正确映射。
 
+![](./images/hostdisasterrecovery-hostdisasterrecovery-91.png)
+
+![](./images/hostdisasterrecovery-hostdisasterrecovery-92.png)
+
 设置选择需要容灾备份的虚拟机磁盘类型。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-31.png)
+| **配置项**   | **示例值**                 | **说明**                                  |
+| --------- | ----------------------- | --------------------------------------- |
+| 系统卷类型     | 高效云盘（cloud\_efficiency） | 可通过上方列表批量设置当前主机系统盘的目标卷类型，亦可在主机列表中逐台独立设置 |
+| 数据卷类型     | 高效云盘（cloud\_efficiency） | 可通过上方列表批量设置当前主机数据盘的目标卷类型，亦可在主机列表中逐台独立设置 |
+| 新增磁盘目标卷类型 | 高效云盘（cloud\_efficiency） | 可通过上方列表批量设置当前主机新增磁盘的目标卷类型，亦支持在主机列表中逐台设置 |
 
-您可根据下拉列表选择不同的系统卷类型，具体以实际选择云厂商为准：
-
-| 项目                        | 说明                  |
-| ------------------------- | ------------------- |
-| **\_DEFAULT\_**           | 系统自动选择的默认设置，适用于各种场景 |
-| **DEFAULT\_VOLUME\_TYPE** | 系统在存储设备中默认使用的存储类型   |
+多磁盘情况下，务必在**设置启动盘**列**手动为每台主机单独选择设置启动盘**，以确保系统能够正确引导启动。
 
 **卷类型**指定完成后点&#x51FB;**“下一步”**，开始**计算资源配置.**
 
@@ -385,7 +392,9 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 > 注意：源端主机采用UEFI启动方式时，可以选择BIOS或UEFI方式启动系统盘容量大于2T无法使用BIOS方式启动。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-32.png)
+![](./images/hostdisasterrecovery-hostdisasterrecovery-93.png)
+
+![](./images/hostdisasterrecovery-hostdisasterrecovery-94.png)
 
 当预设模板中存在与资源类型一致的配置时，系统将自动匹配，否则需用户手动选择相应配置。
 

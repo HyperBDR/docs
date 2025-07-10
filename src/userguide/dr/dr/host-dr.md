@@ -319,6 +319,10 @@ Deregister the backup host from the disaster recovery management platform.
 
 Log in to the console, click the top **"DR"** navigation bar, then click **"Host DR"** on the left. Click the **"Setup DR"** menu, select one or multiple hosts, and click the **"Setup DR"** button to configure disaster recovery.
 
+::: tip
+The sequence of steps in the disaster recovery configuration process may vary slightly across different cloud platforms. For example, some platforms require volume type configuration before setting up compute resources, while others do the opposite. It is recommended to follow the interface guidance of the specific cloud platform and adjust the configuration order accordingly to ensure a smooth setup.
+   :::
+
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-26.png)
 
 ### **Block Storage**
@@ -365,19 +369,21 @@ After completing **Specify Cloud Sync Gateway**, click **"Next"** to start **Spe
 
 #### **Specify Volume Type**
 
-Users need to assign the disk type (volume type) on the recovery target cloud platform for each disk of the selected virtual machines, ensuring correct mapping of target resources during disaster recovery.
+Users must specify the corresponding disk types (volume types) on the target cloud platform for each disk of the selected virtual machine, to ensure accurate resource mapping and successful mounting during the disaster recovery process.
 
-Set and select the disk types for the virtual machines requiring disaster recovery backup.
+![](./images/hostdisasterrecovery-hostdisasterrecovery-91.png)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-31.png)
+![](./images/hostdisasterrecovery-hostdisasterrecovery-92.png)
 
-You may choose different types of system volumes from the dropdown list, based on the selected cloud vendor：
+Configure and select the target volume types for the virtual machine disks that require disaster recovery backup, ensuring proper creation and mounting of resources during the recovery process.
 
+| **Item**                 | **Example Value**     | **Description**                                                                 |
+|--------------------------|------------------------|----------------------------------------------------------------------------------|
+| System Volume Type       | Ultra-high / IO        | You can configure the target volume type for the system disk in bulk via the list above, or individually per host in the host list. |
+| Volume Type              | Ultra-high / IO        | You can configure the target volume type for the data disk in bulk via the list above, or individually per host in the host list.   |
+| Added Disk Volume Type   | Ultra-high / IO        | You can configure the target volume type for added disks in bulk via the list above, or individually per host in the host list.      |
 
-| Item                      | Description                                         | 
-| ------------------------- | ------------------------------------------------- |
-| **_DEFAULT_**             | Default setting automatically selected by the system, suitable for various scenarios |
-| **DEFAULT_VOLUME_TYPE**   | Default storage type used by the system in the storage device |
+In multi-disk scenarios, be sure to manually select and set the boot disk for each host in the **“Set Boot Disk”** column to ensure the system can boot properly after disaster recovery.
 
 After completing **Specify Volume Type**, click **"Next"** to start **Computing Resource Configuration**.
 
@@ -389,7 +395,9 @@ Select the virtual machines requiring disaster recovery backup. You can manually
 
 > Note: When the source host uses UEFI boot mode, you can select BIOS or UEFI to boot the system disk. Disks larger than 2TB cannot use BIOS boot mode.
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-32.png)
+![](./images/hostdisasterrecovery-hostdisasterrecovery-93.png)
+
+![](./images/hostdisasterrecovery-hostdisasterrecovery-94.png)
 
 If there is a preset template matching the resource type, the system will auto-match; otherwise, manual selection is required.
 
