@@ -45,7 +45,7 @@ export const enNavbar = navbar([
         icon: "exchange",
         children: [
           {
-            text: "HyperMotion Mannual",
+            text: "HyperMotion Manual",
             icon: "exchange",
             link: "/userguide/migration/",
           },
