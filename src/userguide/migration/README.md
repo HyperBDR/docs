@@ -1,4 +1,4 @@
-# **HyperMotion Mannual**
+# **HyperMotion Manual**
 [[toc]]
 <!-- @include: ./login/login.md -->
 <!-- @include: ./dashboard/dashboard.md -->
