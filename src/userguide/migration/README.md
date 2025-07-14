@@ -1,5 +1,6 @@
 # **HyperMotion Manual**
 [[toc]]
+<!-- @include: ./login/login.md{headers=2} -->
 <!-- @include: ./login/login.md -->
 <!-- @include: ./dashboard/dashboard.md -->
 <!-- @include: ./dashboard/profile.md -->
