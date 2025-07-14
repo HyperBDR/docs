@@ -1,5 +1,5 @@
 # **HyperBDR 使用手册**
-
+[[toc]]
 <!-- @include: ./register/register.md -->
 <!-- @include: ./login/login.md -->
 <!-- @include: ./dashboard/dashboard.md -->

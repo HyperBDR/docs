@@ -1,4 +1,5 @@
 # **管理门户手册**
+[[toc]]
 <!-- @include: ./login/login.md -->
 <!-- @include: ./dashboard/language-switch.md -->
 <!-- @include: ./dashboard/profile.md -->

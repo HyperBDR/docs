@@ -1,4 +1,5 @@
 # **Admin Portal Manual**
+[[toc]]
 <!-- @include: ./login/login.md -->
 <!-- @include: ./dashboard/language-switch.md -->
 <!-- @include: ./dashboard/profile.md -->
