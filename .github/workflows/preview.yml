@@ -16,7 +16,7 @@ jobs:
           cache: 'yarn'
 
       - name: Build README
-        run: node tools/docs-manager.cjs --build
+        run: yarn && node tools/docs-manager.cjs --build
 
       - name: Build vuepress
         run: yarn && yarn docs:build
