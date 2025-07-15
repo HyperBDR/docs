@@ -535,7 +535,17 @@ Custom Pre and Post Scripts can be used to assist users in executing custom scri
 | Parameter        | Option                  | Description                                                                                                                                                                                                          |
 | ---------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Driver Injection | Enable Driver Injection | Only applicable when starting the host on the same virtualization platform, skipping driver adaptation. (Not recommended) Skipping driver adaptation may cause the host to fail to start properly, use with caution. |
-| Disk Driver      |                         | When the number of disks on the started host exceeds 20, virtio-scsi type must be selected.                                                                                                                          |
+| Disk Driver      | virtio                        | When the number of disks on the started host exceeds 20, virtio-scsi type must be selected.                                                                                                                          |
+
+> When the target platform is Huawei Cloud, OTC, HCSO, OpenStack, or HCS, you can enable Boot Advanced Settings to configure custom metadata for the instance. Keys and Values can be defined based on your business needs.
+
+![](./images/hostdisasterrecovery-hostdisasterrecovery-95.png)
+
+**Boot Advanced Settings**
+
+| Parameter     | Option      | Description                                                       |
+| ------ | -------- | -------------------------------------------------------- |
+|Custom Metadata  | Add | 	It is used to set custom metadata during startup. After clicking Add, enter the required Key and Value in the list, then click Save to complete the setup. |
 
 After completing **Advanced Configuration**, click **"Next"** to prompt: **Before starting policy configuration, hosts already configured will automatically enter "Start Disaster Recovery".** Then begin associating policies.
 

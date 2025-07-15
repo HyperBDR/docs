@@ -1,3 +1,29 @@
-本用户手册旨在为用户提供全面、详细的系统使用指南，帮助用户在短时间内掌握系统的操作流程和各项功能模块。无论您是系统管理员还是普通用户，本手册都将为您提供清晰、易懂的操作步骤，帮助您高效地管理和使用系统资源。
-
-本手册分为若干章节，每个章节专门介绍系统的某一功能模块。用户可根据实际需求，通过左侧菜单栏快速查找相关内容。
+# **HyperBDR 使用手册**
+[[toc]]
+<!-- @include: ./register/register.md -->
+<!-- @include: ./login/login.md -->
+<!-- @include: ./dashboard/dashboard.md -->
+<!-- @include: ./dashboard/profile.md -->
+<!-- @include: ./dashboard/logout.md -->
+<!-- @include: ./dashboard/language-switch.md -->
+<!-- @include: ./dr/host-dr.md -->
+<!-- @include: ./dr/host-failback.md -->
+<!-- @include: ./orchestration/dr-group.md -->
+<!-- @include: ./configuration/production-site.md -->
+<!-- @include: ./configuration/dr-site.md -->
+<!-- @include: ./configuration/storage-configuration.md -->
+<!-- @include: ./configuration/dr-site-configuration.md -->
+<!-- @include: ./configuration/policy-settings.md -->
+<!-- @include: ./operations/audit-logs.md -->
+<!-- @include: ./operations/task-management.md -->
+<!-- @include: ./operations/download-logs.md -->
+<!-- @include: ./operations/upgrade.md -->
+<!-- @include: ./operations/reports.md -->
+<!-- @include: ./operations/tag-management.md -->
+<!-- @include: ./monitor-alerts/system-monitor.md -->
+<!-- @include: ./monitor-alerts/alarm.md -->
+<!-- @include: ./monitor-alerts/notification.md -->
+<!-- @include: ./monitor-alerts/alerts.md -->
+<!-- @include: ./settings/global-settings.md -->
+<!-- @include: ./settings/license-management.md -->
+<!-- @include: ./settings/versions.md -->
