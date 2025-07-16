@@ -22,6 +22,12 @@ export default defineUserConfig({
 
   theme,
 
+  markdown: {
+    toc: {
+      level: [2, 3, 4 ],
+    },
+  },
+
   // Enable it with pwa
   shouldPrefetch: false,
 });
