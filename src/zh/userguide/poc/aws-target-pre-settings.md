@@ -21,37 +21,154 @@ Create a AWS IAM account with correspinding permissions, detail requirement plea
 
 ### AWS IAM Permission Requirements
 
-> AWS has different API versions in different regions, and each region has a slightly different definition of resource description permissions. When you create permissions for HyperBDR, So you need to provide full access to ec2, ebs, s3, ami, and vpc services.
+> AWS has different API versions in different regions, 和 each region has a slightly different definition of resource description permissions. When you create permissions for HyperBDR, So you need to provide full access to ec2, ebs, s3, ami, 和 vpc services.
 
-**ec2/vpc/ebs/ami**
+**ec2/vpc/ebs/ami/S3**
 ```
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ec2:*"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
-
-**S3**
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:*"
-            ],
-            "Resource": "*"
-        }
-    ]
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "CloudWatchMetricsManagement",
+			"Effect": "Allow",
+			"Action": [
+				"cloudwatch:DescribeAlarms",
+				"cloudwatch:DescribeAlarmsForMetric",
+				"cloudwatch:PutMetricAlarm",
+				"cloudwatch:DeleteAlarms",
+				"cloudwatch:GetMetricData",
+				"cloudwatch:ListMetrics"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "EC2InstanceManagement",
+			"Effect": "Allow",
+			"Action": [
+				"ec2:RunInstances",
+				"ec2:TerminateInstances",
+				"ec2:StartInstances",
+				"ec2:StopInstances",
+				"ec2:RebootInstances",
+				"ec2:DescribeInstances",
+				"ec2:DescribeInstanceAttribute",
+				"ec2:ModifyInstanceAttribute",
+				"ec2:GetPasswordData",
+				"ec2:GetConsoleScreenshot",
+				"ec2:DescribeSecurityGroupRules",
+				"ec2:DescribeInstanceStatus",
+				"ec2:GetConsoleOutput"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "EC2ImageManagement",
+			"Effect": "Allow",
+			"Action": [
+				"ec2:CreateImage",
+				"ec2:RegisterImage",
+				"ec2:DeregisterImage",
+				"ec2:DescribeImages",
+				"ec2:ImportImage",
+				"ec2:DescribeImportImageTasks",
+				"ec2:CreateTags"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "EC2StorageManagement",
+			"Effect": "Allow",
+			"Action": [
+				"ec2:CreateVolume",
+				"ec2:DeleteVolume",
+				"ec2:DescribeVolumes",
+				"ec2:AttachVolume",
+				"ec2:DetachVolume",
+				"ec2:CreateSnapshot",
+				"ec2:DeleteSnapshot",
+				"ec2:DescribeSnapshots"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "EC2NetworkManagement",
+			"Effect": "Allow",
+			"Action": [
+				"ec2:DescribeRegions",
+				"ec2:DescribeAvailabilityZones",
+				"ec2:DescribeVpcs",
+				"ec2:DescribeSubnets",
+				"ec2:DescribeRouteTables",
+				"ec2:DescribeInternetGateways",
+				"ec2:DescribeNetworkInterfaces",
+				"ec2:DescribeSecurityGroups",
+				"ec2:CreateSecurityGroup",
+				"ec2:DeleteSecurityGroup",
+				"ec2:AuthorizeSecurityGroupIngress",
+				"ec2:AuthorizeSecurityGroupEgress",
+				"ec2:RevokeSecurityGroupIngress",
+				"ec2:RevokeSecurityGroupEgress"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "EC2KeyPairManagement",
+			"Effect": "Allow",
+			"Action": [
+				"ec2:CreateKeyPair",
+				"ec2:DeleteKeyPair",
+				"ec2:DescribeKeyPairs"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "EC2ElasticIPManagement",
+			"Effect": "Allow",
+			"Action": [
+				"ec2:AllocateAddress",
+				"ec2:ReleaseAddress",
+				"ec2:AssociateAddress",
+				"ec2:DisassociateAddress",
+				"ec2:DescribeAddresses"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "EC2InstanceTypeQueries",
+			"Effect": "Allow",
+			"Action": [
+				"ec2:DescribeInstanceTypes",
+				"ec2:DescribeInstanceTypeOfferings"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "S3BucketManagement",
+			"Effect": "Allow",
+			"Action": [
+				"s3:ListAllMyBuckets",
+				"s3:ListBucket",
+				"s3:GetBucketLocation",
+				"s3:CreateBucket",
+				"s3:DeleteBucket",
+				"s3:ListBucket",
+				"s3:GetBucketVersioning"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "S3ObjectManagement",
+			"Effect": "Allow",
+			"Action": [
+				"s3:PutObject",
+				"s3:GetObject",
+				"s3:DeleteObject",
+				"s3:GetObjectAcl",
+				"s3:PutObjectAcl"
+			],
+			"Resource": "*"
+		}
+	]
 }
 ```
 
