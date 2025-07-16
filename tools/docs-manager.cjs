@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const mime = require('mime-types');  // 用来检查文件是否为图片
+const mime = require('mime-types');
 
-// ✅ 配置：指定所有需要处理的 README-build.md 文件路径（相对于项目根目录）
+// ✅ 配置：指定所有需要处理的 README-build.md 文件路径
 const buildFiles = [
   'src/zh/userguide/admin-portal/README-build.md',
   'src/zh/userguide/dr/README-build.md',
@@ -12,24 +12,30 @@ const buildFiles = [
   'src/userguide/dr/README-build.md',
   'src/userguide/migration/README-build.md',
   'src/userguide/om-guide/README-build.md',
-  // 可继续添加其他路径
 ];
 
-// 判断是否是 --clean 命令
-const isClean = process.argv.includes('--clean');
+// ✅ 解析参数
+const args = process.argv.slice(2);
+const isClean = args.includes('--clean');
+const isBuild = args.includes('--build');
+const isVerbose = args.includes('--a') || args.includes('-a');
 
-// 判断是否是 --build 命令
-const isBuild = process.argv.includes('--build');
+// ✅ 封装日志输出（静默或输出）
+function log(...messages) {
+  if (isVerbose) {
+    console.log(...messages);
+  }
+}
 
-// 降级标题：# => ## 最多降到 ###### (6级)
-function downgradeHeadings(content, level = 1) {
-  return content.replace(/^(\s*)(#{1,6})(?=\s)/gm, (match, space, hashes) => {
+// 降级标题：# => ### 最多降到 ######
+function downgradeHeadings(content, level = 2) {
+  return content.replace(/^([ \t]*)(#{1,6})(?=\s)/gm, (match, space, hashes) => {
     const newLevel = Math.min(hashes.length + level, 6);
     return space + '#'.repeat(newLevel);
   });
 }
 
-// 确保目录存在（递归创建）
+// 确保目录存在
 function ensureDirExist(filePath) {
   const dir = path.dirname(filePath);
   if (!fs.existsSync(dir)) {
@@ -37,68 +43,66 @@ function ensureDirExist(filePath) {
   }
 }
 
-// 递归处理 @include
-function processIncludes(filePath, level = 1, visited = new Set()) {
+// 处理 @include 引用
+function processIncludes(filePath, level = 2, visited = new Set()) {
   if (visited.has(filePath)) {
-    console.warn(`⚠️ 循环引用检测到，跳过文件：${filePath}`);
+    log(`⚠️ 循环引用检测到，跳过文件：${filePath}`);
     return '';
   }
   visited.add(filePath);
 
   if (!fs.existsSync(filePath)) {
-    console.warn(`⚠️ 文件不存在：${filePath}`);
+    log(`⚠️ 文件不存在：${filePath}`);
     return `<!-- File not found: ${filePath} -->`;
   }
 
   const raw = fs.readFileSync(filePath, 'utf-8');
   const dir = path.dirname(filePath);
-
   const includeRegex = /<!--\s*@include:\s*(.+?)\s*-->/g;
 
   const result = raw.replace(includeRegex, (match, relativeIncludePath) => {
     const includeFullPath = path.resolve(dir, relativeIncludePath.trim());
     const includedContent = processIncludes(includeFullPath, level + 1, visited);
-    return downgradeHeadings(includedContent, 1);
+    return downgradeHeadings(includedContent, 2);
   });
 
   return result;
 }
 
-// 复制图片文件（只复制图片类型文件）
+// 复制图片
 function copyImages(sourceDir, targetDir) {
   const sourceImagesDir = path.join(sourceDir, 'images');
   const targetImagesDir = path.join(targetDir, 'images');
 
-  // 确保目标 images 文件夹存在
+  if (!fs.existsSync(sourceImagesDir)) {
+    log(`⚠️ 未找到 images 文件夹：${sourceImagesDir}`);
+    return;
+  }
+
   if (!fs.existsSync(targetImagesDir)) {
-    fs.mkdirSync(targetImagesDir, { recursive: true });  // 创建目标文件夹及其子目录
-    console.log(`✅ 创建了目标文件夹：${targetImagesDir}`);
+    fs.mkdirSync(targetImagesDir, { recursive: true });
+    log(`✅ 创建了目标文件夹：${targetImagesDir}`);
   }
 
-  if (fs.existsSync(sourceImagesDir)) {
-    const files = fs.readdirSync(sourceImagesDir);
-    files.forEach((file) => {
-      const filePath = path.join(sourceImagesDir, file);
-      const mimeType = mime.lookup(filePath);
+  const files = fs.readdirSync(sourceImagesDir);
+  files.forEach((file) => {
+    const filePath = path.join(sourceImagesDir, file);
+    const mimeType = mime.lookup(filePath);
 
-      console.log(`检查文件：${filePath} 类型：${mimeType}`);  // 添加日志输出
+    log(`检查文件：${filePath} 类型：${mimeType}`);
 
-      // 只复制图片文件
-      if (mimeType && mimeType.startsWith('image/')) {
-        const targetFilePath = path.join(targetImagesDir, file);
-        ensureDirExist(path.dirname(targetFilePath));  // 确保目标文件夹存在
-        fs.copyFileSync(filePath, targetFilePath);
-        console.log(`✅ 图片已复制：${file}`);  // 确认复制
-      } else {
-        console.log(`⚠️ 非图片文件跳过：${file}`);  // 输出非图片文件
-      }
-    });
-  } else {
-    console.log(`⚠️ 未找到 images 文件夹：${sourceImagesDir}`);
-  }
+    if (mimeType && mimeType.startsWith('image/')) {
+      const targetFilePath = path.join(targetImagesDir, file);
+      ensureDirExist(targetFilePath);
+      fs.copyFileSync(filePath, targetFilePath);
+      log(`✅ 图片已复制：${file}`);
+    } else {
+      log(`⚠️ 非图片文件跳过：${file}`);
+    }
+  });
 }
 
-// 清理生成的文件和图片
+// 清理
 function cleanGeneratedContent() {
   buildFiles.forEach((buildFileRelative) => {
     const buildFilePath = path.resolve(__dirname, '..', buildFileRelative);
@@ -108,52 +112,49 @@ function cleanGeneratedContent() {
 
     if (fs.existsSync(outputFilePath)) {
       fs.unlinkSync(outputFilePath);
-      console.log(`✅ 删除了文件：${outputFilePath}`);
+      log(`✅ 删除了文件：${outputFilePath}`);
     }
 
     if (fs.existsSync(imagesDir)) {
       fs.rmdirSync(imagesDir, { recursive: true });
-      console.log(`✅ 删除了文件夹：${imagesDir}`);
+      log(`✅ 删除了文件夹：${imagesDir}`);
     }
   });
 }
 
-// 执行构建或清理操作
+// 执行逻辑
 if (isClean) {
-  console.log('🔴 清理生成的内容...');
+  log('🔴 清理生成的内容...');
   cleanGeneratedContent();
 } else if (isBuild) {
-  console.log('🟢 执行构建操作...');
-  // 主执行逻辑
+  log('🟢 执行构建操作...');
   buildFiles.forEach((buildFileRelative) => {
     const buildFilePath = path.resolve(__dirname, '..', buildFileRelative);
 
     if (!fs.existsSync(buildFilePath)) {
-      console.warn(`⚠️ 构建源文件不存在，跳过：${buildFilePath}`);
+      log(`⚠️ 构建源文件不存在，跳过：${buildFilePath}`);
       return;
     }
 
     const outputFilePath = buildFilePath.replace(/README-build\.md$/, 'README.md');
     const outputDir = path.dirname(outputFilePath);
 
-    // 处理包含内容并写入目标文件
-    console.log(`🔧 构建中：${buildFilePath}`);
+    log(`🔧 构建中：${buildFilePath}`);
     const finalContent = processIncludes(buildFilePath);
     fs.writeFileSync(outputFilePath, finalContent, 'utf-8');
-    console.log(`✅ 写入处理结果到：${outputFilePath}`);
+    log(`✅ 写入处理结果到：${outputFilePath}`);
 
-    // 复制 images 文件夹中的图片到目标目录
     copyImages(path.dirname(buildFilePath), outputDir);
 
-    // 查找所有 @include 引用的文件，并复制它们的 images 文件夹
+    // 处理 @include 图片复制
     const raw = fs.readFileSync(buildFilePath, 'utf-8');
     const includeRegex = /<!--\s*@include:\s*(.+?)\s*-->/g;
     let match;
     while ((match = includeRegex.exec(raw)) !== null) {
       const includedFilePath = path.resolve(path.dirname(buildFilePath), match[1].trim());
-      copyImages(path.dirname(includedFilePath), outputDir); // 针对每个包含文件的目录复制图片
+      copyImages(path.dirname(includedFilePath), outputDir);
     }
   });
 } else {
-  console.log('请提供 --build 或 --clean 参数');
+  console.log('❓ 请提供 --build 或 --clean 参数');
 }
