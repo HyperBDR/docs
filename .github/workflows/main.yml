@@ -20,6 +20,9 @@ jobs:
         run: |
           cp src/.vuepress/navbar/en.main.ts src/.vuepress/navbar/en.ts
           cp src/.vuepress/navbar/zh.main.ts src/.vuepress/navbar/zh.ts
+          
+      - name: Build README
+        run: yarn && node tools/docs-manager.cjs --build
 
       - name: Build vuepress
         run: yarn && yarn docs:build
