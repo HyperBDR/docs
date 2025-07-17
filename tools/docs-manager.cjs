@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const mime = require('mime-types');
 
-// ✅ 配置：指定所有需要处理的 README-build.md 文件路径
 const buildFiles = [
   'src/zh/userguide/admin-portal/README-build.md',
   'src/zh/userguide/dr/README-build.md',
@@ -14,20 +13,17 @@ const buildFiles = [
   'src/userguide/om-guide/README-build.md',
 ];
 
-// ✅ 解析参数
 const args = process.argv.slice(2);
 const isClean = args.includes('--clean');
 const isBuild = args.includes('--build');
 const isVerbose = args.includes('--a') || args.includes('-a');
 
-// ✅ 封装日志输出（静默或输出）
 function log(...messages) {
   if (isVerbose) {
     console.log(...messages);
   }
 }
 
-// 降级标题：# => ### 最多降到 ######
 function downgradeHeadings(content, level = 2) {
   return content.replace(/^([ \t]*)(#{1,6})(?=\s)/gm, (match, space, hashes) => {
     const newLevel = Math.min(hashes.length + level, 6);
@@ -35,7 +31,21 @@ function downgradeHeadings(content, level = 2) {
   });
 }
 
-// 确保目录存在
+// 关键函数，去掉一个 ../
+function fixRelativeLinks(content) {
+  return content.replace(
+    /(?<!\!)\[(.*?)\]\(\s*(\.\.\/+)([^\)]*)\)/g,
+    (match, text, prefix, rest) => {
+      const newPrefix = prefix.replace(/^\.\.\//, '');
+      if (newPrefix === '') {
+        return `[${text}](./${rest})`;
+      } else {
+        return `[${text}](${newPrefix}${rest})`;
+      }
+    }
+  );
+}
+
 function ensureDirExist(filePath) {
   const dir = path.dirname(filePath);
   if (!fs.existsSync(dir)) {
@@ -43,7 +53,6 @@ function ensureDirExist(filePath) {
   }
 }
 
-// 处理 @include 引用
 function processIncludes(filePath, level = 2, visited = new Set()) {
   if (visited.has(filePath)) {
     log(`⚠️ 循环引用检测到，跳过文件：${filePath}`);
@@ -66,10 +75,9 @@ function processIncludes(filePath, level = 2, visited = new Set()) {
     return downgradeHeadings(includedContent, 2);
   });
 
-  return result;
+  return fixRelativeLinks(result);
 }
 
-// 复制图片
 function copyImages(sourceDir, targetDir) {
   const sourceImagesDir = path.join(sourceDir, 'images');
   const targetImagesDir = path.join(targetDir, 'images');
@@ -102,7 +110,6 @@ function copyImages(sourceDir, targetDir) {
   });
 }
 
-// 清理
 function cleanGeneratedContent() {
   buildFiles.forEach((buildFileRelative) => {
     const buildFilePath = path.resolve(__dirname, '..', buildFileRelative);
@@ -122,7 +129,6 @@ function cleanGeneratedContent() {
   });
 }
 
-// 执行逻辑
 if (isClean) {
   log('🔴 清理生成的内容...');
   cleanGeneratedContent();
@@ -146,7 +152,6 @@ if (isClean) {
 
     copyImages(path.dirname(buildFilePath), outputDir);
 
-    // 处理 @include 图片复制
     const raw = fs.readFileSync(buildFilePath, 'utf-8');
     const includeRegex = /<!--\s*@include:\s*(.+?)\s*-->/g;
     let match;
