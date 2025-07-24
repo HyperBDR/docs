@@ -193,15 +193,14 @@ Download images to your local machine through the provided image links.
 ### Upload Image to Huawei Cloud Object Storage
 
 ::: tip
-Huawei Cloud official documentation link: [https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0205.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0205.html) 
+Huawei Cloud official documentation link: [https://support.huaweicloud.com/intl/en-us/eu-west-0-usermanual-ims/en-us_topic_0030713183.html](https://support.huaweicloud.com/intl/en-us/eu-west-0-usermanual-ims/en-us_topic_0030713183.html) 
 :::
 
 ### Import Image
 
 ::: tip
 Huawei Cloud official documentation link:  
-[https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0206.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0206.html)  
-[https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0211.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0211.html)
+[https://support.huaweicloud.com/intl/en-us/eu-west-0-usermanual-ims/en-us_topic_0000001175697174.html](https://support.huaweicloud.com/intl/en-us/eu-west-0-usermanual-ims/en-us_topic_0000001175697174.html)  
 :::
 
 #### Import BIOS Image
