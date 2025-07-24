@@ -180,19 +180,25 @@ HyperBDR 安全组名称: SG-HyperBDR
 * 下载链接：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
 * 镜像的MD5值: 519444d4b0343e15fa014c50d906a832
 
+#### UEFI 镜像
+
+* 版本: HuaweiCloud_UEFI_GenericImage
+* 大小: 554.69 MB
+* 下载链接: [https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) 
+* 镜像的MD5值: 7814209a573666f2701b35236764723d
+
 ### 上传镜像到华为云对象存储
 
 ::: tip
 华为云官方文档链接:
-[https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0205.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0205.html) 
+[https://support.huaweicloud.com/intl/zh-cn/eu-west-0-usermanual-ims/zh-cn_topic_0030713183.html](https://support.huaweicloud.com/intl/zh-cn/eu-west-0-usermanual-ims/zh-cn_topic_0030713183.html) 
 :::
 
 ### 导入镜像
 
 ::: tip
 华为云官方文档链接:
-[https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0206.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0206.html)
-[https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0211.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0211.html)
+[https://support.huaweicloud.com/intl/zh-cn/eu-west-0-usermanual-ims/zh-cn_topic_0000001175697174.html](https://support.huaweicloud.com/intl/zh-cn/eu-west-0-usermanual-ims/zh-cn_topic_0000001175697174.html)
 :::
 
 #### 步骤一: 访问IMS控制台
