@@ -237,10 +237,9 @@ Download Windows/Linux images to your local machine through the provided image l
 
 #### Linux Image
 
-* Version: CentOS 8.4 64bit
-* Size:  1.22 GB
-* Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) 
-* MD5 Value of the Image: fe9f21a75a80d12159030fff76e1c8a5
+* Version: ubuntu 20.04 server
+* Size:  596.38 MB
+* Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
 
 #### Windows Image
 
