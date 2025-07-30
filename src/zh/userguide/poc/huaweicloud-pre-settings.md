@@ -168,10 +168,9 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 #### Linux 镜像
 
-* 版本：CentOS 8.4 64bit
-* 大小： 1.22 GB
-* 下载链接：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) 
-* 镜像的MD5值: fe9f21a75a80d12159030fff76e1c8a5
+* 版本： ubuntu 20.04 server
+* 大小: 596.38 MB
+* 下载链接: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)  
 
 #### Windows 镜像
 
