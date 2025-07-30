@@ -512,7 +512,7 @@ export const zhSidebar = sidebar({
       prefix: "",
       children: [
         "upgrade-manual.md",
-        "hyperbdr-operation-and-maintenance-manual.md",
+        "oem.md",
       ]
     }
   ],
