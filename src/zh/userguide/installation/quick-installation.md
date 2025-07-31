@@ -226,7 +226,6 @@ bash /mnt/installer/install.sh -i <Console Service IP>
 [2023-03-30 23:08:36] [INFO]
 [2023-03-30 23:08:36] [INFO] DR        : https://192.168.12.81:10443
 [2023-03-30 23:08:36] [INFO] Migration : https://192.168.12.81:20443
-[2023-03-30 23:08:36] [INFO] Admin     : https://192.168.12.81:30443
 [2023-03-30 23:08:36] [INFO]
 [2023-03-30 23:08:36] [INFO] The default username and password : admin / P@ssw0rd
 [2023-03-30 23:08:36] [INFO]
@@ -243,7 +242,6 @@ bash /mnt/installer/install.sh -i <Console Service IP>
 | ------------------ | ------------------------------------ | -------------- |
 | HyperBDR 控制台    | `https://<Console Service IP>:10443` | 容灾管理控制台 |
 | HyperMotion 控制台 | `https://<Console Service IP>:20443` | 迁移管理控制台 |
-| 管理门户控制台     | `https://<Console Service IP>:30443` | 系统管理控制台 |
 
 ## (演示)产品安装视频
 
