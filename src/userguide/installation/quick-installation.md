@@ -233,7 +233,6 @@ Upon successful installation, you'll see the login information:
 [2023-03-30 23:08:36] [INFO]
 [2023-03-30 23:08:36] [INFO] DR        : https://192.168.12.81:10443
 [2023-03-30 23:08:36] [INFO] Migration : https://192.168.12.81:20443
-[2023-03-30 23:08:36] [INFO] Admin     : https://192.168.12.81:30443
 [2023-03-30 23:08:36] [INFO]
 [2023-03-30 23:08:36] [INFO] The default username and password : admin / P@ssw0rd
 [2023-03-30 23:08:36] [INFO]
@@ -250,7 +249,6 @@ Upon successful installation, you'll see the login information:
 |--------------|------------|-------------|---------------------|
 | HyperBDR Console | `https://<Console Service IP>:10443` | Disaster Recovery Management Console | admin / P@ssw0rd |
 | HyperMotion Console | `https://<Console Service IP>:20443` | Migration Management Console | admin / P@ssw0rd |
-| Admin Portal | `https://<Console Service IP>:30443` | System Management Console | admin / P@ssw0rd |
 
 ## Installation Video Demo
 
