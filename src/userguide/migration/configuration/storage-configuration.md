@@ -88,7 +88,7 @@ You can click the "Configuration Guide" link next to each cloud platform in the 
 | Google Cloud (SDK v1.19.0)                  |[Click to View](../tr-site-configuration-block/google.md)         |
 | GridCloud                                   |         |
 | Huawei Cloud Stack Online (v23.3)           |         |
-| Huawei Cloud Stack (HCS) (v8.2.x/v8.3.x)    |         |
+| Huawei Cloud Stack (HCS) (v8.2.x/v8.3.x)    |[Click to View](../tr-site-configuration-block/huawei-hcs.md)         |
 | Huawei Cloud (Recommended, SDK v3.1.86)     |[Click to View](../tr-site-configuration-block/huawei.md)         |
 | Jinshan Cloud                               |         |
 | Microsoft Azure (SDK v30.3)                 |[Click to View](../tr-site-configuration-block/azure.md)         |
