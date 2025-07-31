@@ -82,7 +82,7 @@
 | 阿里云 专有云(v3.18.x)                |      |
 | 华为云 HCS Online(v23.3)           |      |
 | 华为云(推荐使用，SDK v3.1.86)           |[点击查看](../tr-site-configuration-block/huawei.md)      |
-| 华为云Stack(HCS)(v8.2.x/v8.3.x)    |      |
+| 华为云Stack(HCS)(v8.2.x/v8.3.x)    |[点击查看](../tr-site-configuration-block/huawei-hcs.md)      |
 | 甲骨文云(SDK v2.126.3)              |      |
 | 金山云                             |      |
 | 绿能云                             |      |
