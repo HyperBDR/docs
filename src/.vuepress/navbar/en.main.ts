@@ -116,7 +116,7 @@ export const enNavbar = navbar([
           {
             text: "Checklist",
             icon: "check-square",
-            link: "/userguide/checklist/"
+            link: "/userguide/checklist/dr-checklist.md"
           },
           {
             text: "FAQ",
