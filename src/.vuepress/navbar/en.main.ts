@@ -14,6 +14,17 @@ export const enNavbar = navbar([
     prefix: "/",
     children: [
       {
+        text: "Step by Step Guide",
+        icon: "download",
+        children: [
+          {
+            text: "Checklist",
+            icon: "check-square",
+            link: "/userguide/checklist/dr-checklist.md"
+          },
+        ],
+      },
+      {
         text: "Installation",
         icon: "download",
         children: [
@@ -131,6 +142,11 @@ export const enNavbar = navbar([
     text: "AI Support",
     icon: "robot",
     link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+  },
+  {
+    text: "Get Support",
+    icon: "fa-solid fa-handshake-angle",
+    link: "https://support.oneprocloud.com/",
   },
   {
     text: "FAQ",

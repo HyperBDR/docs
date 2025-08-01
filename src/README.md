@@ -13,7 +13,7 @@ tagline: The world’s leading cloud-native migration and disaster recovery solu
 #bgImageDark: /bg@1x.png
 actions:
 
-- text: Quick Start
+- text: Step by Step Guide
   icon: signs-post
   link: ./userguide/checklist/dr-checklist.md
   type: primary
