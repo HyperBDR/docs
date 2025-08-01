@@ -280,7 +280,7 @@ TM CAE documentation link:
 ::: warning 
 1.The name must be one of the following and cannot have additional characters.  
 2.Due to the diverse versions of Windows on the source hosts, select the generic option for the operating system.  
-3.Linux image is primarily used for creating an HD. The recommended version for the current release is CentOS 8+  
+3.Linux image is primarily used for creating an HD. The recommended version for the current release is Ubuntu 20.04  
 :::
 Supported Windows image names
 
@@ -304,11 +304,7 @@ Boot Mode Select BIOS.
 
 Supported Linux image names
 
-> CentOS 8.4 64bit  
-> CentOS 8.3 64bit  
-> CentOS 8.2 64bit  
-> CentOS 8.1 64bit  
-> CentOS 8.5 64bit
+> Ubuntu 20.04 64bit  
 
 ![tmcae-image-download--upload-3.png](./images/tmcae-image-download--upload-3.png)
 
