@@ -14,6 +14,17 @@ export const enNavbar = navbar([
     prefix: "/",
     children: [
       {
+        text: "Step by Step Guide",
+        icon: "download",
+        children: [
+          {
+            text: "Checklist",
+            icon: "check-square",
+            link: "/userguide/checklist/dr-checklist.md"
+          },
+        ],
+      },
+      {
         text: "Installation",
         icon: "download",
         children: [
@@ -114,11 +125,6 @@ export const enNavbar = navbar([
         icon: "ellipsis",
         children: [
           {
-            text: "Checklist",
-            icon: "check-square",
-            link: "/userguide/checklist/dr-checklist.md"
-          },
-          {
             text: "FAQ",
             icon: "question-circle",
             link: "/userguide/faq/faq.md"
@@ -133,9 +139,14 @@ export const enNavbar = navbar([
     link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
   },
   {
+    text: "Get Support",
+    icon: "fa-solid fa-handshake-angle",
+    link: "https://support.oneprocloud.com/",
+  },
+  {
     text: "FAQ",
     icon: "headphones",
-    link: "https://support.oneprocloud.com/",
+    link: "https:/qa.oneprocloud.com/",
   },
   {
     text: "OneProCloud",
