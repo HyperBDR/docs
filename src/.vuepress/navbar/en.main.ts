@@ -125,11 +125,6 @@ export const enNavbar = navbar([
         icon: "ellipsis",
         children: [
           {
-            text: "Checklist",
-            icon: "check-square",
-            link: "/userguide/checklist/dr-checklist.md"
-          },
-          {
             text: "FAQ",
             icon: "question-circle",
             link: "/userguide/faq/faq.md"
