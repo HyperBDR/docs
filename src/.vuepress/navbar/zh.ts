@@ -116,7 +116,7 @@ export const zhNavbar = navbar([
           {
             text: "云容灾检查清单",
             icon: "check-square",
-            link: "/zh/userguide/checklist/"
+            link: "/zh/userguide/checklist/dr-checklist.md"
           },
           {
             text: "FAQ",
