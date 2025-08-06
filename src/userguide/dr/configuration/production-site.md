@@ -473,7 +473,9 @@ Follow the guided steps below:
 * Step 2: Use the OVA file to import into the HCS cluster, deploy one or more source sync proxy virtual machines, and configure the IP address.
 
 > Note:
+>
 > 1\. Currently, the interfaces of Huawei Cloud Stack (HCS) 8.2.x / 8.3.x differ significantly from those of Stack (HCS) 8.0.2; therefore, Stack (HCS) 8.2.x / 8.3.x is not supported at this time.
+>
 > 2\. Other models of Dorado storage have not yet been adapted.
 
 * Step 3: Install the source sync proxy. Log in to the newly created sync proxy VM. The default username and password are (root/Acb@132.Inst)
@@ -508,7 +510,7 @@ Follow the guided steps below:
 | Tenant ID         | HPUAAG0B2•••••••••••••••                        | Log in platform, click the Username in the upper right corner, and then click \[My Settings], Find the \[Tenant ID] value on this page.                                                                                                                                                                                                                                                                                                                    |
 | Username          | zhangweizhen                                    | Username is displayed in the upper-right corner after logging in to the platform.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Password          | ••••••••••••••                                  | The login password for the username                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Project Domain ID | default                                         | Same as Tenant ID, Click the Username in the upper right corner, then click \[My Settings], find the \[Tenant ID] value on this page，and the \[Tenant ID] will be the "Project Domain ID".&#xA;This field specifies the Project Domain ID in the OpenStack platform. The default value is "default".                                                                                                                                                       |
+| Project Domain ID | HPUAAG0B2•••••••••••••••                                         | Same as Tenant ID, Click the Username in the upper right corner, then click \[My Settings], find the \[Tenant ID] value on this page，and the \[Tenant ID] will be the "Project Domain ID".&#xA;This field specifies the Project Domain ID in the OpenStack platform.                                                                                                                                                       |
 | Project Name      | test                                            | Click on the username in the upper right corner, then select \[My Settings]. On this page, locate the content displayed under \[Project List] and the value shown in the header of the \[Name] column.&#xA;This field specifies the project name in the OpenStack platform. Please fill it in according to your actual situation.                                                                                                                          |
 | Project (Region)  | RegionOne                                       | Click the username in the upper right corner, then select \[Personal Settings]. On this page, find the content displayed under \[Project List]. The value shown in the \[Region] column header is the display name, while its corresponding real value is, for example, if the header displays "Aguascalientes", the real value is "mx-ags-1".&#xA;In the OpenStack platform, this field represents the region name, and its default value is "RegionOne". |
 | Sync Proxy        | 192.168.7.144                                   | Select the IP of the host with the Sync Proxy installed from the dropdown list.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -538,7 +540,7 @@ Follow the guided steps below:
 
 * Permission requirements
 
-When calling the HCS 8.0.2 API for data backup, the following permissions are required. For details on permission settings and account creation, please refer to the documentation: To be added
+To back up data using the HCS 8.0.2 API, you need to provide an account with full tenant administrator permissions.
 
 #### **Complete HCS 8.0.2 Addition**
 
@@ -574,7 +576,7 @@ Agent operating system support matrix: <https://oneprocloud.feishu.cn/sheets/VRq
 |:--------------------:|:-------------------------:|:--------:|:----------------------------------------------------------------------------------------------------------|
 | Windows/Linux Host   | HyperBDR Console          | 10443    | Authentication communication port                                                                          |
 | Windows/Linux Host   | HyperBDR Console          | 30080    | Installation package download port                                                                         |
-| Windows/Linux Host   | Cloud Sync Gateway        | 3260     | Data sync port (iSCSI protocol) <br>+ For block storage iSCSI protocol                                     |
+| Windows/Linux Host   | Cloud Sync Gateway        | 13260     | Data sync port                                  |
 | Windows/Linux Host   | Cloud Sync Gateway        | 443      | Data sync port (HTTPS protocol) <br>+ For block storage HTTPS protocol                                     |
 | Windows/Linux Host   | Object Storage Services   | 443      | Data sync port (object storage HTTPS/HTTP protocol) <br>+ For object storage mode <br>Note: If the target object storage uses a domain name during data sync, you need to add DNS or static hosts resolution in advance |
 
