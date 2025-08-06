@@ -508,7 +508,7 @@ Oracle生产平台配置完成，等待平台状态为正常，且已经获取�
 | 租户ID        | HPUAAG0B2•••••••••••••••                        | 登录平台后，点击右上角用户名 → 【个人设置】，在该页面找到【租户ID】。                                                                                                                                                                                       |
 | 用户名         | zhangweizhen                                    | 登录平台，右上角用户名。                                                                                                                                                                                                                |
 | 密码          | ••••••••••••••                                  | 用户名的登录访问密码。                                                                                                                                                                                                                 |
-| 项目Domain ID | default                                         | 通常为 `default`。项目Domain ID通常与租户ID获取方式相同，点击右上角用户名，然后点击【个人设置】，在此页面找到 【租户ID】值。                                                                                                                                                  |
+| 项目Domain ID | HPUAAG0B2•••••••••••••••                                         | 项目Domain ID通常与租户ID获取方式相同，点击右上角用户名，然后点击【个人设置】，在此页面找到 【租户ID】值。                                                                                                                                                  |
 | 项目名称        | test                                            | 点击右上角用户名，然后点击【个人设置】，在此页面找到 【项目列表】所展示的内容，【名称】表头所展示的值。                                                                                                                                                                        |
 | 项目(Region)  | RegionOne                                       | 点击右上角用户名，然后点击【个人设置】，在此页面找到 【项目列表】所展示的内容，【区域】表头所展示的真实值，如：表头展示Aguascalientes，其对应真实值为 mx-ags-1。                                                                                                                                |
 | 源端同步代理      | 192.168.7.144                                   | 通过下拉列表选择安装了同步代理的主机 IP                                                                                                                                                                                                       |
@@ -538,7 +538,7 @@ Oracle生产平台配置完成，等待平台状态为正常，且已经获取�
 
 * 权限要求
 
-调用HCS 8.0.2接口数据备份时，需要具备以下权限，关于权限及账号的创建请参考文档：待补充
+为调用 HCS 8.0.2 接口进行数据备份，需提供具备完整租户管理员权限的账号。
 
 #### **完成HCS 8.0.2添加**
 
@@ -579,7 +579,7 @@ Agent操作系统支持矩阵：<https://oneprocloud.feishu.cn/sheets/VRqksSPEPh
 |:--------------------:|:-------------------------:|:------------:|:-------------------------------------------------------------------------------------------------|
 | Windows/Linux Host   | HyperMotion Console          | 10443        | 认证通信端口                                                                                      |
 | Windows/Linux Host   | HyperMotion Console          | 30080        | 安装包下载访问端口                                                                                |
-| Windows/Linux Host   | Cloud Sync Gateway        | 3260         | 数据同步端口（ISCSI协议）<br>+ 适用于块存储 ISCSI协议                                             |
+| Windows/Linux Host   | Cloud Sync Gateway        | 13260         | 数据同步端口                                            |
 | Windows/Linux Host   | Cloud Sync Gateway        | 443          | 数据同步端口（HTTPS协议）<br>+ 适用于块存储 HTTPS 协议                                           |
 | Windows/Linux Host   | Object Storage Services   | 443          | 数据同步端口（对象存储HTTPS/HTTP协议）<br>+ 适用于对象存储模式<br>注意：在数据同步时，如果目标对象存储使用了域名，那么需要提前添加对象存储的域名解析或静态hosts解析 |
 
