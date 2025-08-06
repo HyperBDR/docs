@@ -451,6 +451,107 @@ Note: You can repeat the above steps to add multiple Oracle regions.
 
 ![](./images/sourcesiteconfiguration-oracle-4.png)
 
+## **HCS 8.0.2**
+
+The HCS 8.0.2 platform page on the production site is mainly used for adding, deleting, updating, and other related management operations for the HCS 8.0.2 platform
+
+### **Add HCS 8.0.2 Platform**
+
+Click "Source Site" in the left navigation bar, select HCS 8.0.2, and click the "Add" button. Follow the steps in the pop-up window to add the platform.
+
+![](./images/productionsiteconfiguration-hcs802-1.png)
+
+#### **Deploy Sync Proxy**
+
+Follow the guided steps below:
+
+* Step 1: Download the source sync proxy OVA file.
+
+  * Click the download link on the page
+
+  * Internet OVA download link: <https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova>
+
+* Step 2: Use the OVA file to import into the HCS cluster, deploy one or more source sync proxy virtual machines, and configure the IP address.
+
+> Note:
+>
+> 1\. Currently, the interfaces of Huawei Cloud Stack (HCS) 8.2.x / 8.3.x differ significantly from those of Stack (HCS) 8.0.2; therefore, Stack (HCS) 8.2.x / 8.3.x is not supported at this time.
+>
+> 2\. Other models of Dorado storage have not yet been adapted.
+
+* Step 3: Install the source sync proxy. Log in to the newly created sync proxy VM. The default username and password are (root/Acb@132.Inst)
+
+* Step 4: Copy and execute the sync proxy installation command.
+
+* Network policy requirements:
+
+| **Source** | **Target**       | **Port** | **Description** |
+| ---------- | ---------------- | -------- | --------------- |
+| Sync Proxy | HyperBDR Console | 10443    | Authentication port         |
+| Sync Proxy | HyperBDR Console | 30080    | Installation package download port       |
+
+* Sync Proxy resource specifications:
+
+| Parameter         | Specification           |
+| ----------- | ------------ |
+| OS Version  | Ubuntu 20.04 |
+| CPU         | 4C           |
+| Memory      | 8GB          |
+| System Disk | 50GB         |
+
+![](./images/productionsiteconfiguration-hcs802-2.png)
+
+#### Create **HCS 8.0.2**  Migration Source Platform
+
+1. Obtain authentication information
+
+| Parameter         | Example                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ----------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Auth URL          | https://iam-apigateway-proxy.oneprocloud.com/v3 | The address used for authentication is usually iam-apigateway-proxy.{external\_global\_domain\_name}. Please replace external\_global\_domain\_name with the actual address in the environment.&#xA;For example, if external\_global\_domain\_name is oneprocloud.com, then this field should be filled in as: https://iam-apigateway-proxy.oneprocloud.com/v3                                                                                             |
+| Tenant ID         | HPUAAG0B2•••••••••••••••                        | Log in platform, click the Username in the upper right corner, and then click \[My Settings], Find the \[Tenant ID] value on this page.                                                                                                                                                                                                                                                                                                                    |
+| Username          | zhangweizhen                                    | Username is displayed in the upper-right corner after logging in to the platform.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Password          | ••••••••••••••                                  | The login password for the username                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Project Domain ID | default                                         | Same as Tenant ID, Click the Username in the upper right corner, then click \[My Settings], find the \[Tenant ID] value on this page，and the \[Tenant ID] will be the "Project Domain ID".&#xA;This field specifies the Project Domain ID in the OpenStack platform. The default value is "default".                                                                                                                                                       |
+| Project Name      | test                                            | Click on the username in the upper right corner, then select \[My Settings]. On this page, locate the content displayed under \[Project List] and the value shown in the header of the \[Name] column.&#xA;This field specifies the project name in the OpenStack platform. Please fill it in according to your actual situation.                                                                                                                          |
+| Project (Region)  | RegionOne                                       | Click the username in the upper right corner, then select \[Personal Settings]. On this page, find the content displayed under \[Project List]. The value shown in the \[Region] column header is the display name, while its corresponding real value is, for example, if the header displays "Aguascalientes", the real value is "mx-ags-1".&#xA;In the OpenStack platform, this field represents the region name, and its default value is "RegionOne". |
+| Sync Proxy        | 192.168.7.144                                   | Select the IP of the host with the Sync Proxy installed from the dropdown list.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+![](./images/productionsiteconfiguration-hcs802-3.png)
+
+* Storage Information Configuration
+
+> Click '+ Add Storage' on the page to select multiple storage configurations.
+
+| Parameter                     | Example                     | Description                                                                                                        |
+| ----------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Storage Type                  | DORADO                      | Select the target storage type from the dropdown list.                                                             |
+| Dirección Nodo Almacenamiento | https://172.22.192.212:8088 | Address of the storage node                                                                                        |
+| Username                      | zhangweizhen                | Username for accessing Storage                                                                                     |
+| Password                      | ••••••••••••••              | The password associated with the username                                                                          |
+| User Type                     | Local User                  | Indicates an account created locally on the storage system. Optional types: Local User, LDAP User, or RADIUS User. |
+
+![](./images/productionsiteconfiguration-hcs802-4.png)
+
+* Network policy requirements
+
+| Source     | Target    | Port | Description                                                                                                                                    |
+| ---------- | --------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sync Proxy | HCS 8.0.2 | 443  | Used to access the API Gateway (APIG) of the HCS platform for management operations such as authentication and task dispatching.               |
+| Sync Proxy | HCS 8.0.2 | 8088 | Used to access the management interface of the Dorado storage system for operations such as querying storage resources and managing snapshots. |
+
+* Permission requirements
+
+When calling the HCS 8.0.2 API for data backup, the following permissions are required. For details on permission settings and account creation, please refer to the documentation: To be added
+
+#### **Complete HCS 8.0.2 Addition**
+
+Once the HCS 8.0.2 production platform has been configured, wait until the platform status becomes 'Normal' and the number of ECS hosts is retrieved. You can then proceed with the subsequent steps.
+**Note:** You can repeat the above steps to add multiple HCS 8.0.2 clusters.
+
+![](./images/productionsiteconfiguration-hcs802-5.png)
+
+***
+
 ## **Source Agent**
 
 1. When the source (protected) end is a physical machine or a single virtual machine of various types (such as KVM/Xen/Hyper-V, etc.), relevant configuration is required.
