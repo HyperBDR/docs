@@ -473,7 +473,9 @@ Follow the guided steps below:
 * Step 2: Use the OVA file to import into the HCS cluster, deploy one or more source sync proxy virtual machines, and configure the IP address.
 
 > Note:
+>
 > 1\. Currently, the interfaces of Huawei Cloud Stack (HCS) 8.2.x / 8.3.x differ significantly from those of Stack (HCS) 8.0.2; therefore, Stack (HCS) 8.2.x / 8.3.x is not supported at this time.
+>
 > 2\. Other models of Dorado storage have not yet been adapted.
 
 * Step 3: Install the source sync proxy. Log in to the newly created sync proxy VM. The default username and password are (root/Acb@132.Inst)
