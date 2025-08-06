@@ -107,7 +107,7 @@ If the console host is accessible via public network, for security reasons, we s
 | CPU | 8 Cores |
 | Memory | 16 GiB |
 | OS | Ubuntu 20.04 server 64-bit |
-| System Disk | 200GB |
+| System Disk | 500GB |
 | Firewall | Required ports only |
 
 ::: tip
