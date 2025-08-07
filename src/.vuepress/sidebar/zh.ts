@@ -231,6 +231,7 @@ export const zhSidebar = sidebar({
       prefix: "",
       children: [
         'huawei-koogallery-license.md',
+        'aws-license.md'
       ],
     },
   ],
