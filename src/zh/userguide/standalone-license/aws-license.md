@@ -138,7 +138,7 @@
 
   * 管理 VPC、子网、密钥对等资源权限
 
-* 若涉及 License 激活，请参考官方文档：[HyperBDR 激活方式](../poc/hyperbdr-vmware-pre-settings.html#%E7%94%B3%E8%AF%B7hyperbdr%E6%8E%88%E6%9D%83)
+* 若涉及 License 激活，请参考官方文档：[HyperBDR 激活方式](../poc/hyperbdr-vmware-pre-settings.html#%E7%94%B3%E8%AF%B7hyperbdr%E6%8E%88%E6%9D%83) - [[步骤II-通过使用注册码激活授权]](../poc/hyperbdr-vmware-pre-settings.html#ii-%E9%80%9A%E8%BF%87%E4%BD%BF%E7%94%A8%E6%B3%A8%E5%86%8C%E7%A0%81%E6%BF%80%E6%B4%BB%E6%8E%88%E6%9D%83) 获取机器码并按照指导进行激活.
 
 
 
