@@ -245,7 +245,7 @@ Download Windows/Linux images to your local machine through the provided image l
 
 * Version: Windows Server 2016 Datacenter 64bit English
 * Size: 12.11 GB
-* Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
+* Download Link: [https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2)
 * MD5 Value of the Image: 519444d4b0343e15fa014c50d906a832
 
 ### Upload Image to TM CAE Object Storage
