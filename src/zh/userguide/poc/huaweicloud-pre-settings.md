@@ -176,7 +176,7 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 * 版本：Windows Server 2016 Datacenter 64bit English
 * 大小：12.11 GB
-* 下载链接：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
+* 下载链接：[https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
 * 镜像的MD5值: 519444d4b0343e15fa014c50d906a832
 
 #### UEFI 镜像
