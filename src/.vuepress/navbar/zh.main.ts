@@ -20,7 +20,7 @@ export const zhNavbar = navbar([
           {
             text: "快速开始",
             icon: "check-square",
-            link: "/userguide/checklist/dr-checklist.md"
+            link: "/zh/userguide/checklist/dr-checklist.md"
           },
         ],
       },
