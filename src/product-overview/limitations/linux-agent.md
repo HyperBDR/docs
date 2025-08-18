@@ -46,6 +46,7 @@ For detailed compatibility, see the [Cloud Platform Support Matrix](https://onep
 | iSCSI Disks          | Supported if initiator name is unchanged | Not supported                                 |
 | Encrypted Disks      | Not supported                      | Not supported: LUKS-encrypted disks/partitions               |
 | Network Mounts       | Not supported                      | Not supported: NFS/NAS network shares (use separate sync tools) |
+| Oracle RAC Cluster       | Not supported                      | Not supported |
 
 ### Boot Requirements
 - Only systems using grub or grub2 are supported.
