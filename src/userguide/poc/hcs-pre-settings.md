@@ -65,7 +65,7 @@ Download images to your local machine through the provided image links.
 
 * File Name: ubuntu-20.04-server-cloud-init-amd64.qcow2
 * Version: ubuntu 20.04 server
-* Size: 5.85 GB
+* Size: 596.38 MB
 * Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)  
 
 #### Windows Image
@@ -138,6 +138,135 @@ The size of the System disk must be 40G.
 Supported Linux image names
 
 > Ubuntu 20.04 server 64bit UEFI
+
+### 60-Disk Cloud Sync Gateway Image Adaptation Plan
+
+The default HCS image uses the virtio disk type. Cloud Sync Gateway instances created from this image support up to 20 attached disks by default.
+
+For scenarios requiring more than 20 disks, you need to use the Ubuntu 20.04 Server image provided by OnePro and modify its disk type to SCSI, which allows support for up to 60 attached disks.
+
+> HyperBDR must be installed first.
+
+- Step1: Place the image_to_scsi.py script in the /root directory on the HyperBDR server.
+
+``` python
+# Copyright 2024 OnePro Cloud Limited
+#
+# Authors: Zhao Jiangbo <zhaojiangbo@oneprocloud.com>
+#
+# Copyright (c) 2024. This file is confidential and proprietary.
+# All Rights Reserved, OnePro Cloud Limited(https://www.oneprocloud.com).
+
+import json
+import time
+from unicloud.cloud.drivers.hwfc80_driver import HWFC80Driver
+from unicloud.http_request import HttpRequest
+
+
+def get_driver(auth_url, user_domain_id, username, password,
+               project_domain_id, project_name, region_name):
+    auth_type = "password"
+    auth_info = {
+        "region_name": region_name,
+        "username": username,
+        "password": password,
+        "project_domain_id": project_domain_id,
+        "project_name": project_name,
+        "auth_url": auth_url,
+        "user_domain_id": user_domain_id,
+    }
+    driver = HWFC80Driver(auth_type, auth_info)
+    return driver
+
+
+if __name__ == "__main__":
+    # need run in unicloud venv
+
+    auth_url = "https://iam-apigateway-proxy.xxxx.xxxx.com.my/v3"
+    user_domain_id = "ffcff6xxxxxxxxx"
+    username = "onepcxxx"
+    password = "Abc99xxxxxx"
+    project_domain_id = "ffcff658xxxxxxxxxxxxxx"
+    project_name = "kl-xxxxxx"
+    region_name = "kl-rxxxxxx"
+    image_id = "3d2c58d5-xxxxxxxxxxxxxx"
+    image_url = "https://ims.kl-region-01.cloud.xxxxx.com.my/v2"
+
+    driver = get_driver(
+            auth_url=auth_url,
+            user_domain_id=user_domain_id,
+            username=username,
+            password=password,
+            project_domain_id=project_domain_id,
+            project_name=project_name,
+            region_name=region_name)
+
+    token = driver.client.get_token()
+    headers = {
+        "X-Auth-Token": token,
+        "Content-Type": "application/openstack-images-v2.1-json-patch",
+        "Accept": "application/json",
+    }
+
+    try:
+        json_body = [
+            {
+                "op": "add",
+                "path": "/hw_disk_bus",
+                "value": "scsi"
+            }
+        ]
+        HttpRequest._do_request(
+            method="PATCH",
+            base_url=image_url,
+            action="/images/%s" % image_id,
+            headers=headers,
+            json_body=json_body)
+        time.sleep(3)
+    except Exception as e:
+        print("Failed to add meta hw_disk_bus: %s" % e)
+
+    json_body = [
+        {
+            "op": "replace",
+            "path": "/hw_disk_bus",
+            "value": "scsi"
+        }
+    ]
+    HttpRequest._do_request(
+        method="PATCH",
+        base_url=image_url,
+        action="/images/%s" % image_id,
+        headers=headers,
+        json_body=json_body)
+```
+
+- Step2: Modify the image_to_scsi.py script and update the relevant parameters under the main section to match the actual environment.
+
+::: tip
++ [How to obtain Huawei Cloud HCS 8.x Platform Credentials information?](../../faq/faq.html#how-to-obtain-huawei-cloud-hcs-8-x-platform-credentials-information)
+:::
+
+> auth_url  
+> user_domain_id  
+> username  
+> password  
+> project_domain_id  
+> project_name  
+> region_name  
+> image_id: The Ubuntu 20.04 Server image ID provided by OneProCloud for download and upload.  
+> image_url: kl-region-01 is the region_name, cloud.xxx.com.my is the domain name for auth_url.The values of region_name and auth_url should be replaced according to your actual environment.  
+
+- Step3: HyperBDR server Execute command:
+
+```sh
+docker cp /root/image_to_sicsi.py production_unicloud-api_1:/tmp
+docker exec -ti production_unicloud-api_1 bash
+source /opt/unicloud-venv/bin/activate
+python /tmp/image_to_sicsi.py
+```
+
+- Step4: Please choose the modified image when adding the target endpoint.
 
 ## Create Huawei VPC Peering
 

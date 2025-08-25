@@ -19,21 +19,17 @@ Click the top "DR" navigation bar, then click the left "Host DR" navigation bar 
 
 ### **Register HyperBDR User**
 
-Before adding DR hosts, you need to register or add a DR account. You can use the default admin account created during installation to log in to the platform, or create a new DR account. The platform supports multi-tenant mode.
+Before adding a disaster recovery host, make sure you have created at least one disaster recovery account on the platform. The platform is built with a multi-tenant architecture, allowing you to manage accounts and permissions independently for different teams or projects.
 
-TODO:
-
-(Create a new DR account)
+[Click here to learn how to create a new disaster recovery account](../register/register.md)
 
 If you already have an account, please skip this step.
 
 ### **Add HyperBDR Product License**
 
-After the DR product is installed, you need to add a DR product license. You can contact your project manager or send an email to <support@oneprocloud.com> to apply for a valid license.
+Before using the disaster recovery service, you need to request a product license. Please contact your project manager or email support@oneprocloud.com to obtain a valid license.
 
-TODO:
-
-[License application guidance steps](../../poc/failback-hyperbdr-pre-settings.md#apply-for-hyperbdr-failback-license)
+[Click here to view the step-by-step guide for applying for a license](../../saas-license/hyperbdr)
 
 If you have already added a license, please skip this step.
 
@@ -234,7 +230,7 @@ Refer to the Linux host compatibility details to choose which hosts are supporte
 
 Click the installation command below and run it on the source Linux host terminal to complete adding the Linux backup host.
 
-For detailed installation steps, refer to: (Install Linux Agent)
+For detailed installation steps, refer to: [Click here to view](../configuration/production-site.md#linux-agent)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-12.png)
 
@@ -250,7 +246,7 @@ Refer to the Windows host compatibility details to determine if the host support
 
 Click **"Download Now"** according to the operating system version to download the Windows Agent installation package, then upload the package to the Windows host for installation.
 
-For detailed installation steps, refer to: (Install Windows Agent)
+For detailed installation steps, refer to: [Click here to view](../configuration/production-site.md#windows-agent)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-14.png)
 
@@ -323,6 +319,10 @@ Deregister the backup host from the disaster recovery management platform.
 
 Log in to the console, click the top **"DR"** navigation bar, then click **"Host DR"** on the left. Click the **"Setup DR"** menu, select one or multiple hosts, and click the **"Setup DR"** button to configure disaster recovery.
 
+::: tip
+The sequence of steps in the disaster recovery configuration process may vary slightly across different cloud platforms. For example, some platforms require volume type configuration before setting up compute resources, while others do the opposite. It is recommended to follow the interface guidance of the specific cloud platform and adjust the configuration order accordingly to ensure a smooth setup.
+   :::
+
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-26.png)
 
 ### **Block Storage**
@@ -342,7 +342,7 @@ Specify the backup host to use the "Block Storage" type for backup, and select t
 | Parameter               | Configuration      | Description                                                                                      |
 | ----------------------- | ------------------ | ------------------------------------------------------------------------------------------------ |
 | Select Storage Type     | **Block Storage**  | Prerequisite: Block storage must be pre-configured; select the configured block storage for DR backup |
-| Select Storage Platform | (Supported Storage Types) | Fill in the corresponding cloud vendor authentication information according to the actual situation. See details below for supported storage types |
+| Select Storage Platform | (Supported Storage Types) | Before proceeding with the configuration, please complete the block storage setup. Fill in the authentication details for the respective cloud provider according to your situation. For detailed configuration, please refer to the following:[👉 Click here to see the supported storage types](../configuration/storage-configuration.md#block-storage) |
 
 
 ##### **Source Sync Settings**
@@ -351,20 +351,13 @@ Specify the backup host to use the "Block Storage" type for backup, and select t
 | ----------------------- | ------------- | ------------------------------------------------------- |
 | VMware Quiesce Snapshot | Yes/No        | Quiesce snapshot currently only effective for VMware hosts with VMware-tools installed. |
 
-
-##### **Supported Storage Types**
-
-Before proceeding with the configuration, please complete the block storage setup. If you haven't added it yet, click the button below to go to the block storage configuration page.
-
-[👉Click to View Block Storage Configuration](../configuration/storage-configuration.md#block-storage)
-
 After completing the block storage setup, you can select the corresponding block storage platform from the dropdown list,After completing **Specify DR Platform**, click **"Next"** to start **Specify Cloud Sync Gateway**.
 
 #### **Specify Cloud Sync Gateway**
 
 Select the virtual machines that require disaster recovery backup from the current DR platform, assign the corresponding disaster recovery host disks, and complete the configuration of the sync gateway for the respective cloud platform.
 
-> Note: The cloud sync gateway will be automatically created when adding the DR platform configuration, no manual configuration is needed. For details, refer to: (Storage Configuration -- Block Storage Configuration -- Find your corresponding cloud vendor configuration method (not available yet))
+> Note: The cloud sync gateway will be automatically created when adding the DR platform configuration, no manual configuration is needed. For details, refer to: Storage Configuration -- Block Storage Configuration -- Find your corresponding cloud vendor configuration method [👉Click here to view](../configuration/dr-site-configuration.md#block-storage)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-29.png)
 
@@ -376,19 +369,21 @@ After completing **Specify Cloud Sync Gateway**, click **"Next"** to start **Spe
 
 #### **Specify Volume Type**
 
-Users need to assign the disk type (volume type) on the recovery target cloud platform for each disk of the selected virtual machines, ensuring correct mapping of target resources during disaster recovery.
+Users must specify the corresponding disk types (volume types) on the target cloud platform for each disk of the selected virtual machine, to ensure accurate resource mapping and successful mounting during the disaster recovery process.
 
-Set and select the disk types for the virtual machines requiring disaster recovery backup.
+![](./images/hostdisasterrecovery-hostdisasterrecovery-91.png)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-31.png)
+![](./images/hostdisasterrecovery-hostdisasterrecovery-92.png)
 
-You may choose different types of system volumes from the dropdown list, based on the selected cloud vendor：
+Configure and select the target volume types for the virtual machine disks that require disaster recovery backup, ensuring proper creation and mounting of resources during the recovery process.
 
+| **Item**                 | **Example Value**     | **Description**                                                                 |
+|--------------------------|------------------------|----------------------------------------------------------------------------------|
+| System Volume Type       | Ultra-high / IO        | You can configure the target volume type for the system disk in bulk via the list above, or individually per host in the host list. |
+| Volume Type              | Ultra-high / IO        | You can configure the target volume type for the data disk in bulk via the list above, or individually per host in the host list.   |
+| Added Disk Volume Type   | Ultra-high / IO        | You can configure the target volume type for added disks in bulk via the list above, or individually per host in the host list.      |
 
-| Item                      | Description                                         | 
-| ------------------------- | ------------------------------------------------- |
-| **_DEFAULT_**             | Default setting automatically selected by the system, suitable for various scenarios |
-| **DEFAULT_VOLUME_TYPE**   | Default storage type used by the system in the storage device |
+In multi-disk scenarios, be sure to manually select and set the boot disk for each host in the **“Set Boot Disk”** column to ensure the system can boot properly after disaster recovery.
 
 After completing **Specify Volume Type**, click **"Next"** to start **Computing Resource Configuration**.
 
@@ -400,7 +395,9 @@ Select the virtual machines requiring disaster recovery backup. You can manually
 
 > Note: When the source host uses UEFI boot mode, you can select BIOS or UEFI to boot the system disk. Disks larger than 2TB cannot use BIOS boot mode.
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-32.png)
+![](./images/hostdisasterrecovery-hostdisasterrecovery-93.png)
+
+![](./images/hostdisasterrecovery-hostdisasterrecovery-94.png)
 
 If there is a preset template matching the resource type, the system will auto-match; otherwise, manual selection is required.
 
@@ -538,17 +535,27 @@ Custom Pre and Post Scripts can be used to assist users in executing custom scri
 | Parameter        | Option                  | Description                                                                                                                                                                                                          |
 | ---------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Driver Injection | Enable Driver Injection | Only applicable when starting the host on the same virtualization platform, skipping driver adaptation. (Not recommended) Skipping driver adaptation may cause the host to fail to start properly, use with caution. |
-| Disk Driver      |                         | When the number of disks on the started host exceeds 20, virtio-scsi type must be selected.                                                                                                                          |
+| Disk Driver      | virtio                        | When the number of disks on the started host exceeds 20, virtio-scsi type must be selected.                                                                                                                          |
 
-After completing **Advanced Configuration**, click **"Next"** to prompt: **`Before starting policy configuration, hosts already configured will automatically enter "Start Disaster Recovery".`** Then begin associating policies.
+> When the target platform is Huawei Cloud, OTC, HCSO, OpenStack, or HCS, you can enable Boot Advanced Settings to configure custom metadata for the instance. Keys and Values can be defined based on your business needs.
+
+![](./images/hostdisasterrecovery-hostdisasterrecovery-95.png)
+
+**Boot Advanced Settings**
+
+| Parameter     | Option      | Description                                                       |
+| ------ | -------- | -------------------------------------------------------- |
+|Custom Metadata  | Add | 	It is used to set custom metadata during startup. After clicking Add, enter the required Key and Value in the list, then click Save to complete the setup. |
+
+After completing **Advanced Configuration**, click **"Next"** to prompt: **Before starting policy configuration, hosts already configured will automatically enter "Start Disaster Recovery".** Then begin associating policies.
 
 #### **Associate Policy**
 
-> Note: This is an optional configuration. Not selecting it will not affect the normal execution of the disaster recovery operation. Policy association can also be completed later through xx.
+> Note: This is an optional configuration. Not selecting it will not affect the normal execution of the disaster recovery operation. Policy association can also be completed later through Policy Settings.
 
 Associating policies allows flexible control over host backup, recovery, and failover behaviors.
 
-Before using association policies, you need to create the corresponding policies. If no policies exist in the system, selection is unavailable. Policy creation reference: (link)
+Before using association policies, you need to create the corresponding policies. If no policies exist in the system, selection is unavailable. Policy creation reference: [Click here to view](../configuration/policy-settings.md)
 
 Policies can be configured for individual hosts or batch-associated for multiple hosts via the page.
 
@@ -582,7 +589,7 @@ Assign the backup host to use the "Object Storage" type for backup and select th
 
 ##### **Storage Configuration**
 
-> Prerequisite: Object Storage must be configured in advance. Refer to (select your cloud provider from the table) for adding object storage.
+> Prerequisite: Object storage must be configured in advance. For instructions on how to add object storage, refer to:[Click to View Object Storage Configuration](../configuration/storage-configuration.md#object-storage)
 
 | Parameter             | Configuration                   | Description                                                                     |
 | --------------------- | ------------------------------- | ------------------------------------------------------------------------------- |
@@ -593,7 +600,7 @@ Assign the backup host to use the "Object Storage" type for backup and select th
 
 ##### **DR Recovery Platform**
 
-> Prerequisite: The disaster recovery platform must be configured in advance. Refer to the object storage addition method: (Select your cloud provider from the table)
+> Prerequisite: The disaster recovery platform must be configured in advance. For instructions on adding object storage, refer to:[Click to View Object Storage Configuration](../configuration/dr-site-configuration.md#object-storage-mode)
 
 | Parameter                   | Configuration                  | Description                           |
 | --------------------------- | ------------------------------ | ------------------------------------- |
@@ -753,16 +760,16 @@ Custom Pre and Post Scripts can be used to assist users in executing custom scri
 | Driver Injection | Enable Driver Injection | Applicable only when starting the host on the same virtualization platform. Skipping driver adaptation is **not recommended** as it may cause the host to fail to boot properly. Use with caution. |
 
 After completing **Advanced Configuration**, click **“Next”**. The system will then prompt:
-**`Before configuring policies, already configured hosts will automatically enter the "Start Disaster Recovery" process.`**
+**Before configuring policies, already configured hosts will automatically enter the "Start Disaster Recovery" process.**
 Proceed to **Associate Policy**.
 
 #### **Associate Policy**
 
-> **Note:** This step is optional. Skipping it will not affect the current disaster recovery process. You may complete policy association later via \[specific method or page].
+> Note: This configuration is optional. Leaving it unselected will not affect the normal execution of the current disaster recovery operation. You can also associate policies later through Policy Settings.
 
 By associating policies, you can flexibly control host behaviors such as **backup**, **recovery**, and **failover**.
 
-Before using this feature, ensure relevant policies have already been created. If no policy exists in the system, none will be available for selection. Refer to \[link] for policy creation guidelines.
+Before using an associated policy, you need to create the corresponding policy first. If there are no policies in the system, selection will not be available. For guidance on creating policies, please refer to:[Click here to view](../configuration/policy-settings.md)
 
 Policies can be associated with individual hosts or applied in bulk using the batch operation feature on the interface.
 

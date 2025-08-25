@@ -2889,6 +2889,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/mime-types@npm:^3":
+  version: 3.0.1
+  resolution: "@types/mime-types@npm:3.0.1"
+  checksum: 10c0/61c2056529dc5bc73c25b2a053e21f063fd547c21e12a2be94ca78b89b0f83c9a75afed9a8bda3c78592ee880acc82778302651527f7882cf5ba8e58ab320e29
+  languageName: node
+  linkType: hard
+
 "@types/mime@npm:^1":
   version: 1.3.5
   resolution: "@types/mime@npm:1.3.5"
@@ -2900,6 +2907,15 @@ __metadata:
   version: 0.7.34
   resolution: "@types/ms@npm:0.7.34"
   checksum: 10c0/ac80bd90012116ceb2d188fde62d96830ca847823e8ca71255616bc73991aa7d9f057b8bfab79e8ee44ffefb031ddd1bcce63ea82f9e66f7c31ec02d2d823ccc
+  languageName: node
+  linkType: hard
+
+"@types/ncp@npm:^2":
+  version: 2.0.8
+  resolution: "@types/ncp@npm:2.0.8"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10c0/c488159404263d2a7d0d560eb8f3102ddd47de46587144d2f48bff9b856bec24a89c6fd7d1061052f1d17223534de3b391616dc92ff0e99615654e31e4164f87
   languageName: node
   linkType: hard
 
@@ -8472,12 +8488,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mime-db@npm:^1.54.0":
+  version: 1.54.0
+  resolution: "mime-db@npm:1.54.0"
+  checksum: 10c0/8d907917bc2a90fa2df842cdf5dfeaf509adc15fe0531e07bb2f6ab15992416479015828d6a74200041c492e42cce3ebf78e5ce714388a0a538ea9c53eece284
+  languageName: node
+  linkType: hard
+
 "mime-types@npm:^2.1.27, mime-types@npm:^2.1.31, mime-types@npm:~2.1.17, mime-types@npm:~2.1.24, mime-types@npm:~2.1.34":
   version: 2.1.35
   resolution: "mime-types@npm:2.1.35"
   dependencies:
     mime-db: "npm:1.52.0"
   checksum: 10c0/82fb07ec56d8ff1fc999a84f2f217aa46cb6ed1033fefaabd5785b9a974ed225c90dc72fff460259e66b95b73648596dbcc50d51ed69cdf464af2d237d3149b2
+  languageName: node
+  linkType: hard
+
+"mime-types@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "mime-types@npm:3.0.1"
+  dependencies:
+    mime-db: "npm:^1.54.0"
+  checksum: 10c0/bd8c20d3694548089cf229016124f8f40e6a60bbb600161ae13e45f793a2d5bb40f96bbc61f275836696179c77c1d6bf4967b2a75e0a8ad40fe31f4ed5be4da5
   languageName: node
   linkType: hard
 
@@ -8696,6 +8728,15 @@ __metadata:
   bin:
     nanoid: bin/nanoid.js
   checksum: 10c0/0281d3cc0f3d03fb3010b479f28e8ddedfafb9b5d60e54315589ef0a54a0e9cfcb0bf382dd3b620fdad6b72b8c1f5b89a15d55c6b6a9134b58b16eb230b3a3d7
+  languageName: node
+  linkType: hard
+
+"ncp@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "ncp@npm:2.0.0"
+  bin:
+    ncp: ./bin/ncp
+  checksum: 10c0/d515babf9d3205ab9252e7d640af7c3e1a880317016d41f2fce2e6b9c8f60eb8bb6afde30e8c4f8e1e3fa551465f094433c3f364b25a85d6a28ec52c1ad6e067
   languageName: node
   linkType: hard
 
@@ -11583,10 +11624,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vuepress-theme-hope-template@workspace:."
   dependencies:
+    "@types/mime-types": "npm:^3"
+    "@types/ncp": "npm:^2"
     "@vuepress/bundler-webpack": "npm:2.0.0-rc.18"
     "@vuepress/plugin-pwa": "npm:2.0.0-rc.39"
     "@vuepress/plugin-search": "npm:2.0.0-rc.52"
     mermaid: "npm:^11.3.0"
+    mime-types: "npm:^3.0.1"
+    ncp: "npm:^2.0.0"
     sass: "npm:^1.77.8"
     sass-loader: "npm:^16.0.3"
     vue: "npm:^3.4.31"

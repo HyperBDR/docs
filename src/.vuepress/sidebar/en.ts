@@ -116,6 +116,7 @@ export const enSidebar = sidebar({
         'product-training/data-sync-fundamentals.md',
         'presales/deep-in-aws-agentless-mode',
         'product-training/multi-tenant-design.md',
+        'product-training/failback.md',
       ],
     },
     {
@@ -129,6 +130,7 @@ export const enSidebar = sidebar({
         'limitations/vmware-agentless.md',
         'limitations/openstack-ceph-agentless.md',
         'limitations/huawei-fusioncompute-agentless.md',
+        'limitations/huawei-hcs-agentless.md',
         'limitations/driver-adaption.md',
       ],
     },
@@ -195,6 +197,43 @@ export const enSidebar = sidebar({
       ],
     },
   ],
+    '/userguide/saas-license/': [
+    {
+      text: "SaaS License & Activation",
+      icon: "shopping-cart",
+      prefix: "",
+      children: [
+      {
+          text: "HyperBDR",
+          icon: "shield",
+          prefix: "hyperbdr/",
+          children: [
+            "online-purchase.md",
+            "activation-code.md",
+          ],
+        },
+      {
+          text: "HyperMotion",
+          icon: "exchange",
+          prefix: "hypermotion/",
+          children: [
+            "online-purchase.md",
+            "activation-code.md",
+          ],
+        },
+      ],
+    },
+  ],
+    '/userguide/standalone-license/': [
+    {
+      text: "Standalone License & Activation",
+      icon: "key",
+      prefix: "",
+      children: [
+        'huawei-koogallery-license.md',
+      ],
+    },
+  ],
   '/userguide/migration/': [
     {
       text: "Migration",
@@ -214,6 +253,7 @@ export const enSidebar = sidebar({
           icon: "dashboard",
           prefix: "dashboard/",
           children: [
+            "dashboard.md",
             "profile.md",
             "logout.md",
             "language-switch.md",
@@ -321,6 +361,14 @@ export const enSidebar = sidebar({
       prefix: "",
       children: [
         {
+          text: "Register",
+          icon: "user-plus",
+          prefix: "register/",
+          children: [
+            "register.md",
+          ],
+        },
+        {
           text: "Login",
           icon: "user",
           prefix: "login/",
@@ -404,7 +452,7 @@ export const enSidebar = sidebar({
         },
       ],
       collapsible: true,
-      expanded: true, 
+      expanded: true,
     },
     {
       text: "Cloud & Storage Guide",
@@ -464,7 +512,7 @@ export const enSidebar = sidebar({
       prefix: "",
       children: [
         "upgrade-manual.md",
-        "hyperbdr-operation-and-maintenance-manual.md",
+        "oem.md",
       ]
     }
   ],
@@ -606,6 +654,92 @@ export const enSidebar = sidebar({
       icon: "window-maximize",
       prefix: "",
       children: [
+        {
+          text: "Login",
+          icon: "sign-in-alt",
+          prefix: "login/",
+          children: [
+            "login.md",
+          ],
+        },
+        {
+          text: "Dashboard",
+          icon: "dashboard",
+          prefix: "dashboard/",
+          children: [
+            "language-switch.md",
+            "profile.md",
+            "logout.md",
+          ],
+        },
+        {
+          text: "User",
+          icon: "user",
+          prefix: "user/",
+          children: [
+            "tenant",
+            "user",
+            "ak-sk",
+            "sso-config",
+          ],
+        },
+        {
+          text: "License",
+          icon: "lock",
+          prefix: "license/",
+          children: [
+            "license-list",
+          ],
+        },
+        {
+          text: "Monitor and Alarm",
+          icon: "chart-line",
+          prefix: "monitor/",
+          children: [
+            "system-monitor",
+            "alarm",
+            "notification",
+            "alerts",
+          ],
+        },
+        {
+          text: "Operations",
+          icon: "tools",
+          prefix: "operations/",
+          children: [
+            "audit-logs",
+            "task-management",
+            "download-logs",
+          ],
+        },
+        {
+          text: "User Hosts",
+          icon: "computer",
+          prefix: "user-host/",
+          children: [
+            "dr",
+            "migration",
+          ],
+        },
+        {
+          text: "Notification",
+          icon: "bell",
+          prefix: "notification/",
+          children: [
+            "email",
+            "mfa",
+            "sms",
+            "webhook",
+          ],
+        },
+        {
+          text: "Versions",
+          icon: "history",
+          prefix: "versions/",
+          children: [
+            "modules",
+          ],
+        },
       ]
     },
   ],

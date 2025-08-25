@@ -66,6 +66,28 @@ The product supports two storage types: block storage and object storage. Choose
 
 - [Network Planning Recommendations](../../product-overview/presales/dr-network-planning-recommendations.md)
 
+
+### 6. Image Upload
+
+::: warning
+Since cloud platforms can differ, make sure to upload the required image for your chosen platform before installing the product. The product should only be installed after the image has been uploaded; otherwise, some features may not work properly.
+Please select and upload the correct image based on the cloud platform you’re using.
+   :::
+
+| Cloud Platform | Image Name | Download Link | MD5 | Details |
+|--------|----------|----------|-----|------|
+| Huawei Cloud | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/huaweicloud-pre-settings.md#image-download-upload) |
+| Huawei Cloud | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2) | -- | [View Details](../poc/huaweicloud-pre-settings.md#image-download-upload) |
+| Huawei Cloud | HuaweiCloud_<br>UEFI_<br>GenericImage.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) | 7814209a573666f2<br>701b35236764723d | [View Details](../poc/huaweicloud-pre-settings.md#image-download-upload) |
+| TM CAE | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2) | -- | [View Details](../poc/tmcae-pre-settings.md#image-download-upload) |
+| TM CAE | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/tmcae-pre-settings.md#image-download-upload) |
+| Open Telekom Cloud | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2) | -- | [View Details](../poc/opentelekomcloud-pre-settings.md#image-download-upload) |
+| Open Telekom Cloud | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/opentelekomcloud-pre-settings.md#image-download-upload) |
+| Open Telekom Cloud | HuaweiCloud_<br>UEFI_<br>GenericImage.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) | 7814209a573666f2<br>701b35236764723d | [View Details](../poc/opentelekomcloud-pre-settings.md#image-download-upload) |
+| Huawei Cloud Stack | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2) | -- | [View Details](../poc/hcs-pre-settings.md#image-download-upload) |
+| Huawei Cloud Stack | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/hcs-pre-settings.md#image-download-upload) |
+| Huawei Cloud Stack | HuaweiCloud_<br>UEFI_<br>GenericImage.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) | 7814209a573666f2<br>701b35236764723d | [View Details](../poc/hcs-pre-settings.md#image-download-upload) |
+
 ## Product Installation
 
 Both HyperMotion (migration) and HyperBDR (disaster recovery) products are deployed using a unified offline installation package. The package must be downloaded in an environment with internet access, but the installation process can be completed in an isolated environment.
@@ -85,13 +107,17 @@ If the console host is accessible via public network, for security reasons, we s
 | CPU | 8 Cores |
 | Memory | 16 GiB |
 | OS | Ubuntu 20.04 server 64-bit |
-| System Disk | 200GB |
+| System Disk | 500GB |
 | Firewall | Required ports only |
 
 ::: tip
 If your platform doesn't have Ubuntu 20.04 Server 64-bit image, you can download our standard image and import it to your platform.
 
 Download link: [ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
+:::
+
+::: warning
+In object storage mode, because Redis stores metadata, an 8-core 16GB setup can support up to about 10TB of protected data in production (128 snapshots, increments less than 5%). If data exceeds 10TB but is under 30TB, it’s recommended to upgrade memory to 32GB. For data between 30TB and 50TB, upgrading to 64GB is advised. If data is larger, it’s best to deploy a separate Redis node to meet memory needs.
 :::
 
 ### 2. Obtain Installation Package
@@ -207,7 +233,6 @@ Upon successful installation, you'll see the login information:
 [2023-03-30 23:08:36] [INFO]
 [2023-03-30 23:08:36] [INFO] DR        : https://192.168.12.81:10443
 [2023-03-30 23:08:36] [INFO] Migration : https://192.168.12.81:20443
-[2023-03-30 23:08:36] [INFO] Admin     : https://192.168.12.81:30443
 [2023-03-30 23:08:36] [INFO]
 [2023-03-30 23:08:36] [INFO] The default username and password : admin / P@ssw0rd
 [2023-03-30 23:08:36] [INFO]
@@ -224,7 +249,6 @@ Upon successful installation, you'll see the login information:
 |--------------|------------|-------------|---------------------|
 | HyperBDR Console | `https://<Console Service IP>:10443` | Disaster Recovery Management Console | admin / P@ssw0rd |
 | HyperMotion Console | `https://<Console Service IP>:20443` | Migration Management Console | admin / P@ssw0rd |
-| Admin Portal | `https://<Console Service IP>:30443` | System Management Console | admin / P@ssw0rd |
 
 ## Installation Video Demo
 

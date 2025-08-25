@@ -65,6 +65,27 @@
 
 - [产品网络规划](../../product-overview/presales/dr-network-planning-recommendations.md)
 
+### 6. 镜像上传
+
+::: warning
+鉴于各云平台之间存在差异，为确保产品功能的正常使用，请务必在安装产品前，依据所选云平台的要求，提前上传指定镜像。只有在镜像成功上传后，方可进行产品的安装与使用，否则可能导致部分功能无法正常运行。
+请根据所使用的目标云平台，选择并上传相应的镜像。
+   :::
+
+| 云平台                | 镜像名称                                                                   | 下载地址                                                                                                                                            | MD5                                   | 详细说明                                                                    |
+| ------------------ | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------- |
+| Huawei Cloud       | Windows_Server_2016<br>Datacenter_64bit<br>English_40G.qcow2 | [点击下载](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 |  [点击查看](../poc/huaweicloud-pre-settings.md#镜像下载-上传)                    |
+| Huawei Cloud       | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2                   | [点击下载](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)                                                | --                                    |  [点击查看](../poc/huaweicloud-pre-settings.md#镜像下载-上传)                    |
+| Huawei Cloud       | HuaweiCloud<br>UEFI<br>GenericImage.qcow2                        | [点击下载](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2)                                                       | 7814209a573666f2<br>701b35236764723d |  [点击查看](../poc/huaweicloud-pre-settings.md#镜像下载-上传)                    |
+| TM CAE             | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2                   | [点击下载](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)                                                | --                                    |  [点击查看](../poc/tmcae-pre-settings.md#image-download-upload)            |
+| TM CAE             | Windows_Server_2016<br>Datacenter_64bit<br>English_40G.qcow2 | [点击下载](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 |  [点击查看](../poc/tmcae-pre-settings.md#image-download-upload)            |
+| Open Telekom Cloud | ubuntu-20.04-server-<br>cloud-init- <br>amd64.qcow2                   | [点击下载](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)                                                | --                                    |  [点击查看](../poc/opentelekomcloud-pre-settings.md#image-download-upload) |
+| Open Telekom Cloud | Windows_Server_2016<br>Datacenter_64bit<br>English_40G.qcow2 | [点击下载](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2)                                    | 519444d4b0343e15f<br>a014c50d906a832 |  [点击查看](../poc/opentelekomcloud-pre-settings.md#image-download-upload) |
+| Open Telekom Cloud | HuaweiCloud<br>UEFI<br>GenericImage.qcow2                        | [点击下载](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2)                                                       | 7814209a573666f2<br>701b35236764723d |  [点击查看](../poc/opentelekomcloud-pre-settings.md#image-download-upload) |
+| Huawei Cloud Stack | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2                   | [点击下载](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)                                                | --                                    |  [点击查看](../poc/hcs-pre-settings.md#image-download-upload)              |
+| Huawei Cloud Stack | Windows_Server_2016 <br>Datacenter _64bit<br>English_40G.qcow2 | [点击下载](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2)                                    | 519444d4b0343e15f<br>a014c50d906a832 |  [点击查看](../poc/hcs-pre-settings.md#image-download-upload)              |
+| Huawei Cloud Stack | HuaweiCloud<br>UEFI<br>GenericImage.qcow2                        | [点击下载](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2)                                                       | 7814209a573666f2<br>701b35236764723d |  [点击查看](../poc/hcs-pre-settings.md#image-download-upload)              |
+
 ## 产品安装
 
 迁移（HyperMotion）和容灾（HyperBDR）产品通过统一的离线安装包进行部署。离线包需在可访问公网的环境中下载，安装过程本身不依赖公网，可在隔离环境中完成。
@@ -84,12 +105,16 @@
 | CPU      | 8 C                       |
 | 内存     | 16 GiB                    |
 | 操作系统 | Ubuntu 20.04 server 64bit |
-| 系统盘   | 200GB                     |
+| 系统盘   | 500GB                     |
 
 ::: tip
 如果您所在的平台没有 Ubuntu 20.04 Server 64 位镜像，那么您可以下载我们提供的标准镜像，并将其导入平台进行安装。
 
 下载链接: [ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
+:::
+
+::: warning
+在对象存储模式下，因 Redis 需存储元数据，8核16GB配置最多支持保护生产环境主机总容量约10TB的数据（128快照，增量小于5%）。当数据量超过10TB且不超过30TB时，建议将内存扩容至32GB；超过30TB且不超过50TB时，建议扩容至64GB；若数据量更大，建议单独部署 Redis 节点以满足内存需求。
 :::
 
 ### 2. 获取安装包
@@ -201,7 +226,6 @@ bash /mnt/installer/install.sh -i <Console Service IP>
 [2023-03-30 23:08:36] [INFO]
 [2023-03-30 23:08:36] [INFO] DR        : https://192.168.12.81:10443
 [2023-03-30 23:08:36] [INFO] Migration : https://192.168.12.81:20443
-[2023-03-30 23:08:36] [INFO] Admin     : https://192.168.12.81:30443
 [2023-03-30 23:08:36] [INFO]
 [2023-03-30 23:08:36] [INFO] The default username and password : admin / P@ssw0rd
 [2023-03-30 23:08:36] [INFO]
@@ -218,7 +242,6 @@ bash /mnt/installer/install.sh -i <Console Service IP>
 | ------------------ | ------------------------------------ | -------------- |
 | HyperBDR 控制台    | `https://<Console Service IP>:10443` | 容灾管理控制台 |
 | HyperMotion 控制台 | `https://<Console Service IP>:20443` | 迁移管理控制台 |
-| 管理门户控制台     | `https://<Console Service IP>:30443` | 系统管理控制台 |
 
 ## (演示)产品安装视频
 

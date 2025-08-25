@@ -14,6 +14,17 @@ export const enNavbar = navbar([
     prefix: "/",
     children: [
       {
+        text: "Step by Step Guide",
+        icon: "download",
+        children: [
+          {
+            text: "Checklist",
+            icon: "check-square",
+            link: "/userguide/checklist/dr-checklist.md"
+          },
+        ],
+      },
+      {
         text: "Installation",
         icon: "download",
         children: [
@@ -25,11 +36,27 @@ export const enNavbar = navbar([
         ],
       },
       {
+        text: "Purchase & Activation",
+        icon: "file-invoice",
+        children: [
+          {
+            text: "SaaS License & Activation",
+            icon: "shopping-cart",
+            link: "/userguide/saas-license/",
+          },
+          {
+            text: "Standalone License & Activation",
+            icon: "key",
+            link: "/userguide/standalone-license/",
+          }
+        ],
+      },
+      {
         text: "Migration",
         icon: "exchange",
         children: [
           {
-            text: "HyperMotion Mannual",
+            text: "HyperMotion Manual",
             icon: "exchange",
             link: "/userguide/migration/",
           },
@@ -98,11 +125,6 @@ export const enNavbar = navbar([
         icon: "ellipsis",
         children: [
           {
-            text: "Checklist",
-            icon: "check-square",
-            link: "/userguide/checklist/"
-          },
-          {
             text: "FAQ",
             icon: "question-circle",
             link: "/userguide/faq/faq.md"
@@ -112,9 +134,19 @@ export const enNavbar = navbar([
     ],
   },
   {
+    text: "AI Support",
+    icon: "robot",
+    link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+  },
+  {
     text: "Get Support",
-    icon: "headset",
+    icon: "fa-solid fa-handshake-angle",
     link: "https://support.oneprocloud.com/",
+  },
+  {
+    text: "FAQ",
+    icon: "headphones",
+    link: "https:/qa.oneprocloud.com/",
   },
   {
     text: "OneProCloud",

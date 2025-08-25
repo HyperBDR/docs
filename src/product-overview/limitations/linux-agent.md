@@ -1,89 +1,87 @@
 # Linux Agent
 
-## OS Support
+## Supported Operating Systems
 
-Click [Agent Support Matrix](./product-support-overview.md) to view the compatibility list and get the latest support status.
+| Operating System     | Supported Versions |
+| -------------------- | ----------------- |
+| CentOS (64-bit)      | 6.x, 7.x, 8.x     |
+| Red Hat Enterprise Linux (RHEL) (64-bit) | 6.x, 7.x, 8.x |
+| SUSE Linux Enterprise Server (SLES) (64-bit) | 11 (SP1-SP4), 12 (SP1-SP5), 15 (SP1-SP5) |
+| Ubuntu Server (64-bit) | 12.04.x, 14.04.x, 16.04.x, 18.04.x, 20.04.x, 22.04.x |
+| Oracle Linux Server (64-bit) | 6.x, 7.x, 8.x |
+| Kylin Linux          | v10 SP1 (v2101)   |
+| UOS                  | UOS 1050 u2a, UOS 1050 u2e |
 
-## FileSystem & Partition Types
+::: warning
+- Note: Supported kernel versions: 2.6.32 to 5.8 (standard community releases).
+- Kernels with cloud-specific tags are not supported. For special kernel requirements, please contact technical support.
 
-### FileSystem
-
-* EXT2
-* EXT3
-* EXT4
-* XFS
-* FAT
-* exFAT
-
-### Partitions
-
-* Primary/ Extended 
-* Logical Volume Manager (LVM)
-* MBR
-* GPT
-
-## Kernel Support
-
-Due to the involvement of kernel modules during runtime, the installation and execution of the Linux Agent depend on the version of the kernel modules. Currently, the supported kernel range is from version 2.6.32 to 5.8, and these kernel versions are built from standard community versions.
-
-### Limitations
-
-* We currently do not support kernel versions with cloud tags. If there is a need for specific kernel versions, please contact us for support.
-* Regarding limitations, currently, for versions 4.17.0 and above, if the source host undergoes a restart, incremental transmission cannot continue, and HyperBDR will automatically revert to full synchronization.
+For detailed compatibility, see the [Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO).
+:::
 
 ## Support and Limitations
 
-### Basic Requirements:
-- **CPU:** x86-64-bit processor (i386 or later)
-- **Memory:** Each mounted point consumes approximately 300MB of cache space. For example, if there are 3 mounted points, around 1000MB of memory will be consumed.
+### Basic Requirements
+- **CPU:** x86-64 processor (i386 or newer)
+- **Memory:** Approximately 300MB of cache per mount point. For example, 3 mount points require about 1GB of memory.
 - **Disk Space:**
-  - *Software Space:* 100MB of available space for software installation.
-  - *Cache Space:* Each filesystem must have remaining space greater than 10%.
-  - System partition must have more than 100MB of remaining availble space (e.g. Linux: /var,/boot/ or others partition.).
-- **Network Connection:** At least 10 Mbps connection to the target endpoint.
-- **System Firmware:** BIOS or UEFI.
+  - *Software:* At least 100MB of free space for installation.
+  - *Cache:* At least 10% free space on each file system.
+- **Network:** Minimum 10Mbps bandwidth with connectivity to the target endpoint.
+- **Firmware:** BIOS or UEFI.
 - **Disk Layout:** MBR or GPT.
-- **Virtualization Support:** Full virtualization is supported, but support for paravirtualization (e.g., XenServer) is limited. Manual repair may be required during final boot.
+- **Virtualization:** Fully virtualized environments are supported. Paravirtualization (such as XenServer) is only partially supported and may require manual intervention during boot.
 
+### Supported and Unsupported Contitions
 
-### System Boot:
-- Systems bootable with both grub and grub2 methods are synchronized and started.
-- Host driver repair using LILO boot method is not supported.
-- If there is a separate /boot partition, it must be defined in /etc/fstab; otherwise, repair during boot driver recovery will fail, resulting in boot failure. If this definition is indeed missing, manual addition is recommended (the partition is not mounted in the fstab table).
-- The first disk in the host must be the boot disk. Disaster recovery settings specifying the boot disk are currently not supported.
+| Condition            | Supported                          | Not Supported                                 |
+| -------------------- | ---------------------------------- | --------------------------------------------- |
+| File System Types    | EXT2, EXT3, EXT4, XFS, FAT, exFAT  | Not supported: Btrfs, OracleASM                              |
+| Partition Types      | Primary, Extended, LVM, MBR, GPT   | Not supported: LVM thin volumes, LUKS-encrypted partitions   |
+| Boot Methods         | grub, grub2                        | Not supported: LILO                                          |
+| Boot Disk            | First disk as boot disk            | Not supported: Specifying other disks as boot disk           |
+| Shared Disks         | Can be migrated; manual cleanup required | Not supported: Multipath remote disks (FC, IP SAN)      |
+| Virtualization Type  | Full virtualization                | Not supported: Paravirtualization (e.g., XenServer; may require manual intervention) |
+| Unmounted Partitions/Disks | Not supported                | Not supported: Unmounted partitions and raw disks            |
+| iSCSI Disks          | Supported if initiator name is unchanged | Not supported                                 |
+| Encrypted Disks      | Not supported                      | Not supported: LUKS-encrypted disks/partitions               |
+| Network Mounts       | Not supported                      | Not supported: NFS/NAS network shares (use separate sync tools) |
+| Oracle RAC Cluster       | Not supported                      | Not supported |
 
-### Disk and Partition Restrictions:
-- When a shared disk is mounted for use by multiple hosts on the source side, it is migrated according to the hosts, so the shared disk will be migrated multiple times. After reaching the target side, there will be multiple identical disks, so redundant disks need to be manually cleaned up, leaving only one shared disk shared among multiple hosts.
-- Multipath remote disks (FC, IP SAN) are currently not supported.
-- Unmounted partitions and disks (raw disks not mounted to specific directories) are currently not supported.
-- Encryption of LUKS disks/partitions is currently not supported.
-- Network-shared mount directories (e.g., NFS/NAS remote network access data) require the use of separate file-level synchronization tools for data synchronization.
-- When using hosts with iSCSI disks, care must be taken not to modify the original Initiator Name to avoid affecting business systems.
-- Btrfs file system is currently not supported.
-- OracleASM disks are currently not supported.
-- Not support LVM thin logical volumes.
+### Boot Requirements
+- Only systems using grub or grub2 are supported.
+- LILO boot method is not supported for driver repair.
+- If a separate `/boot` partition exists, it must be clearly defined in `/etc/fstab`; otherwise, boot repair will fail. If missing, manually add the `/boot` partition entry.
+- The first disk must be the boot disk. Only some cloud platforms support specifying a different system disk.
 
-## Best Practice
+### Disk and Partition Limitations
+- If a shared disk is mounted by multiple source hosts, it will be migrated multiple times, resulting in duplicate disks on the target. You must manually remove redundant disks and keep only one shared disk.
+- Multipath remote disks (FC, IP SAN) are not supported.
+- Unmounted partitions and raw disks (not mounted to any directory) are not supported.
+- LUKS-encrypted disks/partitions are not supported.
+- Network shares (NFS/NAS) require separate file-level sync tools.
+- Do not change the original initiator name when using iSCSI disks to avoid business impact.
+- Btrfs file system is not supported.
+- OracleASM disks are not supported.
+- LVM thin volumes are not supported.
 
-Before using the Linux Agent, please read this section carefully to avoid synchronization failures or conflicts with source applications due to incompatible scenarios, which may affect the stable operation of the system.
+## Common Issues
+
+Please review this section before using Linux Agent to avoid sync failures or application conflicts due to unsupported scenarios, which may affect system stability.
 
 ### Application Conflict Check
-- Components identical to the Linux Agent must not exist in the system.
+- Do not install any components that are the same as Linux Agent on the system.
 
 ::: warning
+When using Linux Agent, always monitor memory usage during business operations. If the system is transferring data for a long time using `scp`, `rsync`, or similar tools, and memory usage stays above 70%, use Linux Agent with caution. Low memory may trigger the Out of Memory (OOM) mechanism, causing service interruptions or even a system reboot, which can seriously affect business continuity.
 
-When using the Linux Agent, make sure to monitor memory usage carefully. If the system is handling long data transfers with tools like `scp` or `rsync` and memory usage stays above 70% for a long time, avoid enabling the Linux Agent. This may cause the system to run out of memory (OOM), leading to service interruptions or even a system reboot.  
-
-To reduce the risk, consider optimizing resource usage or running the Linux Agent during less busy times.
-
+To reduce risk, optimize system resource allocation in advance or schedule Linux Agent to run during off-peak hours.
 :::
 
 ### Kernel Upgrade Notice
 
 ::: warning
+Some Linux distributions (such as Ubuntu) enable automatic kernel upgrades by default. Since Linux Agent relies on specific kernel modules that must match the installed kernel version, upgrading the kernel may cause sync failures even after reloading modules.
 
-In real-world projects, we have observed that certain Linux distributions (such as Ubuntu) enable automatic kernel upgrades by default. Since the operation of the Linux Agent relies on specific kernel modules that must strictly match the kernel version at the time of installation, upgrading the kernel may cause synchronization failures even if the modules are reloaded.  
-
-To ensure the long-term stable operation of the Linux Agent, it is recommended to disable automatic kernel upgrades and avoid cross-version upgrades (e.g., upgrading directly from 5.4 to 5.15) as much as possible to reduce compatibility risks. If a kernel upgrade occurs, the Linux Agent and its corresponding kernel modules must be manually updated, followed by a full synchronization to ensure data consistency and proper system operation.
-
+To ensure long-term stability, disable automatic kernel upgrades and avoid major version jumps (for example, from 5.4 directly to 5.15). If the kernel is upgraded, manually update Linux Agent and its kernel modules, and perform a full sync to ensure data consistency and normal operation.
 :::

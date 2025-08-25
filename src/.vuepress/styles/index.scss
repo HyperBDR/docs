@@ -63,3 +63,21 @@
 .theme-hope-content:not(.custom) > p {
   text-align: start;
 }
+
+/* 左侧菜单栏一级标题加粗 */
+.vp-sidebar-title {
+  font-weight: 500;
+}
+
+/* 如果想加粗所有侧边栏链接文字 */
+.vp-sidebar-link {
+  font-weight: 500;
+}
+
+/* 子级（dropdown 菜单项） */
+.vp-dropdown-subtitle {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #111111 !important; /* 深黑色 */
+}
+

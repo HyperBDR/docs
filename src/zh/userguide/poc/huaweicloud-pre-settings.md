@@ -168,31 +168,36 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 #### Linux 镜像
 
-* 版本：CentOS 8.4 64bit
-* 大小： 1.22 GB
-* 下载链接：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) 
-* 镜像的MD5值: fe9f21a75a80d12159030fff76e1c8a5
+* 版本： ubuntu 20.04 server
+* 大小: 596.38 MB
+* 下载链接: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)  
 
 #### Windows 镜像
 
 * 版本：Windows Server 2016 Datacenter 64bit English
 * 大小：12.11 GB
-* 下载链接：[https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
+* 下载链接：[https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
 * 镜像的MD5值: 519444d4b0343e15fa014c50d906a832
+
+#### UEFI 镜像
+
+* 版本: HuaweiCloud_UEFI_GenericImage
+* 大小: 554.69 MB
+* 下载链接: [https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) 
+* 镜像的MD5值: 7814209a573666f2701b35236764723d
 
 ### 上传镜像到华为云对象存储
 
 ::: tip
 华为云官方文档链接:
-[https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0205.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0205.html) 
+[https://support.huaweicloud.com/intl/zh-cn/eu-west-0-usermanual-ims/zh-cn_topic_0030713183.html](https://support.huaweicloud.com/intl/zh-cn/eu-west-0-usermanual-ims/zh-cn_topic_0030713183.html) 
 :::
 
 ### 导入镜像
 
 ::: tip
 华为云官方文档链接:
-[https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0206.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0206.html)
-[https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0211.html](https://support.huaweicloud.com/intl/en-us/usermanual-ims/ims_01_0211.html)
+[https://support.huaweicloud.com/intl/zh-cn/eu-west-0-usermanual-ims/zh-cn_topic_0000001175697174.html](https://support.huaweicloud.com/intl/zh-cn/eu-west-0-usermanual-ims/zh-cn_topic_0000001175697174.html)
 :::
 
 #### 步骤一: 访问IMS控制台
@@ -209,7 +214,7 @@ HyperBDR 安全组名称: SG-HyperBDR
 ::: warning 
 1.名称必须是以下之一，并且不能包含额外的字符。  
 2.由于源主机上Windows的各种版本，选择操作系统的通用选项。  
-3.Linux镜像主要用于创建HyperDoor。当前版本的推荐版本是CentOS 8+。 
+3.Linux镜像主要用于创建HyperDoor。当前版本的推荐版本是Ubuntu 20.04。 
 :::
 支持的 windows 镜像名称
 
@@ -232,11 +237,7 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 支持的 Linux 镜像名称
 
-> CentOS 8.4 64bit  
-> CentOS 8.3 64bit  
-> CentOS 8.2 64bit  
-> CentOS 8.1 64bit  
-> CentOS 8.5 64bit
+> Ubuntu 20.04 64bit  
 
 ![upload-custom-windowslinux-images-to-huawei-cloud-7.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-7.png)
 

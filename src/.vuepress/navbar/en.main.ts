@@ -14,6 +14,17 @@ export const enNavbar = navbar([
     prefix: "/",
     children: [
       {
+        text: "Step by Step Guide",
+        icon: "download",
+        children: [
+          {
+            text: "Checklist",
+            icon: "check-square",
+            link: "/userguide/checklist/dr-checklist.md"
+          },
+        ],
+      },
+      {
         text: "Installation",
         icon: "download",
         children: [
@@ -24,17 +35,33 @@ export const enNavbar = navbar([
           }
         ],
       },
-      // {
-      //   text: "Migration",
-      //   icon: "exchange",
-      //   children: [
-      //     {
-      //       text: "HyperMotion Mannual",
-      //       icon: "exchange",
-      //       link: "/userguide/migration/",
-      //     },
-      //   ],
-      // },
+      {
+        text: "Purchase & Activation",
+        icon: "file-invoice",
+        children: [
+          {
+            text: "SaaS License & Activation",
+            icon: "shopping-cart",
+            link: "/userguide/saas-license/",
+          },
+          {
+            text: "Standalone License & Activation",
+            icon: "key",
+            link: "/userguide/standalone-license/",
+          }
+        ],
+      },
+      {
+        text: "Migration",
+        icon: "exchange",
+        children: [
+          {
+            text: "HyperMotion Manual",
+            icon: "exchange",
+            link: "/userguide/migration/",
+          },
+        ],
+      },
       {
         text: "Disaster Recovery",
         icon: "shield",
@@ -60,16 +87,16 @@ export const enNavbar = navbar([
         text: "Operations",
         icon: "gear",
         children: [
-          // {
-          //   text: "Administration Guide",
-          //   icon: "user-gear",
-          //   link: "/userguide/operations/"
-          // },
-          // {
-          //   text: "Admin Portal Manual",
-          //   icon: "window-maximize",
-          //   link: "/userguide/admin-portal/"
-          // },
+          {
+            text: "Administration Guide",
+            icon: "user-gear",
+            link: "/userguide/operations/"
+          },
+          {
+            text: "Admin Portal Manual",
+            icon: "window-maximize",
+            link: "/userguide/admin-portal/"
+          },
           {
             text: "O&M Guide",
             icon: "tools",
@@ -77,31 +104,26 @@ export const enNavbar = navbar([
           },
         ],
       },
-      // {
-      //   text: "Tools",
-      //   icon: "wrench",
-      //   children: [
-      //     {
-      //       text: "Calculator",
-      //       icon: "calculator",
-      //       link: "/userguide/calculator/",
-      //     },
+      {
+         text: "Tools",
+         icon: "wrench",
+         children: [
+           {
+             text: "Calculator",
+             icon: "calculator",
+             link: "/userguide/calculator/",
+           },
       //     {
       //       text: "License Management",
       //       icon: "key",
       //       link: "/userguide/license-management/",
       //     }
-      //   ],
-      // },
+         ],
+       },
       {
         text: "Others",
         icon: "ellipsis",
         children: [
-          {
-            text: "Checklist",
-            icon: "check-square",
-            link: "/userguide/checklist/"
-          },
           {
             text: "FAQ",
             icon: "question-circle",
@@ -112,8 +134,18 @@ export const enNavbar = navbar([
     ],
   },
   {
+    text: "AI Support",
+    icon: "robot",
+    link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+  },
+  {
     text: "Get Support",
-    icon: "headset",
+    icon: "fa-solid fa-handshake-angle",
+    link: "https://support.oneprocloud.com/",
+  },
+  {
+    text: "FAQ",
+    icon: "headphones",
     link: "https://support.oneprocloud.com/",
   },
   {

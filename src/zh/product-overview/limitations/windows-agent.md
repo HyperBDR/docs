@@ -8,29 +8,31 @@ Windows Agent 通过 Windows VSS（卷影复制服务）和磁盘过滤驱动程
 
 如果系统中已安装类似机制的备份软件，建议在安装 Windows Agent 之前暂停或卸载该软件，以避免冲突。此外，用户可考虑咨询现有平台方，确认是否支持无代理方式进行数据备份，这样可以避免不同备份软件之间的冲突，确保系统备份和恢复的正常进行。
 
-## 操作系统支持
+## 操作系统兼容性列表
 
-点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)查看兼容性列表及最新支持状态。 
+| 操作系统         | 支持版本                |
+|------------------|------------------------|
+| Windows 7 Ultimate      | 64-bit |
+| Windows 8 Professional  | 64-bit |
+| Windows 10 Enterprise   | 64-bit |
+| Windows 11 Enterprise   | 64-bit |
+| Windows Server 2003     | SP2/R2 (64-bit) |
+| Windows Server 2008     | 2008, 2008 R2 (64-bit) |
+| Windows Server 2012     | 2012, 2012 R2 (64-bit) |
+| Windows Server 2016     | 2016 (64-bit) |
+| Windows Server 2019     | 2019 (64-bit) |
+| Windows Server 2022     | 2022 (64-bit) |
 
-## 文件系统与分区类型
+::: warning
+点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)查看兼容
+性列表及最新支持状态。
+:::
 
-### 文件系统
-
-* NTFS
-* FAT16
-* FAT32
-
-### 分区类型
-
-* 主分区/扩展分区
-* 逻辑磁盘管理器（LDM）
-* 基本磁盘（分区类型：MBR/GPT）
-
-## 支持与限制
+## 支持和限制条件
 
 ### 基本要求
    - **CPU:** x86-64 位处理器
-      - **CPU使用控制:** 您可以通过配置CPU_USAGE_SETTING选项限制DiskSyncAgent的平均CPU使用率。默认情况下，CPU使用限制设置为30%。
+      - **CPU使用控制:** 您可以通过控制台源端同步配置进行配置。默认情况下，CPU使用限制设置为30%。
       - **提高同步速度:** 如果您的网络带宽足够，增加CPU使用限制可提高对象存储模式下的同步速度。
       - 注意:增加CPU使用限制可能会在计算机性能较低或同时运行其他CPU密集型任务时导致系统变慢或不稳定。因此，在增加CPU使用限制之前，请评估系统性能和资源利用情况。
    - **内存要求:**
@@ -53,7 +55,23 @@ Windows Agent使用Windows VSS创建一致的快照，无需中断系统操作�
 
      1. **减少磁盘I/O**: 调整业务操作，例如在同步期间暂停备份任务，或优化SQL查询以减少磁盘I/O。
      2. **指定非同步磁盘**: 可以将一个磁盘指定为非同步磁盘，或者增加新的磁盘并分配专用于VSS快照数据的卷。然后，配置`VSS_SPEC_MAX_?`设置，将VSS存储定向到专用卷，帮助缓解高I/O影响，但可能无法完全解决问题。
-   
+
+### 支持与限制条件
+
+| 条件 | 支持情况 | 不支持情况 |
+|------|----------|------------|
+| 用户权限 | 支持：管理员用户，或域控用户但具有本地管理员权限 | 不支持：非管理员用户 |
+| 文件系统类型 | 支持：NTFS | 不支持：其他文件系统，例如FAT16, FAT32, ReFS等 |
+| 分区类型 | 支持：主分区/扩展分区、MBR/GPT、基本磁盘、动态磁盘（简单卷和跨区卷） | 不支持：动态磁盘（镜像卷、RAID卷）、动态磁盘作为启动分区 |
+| VSS快照 | 支持：卷保留≥10%空闲空间，VSS服务正常，NTFS支持VSS同步 | 不支持：空间不足、VSS服务异常、非NTFS文件系统VSS同步 |
+| 磁盘数量 | 支持：≤32个磁盘 | 不支持：超过32个磁盘 |
+| 离线磁盘同步 | 不适用 | 不支持：所有离线磁盘同步 |
+| 共享磁盘 | 支持：仅一台主机同步共享磁盘，其他主机可排除 | 不支持：多主机同时同步同一共享磁盘 |
+| 虚拟化 | 支持：完全虚拟化 | 半虚拟化（如XenServer，可能需要手动修复） |
+| iSCSI磁盘 | 支持 | 不适用 |
+| 语言支持 | 中文、英文、西班牙语 (Español) | 本产品支持的字符集为 Code Page 437（英文及部分西欧语言）和 Code Page 936（简体中文及常用符号），目前仅对西班牙语进行了特殊适配，其他语言（如法语、德语、俄语、日语、韩语等）暂不支持。 |
+| 时间同步服务 | 需要 | 不适用 |
+
 ### 磁盘卷要求
    - 支持的磁盘数量不超过32个。
    - 不支持源磁盘的离线同步。所有磁盘必须在同步前保持在线。您可以通过源配置文件配置不需要同步的磁盘。
@@ -62,42 +80,26 @@ Windows Agent使用Windows VSS创建一致的快照，无需中断系统操作�
    - 卷的空闲空间比例应不低于3%。如果系统增量数据较大，需额外预留空间用于存储VSS快照。空间不足可能导致快照异常，进而导致同步失败。
    - 支持同步简单卷和分区卷，但不支持带有区域的卷、镜像卷或RAID卷。
    - Windows动态磁盘不能作为系统启动分区。
-   - 不支持Windows操作系统的UEFI启动。
-   
+
 ### 文件系统与卷快照要求
    - NTFS文件系统支持VSS同步模式，仅同步有效数据。
    - 原始设备或其他非NTFS文件系统不支持VSS模式，基于实际磁盘容量同步。
    - 在VSS模式下，源主机上的VSS服务必须正常运行。您可以使用Windows提供的`vssadmin`命令行工具来创建和删除快照。
    - 在云磁盘模式下，`MsiscsiService`服务必须正常运行。
    - 在源主机的同步过程中，请勿手动删除Windows VSS快照，否则会导致同步失败，并需要重新启动全量同步。
-   
+
 ### 网络要求
-   - 在云磁盘模式下，源主机需要能够访问目标端点的3260端口，并确保iSCSI通信正常。
+   - 在云磁盘模式下，源主机需要能够访问目标端点的3260/13260端口，推荐使用S3Block作为传输协议，原有iSCSI协议已经废弃。
    - 在云磁盘模式下，如果源磁盘包含iSCSI磁盘，请谨慎操作，不要更改原始发起器名称，以避免影响业务系统的正常运行。
-   - 在云磁盘模式同步时，源主机到目标主机的网络带宽应不少于5Mbps，以确保iSCSI目标磁盘的稳定性。带宽低于5Mbps可能导致iSCSI磁盘不稳定，从而导致同步失败。确保网络稳定、低延迟和低抖动。
+   - 在云磁盘模式同步时，源主机到目标主机的网络带宽应不少于5Mbps，以确保目标磁盘的稳定性。确保网络稳定、低延迟和低抖动。
    - 支持代理模式，可在安装和启动阶段通过界面设置正确的代理服务器和端口。
-   
+
 ### 系统补丁要求
    - 为确保DiskSyncAgent服务正常运行，需要在Windows 2008 32位、Windows 2008 64位和Windows 2008 R2 64位系统上安装补丁KB4474419。安装补丁后，请重启系统再启动DiskSyncAgent服务。有关补丁安装方法，请参考附录。
-   
+
 ### 安全软件要求
    - 如果主机已安装安全软件，建议在同步前完全禁用安全软件（对于某些软件，退出功能可能无法完全禁用该软件。如果不确定安全软件是否可以完全禁用，建议先卸载相关软件）。
    - 如果无法完全禁用安全软件，在安装和启动Agent服务时请注意安全软件的警告信息。如果弹出警告信息窗口，请务必对所有操作设置信任，避免安全软件拦截或警告。请勿在安装和启动Windows Agent时暂时禁用安全软件，因为这可能会损害Agent服务。如果发生此问题，需重启主机以恢复服务。有关影响Agent数据同步的安全软件列表，请参考附录2。
-   
-### 时间同步要求
-   - 在主机可以连接到互联网的情况下，需要与互联网时间同步，以保持一致性。如果无法连接互联网，则需要与内网时间服务器同步。
-
-### 语言支持
-
-目前，Windows Agent 支持以下系统语言：
-
-- 中文
-- 英文
-- 西班牙语 (Español)
-
-### HyperBDR配置要求
-
-如果源端Windows主机的启动模式是UEFI，且目标平台不支持原生UEFI启动的情况下，需要共有网络参与UEFI修复过渡主机。
 
 ## 常见问题
 
@@ -112,13 +114,6 @@ Windows Agent使用Windows VSS创建一致的快照，无需中断系统操作�
 ::: tip
 从 v6.2.0 版本开始，如果发生 VSS 异常（例如，由于高 I/O 负载导致 VSS 快照被删除），Windows 代理将无法继续读取增量数据。在这种情况下，下次同步触发时将自动执行全量同步，以确保数据完整性。
 :::
-
-#### How to Resolve?
-
-- [How to resolve the "Issue [153315]" problem when Windows Agent fails to synchronize data?](https://support.oneprocloud.com/questions/D166)
-- [How to resolve the "Issue [153313]" problem when Windows Agent fails to synchronize data?](https://support.oneprocloud.com/questions/D196)
-- [How to resolve the "Issue [154001]" problem when Windows Agent fails to synchronize data?](https://support.oneprocloud.com/questions/D186)
-- [How to resolve the "Issue [154000]" problem when Windows Agent fails to synchronize data?](https://support.oneprocloud.com/questions/D176)
 
 #### 参考文献
 

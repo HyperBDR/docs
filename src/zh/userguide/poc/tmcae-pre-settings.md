@@ -237,16 +237,15 @@ Download Windows/Linux images to your local machine through the provided image l
 
 #### Linux Image
 
-* Version: CentOS 8.4 64bit
-* Size:  1.22 GB
-* Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/CentOS-8-GenericCloud-8.4.2105-20210603.0.x86_64.qcow2) 
-* MD5 Value of the Image: fe9f21a75a80d12159030fff76e1c8a5
+* Version: ubuntu 20.04 server
+* Size:  596.38 MB
+* Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
 
 #### Windows Image
 
 * Version: Windows Server 2016 Datacenter 64bit English
 * Size: 12.11 GB
-* Download Link: [https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
+* Download Link: [https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
 * MD5 Value of the Image: 519444d4b0343e15fa014c50d906a832
 
 ### Upload Image to TM CAE Object Storage
@@ -281,7 +280,7 @@ TM CAE documentation link:
 ::: warning 
 1.The name must be one of the following and cannot have additional characters.  
 2.Due to the diverse versions of Windows on the source hosts, select the generic option for the operating system.  
-3.Linux image is primarily used for creating an HD. The recommended version for the current release is CentOS 8+  
+3.Linux image is primarily used for creating an HD. The recommended version for the current release is Ubuntu 20.04  
 :::
 Supported Windows image names
 
@@ -305,11 +304,7 @@ Boot Mode Select BIOS.
 
 Supported Linux image names
 
-> CentOS 8.4 64bit  
-> CentOS 8.3 64bit  
-> CentOS 8.2 64bit  
-> CentOS 8.1 64bit  
-> CentOS 8.5 64bit
+> Ubuntu 20.04 64bit  
 
 ![tmcae-image-download--upload-3.png](./images/tmcae-image-download--upload-3.png)
 

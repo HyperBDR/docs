@@ -14,6 +14,17 @@ export const zhNavbar = navbar([
     prefix: "/zh/",
     children: [
       {
+        text: "快速开始",
+        icon: "download",
+        children: [
+          {
+            text: "快速开始",
+            icon: "check-square",
+            link: "/zh/userguide/checklist/dr-checklist.md"
+          },
+        ],
+      },
+      {
         text: "安装指南",
         icon: "download",
         children: [
@@ -21,6 +32,22 @@ export const zhNavbar = navbar([
             text: "产品安装",
             icon: "download",
             link: "/zh/userguide/installation/",
+          }
+        ],
+      },
+      {
+        text: "购买与激活",
+        icon: "file-invoice",
+        children: [
+          {
+            text: "SaaS授权购买激活",
+            icon: "shopping-cart",
+            link: "/zh/userguide/saas-license/",
+          },
+          {
+            text: "单机授权激活",
+            icon: "key",
+            link: "/zh/userguide/standalone-license/",
           }
         ],
       },
@@ -98,11 +125,6 @@ export const zhNavbar = navbar([
         icon: "ellipsis",
         children: [
           {
-            text: "云容灾检查清单",
-            icon: "check-square",
-            link: "/zh/userguide/checklist/"
-          },
-          {
             text: "FAQ",
             icon: "question-circle",
             link: "/zh/userguide/faq/faq.md"
@@ -112,9 +134,19 @@ export const zhNavbar = navbar([
     ],
   },
   {
+    text: "AI支持",
+    icon: "robot",
+    link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+  },
+  {
     text: "获取支持",
-    icon: "headset",
+    icon: "fa-solid fa-handshake-angle",
     link: "https://support.oneprocloud.com/",
+  },
+  {
+    text: "常见问题",
+    icon: "headphones",
+    link: "https://wenti.oneprocloud.com/",
   },
   {
     text: "OneProCloud官网",
