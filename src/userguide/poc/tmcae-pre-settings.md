@@ -231,6 +231,8 @@ Windows images are primarily used for disaster recovery with UEFI Windows as the
 
 ::: tip
 Download Windows/Linux images to your local machine through the provided image links. 
+
+The image using requires cloud-init for password and key injection, so if the image using is not from us, please make sure that the image supports cloud-init.
 :::
 
 ### Image Info
