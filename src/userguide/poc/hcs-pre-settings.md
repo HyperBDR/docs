@@ -57,6 +57,8 @@ Linux BIOS Image is used to create a cloud sync gateway and boot Linux hosts wit
 
 ::: tip
 Download images to your local machine through the provided image links. 
+
+The image using requires cloud-init for password and key injection, so if the image using is not from us, please make sure that the image supports cloud-init.
 :::
 
 ### Image Info
