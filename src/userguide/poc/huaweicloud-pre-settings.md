@@ -6,7 +6,7 @@
 
 Create a Huawei Cloud IAM account with correspinding permissions, detail requirement please refer to below document. And create Access Key ID & Access Secret Key of IAM account for setup.
 
-### Create IAM User
+### 创建 IAM User
 
 #### Huawei Cloud official documentation link:
 
@@ -27,7 +27,7 @@ Create a Huawei Cloud IAM account with correspinding permissions, detail require
 ### Huawei Cloud IAM Permission Requirements
 
 ::: tip
-Huawei Cloud has different API versions of v2 and v3 in different regions, and each region has a slightly different definition of resource description permissions. When you create permissions for HyperBDR, So you need to provide full access to ecs, evs, obs, ims, and netwrok services.
+Huawei Cloud has different API versions of v2 and v3 in different regions, 和 each region has a slightly different definition of resource description permissions. When you create permissions for HyperBDR, So you need to provide full access to ecs, evs, obs, ims, 和 netwrok services.
 :::
 
 #### ecs/vpc/evs/ims
@@ -163,6 +163,8 @@ Linux BIOS Image is used to create a cloud sync gateway and boot Linux hosts wit
 
 ::: tip
 Download images to your local machine through the provided image links. 
+
+The image using requires cloud-init for password and key injection, so if the image using is not from us, please make sure that the image supports cloud-init.
 :::
 
 ### Image Info
