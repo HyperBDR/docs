@@ -21,6 +21,30 @@ export const zhSidebar = sidebar({
       expanded: true,
     },
   ],
+      "/zh/userguide/technical-practices": [
+    {
+      text: "容灾回切实践",
+      icon: "check",
+      prefix: "",
+      children: [
+        "hyperbdr-disaster-recovery-failback.md",
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+  ],
+      "/zh/userguide/project-practices": [
+    {
+      text: "Checklist",
+      icon: "check",
+      prefix: "",
+      children: [
+        
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+  ],
   "/zh/userguide/poc/": [
     {
       text: "云容灾前置条件",

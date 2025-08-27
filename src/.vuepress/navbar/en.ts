@@ -84,6 +84,22 @@ export const enNavbar = navbar([
         ],
       },
       {
+        text: "Best Practices",
+        icon: "shield",
+        children: [
+          {
+            text: "Technical Practices",
+            icon: "thumbs-up",
+            link: "/userguide/technical-practices/",
+          },
+    //      {
+    //        text: "Project Practices",
+    //        icon: "warning",
+    //        link: "/userguide/project-practices/",
+    //      },
+        ],
+      },
+      {
         text: "Operations",
         icon: "gear",
         children: [

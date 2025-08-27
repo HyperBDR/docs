@@ -21,6 +21,30 @@ export const enSidebar = sidebar({
       expanded: true,
     },
   ],
+    "/userguide/technical-practices/": [
+    {
+      text: "DR Failback Practices",
+      icon: "check",
+      prefix: "",
+      children: [
+        "hyperbdr-disaster-recovery-failback.md",
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+  ],
+    "/userguide/project-practices": [
+    {
+      text: "Checklist",
+      icon: "check",
+      prefix: "",
+      children: [
+
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+  ],
   "/userguide/poc/": [
     {
       text: "DR Prerequisites",
