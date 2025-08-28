@@ -71,11 +71,11 @@ export const zhNavbar = navbar([
             icon: "book",
             link: "/zh/userguide/poc/",
           },
-          {
-            text: "HyperBDR 使用手册(即将废弃)",
-            icon: "warning",
-            link: "/zh/userguide/dr-usage-guide/",
-          },
+      //    {
+      //      text: "HyperBDR 使用手册(即将废弃)",
+      //      icon: "warning",
+      //      link: "/zh/userguide/dr-usage-guide/",
+      //    },
           {
             text: "HyperBDR 使用手册",
             icon: "shield",
