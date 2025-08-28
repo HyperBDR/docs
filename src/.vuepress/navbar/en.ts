@@ -71,11 +71,11 @@ export const enNavbar = navbar([
             icon: "book",
             link: "/userguide/poc/",
           },
-          {
-            text: "HyperBDR Manual(About to be abandoned)",
-            icon: "warning",
-            link: "/userguide/dr-usage-guide/",
-          },
+       //   {
+       //     text: "HyperBDR Manual(About to be abandoned)",
+       //     icon: "warning",
+       //     link: "/userguide/dr-usage-guide/",
+       //   },
           {
             text: "HyperBDR Manual",
             icon: "shield",

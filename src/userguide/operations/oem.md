@@ -32,9 +32,18 @@ You will get the installer directory.
 cd /root/OEM_self/installer/OEM/newmuse
 vi /root/OEM_self/installer/OEM/newmuse/newmuse.json   # Enter the following content (example)
 ```
-
 ```json
 {
+"title":"MyDR",
+"openOnlineService":false,
+"loginPageLogo":false,
+"loginPageBanner": false
+}
+```
+
+```plain text
+Sample Code：
+ {
 "title":"MyDR", --> Browser tab title
 "openOnlineService":false, --> Remove customer service icon
 "loginPageLogo":false, --> Remove OnePro logo at top right of login page
@@ -59,8 +68,17 @@ vi /root/OEM_self/installer/OEM/newmuse/newmuse.json   # Enter the following con
 ```plain text
 vi /root/OEM_self/installer/OEM/newmuse-motion/newmuse.json  # Enter the following content (example)
 ```
-
 ```json
+{
+"title":"MyMigration",
+"openOnlineService":false,
+"loginPageLogo":false,
+"loginPageBanner": false
+}
+```
+
+```plain text
+Sample Code：
 {
 "title":"MyMigration", --> Browser tab title
 "openOnlineService":false, --> Remove customer service icon

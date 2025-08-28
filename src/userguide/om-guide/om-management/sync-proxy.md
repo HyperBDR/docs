@@ -76,6 +76,32 @@ All system log files are stored in the `/var/log/hamal` directory. Operations st
 ├── vm-kylin_v10_Agent-<UUID>.log      # VM agent logs, can be used to determine sync status
 ```
 
+### **Log Collection**
+
+In the HyperBDR system, operations personnel can collect and download the required log files from the **“Operations > Download Logs > DR | Failback > Sync Proxy”** page according to their needs, facilitating issue troubleshooting and system monitoring.
+
+Select the target host and click the "Collect" button in the corresponding row.
+
+![](./images/downloadlogs-dr-sync-2.png)
+
+#### **Select Time Range**
+
+In the pop-up dialog, set the time range for the logs you want to collect. After confirming, the system will automatically start collecting logs.
+
+![](./images/downloadlogs-dr-3.png)
+
+#### **Start Collection**
+
+After confirming the time range, the system will automatically start collecting logs, and the log status will change to "Collecting".
+
+![](./images/downloadlogs-dr-4.png)
+
+#### **Download Logs**
+
+After log collection is complete, the status will update to **"Available"**. Users can click "Click for list" to see the log files and select files to download.
+
+![](./images/downloadlogs-dr-5.png)
+
 ## **Configuration File Management**
 
 The main configuration file for the Linux agentless proxy is located at `/etc/hamal/hamal.conf`. This file contains all configuration information for agentless mode, including service connections, database, sync tasks, logs, S3 settings, and more.
