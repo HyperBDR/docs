@@ -162,7 +162,7 @@ export const enNavbar = navbar([
   {
     text: "FAQ",
     icon: "headphones",
-    link: "https://support.oneprocloud.com/",
+    link: "https://qa.oneprocloud.com/",
   },
   {
     text: "OneProCloud",
