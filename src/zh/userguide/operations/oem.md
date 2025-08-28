@@ -31,8 +31,17 @@ tar zxvf HyperBDR_release_v5.4.0_20240430-20240511-3091.tar.gz
 cd /root/OEM_self/installer/OEM/newmuse
 vi /root/OEM_self/installer/OEM/newmuse/newmuse.json   #输入下列内容(只是示例)
 ```
-
 ```json
+{
+"title":"MyDR",
+"openOnlineService":false,
+"loginPageLogo":false,
+"loginPageBanner": false
+}
+```
+
+```plain text
+代码示意：
 {
 "title":"MyDR", --> 浏览器标签页文字
 "openOnlineService":false, --> 去掉页面的客服
@@ -58,8 +67,17 @@ vi /root/OEM_self/installer/OEM/newmuse/newmuse.json   #输入下列内容(只�
 ```plain&#x20;text
 vi /root/OEM_self/installer/OEM/newmuse-motion/newmuse.json  #输入下列内容(只是示例)
 ```
-
 ```json
+{
+"title":"MyMigration",
+"openOnlineService":false,
+"loginPageLogo":false,
+"loginPageBanner": false
+}
+```
+
+```plain test
+代码示意：
 {
 "title":"MyMigration", --> 浏览器标签页文字
 "openOnlineService":false, --> 去掉页面的客服

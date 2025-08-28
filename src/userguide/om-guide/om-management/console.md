@@ -168,6 +168,32 @@ All system log files are located under `/var/log/installer`. O\&M staff can moni
 └── subiquity-server-info.log.2463
 ```
 
+### **Log Collection**
+
+In the HyperBDR system, operations personnel can collect and download the required log files from the **“Operations > Download Logs > DR | Failback > Console”** page according to their needs, facilitating issue troubleshooting and system monitoring.
+
+Select the target host and click the "Collect" button in the corresponding row.
+
+![](./images/downloadlogs-dr-console-2.png)
+
+#### **Select Time Range**
+
+In the pop-up dialog, set the time range for the logs you want to collect. After confirming, the system will automatically start collecting logs.
+
+![](./images/downloadlogs-dr-3.png)
+
+#### **Start Collection**
+
+After confirming the time range, the system will automatically start collecting logs, and the log status will change to "Collecting".
+
+![](./images/downloadlogs-dr-4.png)
+
+#### **Download Logs**
+
+After log collection is complete, the status will update to **"Available"**. Users can click "Click for list" to see the log files and select files to download.
+
+![](./images/downloadlogs-dr-5.png)
+
 ## **Configuration File Management**
 
 All system configuration files are stored in `/opt/installer/production/config`. O\&M staff can edit these files as necessary.
