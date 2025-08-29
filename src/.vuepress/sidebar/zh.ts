@@ -21,7 +21,7 @@ export const zhSidebar = sidebar({
       expanded: true,
     },
   ],
-      "/zh/userguide/technical-practices": [
+  "/zh/userguide/technical-practices/": [
     {
       text: "容灾回切实践",
       icon: "check",
@@ -32,8 +32,18 @@ export const zhSidebar = sidebar({
       collapsible: true,
       expanded: true,
     },
+    {
+      text: "Linux Agent",
+      icon: "check",
+      prefix: "",
+      children: [
+        "dkms-build-guide.md",
+      ],
+      collapsible: true,
+      expanded: true,
+    },
   ],
-      "/zh/userguide/project-practices": [
+  "/zh/userguide/project-practices": [
     {
       text: "Checklist",
       icon: "check",
