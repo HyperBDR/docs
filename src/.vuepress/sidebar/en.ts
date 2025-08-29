@@ -21,7 +21,7 @@ export const enSidebar = sidebar({
       expanded: true,
     },
   ],
-    "/userguide/technical-practices/": [
+  "/userguide/technical-practices/": [
     {
       text: "DR Failback Practices",
       icon: "check",
@@ -32,8 +32,18 @@ export const enSidebar = sidebar({
       collapsible: true,
       expanded: true,
     },
+    {
+      text: "Linux Agent",
+      icon: "check",
+      prefix: "",
+      children: [
+        "dkms-build-guide.md",
+      ],
+      collapsible: true,
+      expanded: true,
+    },
   ],
-    "/userguide/project-practices": [
+  "/userguide/project-practices": [
     {
       text: "Checklist",
       icon: "check",
