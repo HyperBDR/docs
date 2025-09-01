@@ -7,7 +7,7 @@
 | CentOS (64-bit)      | 6.x, 7.x, 8.x     |
 | Red Hat Enterprise Linux (RHEL) (64-bit) | 6.x, 7.x, 8.x |
 | SUSE Linux Enterprise Server (SLES) (64-bit) | 11 (SP1-SP4), 12 (SP1-SP5), 15 (SP1-SP5) |
-| Ubuntu Server (64-bit) | 12.04.x, 14.04.x, 16.04.x, 18.04.x, 20.04.x, 22.04.x |
+| Ubuntu Server (64-bit) | 12.04.x, 14.04.x, 16.04.x, 18.04.x, 20.04.x, 22.04.x, 24.04.x |
 | Oracle Linux Server (64-bit) | 6.x, 7.x, 8.x |
 | Kylin Linux          | v10 SP1 (v2101)   |
 | UOS                  | UOS 1050 u2a, UOS 1050 u2e |
