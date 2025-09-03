@@ -42,6 +42,17 @@ export const zhSidebar = sidebar({
       collapsible: true,
       expanded: true,
     },
+    {
+      text: "功能实践",
+      icon: "check",
+      prefix: "",
+      children: [
+        "policy-best-practices.md",
+        "script-best-practices",
+      ],
+      collapsible: true,
+      expanded: true,
+    },
   ],
   "/zh/userguide/project-practices": [
     {

@@ -42,6 +42,17 @@ export const enSidebar = sidebar({
       collapsible: true,
       expanded: true,
     },
+    {
+      text: "Function Practices",
+      icon: "check",
+      prefix: "",
+      children: [
+        "policy-best-practices.md",
+        "script-best-practices",
+      ],
+      collapsible: true,
+      expanded: true,
+    },
   ],
   "/userguide/project-practices": [
     {
