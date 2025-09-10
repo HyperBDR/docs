@@ -137,7 +137,7 @@ Notes: We strongly recommend that when creating an ECS cloud instance, the login
 | AZ                  | AZ1                                                             |
 | Flavor              | s6.2xlarge.2                                                    |
 | Image               | Ubuntu 20.04 server 64bit(40GiB)(cecc4bcf-b055-4d35-bd5f-693d4412eaef)  |
-| System Disk         | High IO 200GB                                                   |
+| System Disk         | High IO 500GB                                                   |
 | Network             | <VPC-HyperBDR-172.16.0.0\>                                      |
 | Subnet              | <Subnet-HyperBDR-172.16.0.0\> (Automatically assign IP address) |
 | Security Group      | SG-HyperBDR                                                     |

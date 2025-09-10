@@ -215,7 +215,7 @@ The resource configuration for HyperBDR servers is as follows:
 | Region              | <Your Region\>                                                  |
 | Flavor              | c5.2xlarge                                                      |
 | Image               | ubuntu-pro-server/images/hvm-ssd/ubuntu-focal-20.04-amd64-pro-server (AWS Community AMIs, ami-0465e6ec564be547e)  |
-| System Disk         | 200GB gp2                                                       |
+| System Disk         | 500GB gp2                                                       |
 | Network             | <VPC-HyperBDR-172.16.0.0\>                                      |
 | Subnet              | <Subnet-HyperBDR-172.16.0.0\> (Automatically assign IP address) |
 | Security Group      | SG-HyperBDR                                                     |
