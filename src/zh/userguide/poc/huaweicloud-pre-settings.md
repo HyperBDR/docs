@@ -137,7 +137,7 @@ HyperBDR 安全组名称: SG-HyperBDR
 | 可用区              | 可用区1                                                          |
 | 规格                | s6.2xlarge.2                                                    |
 | 镜像                | Ubuntu 20.04 server 64bit(40GiB)(cecc4bcf-b055-4d35-bd5f-693d4412eaef)  |
-| 系统盘              | 高IO 200GB                                                      |
+| 系统盘              | 高IO 500GB                                                      |
 | 网络                | <VPC-HyperBDR-172.16.0.0\>                                      |
 | 子网                | <Subnet-HyperBDR-172.16.0.0\> (Automatically assign IP address) |
 | 安全组              | SG-HyperBDR                                                     |
