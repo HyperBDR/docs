@@ -1,186 +1,311 @@
-# HyperBDR Upgrade Manual
+﻿# HyperBDR 5.6.x - 5.11.x Upgrade Guide
 
-[[toc]]
+## Enhanced Performance with Next-Generation Transport Protocol
 
-::: tip
-Note: The minimum supported HyperBDR version for upgrading is HyperBDR 4.4.0. Versions below HyperBDR 4.4.0 are not supported for upgrading to the latest version.
-:::
+HyperBDR introduces a revolutionary user-space transport protocol in the latest version, delivering superior stability and reliability compared to traditional kernel-space mechanisms. This advanced protocol significantly reduces transmission interruptions and failures, especially in challenging network conditions, providing users with an enhanced disaster recovery experience.
 
-## HyperBDR Server Upgrade
+**Important:** Due to compatibility considerations with existing block storage modules, users must upgrade both the HyperBDR control console and deployed agents (no uninstallation required) to enable this new transport protocol.
 
-[Upgrade Package download link](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/upgrade_incremental_4.4.0_to_5.2.0.tar.gz)
+This guide presents **two upgrade paths from HyperBDR 5.x to the latest version**:
 
-### Obtain the upgrade package and extract it
+* **In-Place Upgrade** (Configuration preserved, user-friendly approach)
+* **Complete Reinstallation** (Recommended, streamlined process)
 
-- Step 1: Obtain the upgrade package URL.
+ **Note:** Both approaches require **full data synchronization** after upgrade completion.
 
-- Step2. Download the upgrade package to the **HyperBDR Console** operating system and extract it using the following command:
+---
 
-```shell
-tar zxvf upgrade_incremental_4.4.0_to_4.9.0.tar.gz -C /tmp/
+## Option 1: In-Place Upgrade
+
+### Resource Configuration Cleanup
+
+* Deregister disaster recovery machines and reset them to the second configuration step, awaiting reconfiguration after the update process
+
+### HyperBDR Update
+
+* SSH into the HyperBDR control console host
+
+* Due to directory structure changes in version upgrades, perform the following operations before starting the upgrade:
+
+```bash
+## Create venv directories
+mkdir -p /opt/installer/production/venvs/atomy-s3block-venv
+mkdir -p /opt/installer/production/venvs/SwiftS3Block-venv
+mkdir -p /opt/installer/production/venvs/hyper_up-venv
+## Initialize version numbers
+echo "0.0.0" > /opt/installer/production/venvs/atomy-s3block-venv/version
+echo "0.0.0" > /opt/installer/production/venvs/SwiftS3Block-venv/version
+echo "0.0.0" > /opt/installer/production/venvs/hyper_up-venv/version
 ```
 
-### Check the current installed version
-
-```shell
-cat /opt/installer/Version
-HyperBDR_release_v4.9.0_20230928-20230927-1437.tar.gz
+```bash
+## Reset version numbers
+rm -rf /opt/installer/production/config/supervisor-dashboard/VERSION/versions.json
 ```
 
-The installed version is HyperBDR_release_v4.9.0_20230928
-
-> If the HyperBDR version is earlier than 4.6.0, perform the following additional steps:
-
-```shell
-[root@log images]# cd /tmp/upgrade/images
-[root@log images]# ls
-influxdb-1.7.6.tar.gz  mariadb-10.3.36.tar.gz  rabbitmq-3.8.16.tar.gz  redis-7.0.2-alpine.tar.gz
-
-[root@log images]# docker load -i influxdb-1.7.6.tar.gz
-[root@log images]# docker load -i mariadb-10.3.36.tar.gz
-[root@log images]# docker load -i rabbitmq-3.8.16.tar.gz
-[root@log images]# docker load -i redis-7.0.2-alpine.tar.gz
+```bash
+## Remove invalid directories
+rm -rf /opt/installer/production/venvs/scripts-venv/version_info/
 ```
 
-### Update the service
+* Follow the official upgrade guide for installation: [View Guide](https://docs.oneprocloud.com/zh/userguide/dr/operations/upgrade.html#%E5%8D%87%E7%BA%A7%E5%87%86%E5%A4%87)
 
-- Step1. Replace the update commands:
+### Cloud Sync Gateway Update
 
-```shell
-cp /tmp/upgrade/scripts/common.sh /opt/installer/production/scripts/
-cp /tmp/upgrade/scripts/hmctl /opt/installer/production/scripts/
-```
+* Gateway versions below 6.2 do not support iterative upgrades. After updating to the new version, rebuild the cloud sync gateway:
 
-- Step2. Execute the update command
+  * Delete all iSCSI gateways and transition host images
+  * Remove iSCSI gateways from the interface
+  * Delete Cloud_SYNC related security groups from the cloud platform
+  * Deploy S3 gateway
 
-```shell
-/opt/installer/production/scripts/hmctl upgrade /tmp/upgrade/venvs
-```
+### Sync Proxy (Hamal) Update
 
-### Update the configuration files
+* SSH into the sync proxy host
 
-```shell
-mv /opt/installer/production/config/newmuse/json/config.json.bak /opt/installer/production/config/newmuse/json/config.json
-mv /opt/installer/production/config/newmuse/json/s3.json.bak /opt/installer/production/config/newmuse/json/s3.json
-mv /opt/installer/production/config/newmuse/json/targetClouds.json.bak /opt/installer/production/config/newmuse/json/targetClouds.json
-mv /opt/installer/production/config/newmuse-motion/json/config.json.bak /opt/installer/production/config/newmuse-motion/json/config.json
-mv /opt/installer/production/config/newmuse-motion/json/s3.json.bak /opt/installer/production/config/newmuse-motion/json/s3.json
-mv /opt/installer/production/config/newmuse-motion/json/targetClouds.json.bak /opt/installer/production/config/newmuse-motion/json/targetClouds.json
-```
+* Initialize version number
 
-### Confirm the upgraded version
+  ```bash
+  # Create hyper_exporter directory
+  mkdir -p /opt/hyper_exporter/
+  # Initialize version number
+  echo "0.0.0" > "/opt/hyper_exporter/exporter_version"
+  ```
 
-After the upgrade is completed, execute the following command to view the current HyperBDR version:
+* Download the latest upgrade script
 
-```shell
-[root@localhost installer]# cat /opt/installer/Version
+  > Replace \<HyperBDR IP> with your HyperBDR control console host address
 
-HyperBDR_release_v5.2.0_20230928-20230927-1437.tar.gz
-```
+  ```bash
+  curl -k -o /usr/local/hyper_exporter/update_sync_proxy.sh https://<HyperBDR IP>:30080/softwares/update_sync_proxy.sh
+  ```
 
-The installed version is HyperBDR_release_v5.2.0_20230928
+* Grant execution permissions
 
-## Update **Linux Agent**, **Windows Agent** and Agentless **Sync Proxy**
+  ```bash
+  chmod +x /usr/local/hyper_exporter/update_sync_proxy.sh
+  ```
 
-### Restrictions
+* Execute the upgrade script
 
-> Note: Upgrade the HyperBDR Server end first.
-> Versions before V4.10.1 installation package cannot be directly updated using the update script.
-> Updating operations are prohibited during tasks such as syncing hosts or starting hosts.
+  ```bash
+  # Navigate to script directory
+  cd /usr/local/hyper_exporter/
+  # Execute upgrade
+  bash update_sync_proxy.sh -y
+  ```
 
-### Agentless Sync Proxy
+* Update configuration
 
-- Step 1. Log in to the Agentless \*Sync Proxy\*\* server
+  ```bash
+  CONFIG_DIR="/opt/hyper_exporter"
+  sed -i '/^ServiceType/d' "/config.ini"
+  echo "ServiceType = hamal" >> "/config.ini"
+  ```
 
-```shell
+* Restart monitoring module
 
-ssh root@<Agentless Sync Proxy Server IP\>
+  ```bash
+  systemctl restart hyper_exporter
+  ```
 
-```
-
-- Step 2. Get the latest update script
-
-```shell
-
-curl -k -o /usr/local/hyper_exporter/upgrade_hamal.sh https://<HyperBDR IP\>:30080/softwares/upgrade_hamal.sh
-
-```
-
-- Step 3. Grant execution permissions
-
-```shell
-
-chmod +x /root/upgrade.hamal.sh
-
-```
-
-- Step 4. Execute the update command
-
-```shell
-
-cd /usr/local/hyper_exporter/
-
-
-bash /usr/local/hyper_exporter/upgrade_hamal.sh
-```
+### Agent Update
 
 #### Linux Agent
 
-- Step 1. Log in to the Linux Agent host
+* SSH into the source agent host
 
-```shell
+* Initialize version number
 
-ssh root@<Agent Host IP\>
+  ```bash
+  # Create hyper_exporter directory
+  mkdir -p /usr/local/hyper_exporter/
+  # Initialize version number
+  echo "0.0.0" > "/usr/local/hyper_exporter/exporter_version"
+  ```
 
-```
+* Download the latest upgrade script
 
-- Step 2. Get the latest update script
+  > Replace \<HyperBDR IP> with your HyperBDR control console host address
 
-```shell
+  ```bash
+  curl -k -o /var/lib/egisplus-agent/upgrade_agent.sh https://<HyperBDR IP>:30080/softwares/upgrade_agent.sh
+  ```
 
-curl -k -o /var/lib/egisplus-agent/upgrade_agent.sh https://<HyperBDR-IP\>:30080/softwares/upgrade_agent.sh
+* Grant execution permissions
 
-```
+  ```bash
+  chmod +x /var/lib/egisplus-agent/upgrade_agent.sh
+  ```
 
-- Step 3. Execute the update script
+* Execute the upgrade script
 
-```shell
+  ```bash
+  # Navigate to script directory
+  cd /var/lib/egisplus-agent/
+  # Execute upgrade
+  bash upgrade_agent.sh
+  ```
 
-bash /var/lib/egisplus-agent/upgrade_agent.sh
+* Update configuration
 
-```
+  ```bash
+  CONFIG_DIR="/usr/local/hyper_exporter"
+  sed -i '/^ServiceType/d' "/config.ini"
+  echo "ServiceType = linux_agent" >> "/config.ini"
+  ```
+
+* Restart monitoring module
+  > For older operating systems (CentOS 6, RHEL 6, Ubuntu 14.04 and earlier), SysV init may still be used. Use the service command for equivalent operations.
+
+  ```bash
+   # systemd systems (recommended)
+   systemctl restart hyper-exporter-agent.service
+   # Legacy systems (SysV init)
+   service hyper-exporter-agent restart
+  ```
 
 #### Windows Agent
 
-- Step 1. Log in to the source Windows Agent server desktop
+* Log into the Windows source host
 
-- Step 2. Download the update files to the Windows Agent server.
+* Download the latest upgrade package based on your server configuration
 
-```shell
+  > Replace \<HyperBDR IP> with your HyperBDR control console host address
 
-# X64
+  * x86
 
-https://<HyperBDR IP\>:30080/softwares/windows-agent-new/upgrade_to_xxx_x64.zip
+    ```bash
+    https://<HyperBDR IP>:30080/softwares/windows-agent-new/upgrade_x86.zip
+    ```
 
+  * x64
 
-# X86
-https://<HyperBDR IP\>:30080/softwares/windows-agent-new/upgrade_to_xxx_x86.zip
-```
+    ```bash
+    https://<HyperBDR IP>:30080/softwares/windows-agent-new/upgrade_x64.zip
+    ```
 
-![upgrade-hyperbdr-offline-upgrade-1.png](./images/upgrade-hyperbdr-offline-upgrade-1.png)
+* Extract the downloaded ZIP file
 
-- Step 3. Extract the downloaded files
+* Right-click and run Upgrade.exe as administrator, following the prompts to complete the upgrade
 
-![upgrade-hyperbdr-offline-upgrade-2.png](./images/upgrade-hyperbdr-offline-upgrade-2.png)
+    ![](./images/-removeinvaliddirectories-1.png)
 
-- Step 4. Execute Upgrade.exe.
+* Download the latest driver package
 
-![upgrade-hyperbdr-offline-upgrade-3.png](./images/upgrade-hyperbdr-offline-upgrade-3.png)
+  > Currently, please download manually: [Download Here](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/upgrade_packages/DriverUpgrade.zip)
 
-![upgrade-hyperbdr-offline-upgrade-4.png](./images/upgrade-hyperbdr-offline-upgrade-4.png)
+* Upgrade drivers
 
-## Source Object DR Gateway Upgrade
+  ```bash
+  # After extracting the ZIP file, navigate to the extraction directory
+  # Right-click and run as administrator
+  UpgradeDriver.bat
+  ```
 
-The Source Object DR Gateway needs to be re-uploaded image to the cloud platform.
+    ![](./images/-removeinvaliddirectories-2.png)
 
-![upgrade-hyperbdr-offline-upgrade-5.png](./images/upgrade-hyperbdr-offline-upgrade-5.png)
+* Update configuration
+
+  ```bash
+  # Adjust path based on actual installation directory
+  C:\Program Files (x86)\DiskSync-Agent\hyper_exporter
+  # Edit config.ini file, add to the last line
+  ServiceType = windows_agent
+  ```
+
+    ![](./images/-removeinvaliddirectories-3.png)
+
+* Restart the Agent program
+
+### Upgrade Verification
+
+* Log into the HyperBDR interface to view version information, refer to the official FAQ: [View FAQ](https://qa.oneprocloud.com/questions/D1L6)
+
+* Log into the HyperBDR interface to verify Agent and Agentless version availability
+
+    ![](./images/-removeinvaliddirectories-4.png)
+
+### Full Data Synchronization
+
+Reconfigure storage settings and initiate data synchronization. For detailed instructions, refer to the HyperBDR product manual:
+
+HyperBDR Manual: [View Guide](https://docs.oneprocloud.com/userguide/dr/dr/host-dr.html#setup-dr)
+
+HyperMotion Manual: [View Guide](https://docs.oneprocloud.com/userguide/migration/migration/host-migration.html#setup-migration)
+
+## Option 2: Complete Reinstallation
+
+### Environment Cleanup
+
+* Log into the HyperBDR console
+
+  * Clear related resource configurations based on interface information:
+
+    * Host Resources (deregister hosts as prompted):
+
+      * Configuration Management  Production Site Configuration  Source Sync Proxy
+
+        * Reference official documentation: [View Guide](https://docs.oneprocloud.com/zh/userguide/dr/configuration/production-site.html#%E8%A7%A3%E7%BB%91)
+
+      * Resource Disaster Recovery  Host Disaster Recovery  Select Host
+
+        * Reference official documentation: [View Guide](https://docs.oneprocloud.com/userguide/dr/dr/host-dr.html#deregister-host)
+
+      * Resource Disaster Recovery  Host Disaster Recovery  Disaster Recovery Configuration
+
+        * Select hosts to deregister  Action  Deregister Host
+
+      * Resource Disaster Recovery  Host Disaster Recovery  Start Disaster Recovery
+
+        * Reference official documentation: [View Guide](https://docs.oneprocloud.com/userguide/dr/dr/host-dr.html#deregister-host-1)
+
+    * Storage Configuration (unbind block storage and object storage configurations as prompted):
+
+      * Configuration Management  Storage Configuration  Object Storage
+
+        * Reference official documentation: [View Guide](https://docs.oneprocloud.com/userguide/dr/dr-site-configuration-obs/huawei.html#delete)
+
+      * Configuration Management  Storage Configuration  Block Storage
+
+        * Reference official documentation: [View Guide](https://docs.oneprocloud.com/userguide/dr/dr-site-configuration-block/alibaba.html#delete)
+
+* Log into Linux hosts
+
+  * Uninstall existing Agent programs: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#uninstall-linux-agent)
+
+* Log into Windows hosts
+
+  * Uninstall existing Agent programs: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#uninstall-windows-agent)
+
+### HyperBDR Update
+
+* Follow the official upgrade guide for installation: [View Guide](https://docs.oneprocloud.com/userguide/dr/operations/upgrade.html)
+
+### Reinstall Cloud Sync Gateway
+
+* Complete block storage configuration: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/storage-configuration.html#block-storage)
+
+### Reinstall Sync Proxy
+
+* Complete production site configuration: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html)
+
+### Reinstall Agent
+
+* Install Agent programs
+
+  * Linux hosts: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#linux-agent)
+
+  * Windows hosts: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#windows-agent)
+
+### Reinstallation Verification
+
+* Reference official FAQ: [View FAQ](https://qa.oneprocloud.com/questions/D1L6)
+
+### Full Data Synchronization
+
+Reconfigure host resources and storage settings to initiate data synchronization. For detailed instructions, refer to the HyperBDR product manual:
+
+HyperBDR Manual: [View Guide](https://docs.oneprocloud.com/userguide/dr/)
+
+HyperMotion Manual: [View Guide](https://docs.oneprocloud.com/userguide/migration/)
