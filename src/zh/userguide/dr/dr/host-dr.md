@@ -251,7 +251,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-15.png)
 
-### **更多设置**
+### **更多操作**
 
 #### **源端同步设置**
 
