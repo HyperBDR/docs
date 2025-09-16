@@ -144,6 +144,11 @@ export const enNavbar = navbar([
             text: "FAQ",
             icon: "question-circle",
             link: "/userguide/faq/faq.md"
+          },
+          {
+            text: "Release Notes",
+            icon: "question-circle",
+            link: "https://oneprocloud.feishu.cn/docx/G8PpdE5Y7obfgLxHx9JcOa5kn2v"
           }
         ],
       },
