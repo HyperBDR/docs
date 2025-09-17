@@ -48,7 +48,7 @@ rm -rf /opt/installer/production/config/supervisor-dashboard/VERSION/versions.js
 rm -rf /opt/installer/production/venvs/scripts-venv/version_info/
 ```
 
-* Follow the official upgrade guide for installation: [View Guide](https://docs.oneprocloud.com/zh/userguide/dr/operations/upgrade.html#%E5%8D%87%E7%BA%A7%E5%87%86%E5%A4%87)
+* Follow the official upgrade guide for installation: [View Guide](https://docs.oneprocloud.com/userguide/dr/operations/upgrade.html#%E5%8D%87%E7%BA%A7%E5%87%86%E5%A4%87)
 
 ### Cloud Sync Gateway Update
 
@@ -246,7 +246,7 @@ HyperMotion Manual: [View Guide](https://docs.oneprocloud.com/userguide/migratio
 
       * Configuration Management  Production Site Configuration  Source Sync Proxy
 
-        * Reference official documentation: [View Guide](https://docs.oneprocloud.com/zh/userguide/dr/configuration/production-site.html#%E8%A7%A3%E7%BB%91)
+        * Reference official documentation: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#%E8%A7%A3%E7%BB%91)
 
       * Resource Disaster Recovery  Host Disaster Recovery  Select Host
 
