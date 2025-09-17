@@ -232,9 +232,9 @@ rm -rf /opt/installer/production/venvs/scripts-venv/version_info/
 
 重新完成存储配置开始进行数据同步，详情可见HyperBDR产品使用手册
 
-HyperBDR手册：[点击查看](https://docs.oneprocloud.com/userguide/dr/dr/host-dr.html#setup-dr)
+HyperBDR手册：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/dr/host-dr.html#setup-dr)
 
-HyperMotion手册：[点击查看](https://docs.oneprocloud.com/userguide/migration/migration/host-migration.html#setup-migration)
+HyperMotion手册：[点击查看](https://docs.oneprocloud.com/zh/userguide/migration/migration/host-migration.html#setup-migration)
 
 ## 方案二、完全卸载方案
 
@@ -252,7 +252,7 @@ HyperMotion手册：[点击查看](https://docs.oneprocloud.com/userguide/migrat
 
       * 资源容灾-->主机容灾-->选择主机
 
-        * 可参考官方文档：[点击查看](https://docs.oneprocloud.com/userguide/dr/dr/host-dr.html#deregister-host)
+        * 可参考官方文档：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/dr/host-dr.html#deregister-host)
 
       * 资源容灾-->主机容灾-->容灾配置
 
@@ -260,45 +260,45 @@ HyperMotion手册：[点击查看](https://docs.oneprocloud.com/userguide/migrat
 
       * 资源容灾-->主机容灾-->开始容灾
 
-        * 可参考官方文档：[点击查看](https://docs.oneprocloud.com/userguide/dr/dr/host-dr.html#deregister-host-1)
+        * 可参考官方文档：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/dr/host-dr.html#deregister-host-1)
 
     * 存储配置（根据页面提示，分别解绑块存储和对象存储配置）：
 
       * 配置管理-->存储配置-->对象存储
 
-        * 可参考官方文档：[点击查看](https://docs.oneprocloud.com/userguide/dr/dr-site-configuration-obs/huawei.html#delete)
+        * 可参考官方文档：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/dr-site-configuration-obs/huawei.html#delete)
 
       * 配置管理-->存储配置-->块存储
 
-        * 可参考官方文档：[点击查看](https://docs.oneprocloud.com/userguide/dr/dr-site-configuration-block/alibaba.html#delete)
+        * 可参考官方文档：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/dr-site-configuration-block/alibaba.html#delete)
 
 * 登录Linux主机
 
-  * 卸载原有Agent程序：[点击查看](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#uninstall-linux-agent)
+  * 卸载原有Agent程序：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/configuration/production-site.html#uninstall-linux-agent)
 
 * 登录Windows主机
 
-  * 卸载原有Agent程序：[点击查看](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#uninstall-windows-agent)
+  * 卸载原有Agent程序：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/configuration/production-site.html#uninstall-windows-agent)
 
 ### 更新HyperBDR
 
-* 参考官网升级手册进行安装升级：[点击查看](https://docs.oneprocloud.com/userguide/dr/operations/upgrade.html)
+* 参考官网升级手册进行安装升级：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/operations/upgrade.html)
 
 ### 重新安装云同步网关
 
-* 完成块存储配置：[点击查看](https://docs.oneprocloud.com/userguide/dr/configuration/storage-configuration.html#block-storage)
+* 完成块存储配置：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/configuration/storage-configuration.html#block-storage)
 
 ### 重新安装同步代理
 
-* 完成生产站点配置：[点击查看](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html)
+* 完成生产站点配置：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/configuration/production-site.html)
 
 ### 重新安装Agent
 
 * 安装Agent程序
 
-  * Linux主机：[点击查看](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#linux-agent)
+  * Linux主机：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/configuration/production-site.html#linux-agent)
 
-  * Windows主机：[点击查看](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#windows-agent)
+  * Windows主机：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/configuration/production-site.html#windows-agent)
 
 ### 重新安装验证
 
@@ -308,7 +308,7 @@ HyperMotion手册：[点击查看](https://docs.oneprocloud.com/userguide/migrat
 
 重新配置主机资源及存储配置开始进行数据同步，详情可见HyperBDR产品使用手册
 
-HyperBDR手册：[点击查看](https://docs.oneprocloud.com/userguide/dr/)
+HyperBDR手册：[点击查看](https://docs.oneprocloud.com/zh/userguide/dr/)
 
-HyperMotion手册：[点击查看](https://docs.oneprocloud.com/userguide/migration/)
+HyperMotion手册：[点击查看](https://docs.oneprocloud.com/zh/userguide/migration/)
 
