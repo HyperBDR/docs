@@ -48,7 +48,7 @@ rm -rf /opt/installer/production/config/supervisor-dashboard/VERSION/versions.js
 rm -rf /opt/installer/production/venvs/scripts-venv/version_info/
 ```
 
-* Follow the official upgrade guide for installation: [View Guide](https://docs.oneprocloud.com/userguide/dr/operations/upgrade.html#%E5%8D%87%E7%BA%A7%E5%87%86%E5%A4%87)
+* Follow the official upgrade guide for installation: [View Guide](../dr/operations/upgrade.md#upgrade-preparation)
 
 ### Cloud Sync Gateway Update
 
@@ -230,9 +230,9 @@ rm -rf /opt/installer/production/venvs/scripts-venv/version_info/
 
 Reconfigure storage settings and initiate data synchronization. For detailed instructions, refer to the HyperBDR product manual:
 
-HyperBDR Manual: [View Guide](https://docs.oneprocloud.com/userguide/dr/dr/host-dr.html#setup-dr)
+HyperBDR Manual: [View Guide](../dr/dr/host-dr.md#setup-dr)
 
-HyperMotion Manual: [View Guide](https://docs.oneprocloud.com/userguide/migration/migration/host-migration.html#setup-migration)
+HyperMotion Manual: [View Guide](../migration/migration/host-migration.md#setup-migration)
 
 ## Option 2: Complete Reinstallation
 
@@ -246,11 +246,11 @@ HyperMotion Manual: [View Guide](https://docs.oneprocloud.com/userguide/migratio
 
       * Configuration Management  Production Site Configuration  Source Sync Proxy
 
-        * Reference official documentation: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#%E8%A7%A3%E7%BB%91)
+        * Reference official documentation: [View Guide](../dr/configuration/production-site.md#unbind)
 
       * Resource Disaster Recovery  Host Disaster Recovery  Select Host
 
-        * Reference official documentation: [View Guide](https://docs.oneprocloud.com/userguide/dr/dr/host-dr.html#deregister-host)
+        * Reference official documentation: [View Guide](../dr/dr/host-dr.md#deregister-host)
 
       * Resource Disaster Recovery  Host Disaster Recovery  Disaster Recovery Configuration
 
@@ -258,45 +258,45 @@ HyperMotion Manual: [View Guide](https://docs.oneprocloud.com/userguide/migratio
 
       * Resource Disaster Recovery  Host Disaster Recovery  Start Disaster Recovery
 
-        * Reference official documentation: [View Guide](https://docs.oneprocloud.com/userguide/dr/dr/host-dr.html#deregister-host-1)
+        * Reference official documentation: [View Guide](../dr/dr/host-dr.md#deregister-host-1)
 
     * Storage Configuration (unbind block storage and object storage configurations as prompted):
 
       * Configuration Management  Storage Configuration  Object Storage
 
-        * Reference official documentation: [View Guide](https://docs.oneprocloud.com/userguide/dr/dr-site-configuration-obs/huawei.html#delete)
+        * Reference official documentation: [View Guide](../dr/dr-site-configuration-obs/huawei.md#delete)
 
       * Configuration Management  Storage Configuration  Block Storage
 
-        * Reference official documentation: [View Guide](https://docs.oneprocloud.com/userguide/dr/dr-site-configuration-block/alibaba.html#delete)
+        * Reference official documentation: [View Guide](../dr/dr-site-configuration-block/huawei.md#delete)
 
 * Log into Linux hosts
 
-  * Uninstall existing Agent programs: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#uninstall-linux-agent)
+  * Uninstall existing Agent programs: [View Guide](../dr/configuration/production-site.md#uninstall-linux-agent)
 
 * Log into Windows hosts
 
-  * Uninstall existing Agent programs: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#uninstall-windows-agent)
+  * Uninstall existing Agent programs: [View Guide](../dr/configuration/production-site.md#uninstall-windows-agent)
 
 ### HyperBDR Update
 
-* Follow the official upgrade guide for installation: [View Guide](https://docs.oneprocloud.com/userguide/dr/operations/upgrade.html)
+* Follow the official upgrade guide for installation: [View Guide](../dr/operations/upgrade.md#upgrade-preparation)
 
 ### Reinstall Cloud Sync Gateway
 
-* Complete block storage configuration: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/storage-configuration.html#block-storage)
+* Complete block storage configuration: [View Guide](../dr/configuration/storage-configuration.md#block-storage)
 
 ### Reinstall Sync Proxy
 
-* Complete production site configuration: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html)
+* Complete production site configuration: [View Guide](../dr/configuration/production-site.html)
 
 ### Reinstall Agent
 
 * Install Agent programs
 
-  * Linux hosts: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#linux-agent)
+  * Linux hosts: [View Guide](../dr/configuration/production-site.md#linux-agent)
 
-  * Windows hosts: [View Guide](https://docs.oneprocloud.com/userguide/dr/configuration/production-site.html#windows-agent)
+  * Windows hosts: [View Guide](../dr/configuration/production-site.md#windows-agent)
 
 ### Reinstallation Verification
 
@@ -306,6 +306,6 @@ HyperMotion Manual: [View Guide](https://docs.oneprocloud.com/userguide/migratio
 
 Reconfigure host resources and storage settings to initiate data synchronization. For detailed instructions, refer to the HyperBDR product manual:
 
-HyperBDR Manual: [View Guide](https://docs.oneprocloud.com/userguide/dr/)
+HyperBDR Manual: [View Guide](../dr/)
 
-HyperMotion Manual: [View Guide](https://docs.oneprocloud.com/userguide/migration/)
+HyperMotion Manual: [View Guide](../migration/)
