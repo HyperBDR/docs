@@ -49,6 +49,7 @@ export const enSidebar = sidebar({
       children: [
         "policy-best-practices.md",
         "script-best-practices",
+        "network-planning.md",
       ],
       collapsible: true,
       expanded: true,
