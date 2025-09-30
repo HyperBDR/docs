@@ -52,11 +52,28 @@
 | 7 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |  |
 | 8 | Transition Host | 对象存储服务 | TCP 单向 | 443 | 数据流 |
 
+#### 华为云 无代理
+
+| **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Sync Proxy | HUAWEI API Endpoint | TCP 单向 | 443 | 控制流 |  |
+| 2 | Sync Proxy | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 | 当使用 HyperBDR 官方 SaaS 环境时，应为 443/30080<br>海外 SaaS 环境：<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com) |
+| 3 | Sync Proxy | 对象存储服务 | TCP 单向 | 443 | 数据流 |  |
+| 4 | HyperBDR | 对象存储服务 | TCP 单向 | 443 | 控制流 |  |
+| 5 | HyperBDR Console | Transition Host | TCP 单向 | 10729 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管 VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
+| 6 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |  |
+| 7 | Transition Host | 对象存储服务 | TCP 单向 | 443 | 数据流 | 
+
+
 ### 部署架构
 
 #### 互联网
 
 ![dr-network-planning-recommendations-1.jpeg](./images/dr-network-planning-recommendations-1.jpeg)
+
+#### 华为云 互联网
+
+![dr-network-planning-recommendations-hw-1.jpeg](./images/dr-network-planning-recommendations-hw-1.jpeg)
 
 #### 专用网络连接
 
@@ -101,11 +118,27 @@
 | 6 | Cloud Sync Gateway | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |当使用HyperBDR官方SaaS环境时，应为443/30080<br>国内SaaS环境:<br>[点击开始迁移](https://hypermotion.oneprocloud.com)<br>[点击开始容灾](https://hyperbdr.oneprocloud.com)|
 | 7 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |
 
+#### 华为云 无代理
+
+| **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Sync Proxy | Huawei API Endpoint | TCP 单向 | 443 | 控制流 |  |
+| 2 | Sync Proxy | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 | 当使用 HyperBDR 官方 SaaS 环境时，应为 443/30080<br>海外 SaaS 环境：<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com) |
+| 3 | Sync Proxy | Cloud Sync Gateway | TCP 单向 | 3260 / 13260 | 数据流 |  |
+| 4 | HyperBDR Console | Cloud Sync Gateway | TCP 单向 | 22 / 10729 / 16100 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管 VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
+| 5 | Cloud Sync Gateway | HyperBDR Console | TCP 单向 | 10443 / 30080 |  | 当使用 HyperBDR 官方 SaaS 环境时，应为 443/30080<br>海外 SaaS 环境：<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com) |
+| 6 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |  |
+
+
 ### 部署架构
 
 #### 互联网
 
 ![dr-network-planning-recommendations-4.jpeg](./images/dr-network-planning-recommendations-4.jpeg)
+
+#### 华为云 互联网
+
+![dr-network-planning-recommendations-hw-2.jpeg](./images/dr-network-planning-recommendations-hw-2.jpeg)
 
 #### 专用网络连接
 
