@@ -49,6 +49,10 @@ Windows Agent使用Windows VSS创建一致的快照，无需中断系统操作�
 
    - **VSS快照的推荐空闲空间**: 建议用于VSS快照的卷应至少保留10%的空闲空间。如果卷数据频繁更新，建议增加预留空闲空间的比例，以避免由于空间不足导致同步失败。
 
+   - **VSS预检查的最小空间要求**: Windows Agent 在执行 VSS 预检查时，统一要求分区预留至少 320 MB 空间供 VSS 使用。如果分区为系统安装过程生成的保留分区（如 EFI 或恢复分区），建议先去掉该分区的盘符后再进行同步，以避免 VSS 检查失败。
+
+       - 参考文档：[Microsoft 官方文档 - Registry Keys for Backup and Restore](https://learn.microsoft.com/en-us/windows/win32/backup/registry-keys-for-backup-and-restore?utm_source=chatgpt.com)
+
    - **高磁盘I/O对VSS快照的影响**: 在主机同步期间，过多的磁盘I/O可能导致VSS快照数据无法正常维护。Windows系统优先访问业务数据，可能会丢弃VSS快照的增量数据，导致同步失败。这种问题通常发生在数据备份、大型数据库事务、表索引更新、全盘搜索或临时表操作过多时。
 
    - **应对高磁盘I/O导致同步失败的推荐措施**:
