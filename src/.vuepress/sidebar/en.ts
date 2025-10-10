@@ -50,6 +50,7 @@ export const enSidebar = sidebar({
         "policy-best-practices.md",
         "script-best-practices",
         "network-planning.md",
+        "troubleshooting-best-practices.md"
       ],
       collapsible: true,
       expanded: true,
