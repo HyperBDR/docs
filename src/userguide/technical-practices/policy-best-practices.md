@@ -108,6 +108,26 @@ If you need hourly incremental syncs, but also want a full sync once a week for 
 
 ![](./images/strategymanagementbestpractices-synchronouspolicyconfigurationscenario-3.png)
 
+#### Best Practice: Minute-Level Incremental, Monthly Full, and Periodic Drills
+
+In a disaster recovery (DR) solution, incremental synchronization can be performed at a **minute-level**, enabling extremely low RPO during recovery. However, relying solely on incremental updates carries potential risks: long incremental chains, missing differences due to link failures, and accumulated storage fragmentation can all affect data consistency and recoverability.
+
+Industry best practices recommend:
+
+* **Minute-level Incremental** → Ensures continuous data synchronization to meet high availability requirements of production systems.
+* **Monthly Full** → Serves as a long-term baseline, regularly calibrating data to mitigate risks from extended incremental chains.
+* **Periodic DR Drills** → Validates the effectiveness of the DR system through regular exercises, checking the correctness of full and incremental data and uncovering potential configuration, process, or operational issues.
+
+  * **Key Advantage**: The product’s unique **one-click Boot in Cloud** feature allows DR drills to be executed **without any pre-configuration on the target environment**, enabling high-frequency, low-cost testing in a real environment and effectively ensuring data integrity and DR reliability.
+
+The benefits of this combined strategy include:
+
+1. **Consistency Assurance**: Monthly full synchronization eliminates potential errors accumulated over long incremental periods.
+2. **Risk Mitigation**: Even if some incremental data is corrupted, recovery can rely on the full baseline.
+3. **Compliance and Audit**: Monthly full points meet regulatory requirements for a complete baseline.
+4. **Practical Validation**: One-click drills ensure the DR plan is usable in real scenarios, making data protection not only “designed correctly” but also “reliably executed.”
+
+By adopting a **minute-level incremental + monthly full + one-click periodic drill** strategy, organizations can achieve an optimal balance of **reliability, compliance, and business continuity**, ensuring the long-term availability and trustworthiness of DR sites.
 
 ## Bandwidth Limiting
 
