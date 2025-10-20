@@ -202,37 +202,37 @@ export const enSidebar = sidebar({
       ],
     },
   ],
-  '/userguide/dr-usage-guide/': [
-    {
-      text: "User Manual",
-      icon: "circle-info",
-      prefix: "",
-      children: [
-        {
-          text: "Huawei Cloud",
-          icon: "cloud",
-          children: [
-            'dr-operations-manual-huaweicloud-object',
-            'dr-operations-manual-huaweicloud-block',
-          ],
-        },
-        {
-          text: "Huawei Cloud Stack 8.2.x/8.3.x",
-          icon: "cloud",
-          children: [
-            'dr-operations-manual-hcs8-block',
-          ],
-        },
-        {
-          text: "TM CAE",
-          icon: "cloud",
-          children: [
-            'dr-operations-manual-tmcae-object',
-          ],
-        },
-      ],
-    },
-  ],
+//  '/userguide/dr-usage-guide/': [
+//    {
+//      text: "User Manual",
+//      icon: "circle-info",
+//      prefix: "",
+//      children: [
+//        {
+//          text: "Huawei Cloud",
+//          icon: "cloud",
+//          children: [
+//            'dr-operations-manual-huaweicloud-object',
+//            'dr-operations-manual-huaweicloud-block',
+//          ],
+//        },
+//        {
+//          text: "Huawei Cloud Stack 8.2.x/8.3.x",
+//          icon: "cloud",
+//          children: [
+//            'dr-operations-manual-hcs8-block',
+//          ],
+//        },
+//        {
+//          text: "TM CAE",
+//          icon: "cloud",
+//          children: [
+//            'dr-operations-manual-tmcae-object',
+//          ],
+//        },
+//      ],
+//    },
+//  ],
   '/userguide/installation/': [
     {
       text: "Installation",
