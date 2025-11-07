@@ -95,6 +95,7 @@ export const enSidebar = sidebar({
             'googlecloud-pre-settings',
             'xhere-pre-settings.md',
             'azure-target-pre-settings.md',
+            'openstack-pre-settings.md',
           ],
         },
         {
