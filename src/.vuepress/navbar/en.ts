@@ -71,16 +71,32 @@ export const enNavbar = navbar([
             icon: "book",
             link: "/userguide/poc/",
           },
-          {
-            text: "HyperBDR Manual(About to be abandoned)",
-            icon: "warning",
-            link: "/userguide/dr-usage-guide/",
-          },
+       //   {
+       //     text: "HyperBDR Manual(About to be abandoned)",
+       //     icon: "warning",
+       //     link: "/userguide/dr-usage-guide/",
+       //   },
           {
             text: "HyperBDR Manual",
             icon: "shield",
             link: "/userguide/dr/",
           },
+        ],
+      },
+      {
+        text: "Best Practices",
+        icon: "shield",
+        children: [
+          {
+            text: "Technical Practices",
+            icon: "thumbs-up",
+            link: "/userguide/technical-practices/",
+          },
+    //      {
+    //        text: "Project Practices",
+    //        icon: "warning",
+    //        link: "/userguide/project-practices/",
+    //      },
         ],
       },
       {
@@ -128,6 +144,11 @@ export const enNavbar = navbar([
             text: "FAQ",
             icon: "question-circle",
             link: "/userguide/faq/faq.md"
+          },
+          {
+            text: "Release Notes",
+            icon: "question-circle",
+            link: "https://oneprocloud.feishu.cn/docx/G8PpdE5Y7obfgLxHx9JcOa5kn2v"
           }
         ],
       },

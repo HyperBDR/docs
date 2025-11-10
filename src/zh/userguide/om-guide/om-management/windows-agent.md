@@ -65,6 +65,32 @@ Windows Agent 支持部署在以下版本的 Windows Server 操作系统上：20
 
 ![](./images/applicationversionnumber-windowsagentoperationandmaintenance-9.png)
 
+### **日志采集**
+
+在 HyperBDR 系统中，运维人员可通过&#x5728;**"运维管理 > 日志管理 > 容灾|回切 > Windows主机"**&#x9875;面，根据实际需求，收集与下载所需日志文件，便于问题排查与系统监控。
+
+选择需要收集的目标主机，点击对应行的“**采集”**&#x64CD;作按钮
+
+![](./images/downloadlogs-dr-win-2.png)
+
+#### **选择时间段**
+
+在弹出的对话框中设定需要收集的日志时间范围，确认后系统将自动开始日志收集
+
+![](./images/downloadlogs-dr-3.png)
+
+#### **开始采集**
+
+选择时间段确认后，系统将自动开始日志收集，日志状态转换为采集中
+
+![](./images/downloadlogs-dr-4.png)
+
+#### **日志下载**
+
+日志采集完成后，状态更新&#x4E3A;**“可下载”**，用户可点击“点击查看列表”查看日志文件，并选择下载
+
+![](./images/downloadlogs-dr-5.png)
+
 ## **配置文件管理**
 
 Windows Agent 的主要配置文件位于 `C:\Program Files (x86)\DiskSync-Agent\config` 目录下（具体路径以实际选择安装路径为准\config），文件名为 `Sysconfig.ini`。该文件包含了 Windows Agent 的各项配置信息，包括服务连接、数据库、同步任务、日志、S3 配置等。

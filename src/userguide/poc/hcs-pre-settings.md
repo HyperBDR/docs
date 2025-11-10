@@ -57,6 +57,8 @@ Linux BIOS Image is used to create a cloud sync gateway and boot Linux hosts wit
 
 ::: tip
 Download images to your local machine through the provided image links. 
+
+The image using requires cloud-init for password and key injection, so if the image using is not from us, please make sure that the image supports cloud-init.
 :::
 
 ### Image Info
@@ -244,7 +246,7 @@ if __name__ == "__main__":
 - Step2: Modify the image_to_scsi.py script and update the relevant parameters under the main section to match the actual environment.
 
 ::: tip
-+ [How to obtain Huawei Cloud HCS 8.x Platform Credentials information?](../../faq/faq.html#how-to-obtain-huawei-cloud-hcs-8-x-platform-credentials-information)
++ [How to obtain Huawei Cloud HCS 8.x Platform Credentials information?](../faq/faq.html#how-to-obtain-huawei-cloud-hcs-8-x-platform-credentials-information)
 :::
 
 > auth_url  

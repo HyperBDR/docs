@@ -129,7 +129,7 @@ HyperBDR Security Group Name: SG-HyperBDR
 | AZ                  | AZ1                                                             |
 | Flavor              | s6.2xlarge.2                                                    |
 | Image               | CentOS 7.9 64bit(40 GiB)(d580586a-1761-4f06-bb11-5f358ee29e40)  |
-| System Disk         | High IO 200GB                                                   |
+| System Disk         | High IO 500GB                                                   |
 | Network             | <VPC-HyperBDR-172.16.0.0\>                                      |
 | Subnet              | <Subnet-HyperBDR-172.16.0.0\> (Automatically assign IP address) |
 | Security Group      | SG-HyperBDR                                                     |
@@ -231,6 +231,8 @@ Windows images are primarily used for disaster recovery with UEFI Windows as the
 
 ::: tip
 Download Windows/Linux images to your local machine through the provided image links. 
+
+The image using requires cloud-init for password and key injection, so if the image using is not from us, please make sure that the image supports cloud-init.
 :::
 
 ### Image Info

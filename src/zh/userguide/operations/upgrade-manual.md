@@ -1,168 +1,313 @@
-# HyperBDR 升级手册
+# HyperBDR 5.6.x - 5.11.x 版本升级操作指导
+为了进一步提升传输链路的稳定性和可靠性，HyperBDR 在新版本中引入了一种全新的、基于用户态实现的传输协议。该协议相较于传统内核态机制，在弱网环境下表现出更优的稳定性，能够有效减少中断和传输失败的情况。因此，我们强烈建议用户尽快升级至最新版本以获得更好的使用体验。
 
-[[toc]]
+但需注意，由于现有块存储模块与新协议存在兼容性问题，用户需同步升级 HyperBDR 控制端以及部署在主机上的 Agent（无须卸载），方可启用此全新传输协议。
 
-::: tip
-注意：升级支持的最低 HyperBDR 版本为 4.4.0。低于 HyperBDR 4.4.0 的版本不支持升级到最新版本。
-:::
+本手册介绍了 **从 HyperBDR 5.x 升级到最新版本** 的两种方式：
 
-## HyperBDR 服务器升级
+* **原地升级方案**（配置保持，用户感知更友好）
 
-[升级包下载链接](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/upgrade_incremental_4.4.0_to_5.2.0.tar.gz)
+* **完全卸载方案**（推荐，步骤简洁）
 
-### 获取并解压升级包
+⚠️ 注意：两种方案均需在升级完成后 **重新执行全量数据同步**。
 
-- 步骤 1：获取升级包 URL。
+***
 
-- 步骤 2：将升级包下载到 **HyperBDR 控制台**操作系统，并使用以下命令解压：
+## 方案一、原地升级方案
 
-```shell
-tar zxvf upgrade_incremental_4.4.0_to_4.9.0.tar.gz -C /tmp/
+### 清理资源配置
+
+* 将开始容灾机器解除注册主机，将其解除回到第二步骤，等待后续更新完毕后重新完成容灾配置
+
+### 更新HyperBDR
+
+* ssh登录HyperBDR控制台主机
+
+* 由于版本升级部分目录调整，在开始升级前需要进行如下操作
+
+```bash
+##创建venv目录
+mkdir -p /opt/installer/production/venvs/atomy-s3block-venv
+mkdir -p /opt/installer/production/venvs/SwiftS3Block-venv
+mkdir -p /opt/installer/production/venvs/hyper_up-venv
+##初始化版本号
+echo "0.0.0" > /opt/installer/production/venvs/atomy-s3block-venv/version
+echo "0.0.0" > /opt/installer/production/venvs/SwiftS3Block-venv/version
+echo "0.0.0" > /opt/installer/production/venvs/hyper_up-venv/version
 ```
 
-### 检查当前安装版本
-
-```shell
-cat /opt/installer/Version
-HyperBDR_release_v4.9.0_20230928-20230927-1437.tar.gz
+```bash
+##重置版本号
+rm -rf /opt/installer/production/config/supervisor-dashboard/VERSION/versions.json
 ```
 
-当前安装版本为 HyperBDR_release_v4.9.0_20230928
-
-> 如果 HyperBDR 版本早于 4.6.0，请执行以下额外步骤：
-
-```shell
-[root@log images]# cd /tmp/upgrade/images
-[root@log images]# ls
-influxdb-1.7.6.tar.gz  mariadb-10.3.36.tar.gz  rabbitmq-3.8.16.tar.gz  redis-7.0.2-alpine.tar.gz
-
-[root@log images]# docker load -i influxdb-1.7.6.tar.gz
-[root@log images]# docker load -i mariadb-10.3.36.tar.gz
-[root@log images]# docker load -i rabbitmq-3.8.16.tar.gz
-[root@log images]# docker load -i redis-7.0.2-alpine.tar.gz
+```bash
+##删除无效目录
+rm -rf /opt/installer/production/venvs/scripts-venv/version_info/
 ```
 
-### 更新服务
+* 参考官网升级手册进行安装升级：[点击查看](../dr/operations/upgrade.md#升级准备)
 
-- 步骤 1：替换更新命令：
+### 更新云同步网关
 
-```shell
-cp /tmp/upgrade/scripts/common.sh /opt/installer/production/scripts/
-cp /tmp/upgrade/scripts/hmctl /opt/installer/production/scripts/
-```
+* 由于网关进行迭代升级低于6.2版本暂不支持进行版本迭代，更新至新版后，请重新扩展完成云同步网关构建
 
-- 步骤 2：执行更新命令
+  * 删除所有iscsi网关和过渡主机镜像
 
-```shell
-/opt/installer/production/scripts/hmctl upgrade /tmp/upgrade/venvs
-```
+  * 页面删除iscsi网关
 
-### 更新配置文件
+  * 云平台删除Cloud\_SYNC相关名字的安全组
 
-```shell
-mv /opt/installer/production/config/newmuse/json/config.json.bak /opt/installer/production/config/newmuse/json/config.json
-mv /opt/installer/production/config/newmuse/json/s3.json.bak /opt/installer/production/config/newmuse/json/s3.json
-mv /opt/installer/production/config/newmuse/json/targetClouds.json.bak /opt/installer/production/config/newmuse/json/targetClouds.json
-mv /opt/installer/production/config/newmuse-motion/json/config.json.bak /opt/installer/production/config/newmuse-motion/json/config.json
-mv /opt/installer/production/config/newmuse-motion/json/s3.json.bak /opt/installer/production/config/newmuse-motion/json/s3.json
-mv /opt/installer/production/config/newmuse-motion/json/targetClouds.json.bak /opt/installer/production/config/newmuse-motion/json/targetClouds.json
-```
+  * 扩展S3网关
 
-### 确认升级后的版本
+### 更新同步代理(hamal)
 
-升级完成后，执行以下命令查看当前 HyperBDR 版本：
+* ssh登录同步代理主机
 
-```shell
-[root@localhost installer]# cat /opt/installer/Version
+* 初始化版本号
 
-HyperBDR_release_v5.2.0_20230928-20230927-1437.tar.gz
-```
+  ```bash
+  #创建hyper_exporter目录
+  mkdir -p /opt/hyper_exporter/
+  #初始化版本号
+  echo "0.0.0" > "/opt/hyper_exporter/exporter_version"
+  ```
 
-当前安装版本为 HyperBDR_release_v5.2.0_20230928
+* 下载最新升级脚本
 
-## 更新 **Linux Agent**、**Windows Agent** 和无代理 **同步代理**
+  > 注意替换\<HyperBDR IP>为HyperBDR控制台主机地址
 
-### 限制条件
+  ```bash
+  curl -k -o /usr/local/hyper_exporter/update_sync_proxy.sh https://<HyperBDR IP>:30080/softwares/update_sync_proxy.sh
+  ```
 
-> 注意：请先升级 HyperBDR 服务器端。
-> V4.10.1 之前的安装包无法直接使用更新脚本进行更新。
-> 在同步主机或启动主机等任务执行期间禁止进行更新操作。
+* 赋予执行权限
 
-### 无代理同步代理
+  ```bash
+  chmod +x /usr/local/hyper_exporter/update_sync_proxy.sh
+  ```
 
-- 步骤 1：登录无代理同步代理服务器
+* 执行升级脚本
 
-```shell
-ssh root@<无代理同步代理服务器IP>
-```
+  ```bash
+  #进入脚本路径
+  cd /usr/local/hyper_exporter/
+  #执行升级
+  bash update_sync_proxy.sh -y
+  ```
 
-- 步骤 2：获取最新更新脚本
+* 更新配置
 
-```shell
-curl -k -o /usr/local/hyper_exporter/upgrade_hamal.sh https://<HyperBDR IP>:30080/softwares/upgrade_hamal.sh
-```
+  ```bash
+  CONFIG_DIR="/opt/hyper_exporter"
+  sed -i '/^ServiceType/d' "$CONFIG_DIR/config.ini"
+  echo "ServiceType = hamal" >> "$CONFIG_DIR/config.ini"
+  ```
 
-- 步骤 3：授予执行权限
+* 重启监控模块
 
-```shell
-chmod +x /root/upgrade.hamal.sh
-```
+  ```bash
+  systemctl restart hyper_exporter
+  ```
 
-- 步骤 4：执行更新命令
+### 更新Agent
 
-```shell
-cd /usr/local/hyper_exporter/
-bash /usr/local/hyper_exporter/upgrade_hamal.sh
-```
+* Linux Agent
 
-### Linux Agent
+  * ssh登录Agent源端主机
 
-- 步骤 1：登录 Linux Agent 主机
+  * 初始化版本号
 
-```shell
-ssh root@<Agent 主机 IP>
-```
+  ```bash
+  #创建hyper_exporter目录
+  mkdir -p /usr/local/hyper_exporter/
+  #初始化版本号
+  echo "0.0.0" > "/usr/local/hyper_exporter/exporter_version"
+  ```
 
-- 步骤 2：获取最新更新脚本
+  * 下载最新升级脚本
 
-```shell
-curl -k -o /var/lib/egisplus-agent/upgrade_agent.sh https://<HyperBDR-IP>:30080/softwares/upgrade_agent.sh
-```
+  > 注意替换\<HyperBDR IP>为HyperBDR控制台主机地址
 
-- 步骤 3：执行更新脚本
+  ```bash
+  curl -k -o /var/lib/egisplus-agent/upgrade_agent.sh https://<HyperBDR IP>:30080/softwares/upgrade_agent.sh
+  ```
 
-```shell
-bash /var/lib/egisplus-agent/upgrade_agent.sh
-```
+  * 赋予执行权限
 
-### Windows Agent
+  ```bash
+  chmod +x /var/lib/egisplus-agent/upgrade_agent.sh
+  ```
 
-- 步骤 1：登录源 Windows Agent 服务器桌面
+  * 执行升级脚本
 
-- 步骤 2：将更新文件下载到 Windows Agent 服务器
+  ```bash
+  #进入脚本路径
+  cd /var/lib/egisplus-agent/
+  #执行升级
+  bash upgrade_agent.sh
+  ```
 
-```shell
-# X64 版本
-https://<HyperBDR IP>:30080/softwares/windows-agent-new/upgrade_to_xxx_x64.zip
+  * 更新配置
 
-# X86 版本
-https://<HyperBDR IP>:30080/softwares/windows-agent-new/upgrade_to_xxx_x86.zip
-```
+  ```bash
+  CONFIG_DIR="/usr/local/hyper_exporter"
+  sed -i '/^ServiceType/d' "$CONFIG_DIR/config.ini"
+  echo "ServiceType = linux_agent" >> "$CONFIG_DIR/config.ini"
+  ```
 
-![Windows Agent 升级步骤 1](./images/upgrade-hyperbdr-offline-upgrade-1.png)
+  * 重启监控模块
+  > 对于较旧的操作系统（如 CentOS 6、RHEL 6、Ubuntu 14.04 及更早版本），可能仍使用 SysV init，需改用 service 命令执行等效操作。
 
-- 步骤 3：解压下载的文件
+  ```bash
+   #systemd 系统（推荐）
+   systemctl restart hyper-exporter-agent.service
+   #旧系统（SysV init）
+   service hyper-exporter-agent restart
 
-![Windows Agent 升级步骤 2](./images/upgrade-hyperbdr-offline-upgrade-2.png)
+  ```
 
-- 步骤 4：执行 Upgrade.exe
+* Windows Agent
 
-![Windows Agent 升级步骤 3](./images/upgrade-hyperbdr-offline-upgrade-3.png)
+  * 登录Windows源端主机
 
-![Windows Agent 升级步骤 4](./images/upgrade-hyperbdr-offline-upgrade-4.png)
+  * 下载最新升级包,根据自身服务器配置选择下载对应版本
 
-## 源对象 DR 网关升级
+    > 注意替换\<HyperBDR IP>为HyperBDR控制台主机地址
 
-源对象 DR 网关需要重新上传镜像到云平台。
+    * x86
 
-![源对象 DR 网关升级](./images/upgrade-hyperbdr-offline-upgrade-5.png)
+      ```bash
+      https://<HyperBDR IP>:30080/softwares/windows-agent-new/upgrade_x86.zip
+      ```
+
+    * x64
+
+      ```bash
+      https://<HyperBDR IP>:30080/softwares/windows-agent-new/upgrade_x64.zip
+      ```
+
+  * 解压下载的ZIP文件
+
+  * 右击以管理员身份运行`Upgrade.exe`，按照提示完成升级
+
+    ![](./images/-removeinvaliddirectories-1.png)
+
+  * 下载最新驱动包
+
+  > 当前阶段请先手动下载：[点击下载](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/upgrade_packages/DriverUpgrade.zip)
+
+  * 升级驱动程序
+
+  ```bash
+  #解压ZIP文件后，并进入解压目录
+  #右击以管理员身份运行
+  UpgradeDriver.bat
+  ```
+
+  ![](./images/-removeinvaliddirectories-2.png)
+
+  * 更新配置
+
+  ```bash
+  #具体以实际安装目录为准
+  C:\Program Files (x86)\DiskSync-Agent\hyper_exporter
+  #编辑配置文件config.ini,在最后一行添加
+  ServiceType = windows_agent
+  ```
+
+  ![](./images/-removeinvaliddirectories-3.png)
+
+  * 重新启动Agent程序
+
+### 验证升级
+
+* 登录HyperBDR页面查看版本信息，参考官方FQA手册：[点击查看](https://qa.oneprocloud.com/questions/D1L6)
+
+* 登录HyperBDR页面检查是否可以获取Agent、Agentless版本
+
+  ![](./images/-removeinvaliddirectories-4.png)
+
+### 全量同步数据
+
+重新完成存储配置开始进行数据同步，详情可见HyperBDR产品使用手册
+
+HyperBDR手册：[点击查看](../dr/dr/host-dr.md#容灾配置)
+
+HyperMotion手册：[点击查看](../migration/migration/host-migration.md#迁移配置)
+
+## 方案二、完全卸载方案
+
+### 清理环境
+
+* 登录HyperBDR控制台
+
+  * 根据页面配置信息，清除相关资源配置
+
+    * 主机资源（根据页面提示，分别解除注册主机）：
+
+      * 配置管理-->生产站点配置--源端同步代理
+
+        * 可参考官方文档：[点击查看](../dr/configuration/production-site.md#解绑)
+
+      * 资源容灾-->主机容灾-->选择主机
+
+        * 可参考官方文档：[点击查看](../dr/dr/host-dr.md#解除注册主机)
+
+      * 资源容灾-->主机容灾-->容灾配置
+
+        * 选中需要解除注册的主机 --> Action --> Deregister Host
+
+      * 资源容灾-->主机容灾-->开始容灾
+
+        * 可参考官方文档：[点击查看](../dr/dr/host-dr.md#解除注册主机-1)
+
+    * 存储配置（根据页面提示，分别解绑块存储和对象存储配置）：
+
+      * 配置管理-->存储配置-->对象存储
+
+        * 可参考官方文档：[点击查看](../dr/dr-site-configuration-obs/huawei.md#删除)
+
+      * 配置管理-->存储配置-->块存储
+
+        * 可参考官方文档：[点击查看](../dr/dr-site-configuration-block/huawei.md#删除)
+
+* 登录Linux主机
+
+  * 卸载原有Agent程序：[点击查看](../dr/configuration/production-site.md#卸载linux-agent)
+
+* 登录Windows主机
+
+  * 卸载原有Agent程序：[点击查看](../dr/configuration/production-site.md#卸载windows-agent)
+
+### 更新HyperBDR
+
+* 参考官网升级手册进行安装升级：[点击查看](../dr/operations/upgrade.md#升级准备)
+
+### 重新安装云同步网关
+
+* 完成块存储配置：[点击查看](../dr/configuration/storage-configuration.md#块存储)
+
+### 重新安装同步代理
+
+* 完成生产站点配置：[点击查看](../dr/configuration/production-site.html)
+
+### 重新安装Agent
+
+* 安装Agent程序
+
+  * Linux主机：[点击查看](../dr/configuration/production-site.md#linux-agent)
+
+  * Windows主机：[点击查看](../dr/configuration/production-site.md#windows-agent)
+
+### 重新安装验证
+
+* 参考官方FQA手册：[点击查看](https://qa.oneprocloud.com/questions/D1L6)
+
+### 全量同步数据
+
+重新配置主机资源及存储配置开始进行数据同步，详情可见HyperBDR产品使用手册
+
+HyperBDR手册：[点击查看](../dr/)
+
+HyperMotion手册：[点击查看](../migration/)

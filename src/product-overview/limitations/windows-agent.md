@@ -48,6 +48,10 @@ Windows Agent uses Windows VSS to create consistent snapshots without interrupti
 
    - **Recommended Free Space for VSS Snapshots:** It is recommended that volumes used for VSS snapshots retain at least 10% free space. If the volume data is frequently updated, it is recommended to increase the proportion of reserved free space to avoid synchronization failures due to insufficient space.
 
+   - **Minimum Space Requirement for VSS Pre-check**: During the VSS pre-check, the Windows Agent requires each volume to reserve at least **320 MB** of space for VSS. If the volume is a system reserved partition (such as EFI or recovery partition), it is recommended to remove the drive letter of that partition before starting synchronization to avoid VSS check failures.
+
+      - Reference: [Microsoft Documentation - Registry Keys for Backup and Restore](https://learn.microsoft.com/en-us/windows/win32/backup/registry-keys-for-backup-and-restore?utm_source=chatgpt.com)
+
    - **Impact of High Disk I/O on VSS Snapshots:** During host synchronization, excessive disk I/O may prevent VSS snapshot data from being properly maintained. The Windows system prioritizes access to business data and may discard incremental data from VSS snapshots, resulting in synchronization failure. This problem usually occurs during data backup, large database transactions, table index updates, full disk searches, or excessive temporary table operations.
 
    - **Recommended Measures to Address Synchronization Failures Caused by High Disk I/O:**

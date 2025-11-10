@@ -71,16 +71,32 @@ export const zhNavbar = navbar([
             icon: "book",
             link: "/zh/userguide/poc/",
           },
-          {
-            text: "HyperBDR 使用手册(即将废弃)",
-            icon: "warning",
-            link: "/zh/userguide/dr-usage-guide/",
-          },
+      //    {
+      //      text: "HyperBDR 使用手册(即将废弃)",
+      //      icon: "warning",
+      //      link: "/zh/userguide/dr-usage-guide/",
+      //    },
           {
             text: "HyperBDR 使用手册",
             icon: "shield",
             link: "/zh/userguide/dr/",
           },
+        ],
+      },
+      {
+        text: "最佳实践",
+        icon: "shield",
+        children: [
+          {
+            text: "技术实践",
+            icon: "thumbs-up",
+            link: "/zh/userguide/technical-practices/",
+          },
+      //    {
+      //      text: "项目实践",
+      //      icon: "warning",
+      //      link: "/zh/userguide/project-practices/",
+      //    },
         ],
       },
       {
@@ -128,6 +144,11 @@ export const zhNavbar = navbar([
             text: "FAQ",
             icon: "question-circle",
             link: "/zh/userguide/faq/faq.md"
+          },
+          {
+            text: "Release Notes",
+            icon: "question-circle",
+            link: "https://oneprocloud.feishu.cn/docx/G8PpdE5Y7obfgLxHx9JcOa5kn2v"
           }
         ],
       },

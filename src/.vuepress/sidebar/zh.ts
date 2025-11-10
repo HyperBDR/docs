@@ -21,6 +21,53 @@ export const zhSidebar = sidebar({
       expanded: true,
     },
   ],
+  "/zh/userguide/technical-practices/": [
+    {
+      text: "容灾回切实践",
+      icon: "check",
+      prefix: "",
+      children: [
+        "hyperbdr-disaster-recovery-failback.md",
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+    {
+      text: "Linux Agent",
+      icon: "check",
+      prefix: "",
+      children: [
+        "dkms-build-guide.md",
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+    {
+      text: "功能实践",
+      icon: "check",
+      prefix: "",
+      children: [
+        "policy-best-practices.md",
+        "script-best-practices",
+        "network-planning.md",
+        "troubleshooting-best-practices.md"
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+  ],
+  "/zh/userguide/project-practices": [
+    {
+      text: "Checklist",
+      icon: "check",
+      prefix: "",
+      children: [
+        
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+  ],
   "/zh/userguide/poc/": [
     {
       text: "云容灾前置条件",
@@ -48,6 +95,7 @@ export const zhSidebar = sidebar({
             'googlecloud-pre-settings',
             'xhere-pre-settings.md',
             'azure-target-pre-settings.md',
+            'openstack-pre-settings',
           ],
         },
         {
@@ -155,37 +203,37 @@ export const zhSidebar = sidebar({
       ],
     },
   ],
-  '/zh/userguide/dr-usage-guide/': [
-    {
-      text: "用户手册",
-      icon: "circle-info",
-      prefix: "",
-      children: [
-        {
-          text: "Huawei Cloud",
-          icon: "cloud",
-          children: [
-            'dr-operations-manual-huaweicloud-object',
-            'dr-operations-manual-huaweicloud-block',
-          ]
-        },
-        {
-          text: "Huawei Cloud Stack 8.2.x/8.3.x",
-          icon: "cloud",
-          children: [
-            'dr-operations-manual-hcs8-block',
-          ],
-        },
-        {
-          text: "TM CAE",
-          icon: "cloud",
-          children: [
-            'dr-operations-manual-tmcae-object',
-          ],
-        },
-      ],
-    },
-  ],
+//  '/zh/userguide/dr-usage-guide/': [
+//    {
+//      text: "用户手册",
+//      icon: "circle-info",
+//      prefix: "",
+//      children: [
+//        {
+//          text: "Huawei Cloud",
+//          icon: "cloud",
+//          children: [
+//            'dr-operations-manual-huaweicloud-object',
+//            'dr-operations-manual-huaweicloud-block',
+//          ]
+//        },
+//        {
+//          text: "Huawei Cloud Stack 8.2.x/8.3.x",
+//          icon: "cloud",
+//          children: [
+//            'dr-operations-manual-hcs8-block',
+//          ],
+//        },
+//        {
+//          text: "TM CAE",
+//          icon: "cloud",
+//          children: [
+//            'dr-operations-manual-tmcae-object',
+//          ],
+//        },
+//      ],
+//    },
+//  ],
   '/zh/userguide/installation/': [
     {
       text: "安装指南",

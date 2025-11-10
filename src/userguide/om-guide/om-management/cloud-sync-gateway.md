@@ -90,6 +90,32 @@ All system log files are stored in the `/var/log/sgateway` directory. Operations
 └── watchman_20250515.log      # watchman log for 2025-05-15
 ```
 
+### **Log Collection**
+
+In the HyperBDR system, operations personnel can collect and download the required log files from the **“Operations > Download Logs > DR | Failback > Cloud Sync Gateway”** page according to their needs, facilitating issue troubleshooting and system monitoring.
+
+Select the target host and click the "Collect" button in the corresponding row.
+
+![](./images/downloadlogs-dr-gateway-2.png)
+
+#### **Select Time Range**
+
+In the pop-up dialog, set the time range for the logs you want to collect. After confirming, the system will automatically start collecting logs.
+
+![](./images/downloadlogs-dr-3.png)
+
+#### **Start Collection**
+
+After confirming the time range, the system will automatically start collecting logs, and the log status will change to "Collecting".
+
+![](./images/downloadlogs-dr-4.png)
+
+#### **Download Logs**
+
+After log collection is complete, the status will update to **"Available"**. Users can click "Click for list" to see the log files and select files to download.
+
+![](./images/downloadlogs-dr-5.png)
+
 ## **Configuration File Management**
 
 The main configuration file for the Cloud Sync Gateway is `s3block_config.ini`, located in the `/var/lib/sgateway/config` directory. This file contains key information such as gateway ID, public IP, WebSocket service address, local data directory, log level, S3 storage credentials, endpoint address, and more, supporting data sync and communication between the gateway and central services.
