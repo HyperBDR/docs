@@ -6,7 +6,7 @@ Currently, the source production platform supports two modes: **Agent** and **Ag
 
   * Agent mode is suitable for various source operating system scenarios, including physical machines, virtual machines, and cloud hosts.
 
-  * Agentless mode supports: VMware, OpenStack + Ceph, AWS EC2, FusionCompute, and Oracle Cloud.
+  * Agentless mode supports: VMware, OpenStack + Ceph, AWS EC2, FusionCompute, Oracle Cloud and Huawei Cloud.
 
 * Source operating system support matrix
 
@@ -551,6 +551,78 @@ Once the HCS 8.0.2 production platform has been configured, wait until the platf
 
 ***
 
+## **Huawei Cloud**
+
+The Huawei Cloud platform page on the production site is mainly used for adding, deleting, updating, and other related management operations for the Huawei Cloud platform.
+
+::: warning
+As of October 31, 2025, Huawei Cloud has enabled the CBR Standard Snapshot Data Export API and the CBR Standard Snapshot Data Bucket Agency Interface only in certain regions (currently limited to the Shenzhen region, TR-Istanbul and TR-Ankara-PUR). Access to these features requires whitelist approval. To request access, please submit a service ticket through the Huawei Cloud support system.
+:::
+
+### **Add Huawei Cloud Platform**
+
+Click "Production Site" in the left navigation bar, select Huawei Cloud, and click the "Add" button. Follow the steps in the pop-up window to add the platform.  
+
+![](./images/productionsiteconfiguration-huaweicloud-1.png)
+
+#### **Deploy Sync Proxy**
+
+Follow the guided steps below:
+
+* Step 1: Create Cloud Host.
+
+To create a cloud host on the Huawei Cloud platform, the requirements are as follows:  
+(1) The host must run one of the following operating system versions: Ubuntu 20.04.  
+(2) The host should meet the following minimum specifications: CPU 4 cores, 8GB RAM, 200GB system disk.  
+(3) The host must support one of the following file system types: XFS or EXT4, with the disk partition type not being LVM.  
+(4) The host must have correct Huawei Cloud API interface access.  
+(5) All operations must be executed with root user privileges.  
+
+* Step 2: Install the source sync proxy.
+Copy and execute the sync proxy installation command.
+
+* Network policy requirements:
+
+| **Source**     | **Target**           | **Port** | **Description**    |
+| ---------- | ---------------- | -------- | --------- |
+| Sync Proxy | HyperBDR Console | 10443    | Authentication port    |
+| Sync Proxy | HyperBDR Console | 30080    | Installation package download port |
+
+![](./images/productionsiteconfiguration-huaweicloud-2.png)
+
+#### **Create Huawei Cloud Production Platform**
+
+1. Obtain authentication information
+
+| **Parameter**      | **Example**                                          | **Description**                                                                                                                                                                                                                      |
+| ----------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Access Key ID        | H******************K | The key for accessing Huawei Cloud API with full account permissions. Log in to the management console → mouse over the top-right corner [Username] → click [My Credentials] → select [Access Key]. |
+| Access Key Secret        | 4*************************A | The key for accessing Huawei Cloud API with full account permissions. Log in to the management console → mouse over the top-right corner [Username] → click [My Credentials] → select [Access Key]. |
+| Project        | tr-west-1 | The key for accessing Huawei Cloud API with full account permissions. Log in to the management console, mouse over the top-right corner [Username] → click [My Credentials] → [API Credentials] → [Project Name]. Note: Please enter the project name (e.g., cn-north-1), not the project ID. |
+| Sync Proxy        | 192.168.2.75 | The host IP of the sync proxy installed. |
+| Name        | Huawei Cloud | If you do not fill in the name, the system will automatically generate a default name for you. |
+
+![](./images/productionsiteconfiguration-huaweicloud-3.png)
+
+* Bucket Information Configuration
+
+::: tip
+Buckets can be created or specified.
+:::
+
+| **Parameter**      | **Example**                                          | **Description**                                                                                                                                                                                                                      |
+| ----------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Bucket Name        | sync-proxy-temp-data-bucket-mhm | This bucket temporarily caches disk data from Huawei Cloud hosts. Billing follows the same standard as Huawei Cloud Object Storage Service (OBS). The cache size equals the real disk data synchronized from Huawei Cloud hosts each time. |
+
+![](./images/productionsiteconfiguration-huaweicloud-4.png)
+
+#### **Complete Huawei Cloud Addition**
+
+Once the Huawei Cloud production platform configuration is complete, wait for the platform status to become "Normal", and for the ECS instance list to be successfully fetched. After that, you may proceed with additional steps.
+
+![](./images/productionsiteconfiguration-huaweicloud-5.png)
+
+---
 
 ## **Source Agent**
 
