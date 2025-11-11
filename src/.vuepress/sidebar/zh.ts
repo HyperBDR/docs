@@ -179,6 +179,7 @@ export const zhSidebar = sidebar({
         'limitations/openstack-ceph-agentless.md',
         'limitations/huawei-fusioncompute-agentless.md',
         'limitations/huawei-hcs-agentless.md',
+        'limitations/huawei-cloud-agentless.md',
         'limitations/driver-adaption.md',
       ],
     },

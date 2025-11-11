@@ -2,85 +2,99 @@
 
 ## 1. 适用场景说明
 
-为了应对各类 Linux 内核版本（包括大量定制化内核）高度多样化的情况，我们提供了基于 DKMS（Dynamic Kernel Module Support）的安装模式。DKMS 是一项成熟且广泛应用的技术，已被包括 Google、Red Hat、Ubuntu、VMware 等知名企业在内的众多大型项目广泛采用，确保了内核模块能够在不同内核版本间自动编译和更新。
+为了应对各类 Linux 内核版本（包括大量定制化内核）高度多样化的情况，我们提供了基于 DKMS（Dynamic Kernel Module Support）的安装模式进行即时编译和部署Linux Agent中的Dattobd模块。
+
+DKMS 是一项成熟且广泛应用的技术，已被包括 Google、Red Hat、Ubuntu、VMware 等知名企业在内的众多大型项目广泛采用，确保了内核模块能够在不同内核版本间自动编译和更新。
 
 由于我们无法预先收集并适配所有可能的内核环境，DKMS 模式允许用户在当前系统内直接编译并安装所需的内核模块，从而实现对 Linux Agent 的快速部署。该模式特别适用于内核版本较新、较旧或经过定制的系统场景，用户无需等待我们提供特定版本的预编译模块，即可独立完成安装，提升了兼容性与部署效率。
 
-简而言之，当安装 Linux Agent 时无法直接加载内核模块，且当前系统内核的大版本在支持范围内，您可通过 DKMS 动态构建内核模块，顺利完成安装并开展后续数据同步。
+简而言之，当安装 Linux Agent 时无法直接加载Dattobd内核模块，且当前系统内核的大版本在支持范围内，您可通过 DKMS 动态构建内核模块，顺利完成安装并开展后续数据同步。
 
-## 2. DKMS使用前提条件
+## 2. 使用DKMS进行动态编译
 
-在使用 DKMS 动态构建模式时，构建所需的工具（如 gcc、make、kernel headers 等）将由安装脚本自动安装，无需用户手动干预。该过程依赖系统软件源的正常访问能力，因此请确保当前环境能够成功连接软件源并安装所需依赖包。
+在使用 DKMS 动态构建模式时，构建所需的工具（如 gcc、make、kernel headers 等），包含DKMS软件及其附属依赖的软件，需要由管理员预先安装。使用DKMS编译dattobd前，请确保当前环境已成功安装所需的DKMS组件和其所依赖包，如果没有预先安装DKMS编译所需的环境，则走原来的安装部署流程。
 
-使用DKMS时注意事项：
+### 2.1 注意事项
 
-1. **系统资源占用**：DKMS 构建过程将在本地进行编译，可能占用系统资源，包括 CPU、内存、磁盘空间及网络流量。在资源紧张的环境中，编译可能导致系统负载上升，磁盘空间需预留数百 MB 存放构建产物，首次构建时可能会拉取依赖包，产生网络流量。请根据系统实际情况做好准备。
+1. **系统资源占用**：DKMS 构建过程将在本地进行编译，可能占用系统资源，包括 CPU、内存、磁盘空间及网络流量。在资源紧张的环境中，编译可能导致系统负载上升，磁盘空间需预留数百 MB 存放构建产物，请根据系统实际情况做好准备。
 
 2. **内核大版本变更**：当内核大版本变化超过软件支持范围时，DKMS 编译失败的风险增加。此时建议重新卸载并安装 Linux Agent，必要时联系技术支持。
 
 3. **升级时机**：确保安装源正常且系统资源充足（编译时可能占用较高 CPU 和磁盘空间）。建议在系统和业务负载较低时进行内核升级，以便自动通过 DKMS 更新 Linux Agent 内核模块。
 
-## 3. 首次安装
+| **使用条件**                  | **说明**                                                                                                         |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **操作系统支持**                | Ubuntu 20.04 (HyperBDR 6.9开始支持）&#xA;Ubuntu 22.04/24.04 (HyperBDR 6.7开始支持）&#xA;CentOS 8/9系列（HyperBDR 6.10 开始支持） |
+| **内核支持范围**                | 5.15 至 6.8 版本                                                                                                  |
+| **内核头文件（kernel headers）** | **必须安装与当前正在运行的内核版本相匹配的 kernel headers，用于编译模块。**                                                                |
+| **编译工具链**                 | 需要安装如 gcc、make 等编译工具，用于构建内核模块。                                                                                 |
+| **DKMS 工具包**              | 系统中需已安装 dkms 命令工具，通常可通过包管理器安装（如 apt install dkms 或 yum install dkms）。                                          |
+| **可编译的模块源码包**             | 用户或软件提供方需提供符合 DKMS 格式的模块源码（包含 dkms.conf 文件），用于注册、构建和安装。                                                        |
+| **root 权限**               | 安装、构建和加载内核模块通常需要 root 或 sudo 权限。                                                                               |
+| **兼容的内核接口**               | 模块源码必须与当前内核版本的接口兼容，否则编译可能失败。                                                                                   |
 
-### 3.1 安装说明
+### 2.2 安装DKMS工具
 
-在安装Linux Agent时，若控制台源中缺少对应内核版本的预编译模块，系统将提示用户是否使用DKMS进行构建，默认选项为否(n), 输入y则表示进行dkms方式编译和安装内核版本：
-
-> 注意：安装时将自动获取源索引并安装所需软件，请确保软件源配置正确且网络连接正常。
+1. Ubuntu 20.04 / 22.04 / 24.04 系列环境
 
 ```plain&#x20;text
-Sorry, the current kernel version 6.8.0-62-generic is not found, would you like to build Linux Agent Kernel Module Build (DKMS)dattobd with DKMS? (y/n) [n]:
+apt update
+apt install dkms
 ```
 
-此外，用户也可通过指定 --enable-dkms 参数，采用非交互方式自动使用DKMS编译模块。
+查询是否成功安装了DKMS组件：&#x20;
+
+```plain&#x20;text
+# dpkg -l |grep dkms
+ii  dkms        2.8.7-2ubuntu2.2     all          Dynamic Kernel Module Support Framework
+```
+
+* CentOS / RHEL 8 / 9 系列环境
+
+```plain&#x20;text
+yum install dkms
+```
+
+查询是否成功安装了DKMS组件:
+
+```plain&#x20;text
+# rpm -qa |grep dkms
+dkms-3.2.1-1.el9.noarch
+```
+
+## 3. 安装 Linux Agent 时的自动内核适配（DKMS）
+
+### 3.1 参数说明
+
+部署脚本中，如果指定 --enable-dkms 参数，则采用非交互方式自动使用DKMS编译模块，系统自动认为已经安装了DKMS tools工具包：
 
 ```plain&#x20;text
 curl -k 'https://192.168.7.122:10443/hypermotion/v1/sources/download?type=linux&id=OEExMTAwNTA1NjlGMTk1RWV5SmhiR2NpT2lKSVV6STFOaUlzSW1WNGNDSTZNVGMxTWpVM01USTJNeXdpYVdGMElqb3hOelV4T1RZMk5EWXpmUS4zQjA0NUI0NERBQjUxMUU5ZXlKdFozSmZkMkY1SWpvaVNIbHdaWEpIWVhSbElpd2lkV2xrSWpvaVl6RmxPVEl3TmpRME1qa3hOR1pqTmpobVpEUXhPRGc0WldZeFpHRTFPR0VpTENKeWIyeGxjeUk2SW1Ga2JXbHVJaXdpWlc1MFgybGtJam9pWWpBM1kySmtZVEV6TUdGak5EQXdZVGd3T0dRMk16bGlaR0UyTnpBME1UTWlmUS5OVTBQTlNudTNyaThXVUpJZXpTTkkzRGtJQlBvd1AxRlBRUjY2X1pVTXow&scene=dr' | bash -s -- --enable-dkms
 ```
 
-### 3.2 过程示例
+安装部署脚本会预先判断是否已经安装了DKMS，否则报错返回。如果已经安装了DKMS，则会自动采用DKMS进行本地编译和安装。
 
-输入Y后，开始安装DMKS依赖包
+没有采用 --enable-dkms的选项参数场景下，系统检查到本地已经安装DKMS组件，但在HyperBDR系统上没有找到相应内核的Dattobd模块包的时候，会提示部署过程是否采用DKMS进行编译Dattobd模块包：&#x20;
 
 ```plain&#x20;text
-[2025-07-07 02:58:14] [INFO] DKMS module is not installed, trying to installing DKMS?
+curl -k 'https://192.168.7.122:10443/hypermotion/v1/sources/download?type=linux&id=OEExMTAwNTA1NjlGMTk1RWV5SmhiR2NpT2lKSVV6STFOaUlzSW1WNGNDSTZNVGMxTWpVM01USTJNeXdpYVdGMElqb3hOelV4T1RZMk5EWXpmUS4zQjA0NUI0NERBQjUxMUU5ZXlKdFozSmZkMkY1SWpvaVNIbHdaWEpIWVhSbElpd2lkV2xrSWpvaVl6RmxPVEl3TmpRME1qa3hOR1pqTmpobVpEUXhPRGc0WldZeFpHRTFPR0VpTENKeWIyeGxjeUk2SW1Ga2JXbHVJaXdpWlc1MFgybGtJam9pWWpBM1kySmtZVEV6TUdGak5EQXdZVGd3T0dRMk16bGlaR0UyTnpBME1UTWlmUS5OVTBQTlNudTNyaThXVUpJZXpTTkkzRGtJQlBvd1AxRlBRUjY2X1pVTXow&scene=dr' | bash
+......
+[2025-09-15 09:04:36] [INFO] Sorry, the current kernel version 5.4.0-216-generic is not found, but the DKMS tools is installed, would you like to build dattobd with DKMS? (y/n) [n]:
 y/n [n]: y
-[2025-07-07 02:58:15] [INFO] Trying to execute 'apt-get install -y dkms' to install dattobd with DKMS tools.
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-The following additional packages will be installed:
-  binutils binutils-common binutils-x86-64-linux-gnu build-essential bzip2 cpp cpp-13 cpp-13-x86-64-linux-gnu cpp-x86-64-linux-gnu
-  dpkg-dev fakeroot g++ g++-13 g++-13-x86-64-linux-gnu g++-x86-64-linux-gnu gcc gcc-13 gcc-13-base gcc-13-x86-64-linux-gnu
-  gcc-x86-64-linux-gnu libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libasan8 libatomic1 libbinutils
-  libcc1-0 libctf-nobfd0 libctf0 libdpkg-perl libfakeroot libfile-fcntllock-perl libgcc-13-dev libgomp1 libgprofng0 libhwasan0
-  libisl23 libitm1 liblsan0 libmpc3 libquadmath0 libsframe1 libstdc++-13-dev libtsan2 libubsan1 lto-disabled-list make
-Suggested packages:
-  binutils-doc gprofng-gui bzip2-doc cpp-doc gcc-13-locales cpp-13-doc menu debian-keyring g++-multilib g++-13-multilib gcc-13-doc
-  gcc-multilib autoconf automake libtool flex bison gdb gcc-doc gcc-13-multilib gdb-x86-64-linux-gnu bzr libstdc++-13-doc make-doc
-The following NEW packages will be installed:
-  binutils binutils-common binutils-x86-64-linux-gnu build-essential bzip2 cpp cpp-13 cpp-13-x86-64-linux-gnu cpp-x86-64-linux-gnu
-  dkms dpkg-dev fakeroot g++ g++-13 g++-13-x86-64-linux-gnu g++-x86-64-linux-gnu gcc gcc-13 gcc-13-base gcc-13-x86-64-linux-gnu
-  gcc-x86-64-linux-gnu libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libasan8 libatomic1 libbinutils
-  libcc1-0 libctf-nobfd0 libctf0 libdpkg-perl libfakeroot libfile-fcntllock-perl libgcc-13-dev libgomp1 libgprofng0 libhwasan0
-  libisl23 libitm1 liblsan0 libmpc3 libquadmath0 libsframe1 libstdc++-13-dev libtsan2 libubsan1 lto-disabled-list make
-0 upgraded, 48 newly installed, 0 to remove and 58 not upgraded.
-Need to get 66.9 MB of archives.
-After this operation, 229 MB of additional disk space will be used.
-Get:1 http://cn.archive.ubuntu.com/ubuntu noble-updates/main amd64 gcc-13-base amd64 13.3.0-6ubuntu2~24.04 [51.5 kB]
-Get:2 http://mirrors.tuna.tsinghua.edu.cn/ubuntu noble-updates/main amd64 libisl23 amd64 0.26-3build1.1 [680 kB]
-Get:3 http://mirrors.tuna.tsinghua.edu.cn/ubuntu noble-updates/main amd64 libmpc3 amd64 1.3.1-1build1.1 [54.6 kB]
-Get:4 http://cn.archive.ubuntu.com/ubuntu noble-updates/main amd64 cpp-13-x86-64-linux-gnu amd64 13.3.0-6ubuntu2~24.04 [10.7 MB]
-Get:5 http://cn.archive.ubuntu.com/ubuntu noble-updates/main amd64 cpp-13 amd64 13.3.0-6ubuntu2~24.04 [1,038 B]
-Get:6 http://mirrors.tuna.tsinghua.edu.cn/ubuntu noble/main amd64 cpp-x86-64-linux-gnu amd64 4:13.2.0-7ubuntu1 [5,326 B]
-Get:7 http://mirrors.tuna.tsinghua.edu.cn/ubuntu noble/main amd64 cpp amd64 4:13.2.0-7ubuntu1 [22.4 kB]
-Get:8 http://cn.archive.ubuntu.com/ubuntu noble-updates/main amd64 libcc1-0 amd64 14.2.0-4ubuntu2~24.04 [48.0 kB]
-Get:9 http://mirrors.tuna.tsinghua.edu.cn/ubuntu noble-updates/main amd64 binutils-common amd64 2.42-4ubuntu2.5 [240 kB]
-Get:10 http://mirrors.tuna.tsinghua.edu.cn/ubuntu noble-updates/main amd64 libsframe1 amd64 2.42-4ubuntu2.5 [15.5 kB]
-..........................................                                                 
+[2025-09-15 09:04:40] [INFO] Trying to configure the dattobd with DKMS tools.
+[2025-09-15 09:04:40] [INFO] The linux-headers-5.4.0-216-generic and linux-image-5.4.0-216-generic had been installed.
+[2025-09-15 09:04:40] [INFO] Trying to download the dattobd source code and extract to /usr/src/dattobd-version
 ```
 
-开始进行内核模块编译
+如果选择y，则会采用DKMS编译和安装Dattobd的内核驱动。其它情况，会按照传统的安装部署方式进行，如HyperBDR没有提供对应内核版本Dattobd模块，则会报错如下：
+
+```plain&#x20;text
+[2025-09-10 07:04:00] [ERROR] Sorry, the current kernel version 5.4.0-216-generic is not supported, the installation process cannot proceed.
+```
+
+### 3.2 过程示例
+
+输入Y后，开始采用DMKS进行编译Dattobd包：
 
 ```plain&#x20;text
 [2025-07-07 02:58:59] [INFO] Trying to download the dattobd source code and extract to /usr/src/dattobd-version
@@ -129,7 +143,7 @@ depmod.....
 
 ```
 
-编译成功
+完成编译，成功安装Linux Agent。
 
 ```yaml
 [2025-07-07 03:00:07] ✔ [SUCCESS] Repository sources for ubuntu have been successfully configured.
@@ -155,7 +169,7 @@ update-initramfs: Generating /boot/initrd.img-6.8.0-62-generic
     /dev/dm-1   ext4    /       16G     32%     Yes     /dev/mapper/ubuntu--vg-ubuntu--lv
 ```
 
-## 4. 内核升级
+## 4. Linux Agent 在内核升级后的自动适配机制
 
 在大多数情况下，系统在内核升级后会自动触发 DKMS（Dynamic Kernel Module Support）构建流程，以编译并安装适配新内核的内核模块。构建完成后，系统重启时将自动加载这些模块，无需手动干预。
 
@@ -171,7 +185,7 @@ update-initramfs: Generating /boot/initrd.img-6.8.0-62-generic
 
 避免手动下载安装第三方内核包或使用非官方源，以减少因兼容性问题导致 DKMS 构建失败或系统不稳定的风险。如果需要采用手动升级方式，请参考附录二中常见问题中的推荐手动升级方式。
 
-以下为升级参考过程：
+以下为Ubuntu升级参考过程：
 
 ```plain&#x20;text
 # apt upgrade
@@ -254,8 +268,6 @@ Processing triggers for initramfs-tools (0.142ubuntu25.5) ...
 update-initramfs: Generating /boot/initrd.img-6.8.0-63-generic
 ```
 
-
-
 如果升级到指定内核，可以采用，同时升级headers和image的方式，升级过程中，系统会自动触发内核模块的编译和加载：
 
 ```plain&#x20;text
@@ -278,7 +290,7 @@ DKMS 会在系统中注册指定的内核模块源代码，并在以下场景下
 
 * 手动触发：管理员可使用 `dkms add/build/install/remove` 等命令对模块进行管理。
 
-## 6. 附录二：常见问题
+## 6. 常见问题
 
 ### 6.1 FAQ 1: 手动升级内核及DKMS驱动的正确顺序是什么？
 
@@ -344,11 +356,9 @@ update-initramfs -u
 
 编译完成后重启服务，驱动模块将生效，问题即可修复。
 
+### 6.2 FAQ 2: 如何处理重启服务器后Linux Agent 驱动没有正确加载的问题？
 
-
-### 6.2 FAQ 2: 重启服务器后Linux Agent 驱动没有正确加载
-
-重启服务器后，发现datto没有自动加载，需要将Linux Agent 驱动压入引导镜像中，可采用如下命令：
+重启服务器后，发现Dattobd没有自动加载，需要将Linux Agent 驱动压入引导镜像中，可采用如下命令生效：
 
 ```plain&#x20;text
 depmod
@@ -356,13 +366,9 @@ modprobe dattobd
 update-initramfs -u
 ```
 
+### 6.3 FAQ 3: 如何适配Ubuntu重启后自动升级了内核和headers包？
 
-
-### 6.3 FAQ 3: Ubuntu重启后，自动升级了内核和headers包
-
-有些版本自动开启了内核自动升级，重启服务器后，发现系统自动升级了image和headers 包，但是dattobd没有重新编译。系统自动升级一般会自动触发编译和安装。
-
-但是如果没有自动触发dkms的编译，此时需要手工编译下dattobd包，可按照如下步骤进行编译和安装，并生效：
+有些版本自动开启了内核自动升级，系统内核版本自动升级一般会自动触发编译和安装重启服务器后，但是在某些场景下，可能会发现系统自动升级了image和headers 包，但是Dattobd没有重新编译，这时候需要手工触发编译；可按照如下步骤进行编译和安装，并生效：
 
 ```plain&#x20;text
 dkms build -m dattobd -v 0.12.0
@@ -373,3 +379,78 @@ update-initramfs -u
 
 然后重启服务器生效。
 
+
+
+### 6.4 FAQ 4: 内核自动升级后，是否会继续保持增量？
+
+是的，会保持增量。
+
+
+
+### 6.5 FAQ 5: 如何在其他主机上复用已编译的 Linux Agent 内核模块？
+
+在安装 Linux Agent 时，系统会使用 **DKMS** 自动编译并安装 `Dattobd` 内核模块，同时将编译结果和相关脚本打包到 `/root/dattobd_dkms_build_pacakges` 目录下（例如：`/root/dattobd_dkms_build_pacakges/dattobd-5.15.0-153-generic-0.12.0.tar.gz`）。
+&#x20;管理员可将此压缩包复制到 HyperBDR 服务器对应系统目录中（例如 Ubuntu 22.04 可放置于 `/opt/installer/production/venvs/linux-agent-venv/dkms/ubuntu/22/`）。
+&#x20;当在另一台具有相同 Linux 内核版本的主机上安装 Agent 时，系统会自动检测到可用的已编译模块，并提示是否直接使用该包。若选择 **“y”**，则会自动安装该模块包并完成部署，无需重新编译。
+
+### 6.6 FAQ 6： 在FAQ 5中， 如果复用Agent 内核模块所在主机Linux内核升级，如何处理？
+
+在 Linux 内核升级后，**Dattobd 模块**需要重新编译和安装以匹配新内核版本。由于复用其它主机上编译好的内核模块，本地主机上可能未安装编译环境（如 DKMS 编译系统），可根据实际情况选择以下两种处理方式。
+
+#### 方式一：使用其他主机编译好的 Dattobd 模块重新部署
+
+当目标主机（如主机 A）没有 DKMS 编译环境时，可通过以下方式进行升级：
+
+1. 如果主机 A 当前复用的是从其他主机（例如主机 B）编译好的 Dattobd 模块安装的版本，则需先卸载主机 A 上现有的 Dattobd 模块。
+
+2. 在具备编译环境的主机（例如主机 B）上，针对新内核版本重新编译并生成适配的新版本 Dattobd 包。
+
+3. 将主机 B 上编译完成的 Dattobd 安装包及压缩包上传至 **HyperBDR** 平台。
+
+4. 在主机 A 上重新部署 Agent，以加载新的 Dattobd 模块。
+
+#### 方式二：直接复制已编译好的模块文件并加载生效
+
+如目标主机 A 无法自行编译 Dattobd，可从其他主机（如主机 B）复制对应内核版本的模块文件，步骤如下：
+
+1. 确认主机 B 上的模块文件路径
+
+主机 B 的 Dattobd 模块通常位于以下路径（其中 6.8.0-62-generic 为示例内核版本号）：
+
+```plain&#x20;text
+/lib/modules/6.8.0-62-generic/updates/dkms/dattobd.ko.zst
+```
+
+> **注意：**
+> &#x20;在 Ubuntu 22.04 与 20.04 系统中，模块文件可能为 `dattobd.ko`（无 `.zst` 后缀）。
+> &#x20;请根据实际版本确认文件名称。
+
+* 将模块复制到主机 A
+
+将主机 B 上的 `dattobd.ko.zst` 文件复制到主机 A 对应的目录中：
+
+```plain&#x20;text
+/lib/modules/6.8.0-62-generic/dattobd.ko.zst
+```
+
+* 执行生效命令
+
+**Ubuntu 系统：**
+
+```plain&#x20;text
+depmod
+modprobe dattobd
+update-initramfs -u
+```
+
+**CentOS / RHEL 系列系统：**
+
+```plain&#x20;text
+depmod
+modprobe dattobd
+dracut -f
+```
+
+执行完成后，Dattobd 模块将与新内核版本匹配并生效。
+
+###

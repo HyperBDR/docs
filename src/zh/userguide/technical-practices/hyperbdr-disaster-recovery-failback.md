@@ -112,15 +112,15 @@ Select "Try or Install Ubuntu" ,Then wait the host boot successful
 
 ![](./images/solution_switchbackfromthetargetcloudtothevmwareproductionenvironment-operationprocess-24.png)
 
-配置IP地址操作命令：
+配置IP地址操作命令：cp /etc/netplan/00-installer-config.yaml.bak /etc/netplan/00-installer-config.yaml vi /etc/netplan/00-installer-config.yaml
 
 ![](./images/solution_switchbackfromthetargetcloudtothevmwareproductionenvironment-operationprocess-25.png)
 
 配置完成之后，保存退出。
 
-执行重启网卡操作命令:
+执行重启网卡操作命令:netplan apply
 
-查看IP的命令：
+查看IP的命令：ip a s
 
 ![](./images/solution_switchbackfromthetargetcloudtothevmwareproductionenvironment-operationprocess-26.png)
 
@@ -190,7 +190,7 @@ Select "Try or Install Ubuntu" ,Then wait the host boot successful
 
 ![](./images/solution_switchbackfromthetargetcloudtothevmwareproductionenvironment-operationprocess-46.png)
 
-* 修复系统驱动（根据实际磁盘替换`sda`）：
+* 修复系统驱动（根据实际磁盘替换`sda`）：minitgt-fix /dev/sda
 
 等待驱动修复成功。
 
