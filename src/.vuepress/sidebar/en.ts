@@ -95,6 +95,7 @@ export const enSidebar = sidebar({
             'googlecloud-pre-settings',
             'xhere-pre-settings.md',
             'azure-target-pre-settings.md',
+            'openstack-pre-settings',
           ],
         },
         {
@@ -178,6 +179,7 @@ export const enSidebar = sidebar({
         'limitations/openstack-ceph-agentless.md',
         'limitations/huawei-fusioncompute-agentless.md',
         'limitations/huawei-hcs-agentless.md',
+        'limitations/huawei-cloud-agentless.md',
         'limitations/driver-adaption.md',
       ],
     },
