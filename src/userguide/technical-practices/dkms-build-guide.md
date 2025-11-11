@@ -1,113 +1,102 @@
 # Kernel Module Build (DKMS)
 
-## 1. When to Use DKMS
+## 1. Description of applicable scenarios
 
-Linux kernels come in many different versions, including a large number of custom builds. To handle this variety, we provide an installation option based on **DKMS (Dynamic Kernel Module Support)**. DKMS is a proven technology, widely used in projects by Google, Red Hat, Ubuntu, VMware, and many others. It allows kernel modules to be automatically compiled and updated for different kernel versions.
+To support diverse Linux kernel versions including heavily customized kernels, we provide Dynamic Kernel Module Support (DKMS) for real-time compilation and deployment of the Dattobd kernel module in Linux Agent.
 
-Since it is not possible to provide pre-built modules for every kernel version, the DKMS mode lets you compile and install the required module directly on your system. This makes it easy to deploy the Linux Agent even on systems with newer, older, or customized kernels. With DKMS, you don’t need to wait for us to release a specific module version—you can build it yourself, ensuring better compatibility and faster deployment.
+DKMS is a mature and widely adopted technology by major companies such as Google, Red Hat, Ubuntu, and VMware. It enables automatic compilation and updates of kernel modules across different kernel versions.
 
-In short, if the Linux Agent cannot load its kernel module during installation, but your system’s kernel major version is within the supported range, you can use DKMS to build the module dynamically and complete the installation for data synchronization.
+Since it's impractical to pre-build and support all possible kernel environments, DKMS allows users to compile and install required kernel modules directly on their systems for rapid Linux Agent deployment. This approach is especially useful for systems with newer, older, or custom kernels. Users can complete installation independently without waiting for pre-compiled modules, improving compatibility and deployment efficiency.
 
-## 2. Requirements for DKMS
+In summary, when the Dattobd kernel module cannot be directly loaded during Linux Agent installation, but the kernel version is within the supported range, you can use DKMS to dynamically build the kernel module and complete the installation and data synchronization.
 
-When using DKMS, the installation script will automatically install the required build tools (such as **gcc**, **make**, and **kernel headers**). No manual setup is needed. However, this process depends on your system being able to access its package repositories. Please make sure your system can connect to the repositories and install the required packages.
+## 2. Dynamic Compilation with DKMS
 
-### Things to Keep in Mind
+When using DKMS for dynamic module builds, required build tools (such as gcc, make, kernel headers) and DKMS software with its dependencies must be pre-installed by administrators. Before using DKMS to compile Dattobd, ensure your system has all required DKMS components and dependencies installed. If DKMS compilation environment is not available, follow the standard installation process.
 
-1. **System Resource Usage**
-   &#x20;DKMS builds the module locally, which requires system resources.
+### 2.1 Precautions
 
-   * Compilation may increase CPU and memory usage.
+1. **System Resource Usage**: DKMS compilation runs locally and may consume system resources including CPU, memory, disk space, and network bandwidth. In resource-constrained environments, compilation may increase system load. Reserve several hundred MB of disk space for build artifacts. Plan accordingly based on your system resources.
 
-   * Several hundred MB of free disk space is needed for build files.
+2. **Major Kernel Version Changes**: If kernel version changes exceed the software's supported range, DKMS compilation may fail. In this case, reinstall Linux Agent or contact technical support if needed.
 
-   * The first build may download dependencies, which uses network bandwidth.
-     &#x20;Plan ahead if your system is running with limited resources.
+3. **Upgrade Timing**: Ensure installation sources are available and system resources are sufficient (compilation may consume high CPU and disk space). Schedule kernel upgrades during periods of low system and business load to allow automatic DKMS updates of Linux Agent kernel modules.
 
-2. **Kernel Version Changes**
-   &#x20;If the kernel major version is outside the supported range, DKMS builds may fail. In this case, reinstall the Linux Agent, and contact technical support if needed.
+| **Requirement**                  | **Details**                                                                                                         |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **OS Support**                | Ubuntu 20.04 (supported since HyperBDR 6.9)&#xA;Ubuntu 22.04/24.04 (supported since HyperBDR 6.7)&#xA;CentOS 8/9 (supported since HyperBDR 6.10) |
+| **Kernel Version Range**                | 5.15 to 6.8                                                                                                  |
+| **Kernel Headers** | **Must install kernel headers matching your running kernel version for module compilation.** |
+| **Compiler Toolchain**                 | Install compilation tools such as gcc and make for building kernel modules.                                                                                 |
+| **DKMS Package**              | System must have dkms command-line tool installed, typically available through package managers (apt install dkms or yum install dkms).                                          |
+| **Module Source Code**             | User or vendor must provide DKMS-compliant module source (including dkms.conf) for registration, building, and installation.                                                        |
+| **Root Privileges**               | Installing, building, and loading kernel modules typically requires root or sudo privileges.                                                                               |
+| **Compatible Kernel Interface**               | Module source must be compatible with the current kernel version, or compilation may fail.                                                                                   |
 
-3. **Upgrade Timing**
-   &#x20;Make sure the package repositories are accessible and your system has enough free resources, since compilation can temporarily use a lot of CPU and disk space. We recommend performing kernel upgrades when the system load is low, so DKMS can rebuild the Linux Agent module smoothly.
+### 2.2 Install DKMS
 
-| Condition                    | Description                                                                                                                        |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Operating System Support     | Ubuntu 22.04 / 24.04                                                                                                               |
-| Kernel Version Range         | Supported from version 5.15 to 6.8                                                                                                 |
-| Kernel Headers               | The installed headers must match the currently running kernel version, required for building the module.                           |
-| Build Toolchain              | Tools such as **gcc** and **make** must be installed to compile the kernel module.                                                 |
-| DKMS Package                 | The `dkms` command-line tool must be installed (e.g., via `apt install dkms` or `yum install dkms`).                               |
-| Compilable Module Source     | A DKMS-compatible module source package must be provided (including a `dkms.conf` file) for registration, build, and installation. |
-| Root Privileges              | Root or sudo privileges are required to install, build, and load kernel modules.                                                   |
-| Compatible Kernel Interfaces | The module source must be compatible with the current kernel interfaces; otherwise, compilation may fail.                          |
+1. Ubuntu 20.04 / 22.04 / 24.04
 
-## 3. First-Time Installation
-
-### 3.1 Installation Instructions
-
-When installing the Linux Agent, if the repository does not contain a precompiled module for the current kernel version, the system will prompt you whether to use **DKMS** to build the module.
-
-* The default option is **No (n)**.
-
-* Enter **y** to proceed with DKMS compilation and installation for the current kernel version.
-
-> **Note:** During installation, the script will automatically fetch the package index and install the required dependencies. Please ensure that your package repository is correctly configured and that the system has a stable network connection.
-
-```plain&#x20;text
-Sorry, the current kernel version 6.8.0-62-generic is not found, would you like to build dattobd with DKMS? (y/n) [n]:
+```bash
+apt update
+apt install dkms
 ```
 
-In addition, users can enable DKMS in **non-interactive mode** by specifying the `--enable-dkms` parameter. This option allows the module to be automatically built with DKMS without requiring user confirmation during installation.
+Verify successful installation:
 
-```plain&#x20;text
+```bash
+# dpkg -l |grep dkms
+ii  dkms        2.8.7-2ubuntu2.2     all          Dynamic Kernel Module Support Framework
+```
+
+* CentOS / RHEL 8 / 9
+
+```bash
+yum install dkms
+```
+
+Verify successful installation:
+
+```bash
+# rpm -qa |grep dkms
+dkms-3.2.1-1.el9.noarch
+```
+
+## 3. Automatic Kernel Adaptation During Linux Agent Installation (DKMS)
+
+### 3.1 Parameter Description
+
+When the deployment script includes the `--enable-dkms` parameter, it uses DKMS to automatically compile modules in non-interactive mode. The system assumes DKMS tools are already installed:
+
+```bash
 curl -k 'https://192.168.7.122:10443/hypermotion/v1/sources/download?type=linux&id=OEExMTAwNTA1NjlGMTk1RWV5SmhiR2NpT2lKSVV6STFOaUlzSW1WNGNDSTZNVGMxTWpVM01USTJNeXdpYVdGMElqb3hOelV4T1RZMk5EWXpmUS4zQjA0NUI0NERBQjUxMUU5ZXlKdFozSmZkMkY1SWpvaVNIbHdaWEpIWVhSbElpd2lkV2xrSWpvaVl6RmxPVEl3TmpRME1qa3hOR1pqTmpobVpEUXhPRGc0WldZeFpHRTFPR0VpTENKeWIyeGxjeUk2SW1Ga2JXbHVJaXdpWlc1MFgybGtJam9pWWpBM1kySmtZVEV6TUdGak5EQXdZVGd3T0dRMk16bGlaR0UyTnpBME1UTWlmUS5OVTBQTlNudTNyaThXVUpJZXpTTkkzRGtJQlBvd1AxRlBRUjY2X1pVTXow&scene=dr' | bash -s -- --enable-dkms
 ```
 
-### 3.2 Example Process
+The installation script first checks if DKMS is installed; if not, it returns an error. If DKMS is installed, it automatically performs local compilation and installation.
 
-After entering **Y**, the system will start installing the required **DKMS dependencies**.
+Without the `--enable-dkms` parameter, if the system detects DKMS is installed but the corresponding kernel's Dattobd module is not available on the HyperBDR system, the deployment process will prompt whether to use DKMS to compile the Dattobd module:
 
-```plain&#x20;text
-[2025-07-07 02:58:14] [INFO] DKMS module is not installed, trying to installing DKMS?
+```bash
+curl -k 'https://192.168.7.122:10443/hypermotion/v1/sources/download?type=linux&id=OEExMTAwNTA1NjlGMTk1RWV5SmhiR2NpT2lKSVV6STFOaUlzSW1WNGNDSTZNVGMxTWpVM01USTJNeXdpYVdGMElqb3hOelV4T1RZMk5EWXpmUS4zQjA0NUI0NERBQjUxMUU5ZXlKdFozSmZkMkY1SWpvaVNIbHdaWEpIWVhSbElpd2lkV2xrSWpvaVl6RmxPVEl3TmpRME1qa3hOR1pqTmpobVpEUXhPRGc0WldZeFpHRTFPR0VpTENKeWIyeGxjeUk2SW1Ga2JXbHVJaXdpWlc1MFgybGtJam9pWWpBM1kySmtZVEV6TUdGak5EQXdZVGd3T0dRMk16bGlaR0UyTnpBME1UTWlmUS5OVTBQTlNudTNyaThXVUpJZXpTTkkzRGtJQlBvd1AxRlBRUjY2X1pVTXow&scene=dr' | bash
+......
+[2025-09-15 09:04:36] [INFO] Sorry, the current kernel version 5.4.0-216-generic is not found, but the DKMS tools is installed, would you like to build dattobd with DKMS? (y/n) [n]:
 y/n [n]: y
-[2025-07-07 02:58:15] [INFO] Trying to execute 'apt-get install -y dkms' to install dattobd with DKMS tools.
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-The following additional packages will be installed:
-  binutils binutils-common binutils-x86-64-linux-gnu build-essential bzip2 cpp cpp-13 cpp-13-x86-64-linux-gnu cpp-x86-64-linux-gnu
-  dpkg-dev fakeroot g++ g++-13 g++-13-x86-64-linux-gnu g++-x86-64-linux-gnu gcc gcc-13 gcc-13-base gcc-13-x86-64-linux-gnu
-  gcc-x86-64-linux-gnu libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libasan8 libatomic1 libbinutils
-  libcc1-0 libctf-nobfd0 libctf0 libdpkg-perl libfakeroot libfile-fcntllock-perl libgcc-13-dev libgomp1 libgprofng0 libhwasan0
-  libisl23 libitm1 liblsan0 libmpc3 libquadmath0 libsframe1 libstdc++-13-dev libtsan2 libubsan1 lto-disabled-list make
-Suggested packages:
-  binutils-doc gprofng-gui bzip2-doc cpp-doc gcc-13-locales cpp-13-doc menu debian-keyring g++-multilib g++-13-multilib gcc-13-doc
-  gcc-multilib autoconf automake libtool flex bison gdb gcc-doc gcc-13-multilib gdb-x86-64-linux-gnu bzr libstdc++-13-doc make-doc
-The following NEW packages will be installed:
-  binutils binutils-common binutils-x86-64-linux-gnu build-essential bzip2 cpp cpp-13 cpp-13-x86-64-linux-gnu cpp-x86-64-linux-gnu
-  dkms dpkg-dev fakeroot g++ g++-13 g++-13-x86-64-linux-gnu g++-x86-64-linux-gnu gcc gcc-13 gcc-13-base gcc-13-x86-64-linux-gnu
-  gcc-x86-64-linux-gnu libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl libasan8 libatomic1 libbinutils
-  libcc1-0 libctf-nobfd0 libctf0 libdpkg-perl libfakeroot libfile-fcntllock-perl libgcc-13-dev libgomp1 libgprofng0 libhwasan0
-  libisl23 libitm1 liblsan0 libmpc3 libquadmath0 libsframe1 libstdc++-13-dev libtsan2 libubsan1 lto-disabled-list make
-0 upgraded, 48 newly installed, 0 to remove and 58 not upgraded.
-Need to get 66.9 MB of archives.
-After this operation, 229 MB of additional disk space will be used.
-Get:1 http://cn.archive.ubuntu.com/ubuntu noble-updates/main amd64 gcc-13-base amd64 13.3.0-6ubuntu2~24.04 [51.5 kB]
-Get:2 http://mirrors.tuna.tsinghua.edu.cn/ubuntu noble-updates/main amd64 libisl23 amd64 0.26-3build1.1 [680 kB]
-Get:3 http://mirrors.tuna.tsinghua.edu.cn/ubuntu noble-updates/main amd64 libmpc3 amd64 1.3.1-1build1.1 [54.6 kB]
-Get:4 http://cn.archive.ubuntu.com/ubuntu noble-updates/main amd64 cpp-13-x86-64-linux-gnu amd64 13.3.0-6ubuntu2~24.04 [10.7 MB]
-Get:5 http://cn.archive.ubuntu.com/ubuntu noble-updates/main amd64 cpp-13 amd64 13.3.0-6ubuntu2~24.04 [1,038 B]
-Get:6 http://mirrors.tuna.tsinghua.edu.cn/ubuntu noble/main amd64 cpp-x86-64-linux-gnu amd64 4:13.2.0-7ubuntu1 [5,326 B]
-Get:7 http://mirrors.tuna.tsinghua.edu.cn/ubuntu noble/main amd64 cpp amd64 4:13.2.0-7ubuntu1 [22.4 kB]
-Get:8 http://cn.archive.ubuntu.com/ubuntu noble-updates/main amd64 libcc1-0 amd64 14.2.0-4ubuntu2~24.04 [48.0 kB]
-Get:9 http://mirrors.tuna.tsinghua.edu.cn/ubuntu noble-updates/main amd64 binutils-common amd64 2.42-4ubuntu2.5 [240 kB]
-Get:10 http://mirrors.tuna.tsinghua.edu.cn/ubuntu noble-updates/main amd64 libsframe1 amd64 2.42-4ubuntu2.5 [15.5 kB]
-..........................................                                                 
+[2025-09-15 09:04:40] [INFO] Trying to configure the dattobd with DKMS tools.
+[2025-09-15 09:04:40] [INFO] The linux-headers-5.4.0-216-generic and linux-image-5.4.0-216-generic had been installed.
+[2025-09-15 09:04:40] [INFO] Trying to download the dattobd source code and extract to /usr/src/dattobd-version
 ```
 
-The system will then begin buildin&#x67;**&#x20;the kernel module**.
+If you choose "y", DKMS will compile and install the Dattobd kernel driver. Otherwise, the system follows the standard installation process. If HyperBDR doesn't provide a Dattobd module for your kernel version, you'll see:
 
-```plain&#x20;text
+```bash
+[2025-09-10 07:04:00] [ERROR] Sorry, the current kernel version 5.4.0-216-generic is not supported, the installation process cannot proceed.
+```
+
+### 3.2 Process Example
+
+After selecting "y", DKMS begins compiling the Dattobd module:
+
+```bash
 [2025-07-07 02:58:59] [INFO] Trying to download the dattobd source code and extract to /usr/src/dattobd-version
 .gitignore
 BUILDING-PACKAGE.md
@@ -151,10 +140,9 @@ Running module version sanity check.
  - Installation
    - Installing to /lib/modules/6.8.0-62-generic/updates/dkms/
 depmod.....
-
 ```
 
-Build Successful
+Compilation completes successfully and Linux Agent is installed.
 
 ```yaml
 [2025-07-07 03:00:07] ✔ [SUCCESS] Repository sources for ubuntu have been successfully configured.
@@ -180,25 +168,25 @@ update-initramfs: Generating /boot/initrd.img-6.8.0-62-generic
     /dev/dm-1   ext4    /       16G     32%     Yes     /dev/mapper/ubuntu--vg-ubuntu--lv
 ```
 
-## 4. Kernel Upgrade
+## 4. Automatic Kernel Adaptation After Linux Agent Kernel Upgrade
 
-In most cases, the system will automatically trigger the **DKMS (Dynamic Kernel Module Support)** build process after a kernel upgrade. DKMS will compile and install modules compatible with the new kernel. Once the build is complete, these modules will be automatically loaded upon system reboot, without any manual intervention.
+In most cases, after a kernel upgrade, the system automatically triggers the DKMS build process to compile and install kernel modules compatible with the new kernel. After compilation, the system automatically loads these modules on restart without manual intervention.
 
-> **Important:** Ensure that the upgraded kernel version is within the supported range of the software. Unsupported kernel versions may cause DKMS builds to fail, which can prevent modules from loading properly and affect functionality.
+Ensure the upgraded kernel version is within the software's supported range. Unsupported kernel versions may cause DKMS build failures, preventing module loading and functionality.
 
-To minimize risks and ensure compatibility, it is recommended to use the system’s official kernel upgrade methods:
+To minimize risk and ensure compatibility, use the system's recommended kernel upgrade method:
 
-* **Ubuntu-based systems:** Use `apt upgrade` or `apt full-upgrade`.
+* **Ubuntu-based systems**: Use `apt upgrade` or `apt full-upgrade` for kernel updates.
 
-* **CentOS / Red Hat Enterprise Linux (RHEL):** Use `yum update` or `dnf upgrade`.
+* **CentOS or Red Hat Enterprise Linux (RHEL)**: Use `yum update` or `dnf upgrade` to upgrade the kernel.
 
-* **SUSE Linux Enterprise Server (SLES) / openSUSE:** Use `zypper update` or `zypper patch`.
+* **SUSE Linux Enterprise Server (SLES) or openSUSE**: Use `zypper update` or `zypper patch` for official recommended kernel upgrades.
 
-Avoid manually downloading third-party kernel packages or using unofficial repositories, as this may lead to DKMS build failures or system instability. If manual upgrades are necessary, refer to the recommended procedures in **Appendix 2 – Common Issues**.
+Avoid manually downloading and installing third-party kernel packages or using unofficial sources, which may cause DKMS build failures or system instability. For manual upgrades, refer to common questions in Appendix B for recommended steps.
 
-The following provides a reference process for kernel upgrades:
+Ubuntu upgrade example:
 
-```plain&#x20;text
+```bash
 # apt upgrade
 Reading package lists... Done
 Building dependency tree... Done
@@ -279,41 +267,39 @@ Processing triggers for initramfs-tools (0.142ubuntu25.5) ...
 update-initramfs: Generating /boot/initrd.img-6.8.0-63-generic
 ```
 
-If you upgrade to a specific kernel, you can do so by upgrading both the **kernel headers** and the **kernel image**. During the upgrade, the system will automatically trigger the compilation and loading of the kernel modules.
+To upgrade to a specific kernel version, you can install both headers and image simultaneously. During the upgrade, the system automatically triggers kernel module compilation and loading:
 
-```plain&#x20;text
+```bash
 apt install linux-headers-<version>-generic linux-image-<version>-generic
 ```
 
-## 5. Appendix I: DKMS Overview
+## 5. Appendix A: DKMS Overview
 
 ### 5.1 What is DKMS?
 
-**DKMS (Dynamic Kernel Module Support)** is a framework developed by Dell that automatically builds and installs Linux kernel modules. Its main advantage is that after a kernel upgrade, the system can automatically recompile and install third-party kernel modules without requiring manual intervention.
+DKMS (Dynamic Kernel Module Support) is a framework developed by Dell for automatically building and installing Linux kernel modules. Its key advantage is that after kernel upgrades, the system automatically recompiles and installs corresponding third-party kernel modules without user intervention.
 
 ### 5.2 How DKMS Works
 
-DKMS registers the specified kernel module source code in the system and automatically triggers module build and installation in the following scenarios:
+DKMS registers specified kernel module source code in the system and automatically triggers module building and installation in the following scenarios:
 
-* **Kernel upgrade:** When a new kernel is installed, DKMS automatically builds and installs the corresponding modules for the new kernel.
+* **New kernel installation**: After the system updates the kernel, DKMS automatically builds and installs the corresponding module.
 
-* **Module addition or update:** When a module is added or updated, DKMS can immediately build it for the current kernel.
+* **Module addition or upgrade**: When adding or updating module versions, DKMS can immediately build for the current kernel.
 
-* **Manual trigger:** Administrators can manage modules using commands such as `dkms add`, `dkms build`, `dkms install`, or `dkms remove`.
+* **Manual triggering**: Administrators can use `dkms add/build/install/remove` commands to manage modules.
 
-***
+## 6. Frequently Asked Questions
 
-## 6. Appendix II: Frequently Asked Questions
+### 6.1 FAQ 1: What is the correct order for manually upgrading the kernel and DKMS driver?
 
-### 6.1 FAQ 1: What is the correct order for manually upgrading the kernel and DKMS drivers?
+When manually upgrading the kernel and DKMS driver, follow the correct order to ensure system stability and successful kernel module loading. Install linux-image first, then linux-headers. Otherwise, system crashes may occur when resyncing data.
 
-When manually upgrading the kernel and DKMS drivers, following the correct sequence is crucial to ensure system stability and successful module loading. You should install the **linux-image** package first, followed by the **linux-headers** package. Installing in the wrong order may cause system crashes during subsequent data synchronization.
+#### 6.1.1 Correct kernel upgrade order
 
-#### 6.1.1 Correct Sequence for Manual Kernel Upgrade
+Using Ubuntu 24.04 as an example, here is the correct manual kernel upgrade order:
 
-For **Ubuntu 24.04**, the recommended sequence for manually upgrading the kernel is:
-
-Upgrade the **linux-image** package:
+1. **Upgrade linux-image kernel package:**
 
 ```bash
 apt install linux-image-<version>-generic
@@ -321,42 +307,41 @@ update-grub
 reboot
 ```
 
-First, install the new **linux-image** package, run `update-grub`, and reboot the system to activate the new kernel.
+Install the new kernel image, run `update-grub`, and restart to enable the new kernel.
 
-Upgrade the **linux-headers** package:
+* **Upgrade linux-headers kernel header package:**
 
 ```bash
 apt install -y linux-headers-<version>-generic
 ```
 
-After the new kernel is activated, installing the corresponding **linux-headers** package will automatically trigger DKMS to compile the Linux Agent kernel module and make it active.
+When you install the matching kernel headers after the new kernel takes effect, DKMS automatically compiles the Linux Agent kernel module and activates it.
 
-210. Update the kernel image so that the module will be automatically loaded on the next system boot.
+* Update the image file for automatic driver loading on next boot:
 
-```plain&#x20;text
+```bash
 depmod
 modprobe dattobd
 update-initramfs -u
 ```
 
-### 6.1.2 Incorrect Kernel Upgrade Order and Its Impact
+#### 6.1.2 Incorrect kernel upgrade order and its impact
 
-**Warning:** If you install **linux-headers** before **linux-image**, DKMS compilation may succeed, but after rebooting into the new kernel and performing data synchronization, the system can crash.
+**Warning**: If you install linux-headers first, then linux-image, DKMS compilation may succeed, but system crashes may occur when the new kernel loads and data resyncing begins.
 
-When manually upgrading the kernel and installing DKMS drivers, it is essential to follow the correct upgrade sequence to avoid serious issues.
+When manually upgrading the kernel and installing DKMS drivers, strictly follow the correct order to avoid serious problems.
 
-**Common Incorrect Operation:**
+Common mistakes:
 
-* Installing **linux-headers** before **linux-image**.
+* Installing `linux-headers` first, then `linux-image`.
 
-**Why is this incorrect?**
+Why is this incorrect?
 
-* During the installation of **linux-headers**, DKMS automatically triggers the compilation of kernel modules. At this point, the system cannot locate the symbol table for the new kernel, resulting in incomplete modules. Re-syncing data with these incomplete modules may cause the system to crash.
+* When installing `linux-headers`, the system automatically triggers DKMS to compile the kernel module, but the new kernel's kernel symbol table is not yet available, resulting in incomplete kernel modules. This causes system crashes when data resyncing begins.
 
-**If the sequence was done incorrectly:**
-&#x20;You can avoid compilation failures before data synchronization by manually recompiling the module. The fix is as follows:
+If you made this mistake, you can resolve it by manual compilation before data syncing:
 
-* Force DKMS to recompile and reinstall the Linux Agent kernel module, replacing `<version>-generic` with your actual kernel version:
+* Use DKMS to force recompile and reinstall the Linux Agent kernel module (replace `<version>-generic` with your actual kernel version):
 
 ```bash
 dkms build -m dattobd/0.12.0 -k <version>-generic --force
@@ -366,34 +351,101 @@ modprobe dattobd
 update-initramfs -u
 ```
 
-After the compilation completes, restart the service. The kernel module will become active, and the issue will be resolved.
+After compilation completes, restart the service and the driver will take effect, resolving the issue.
 
-### 6.2 FAQ 2: Linux Agent Module Not Loading After Server Reboot
+### 6.2 FAQ 2: How to handle Dattobd driver not loading correctly after server restart?
 
-If, after rebooting the server, the Linux Agent module is not automatically loaded, you need to embed the module into the boot image. You can use the following command:
+If Dattobd does not auto-load after server restart, you need to embed the Linux Agent driver in the boot image using:
 
-```plain&#x20;text
+```bash
 depmod
 modprobe dattobd
 update-initramfs -u
 ```
 
+### 6.3 FAQ 3: How to handle automatic kernel and headers updates after Ubuntu restart?
 
+Some versions have automatic kernel upgrades enabled. System kernel updates generally trigger automatic compilation and installation. However, in some cases, the system may have automatically upgraded image and headers packages, but Dattobd was not recompiled. Manually trigger compilation using:
 
-### 6.3 FAQ 3: Ubuntu Automatically Upgraded Kernel and Headers After Reboot
-
-Some Ubuntu versions enable automatic kernel upgrades. After a server reboot, the system may automatically upgrade both the **linux-image** and **linux-headers** packages. However, the **dattobd** module may not be recompiled automatically.
-
-Normally, the system-triggered upgrade should automatically invoke DKMS to compile and install the module.
-
-If DKMS compilation is not triggered, you need to manually compile the **dattobd** module. Follow the steps below to compile, install, and activate the module:
-
-```plain&#x20;text
+```bash
 dkms build -m dattobd -v 0.12.0
 dkms install -m dattobd -v 0.12.0
 modprobe dattobd
 update-initramfs -u
 ```
 
-Then, reboot the server to apply the changes.
+Then restart the server to activate.
 
+### 6.4 FAQ 4: Does data remain incremental after automatic kernel upgrade?
+
+Yes, data remains incremental.
+
+
+
+### 6.5 FAQ 5: How to reuse compiled Linux Agent kernel modules on other hosts?
+
+When installing Linux Agent, the system uses **DKMS** to automatically compile and install the `Dattobd` kernel module, and packages the compilation results and scripts into `/root/dattobd_dkms_build_pacakges` directory (for example: `/root/dattobd_dkms_build_pacakges/dattobd-5.15.0-153-generic-0.12.0.tar.gz`).
+
+Administrators can copy this package to the corresponding HyperBDR server directory (for example, for Ubuntu 22.04, place it in `/opt/installer/production/venvs/linux-agent-venv/dkms/ubuntu/22/`).
+When installing Agent on another host with the same Linux kernel version, the system automatically detects available pre-compiled modules and prompts whether to use them directly. If you select **"y"**, the system automatically installs the module and completes deployment without recompilation.
+
+### 6.6 FAQ 6: In FAQ 5, if the host with reused Agent kernel modules upgrades its Linux kernel, how to handle it?
+
+After Linux kernel upgrade, the **Dattobd module** must be recompiled and reinstalled to match the new kernel version. Since you're reusing pre-compiled kernel modules from other hosts, the local host may not have the compilation environment (such as DKMS). You can choose one of two approaches based on your situation.
+#### Method 1: Redeploy using pre-compiled Dattobd modules from other hosts
+
+When the target host (such as host A) lacks DKMS compilation environment:
+
+1. If host A is currently using Dattobd module compiled from another host (such as host B), first uninstall the existing Dattobd module from host A.
+
+2. On a host with compilation environment (such as host B), recompile for the new kernel version and generate the new Dattobd package.
+
+3. Upload the compiled Dattobd package from host B to the **HyperBDR** platform.
+
+4. Redeploy Agent on host A to load the new Dattobd module.
+
+#### Method 2: Copy pre-compiled module files from other hosts and activate
+
+If target host A cannot recompile Dattobd independently, copy the corresponding kernel version module files from another host (such as host B):
+
+1. **Identify module file location on host B**
+
+Host B's Dattobd module is usually located at (where 6.8.0-62-generic is the example kernel version):
+
+```bash
+/lib/modules/6.8.0-62-generic/updates/dkms/dattobd.ko.zst
+```
+
+> **Note:**
+> On Ubuntu 22.04 and 20.04, the module file may be `dattobd.ko` (without `.zst` suffix).
+> Verify the filename based on your actual version.
+
+* **Copy the module to host A**
+
+Copy the `dattobd.ko.zst` file from host B to the corresponding directory on host A:
+
+```bash
+/lib/modules/6.8.0-62-generic/dattobd.ko.zst
+```
+
+* **Execute activation commands**
+
+**Ubuntu:**
+
+```bash
+depmod
+modprobe dattobd
+update-initramfs -u
+```
+
+**CentOS / RHEL:**
+
+```bash
+depmod
+modprobe dattobd
+dracut -f
+```
+
+After completion, the Dattobd module will match the new kernel version and take effect.
+
+###
