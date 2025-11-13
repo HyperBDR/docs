@@ -282,6 +282,16 @@ export const zhSidebar = sidebar({
       ],
     },
   ],
+  '/zh/userguide/poc-license/': [
+    {
+      text: "POC授权激活指南",
+      icon: "flask",
+      prefix: "",
+      children: [
+        'poc-automatic-license.md',
+      ],
+    },
+  ],
   '/zh/userguide/migration/': [
     {
       text: "迁移手册",
