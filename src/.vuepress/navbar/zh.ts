@@ -48,6 +48,11 @@ export const zhNavbar = navbar([
             text: "单机授权激活",
             icon: "key",
             link: "/zh/userguide/standalone-license/",
+          },
+          {
+            text: "POC授权激活",
+            icon: "flask",
+            link: "/zh/userguide/poc-license/",
           }
         ],
       },

@@ -48,6 +48,11 @@ export const enNavbar = navbar([
             text: "Standalone License & Activation",
             icon: "key",
             link: "/userguide/standalone-license/",
+          },
+          {
+            text: "POC License & Activation",
+            icon: "flask",
+            link: "/userguide/poc-license/",
           }
         ],
       },
