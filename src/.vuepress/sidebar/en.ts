@@ -283,6 +283,16 @@ export const enSidebar = sidebar({
       ],
     },
   ],
+  '/userguide/poc-license/': [
+    {
+      text: "POC License & Activation",
+      icon: "flask",
+      prefix: "",
+      children: [
+        'poc-automatic-license.md',
+      ],
+    },
+  ],
   '/userguide/migration/': [
     {
       text: "Migration",
