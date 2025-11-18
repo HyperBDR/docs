@@ -10,7 +10,7 @@
       ::: tip 💡 Tip
       Make sure the email address is correct before proceeding.
       :::
-
+      
    2. Click **[Get Email Verification Code]** and contact the enterprise administrator to obtain the code.
    3. If you need to send the activation email to another address, add a new recipient email.
    4. Enter the **number of POC licenses** you want to apply for.
