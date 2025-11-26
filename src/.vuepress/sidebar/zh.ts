@@ -82,6 +82,7 @@ export const zhSidebar = sidebar({
             'agent-pre-settings',
             'vmware-pre-settings',
             'aws-pre-settings',
+            'oracle-pre-settings',
           ],
         },
         {
@@ -181,6 +182,7 @@ export const zhSidebar = sidebar({
         'limitations/huawei-fusioncompute-agentless.md',
         'limitations/huawei-hcs-agentless.md',
         'limitations/huawei-cloud-agentless.md',
+        'limitations/oracle-cloud-agentless.md',
         'limitations/driver-adaption.md',
       ],
     },
