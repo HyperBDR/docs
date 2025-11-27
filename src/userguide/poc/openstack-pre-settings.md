@@ -155,8 +155,7 @@ If the remaining quota in the account is insufficient, it is necessary to clean 
 
 Collect the compute and storage resource information of the host systems awaiting disaster recovery and input the details into a table.
 
-| Resource Type | Quantity/Capacity
- |
+| Resource Type | Quantity/Capacity|
 | --- | --- |
 | Total Number of Source Hosts	  |  |
 | Total vCPUs of Source Hosts	 |  |
@@ -175,8 +174,7 @@ Collect the compute and storage resource information of the host systems awaitin
 #### Organize Your OpenStack Account Resource Quotas and Calculate Remaining Quotas
 
 
-| Service | Resource Type	 | Used Quota	 | Total Quota	 | Remaining Quota
- |
+| Service | Resource Type	 | Used Quota	 | Total Quota	 | Remaining Quota|
 | --- | --- | --- | --- | --- |
 | Compute | Instances |  |  |  |
 | Compute | CPU |  |  |  |
@@ -200,11 +198,11 @@ Based on your inventory, compare the resource levels of the source hosts with th
 > **Compute: vCPUs** Remaining Quota ≥ Total vCPUs of Source Hosts  
 > **Compute: RAM (MB)** Remaining Quota ≥ Total Memory of Source Hosts (MB)  
 > **Storage: Volumes** Remaining Quota ≥ Total Number of Disks on Source Hosts  
-> **Storage: Volume Capacity (GB)** Remaining Quota ≥ Total Disk Capacity of Source Hosts (GB) 
-> **Storage: Volume Snapshots**  Remaining Quota ≥ Number of Snapshots to Retain 
-> **Network: Networks** Remaining Quota ≥ 2
-> **Network: Security Groups** Remaining Quota ≥ 2
-> **Network: Security Group Rules** Remaining Quota ≥ 20
+> **Storage: Volume Capacity (GB)** Remaining Quota ≥ Total Disk Capacity of Source Hosts (GB)  
+> **Storage: Volume Snapshots** Remaining Quota ≥ Number of Snapshots to Retain     
+> **Network: Networks** Remaining Quota ≥ 2 
+> **Network: Security Groups** Remaining Quota ≥    
+> **Network: Security Group Rules** Remaining Quota ≥ 20    
 
 **2. If you are using Block Storage Recovery Mode for disaster recovery, refer to the following criteria.**
 

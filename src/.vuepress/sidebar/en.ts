@@ -50,7 +50,8 @@ export const enSidebar = sidebar({
         "policy-best-practices.md",
         "script-best-practices",
         "network-planning.md",
-        "troubleshooting-best-practices.md"
+        "troubleshooting-best-practices.md",
+        "saas-network-practices.md"
       ],
       collapsible: true,
       expanded: true,
@@ -81,6 +82,7 @@ export const enSidebar = sidebar({
             'agent-pre-settings',
             'vmware-pre-settings',
             'aws-pre-settings',
+            'oracle-pre-settings',
           ],
         },
         {
@@ -179,6 +181,8 @@ export const enSidebar = sidebar({
         'limitations/openstack-ceph-agentless.md',
         'limitations/huawei-fusioncompute-agentless.md',
         'limitations/huawei-hcs-agentless.md',
+        'limitations/huawei-cloud-agentless.md',
+        'limitations/oracle-cloud-agentless.md',
         'limitations/driver-adaption.md',
       ],
     },
@@ -279,6 +283,16 @@ export const enSidebar = sidebar({
       prefix: "",
       children: [
         'huawei-koogallery-license.md',
+      ],
+    },
+  ],
+  '/userguide/poc-license/': [
+    {
+      text: "POC License & Activation",
+      icon: "flask",
+      prefix: "",
+      children: [
+        'poc-automatic-license.md',
       ],
     },
   ],
