@@ -515,37 +515,55 @@ Custom Pre and Post Scripts can be used to assist users in executing custom scri
 **Custom Pre-Script:**
 
 >The pre-script runs last during the driver adaptation process.
+>
 >It works on Ubuntu 20.04 and needs to be written in Linux Bash.
+>
 >This script can change settings in your root disk.
+>
 >If you need to change data in other disks, it's better to use the post-script.
+>
 >You can access your root disk folder through $HOST_ROOT_PATH.
+>
 >For example, on Linux, $HOST_ROOT_PATH means the system root directory; on Windows, it's the C drive.
+>
 >For example, if you want to modify a program configuration file in CentOS 7, you can do it like this: sed -i 's/old_text/new_text/g' $HOST_ROOT_PATH/path/to/config/file
+>
 >For example, if you want to create a new file in Windows, you can do it like this: echo "content" >> %HOST_ROOT_PATH%\new.txt
+>
 >Note: On the AWS platform, when the operating system is Windows, the preceding script runs on Windows Server 2019 and requires execution using a .bat file.
 
 **Custom Post-Script:**
 
 >The post-script runs after the system starts.
+>
 >Use Bash on Linux and bat files on Windows.
+>
 >This script can handle system-related tasks flexibly, like starting or stopping services. It can also modify settings files and add entries to the Windows registry.
 
 **Driver Adaptation Settings**
 
+![](./images/hostdisasterrecovery-hostdisasterrecovery-95.png)
+
 | Parameter        | Option                  | Description                                                                                                                                                                                                          |
 | ---------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Driver Injection | Enable Driver Injection | Only applicable when starting the host on the same virtualization platform, skipping driver adaptation. (Not recommended) Skipping driver adaptation may cause the host to fail to start properly, use with caution. |
-| Disk Driver      | virtio                        | When the number of disks on the started host exceeds 20, virtio-scsi type must be selected.                                                                                                                          |
+| Source OS Version | Automatic Detection | The system will automatically select the appropriate driver based on the source OS to repair the host’s operating system version. By default, it detects and adapts automatically, covering the vast majority of use cases without requiring manual intervention.|
 
-> When the target platform is Huawei Cloud, OTC, HCSO, OpenStack, or HCS, you can enable Boot Advanced Settings to configure custom metadata for the instance. Keys and Values can be defined based on your business needs.
+**Transition HostNetwork Settings**
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-95.png)
+| Parameter     | Option      | Description                                                       |
+| ------ | -------- | -------------------------------------------------------- |
+|Can the Cloud Sync Gateway Access the Recovery Host Network? | Yes/No | If the Cloud Sync Gateway can access the recovery host network, select "Yes",lf the Cloud Sync Gateway cannot directly access the recovery host network, selec"No".|
 
 **Boot Advanced Settings**
+
+> When the target platform is Huawei Cloud, OTC, HCSO, OpenStack, or HCS, you can enable Boot Advanced Settings to configure custom metadata for the instance. Keys and Values can be defined based on your business needs.
 
 | Parameter     | Option      | Description                                                       |
 | ------ | -------- | -------------------------------------------------------- |
 |Custom Metadata  | Add | 	It is used to set custom metadata during startup. After clicking Add, enter the required Key and Value in the list, then click Save to complete the setup. |
+|Extendparam  | Add | 	It is used to set custom metadata during startup. After clicking Add, enter the required Key and Value in the list, then click Save to complete the setup. <br>The extendparam is used to pass additional configuration parameters when creating a cloud server, allowing customization of resource behavior, billing models, and advanced settings. For more details, please refer to the [help documentation](https://support.huaweicloud.com/intl/en-us/api-ecs/en-us_topic_0167957246.html#EN-US_TOPIC_0167957246__section1373711413505)|
+|Boot to Dedicated Host  | No/Yes | Boot the restored host onto a dedicated physical server. The dedicated host needs to be created in advance, otherwise it will result in a startup failure. |
 
 After completing **Advanced Configuration**, click **"Next"** to prompt: **Before starting policy configuration, hosts already configured will automatically enter "Start Disaster Recovery".** Then begin associating policies.
 
