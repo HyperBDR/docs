@@ -1,7 +1,10 @@
 import { defineClientConfig } from 'vuepress/client'
+import HomePage from './client/components/HomePage.vue'
 
 export default defineClientConfig({
-  enhance() {},
+  enhance({ app }) {
+    app.component('HomePage', HomePage)
+  },
   setup() {
     if (typeof window !== 'undefined') {
       // 插入 Dify 脚本
