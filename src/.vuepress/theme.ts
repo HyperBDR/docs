@@ -113,7 +113,7 @@ export default hopeTheme({
     //   indexContent: true, // 是否索引页面内容，默认为 true
     //   // 您可以根据需要添加更多的选项
     // },
-    search: false,
+    search: true,
     // docsearch: {
     //   // 你的选项
     //   // appId, apiKey 和 indexName 是必填的
