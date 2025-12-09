@@ -117,7 +117,6 @@ export async function searchDify(
     }
 
     const data = await response.json()
-    console.log('Dify API Response:', data)
 
     // 解析 Dify 响应并转换为搜索结果格式
     // 根据 Dify API 文档，blocking 模式响应格式为：
