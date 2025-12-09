@@ -190,19 +190,6 @@ rm -rf /opt/installer/production/venvs/scripts-venv/version_info/
 * Right-click and run Upgrade.exe as administrator, following the prompts to complete the upgrade
 
     ![](./images/-removeinvaliddirectories-1.png)
-
-* Download the latest driver package
-
-  > Currently, please download manually: [Download Here](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/upgrade_packages/DriverUpgrade.zip)
-
-* Upgrade drivers
-
-  ```bash
-  # After extracting the ZIP file, navigate to the extraction directory
-  # Right-click and run as administrator
-  UpgradeDriver.bat
-  ```
-
     ![](./images/-removeinvaliddirectories-2.png)
 
 * Update configuration
