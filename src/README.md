@@ -4,4 +4,6 @@ icon: home
 title: "Home"
 ---
 
-<HomePage />
+<ClientOnly>
+  <HomePage />
+</ClientOnly>

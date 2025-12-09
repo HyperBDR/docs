@@ -4,4 +4,6 @@ icon: home
 title: "主页"
 ---
 
-<HomePage />
+<ClientOnly>
+  <HomePage />
+</ClientOnly>
