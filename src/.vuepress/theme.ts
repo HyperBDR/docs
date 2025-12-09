@@ -68,7 +68,7 @@ export default hopeTheme({
       // sidebar
       sidebar: enSidebar,
 
-      footer: "OnePro Cloud HyperBDR Documentation",
+      footer: "OnePro Cloud HyperMotion & HyperBDR Documentation | Copyright © 2025-2026 OneProCloud",
 
       copyright: false,
 
@@ -89,7 +89,9 @@ export default hopeTheme({
       // sidebar
       sidebar: zhSidebar,
 
-      footer: "OnePro Cloud HyperBDR Documentation",
+      footer: "OnePro Cloud HyperMotion & HyperBDR Documentation | Copyright © 2025-2026 OneProCloud",
+
+      copyright: false,
 
       displayFooter: true,
 

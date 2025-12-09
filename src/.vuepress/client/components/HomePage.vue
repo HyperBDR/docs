@@ -4,9 +4,14 @@
 
     <div class="hero">
       <h1 class="hero-title">
-        <span class="brand">OnePro</span> <span class="docs">{{ isZh ? '文档' : 'Docs' }}</span>
+        <div class="hero-title-line">
+          <span class="brand">HyperMotion & HyperBDR</span>
+        </div>
+        <div class="hero-title-line">
+          <span class="docs">{{ isZh ? '文档' : 'Documentation' }}</span>
+        </div>
       </h1>
-      <p class="hero-subtitle">{{ isZh ? '搜索、探索和使用。' : 'Search, explore, and use.' }}</p>
+      <p class="hero-subtitle">{{ isZh ? '全球领先的云原生迁移与灾备解决方案，让您的云主机在多云环境间自由迁移与无忧备份。' : 'The world\'s leading cloud-native migration and disaster recovery solution, empowering seamless migration and reliable backup across multi-cloud environments' }}</p>
 
       <div class="search-shell" ref="searchShellRef">
         <div :class="['search-bar', { focused: isFocused, hasInput: searchQuery.length > 0 }]" ref="searchBarRef" @click="focusInput">
@@ -21,26 +26,22 @@
             :placeholder="isZh ? '搜索指南、文档或故障排除...' : 'Search guides, documents, or troubleshooting...'"
             @focus="isFocused = true"
             @blur="handleBlur"
-            @keydown.enter="handleSearch"
             @keydown.esc="clearSearch"
           />
           <div class="search-actions">
             <button 
-              v-if="searchQuery.length > 0 && !isDifySearching"
-              class="search-button"
-              @click.stop="handleSearch"
-              :title="isZh ? '搜索' : 'Search'"
+              class="ai-search-button-inline" 
+              @click.stop="openAiSearch"
+              :title="isZh ? 'AI 智能搜索' : 'AI Search'"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <i class="fa-solid fa-robot"></i>
+              <span class="ai-search-label">{{ isZh ? 'AI 搜索' : 'AI Search' }}</span>
             </button>
-            <div v-if="isDifySearching" class="search-loading">
-              <div class="loading-spinner"></div>
-            </div>
-            <div class="shortcut-hint" v-if="searchQuery.length === 0 && !isDifySearching">
+          <div class="shortcut-hint" v-if="searchQuery.length === 0">
             <span class="key">Ctrl</span>
             <span class="key">K</span>
           </div>
-            <div class="esc-hint" v-if="isFocused && searchQuery.length > 0 && !isDifySearching">
+          <div class="esc-hint" v-if="isFocused && searchQuery.length > 0">
               <span class="key">{{ isZh ? 'ESC 关闭' : 'ESC to close' }}</span>
             </div>
           </div>
@@ -48,7 +49,7 @@
         <div 
           class="search-results" 
           ref="searchResultsRef" 
-          v-show="isFocused && searchQuery.length > 0 && !showAiSearchPage"
+          v-show="isFocused && searchQuery.length > 0"
           @mousedown.prevent="handleSearchResultsMouseDown"
           @contextmenu="handleSearchResultsContextMenu"
         >
@@ -67,40 +68,47 @@
               @contextmenu="handleResultItemContextMenu"
             >
               <div>
-                <span class="result-title">{{ item.title }}</span>
+                <div class="result-title">
+                  <span v-if="item.header" class="result-page-title">{{ item.pageTitle }}</span>
+                  <span v-if="item.header" class="result-separator"> > </span>
+                  <span :class="item.header ? 'result-header-title' : 'result-page-title'">
+                    {{ item.header || item.pageTitle }}
+                  </span>
+                </div>
                 <span class="result-path">{{ item.category || (isZh ? '文档' : 'Documentation') }} • {{ item.path }}</span>
               </div>
               <div class="enter-icon">↵</div>
             </a>
           </div>
 
-          <!-- AI 搜索提示（点击后打开独立页面） -->
-          <div v-if="hasSearched && !isDifySearching && !difySearchResult && !difySearchError" class="ai-search-hint">
-            <div class="hint-text">{{ isZh ? '正在准备 AI 搜索结果...' : 'Preparing AI search results...' }}</div>
-            </div>
-
-          <!-- 输入提示（未搜索时） -->
-          <div v-if="!hasSearched && searchQuery.length > 0 && !isDifySearching" class="search-hint">
-            <div class="hint-text">{{ isZh ? '按 Enter 或点击搜索按钮进行 AI 智能搜索' : 'Press Enter or click search button for AI search' }}</div>
-          </div>
-
           <!-- 无结果 -->
-          <div v-if="hasSearched && !isDifySearching && filteredResults.length === 0 && !difySearchResult && !difySearchError" class="no-results">
+          <div v-if="filteredResults.length === 0 && searchQuery.length > 0" class="no-results">
             <div class="no-results-text">{{ isZh ? '未找到结果。' : 'No results found.' }}</div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- AI 搜索结果独立页面 -->
-      <AiSearchResultPage
-        :visible="showAiSearchPage"
-        :query="searchQuery"
-        :loading="isDifySearching"
-        :error="difySearchError"
-        :result="difySearchResult"
-        @close="handleCloseAiSearchPage"
-        @retry="handleRetryAiSearch"
-      />
+    <!-- 核心功能按钮 -->
+    <div class="core-actions">
+      <a 
+        v-for="(action, index) in coreActionsList"
+        :key="index"
+        :href="action.link"
+        class="core-action-button"
+        @click.prevent="navigate(action.link)"
+      >
+        <div class="core-action-icon">
+          <i :class="action.icon"></i>
+        </div>
+        <div class="core-action-content">
+          <div class="core-action-title">{{ action.title }}</div>
+          <div class="core-action-desc">{{ action.desc }}</div>
+        </div>
+        <div class="core-action-arrow">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
     </div>
 
     <div class="sections">
@@ -127,10 +135,8 @@ import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSearchIndex, useSearchSuggestions } from '@vuepress/plugin-search/client'
 import { useRouteLocale } from 'vuepress/client'
-import { homepageSections } from '../homepage.config.js'
-import { homepageSectionsZh } from '../homepage.config.zh.js'
-import { searchDify, type DifySearchResult } from '../utils/dify-search.js'
-import AiSearchResultPage from './AiSearchResultPage.vue'
+import { homepageSections, coreActions } from '../homepage.config.js'
+import { homepageSectionsZh, coreActionsZh } from '../homepage.config.zh.js'
 
 const router = useRouter()
 const searchInput = ref<HTMLInputElement | null>(null)
@@ -151,22 +157,8 @@ const searchSuggestions = useSearchSuggestions({
   maxSuggestions
 })
 
-// Dify 搜索相关状态
-const difySearchResults = ref<DifySearchResult[]>([])
-const isDifySearching = ref(false)
-const hasSearched = ref(false) // 是否已执行过搜索
-const difySearchResult = ref<{
-  answer: string
-  references: Array<{
-    title: string
-    content: string
-    dataset?: string
-    score?: number
-  }>
-} | null>(null)
-const difySearchError = ref<string | null>(null)
-const showAiSearchPage = ref(false) // 控制 AI 搜索结果页面显示
-let previousSearchQuery = '' // 记录上一次的搜索关键词
+// AI 搜索 URL
+const AI_SEARCH_URL = 'https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b'
 
 // 判断是否为中文环境
 const isZh = computed(() => {
@@ -179,6 +171,10 @@ const sections = computed(() => {
   return isZh.value ? homepageSectionsZh : homepageSections
 })
 
+const coreActionsList = computed(() => {
+  return isZh.value ? coreActionsZh : coreActions
+})
+
 const filteredResults = computed(() => {
   const query = searchQuery.value.trim()
   if (!query) {
@@ -187,11 +183,21 @@ const filteredResults = computed(() => {
   
   const results = searchSuggestions.value || []
   
-  return results.map((item: any) => ({
-    title: item.title || 'Untitled',
-    path: item.link || '#',
-    category: item.header ? 'Section' : 'Page'
-  }))
+  return results.map((item: any) => {
+    // 构建完整标题：如果有章节标题，显示为 "页面标题 > 章节标题"
+    let fullTitle = item.title || 'Untitled'
+    if (item.header) {
+      fullTitle = `${item.title} > ${item.header}`
+    }
+    
+    return {
+      title: fullTitle,
+      pageTitle: item.title || 'Untitled',
+      header: item.header || null,
+      path: item.link || '#',
+      category: item.header ? 'Section' : 'Page'
+    }
+  })
 })
 
 const focusInput = () => {
@@ -202,35 +208,17 @@ const handleBlur = () => {
   if (isRightClicking.value) {
     return;
   }
-  // 如果已经搜索过，保持结果框显示；否则延迟关闭
   setTimeout(() => {
-    if (!isRightClicking.value && !hasSearched.value) {
+    if (!isRightClicking.value) {
     isFocused.value = false;
     }
   }, 150); 
 };
 
-// 执行搜索（手动触发）
-const handleSearch = () => {
-  const query = searchQuery.value.trim()
-  if (!query) {
-    return
-  }
-
-  hasSearched.value = true
-  difySearchError.value = null
-  
-  // 关闭搜索框下面的结果展示框，只显示AI搜索结果弹框
-  isFocused.value = false
-  
-  // 执行本地搜索（实时）
-  // 本地搜索已经在 watch 中自动触发，这里不需要额外处理
-  
-  // 执行 AI 搜索（手动触发）
-  performDifySearch(query)
-  
-  // 移除焦点，让搜索框收起
-  searchInput.value?.blur()
+// 打开 AI 搜索页面
+const openAiSearch = () => {
+  if (typeof window === 'undefined') return
+  window.open(AI_SEARCH_URL, '_blank')
 }
 
 const triggerSearch = () => {
@@ -262,11 +250,6 @@ const triggerSearch = () => {
 const clearSearch = () => {
   searchQuery.value = ''
   isFocused.value = false
-  hasSearched.value = false
-  difySearchResult.value = null
-  difySearchError.value = null
-  difySearchResults.value = []
-  showAiSearchPage.value = false
   if (searchInput.value) {
     searchInput.value.blur()
   }
@@ -277,87 +260,12 @@ const navigate = (path: string) => {
   if (path.startsWith('http://') || path.startsWith('https://')) {
     window.open(path, '_blank');
   } else {
-    router.push(path);
+  router.push(path);
   }
   searchQuery.value = '';
   isFocused.value = false;
 };
 
-// Dify 搜索处理
-const performDifySearch = async (query: string) => {
-  if (!query.trim()) {
-    difySearchResult.value = null
-    difySearchError.value = null
-    showAiSearchPage.value = false
-    return
-  }
-
-  // 显示 AI 搜索结果页面
-  showAiSearchPage.value = true
-  isDifySearching.value = true
-  difySearchError.value = null
-  difySearchResult.value = null
-  
-  try {
-    const response = await searchDify(query)
-    
-    // 解析 AI 回答和文档引用
-    const answerResult = response.results.find(r => r.metadata?.type === 'answer')
-    const referenceResults = response.results.filter(r => r.metadata?.type === 'reference')
-    
-    if (answerResult || referenceResults.length > 0) {
-      difySearchResult.value = {
-        answer: answerResult?.content || '',
-        references: referenceResults.map(ref => ({
-          title: ref.title,
-          content: ref.content,
-          dataset: ref.metadata?.dataset_name,
-          score: ref.score
-        }))
-      }
-    } else {
-      difySearchError.value = isZh.value ? '未找到相关结果，请尝试其他关键词。' : 'No results found. Please try different keywords.'
-    }
-  } catch (error: any) {
-    console.error('Dify search error:', error)
-    difySearchError.value = error.message || (isZh.value ? '搜索失败，请稍后重试。' : 'Search failed. Please try again later.')
-    difySearchResult.value = null
-  } finally {
-    isDifySearching.value = false
-  }
-}
-
-// 关闭 AI 搜索结果页面
-const handleCloseAiSearchPage = () => {
-  showAiSearchPage.value = false
-  // 清空 AI 搜索结果，但保留 hasSearched 状态，以便显示"无结果"提示
-  difySearchResult.value = null
-  difySearchError.value = null
-}
-
-// 重试 AI 搜索
-const handleRetryAiSearch = () => {
-  if (searchQuery.value.trim()) {
-    performDifySearch(searchQuery.value.trim())
-  }
-}
-
-// 处理 Dify 结果点击（已废弃，现在使用独立页面）
-const handleDifyResultClick = (item: DifySearchResult) => {
-  if (typeof window === 'undefined') return
-  if (item.url) {
-    if (item.url.startsWith('http://') || item.url.startsWith('https://')) {
-      window.open(item.url, '_blank')
-    } else {
-      router.push(item.url)
-    }
-  } else {
-    // 如果没有 URL，可以显示详细内容或复制到剪贴板
-    console.log('Dify result clicked:', item)
-  }
-  searchQuery.value = ''
-  isFocused.value = false
-}
 
 const handleResultItemMouseDown = (event: MouseEvent) => {
   if (event.button === 2) {
@@ -434,11 +342,7 @@ onMounted(() => {
     }
     const target = e.target as HTMLElement;
     if (!target.closest('.search-shell')) {
-      // 如果已经搜索过，点击外部区域时不清除搜索状态，只关闭焦点
-      // 如果未搜索且输入框为空，则关闭
-      if (hasSearched.value) {
-        isFocused.value = false;
-      } else if (isFocused.value && searchQuery.value.length === 0) {
+      if (isFocused.value && searchQuery.value.length === 0) {
         isFocused.value = false;
       }
     }
@@ -459,28 +363,7 @@ watch([isFocused, searchQuery], () => {
     setTimeout(() => {
       syncSearchResultsWidth()
     }, 0)
-    
-    // 本地搜索仍然实时触发（用于显示文档搜索结果）
-    // AI 搜索改为手动触发（在 handleSearch 中）
-  } else if (!isFocused.value) {
-    // 失去焦点时，如果没有搜索过，清空状态
-    if (!hasSearched.value) {
-      difySearchResult.value = null
-      difySearchError.value = null
-    }
   }
-})
-
-// 监听搜索关键词变化，如果关键词改变且之前搜索过，重置搜索状态
-watch(searchQuery, (newQuery) => {
-  // 如果关键词改变（不是清空），且之前已经搜索过，重置搜索状态
-  if (newQuery !== previousSearchQuery && previousSearchQuery && hasSearched.value && !showAiSearchPage.value) {
-    // 用户修改了搜索关键词，重置搜索状态，允许重新搜索
-    hasSearched.value = false
-    difySearchResult.value = null
-    difySearchError.value = null
-  }
-  previousSearchQuery = newQuery
 })
 
 onUnmounted(() => {
