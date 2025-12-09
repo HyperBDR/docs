@@ -8,7 +8,7 @@
  * - Available icons: https://fontawesome.com/icons
  */
 
-import type { HomepageSection } from './homepage.config.js'
+import type { HomepageSection, CoreAction } from './homepage.config.js'
 
 export const homepageSectionsZh: HomepageSection[] = [
   {
@@ -97,6 +97,25 @@ export const homepageSectionsZh: HomepageSection[] = [
         icon: "fa-solid fa-circle-question" 
       },
     ],
+  },
+]
+
+/**
+ * Core Actions configuration (Chinese)
+ * These are the prominent action buttons displayed prominently on the homepage.
+ */
+export const coreActionsZh: CoreAction[] = [
+  {
+    title: "分步指南",
+    desc: "按照检查清单逐步完成配置和部署",
+    link: "/zh/userguide/checklist/dr-checklist.md",
+    icon: "fa-solid fa-list-check"
+  },
+  {
+    title: "快速安装",
+    desc: "快速上手，快速完成产品安装和配置",
+    link: "/zh/userguide/installation/quick-installation.md",
+    icon: "fa-solid fa-bolt"
   },
 ]
 

@@ -27,6 +27,13 @@ export interface HomepageSection {
   items: HomepageItem[]
 }
 
+export interface CoreAction {
+  title: string
+  desc: string
+  link: string
+  icon: string // FontAwesome icon class name (e.g., "fa-solid fa-list-check")
+}
+
 export const homepageSections: HomepageSection[] = [
   {
     title: "Core Platform",
@@ -114,6 +121,25 @@ export const homepageSections: HomepageSection[] = [
         icon: "fa-solid fa-circle-question" 
       },
     ],
+  },
+]
+
+/**
+ * Core Actions configuration
+ * These are the prominent action buttons displayed prominently on the homepage.
+ */
+export const coreActions: CoreAction[] = [
+  {
+    title: "Step By Step Guide",
+    desc: "Follow the checklist to complete setup and deployment step by step",
+    link: "/userguide/checklist/dr-checklist.md",
+    icon: "fa-solid fa-list-check"
+  },
+  {
+    title: "Quick Installation",
+    desc: "Get started quickly with streamlined installation and configuration",
+    link: "/userguide/installation/quick-installation.md",
+    icon: "fa-solid fa-bolt"
   },
 ]
 
