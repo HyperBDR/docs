@@ -166,6 +166,7 @@ const difySearchResult = ref<{
 } | null>(null)
 const difySearchError = ref<string | null>(null)
 const showAiSearchPage = ref(false) // 控制 AI 搜索结果页面显示
+let previousSearchQuery = '' // 记录上一次的搜索关键词
 
 // 判断是否为中文环境
 const isZh = computed(() => {
@@ -233,6 +234,7 @@ const handleSearch = () => {
 }
 
 const triggerSearch = () => {
+  if (typeof window === 'undefined') return
   const value = searchQuery.value.trim()
 
   const event = new KeyboardEvent('keydown', {
@@ -245,6 +247,7 @@ const triggerSearch = () => {
   window.dispatchEvent(event)
 
   setTimeout(() => {
+    if (typeof document === 'undefined') return
     const searchInputs = document.querySelectorAll('input[type="search"], input[placeholder*="Search"], .search-box input')
     if (searchInputs.length > 0) {
       const first = searchInputs[0] as HTMLInputElement
@@ -270,10 +273,11 @@ const clearSearch = () => {
 }
 
 const navigate = (path: string) => {
+  if (typeof window === 'undefined') return
   if (path.startsWith('http://') || path.startsWith('https://')) {
     window.open(path, '_blank');
   } else {
-  router.push(path);
+    router.push(path);
   }
   searchQuery.value = '';
   isFocused.value = false;
@@ -326,6 +330,9 @@ const performDifySearch = async (query: string) => {
 // 关闭 AI 搜索结果页面
 const handleCloseAiSearchPage = () => {
   showAiSearchPage.value = false
+  // 清空 AI 搜索结果，但保留 hasSearched 状态，以便显示"无结果"提示
+  difySearchResult.value = null
+  difySearchError.value = null
 }
 
 // 重试 AI 搜索
@@ -337,6 +344,7 @@ const handleRetryAiSearch = () => {
 
 // 处理 Dify 结果点击（已废弃，现在使用独立页面）
 const handleDifyResultClick = (item: DifySearchResult) => {
+  if (typeof window === 'undefined') return
   if (item.url) {
     if (item.url.startsWith('http://') || item.url.startsWith('https://')) {
       window.open(item.url, '_blank')
@@ -390,6 +398,7 @@ const handleSearchResultsContextMenu = (event: MouseEvent) => {
 };
 
 const syncSearchResultsWidth = () => {
+  if (typeof window === 'undefined') return
   if (searchBarRef.value && searchResultsRef.value) {
     const searchShell = searchShellRef.value
     if (searchShell) {
@@ -400,6 +409,7 @@ const syncSearchResultsWidth = () => {
 }
 
 onMounted(() => {
+  if (typeof window === 'undefined') return
   syncSearchResultsWidth()
   
   const handleResize = () => {
@@ -459,6 +469,18 @@ watch([isFocused, searchQuery], () => {
       difySearchError.value = null
     }
   }
+})
+
+// 监听搜索关键词变化，如果关键词改变且之前搜索过，重置搜索状态
+watch(searchQuery, (newQuery) => {
+  // 如果关键词改变（不是清空），且之前已经搜索过，重置搜索状态
+  if (newQuery !== previousSearchQuery && previousSearchQuery && hasSearched.value && !showAiSearchPage.value) {
+    // 用户修改了搜索关键词，重置搜索状态，允许重新搜索
+    hasSearched.value = false
+    difySearchResult.value = null
+    difySearchError.value = null
+  }
+  previousSearchQuery = newQuery
 })
 
 onUnmounted(() => {
