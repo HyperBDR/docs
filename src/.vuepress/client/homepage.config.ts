@@ -117,6 +117,42 @@ export const homepageSections: HomepageSection[] = [
         link: "/product-overview/limitations/windows-agent.md",
         icon: "fa-solid fa-server"
       },
+      {
+        title: "VMware Agentless",
+        desc: "VMware Agentless support for VMware Agentless hosts.",
+        link: "/product-overview/limitations/vmware-agentless.md",
+        icon: "fa-solid fa-server"
+      },
+      {
+        title: "FusionCompute Agentless",
+        desc: "FusionCompute Agentless support for FusionCompute 8.6.0 hosts.",
+        link: "/product-overview/limitations/huawei-fusioncompute-agentless.md",
+        icon: "fa-solid fa-server"
+      },
+      {
+        title: "OpenStack Ceph Agentless",
+        desc: "OpenStack Ceph Agentless support for OpenStack & Ceph platforms.",
+        link: "/product-overview/limitations/openstack-ceph-agentless.md",
+        icon: "fa-solid fa-cloud"
+      },
+      {
+        title: "Huawei Cloud Stack Agentless",
+        desc: "Huawei Cloud Stack Agentless support for Huawei Cloud Stack 8.0.2 hosts.",
+        link: "/product-overview/limitations/huawei-hcs-agentless.md",
+        icon: "fa-solid fa-cloud"
+      },
+      {
+        title: "Huawei Cloud Agentless",
+        desc: "Huawei Cloud Agentless support for Huawei Cloud API hosts.",
+        link: "/product-overview/limitations/huawei-cloud-agentless.md",
+        icon: "fa-solid fa-cloud"
+      },
+      {
+        title: "Oracle Cloud Agentless",
+        desc: "Oracle Cloud Agentless support for Oracle Cloud Agentless hosts.",
+        link: "/product-overview/limitations/oracle-cloud-agentless.md",
+        icon: "fa-solid fa-cloud"
+      },
     ],
   },
   {
