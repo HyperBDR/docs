@@ -306,6 +306,12 @@ export const coreActions: CoreAction[] = [
     link: "/userguide/installation/quick-installation.md",
     icon: "fa-solid fa-bolt"
   },
+  {
+    title: "AI Support",
+    desc: "AI Support from OneProCloud.",
+    link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+    icon: "fa-solid fa-robot"
+  }
 ]
 
 /**
@@ -315,7 +321,7 @@ export const coreActions: CoreAction[] = [
 export const saasQuickExperience: SaasQuickExperience = {
   enabled: true,
   title: "Try Our SaaS Platform",
-  subtitle: "Zero installation, zero maintenance - Experience cloud-native migration and disaster recovery instantly",
+  subtitle: "Sign up for free — get instant access to Migration & DR.",
   products: [
     {
       name: "HyperMotion",
