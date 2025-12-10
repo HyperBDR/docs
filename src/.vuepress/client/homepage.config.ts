@@ -36,37 +36,134 @@ export interface CoreAction {
 
 export const homepageSections: HomepageSection[] = [
   {
-    title: "Core Platform",
+    title: "Product Overview",
     items: [
-      { 
-        title: "Product Overview", 
-        desc: "Core concepts of HyperMotion & HyperBDR.", 
-        link: "/product-overview/", 
-        icon: "fa-solid fa-cube" 
+      {
+        title: "Scenarios",
+        desc: "Scenarios for HyperMotion & HyperBDR.",
+        link: "/product-overview/product-training/scenarios.md",
+        icon: "fa-solid fa-cube"
       },
       { 
-        title: "Step by Step Guide", 
-        desc: "Step by step guide for HyperMotion & HyperBDR.", 
-        link: "/userguide/checklist/dr-checklist", 
-        icon: "fa-solid fa-signs-post" 
+        title: "Network Planning", 
+        desc: "Network planning for HyperMotion & HyperBDR.", 
+        link: "/product-overview/presales/dr-network-planning-recommendations", 
+        icon: "fa-solid fa-network-wired" 
       },
-      { 
-        title: "Installation", 
-        desc: "Quick start guide and deployment requirements.", 
-        link: "/userguide/installation/quick-installation", 
-        icon: "fa-solid fa-download"
+      {
+        title: "Technical Highlights",
+        desc: "Technical highlights for HyperMotion & HyperBDR.",
+        link: "/product-overview/product-training/technical-highlights.md",
+        icon: "fa-solid fa-lightbulb"
       },
-      { 
-        title: "Migration Guide", 
-        desc: "Best practices for seamless cloud migration.", 
+    ],
+  },
+  {
+    title: "Hosts Investigation",
+    items: [
+      {
+        title: "Host Quick Investigation",
+        desc: "Host quick investigation for Linux & Windows hosts.",
+        link: "/product-overview/presales/hyperbdr-agent-investigation.md",
+        icon: "fa-solid fa-computer"
+      },
+      {
+        title: "VMware Host Quick Investigation",
+        desc: "VMware host quick investigation for VMware hosts.",
+        link: "/product-overview/presales/hyperbdr-vmware-investigation.md",
+        icon: "fa-solid fa-server"
+      },
+      {
+        title: "Auto Host Info Collector",
+        desc: "Auto host info collector for Linux & Windows hosts.",
+        link: "/product-overview/presales/auto-host-info-collector.md",
+        icon: "fa-solid fa-robot"
+      },
+    ],
+  },
+  {
+    title: "Compatibility & Limitations",
+    items: [
+      {
+        title: "Product Support Overview",
+        desc: "Product support overview for HyperMotion & HyperBDR.",
+        link: "/product-overview/limitations/product-support-overview.md",
+        icon: "fa-solid fa-check-square"
+      },
+      {
+        title: "Linux Agent",
+        desc: "Linux agent support for Linux hosts.",
+        link: "/product-overview/limitations/linux-agent.md",
+        icon: "fa-solid fa-computer"
+      },
+      {
+        title: "Windows Agent",
+        desc: "Windows agent support for Windows hosts.",
+        link: "/product-overview/limitations/windows-agent.md",
+        icon: "fa-solid fa-server"
+      },
+    ],
+  },
+  {
+    title: "User Manual",
+    items: [
+      {
+        title: "HyperMotion User Manual",
+        desc: "User manual for HyperMotion.",
         link: "/userguide/migration/",
         icon: "fa-solid fa-arrow-right"
       },
-      { 
-        title: "DR Guide", 
-        desc: "Best practices for disaster recovery.", 
-        link: "/userguide/dr/", 
-        icon: "fa-solid fa-shield" 
+      {
+        title: "HyperBDR User Manual",
+        desc: "User manual for HyperBDR.",
+        link: "/userguide/dr/",
+        icon: "fa-solid fa-shield"
+      },
+    ],
+  },
+  {
+    title: "Purchase & Activation",
+    items: [
+      {
+        title: "SaaS License & Activation",
+        desc: "Purchase & activation for SaaS license.",
+        link: "/userguide/saas-license/",
+        icon: "fa-solid fa-shopping-cart"
+      },
+      {
+        title: "Standalone License & Activation",
+        desc: "Purchase & activation for standalone license.",
+        link: "/userguide/standalone-license/",
+        icon: "fa-solid fa-key"
+      },
+      {
+        title: "POC License & Activation",
+        desc: "Purchase & activation for POC license.",
+        link: "/userguide/poc-license/",
+        icon: "fa-solid fa-flask"
+      },
+    ],
+  },
+  {
+    title: "Operations",
+    items: [
+      {
+        title: "Administration Guide",
+        desc: "Administration guide for HyperMotion & HyperBDR.",
+        link: "/userguide/operations/",
+        icon: "fa-solid fa-user-gear"
+      },
+      {
+        title: "Admin Portal Manual",
+        desc: "Admin portal manual for HyperMotion & HyperBDR.",
+        link: "/userguide/admin-portal/",
+        icon: "fa-solid fa-window-maximize"
+      },
+      {
+        title: "O&M Guide",
+        desc: "O&M guide for HyperMotion & HyperBDR.",
+        link: "/userguide/om-guide/",
+        icon: "fa-solid fa-tools"
       },
     ],
   },
@@ -96,6 +193,23 @@ export const homepageSections: HomepageSection[] = [
         desc: "Best practices for Troubleshooting", 
         link: "/userguide/technical-practices/troubleshooting-best-practices", 
         icon: "fa-solid fa-bug",
+      },
+    ],
+  },
+  {
+    title: "Tools",
+    items: [
+      {
+        title: "Calculator",
+        desc: "Calculator for HyperMotion & HyperBDR.",
+        link: "/userguide/calculator/",
+        icon: "fa-solid fa-calculator"
+      },
+      {
+        title: "License Management",
+        desc: "License management for HyperMotion & HyperBDR.",
+        link: "/userguide/license-management/",
+        icon: "fa-solid fa-key"
       },
     ],
   },
