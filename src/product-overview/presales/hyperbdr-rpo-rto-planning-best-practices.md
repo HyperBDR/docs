@@ -88,19 +88,41 @@ It is recommended to adopt a flexible disaster recovery plan based on business n
 
 #### RPO Calculation
 
-In HyperBDR, the factors influencing RPO primarily include network (bandwidth and latency) and data change volume, where RPO is approximately equal to the data change volume divided by the network.
+In HyperBDR, the primary factor influencing RPO is **data change volume**, which is the prerequisite for calculating RPO. In the actual RPO time calculation, RPO time equals network transmission time plus cloud-native snapshot time.
 
-HyperBDR predominantly employs block-level differential capture technology to obtain the data change volume. This involves capturing the sum of changed blocks at the operating system's block level within a unit time range, which can be estimated based on the specific business scenario.
+#### Data Change Volume
 
-Network bandwidth and latency refer to the connection between the user's current environment and the cloud. Depending on the mode used, they are categorized as follows:
+Data change volume is the primary prerequisite for RPO calculation, which determines the amount of data that needs to be transmitted and backed up. HyperBDR predominantly employs block-level differential capture technology to obtain the data change volume. This involves capturing the sum of changed blocks at the operating system's block level within a unit time range, which can be estimated based on the specific business scenario.
 
+#### Network Transmission Time
+
+Network transmission time depends on data change volume and network bandwidth. Network bandwidth and latency refer to the connection between the user's current environment and the cloud. Depending on the mode used, they are categorized as follows:
 
 - Block Storage: Network bandwidth and latency between the user's side and the synchronization gateway's public network in the cloud.
 
 - Object Storage: Network bandwidth and latency between the user's side and the cloud's object storage.
 
+#### Cloud-Native Snapshot Time
 
-Assuming the user's production data allocation capacity is 1TB, we outline the bandwidth and data change volume under different RPO requirements.
+Cloud-native snapshot time depends on the snapshot implementation methods of different cloud platforms and is closely related to data increments. Key characteristics include:
+
+- **Initial Full Snapshot**: The first snapshot creation requires a full backup, which takes relatively longer. Based on actual experience, Google Cloud and Azure platforms have faster initial full snapshot speeds, typically completing in minutes; while other cloud platforms (such as AWS, Huawei Cloud, Alibaba Cloud) may take more than an hour for the initial full snapshot.
+
+- **Subsequent Incremental Snapshots**: Based on the initial full snapshot, subsequent snapshots typically use an incremental approach, backing up only the data blocks that have changed since the last snapshot. The time for incremental snapshots mainly depends on the data change volume - the larger the change volume, the longer the snapshot time. Different cloud platforms may have different implementations for incremental snapshots, but they are typically much faster than full snapshots.
+
+For detailed information about the snapshot mechanisms of various cloud platforms, please refer to the following documentation:
+
+- **AWS EBS**: [How Amazon EBS Snapshots Work](https://docs.aws.amazon.com/ebs/latest/userguide/how_snapshots_work.html)
+- **Google Cloud**: [About Disk Snapshots](https://docs.cloud.google.com/compute/docs/disks/snapshots)
+- **Azure**: [Create an Incremental Snapshot](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-incremental-snapshots)
+- **Alibaba Cloud ECS**: [Snapshot Overview](https://www.alibabacloud.com/help/en/ecs/user-guide/snapshot-overview)
+- **Huawei Cloud EVS**: [Creating an EVS Snapshot](https://support.huaweicloud.com/intl/en-us/usermanual-evs/en-us_topic_0066615262.html)
+
+> **Important Note**: Cloud service providers typically do not specify SLA for cloud-native snapshot time in their documentation. Snapshot time may be affected by factors such as hardware configurations and network environments in different regions of the cloud service provider. Therefore, specific snapshot times should be obtained by consulting local cloud service provider architects for the most accurate information.
+
+#### Network Transmission Time Calculation Example
+
+Assuming the user's production data allocation capacity is 1TB, we outline the bandwidth and data change volume under different RPO requirements. Please note that this calculation only considers network transmission time (data change volume divided by network bandwidth), and the actual RPO time also needs to include cloud-native snapshot time.
 
 
 | Data Volume (TB)  | RPO Expectation (Minutes)  | Data Change Rate (%) | Data Change Volume (GB) | Estimated Bandwidth (Mbps) |
