@@ -8,7 +8,7 @@
  * - Available icons: https://fontawesome.com/icons
  */
 
-import type { HomepageSection, CoreAction } from './homepage.config.js'
+import type { HomepageSection, CoreAction, SaasQuickExperience } from './homepage.config.js'
 
 export const homepageSectionsZh: HomepageSection[] = [
   {
@@ -232,4 +232,30 @@ export const coreActionsZh: CoreAction[] = [
     icon: "fa-solid fa-bolt"
   },
 ]
+
+/**
+ * SaaS 快速体验配置
+ * 用于引流用户到 SaaS 注册使用的醒目展示区域
+ */
+export const saasQuickExperienceZh: SaasQuickExperience = {
+  enabled: true,
+  title: "体验我们的 SaaS 平台",
+  subtitle: "零安装、零运维 - 即刻体验云原生迁移与灾备的强大能力",
+  products: [
+    {
+      name: "HyperMotion",
+      description: "云原生迁移解决方案，实现多云环境间工作负载的无缝迁移",
+      link: "https://motion.hyperbdr.com",
+      icon: "/assets/icon/hypermotion.png",
+      color: "var(--vp-c-accent-bg)"
+    },
+    {
+      name: "HyperBDR",
+      description: "企业级灾备解决方案，提供即时故障转移和持续数据保护",
+      link: "https://hyperbdr.com",
+      icon: "/assets/icon/hyperbdr.png",
+      color: "var(--vp-c-accent-bg)"
+    }
+  ]
+}
 

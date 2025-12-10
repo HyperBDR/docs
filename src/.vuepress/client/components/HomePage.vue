@@ -6,9 +6,7 @@
       <h1 class="hero-title">
         <div class="hero-title-line">
           <span class="brand">HyperMotion & HyperBDR</span>
-        </div>
-        <div class="hero-title-line">
-          <span class="docs">{{ isZh ? '文档' : 'Documentation' }}</span>
+          <span class="docs">{{ isZh ? ' 文档' : ' Documentation' }}</span>
         </div>
       </h1>
       <p class="hero-subtitle">{{ isZh ? '全球领先的云原生迁移与灾备解决方案，让您的云主机在多云环境间自由迁移与无忧备份。' : 'The world\'s leading cloud-native migration and disaster recovery solution, empowering seamless migration and reliable backup across multi-cloud environments' }}</p>
@@ -29,14 +27,6 @@
             @keydown.esc="clearSearch"
           />
           <div class="search-actions">
-            <button 
-              class="ai-search-button-inline" 
-              @click.stop="openAiSearch"
-              :title="isZh ? 'AI 智能搜索' : 'AI Search'"
-            >
-              <i class="fa-solid fa-robot"></i>
-              <span class="ai-search-label">{{ isZh ? 'AI 搜索' : 'AI Search' }}</span>
-            </button>
           <div class="shortcut-hint" v-if="searchQuery.length === 0">
             <span class="key">Ctrl</span>
             <span class="key">K</span>
@@ -83,7 +73,28 @@
 
           <!-- 无结果 -->
           <div v-if="filteredResults.length === 0 && searchQuery.length > 0" class="no-results">
-            <div class="no-results-text">{{ isZh ? '未找到结果。' : 'No results found.' }}</div>
+            <div class="no-results-content">
+              <div class="no-results-icon">
+                <i class="fa-solid fa-circle-question"></i>
+              </div>
+              <div class="no-results-title">{{ isZh ? '未找到相关结果' : 'No results found' }}</div>
+              <div class="no-results-description">
+                {{ isZh ? '没有找到与 "' + searchQuery + '" 相关的文档。' : 'No documents found matching "' + searchQuery + '".' }}
+              </div>
+              <div class="no-results-ai-suggestion">
+                <div class="ai-suggestion-label">{{ isZh ? '💡 试试 AI 智能搜索' : '💡 Try AI Search' }}</div>
+                <div class="ai-suggestion-text">{{ isZh ? 'AI 可以理解您的意图，帮您找到更准确的结果' : 'AI understands your intent and finds more accurate results' }}</div>
+                <button 
+                  class="ai-search-button-no-results" 
+                  @click.stop="openAiSearch"
+                  :title="isZh ? 'AI 智能搜索' : 'AI Search'"
+                >
+                  <i class="fa-solid fa-robot"></i>
+                  <span class="ai-search-label">{{ isZh ? '使用 AI 搜索' : 'Use AI Search' }}</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -111,6 +122,37 @@
       </a>
     </div>
 
+    <!-- SaaS 快速体验展示区域 -->
+    <div v-if="saasQuickExperienceConfig.enabled" class="saas-wrapper">
+      <section class="saas-section">
+        <div class="saas-section-title">{{ saasQuickExperienceConfig.title }}</div>
+        <p v-if="saasQuickExperienceConfig.subtitle" class="saas-description">{{ saasQuickExperienceConfig.subtitle }}</p>
+        <div class="saas-actions">
+          <a
+            v-for="(product, index) in saasQuickExperienceConfig.products"
+            :key="index"
+            :href="product.link"
+            class="saas-action-button"
+            :style="{ '--product-color': product.color || '#667eea' }"
+            @click.prevent="navigate(product.link)"
+          >
+            <div class="saas-action-icon">
+              <img v-if="product.icon && product.icon.endsWith('.png')" :src="product.icon" :alt="product.name" />
+              <i v-else :class="product.icon"></i>
+            </div>
+            <div class="saas-action-content">
+              <div class="saas-action-title">{{ product.name }}</div>
+              <div class="saas-action-desc">{{ product.description }}</div>
+            </div>
+            <div class="saas-action-try">
+              <span>{{ isZh ? '体验' : 'Try' }}</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
+      </section>
+    </div>
+
     <div class="sections">
       <section v-for="(section, idx) in sections" :key="idx" class="section">
         <div class="section-title">{{ section.title }}</div>
@@ -135,8 +177,8 @@ import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSearchIndex, useSearchSuggestions } from '@vuepress/plugin-search/client'
 import { useRouteLocale } from 'vuepress/client'
-import { homepageSections, coreActions } from '../homepage.config.js'
-import { homepageSectionsZh, coreActionsZh } from '../homepage.config.zh.js'
+import { homepageSections, coreActions, saasQuickExperience } from '../homepage.config.js'
+import { homepageSectionsZh, coreActionsZh, saasQuickExperienceZh } from '../homepage.config.zh.js'
 
 const router = useRouter()
 const searchInput = ref<HTMLInputElement | null>(null)
@@ -173,6 +215,10 @@ const sections = computed(() => {
 
 const coreActionsList = computed(() => {
   return isZh.value ? coreActionsZh : coreActions
+})
+
+const saasQuickExperienceConfig = computed(() => {
+  return isZh.value ? saasQuickExperienceZh : saasQuickExperience
 })
 
 const filteredResults = computed(() => {
