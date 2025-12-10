@@ -14,20 +14,20 @@ export const homepageSectionsZh: HomepageSection[] = [
   {
     title: "产品概览",
     items: [
-      { 
+      {
         title: "场景",
         desc: "HyperMotion & HyperBDR 支持的场景。",
         link: "/zh/product-overview/product-training/scenarios.md",
         icon: "fa-solid fa-cube"
       },
-      { 
-        title: "网络规划", 
-        desc: "HyperMotion & HyperBDR 的网络规划最佳实践。", 
-        link: "/zh/product-overview/presales/dr-network-planning-recommendations", 
-        icon: "fa-solid fa-network-wired" 
+      {
+        title: "网络规划",
+        desc: "HyperMotion & HyperBDR 的网络规划最佳实践。",
+        link: "/zh/product-overview/presales/dr-network-planning-recommendations",
+        icon: "fa-solid fa-network-wired"
       },
-      { 
-        title: "技术亮点", 
+      {
+        title: "技术亮点",
         desc: "HyperMotion & HyperBDR 的技术亮点。",
         link: "/zh/product-overview/product-training/technical-highlights.md",
         icon: "fa-solid fa-lightbulb"
@@ -37,20 +37,20 @@ export const homepageSectionsZh: HomepageSection[] = [
   {
     title: "主机调研",
     items: [
-      { 
-        title: "主机调研", 
+      {
+        title: "主机调研",
         desc: "Linux & Windows 主机快速调研",
         link: "/zh/product-overview/presales/hyperbdr-agent-investigation.md",
         icon: "fa-solid fa-computer"
       },
-      { 
-        title: "VMware 主机调研", 
+      {
+        title: "VMware 主机调研",
         desc: "VMware 主机快速调研",
         link: "/zh/product-overview/presales/hyperbdr-vmware-investigation.md",
         icon: "fa-solid fa-server"
       },
-      { 
-        title: "自动主机信息收集", 
+      {
+        title: "自动主机信息收集",
         desc: "自动化主机收集工具，支持 Linux & Windows & VMware 主机信息收集",
         link: "/zh/product-overview/presales/auto-host-info-collector.md",
         icon: "fa-solid fa-robot"
@@ -62,21 +62,57 @@ export const homepageSectionsZh: HomepageSection[] = [
     items: [
       {
         title: "产品支持概览",
-        desc: "产品支持概览。",
-        link: "/zh/product-overview/limitations/product-support-overview",
+        desc: "HyperMotion & HyperBDR 产品支持概览。",
+        link: "/product-overview/limitations/product-support-overview.md",
         icon: "fa-solid fa-check-square"
       },
-      { 
-        title: "Linux Agent", 
-        desc: "Linux Agent 支持与限制条件", 
-        link: "/zh/product-overview/limitations/linux-agent", 
-        icon: "fa-solid fa-computer" 
+      {
+        title: "Linux Agent",
+        desc: "Linux 代理支持 for Linux 主机。",
+        link: "/product-overview/limitations/linux-agent.md",
+        icon: "fa-solid fa-computer"
       },
-      { 
-        title: "Windows Agent", 
-        desc: "Windows Agent 支持与限制条件", 
-        link: "/zh/product-overview/limitations/windows-agent", 
-        icon: "fa-solid fa-server" 
+      {
+        title: "Windows Agent",
+        desc: "Windows 代理支持 for Windows 主机。",
+        link: "/product-overview/limitations/windows-agent.md",
+        icon: "fa-solid fa-server"
+      },
+      {
+        title: "VMware Agentless",
+        desc: "VMware 无代理支持 for VMware 主机。",
+        link: "/product-overview/limitations/vmware-agentless.md",
+        icon: "fa-solid fa-server"
+      },
+      {
+        title: "FusionCompute Agentless",
+        desc: "FusionCompute 无代理支持 for FusionCompute 8.6.0 主机。",
+        link: "/product-overview/limitations/huawei-fusioncompute-agentless.md",
+        icon: "fa-solid fa-server"
+      },
+      {
+        title: "OpenStack Ceph Agentless",
+        desc: "OpenStack & Ceph 无代理支持 for OpenStack & Ceph 平台。",
+        link: "/product-overview/limitations/openstack-ceph-agentless.md",
+        icon: "fa-solid fa-cloud"
+      },
+      {
+        title: "Huawei Cloud Stack Agentless",
+        desc: "Huawei Cloud Stack 无代理支持 for Huawei Cloud Stack 8.0.2 主机。",
+        link: "/product-overview/limitations/huawei-hcs-agentless.md",
+        icon: "fa-solid fa-cloud"
+      },
+      {
+        title: "Huawei Cloud Agentless",
+        desc: "Huawei Cloud 无代理支持 for Huawei Cloud API 主机。",
+        link: "/product-overview/limitations/huawei-cloud-agentless.md",
+        icon: "fa-solid fa-cloud"
+      },
+      {
+        title: "Oracle Cloud Agentless",
+        desc: "Oracle Cloud 无代理支持 for Oracle Cloud 主机。",
+        link: "/product-overview/limitations/oracle-cloud-agentless.md",
+        icon: "fa-solid fa-cloud"
       },
     ],
   },
@@ -106,14 +142,14 @@ export const homepageSectionsZh: HomepageSection[] = [
         link: "/zh/userguide/saas-license/",
         icon: "fa-solid fa-shopping-cart"
       },
-      { 
-        title: "单机授权购买激活", 
+      {
+        title: "单机授权购买激活",
         desc: "单机授权购买激活。",
         link: "/zh/userguide/standalone-license/",
         icon: "fa-solid fa-key"
       },
-      { 
-        title: "POC 授权购买激活", 
+      {
+        title: "POC 授权购买激活",
         desc: "POC 授权购买激活。",
         link: "/zh/userguide/poc-license/",
         icon: "fa-solid fa-flask"
@@ -146,28 +182,28 @@ export const homepageSectionsZh: HomepageSection[] = [
   {
     title: "最佳实践",
     items: [
-      { 
-        title: "技术实践", 
-        desc: "HyperMotion & HyperBDR 技术实践。", 
-        link: "/zh/userguide/technical-practices/policy-best-practices", 
-        icon: "fa-solid fa-check-square" 
+      {
+        title: "技术实践",
+        desc: "HyperMotion & HyperBDR 技术实践。",
+        link: "/zh/userguide/technical-practices/policy-best-practices",
+        icon: "fa-solid fa-check-square"
       },
-      { 
-        title: "Pre & Post 脚本管理", 
-        desc: "HyperMotion & HyperBDR Pre & Post 脚本管理。", 
-        link: "/zh/userguide/technical-practices/script-best-practices", 
-        icon: "fa-solid fa-file-code" 
+      {
+        title: "Pre & Post 脚本管理",
+        desc: "HyperMotion & HyperBDR Pre & Post 脚本管理。",
+        link: "/zh/userguide/technical-practices/script-best-practices",
+        icon: "fa-solid fa-file-code"
       },
-      { 
-        title: "网络规划", 
-        desc: "HyperMotion & HyperBDR 网络规划。", 
-        link: "/zh/userguide/technical-practices/network-planning", 
-        icon: "fa-solid fa-network-wired" 
+      {
+        title: "网络规划",
+        desc: "HyperMotion & HyperBDR 网络规划。",
+        link: "/zh/userguide/technical-practices/network-planning",
+        icon: "fa-solid fa-network-wired"
       },
-      { 
-        title: "故障排除", 
-        desc: "HyperMotion & HyperBDR 故障排除。", 
-        link: "/zh/userguide/technical-practices/troubleshooting-best-practices", 
+      {
+        title: "故障排除",
+        desc: "HyperMotion & HyperBDR 故障排除。",
+        link: "/zh/userguide/technical-practices/troubleshooting-best-practices",
         icon: "fa-solid fa-bug",
       },
     ],
@@ -198,17 +234,17 @@ export const homepageSectionsZh: HomepageSection[] = [
         link: "https://support.oneprocloud.com/",
         icon: "fa-solid fa-handshake-angle"
       },
-      { 
-        title: "AI 智能搜索", 
-        desc: "AI 智能搜索 from OneProCloud.", 
-        link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b", 
-        icon: "fa-solid fa-robot" 
+      {
+        title: "AI 智能搜索",
+        desc: "AI 智能搜索 from OneProCloud.",
+        link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+        icon: "fa-solid fa-robot"
       },
-      { 
-        title: "常见问题", 
+      {
+        title: "常见问题",
         desc: "HyperMotion & HyperBDR 常见问题。",
-        link: "/zh/userguide/faq/faq", 
-        icon: "fa-solid fa-circle-question" 
+        link: "/zh/userguide/faq/faq",
+        icon: "fa-solid fa-circle-question"
       },
     ],
   },
