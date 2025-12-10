@@ -267,6 +267,12 @@ export const coreActionsZh: CoreAction[] = [
     link: "/zh/userguide/installation/quick-installation.md",
     icon: "fa-solid fa-bolt"
   },
+  {
+    title: "AI Support",
+    desc: "AI Support from OneProCloud.",
+    link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+    icon: "fa-solid fa-robot"
+  },
 ]
 
 /**
@@ -276,7 +282,7 @@ export const coreActionsZh: CoreAction[] = [
 export const saasQuickExperienceZh: SaasQuickExperience = {
   enabled: true,
   title: "体验我们的 SaaS 平台",
-  subtitle: "零安装、零运维 - 即刻体验云原生迁移与灾备的强大能力",
+  subtitle: "免费注册，快速开启迁移与灾备体验之旅。",
   products: [
     {
       name: "HyperMotion",

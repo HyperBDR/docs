@@ -918,7 +918,7 @@ $glow-color: var(--vp-c-border);
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 24px;
+  padding: 14px;
   background: var(--vp-c-bg);
   border: 2px solid var(--vp-c-border);
   border-radius: 16px;
@@ -942,20 +942,6 @@ $glow-color: var(--vp-c-border);
   text-decoration: none !important;
 }
 
-.core-action-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg,
-      color-mix(in srgb, var(--vp-c-accent-hover, var(--vp-c-accent)) 8%, transparent) 0%,
-      color-mix(in srgb, var(--vp-c-accent-hover, var(--vp-c-accent)) 4%, transparent) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
 .core-action-button:hover {
   border-color: var(--vp-c-accent-hover, var(--vp-c-accent));
   box-shadow: 0 8px 24px color-mix(in srgb, var(--vp-c-accent-hover, var(--vp-c-accent)) 20%, transparent);
@@ -967,9 +953,9 @@ $glow-color: var(--vp-c-border);
 }
 
 .core-action-icon {
-  width: 56px;
-  height: 56px;
-  min-width: 56px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
   border-radius: 14px;
   background: linear-gradient(135deg,
       var(--vp-c-accent-hover, var(--vp-c-accent)) 0%,
@@ -1027,11 +1013,11 @@ $glow-color: var(--vp-c-border);
   height: 32px;
   min-width: 32px;
   border-radius: 8px;
-  background: var(--vp-c-bg-soft);
+  background: color-mix(in srgb, var(--vp-c-accent-hover, var(--vp-c-accent)) 88%, var(--vp-c-bg));
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--vp-c-text-2);
+  color: white;
   font-size: 14px;
   transition: all 0.3s ease;
   position: relative;
@@ -1116,22 +1102,50 @@ $glow-color: var(--vp-c-border);
   color: var(--vp-c-text);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.saas-section-title>span:first-child {
+  white-space: nowrap;
+  margin-right: 12px;
+  order: 0;
+}
+
+.saas-section-title::before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--vp-c-border), transparent);
+  margin-right: 12px;
+  order: 1;
+}
+
+.saas-description {
+  font-size: 15px;
+  font-weight: 600;
+  background: linear-gradient(120deg, var(--vp-c-accent-hover, var(--vp-c-accent)) 0%, var(--vp-c-accent) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--vp-c-accent-hover, var(--vp-c-accent));
+  white-space: nowrap;
+  margin: 0;
+  padding: 0 12px;
+  letter-spacing: 0.01em;
+  position: relative;
+  flex-shrink: 0;
+  order: 2;
 }
 
 .saas-section-title::after {
   content: "";
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, var(--vp-c-border), transparent);
-}
-
-.saas-description {
-  font-size: 14px;
-  color: var(--vp-c-text-2);
-  margin: 8px 0 20px 0;
-  line-height: 1.6;
-  text-align: left;
+  background: linear-gradient(to left, var(--vp-c-border), transparent);
+  margin-left: 12px;
+  order: 3;
 }
 
 .saas-actions {
@@ -1293,12 +1307,12 @@ $glow-color: var(--vp-c-border);
   min-width: 80px;
   padding: 10px 16px;
   border-radius: 8px;
-  background: var(--vp-c-bg-soft);
+  background: var(--vp-c-accent-bg);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  color: var(--vp-c-text-2);
+  color: white;
   font-size: 14px;
   font-weight: 600;
   transition: all 0.3s ease;

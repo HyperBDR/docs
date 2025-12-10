@@ -114,7 +114,7 @@
         </div>
         <div class="core-action-content">
           <div class="core-action-title">{{ action.title }}</div>
-          <div class="core-action-desc">{{ action.desc }}</div>
+          <!--<div class="core-action-desc">{{ action.desc }}</div>-->
         </div>
         <div class="core-action-arrow">
           <i class="fa-solid fa-arrow-right"></i>
@@ -125,8 +125,10 @@
     <!-- SaaS 快速体验展示区域 -->
     <div v-if="saasQuickExperienceConfig.enabled" class="saas-wrapper">
       <section class="saas-section">
-        <div class="saas-section-title">{{ saasQuickExperienceConfig.title }}</div>
-        <p v-if="saasQuickExperienceConfig.subtitle" class="saas-description">{{ saasQuickExperienceConfig.subtitle }}</p>
+        <div class="saas-section-title">
+          <span>{{ saasQuickExperienceConfig.title }}</span>
+          <span v-if="saasQuickExperienceConfig.subtitle" class="saas-description">{{ saasQuickExperienceConfig.subtitle }}</span>
+        </div>
         <div class="saas-actions">
           <a
             v-for="(product, index) in saasQuickExperienceConfig.products"
