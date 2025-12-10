@@ -34,6 +34,21 @@ export interface CoreAction {
   icon: string // FontAwesome icon class name (e.g., "fa-solid fa-list-check")
 }
 
+export interface SaasProduct {
+  name: string
+  description: string
+  link: string
+  icon: string
+  color?: string
+}
+
+export interface SaasQuickExperience {
+  enabled: boolean
+  title: string
+  subtitle?: string
+  products: SaasProduct[]
+}
+
 export const homepageSections: HomepageSection[] = [
   {
     title: "Product Overview",
@@ -44,11 +59,11 @@ export const homepageSections: HomepageSection[] = [
         link: "/product-overview/product-training/scenarios.md",
         icon: "fa-solid fa-cube"
       },
-      { 
-        title: "Network Planning", 
-        desc: "Network planning for HyperMotion & HyperBDR.", 
-        link: "/product-overview/presales/dr-network-planning-recommendations", 
-        icon: "fa-solid fa-network-wired" 
+      {
+        title: "Network Planning",
+        desc: "Network planning for HyperMotion & HyperBDR.",
+        link: "/product-overview/presales/dr-network-planning-recommendations",
+        icon: "fa-solid fa-network-wired"
       },
       {
         title: "Technical Highlights",
@@ -170,28 +185,28 @@ export const homepageSections: HomepageSection[] = [
   {
     title: "Best Practices",
     items: [
-      { 
-        title: "Technical Practices", 
-        desc: "Best practices for Policy Management", 
-        link: "/userguide/technical-practices/policy-best-practices", 
-        icon: "fa-solid fa-check-square" 
+      {
+        title: "Technical Practices",
+        desc: "Best practices for Policy Management",
+        link: "/userguide/technical-practices/policy-best-practices",
+        icon: "fa-solid fa-check-square"
       },
-      { 
-        title: "Script Management", 
-        desc: "Best practices for Script Management", 
-        link: "/userguide/technical-practices/script-best-practices", 
-        icon: "fa-solid fa-file-code" 
+      {
+        title: "Script Management",
+        desc: "Best practices for Script Management",
+        link: "/userguide/technical-practices/script-best-practices",
+        icon: "fa-solid fa-file-code"
       },
-      { 
-        title: "Network Planning", 
-        desc: "Best practices for Network Planning", 
-        link: "/userguide/technical-practices/network-planning", 
-        icon: "fa-solid fa-network-wired" 
+      {
+        title: "Network Planning",
+        desc: "Best practices for Network Planning",
+        link: "/userguide/technical-practices/network-planning",
+        icon: "fa-solid fa-network-wired"
       },
-      { 
-        title: "Troubleshooting", 
-        desc: "Best practices for Troubleshooting", 
-        link: "/userguide/technical-practices/troubleshooting-best-practices", 
+      {
+        title: "Troubleshooting",
+        desc: "Best practices for Troubleshooting",
+        link: "/userguide/technical-practices/troubleshooting-best-practices",
         icon: "fa-solid fa-bug",
       },
     ],
@@ -222,17 +237,17 @@ export const homepageSections: HomepageSection[] = [
         link: "https://support.oneprocloud.com/",
         icon: "fa-solid fa-handshake-angle"
       },
-      { 
-        title: "AI Support", 
-        desc: "AI Support from OneProCloud.", 
-        link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b", 
-        icon: "fa-solid fa-robot" 
+      {
+        title: "AI Support",
+        desc: "AI Support from OneProCloud.",
+        link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+        icon: "fa-solid fa-robot"
       },
-      { 
-        title: "FAQ", 
-        desc: "Frequently asked questions.", 
-        link: "/userguide/faq/faq", 
-        icon: "fa-solid fa-circle-question" 
+      {
+        title: "FAQ",
+        desc: "Frequently asked questions.",
+        link: "/userguide/faq/faq",
+        icon: "fa-solid fa-circle-question"
       },
     ],
   },
@@ -256,4 +271,30 @@ export const coreActions: CoreAction[] = [
     icon: "fa-solid fa-bolt"
   },
 ]
+
+/**
+ * SaaS Quick Experience configuration
+ * This is a prominent call-to-action section for SaaS registration and trial
+ */
+export const saasQuickExperience: SaasQuickExperience = {
+  enabled: true,
+  title: "Try Our SaaS Platform",
+  subtitle: "Zero installation, zero maintenance - Experience cloud-native migration and disaster recovery instantly",
+  products: [
+    {
+      name: "HyperMotion",
+      description: "Cloud-native migration solution for seamless workload transfer across multi-cloud environments",
+      link: "https://motion.hyperbdr.com",
+      icon: "/assets/icon/hypermotion.png",
+      color: "var(--vp-c-accent-bg)"
+    },
+    {
+      name: "HyperBDR",
+      description: "Enterprise-grade disaster recovery solution with instant failover and continuous data protection",
+      link: "https://hyperbdr.com",
+      icon: "/assets/icon/hyperbdr.png",
+      color: "var(--vp-c-accent-bg)"
+    }
+  ]
+}
 
