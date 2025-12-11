@@ -11,12 +11,13 @@
 | Oracle Linux Server (64-bit) | 6.x, 7.x, 8.x |
 | Kylin Linux | v10 SP1(v2101) |
 | UOS | UOS 1050 u2a, UOS 1050 u2e |
+| OpenEuler | 22.03.x, 24.03.x |
 
 ::: warning
 - 注意：操作系统内核支持范围：2.6.32 ~ 5.8（标准社区版本）
 - 目前不支持带有云标签的内核版本。如果需要特定的内核版本支持，请联系技术支持。
 
-关于版本的详细支持情况，请点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)查看兼容性列表及最新支持状态。
+关于版本的详细支持情况，请点击[源端操作系统支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)查看兼容性列表及最新支持状态。
 :::
 
 ## 支持和限制条件
