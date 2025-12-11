@@ -7,7 +7,7 @@
   "scripts": {
     "docs:build": "vuepress-webpack build src",
     "docs:clean-dev": "vuepress-webpack dev src --clean-cache",
-    "docs:dev": "vuepress-webpack dev src",
+    "docs:dev": "vuepress-webpack dev src --port 8081 --debug",
     "docs:update-package": "yarn dlx vp-update"
   },
   "devDependencies": {
