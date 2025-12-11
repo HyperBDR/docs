@@ -52,7 +52,8 @@ export const enSidebar = sidebar({
         "network-planning.md",
         "troubleshooting-best-practices.md",
         "saas-network-practices.md",
-        "hyperbdr-service-ip-changes-and-post-change-environment.md"
+        "hyperbdr-service-ip-changes-and-post-change-environment.md",
+        "hyperbdr-orchestration-best-practices"
       ],
       collapsible: true,
       expanded: true,
