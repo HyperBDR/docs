@@ -23,7 +23,32 @@ export const enSidebar = sidebar({
   ],
   "/userguide/technical-practices/": [
     {
-      text: "DR Failback Practices",
+      text: "Survey & Planning",
+      icon: "check",
+      prefix: "",
+      children: [
+        "network-planning.md",
+        "saas-network-practices.md",
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+    {
+      text: "Usage",
+      icon: "check",
+      prefix: "",
+      children: [
+        "dkms-build-guide.md",
+        "policy-best-practices.md",
+        "script-best-practices",
+        "hyperbdr-service-ip-changes-and-post-change-environment.md",
+        "hyperbdr-orchestration-best-practices",
+      ],
+      collapsible: true,
+      expanded: true,
+    },       
+    {
+      text: "DR Failback",
       icon: "check",
       prefix: "",
       children: [
@@ -33,27 +58,11 @@ export const enSidebar = sidebar({
       expanded: true,
     },
     {
-      text: "Linux Agent",
+      text: "Operation",
       icon: "check",
       prefix: "",
       children: [
-        "dkms-build-guide.md",
-      ],
-      collapsible: true,
-      expanded: true,
-    },
-    {
-      text: "Function Practices",
-      icon: "check",
-      prefix: "",
-      children: [
-        "policy-best-practices.md",
-        "script-best-practices",
-        "network-planning.md",
         "troubleshooting-best-practices.md",
-        "saas-network-practices.md",
-        "hyperbdr-service-ip-changes-and-post-change-environment.md",
-        "hyperbdr-orchestration-best-practices"
       ],
       collapsible: true,
       expanded: true,

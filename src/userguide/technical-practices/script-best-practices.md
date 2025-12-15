@@ -1,4 +1,4 @@
-# **Pre & Post Scripts Best Practices**
+# Pre & Post
 
 ## **Version Note**
 
