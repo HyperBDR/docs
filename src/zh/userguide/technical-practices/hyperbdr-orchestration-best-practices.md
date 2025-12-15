@@ -350,8 +350,49 @@ DRS 会持续解析数据库日志、同步增量数据，使两个区域的数�
 ```bash
 export CLOUD_SDK_AK="你的AK"
 export CLOUD_SDK_SK="你的SK"
-/usr/bin/python3 /root/new_master.py
+/usr/bin/python3 /root/master.py
 ```
+脚本完整示例如下：
+
+```bash
+# coding: utf-8
+
+import os
+from huaweicloudsdkcore.auth.credentials import BasicCredentials
+from huaweicloudsdkdrs.v3.region.drs_region import DrsRegion
+from huaweicloudsdkcore.exceptions import exceptions
+from huaweicloudsdkdrs.v3 import *
+
+if __name__ == "__main__":
+    # The AK and SK used for authentication are hard-coded or stored in plaintext, which has great security risks. It is recommended that the AK and SK be stored in ciphertext in configuration files or environment variables and decrypted during use to ensure security.
+    # In this example, AK and SK are stored in environment variables for authentication. Before running this example, set environment variables CLOUD_SDK_AK and CLOUD_SDK_SK in the local environment
+    ak = os.environ["CLOUD_SDK_AK"]
+    sk = os.environ["CLOUD_SDK_SK"]
+
+    credentials = BasicCredentials(ak, sk)
+
+    client = DrsClient.new_builder() \
+        .with_credentials(credentials) \
+        .with_region(DrsRegion.value_of("Region")) \
+        .build()
+
+    try:
+        request = BatchSwitchoverRequest()
+        listJobsbody = [
+            "Job_id"
+        ]
+        request.body = BatchSwitchoverReq(
+            jobs=listJobsbody
+        )
+        response = client.batch_switchover(request)
+        print(response)
+    except exceptions.ClientRequestException as e:
+        print(e.status_code)
+        print(e.request_id)
+        print(e.error_code)
+        print(e.error_msg)
+```
+
 
 * 系统会进行验证是否切换成功，当切换失败时系统会阻断流程，避免切换风险。
 
@@ -361,6 +402,98 @@ export CLOUD_SDK_SK="你的SK"
 python3 /root/master_status.py
 ```
 
+脚本完整示例如下：
+
+```bash
+# coding: utf-8
+
+import os
+import time
+from huaweicloudsdkcore.auth.credentials import BasicCredentials
+from huaweicloudsdkdrs.v3.region.drs_region import DrsRegion
+from huaweicloudsdkcore.exceptions import exceptions
+from huaweicloudsdkdrs.v3 import *
+
+# =======================================
+# Configuration variables (editable)
+# =======================================
+AK = os.environ.get("CLOUD_SDK_AK")
+SK = os.environ.get("CLOUD_SDK_SK")
+REGION = "Region"
+
+# Multiple job IDs separated by commas
+JOB_IDS = "Job_id"
+
+# Retry configuration
+TOTAL_ATTEMPTS = 3          # total queries including the first one
+RETRY_INTERVAL = 30         # seconds
+
+# =======================================
+# Function to query DRS job status
+# =======================================
+def query_jobs(client, job_list):
+    request = BatchListJobDetailsRequest()
+    request.body = BatchQueryJobReqPage(jobs=job_list)
+    return client.batch_list_job_details(request)
+
+
+# =======================================
+# Main Program
+# =======================================
+if __name__ == "__main__":
+
+    if not AK or not SK:
+        raise RuntimeError("The environment variables CLOUD_SDK_AK / CLOUD_SDK_SK are not set")
+
+    job_list = [i.strip() for i in JOB_IDS.split(",") if i.strip()]
+
+    credentials = BasicCredentials(AK, SK)
+
+    client = DrsClient.new_builder() \
+        .with_credentials(credentials) \
+        .with_region(DrsRegion.value_of(REGION)) \
+        .build()
+
+    for attempt in range(1, TOTAL_ATTEMPTS + 1):
+
+        try:
+            print(f"Querying job status... (Attempt {attempt}/{TOTAL_ATTEMPTS})")
+
+            response = query_jobs(client, job_list)
+            resp_dict = response.to_dict()
+            job_results = resp_dict.get("results", [])
+
+            down_found = False
+
+            for job in job_results:
+                job_id = job.get("id")
+                direction = job.get("job_direction")
+                status = job.get("status")
+
+                print(f"[Job {job_id}] direction={direction}, status={status}")
+
+                if direction == "down":
+                    down_found = True
+
+            if not down_found:
+                print("All jobs direction are OK. No retry required.")
+                exit(0)
+
+            if attempt < TOTAL_ATTEMPTS:
+                print(f"'down' state detected. Retrying in {RETRY_INTERVAL} seconds...\n")
+                time.sleep(RETRY_INTERVAL)
+            else:
+                print("ERROR: Reached max attempts. Job still in 'down' state. Exiting.")
+                exit(1)
+
+        except exceptions.ClientRequestException as e:
+            print("Exception during request:")
+            print("Status Code:", e.status_code)
+            print("Request ID:", e.request_id)
+            print("Error Code:", e.error_code)
+            print("Error Message:", e.error_msg)
+            exit(1)
+```
 #### **步骤三：DNS切换**
 
 **目的**：

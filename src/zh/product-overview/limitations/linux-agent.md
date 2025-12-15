@@ -11,7 +11,7 @@
 | Oracle Linux Server (64-bit) | 6.x, 7.x, 8.x |
 | Kylin Linux | v10 SP1(v2101) |
 | UOS | UOS 1050 u2a, UOS 1050 u2e |
-| OpenEuler | 22.03.x, 24.03.x  |
+| OpenEuler | 22.03.x, 24.03.x |
 
 ::: warning
 - 注意：操作系统内核支持范围：2.6.32 ~ 5.8（标准社区版本）
