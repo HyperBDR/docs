@@ -1,4 +1,4 @@
-# Migration & DR Network Planning Best Practices
+# Migration & DR Network Planning
 
 ## 1. **Network Planning for Host Migration and Disaster Recovery**
 

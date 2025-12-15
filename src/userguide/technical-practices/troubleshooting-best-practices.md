@@ -1,4 +1,4 @@
-# Troubleshooting Best Practices
+# Troubleshooting
 
 ## 1. Overview
 
