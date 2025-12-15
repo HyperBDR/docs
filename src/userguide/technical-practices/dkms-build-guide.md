@@ -1,4 +1,4 @@
-# Kernel Module Build (DKMS)
+# Linux Agent Kernel Module Build (DKMS)
 
 ## 1. Description of applicable scenarios
 

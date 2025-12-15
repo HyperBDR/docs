@@ -1,4 +1,4 @@
-# HyperBDR Orchestration Best Practices
+# HyperBDR Orchestration
 
 ## 1. Why is the orchestration function needed?
 

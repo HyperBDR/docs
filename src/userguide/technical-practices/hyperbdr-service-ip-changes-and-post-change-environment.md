@@ -1,4 +1,4 @@
-# Best practices for HyperBDR service IP changes and post-change environment configuration updates
+# HyperMotion / HyperBDR Service IP Change Guide
 
 ## Scene description
 

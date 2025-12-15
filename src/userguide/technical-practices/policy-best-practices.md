@@ -1,5 +1,5 @@
 
-# Policy Management Best Practices
+# Policy Management
 
 ## Overview
 
