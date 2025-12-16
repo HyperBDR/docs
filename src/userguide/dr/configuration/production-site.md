@@ -15,18 +15,19 @@ Currently, the source production platform supports two modes: **Agent** and **Ag
 
   * Source Agent operating system support list:  
         <https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO>
+## **DR**
 
-## **VMware**
+### **VMware**
 
 The VMware platform page on the production site is mainly used for adding, deleting, updating, and other related management operations for the VMware platform.
 
-### **Add VMware Platform**
+#### **Add VMware Platform**
 
 Click **"Production Site"** in the left navigation bar, select **VMware**, and click the **"Add"** button. Follow the steps in the pop-up window to add the platform.
 
 ![](./images/productionsiteconfiguration-vmware-1.png)
 
-#### **Deploy Sync Proxy**
+##### **Deploy Sync Proxy**
 
 Follow the guided steps below:
 
@@ -68,7 +69,7 @@ Reference steps: Sync Proxy
 
 ![](./images/productionsiteconfiguration-vmware-2.png)
 
-#### **Create VMware Production Platform**
+##### **Create VMware Production Platform**
 
 1. Obtain authentication information
 
@@ -98,7 +99,7 @@ After filling in the required authentication information, click the Confirm butt
 
 ![](./images/productionsiteconfiguration-vmware-3.png)
 
-#### **Complete VMware Addition**
+##### **Complete VMware Addition**
 
 The VMware production platform configuration is complete. Wait until the platform status is normal and the number of cluster hosts is obtained before proceeding with subsequent steps.
 
@@ -108,17 +109,17 @@ Note: You can repeat the above steps to add multiple VMware clusters, or add a s
 
 ---
 
-## **OpenStack**
+### **OpenStack**
 
 The OpenStack page under the Production Platform section is mainly used for managing OpenStack platforms, including adding, deleting, and updating them.
 
-### **Add OpenStack Platform**
+#### **Add OpenStack Platform**
 
 Click **"Production Site"** in the left navigation panel, select **OpenStack**, and click the **"Add"** button. Follow the step-by-step instructions in the pop-up window to add a platform.
 
 ![](./images/productionsiteconfiguration-openstack-1.png)
 
-#### **Deploy Sync Proxy**
+##### **Deploy Sync Proxy**
 
 Follow the guided steps below:
 
@@ -155,7 +156,7 @@ Note: This Ubuntu 20.04 image does not have a default login password. The image 
 
 ![](./images/productionsiteconfiguration-openstack-2.png)
 
-#### **Create OpenStack Production Platform**
+##### **Create OpenStack Production Platform**
 
 1. Obtaining OpenStack connection information
 
@@ -207,7 +208,7 @@ If there are multiple Ceph clusters, you may repeat the above process to add eac
 
 ![](./images/productionsiteconfiguration-openstack-4.png)
 
-#### **Complete OpenStack Addition**
+##### **Complete OpenStack Addition**
 
 Once the OpenStack production platform configuration is completed and the platform status becomes "Healthy", and the number of cluster hosts has been retrieved, you may proceed to the next steps.
 
@@ -217,17 +218,17 @@ Note: You may repeat the above steps to add multiple OpenStack clusters.
 
 ---
 
-## **AWS**
+### **AWS**
 
 The AWS production platform page primarily provides functions for adding, deleting, and updating AWS platforms.
 
-### **Add AWS Platform**
+#### **Add AWS Platform**
 
 Navigate to **"Production Site"** from the left sidebar, select **AWS**, and click the **"Add"** button. Follow the steps in the pop-up dialog to complete the configuration.
 
 ![](./images/productionsiteconfiguration-aws-1.png)
 
-#### **Deploy Sync Proxy**
+##### **Deploy Sync Proxy**
 
 Follow the step-by-step guide to perform the following operations:
 
@@ -256,7 +257,7 @@ On the AWS platform, create a new cloud host using the native **AWS EC2 Ubuntu 2
 
 ![](./images/productionsiteconfiguration-aws-2.png)
 
-#### **Create AWS Production Platform**
+##### **Create AWS Production Platform**
 
 1. AWS Connection Information
 
@@ -284,7 +285,7 @@ When using AWS Direct APIs for data backup, the account must have the required p
 
 ![](./images/productionsiteconfiguration-aws-3.png)
 
-#### **Complete AWS Platform Addition**
+##### **Complete AWS Platform Addition**
 
 Once the AWS production platform configuration is complete, wait for the platform status to become **"Normal"**, and for the EC2 instance list to be successfully fetched. After that, you may proceed with additional steps.
 
@@ -294,17 +295,17 @@ Once the AWS production platform configuration is complete, wait for the platfor
 
 ---
 
-## **FusionCompute**
+### **FusionCompute**
 
 The FusionCompute production platform page is mainly used for adding, deleting, updating, and other management operations for the FusionCompute platform.
 
-### **Add FusionCompute Platform**
+#### **Add FusionCompute Platform**
 
 Click "Production Site" in the left navigation bar, select FusionCompute, and click the "Add" button. Follow the step-by-step guide in the pop-up window to add the platform.
 
 ![](./images/productionsiteconfiguration-fusioncompute-1.png)
 
-#### **Deploy Sync Proxy**
+##### **Deploy Sync Proxy**
 
 Follow the guided steps below:
 
@@ -347,7 +348,7 @@ Follow the guided steps below:
 
 ![](./images/productionsiteconfiguration-fusioncompute-2.png)
 
-#### **Create FusionCompute Production Platform**
+##### **Create FusionCompute Production Platform**
 
 1. Obtain authentication information
 
@@ -369,7 +370,7 @@ After filling in the required authentication information, click the Confirm butt
 
 ![](./images/productionsiteconfiguration-fusioncompute-3.png)
 
-#### **Complete FusionCompute Addition**
+##### **Complete FusionCompute Addition**
 
 FusionCompute production platform configuration is complete. Wait until the platform status is normal and the number of cluster hosts is obtained before proceeding with subsequent steps.
 
@@ -379,17 +380,17 @@ Note: You can repeat the above steps to add multiple FusionCompute clusters, or 
 
 ---
 
-## **Oracle**
+### **Oracle**
 
 The Oracle production platform page is mainly used for adding, deleting, updating, and other management operations for the Oracle platform.
 
-### **Add Oracle Platform**
+#### **Add Oracle Platform**
 
 Click "Production Site" in the left navigation bar, select Oracle, and click the "Add" button. Follow the step-by-step guide in the pop-up window to add the platform.
 
 ![](./images/productionsiteconfiguration-oracle-1.png)
 
-#### **Deploy Sync Proxy**
+##### **Deploy Sync Proxy**
 
 Follow the guided steps below:
 
@@ -417,7 +418,7 @@ You can use the native Ubuntu 20.04 OS image to create a new VM on the FusionCom
 
 ![](./images/productionsiteconfiguration-oracle-2.png)
 
-#### **Create Oracle Production Platform**
+##### **Create Oracle Production Platform**
 
 1. Obtain authentication information
 
@@ -442,7 +443,7 @@ After filling in the required authentication information, click the Confirm butt
 
 ![](./images/productionsiteconfiguration-oracle-3.png)
 
-#### **Complete Oracle Addition**
+##### **Complete Oracle Addition**
 
 Oracle production platform configuration is complete. Wait until the platform status is normal and the number of EC2 hosts is obtained before proceeding with subsequent steps.
 
@@ -450,17 +451,17 @@ Note: You can repeat the above steps to add multiple Oracle regions.
 
 ![](./images/productionsiteconfiguration-oracle-4.png)
 
-## **HCS 8.0.2**
+### **HCS 8.0.2**
 
 The HCS 8.0.2 platform page on the production site is mainly used for adding, deleting, updating, and other related management operations for the HCS 8.0.2 platform
 
-### **Add HCS 8.0.2 Platform**
+#### **Add HCS 8.0.2 Platform**
 
 Click "Production Site" in the left navigation bar, select HCS 8.0.2, and click the "Add" button. Follow the steps in the pop-up window to add the platform.
 
 ![](./images/productionsiteconfiguration-hcs802-1.png)
 
-#### **Deploy Sync Proxy**
+##### **Deploy Sync Proxy**
 
 Follow the guided steps below:
 
@@ -500,7 +501,7 @@ Follow the guided steps below:
 
 ![](./images/productionsiteconfiguration-hcs802-2.png)
 
-#### Create **HCS 8.0.2** Production Platform
+##### Create **HCS 8.0.2** Production Platform
 
 1. Obtain authentication information
 
@@ -542,7 +543,7 @@ Follow the guided steps below:
 
 To back up data using the HCS 8.0.2 API, you need to provide an account with full tenant administrator permissions.
 
-#### **Complete HCS 8.0.2 Addition**
+##### **Complete HCS 8.0.2 Addition**
 
 Once the HCS 8.0.2 production platform has been configured, wait until the platform status becomes 'Normal' and the number of ECS hosts is retrieved. You can then proceed with the subsequent steps.
 **Note:** You can repeat the above steps to add multiple HCS 8.0.2 clusters.
@@ -551,7 +552,7 @@ Once the HCS 8.0.2 production platform has been configured, wait until the platf
 
 ***
 
-## **Huawei Cloud**
+### **Huawei Cloud**
 
 The Huawei Cloud platform page on the production site is mainly used for adding, deleting, updating, and other related management operations for the Huawei Cloud platform.
 
@@ -559,13 +560,13 @@ The Huawei Cloud platform page on the production site is mainly used for adding,
 As of October 31, 2025, Huawei Cloud has enabled the CBR Standard Snapshot Data Export API and the CBR Standard Snapshot Data Bucket Agency Interface only in certain regions (currently limited to the Shenzhen region, TR-Istanbul and TR-Ankara-PUR). Access to these features requires whitelist approval. To request access, please submit a service ticket through the Huawei Cloud support system.
 :::
 
-### **Add Huawei Cloud Platform**
+#### **Add Huawei Cloud Platform**
 
 Click "Production Site" in the left navigation bar, select Huawei Cloud, and click the "Add" button. Follow the steps in the pop-up window to add the platform.  
 
 ![](./images/productionsiteconfiguration-huaweicloud-1.png)
 
-#### **Deploy Sync Proxy**
+##### **Deploy Sync Proxy**
 
 Follow the guided steps below:
 
@@ -590,7 +591,7 @@ Copy and execute the sync proxy installation command.
 
 ![](./images/productionsiteconfiguration-huaweicloud-2.png)
 
-#### **Create Huawei Cloud Production Platform**
+##### **Create Huawei Cloud Production Platform**
 
 1. Obtain authentication information
 
@@ -616,7 +617,7 @@ Buckets can be created or specified.
 
 ![](./images/productionsiteconfiguration-huaweicloud-4.png)
 
-#### **Complete Huawei Cloud Addition**
+##### **Complete Huawei Cloud Addition**
 
 Once the Huawei Cloud production platform configuration is complete, wait for the platform status to become "Normal", and for the ECS instance list to be successfully fetched. After that, you may proceed with additional steps.
 
@@ -624,7 +625,7 @@ Once the Huawei Cloud production platform configuration is complete, wait for th
 
 ---
 
-## **Source Agent**
+### **Source Agent**
 
 1. When the source (protected) end is a physical machine or a single virtual machine of various types (such as KVM/Xen/Hyper-V, etc.), relevant configuration is required.
 
@@ -653,9 +654,9 @@ Agent operating system support matrix: <https://oneprocloud.feishu.cn/sheets/VRq
 | Windows/Linux Host   | Object Storage Services   | 443      | Data sync port (object storage HTTPS/HTTP protocol) <br>+ For object storage mode <br>Note: If the target object storage uses a domain name during data sync, you need to add DNS or static hosts resolution in advance |
 
 
-### **Linux Agent**
+#### **Linux Agent**
 
-#### **Install Linux Agent**
+##### **Install Linux Agent**
 
 Click "Configuration Management" in the top menu bar, then click "Production Site" in the left navigation bar, select "Source Agent", and click "Copy Command" to get the Linux Agent installation command.
 
@@ -669,7 +670,7 @@ Wait for the command to finish executing. When the installation is successful, y
 
 ![](./images/productionsiteconfiguration-sourceagent-3.png)
 
-#### **Uninstall Linux Agent**
+##### **Uninstall Linux Agent**
 
 Before uninstalling the Agent, make sure that the Linux host has been deregistered from the HyperBDR platform.
 
@@ -685,9 +686,9 @@ Wait for the script to finish executing. If "Uninstall successful" is displayed,
 
 ![](./images/productionsiteconfiguration-sourceagent-4.png)
 
-### **Windows Agent**
+#### **Windows Agent**
 
-#### **Install Windows Agent**
+##### **Install Windows Agent**
 
 Click "Configuration Management" in the top menu bar, then click "Production Site" in the left navigation bar, click "Source Agent", and download the Windows Agent installation package according to the source operating system version by clicking the "Download Now" button.
 
@@ -737,7 +738,7 @@ Wait for the installer to finish. When prompted that the installation is complet
 
 ![](./images/productionsiteconfiguration-sourceagent-11.png)
 
-#### **Start Windows Agent**
+##### **Start Windows Agent**
 
 On the Windows Agent service startup page, first click "Precheck" in the lower left corner to perform a pre-check before starting the service.
 
@@ -781,7 +782,7 @@ Log in to the HyperBDR console to check the registration status and proceed with
 
 ![](./images/productionsiteconfiguration-sourceagent-17.png)
 
-#### **Uninstall Windows Agent**
+##### **Uninstall Windows Agent**
 
 Since uninstalling the Windows Agent follows the standard Windows software uninstallation process, here we demonstrate the steps using one version as an example. For other Windows versions, refer to similar steps.
 
@@ -807,9 +808,9 @@ Wait for the uninstaller to finish, then click OK to complete the uninstallation
 
 ---
 
-## **Source Sync Proxy**
+### **Source Sync Proxy**
 
-### **Technical Principle Description**
+#### **Technical Principle Description**
 
 Mainly used in scenarios where the source production platform is VMware, OpenStack + Ceph, or AWS. The core function of this component is to deploy an agentless sync program, which performs data backup by calling the interfaces of the source production platform. The Source Sync Proxy is responsible for obtaining data from the source platform and efficiently transferring backup data to the target disaster recovery site over the local network.
 
@@ -829,7 +830,9 @@ When multiple Sync Proxies are bound to one source production platform, it means
 
 The Source Sync Proxy is mainly used for management operations of agentless sync proxies on the source production side, including basic settings, binding, unbinding, and deletion.
 
-### **Settings**
+#### **Action**
+
+##### **Settings**
 
 Select the Source Sync Proxy that has been added to the platform, click the "Actions" button, and select "Settings" to configure the relevant parameters of the Sync Proxy node.
 
@@ -846,7 +849,7 @@ Select the Source Sync Proxy that has been added to the platform, click the "Act
 | **HTTP Communication Timeout** | 600       | This setting means: when the source proxy node communicates with the source production platform and console via HTTP, if there is no response for more than 600s, the program will interrupt the connection and mark it as failed. If the network environment is poor, you can increase this value to allow more retry time. |
 | **Maximum Number of Mounted Disks** | 50        | This setting configures the maximum number of disks that can be mounted by the source proxy node.<br>By default, a Sync Proxy can mount up to 50 cloud disks for data synchronization. If you need more, you should scale out the number of Sync Proxy nodes.<br>You can also increase the CPU and memory of the Sync Proxy node and modify this parameter, but it is recommended not to exceed 150. |
 
-### **Bind**
+##### **Bind**
 
 Select the Source Sync Proxy that has been added to the platform, click the "Actions" button, and select "Bind". Choose an already added source production site to bind. After successful binding, this Sync Proxy will act as a node to call the bound source production site for data backup.
 ![](./images/productionsiteconfiguration-source-sidesynchronizationagent-5.png)
@@ -863,7 +866,7 @@ Attention:
 
 Currently, multiple Sync Proxy nodes do not support failover. They only provide horizontal scaling for concurrent backup capability. If one Sync Proxy node fails, the backup tasks assigned to that node will fail and will not automatically transfer to other nodes. You need to manually recover from the failure.
 
-### **Unbind**
+##### **Unbind**
 
 Select the Source Sync Proxy that has been added to the platform, click the "Actions" button, and select "Unbind". Choose a bound source production site to unbind, and click "OK".
 ![](./images/productionsiteconfiguration-source-sidesynchronizationagent-7.png)
@@ -873,10 +876,16 @@ Note:
 
 Before unbinding, make sure that there are no backup tasks bound to the current Sync Proxy node. Only then can you unbind. After successful unbinding, this Sync Proxy can be deleted or continue to be bound to other source production sites for service.
 
-### **Delete**
+##### **Delete**
 
 Select the Source Sync Proxy that has been added to the platform, click the "Actions" button, and select "Delete". Make sure that the current Sync Proxy node is not bound to any source production site. If there are bound source production sites, the delete button will be disabled. You need to "Unbind" first, and after successful unbinding, you can proceed with deletion.
 
 ![](./images/productionsiteconfiguration-source-sidesynchronizationagent-9.png)
 
 ---
+
+## **Failback**
+
+When configuring the Failback Production Site, the overall configuration logic is consistent with the DR Production Site workflow. The meaning and operation of each parameter can be directly referenced in the [DR Production Site](production-site.md#dr) section. Once the configuration is complete, you can proceed with the Host Failback operation.
+
+![](./images/productionsiteconfiguration-failback-1.png)
