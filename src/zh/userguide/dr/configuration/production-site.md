@@ -1,4 +1,4 @@
-# **生产站点配置**
+﻿# **生产站点配置**
 
 目前源端生产平台支持Agent、Agentless两种模式，Agent相对于比较通用，在源端操作系统内部安装Agent代理程序进行数据的备份。Agentless顾名思义就是不需要在操作系统内部安装代理程序即可完成数据的备份，那么就要求备份的源端虚拟化、私有云及云平台可以提供对外的原生API接口进行主机的磁盘数据的读取，容灾产品需要进行开发适配才能支持。
 
@@ -15,18 +15,19 @@
 
   * 源端Agent操作系统支持列表：         
         <https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO>
+## **容灾**
 
-## **VMware**
+### **VMware**
 
 生产平台VMware平台页面主要对VMware平台进行添加、删除、更新等相关管理操作。
 
-### **添加VMware平台**
+#### **添加VMware平台**
 
 点击左侧导航栏"生产站点配置"，选择VMware，点击 “添加” 按钮，在弹出的框中按照步骤引导来添加。
 
 ![](./images/productionsiteconfiguration-vmware-1.png)
 
-#### **部署同步代理**
+##### **部署同步代理**
 
 按照引导步骤进行如下操作：
 
@@ -68,7 +69,7 @@ Sync Proxy扩展可以在多台Sync Proxy节点重复执行此操作步骤来进
 
 ![](./images/productionsiteconfiguration-vmware-2.png)
 
-#### **创建VMware生产平台**
+##### **创建VMware生产平台**
 
 1. 认证信息获取
 
@@ -99,7 +100,7 @@ HyperBDR利用VMware的CBT技术实现增量数据同步。CBT (Change Block Tra
 
 ![](./images/productionsiteconfiguration-vmware-3.png)
 
-#### **完成VMware添加**
+###### **完成VMware添加**
 
 VMware生产平台配置完成，等待平台状态为正常，且已经获取到集群主机数量，即可进行后续其他步骤操作。
 
@@ -109,17 +110,17 @@ VMware生产平台配置完成，等待平台状态为正常，且已经获取�
 
 ---
 
-## **OpenStack**
+### **OpenStack**
 
 生产平台OpenStack平台页面主要对OpenStack平台进行添加、删除、更新等相关管理操作。
 
-### **添加OpenStack平台**
+#### **添加OpenStack平台**
 
 点击左侧导航栏"生产站点配置"，选择OpenStack，点击 “添加” 按钮，在弹出的框中按照步骤引导来添加。
 
 ![](./images/productionsiteconfiguration-openstack-1.png)
 
-#### **部署同步代理**
+##### **部署同步代理**
 
 按照引导步骤进行如下操作：
 
@@ -152,7 +153,7 @@ VMware生产平台配置完成，等待平台状态为正常，且已经获取�
 
 ![](./images/productionsiteconfiguration-openstack-2.png)
 
-#### **创建OpenStack生产平台**
+##### **创建OpenStack生产平台**
 
 1. OpenStack连接信息获取
 
@@ -202,7 +203,7 @@ VMware生产平台配置完成，等待平台状态为正常，且已经获取�
 
 ![](./images/productionsiteconfiguration-openstack-4.png)
 
-#### **完成OpenStack添加**
+##### **完成OpenStack添加**
 
 OpenStack生产平台配置完成，等待平台状态为正常，且已经获取到集群主机数量，即可进行后续其他步骤操作。
 
@@ -212,17 +213,17 @@ OpenStack生产平台配置完成，等待平台状态为正常，且已经获�
 
 ---
 
-## **AWS**
+### **AWS**
 
 生产平台AWS平台页面主要对AWS平台进行添加、删除、更新等相关管理操作。
 
-### **添加AWS平台**
+#### **添加AWS平台**
 
 点击左侧导航栏"生产站点配置"，选择AWS，点击 “添加” 按钮，在弹出的框中按照步骤引导来添加。
 
 ![](./images/productionsiteconfiguration-aws-1.png)
 
-#### **部署同步代理**
+##### **部署同步代理**
 
 按照引导步骤进行如下操作：
 
@@ -250,7 +251,7 @@ OpenStack生产平台配置完成，等待平台状态为正常，且已经获�
 
 ![](./images/productionsiteconfiguration-aws-2.png)
 
-#### **创建AWS生产平台**
+##### **创建AWS生产平台**
 
 1. AWS连接信息获取
 
@@ -280,7 +281,7 @@ OpenStack生产平台配置完成，等待平台状态为正常，且已经获�
 
 ![](./images/productionsiteconfiguration-aws-3.png)
 
-#### **完成AWS添加**
+##### **完成AWS添加**
 
 AWS生产平台配置完成，等待平台状态为正常，且已经获取到EC2主机数量，即可进行后续其他步骤操作。
 
@@ -290,17 +291,17 @@ AWS生产平台配置完成，等待平台状态为正常，且已经获取到EC
 
 ---
 
-## **FusionCompute**
+### **FusionCompute**
 
 生产平台FusionCompute平台页面主要对OpenStack平台进行添加、删除、更新等相关管理操作。
 
-### **添加FusionCompute平台**
+#### **添加FusionCompute平台**
 
 点击左侧导航栏"生产站点配置"，选择FusionCompute，点击 “添加” 按钮，在弹出的框中按照步骤引导来添加。
 
 ![](./images/productionsiteconfiguration-fusioncompute-1.png)
 
-#### **部署同步代理**
+##### **部署同步代理**
 
 按照引导步骤进行如下操作：
 
@@ -343,7 +344,7 @@ AWS生产平台配置完成，等待平台状态为正常，且已经获取到EC
 
 ![](./images/productionsiteconfiguration-fusioncompute-2.png)
 
-#### **创建FusionCompute生产平台**
+##### **创建FusionCompute生产平台**
 
 1. 认证信息获取
 
@@ -365,7 +366,7 @@ AWS生产平台配置完成，等待平台状态为正常，且已经获取到EC
 
 ![](./images/productionsiteconfiguration-fusioncompute-3.png)
 
-#### **完成FusionCompute添加**
+##### **完成FusionCompute添加**
 
 FusionCompute生产平台配置完成，等待平台状态为正常，且已经获取到集群主机数量，即可进行后续其他步骤操作。
 
@@ -375,17 +376,17 @@ FusionCompute生产平台配置完成，等待平台状态为正常，且已经�
 
 ---
 
-## **Oracle**
+### **Oracle**
 
 生产平台Oracle平台页面主要对OpenStack平台进行添加、删除、更新等相关管理操作。
 
-### **添加Oracle平台**
+#### **添加Oracle平台**
 
 点击左侧导航栏"生产站点配置"，选择Oracle，点击 “添加” 按钮，在弹出的框中按照步骤引导来添加。
 
 ![](./images/productionsiteconfiguration-oracle-1.png)
 
-#### **部署同步代理**
+##### **部署同步代理**
 
 按照引导步骤进行如下操作：
 
@@ -413,7 +414,7 @@ FusionCompute生产平台配置完成，等待平台状态为正常，且已经�
 
 ![](./images/productionsiteconfiguration-oracle-2.png)
 
-#### **创建Oracle生产平台**
+##### **创建Oracle生产平台**
 
 1. 认证信息获取
 
@@ -438,7 +439,7 @@ FusionCompute生产平台配置完成，等待平台状态为正常，且已经�
 
 ![](./images/productionsiteconfiguration-oracle-3.png)
 
-#### **完成Oracle添加**
+##### **完成Oracle添加**
 
 Oracle生产平台配置完成，等待平台状态为正常，且已经获取到EC2主机数量，即可进行后续其他步骤操作。
 
@@ -448,17 +449,17 @@ Oracle生产平台配置完成，等待平台状态为正常，且已经获取�
 
 ---
 
-## **HCS 8.0.2**
+### **HCS 8.0.2**
 
 生产平台HCS 8.0.2平台页面主要对HCS 8.0.2平台进行添加、删除、更新等相关管理操作。
 
-### **添加HCS 8.0.2平台**
+#### **添加HCS 8.0.2平台**
 
 点击左侧导航栏"生产站点配置"，选择HCS 8.0.2，点击 “添加” 按钮，在弹出的框中按照步骤引导来添加。
 
 ![](./images/productionsiteconfiguration-hcs802-1.png)
 
-#### **部署同步代理**
+##### **部署同步代理**
 
 按照引导步骤进行如下操作：
 
@@ -498,7 +499,7 @@ Oracle生产平台配置完成，等待平台状态为正常，且已经获取�
 
 ![](./images/productionsiteconfiguration-hcs802-2.png)
 
-#### **创建HCS 8.0.2生产平台**
+##### **创建HCS 8.0.2生产平台**
 
 1. HCS 8.0.2连接信息获取
 
@@ -540,7 +541,7 @@ Oracle生产平台配置完成，等待平台状态为正常，且已经获取�
 
 调用 HCS 8.0.2 接口进行数据备份，需提供具备完整租户管理员权限的账号。
 
-#### **完成HCS 8.0.2添加**
+##### **完成HCS 8.0.2添加**
 
 HCS 8.0.2生产平台配置完成，等待平台状态为正常，且已经获取到ECS主机数量，即可进行后续其他步骤操作。
 
@@ -551,17 +552,17 @@ HCS 8.0.2生产平台配置完成，等待平台状态为正常，且已经获�
 
 ***
 
-## **华为云**
+### **华为云**
 生成平台华为云平台页面主要对华为公有云平台进行添加、删除、更新等相关管理操作。
 ::: warning
 截至2025年10月31日，华为云仅在部分区域（目前仅深圳区域、伊斯坦布尔区域和安卡拉安卡拉区域）开放CBR标准快照数据导出接口和CBR标准快照数据桶委托接口，且需申请白名单方可使用。如需使用，请通过华为云工单系统申请使用权限。
 :::
 
-### **添加华为云平台**
+#### **添加华为云平台**
 点击左侧导航栏"生产站点配置"，选择华为云，点击 “添加” 按钮，在弹出的框中按照步骤引导来添加。
 ![](./images/productionsiteconfiguration-huaweicloud-1.png)
 
-#### **部署同步代理**
+##### **部署同步代理**
 按照引导步骤进行如下操作：
 
 * 第一步：创建云主机。
@@ -585,7 +586,7 @@ HCS 8.0.2生产平台配置完成，等待平台状态为正常，且已经获�
 
 ![](./images/productionsiteconfiguration-huaweicloud-2.png)
 
-#### **创建华为云生产平台**
+##### **创建华为云生产平台**
 
 1. 华为云鉴权信息获取
 
@@ -611,7 +612,7 @@ HCS 8.0.2生产平台配置完成，等待平台状态为正常，且已经获�
 
 ![](./images/productionsiteconfiguration-huaweicloud-4.png)
 
-#### **完成华为云添加**
+##### **完成华为云添加**
 
 华为云生产平台配置完成，等待平台状态为正常，且已经获取到ECS主机数量，即可进行后续其他步骤操作。
 
@@ -619,7 +620,7 @@ HCS 8.0.2生产平台配置完成，等待平台状态为正常，且已经获�
 
 ---
 
-## **源端代理程序**
+### **源端代理程序**
 
 1. 当源端(被容灾端)为物理机或者各种类型(如：KVM/Xen/Hyper-V等)单个虚拟机时，需要进行相关配置。
 
@@ -651,9 +652,9 @@ Agent操作系统支持矩阵：<https://oneprocloud.feishu.cn/sheets/VRqksSPEPh
 | Windows/Linux Host   | Cloud Sync Gateway        | 443          | 数据同步端口（HTTPS协议）<br>+ 适用于块存储 HTTPS 协议                                           |
 | Windows/Linux Host   | Object Storage Services   | 443          | 数据同步端口（对象存储HTTPS/HTTP协议）<br>+ 适用于对象存储模式<br>注意：在数据同步时，如果目标对象存储使用了域名，那么需要提前添加对象存储的域名解析或静态hosts解析 |
 
-### **Linux Agent**
+#### **Linux Agent**
 
-#### **安装Linux Agent**
+##### **安装Linux Agent**
 
 点击顶部菜单栏 "配置管理", 点击左侧导航栏 "生产站点配置"，点击 "源端代理程序"，点击复制命令来获取Linux Agent的安装命令。
 
@@ -667,7 +668,7 @@ Agent操作系统支持矩阵：<https://oneprocloud.feishu.cn/sheets/VRqksSPEPh
 
 ![](./images/productionsiteconfiguration-sourceagent-3.png)
 
-#### **卸载Linux Agent**
+##### **卸载Linux Agent**
 
 卸载Agent之前，需要确保Linux主机已经在HyperBDR平台完成解除注册。
 
@@ -683,9 +684,9 @@ bash /var/lib/egisplus-agent/uninstall_agent.sh
 
 ![](./images/productionsiteconfiguration-sourceagent-4.png)
 
-### **Windows Agent**
+#### **Windows Agent**
 
-#### **安装Windows Agent**
+##### **安装Windows Agent**
 
 点击顶部菜单栏 "配置管理", 点击左侧导航栏 "生产站点配置"，点击 "源端代理程序"，根据源端操作系统版本进行点击"立即下载"按钮进行下载Windows Agent 安装包。
 
@@ -735,7 +736,7 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 ![](./images/productionsiteconfiguration-sourceagent-11.png)
 
-#### **启动Windows Agent**
+##### **启动Windows Agent**
 
 在启动Windows Agent服务程序页面，先点击左下角"Precheck"进行服务启动前的预检查步骤。
 
@@ -781,7 +782,7 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 ![](./images/productionsiteconfiguration-sourceagent-17.png)
 
-#### **卸载Windows Agent**
+##### **卸载Windows Agent**
 
 由于卸载Windows Agent程序为标准Windows 系统卸载软件流程操作，这里仅演示其中一个操作系统版本为例，其他Windows版本卸载操作步骤参考即可完成。
 
@@ -807,9 +808,9 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 ---
 
-## **源端同步代理**
+### **源端同步代理**
 
-### **技术原理说明**
+#### **技术原理说明**
 
 主要用于源生产平台为 VMware、OpenStack + Ceph 或 AWS 的场景。该组件的核心功能是部署无代理同步程序，通过调用源生产平台的接口实现数据备份。源端同步代理（Sync Proxy）负责从源端平台获取数据，并通过本地网络将备份数据高效传输至目标灾备侧进行存储。
 
@@ -829,7 +830,9 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 源端同步代理主要是针对源端生产无代理节点同步代理（Sync Proxy）的管理操作，包含源端同步代理的基本设置、绑定、解绑及删除等操作。
 
-### **设置**
+#### **更多操作**
+
+##### **设置**
 
 选择已经添加到平台的源端同步代理，点击"更多操作"按钮，选择"设置"，可以设置源端同步代理节点相关配置
 
@@ -847,7 +850,7 @@ Windows Agent 安装程序包：**windows-agent.zip**
 | **最大挂盘数量**     |    50    | 此配置表示：用来配置源端代理节点，最大可以挂载多少块磁盘。<br>源端同步代理（Sync Proxy）默认情况下最大允许挂载50块云硬盘进行数据同步，超过此数量则需要横向扩展源端同步代理节点数量，<br>你可以选择适当扩展源端同步代理节点的CPU和内存大小，然后修改此配置参数，<br>但是我们建议最大不超过150。 |
 
 
-### **绑定**
+##### **绑定**
 
 选择已经添加到平台的源端同步代理，点击"更多操作"按钮，选择"绑定"，选择一个已经添加的源端生产站点进行绑定，绑定成功后，那么这个源端同步代理将会作为一个节点来调用绑定的源端生产站点进行数据备份获取。
 ![](./images/productionsiteconfiguration-source-sidesynchronizationagent-5.png)
@@ -865,7 +868,7 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 目前多个源端同步代理无法进行故障负载转移，只能提供横向扩展多并发的备份能力，如果其中一个源端同步代理节点出现故障，那么分配到当前节点的同步备份任务将会失败，无法自动转移到其他节点，你需要手动进行故障恢复才可以。
 
-### **解绑**
+##### **解绑**
 
 选择已经添加到平台的源端同步代理，点击"更多操作"按钮，选择"解绑"，选择一个已经绑定的源端生产站点进行解绑，点击"确定"即可。
 ![](./images/productionsiteconfiguration-source-sidesynchronizationagent-7.png)
@@ -875,11 +878,16 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 解绑前，需要确保当前源端同步代理节点没有绑定的同步备份主机任务，才可以支持解绑。解绑成功后，那么这个源端同步代理可以进行删除或者继续绑定其他源端生产站点并为其进行服务。
 
-### **删除**
+##### **删除**
 
 选择已经添加到平台的源端同步代理，点击"更多操作"按钮，选择"删除"，确保当前源端同步代理节点没有绑定任何源端生产站点。如果有绑定的源端生产站点，则删除按钮会不可点击状态，你需要先行进行"解绑"，解绑成功后再进行删除操作。
 
 ![](./images/productionsiteconfiguration-source-sidesynchronizationagent-9.png)
 
-####
 ---
+
+## **回切**
+
+在配置回切源端生产站点时，其整体配置逻辑与容灾生产站点配置流程一致，相关参数含义及操作方法可直接参考[**容灾生产站点配置**](../configuration/production-site.md#容灾)章节。完成配置后，即可继续执行主机回切操作。
+
+![](./images/productionsiteconfiguration-failback-1.png)
