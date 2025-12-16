@@ -23,7 +23,7 @@ export const enSidebar = sidebar({
   ],
   "/userguide/technical-practices/": [
     {
-      text: "Survey & Planning",
+      text: "Investigation & Planning",
       icon: "check",
       prefix: "",
       children: [
