@@ -192,20 +192,7 @@ rm -rf /opt/installer/production/venvs/scripts-venv/version_info/
   * 右击以管理员身份运行`Upgrade.exe`，按照提示完成升级
 
     ![](./images/-removeinvaliddirectories-1.png)
-
-  * 下载最新驱动包
-
-  > 当前阶段请先手动下载：[点击下载](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/upgrade_packages/DriverUpgrade.zip)
-
-  * 升级驱动程序
-
-  ```bash
-  #解压ZIP文件后，并进入解压目录
-  #右击以管理员身份运行
-  UpgradeDriver.bat
-  ```
-
-  ![](./images/-removeinvaliddirectories-2.png)
+    ![](./images/-removeinvaliddirectories-2.png)
 
   * 更新配置
 

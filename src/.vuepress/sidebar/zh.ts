@@ -23,7 +23,32 @@ export const zhSidebar = sidebar({
   ],
   "/zh/userguide/technical-practices/": [
     {
-      text: "容灾回切实践",
+      text: "调研 & 规划",
+      icon: "check",
+      prefix: "",
+      children: [
+        "network-planning.md",
+        "saas-network-practices.md",
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+    {
+      text: "使用",
+      icon: "check",
+      prefix: "",
+      children: [
+        "dkms-build-guide.md",
+        "policy-best-practices.md",
+        "script-best-practices",
+        "hyperbdr-service-ip-changes-and-post-change-environment.md",
+        "hyperbdr-orchestration-best-practices",
+      ],
+      collapsible: true,
+      expanded: true,
+    },       
+    {
+      text: "容灾回切",
       icon: "check",
       prefix: "",
       children: [
@@ -33,26 +58,11 @@ export const zhSidebar = sidebar({
       expanded: true,
     },
     {
-      text: "Linux Agent",
+      text: "运维操作",
       icon: "check",
       prefix: "",
       children: [
-        "dkms-build-guide.md",
-      ],
-      collapsible: true,
-      expanded: true,
-    },
-    {
-      text: "功能实践",
-      icon: "check",
-      prefix: "",
-      children: [
-        "policy-best-practices.md",
-        "script-best-practices",
-        "network-planning.md",
         "troubleshooting-best-practices.md",
-        "saas-network-practices.md",
-        "hyperbdr-service-ip-changes-and-post-change-environment.md"
       ],
       collapsible: true,
       expanded: true,

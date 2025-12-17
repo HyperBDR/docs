@@ -41,63 +41,94 @@ You can configure DR or failback strategies as needed to achieve end-to-end busi
 
 ## Generic Mode
 
-### **Transition Host**
+The Generic Mode is applicable to environments that currently do not support automated migration or disaster recovery processes. In this mode, users need to manually complete some operations&#x20;
 
-#### **Add Transition Host**
+### Transition Host
 
-Go to [Configuration] > [DR Site Configuration] > [Generic Mode] > [Transition Host], click [ADD] in the upper right, and fill in the required host info (name, IP, region, etc.) in the pop-up window.
+#### Add Transition Host
 
-![](./images/targetsiteconfiguration-genericmode-1.png)
+Through 【Configuration】 > 【Target Site Configuration】 > 【Migration】 > 【Transition Host】 > 【Add】, after entering the "Transition Host" page, click the 【Add】 button in the upper right corner. In the configuration window, please carefully read the notes and prepare the corresponding host according to the page prompts.&#x20;
 
-After filling in the info, click "Confirm" to submit. The system will create the transition host. When the status shows "Available", the host is ready for use.
+![](./images/-genericmode-1.png)
 
-![](./images/targetsiteconfiguration-genericmode-2.png)
+After the target Cloud Computing Platform resources are ready, click 'Next' to continue the configuration process. The system provides two installation methods, and users can choose either one according to the page prompts to complete the configuration.&#x20;
 
-##### **Transition Host Configuration**
+##### Installation Method 1: Console Access to Transition Host
 
-| Field                        | Example         | Description                                                                                                                     |
-|------------------------------|----------------|---------------------------------------------------------------------------------------------------------------------------------|
-| Select Recovery Platform     | General Platform | Only the **General Platform** is available. You need to download the transition host image: [reference link](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html) |
-| Select Storage Type          | Block Storage   | Storage type for backup data, supports block and object storage                            |
-| Name                         | test            | Custom storage name                                                                       |
-| IP Address                   | 192.168.7.146   | Target address for connecting to storage service                                           |
-| Service Port                 | 10729           | Storage service port, default is 10729                                                    |
-| Authentication               | Username Login  | Authentication method, currently username + password                                      |
-| Username                     | root            | Username for storage connection                                                           |
-| Password                     | Acb@132.Inst    | Password for storage connection, change after deployment                                  |
-| Data Transfer Advanced Setting| iSCSI           | Data protocol between source and sync gateway, supports S3Block and iSCSI. Note: If storage type is object storage, this option is not available. S3Block is widely used for WAN, iSCSI is for stable network environments. |
+The console can actively access the transition host network，The transition host is located on a private network or has a public IP，Data synchronization to the transition host needs to be initiated from the console.
 
-#### **Action**
+![](./images/-genericmode-2.png)
 
-Select a host and click [Action] to delete.
+In the configuration window, select the storage method and fill in the information of the temporary transition host, such as name, IP address, service port, etc.&#x20;
 
-##### **Delete**
+* **Transition Host Configuration Instructions**
 
-Select a host, click [Action] > [Delete] to remove the transition host.
+| **Configuration Item**                  | **Example Value** | **Description**                                                                                                                                                                                                                                                                                                                                                                                     |
+| --------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Storage Type                            | Block Storage     | Select the storage type for backup data writing, which supports both Block Storage and Object Storage.                                                                                                                                                                                                                                                                                              |
+| Name                                    | test              | Used to identify and name the host within the HyperBDR platform.                                                                                                                                                                                                                                                                                                                                    |
+| IP Address                              | 192.168.7.146     | The address of the Transition host.                                                                                                                                                                                                                                                                                                                                                                 |
+| Service Port                            | 10729             | The port number that the storage service listens on, with a default value of 10729.                                                                                                                                                                                                                                                                                                                 |
+| Authentication                          | Username Login    | Authentication login authentication method, currently using username + password. You can choose either key or username/password login method.                                                                                                                                                                                                                                                       |
+| Username                                | root              | Store the authentication username for the connection.                                                                                                                                                                                                                                                                                                                                               |
+| Password                                | Acb@132.Inst      | Store the authentication password for the connection, and it is recommended to modify the default value after deployment.                                                                                                                                                                                                                                                                           |
+| Advanced Settings for Data Transmission | iSCSI             | The data transfer protocol between the source and the synchronization gateway supports S3Block and iSCSI: \<br> • S3Block: Suitable for wide area network environments, with high transfer efficiency; \<br> • iSCSI: Suitable for private network scenarios with stable network environments. \<br>&#x20;**&#x20;Note: This option is unavailable when the storage type is object storage.&#x20;** |
 
-![](./images/targetsiteconfiguration-genericmode-3.png)
+After filling in the information, click "OK", and the system will start creating the transition host. When the status shows "Available", it indicates that the addition is completed, and subsequent operations can be performed.&#x20;
 
-### **Host Verification**
+![](./images/-genericmode-3.png)
+
+##### Installation Method 2: Transition Host Access to Console
+
+The console can actively access the transition host network，The transition host is located on a private network or has a public IP，Data synchronization to the transition host needs to be initiated from the console.
+
+![](./images/-genericmode-4.png)
+
+Please copy and execute this command in the command-line interface of the transition host you have created and prepared (e.g., the VMware virtual machine or Cloud Computing Platform host created in the "\<Add Transition Host" step). Ensure that the transition host can access the network address of the Console.
+
+![](./images/-genericmode-5.png)
+
+After the comparison of the results in the above figure is successfully executed, the transition host will appear in the transition host list.&#x20;
+
+![](./images/-genericmode-6.png)
+
+#### Action
+
+After selecting the target host, click the \[Action] button on the page to perform more configurations&#x20;
+
+##### &#x20;Data Transmission NAT
+
+After selecting the target host, click \[Action] > \[Data Transmission NAT] to specify the external mapped IP address used for data stream synchronization.&#x20;
+
+> Note: This function is mainly used in network environments with internal and external network isolation or NAT conversion to guide data flows to use the correct egress address, thereby ensuring the connectivity of the data transmission link between the source and destination.
+
+![](./images/-genericmode-7.png)
+
+Configure the host NAT mapping address according to the network structure, complete the addition, and ensure that data traffic can be transmitted normally.
+
+##### Delete
+
+After selecting the target host, click \[Action] > \[Delete] to remove the transitional host.&#x20;
+
+### Host Verification
 
 > Only hosts that have completed the "DR > Sync > Drill" process will appear in the "Host Verification" list. Hosts that have not completed data sync will not appear here.
 
 After starting a DR drill, related hosts will appear in this list. Wait for the verification process to complete before proceeding.
 
-![](./images/targetsiteconfiguration-genericmode-4.png)
+![](./images/-genericmode-8.png)
 
-#### **More Actions**
+#### Action
 
-Select a host and click [More Actions] for driver injection or delete.
+After selecting the target host, click the \[Action] button on the page to perform driver injection and deletion operations&#x20;
 
-##### **Driver Injection**
+##### Driver Injection
 
-Select a host, click [More Actions] > [Driver Repair] to inject necessary drivers and complete host recovery.
+After selecting the target host, click \[Action] > \[Driver Repair] to inject the necessary drivers into the transition host and complete host recovery&#x20;
 
-![](./images/targetsiteconfiguration-genericmode-5.png)
+![](./images/-genericmode-9.png)
 
-##### **Delete**
+##### Delete
 
-Select a host, click [More Actions] > [Delete] to remove the host from verification.
-
-![](./images/targetsiteconfiguration-genericmode-6.png)
+After selecting the target host, click \[Action] > \[Delete] to remove the host to be verified.&#x20;
 

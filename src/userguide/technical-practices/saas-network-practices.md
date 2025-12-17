@@ -1,4 +1,4 @@
- # SaaS Network Communication Best Practices
+ # SaaS Network Communication
  ## Overview of network communication for SaaS disaster recovery and migration
 
  High availability and data protection are critical for modern business systems. Our SaaS disaster recovery product delivers unified continuity and data protection from the cloud, enabling fast recovery of critical systems when failures occur on-premises or in the cloud.
