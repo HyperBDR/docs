@@ -43,6 +43,7 @@ export const zhSidebar = sidebar({
         "script-best-practices",
         "hyperbdr-service-ip-changes-and-post-change-environment.md",
         "hyperbdr-orchestration-best-practices",
+        "domain-access-standalone-hyperbdr-change-guide.md",
       ],
       collapsible: true,
       expanded: true,
