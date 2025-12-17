@@ -34,6 +34,44 @@ The EVS Snapshot Consistency Group and CBR Disk Data Export API are newly releas
 | 19      | Delete Snapshot Export Job            | /v3/{project\_id}/export-snapshot/jobs/{job\_id}              |
 | 20      | Query Snapshot Export Job             | /v3/{project\_id}/export-snapshot/jobs/{job\_id}              |
 
+### Required IAM permissions
+
+The user group to which the user belongs needs to authorize two types of policies, one is system-defined policy and the other is custom policy.
+
+#### System-defined policy
+
+| **No.** | **Description**    | **Policy Name**                                                       |
+| ------ | ----------- | ------------------------------------------------------------ |
+| 1 | All permissions of ECS service.    | ECS FullAccess                                                      |
+| 2 | Full permissions for Elastic Volume Service, including creating, expanding, attaching, detaching, querying, and deleting EVS disks.    | EVS FullAccess |
+| 3 | Object Storage Service Administrator    | OBS Administrator  |
+| 4 | Administrator permissions for CBR. Users granted these permissions can operate and use all vaults, backups, and policies.    | CBR FullAccess |
+| 5 | All permissions of Image Management Service   | IMS FullAccess                                                     |
+| 6 | All permissions of VPC service.    | VPC FullAccess                                                    |
+
+#### custom policy
+
+Custom policy content:
+
+```
+{
+    "Version": "1.1",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:roles:deleteRole",
+                "iam:agencies:deleteAgency",
+                "iam:roles:createRole",
+                "iam:agencies:createAgency",
+                "iam:permissions:grantRoleToAgency",
+                "iam:permissions:revokeRoleFromAgency"
+            ]
+        }
+    ]
+}
+```
+
 ## 2. Operating System Support
 
 Click [Agentless Support Matrix](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO) to view the compatibility list and latest support status.
