@@ -33,6 +33,44 @@ EVS 快照一致性组和 CBR 云硬盘数据导出接口是华为云新上线�
 | 19     | 删除快照导出任务    | /v3/{project\_id}/export-snapshot/jobs/{job\_id}             |
 | 20     | 查询快照导出任务    | /v3/{project\_id}/export-snapshot/jobs/{job\_id}             |
 
+### 所需IAM权限
+
+用户所在的用户组需要授权两种类型的策略，一种是系统策略，一种是自定义策略。
+
+#### 系统策略
+
+| **序号** | **描述**    | **策略名称**                                                       |
+| ------ | ----------- | ------------------------------------------------------------ |
+| 1 | 弹性云服务器所有权限    | ECS FullAccess                                                      |
+| 2 | 云硬盘的所有权限，具有云硬盘资源的创建，扩容，挂载，卸载，查询，删除等操作权限。    | EVS FullAccess |
+| 3 | 对象存储服务管理员    | OBS Administrator  |
+| 4 | 云备份管理员权限,拥有该权限的用户可以操作并使用所有存储库、备份和策略。    | CBR FullAccess |
+| 5 | 镜像服务所有权限   | IMS FullAccess                                                     |
+| 6 | 虚拟私有云所有权限    | VPC FullAccess                                                    |
+
+#### 自定义策略
+
+自定义策略内容:
+
+```
+{
+    "Version": "1.1",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:roles:deleteRole",
+                "iam:agencies:deleteAgency",
+                "iam:roles:createRole",
+                "iam:agencies:createAgency",
+                "iam:permissions:grantRoleToAgency",
+                "iam:permissions:revokeRoleFromAgency"
+            ]
+        }
+    ]
+}
+```
+
 ## 2. 操作系统支持
 
 点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)查看兼容性列表及最新支持状态。
