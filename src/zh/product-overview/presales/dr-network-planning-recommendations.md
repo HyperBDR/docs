@@ -163,6 +163,18 @@
 | 3 | HyperBDR Console | Failback Transition Host | TCP 单向 | 10729 | 控制流 |
 | 4 | Failback Transition Host | HyperBDR Console | TCP 单向 | 10729 | 控制流 |
 
+#### 部署架构 - NAT
+
+![](./images/dr-network-planning-recommendations-12.jpeg)
+
+#### 开放端口列表
+
+| **编号** | **访问来源** | **访问目标** | **通信方向** | **开放端口** | **通讯类型** | **备注** |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Failback Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |当使用HyperBDR官方SaaS环境时，应为443/30080<br>国内SaaS环境:<br>[点击开始迁移](https://hypermotion.oneprocloud.com)<br>[点击开始容灾](https://hyperbdr.oneprocloud.com)|
+| 2 | Failback Agent | Failback Transition Host | TCP 单向 | 3260 / 13260 | 数据流 |
+| 3 | Failback Transition Host | HyperBDR Console | TCP 单向 | 10729 | 控制流 |
+
 ### 对象存储
 
 #### 部署架构
