@@ -110,6 +110,7 @@ export const enSidebar = sidebar({
             'xhere-pre-settings.md',
             'azure-target-pre-settings.md',
             'openstack-pre-settings',
+            'aliyun-pre-settings',
           ],
         },
         {
