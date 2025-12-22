@@ -259,6 +259,18 @@ During the failback process, due to the necessity for cloud takeover of the host
 | 3 | HyperBDR Console | Failback Transition Host | TCP Unidirectional | 10729 | Control Flow | 
 | 4 | Failback Transition Host | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)|
 
+#### Deployment Architecutre - NAT
+
+![](./images/dr-network-planning-recommendations-12.jpeg)
+
+#### List of Open Ports
+
+| **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Failback Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)| 
+| 2 | Failback Agent | Failback Transition Host | TCP Unidirectional | 3260 / 13260 | Data Flow | 
+| 3 | HyperBDR Console | Failback Transition Host | TCP Unidirectional | 10729 | Control Flow | 
+
 ### Object Storage
 
 #### Deployment Architecture
