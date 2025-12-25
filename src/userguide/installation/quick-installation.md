@@ -74,22 +74,11 @@ Since cloud platforms can differ, make sure to upload the required image for you
 Please select and upload the correct image based on the cloud platform you’re using.
    :::
 
-| Cloud Platform | Image Name | Download Link | MD5 | Details |
-|--------|----------|----------|-----|------|
-| Huawei Cloud | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/huaweicloud-pre-settings.md#image-download-upload) |
-| Huawei Cloud | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2) | -- | [View Details](../poc/huaweicloud-pre-settings.md#image-download-upload) |
-| Huawei Cloud | HuaweiCloud_<br>UEFI_<br>GenericImage.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) | 7814209a573666f2<br>701b35236764723d | [View Details](../poc/huaweicloud-pre-settings.md#image-download-upload) |
-| HCSO | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/huaweicloud-pre-settings.md#image-download-upload) |
-| HCSO | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2) | -- | [View Details](../poc/huaweicloud-pre-settings.md#image-download-upload) |
-| HCSO | HuaweiCloud_<br>UEFI_<br>GenericImage.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) | 7814209a573666f2<br>701b35236764723d | [View Details](../poc/huaweicloud-pre-settings.md#image-download-upload) |
-| TM CAE | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2) | -- | [View Details](../poc/tmcae-pre-settings.md#image-download-upload) |
-| TM CAE | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/tmcae-pre-settings.md#image-download-upload) |
-| Open Telekom Cloud | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2) | -- | [View Details](../poc/opentelekomcloud-pre-settings.md#image-download-upload) |
-| Open Telekom Cloud | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/opentelekomcloud-pre-settings.md#image-download-upload) |
-| Open Telekom Cloud | HuaweiCloud_<br>UEFI_<br>GenericImage.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) | 7814209a573666f2<br>701b35236764723d | [View Details](../poc/opentelekomcloud-pre-settings.md#image-download-upload) |
-| Huawei Cloud Stack | ubuntu-20.04-server-<br>cloud-init-<br>amd64.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2) | -- | [View Details](../poc/hcs-pre-settings.md#image-download-upload) |
-| Huawei Cloud Stack | Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | [View Details](../poc/hcs-pre-settings.md#image-download-upload) |
-| Huawei Cloud Stack | HuaweiCloud_<br>UEFI_<br>GenericImage.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) | 7814209a573666f2<br>701b35236764723d | [View Details](../poc/hcs-pre-settings.md#image-download-upload) |
+| Image Name | Download Link | MD5 | Applicable Cloud Platforms |
+|--------|----------|-----|------|
+| Windows_Server_2016_<br>Datacenter_64bit_<br>English_40G.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) | 519444d4b0343e15f<br>a014c50d906a832 | Huawei Cloud<br>HCSO<br>TM CAE<br>Open Telekom Cloud<br>Huawei Cloud Stack |
+| ubuntu-24.04-server-<br>cloud-init-<br>amd64.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2) | -- | Huawei Cloud<br>HCSO<br>TM CAE<br>Open Telekom Cloud<br>Huawei Cloud Stack |
+| HuaweiCloud_<br>UEFI_<br>GenericImage.qcow2 | [Download](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) | 7814209a573666f2<br>701b35236764723d | Huawei Cloud<br>HCSO<br>Open Telekom Cloud<br>Huawei Cloud Stack |
 
 ## Product Installation
 

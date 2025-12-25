@@ -34,7 +34,7 @@
 
   * 点击页面的下载链接即可
 
-  * 互联网OVA下载链接：<https://HyperBDR-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova>
+  * 互联网OVA下载链接：<https://downloads.oneprocloud.com/proxy-agent_BaseOS.ova>
 
 * 第二步：用OVA文件，导入到VMware集群，部署一台或多台源端同步代理虚拟机，并配置IP地址。
 
@@ -61,7 +61,7 @@ Sync Proxy扩展可以在多台Sync Proxy节点重复执行此操作步骤来进
 
 | **参数**      | **规格**       |
 | ----------- | ------------ |
-| OS Version  | Ubuntu 20.04 |
+| OS Version  | Ubuntu 24.04 |
 | CPU         | 4C           |
 | Memory      | 8GB          |
 | System Disk | 50GB         |
@@ -125,12 +125,12 @@ VMware生产平台配置完成，等待平台状态为正常，且已经获取�
 
 * 第一步：创建云主机
 
-可以自行进行Ubuntu 20.04操作系统的虚拟机创建，如果为OpenStack平台或者其他KVM虚拟化平台，可以下载标准的Ubuntu 20.04 QCOW镜像导入进行使用。
+可以自行进行Ubuntu 24.04操作系统的虚拟机创建，如果为OpenStack平台或者其他KVM虚拟化平台，可以下载标准的Ubuntu 24.04 QCOW镜像导入进行使用。
 
-> Ubuntu 20.04 QCOW2 image download link- Ubuntu 20.04 QCOW2镜像下载链接：
-> [点击开始下载](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
+> Ubuntu 24.04 QCOW2 image download link- Ubuntu 24.04 QCOW2镜像下载链接：
+> [点击开始下载](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2)
 
-注意：此Ubuntu20.04的镜像是没有默认登录密码的，镜像内部包含cloud-init服务，要求你导入的云平台必须可以支持通过cloud-init服务进行密码的注入，否则无法使用此镜像。
+注意：此Ubuntu24.04的镜像是没有默认登录密码的，镜像内部包含cloud-init服务，要求你导入的云平台必须可以支持通过cloud-init服务进行密码的注入，否则无法使用此镜像。
 
 * 第二步：复制并执行安装同步代理指令。
 
@@ -145,7 +145,7 @@ VMware生产平台配置完成，等待平台状态为正常，且已经获取�
 
 | **参数**      | **规格**       |
 | ----------- | ------------ |
-| OS Version  | Ubuntu 20.04 |
+| OS Version  | Ubuntu 24.04 |
 | CPU         | 4C           |
 | Memory      | 8GB          |
 | System Disk | 50GB         |
@@ -228,7 +228,7 @@ OpenStack生产平台配置完成，等待平台状态为正常，且已经获�
 
 * 第一步：创建云主机
 
-可以在AWS平台，使用原生AWS EC2 Ubuntu 20.04操作系统镜像来创建一台新的云主机来部署同步代理。
+可以在AWS平台，使用原生AWS EC2 Ubuntu 24.04操作系统镜像来创建一台新的云主机来部署同步代理。
 
 * 第二步：复制并执行安装同步代理指令。
 
@@ -243,7 +243,7 @@ OpenStack生产平台配置完成，等待平台状态为正常，且已经获�
 
 | **参数**      | **规格**       |
 | ----------- | ------------ |
-| OS Version  | Ubuntu 20.04 |
+| OS Version  | Ubuntu 24.04 |
 | CPU         | 4C           |
 | Memory      | 8GB          |
 | System Disk | 50GB         |
@@ -308,7 +308,7 @@ AWS生产平台配置完成，等待平台状态为正常，且已经获取到EC
 
   * 点击页面的下载链接即可
 
-  * 互联网OVA下载链接：[\[点击下载\]](https://HyperBDR-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova)
+  * 互联网OVA下载链接：[\[点击下载\]](https://downloads.oneprocloud.com/proxy-agent_BaseOS.ova)
 
 * 第二步：用OVA文件在FusionCompute集群上，部署一台虚拟机，并配置IP地址。
 
@@ -336,7 +336,7 @@ AWS生产平台配置完成，等待平台状态为正常，且已经获取到EC
 
 | **参数**      | **规格**       |
 | ----------- | ------------ |
-| OS Version  | Ubuntu 20.04 |
+| OS Version  | Ubuntu 24.04 |
 | CPU         | 4C           |
 | Memory      | 8GB          |
 | System Disk | 50GB         |
@@ -391,7 +391,7 @@ FusionCompute生产平台配置完成，等待平台状态为正常，且已经�
 
 * 第一步：创建云主机
 
-可以在 FusionCompute 平台上，使用原生 Ubuntu 20.04 操作系统镜像创建一台新的虚拟机用于部署同步代理。
+可以在 FusionCompute 平台上，使用原生 Ubuntu 24.04 操作系统镜像创建一台新的虚拟机用于部署同步代理。
 
 * 第二步：复制并执行安装同步代理指令
 
@@ -406,7 +406,7 @@ FusionCompute生产平台配置完成，等待平台状态为正常，且已经�
 
 | **参数**      | **规格**       |
 | ----------- | ------------ |
-| OS Version  | Ubuntu 20.04 |
+| OS Version  | Ubuntu 24.04 |
 | CPU         | 4C           |
 | Memory      | 8GB          |
 | System Disk | 50GB         |
@@ -466,7 +466,7 @@ Oracle生产平台配置完成，等待平台状态为正常，且已经获取�
 
   * 点击页面的下载链接即可
 
-  * 互联网OVA下载链接：<https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova>
+  * 互联网OVA下载链接：<https://downloads.oneprocloud.com/proxy-agent_BaseOS.ova>
 
 * 第二步：用OVA文件在HCS集群上，部署一台虚拟机，并配置IP地址。
 
@@ -491,7 +491,7 @@ Oracle生产平台配置完成，等待平台状态为正常，且已经获取�
 
 | 参数          | 规格           |
 | ----------- | ------------ |
-| OS Version  | Ubuntu 20.04 |
+| OS Version  | Ubuntu 24.04 |
 | CPU         | 4C           |
 | Memory      | 8GB          |
 | System Disk | 50GB         |
@@ -572,7 +572,7 @@ HCS 8.0.2生产平台配置完成，等待平台状态为正常，且已经获�
 * 第一步：创建云主机。
 
 在华为云平台上创建一台云主机，其要求如下：  
-（1）该云主机必须运行以下操作系统版本之一：Ubuntu 20.04。  
+（1）该云主机必须运行以下操作系统版本之一：Ubuntu 24.04。  
 （2）该云主机应满足以下最低规格要求：CPU 4核、内存 8GB、系统盘 200GB。  
 （3）该云主机应支持以下文件系统类型之一：XFS 或 EXT4，并确保磁盘分区类型不为 LVM。  
 （4）该云主机必须能够正确访问 华为云 API 接口。  

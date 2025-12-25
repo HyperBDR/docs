@@ -131,7 +131,7 @@ HyperBDR利用VMware的CBT技术实现增量数据同步。CBT (Change Block Tra
 
 下载OVA安装模板文件
 
-- [proxy-agent_BaseOS.ova](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova)
+- [proxy-agent_BaseOS.ova](https://downloads.oneprocloud.com/proxy-agent_BaseOS.ova)
 
 ## 在VMware中导入OVA镜像并创建proxy虚拟机
 

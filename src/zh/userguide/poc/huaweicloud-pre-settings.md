@@ -168,9 +168,9 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 #### Linux 镜像
 
-* 版本： ubuntu 20.04 server
+* 版本： ubuntu 24.04 server
 * 大小: 596.38 MB
-* 下载链接: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)  
+* 下载链接: [https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2)  
 
 #### Windows 镜像
 
@@ -214,7 +214,7 @@ HyperBDR 安全组名称: SG-HyperBDR
 ::: warning 
 1.名称必须是以下之一，并且不能包含额外的字符。  
 2.由于源主机上Windows的各种版本，选择操作系统的通用选项。  
-3.Linux镜像主要用于创建HyperDoor。当前版本的推荐版本是Ubuntu 20.04。 
+3.Linux镜像主要用于创建HyperDoor。当前版本的推荐版本是Ubuntu 24.04。 
 :::
 支持的 windows 镜像名称
 
@@ -237,7 +237,7 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 支持的 Linux 镜像名称
 
-> Ubuntu 20.04 64bit  
+> Ubuntu 24.04 64bit  
 
 ![upload-custom-windowslinux-images-to-huawei-cloud-7.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-7.png)
 

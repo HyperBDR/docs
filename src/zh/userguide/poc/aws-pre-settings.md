@@ -117,7 +117,7 @@ In summary, the AWS EBS Direct API enhances the efficiency and cost-effectivenes
 
 - AWS Official Documentation: [Creating IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html)
 
-## Setting Up a Sync Proxy Instance(Ubuntu 20.04)
+## Setting Up a Sync Proxy Instance(Ubuntu 24.04)
 
 :::tip
 We'll first create this Sync Proxy host, and then proceed with necessary software installations after completing the installation of HyperBDR Console.

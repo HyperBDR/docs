@@ -12,7 +12,7 @@ During execution, if any tasks fail, only the failed tasks will be retried to im
 
 The batch installation program must be deployed independently and is recommended to run in a production environment. The specific requirements are as follows:
 
-- Operating System: Ubuntu 20.04
+- Operating System: Ubuntu 24.04
 - Container Environment: Docker
 
 ### 2.2 Network Architecture
@@ -203,7 +203,7 @@ docker exec massdeploy mass-deploy shell -os linux ping -c 2 -w 5 <HyperBDRConso
 
 ## Appendix
 
-### How to Install Docker on Ubuntu 20.04?
+### How to Install Docker on Ubuntu 24.04?
 
 ```bash
 # Update the existing package list

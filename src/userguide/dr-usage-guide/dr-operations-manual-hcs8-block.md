@@ -154,7 +154,7 @@ After confirming the entered information, click the **"Next"** button.
 ![hyperbdruserguide-tohcs8-blockstoragemode-2.png](./images/hyperbdruserguide-tohcs8-blockstoragemode-2.png)  
 
 (3) Select the information for creating the Cloud Sync Gateway instance under the authenticated tenant and click the **"Next"** button.
-> When creating a cloud synchronization gateway, you need to select the image that Ubuntu 20.04 cannot be found in the list. If there is no image in the list, you need to upload it manually.  
+> When creating a cloud synchronization gateway, you need to select the image that Ubuntu 24.04 cannot be found in the list. If there is no image in the list, you need to upload it manually.  
 > The size of the flavor must be greater than or equal to 2C2G.  
 
 ![hyperbdruserguide-tohcs8-blockstoragemode-3.png](./images/hyperbdruserguide-tohcs8-blockstoragemode-3.png)  
