@@ -236,7 +236,7 @@ It is enabled by default.
 
 ::: tip
 Custom Pre and Post Scripts can be used to assist users in executing custom scripts before and after the host is started. This is primarily used to execute commands during a reboot to ensure business continuity.
-> The pre-script runs last during the driver adaptation process. It works on Ubuntu 20.04 and needs to be written in Linux Bash. This script can change settings in your root disk.
+> The pre-script runs last during the driver adaptation process. It works on Ubuntu 24.04 and needs to be written in Linux Bash. This script can change settings in your root disk.
 If you need to change data in other disks, it's better to use the post-script.
 You can access your root disk folder through $HOST_ROOT_PATH.
 For example, on Linux, $HOST_ROOT_PATH means the system root directory; on Windows, it's the C drive.

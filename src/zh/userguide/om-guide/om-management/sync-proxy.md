@@ -4,7 +4,7 @@
 
 在源端主机安装代理程序，直接通过云平台的 API 接口或虚拟化平台的管理接口（如 VMware vCenter）捕获数据变化，实现无侵入的数据同步，适用于虚拟化环境，简化部署并降低系统资源占用。
 
-Linux Agentless 部署在 Ubuntu 20.04 主机上，推荐配置为 4 核 CPU、8GB 内存、200GB 硬盘，使用 ext4 或 xfs 文件系统（不支持 LVM 分区）。
+Linux Agentless 部署在 Ubuntu 24.04 主机上，推荐配置为 4 核 CPU、8GB 内存、50GB 硬盘，使用 ext4 或 xfs 文件系统（不支持 LVM 分区）。
 
 系统安装在/opt/hamal目录中，主要的文件及目录结构：
 

@@ -64,9 +64,9 @@ Download the Windows/Linux images to your local computer using the provided imag
 
 #### Linux Image
 
-* Version: ubuntu 20.04 server
+* Version: ubuntu 24.04 server
 * Size:  596.38 MB
-* Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)  
+* Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2)  
 
 #### Windows Image
 
@@ -112,7 +112,7 @@ Wait for the image creation to complete.
 ### Testing Network Connectivity Between Disaster Recovery Network and Business Network
 
 - Step 1: Log in to OpenStack and create a test server.  
-Create a test cloud server (using Ubuntu 20.04 OS) on OpenStack. When configuring the network, select the Business VPC and subnet. Ensure the security group for this newly created test VM has an inbound policy allowing access on port 22.
+Create a test cloud server (using Ubuntu 24.04 OS) on OpenStack. When configuring the network, select the Business VPC and subnet. Ensure the security group for this newly created test VM has an inbound policy allowing access on port 22.
 
 - Step 2: Test network access from the Disaster Recovery VPC to the Business VPC.
 
@@ -130,7 +130,7 @@ If you can successfully access and enter the password, the access is normal.
 
 ### Testing Network Connectivity Between Business Networks
 
-- Step 1: Create a new test cloud server using the Ubuntu 20.04 operating system. When configuring the network, select a different Business VPC and subnet. Ensure the security group for this newly created test VM has an inbound policy allowing access on port 22.
+- Step 1: Create a new test cloud server using the Ubuntu 24.04 operating system. When configuring the network, select a different Business VPC and subnet. Ensure the security group for this newly created test VM has an inbound policy allowing access on port 22.
 
 - Step 2: Log in to the test cloud servers in different VPCs via the console and perform bidirectional command tests using the following command.
 

@@ -43,7 +43,7 @@ After filling in the authentication information, click **"Next"** to proceed to 
 | Flavor                           | 2/4GB/c6i.large                                     | Select the instance type based on your workload (CPU / Memory / Model).                                  |
 | Network                          | Project-vpc (10.0.0.0/16)                           | Select the planned VPC network.                                                                          |
 | Subnet                           | Project-subnet-public1-cn-north-1a (10.0.0.0/20)    | Select the subnet under the corresponding zone.                                                          |
-| Linux Transition Host Base Image  | ubuntu-focal-20.04-amd64-server-20250530            | Temporary image for data recovery and driver adaptation.<br>Recommended: Ubuntu 20.04 / 24.04.<br>**Note:** If the source kernel ≥ 6.x, use 24.04. |
+| Linux Transition Host Base Image  | ubuntu 24.04           | Temporary image for data recovery and driver adaptation.<br>Recommended: Ubuntu 24.04. |
 | Windows Transition Host Base Image| Windows Server-2019-English-Full-Base-2025.05.15    | Temporary image for data recovery and driver adaptation.<br>Recommended: Windows Server 2016 / 2019 64bit.|
 | System Disk Type                  | General Purpose SSD (gp3)                           | Select the disk type according to performance requirements.                                               |
 

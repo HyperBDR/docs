@@ -15,7 +15,7 @@ See the [Agentless Support Matrix](./product-support-overview.md) for the full c
 
 ## Basic Requirements
 
-- **Sync Proxy Node:** Ubuntu 20.04, at least 2 CPU cores and 4GB RAM
+- **Sync Proxy Node:** Ubuntu 24.04, at least 4 CPU cores and 8GB RAM
 - **Network Requirements:**
   - Access to Ceph Monitor (default port 6789) and OSD (default port 6800)
   - Access to OpenStack platform API interface

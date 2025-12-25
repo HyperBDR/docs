@@ -311,9 +311,9 @@ DRS 会持续解析数据库日志、同步增量数据，使两个区域的数�
 
 * 将所需脚本上传到 Jump Server。
 
-  * 主备倒换脚本：[点击下载](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Best_Practices/master.py)
+  * 主备倒换脚本：[点击下载](https://downloads.oneprocloud.com/Best_Practices/master.py)
 
-  * 任务状态详情脚本：[点击下载](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Best_Practices/master_status.py)
+  * 任务状态详情脚本：[点击下载](https://downloads.oneprocloud.com/Best_Practices/master_status.py)
 
   > 下载并上传文件完成后，请务必在脚本中将区域和任务 ID 修改为实际值。
 

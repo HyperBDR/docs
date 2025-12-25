@@ -131,7 +131,7 @@ Then fill in the authentication information of this account to the HyperBDR Cons
 
 Download the template file for installing **Sync Proxy** node (OVA)
 
-- [proxy-agent_BaseOS.ova](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova)
+- [proxy-agent_BaseOS.ova](https://downloads.oneprocloud.com/proxy-agent_BaseOS.ova)
 
 ## Import OVA Images and Create **Sync Proxy** Virtual Machine in VMware
 
