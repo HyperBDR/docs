@@ -23,7 +23,7 @@
 
 * **运行环境**
 
-  * 在**临时过渡主机**执行，操作系统版本取决于产品版本（如 Ubuntu 20.04 / Ubuntu 24.04，后续可能升级）。
+  * 在**临时过渡主机**执行，操作系统版本取决于产品版本（如 Ubuntu 24.04，后续可能升级）。
 
   * 脚本必须为 **Linux Bash** 脚本。
 
@@ -287,7 +287,7 @@ echo This system has been pre-configured. >> %HOST_ROOT_PATH%\readme.txt
 
 #### **场景：在Linux中安装新的内核并设置该内核启动**
 
-将原运行Azure内核的谷歌云Agent（由Azure平台迁移至谷歌云）迁移到AWS的Ubuntu 20.04，由于Azure内核缺少AWS所需的ENA增强网卡驱动，需要改为安装通用内核以启动主机。
+将原运行Azure内核的谷歌云Agent（由Azure平台迁移至谷歌云）迁移到AWS的Ubuntu 24.04，由于Azure内核缺少AWS所需的ENA增强网卡驱动，需要改为安装通用内核以启动主机。
 
 ```bash
 ROOT=$HOST_ROOT_PATH

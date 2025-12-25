@@ -97,15 +97,15 @@
 
 可以直接下载OVA模版导入VMware生产Sync Proxy虚拟机进行使用。
 
-OVA下载链接：[点击下载](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova)
+OVA下载链接：[点击下载](https://downloads.oneprocloud.com/proxy-agent_BaseOS.ova)
 
 * 其他平台创建Sync Proxy虚拟机
 
-其他平台可以自行进行Ubuntu 20.04操作系统的虚拟机创建，如果为OpenStack平台或者其他KVM虚拟化平台，可以下载标准的Ubuntu 20.04 QCOW镜像导入进行使用。
+其他平台可以自行进行Ubuntu 24.04操作系统的虚拟机创建，如果为OpenStack平台或者其他KVM虚拟化平台，可以下载标准的Ubuntu 24.04 QCOW镜像导入进行使用。
 
-QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
+QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2)
 
-> 注意：此Ubuntu20.04的镜像是没有默认登录密码的，镜像内部包含cloud-init服务，要求你导入的云平台必须可以支持通过cloud-init服务进行密码的注入，否则无法使用此镜像。
+> 注意：此Ubuntu24.04的镜像是没有默认登录密码的，镜像内部包含cloud-init服务，要求你导入的云平台必须可以支持通过cloud-init服务进行密码的注入，否则无法使用此镜像。
 
 * 前提准备
 
@@ -515,7 +515,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 > 前脚本是在进行驱动适配过程最后执行的代码。
 >
-> 在Ubuntu 20.04操作系统中运行，需要使用Linux Bash语法编写。
+> 在Ubuntu 24.04操作系统中运行，需要使用Linux Bash语法编写。
 >
 > 该脚本可修改用户系统盘内的设置文件。
 >
@@ -753,7 +753,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 脚本配置说明：
 
 > 前脚本是在进行驱动适配过程最后执行的代码。
-> 在Ubuntu 20.04操作系统中运行，需要使用Linux Bash语法编写。
+> 在Ubuntu 24.04操作系统中运行，需要使用Linux Bash语法编写。
 > 该脚本可修改用户系统盘内的设置文件。
 > 如果需要修改其他磁盘中的数据，建议使用后脚本来完成。
 > 你可以通过$HOST\_ROOT\_PATH访问用户系统盘的文件夹。

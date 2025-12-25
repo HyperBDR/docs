@@ -172,13 +172,13 @@ NOTE: For Source IP range, we recommend use safe range to replace 0.0.0.0/0. For
 If it is a public network environment, it is recommended to set whitelist access on port 22 to ensure security.
 
 
-## Upload Ubuntu 20.04 Image to XHERE Platform
+## Upload Ubuntu 24.04 Image to XHERE Platform
 This image is used to deploy the disaster recovery tool and subsequently to create the "Cloud Sync Gateway," making it particularly important.
 > Since the XHERE platform cannot inject passwords into images via the cloud-init service, the uploaded image must meet the following conditions:
 1. The image must have remote login enabled for the root user.
 2. The image must have a default password set for the root user.
 
-If no suitable image is available, you can manually create a compliant image using an existing Ubuntu 20.04 image.
+If no suitable image is available, you can manually create a compliant image using an existing Ubuntu 24.04 image.
 
 
 ## Create VM for HyperBDR
@@ -199,9 +199,6 @@ If no suitable image is available, you can manually create a compliant image usi
 
 
  On this page, you can select an Ubuntu 20.04 image to create a host for installing the HyperBDR tool. Choose the instance specifications of 8U16G200G for the host.  
-
-
-
 
 ## XHERE platform account quota check
 

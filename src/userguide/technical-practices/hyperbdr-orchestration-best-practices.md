@@ -306,9 +306,9 @@ The operating requirements are as follows:&#x20;
 
 * Upload the required scripts to the Jump Server.
 
-  * Active-standby switchover script:[Click to download](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Best_Practices/master.py)
+  * Active-standby switchover script:[Click to download](https://downloads.oneprocloud.com/Best_Practices/master.py)
 
-  * Task Status Details Script:[Click to Download](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/Best_Practices/master_status.py)
+  * Task Status Details Script:[Click to Download](https://downloads.oneprocloud.com/Best_Practices/master_status.py)
 
   > After downloading and uploading the file is completed, please make sure to modify the region and task ID to the actual values in the script.&#x20;
 

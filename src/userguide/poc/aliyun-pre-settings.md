@@ -150,7 +150,7 @@ We strongly recommend using key pair login instead of password login when creati
 ### Test Network Connectivity Between DR VPC and Business VPC
 
 - Step 1: Log in to Alibaba Cloud and create a test server  
-Create a test cloud server on Alibaba Cloud (using Ubuntu 20.04 operating system). When configuring the network, select the Business VPC and subnet. Ensure the security group of the new test VM has an inbound access rule allowing port 22.
+Create a test cloud server on Alibaba Cloud (using Ubuntu 24.04 operating system). When configuring the network, select the Business VPC and subnet. Ensure the security group of the new test VM has an inbound access rule allowing port 22.
 
 - Step 2: Test network access from DR VPC to Business VPC
 
@@ -167,7 +167,7 @@ If you can successfully access the host and enter the password, the connection i
 
 ### Test Network Connectivity Between Business VPCs
 
-- Step 1: Create a new test cloud server using Ubuntu 20.04 operating system. When configuring the network, select a different Business VPC and subnet. Ensure the security group of the new test VM has an inbound access rule allowing port 22.
+- Step 1: Create a new test cloud server using Ubuntu 24.04 operating system. When configuring the network, select a different Business VPC and subnet. Ensure the security group of the new test VM has an inbound access rule allowing port 22.
 
 - Step 2: Log in to the test cloud server on different VPCs through the console and perform bidirectional connectivity tests using the following command.
 
