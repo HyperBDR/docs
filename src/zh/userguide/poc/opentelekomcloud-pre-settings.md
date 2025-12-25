@@ -72,10 +72,10 @@ Download images to your local machine through the provided image links.
 
 #### Linux Image
 
-* File Name: ubuntu-20.04-server-cloud-init-amd64.qcow2
-* Version: ubuntu 20.04 server
+* File Name: ubuntu-24.04-server-cloud-init-amd64.qcow2
+* Version: ubuntu 24.04 server
 * Size: 5.85 GB
-* Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)  
+* Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2)  
 
 #### Windows Image
 
@@ -106,7 +106,7 @@ OTC Reference Documentation:
 ::: warning
 1. The name must be one of the following and cannot have additional characters.
 2. Due to the diverse versions of Windows on the source hosts, select the generic option for the operating system.
-3. Linux image is primarily used for creating an HD. The recommended version for the current release is Ubuntu 20.04
+3. Linux image is primarily used for creating an HD. The recommended version for the current release is Ubuntu 24.04
 :::
 
 **Windows BIOS Image**
@@ -128,7 +128,7 @@ The size of the System disk must be 40G.
 
 Supported Linux image names
 
-> Ubuntu 20.04 server 64bit  
+> Ubuntu 24.04 server 64bit  
 
 **Windows UEFI Image**
 
@@ -146,7 +146,7 @@ The size of the System disk must be 40G.
 
 Supported Linux image names
 
-> Ubuntu 20.04 server 64bit UEFI
+> Ubuntu 24.04 server 64bit UEFI
 
 ## Create VPC Peering
 
