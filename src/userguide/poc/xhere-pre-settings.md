@@ -213,13 +213,13 @@ If the remaining quota in the XHERE account is insufficient, it is necessary to 
 Need to gather information on the computing and storage resources for the host systems awaiting disaster recovery and input the details into a table.
 
 
-| **<font style="color:#373c43;">Resources Type</font>** | **<font style="color:#373c43;">Size</font>** |
-| :--- | :--- |
-| <font style="color:rgb(0, 0, 0);">The total number of source host</font> | |
-| <font style="color:rgb(0, 0, 0);">The total number of source host CPU</font> | |
-| <font style="color:rgb(0, 0, 0);">The total number of source host RAM(MB)</font> | |
-| <font style="color:rgb(0, 0, 0);">The total number of source host disks</font> | |
-| <font style="color:rgb(0, 0, 0);">The total disk capacity for source host(GB)</font> | |
+| Resource Type | Quantity/Capacity|
+| --- | --- |
+| Total Number of Source Hosts	  |  |
+| Total vCPUs of Source Hosts	 |  |
+| Total Memory of Source Hosts	 |  |
+| Total Number of Disks on Source Hosts	 |  |
+| Total Disk Capacity of Source Hosts	 |  |
 
 
 ### XHERE account resource quota check
