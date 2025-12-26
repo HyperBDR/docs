@@ -165,13 +165,13 @@ ssh -v -p 10729 <实例 C 的内网 IP 地址>
 
 需要收集待灾备主机系统的计算和存储资源信息，并将详细信息填入表格。
 
-| **<font style="color:#373c43;">Resources Type</font>** | **<font style="color:#373c43;">Size</font>** |
-| :--- | :--- |
-| <font style="color:rgb(0, 0, 0);">The total number of source host</font> | |
-| <font style="color:rgb(0, 0, 0);">The total number of source host CPU</font> | |
-| <font style="color:rgb(0, 0, 0);">The total number of source host RAM(MB)</font> | |
-| <font style="color:rgb(0, 0, 0);">The total number of source host disks</font> | |
-| <font style="color:rgb(0, 0, 0);">The total disk capacity for source host(GB)</font> | |
+| 资源类型 | 大小 |
+| --- | --- |
+| 源端主机的总数量  |  |
+| 源端主机的总CPU数量 |  |
+| 源端主机的总内存大小 |  |
+| 源端主机的总磁盘数量 |  |
+| 源端主机磁盘的总容量 |  |
 
 ### XHERE 账户资源配额检查
 
