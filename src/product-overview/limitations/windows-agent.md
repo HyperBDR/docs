@@ -22,6 +22,7 @@ If similar backup software is already installed on the system, it is recommended
 | Windows Server 2016      | 2016 (64-bit)                    |
 | Windows Server 2019      | 2019 (64-bit)                    |
 | Windows Server 2022      | 2022 (64-bit)                    |
+| Windows Server 2025      | 2025 (64-bit)                    |
 
 ::: warning
 Click [Cloud Platform Support Matrix](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO) to view the compatibility list and latest support status.
@@ -64,7 +65,7 @@ Windows Agent uses Windows VSS to create consistent snapshots without interrupti
 | Condition | Supported | Not Supported |
 |-----------|-----------|---------------|
 | User Permissions | Supported: Administrator users, or domain users with local administrator privileges | Not supported: Non-administrator users |
-| File System Types | Supported: NTFS | Not supported: Other file systems, such as FAT16, FAT32, ReFS, etc. |
+| File System Types | Supported: NTFS, ReFS | Not supported: Other file systems, such as FAT16, FAT32, etc. |
 | Partition Types | Supported: Primary/Extended partitions, MBR/GPT, Basic disks, Dynamic disks (Simple and Spanned volumes) | Not supported: Dynamic disks (Mirrored volumes, RAID volumes), Dynamic disks as boot partitions |
 | VSS Snapshots | Supported: Volume retains ≥10% free space, VSS service normal, NTFS supports VSS sync | Not supported: Insufficient space, VSS service abnormal, Non-NTFS file system VSS sync |
 | Number of Disks | Supported: ≤32 disks | Not supported: More than 32 disks |

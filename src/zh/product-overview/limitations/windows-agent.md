@@ -22,6 +22,7 @@ Windows Agent 通过 Windows VSS（卷影复制服务）和磁盘过滤驱动程
 | Windows Server 2016     | 2016 (64-bit) |
 | Windows Server 2019     | 2019 (64-bit) |
 | Windows Server 2022     | 2022 (64-bit) |
+| Windows Server 2025     | 2025 (64-bit) |
 
 ::: warning
 点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)查看兼容
@@ -65,7 +66,7 @@ Windows Agent使用Windows VSS创建一致的快照，无需中断系统操作�
 | 条件 | 支持情况 | 不支持情况 |
 |------|----------|------------|
 | 用户权限 | 支持：管理员用户，或域控用户但具有本地管理员权限 | 不支持：非管理员用户 |
-| 文件系统类型 | 支持：NTFS | 不支持：其他文件系统，例如FAT16, FAT32, ReFS等 |
+| 文件系统类型 | 支持：NTFS，ReFS | 不支持：其他文件系统，例如FAT16, FAT32等 |
 | 分区类型 | 支持：主分区/扩展分区、MBR/GPT、基本磁盘、动态磁盘（简单卷和跨区卷） | 不支持：动态磁盘（镜像卷、RAID卷）、动态磁盘作为启动分区 |
 | VSS快照 | 支持：卷保留≥10%空闲空间，VSS服务正常，NTFS支持VSS同步 | 不支持：空间不足、VSS服务异常、非NTFS文件系统VSS同步 |
 | 磁盘数量 | 支持：≤32个磁盘 | 不支持：超过32个磁盘 |
