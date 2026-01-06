@@ -98,15 +98,15 @@ Agentless mode requires deploying one or more Sync Proxy agents on the source si
 
 You can directly download the OVA template and import it into VMware to create a Sync Proxy VM for use.
 
-OVA download link: [Download Here](https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova)
+OVA download link: [Download Here](https://downloads.oneprocloud.com/proxy-agent_BaseOS.ova)
 
 * Sync Proxy VM Creation for Other Platforms
 
-For other platforms, you can create a virtual machine with Ubuntu 20.04 OS. For OpenStack or other KVM virtualization platforms, you can download the standard Ubuntu 20.04 QCOW image and import it for use.
+For other platforms, you can create a virtual machine with Ubuntu 24.04 OS. For OpenStack or other KVM virtualization platforms, you can download the standard Ubuntu 24.04 QCOW image and import it for use.
 
-QCOW image download link: [Download Here](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
+QCOW image download link: [Download Here](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2)
 
-> Note: This Ubuntu 20.04 image has no default login password. It includes the cloud-init service inside the image, so the cloud platform you import it into must support password injection via cloud-init, otherwise this image cannot be used.
+> Note: This Ubuntu 24.04 image has no default login password. It includes the cloud-init service inside the image, so the cloud platform you import it into must support password injection via cloud-init, otherwise this image cannot be used.
 
 * Prerequisites
 

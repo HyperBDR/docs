@@ -171,10 +171,10 @@ The image using requires cloud-init for password and key injection, so if the im
 
 #### Linux Image
 
-* File Name: ubuntu-20.04-server-cloud-init-amd64.qcow2
-* Version: ubuntu 20.04 server
+* File Name: ubuntu-24.04-server-cloud-init-amd64.qcow2
+* Version: ubuntu 24.04 server
 * Size: 596.38 MB
-* Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)  
+* Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2)  
 
 #### Windows Image
 
@@ -225,7 +225,7 @@ Use **[ubuntu-20.04-server-cloudimg-amd64.qcow2]** and **[Windows_Server_2016_Da
 ::: warning 
 1.The name must be one of the following and cannot have additional characters.  
 2.Due to the diverse versions of Windows on the source hosts, select the generic option for the operating system.  
-3.Linux image is primarily used for creating an HD. The recommended version for the current release is Ubuntu 20.04  
+3.Linux image is primarily used for creating an HD. The recommended version for the current release is Ubuntu 24.04  
 :::
 
 **Windows BIOS Image**  
@@ -249,7 +249,7 @@ The size of the System disk must be 40G.
 
 Supported Linux image names
 
-> Ubuntu 20.04 server 64bit  
+> Ubuntu 24.04 server 64bit  
 
 ![upload-custom-windowslinux-images-to-huawei-cloud-7.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-7.png)
 
@@ -279,7 +279,7 @@ Use the **[HuaweiCloud_UEFI_GenericImage.qcow2]** qcow2 file in Huawei Cloud OBS
 ::: warning 
 1.The name must be one of the following and cannot have additional characters.  
 2.Due to the diverse versions of Windows on the source hosts, select the generic option for the operating system.  
-3.Linux image is primarily used for creating an HD. The recommended version for the current release is Ubuntu 20.04  
+3.Linux image is primarily used for creating an HD. The recommended version for the current release is Ubuntu 24.04  
 :::
 
 **Windows UEFI Image**  
@@ -300,7 +300,7 @@ The size of the System disk must be 40G.
 
 Supported Linux image names
 
-> Ubuntu 20.04 server 64bit UEFI  
+> Ubuntu 24.04 server 64bit UEFI  
 
 ![upload-custom-windowslinux-images-to-huawei-cloud-10.png](./images/upload-custom-windowslinux-images-to-huawei-cloud-10.png)
 

@@ -4,7 +4,7 @@
 
 The Cloud Sync Gateway is a key component that connects the source and target cloud platforms. It is responsible for receiving and processing both full and incremental data from the source, synchronizing it to the cloud platform's storage, and enabling efficient, cost-effective data backup and disaster recovery.
 
-The platform automatically creates a default Cloud Sync Gateway environment, typically using Ubuntu 20.04 with 2 CPU cores, 4GB RAM, and a 50GB disk.
+The platform automatically creates a default Cloud Sync Gateway environment, typically using Ubuntu 24.04 with 4 CPU cores, 8GB RAM, and a 50GB disk.
 
 The system is installed in the `/var/lib/sgateway` directory (location is configurable). The main files and directory structure are as follows:
 

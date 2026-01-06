@@ -172,13 +172,13 @@ NOTE: For Source IP range, we recommend use safe range to replace 0.0.0.0/0. For
 If it is a public network environment, it is recommended to set whitelist access on port 22 to ensure security.
 
 
-## Upload Ubuntu 20.04 Image to XHERE Platform
+## Upload Ubuntu 24.04 Image to XHERE Platform
 This image is used to deploy the disaster recovery tool and subsequently to create the "Cloud Sync Gateway," making it particularly important.
 > Since the XHERE platform cannot inject passwords into images via the cloud-init service, the uploaded image must meet the following conditions:
 1. The image must have remote login enabled for the root user.
 2. The image must have a default password set for the root user.
 
-If no suitable image is available, you can manually create a compliant image using an existing Ubuntu 20.04 image.
+If no suitable image is available, you can manually create a compliant image using an existing Ubuntu 24.04 image.
 
 
 ## Create VM for HyperBDR
@@ -200,9 +200,6 @@ If no suitable image is available, you can manually create a compliant image usi
 
  On this page, you can select an Ubuntu 20.04 image to create a host for installing the HyperBDR tool. Choose the instance specifications of 8U16G200G for the host.  
 
-
-
-
 ## XHERE platform account quota check
 
 During the disaster recovery process, it is essential to ensure that the cloud account has sufficient resource quotas to support data synchronization and disaster recovery. To prevent potential failure of disaster recovery due to insufficient quotas, it is necessary to perform a resource quota check before initiating the disaster recovery.
@@ -216,13 +213,13 @@ If the remaining quota in the XHERE account is insufficient, it is necessary to 
 Need to gather information on the computing and storage resources for the host systems awaiting disaster recovery and input the details into a table.
 
 
-| **<font style="color:#373c43;">Resources Type</font>** | **<font style="color:#373c43;">Size</font>** |
-| :--- | :--- |
-| <font style="color:rgb(0, 0, 0);">The total number of source host</font> | |
-| <font style="color:rgb(0, 0, 0);">The total number of source host CPU</font> | |
-| <font style="color:rgb(0, 0, 0);">The total number of source host RAM(MB)</font> | |
-| <font style="color:rgb(0, 0, 0);">The total number of source host disks</font> | |
-| <font style="color:rgb(0, 0, 0);">The total disk capacity for source host(GB)</font> | |
+| Resource Type | Quantity/Capacity|
+| --- | --- |
+| Total Number of Source Hosts	  |  |
+| Total vCPUs of Source Hosts	 |  |
+| Total Memory of Source Hosts	 |  |
+| Total Number of Disks on Source Hosts	 |  |
+| Total Disk Capacity of Source Hosts	 |  |
 
 
 ### XHERE account resource quota check
