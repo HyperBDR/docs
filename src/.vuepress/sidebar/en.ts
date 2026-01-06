@@ -111,6 +111,7 @@ export const enSidebar = sidebar({
             'azure-target-pre-settings.md',
             'openstack-pre-settings',
             'aliyun-pre-settings',
+            'ucloud-pre-settings',
           ],
         },
         {
