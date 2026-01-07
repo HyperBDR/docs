@@ -111,6 +111,7 @@ export const zhSidebar = sidebar({
             'azure-target-pre-settings.md',
             'openstack-pre-settings',
             'aliyun-pre-settings',
+            'ucloud-pre-settings',
           ],
         },
         {
