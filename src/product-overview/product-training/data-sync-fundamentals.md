@@ -15,11 +15,11 @@ The kernel module manages snapshots and tracks changes using a copy-on-write (CO
 **Windows Agent** is divided into two main layers: kernel mode and application layer.
 
 1. **Kernel Mode Driver**: This layer collects all write I/O operations from protected disks and provides an interface for the application layer. By using two timestamps, the kernel driver can keep track of all write I/O sequences.
-    
+
 2. **Application Layer**: This layer is responsible for reading disk block data and writing target data (such as via iSCSI or OSS). To improve data synchronization efficiency and ensure consistency, the application layer uses Microsoft’s Volume Shadow Copy Service (VSS) technology. VSS allows for creating volume snapshots and maintains snapshot data consistency through a copy-on-write (COW) method.
-    
+
 3. **Snapshots and Synchronization**: Data synchronization is done at the block level. The application layer analyzes each protected disk to identify the start and end positions of each volume and creates a mapping. This helps the system quickly locate and read each block of data from the corresponding volume or disk.
-    
+
 4. **Efficient Data Synchronization**: To enhance synchronization efficiency, the application layer only synchronizes valid data from the volumes. It reads the metadata of each volume to check a bitmap that shows which sectors contain valid data and which do not. During data synchronization, the system skips invalid data areas to optimize the process.
 
 ![Windows Agent Data Sync](./images/data-sync-fundamentals-2-windows-agent.png)
@@ -108,3 +108,41 @@ Oracle Cloud's agentless backup solution utilizes the SCSI protocol's GET LBA ST
 
 - [Announcing OCI Block Volume Direct APIs for changed block tracking between backups](https://www.oracle.com/news/announcement/announcement-triton-2024-09-10/)
 - [Direct APIs for Changed Block Tracking Between Two Backups](https://docs.oracle.com/en-us/iaas/Content/Block/Tasks/restoringdeltabetweenbackups.htm)
+
+## Features
+
+### Data Compression
+
+#### Usage
+
+Users can enable or disable compression in the synchronization settings before starting host synchronization. After selecting a host, navigate to the synchronization settings and toggle the compression option.
+
+Compression is disabled by default to minimize resource consumption. To enable compression during synchronization, configure it before starting, or pause synchronization to change the setting.
+
+#### How It Works
+
+The system uses block-level data synchronization, dividing data into approximately 1MB blocks. When compression is enabled, each block is compressed during transmission to reduce network bandwidth usage.
+
+Unlike file-level compression, our block-based approach means compression ratios vary based on operating system storage characteristics and data types. Text data typically compresses well, while images and binary data offer less compression potential.
+
+The operating system's storage mechanisms can create a write amplification effect, where the actual synchronized data volume exceeds the original data volume. Compression helps offset this expansion rather than pursuing maximum compression ratios.
+
+#### Compression Ratios
+
+Compression effectiveness varies by data type. Since real environments contain mixed data, the following ratios are approximate:
+
+- Text and structured data (logs, JSON, CSV): ~30% reduction
+- Database files (MySQL/PostgreSQL data files, WAL, SQLite): ~10% reduction
+- Pre-compressed media and binaries (JPEG, PNG, MP3/MP4, archives): <10% reduction
+- Mixed application data (app directories, VM images, containers, cache): ~10–20% reduction, depending on composition
+
+> Note: These are conservative estimates. Actual results depend on data composition, write patterns, and OS storage mechanisms. Mixed data environments typically show lower compression benefits.
+
+#### Transmission and Storage
+
+During transmission, data is compressed before sending to reduce bandwidth, regardless of storage type.
+
+- **Block storage**: Data is decompressed at the receiving end before storage, so storage usage exceeds transmission volume
+- **Object storage**: Data remains compressed in storage and is only decompressed during recovery or reads, so storage usage matches transmission volume
+
+This approach optimizes transmission efficiency while balancing storage usage and recovery performance based on the storage type.
