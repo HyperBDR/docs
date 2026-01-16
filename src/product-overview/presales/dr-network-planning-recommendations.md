@@ -207,7 +207,7 @@ Agent contains Windows Agent and Linux Agent.
 | 6 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 /30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)|
 | 7 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
 
-#### HUAWEI Agentless
+#### Huawei Cloud Agentless
 
 | No. | From              | To                  | Direction        | Ports              | Type         | Comment                                                                                                                                                                      |
 |-----|-------------------|---------------------|------------------|--------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -217,6 +217,19 @@ Agent contains Windows Agent and Linux Agent.
 | 4   | HyperBDR Console  | Cloud Sync Gateway  | TCP Unidirectional | 22 / 10729 / 16100 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group. |
 | 5   | Cloud Sync Gateway| HyperBDR Console    | TCP Unidirectional | 10443 / 30080      |              | When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
 | 6   | HyperBDR Console  | Cloud API           | TCP Unidirectional | 443                | Control Flow |                                                                                                                                                                              |
+
+#### OpenStack Ceph Agentless
+
+| No. | From               | To                 | Direction          | Ports                                    | Type         | Comment                                                                                                                                                       |
+| --- | ------------------ | ------------------ | ------------------ | ---------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Sync Proxy         | OpenStack API      | TCP Unidirectional | 5000 / 35357 / 9696 / 8774 / 8776 / 9292 | Control Flow | Identity authentication and resource operations (Keystone / Nova / Neutron / Cinder / Glance)                                                                 |
+| 2   | Sync Proxy         | Ceph Monitor       | TCP Unidirectional | 6789                                     | Data Flow    | Retrieves virtual machine data via the Ceph Monitor                                                                                                           |
+| 3   | Sync Proxy         | HyperBDR Console   | TCP Unidirectional | 10443 / 30080                            | Control Flow | When using the official HyperBDR SaaS environment, please use ports 443/30080.<br/>Overseas SaaS Environment:<br/>Start Migration<br/>Start Disaster Recovery |
+| 4   | Sync Proxy         | Cloud Sync Gateway | TCP Unidirectional | 13260                                    | Data Flow    |                                                                                                                                                               |
+| 5   | HyperBDR Console   | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 / 16100                       | Control Flow | Manages target Cloud Sync Gateway ECS nodes and delivers control commands.                                                                                    |
+| 6   | Cloud Sync Gateway | HyperBDR Console   | TCP Unidirectional | 10443 / 30080                            | Control Flow | When using the official HyperBDR SaaS environment, please use ports 443/30080.<br/>Overseas SaaS Environment:<br/>Start Migration<br/>Start Disaster Recovery |
+| 7   | HyperBDR           | Target Cloud API   | TCP Unidirectional | 443                                      | Control Flow | Invokes target cloud APIs to perform resource operations                                                                                                      |
+
 
 ### Deployment Architecture
 

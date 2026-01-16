@@ -73,11 +73,11 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 * **该镜像为Ucloud专用版本，内置qga服务**
 
-* 版本： ubuntu 20.04 server
+* 版本： ubuntu 24.04 server
 
-* 大小: 617 MB
+* 大小: 765 MB
 
-* 下载链接: [https://downloads.oneprocloud.com/docs\_images/ubuntu20.04-server-qga.qcow2](https://downloads.oneprocloud.com/docs\_images/ubuntu20.04-server-qga.qcow2)
+* 下载链接: [https://downloads.oneprocloud.com/docs_images/ubuntu24.04-server-qga.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu24.04-server-qga.qcow2)
 
 ### **导入镜像到UcloudStack**
 
