@@ -75,9 +75,9 @@ Download the Linux mirroring to the local computer via the provided mirroring li
 
 * Version: ubuntu 20.04 server
 
-* Size: 617 MB
+* Size: 765 MB
 
-* Download link: https://downloads.oneprocloud.com/docs\_images/ubuntu20.04-server-qga.qcow2 &#x20;
+* Download link:<br>[https://downloads.oneprocloud.com/docs_images/ubuntu24.04-server-qga.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu24.04-server-qga.qcow2)
 
 ### **Import mirroring to UcloudStack**
 
