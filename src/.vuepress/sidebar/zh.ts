@@ -29,6 +29,7 @@ export const zhSidebar = sidebar({
       children: [
         "network-planning.md",
         "saas-network-practices.md",
+        "aws-cross-region-dr"
       ],
       collapsible: true,
       expanded: true,
