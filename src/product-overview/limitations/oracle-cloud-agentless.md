@@ -23,7 +23,7 @@ This feature uses the Agentless mode to achieve data backup and migration of clo
 
 The synchronization proxy is a transit server responsible for executing data reading and transmission, and must be deployed within the OCI Cloud Computing Platform.&#x20;
 
-* **Operating System Requirements**: Must use the Linux system Ubuntu 20.04+.
+* **Operating System Requirements**: Must use the Linux system Ubuntu 24.04.
 
 * **Deployment Location**: Must be located in the same Available Zone as the source host.
 

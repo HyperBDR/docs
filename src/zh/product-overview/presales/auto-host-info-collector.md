@@ -38,7 +38,7 @@ Prophet 是由 OneProCloud 开发的开源自动化收集与分析工具。它�
 
 为了确保 Prophet 工具的最佳性能，建议使用以下环境：
 
-* 操作系统：Ubuntu 20.04 及以上版本
+* 操作系统：Ubuntu 24.04 及以上版本
 * 容器支持：Docker（Ubuntu 内置版本）
 
 #### **安装过程：**

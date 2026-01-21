@@ -29,6 +29,7 @@ export const enSidebar = sidebar({
       children: [
         "network-planning.md",
         "saas-network-practices.md",
+        "aws-cross-region-dr",
       ],
       collapsible: true,
       expanded: true,
@@ -110,6 +111,8 @@ export const enSidebar = sidebar({
             'xhere-pre-settings.md',
             'azure-target-pre-settings.md',
             'openstack-pre-settings',
+            'aliyun-pre-settings',
+            'ucloud-pre-settings',
           ],
         },
         {

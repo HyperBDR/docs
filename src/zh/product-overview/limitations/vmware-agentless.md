@@ -15,7 +15,7 @@
 
 ## 基本要求
 
-- **源端同步代理（Sync Proxy）节点**：Ubuntu 20.04，至少 2 核 CPU 和 4GB 内存
+- **源端同步代理（Sync Proxy）节点**：Ubuntu 24.04，至少 4 核 CPU 和 8GB 内存
 - **网络要求：**
   - 可访问 vCenter 管理网络地址及端口
   - 可访问 vCenter 管理的 ESXi 的 902 端口

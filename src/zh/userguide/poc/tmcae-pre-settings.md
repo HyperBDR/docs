@@ -237,9 +237,9 @@ Download Windows/Linux images to your local machine through the provided image l
 
 #### Linux Image
 
-* Version: ubuntu 20.04 server
+* Version: ubuntu 24.04 server
 * Size:  596.38 MB
-* Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
+* Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2)
 
 #### Windows Image
 
@@ -280,7 +280,7 @@ TM CAE documentation link:
 ::: warning 
 1.The name must be one of the following and cannot have additional characters.  
 2.Due to the diverse versions of Windows on the source hosts, select the generic option for the operating system.  
-3.Linux image is primarily used for creating an HD. The recommended version for the current release is Ubuntu 20.04  
+3.Linux image is primarily used for creating an HD. The recommended version for the current release is Ubuntu 24.04  
 :::
 Supported Windows image names
 
@@ -304,7 +304,7 @@ Boot Mode Select BIOS.
 
 Supported Linux image names
 
-> Ubuntu 20.04 64bit  
+> Ubuntu 24.04 64bit  
 
 ![tmcae-image-download--upload-3.png](./images/tmcae-image-download--upload-3.png)
 

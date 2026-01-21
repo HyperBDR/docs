@@ -15,7 +15,7 @@ See the [Agentless Support Matrix](./product-support-overview.md) for the full c
 
 ## Basic Requirements
 
-- **Sync Proxy Node:** Ubuntu 20.04, at least 2 CPU cores and 4GB RAM
+- **Sync Proxy Node:** Ubuntu 24.04, at least 4 CPU cores and 8GB RAM
 - **Network Requirements:**
   - Access to vCenter management network address and port
   - Access to port 902 of ESXi managed under the vCenter

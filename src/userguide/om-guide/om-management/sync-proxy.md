@@ -4,7 +4,7 @@
 
 The agentless proxy is installed on the source host and captures data changes directly through the cloud platform's API or virtualization management interfaces (such as VMware vCenter). This enables non-intrusive data synchronization, making it suitable for virtualized environments, simplifying deployment, and reducing system resource usage.
 
-The Linux agentless proxy is deployed on an Ubuntu 20.04 host. The recommended configuration is 4-core CPU, 8GB RAM, 200GB disk, using ext4 or xfs file systems (LVM partitions are not supported).
+The Linux agentless proxy is deployed on an Ubuntu 24.04 host. The recommended configuration is 4-core CPU, 8GB RAM, 50GB disk, using ext4 or xfs file systems (LVM partitions are not supported).
 
 The system is installed in the /opt/hamal directory. The main files and directory structure are as follows:
 

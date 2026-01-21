@@ -15,7 +15,7 @@
 
 ## 基本要求
 
-- **源端同步代理（Sync Proxy）节点**：Ubuntu 20.04，至少 2 核 CPU 和 4GB 内存
+- **源端同步代理（Sync Proxy）节点**：Ubuntu 24.04，至少 4 核 CPU 和 8GB 内存
 - **网络要求：**
   - 可访问 Ceph Monitor（默认端口 6789）及 OSD（默认端口 6800）
   - 可访问 OpenStack 平台 API 接口

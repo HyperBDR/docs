@@ -64,9 +64,9 @@ HyperBDR 安全组名称: SG-HyperBDR
 
 #### Linux 镜像
 
-* 版本： ubuntu 20.04 server
+* 版本： ubuntu 24.04 server
 * 大小: 596.38 MB
-* 下载链接: [https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)  
+* 下载链接: [https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2)  
 
 #### Windows 镜像
 
@@ -111,7 +111,7 @@ HyperBDR 安全组名称: SG-HyperBDR
 ### 测试灾难恢复VPC和业务VPC之间的网络连通性
 
 - 步骤1: 登录到OpenStack并创建一个测试服务器  
-在OpenStack上创建一个测试云服务器（使用Ubuntu20.04操作系统）。在配置网络时，选择业务VPC和子网。确保这台新创建的测试虚拟机的安全组具有允许端口22的入站访问策略。
+在OpenStack上创建一个测试云服务器（使用Ubuntu24.04操作系统）。在配置网络时，选择业务VPC和子网。确保这台新创建的测试虚拟机的安全组具有允许端口22的入站访问策略。
 
 - 步骤2: 从灾难恢复VPC到业务VPC进行网络测试访问
 
@@ -129,7 +129,7 @@ ssh root@<业务vpc主机IP地址>  22
 
 ### 测试业务VPC之间的网络连通性
 
-- 步骤1: 创建一个新的测试云服务器，使用ubuntu20.04操作系统。在配置网络时，选择不同的业务VPC和子网。确保这台新创建的测试虚拟机的安全组具有允许端口22的入站访问策略。
+- 步骤1: 创建一个新的测试云服务器，使用ubuntu24.04操作系统。在配置网络时，选择不同的业务VPC和子网。确保这台新创建的测试虚拟机的安全组具有允许端口22的入站访问策略。
 
 - 步骤2: 通过控制台登录到不同vpc的测试云服务器，并使用以下命令进行双向命令测试。
 

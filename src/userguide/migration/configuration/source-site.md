@@ -34,7 +34,7 @@ Follow the guided steps below:
 
   * Click the download link on the page
 
-  * Internet OVA download link: <https://HyperBDR-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova>
+  * Internet OVA download link: <https://downloads.oneprocloud.com/proxy-agent_BaseOS.ova>
 
 * Step 2: Use the OVA file to import into the VMware cluster, deploy one or more source sync proxy virtual machines, and configure the IP address.
 
@@ -61,7 +61,7 @@ Reference steps: Sync Proxy
 
 |     **Parameter**     |     **Specification**     |
 |:---------------------:|:--------------------------:|
-|       OS Version      |       Ubuntu 20.04         |
+|       OS Version      |       Ubuntu 24.04         |
 |          CPU          |            4C              |
 |        Memory         |           8GB              |
 |      System Disk      |           50GB             |
@@ -124,12 +124,12 @@ Follow the guided steps below:
 
 * Step 1: Create a cloud virtual machine
 
-You can manually create a VM using the Ubuntu 20.04 operating system. If using an OpenStack platform or other KVM-based virtualization platform, you can download and import a standard Ubuntu 20.04 QCOW2 image.
+You can manually create a VM using the Ubuntu 24.04 operating system. If using an OpenStack platform or other KVM-based virtualization platform, you can download and import a standard Ubuntu 24.04 QCOW2 image.
 
-> Ubuntu 20.04 QCOW2 image download link: 
-> [Click to Start Download](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
+> Ubuntu 24.04 QCOW2 image download link: 
+> [Click to Start Download](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2)
 
-Note: This Ubuntu 20.04 image does not have a default login password. The image includes the cloud-init service, so the cloud platform must support password injection via cloud-init. Otherwise, the image cannot be used.
+Note: This Ubuntu 24.04 image does not have a default login password. The image includes the cloud-init service, so the cloud platform must support password injection via cloud-init. Otherwise, the image cannot be used.
 
 
 
@@ -147,7 +147,7 @@ Note: This Ubuntu 20.04 image does not have a default login password. The image 
 
 | **Parameter** | **Specification** |
 |:-------------:|:-----------------:|
-| OS Version    |    Ubuntu 20.04   |
+| OS Version    |    Ubuntu 24.04   |
 | CPU           |        4C         |
 | Memory        |       8GB         |
 | System Disk   |       50GB        |
@@ -233,7 +233,7 @@ Follow the step-by-step guide to perform the following operations:
 
 * **Step 1: Create a Cloud Host**
 
-On the AWS platform, create a new cloud host using the native **AWS EC2 Ubuntu 20.04** image to deploy the Sync Proxy.
+On the AWS platform, create a new cloud host using the native **AWS EC2 Ubuntu 24.04** image to deploy the Sync Proxy.
 
 * **Step 2: Copy and Execute the Sync Proxy Installation Command**
 
@@ -249,7 +249,7 @@ On the AWS platform, create a new cloud host using the native **AWS EC2 Ubuntu 2
 
 | **Parameter** | **Specification** |
 |:-------------:|:-----------------:|
-| OS Version    | Ubuntu 20.04      |
+| OS Version    | Ubuntu 24.04      |
 | CPU           | 4C                |
 | Memory        | 8GB               |
 | System Disk   | 50GB              |
@@ -312,7 +312,7 @@ Follow the guided steps below:
 
   * Click the download link on the page
 
-  * Internet OVA download link: [\[Click to Download\]](https://HyperBDR-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova)
+  * Internet OVA download link: [\[Click to Download\]](https://downloads.oneprocloud.com/proxy-agent_BaseOS.ova)
 
 * Step 2: Use the OVA file to deploy a virtual machine on the FusionCompute cluster and configure the IP address.
 
@@ -340,7 +340,7 @@ Follow the guided steps below:
 
 | **Parameter**      | **Specification** |
 | ------------------ | ----------------- |
-| OS Version         | Ubuntu 20.04      |
+| OS Version         | Ubuntu 24.04      |
 | CPU                | 4C                |
 | Memory             | 8GB               |
 | System Disk        | 50GB              |
@@ -395,7 +395,7 @@ Follow the guided steps below:
 
 * Step 1: Create a cloud host
 
-You can use the native Ubuntu 20.04 OS image to create a new VM on the FusionCompute platform for deploying the sync proxy.
+You can use the native Ubuntu 24.04 OS image to create a new VM on the FusionCompute platform for deploying the sync proxy.
 
 * Step 2: Copy and execute the sync proxy installation command
 
@@ -410,7 +410,7 @@ You can use the native Ubuntu 20.04 OS image to create a new VM on the FusionCom
 
 | **Parameter**      | **Specification** |
 | ------------------ | ----------------- |
-| OS Version         | Ubuntu 20.04      |
+| OS Version         | Ubuntu 24.04      |
 | CPU                | 4C                |
 | Memory             | 8GB               |
 | System Disk        | 50GB              |
@@ -469,7 +469,7 @@ Follow the guided steps below:
 
   * Click the download link on the page
 
-  * Internet OVA download link: <https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/proxy-agent_BaseOS.ova>
+  * Internet OVA download link: <https://downloads.oneprocloud.com/proxy-agent_BaseOS.ova>
 
 * Step 2: Use the OVA file to import into the HCS cluster, deploy one or more source sync proxy virtual machines, and configure the IP address.
 
@@ -494,7 +494,7 @@ Follow the guided steps below:
 
 | Parameter         | Specification           |
 | ----------- | ------------ |
-| OS Version  | Ubuntu 20.04 |
+| OS Version  | Ubuntu 24.04 |
 | CPU         | 4C           |
 | Memory      | 8GB          |
 | System Disk | 50GB         |
@@ -573,8 +573,8 @@ Follow the guided steps below:
 * Step 1: Create Cloud Host.
 
 To create a cloud host on the Huawei Cloud platform, the requirements are as follows:  
-(1) The host must run one of the following operating system versions: Ubuntu 20.04.  
-(2) The host should meet the following minimum specifications: CPU 4 cores, 8GB RAM, 200GB system disk.  
+(1) The host must run one of the following operating system versions: Ubuntu 24.04.  
+(2) The host should meet the following minimum specifications: CPU 4 cores, 8GB RAM, 50GB system disk.  
 (3) The host must support one of the following file system types: XFS or EXT4, with the disk partition type not being LVM.  
 (4) The host must have correct Huawei Cloud API interface access.  
 (5) All operations must be executed with root user privileges.  

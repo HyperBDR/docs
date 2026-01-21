@@ -129,6 +129,19 @@
 | 5 | Cloud Sync Gateway | HyperBDR Console | TCP 单向 | 10443 / 30080 |  | 当使用 HyperBDR 官方 SaaS 环境时，应为 443/30080<br>海外 SaaS 环境：<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com) |
 | 6 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |  |
 
+#### OpenStack Ceph 无代理
+
+| 编号 | 来源               | 目标                | 方向     | 端口                                     | 类型   | 备注                                                         |
+| ---- | ------------------ | ------------------- | -------- | ---------------------------------------- | ------ | ------------------------------------------------------------ |
+| 1    | Sync Proxy         | OpenStack API       | TCP 单向 | 5000 /<br> 35357 /<br> 9696 /<br> 8774 /<br> 8776 /<br> 9292 | 控制流 | 身份认证与资源调用（Keystone / Nova / Neutron / Cinder / Glance） |
+| 2    | Sync Proxy         | Ceph Monitor        | TCP 单向 | 6789                                     | 数据流 | 通过 Ceph Monitor 获取虚拟机数据                             |
+| 3    | Sync Proxy         | HyperBDR Console    | TCP 单向 | 10443 /<br> 30080                            | 控制流 | 当使用HyperBDR官方SaaS环境时，应为443/30080<br/>国内SaaS环境:<br/>[点击开始迁移](https://hypermotion.oneprocloud.com/)<br/>[点击开始容灾](https://hyperbdr.oneprocloud.com/) |
+| 4    | Sync Proxy         | Cloud Sync Gateway  | TCP 单向 | 13260                                    | 数据流 |                                                              |
+| 5    | HyperBDR Console   | Cloud Sync Gateway  | TCP 单向 | 22 <br>/ 10729 <br>/ 16100                       | 控制流 | 管理目标云同步网关 ECS 节点并下发指令                        |
+| 6    | Cloud Sync Gateway | HyperBDR Console    | TCP 单向 | 10443 / 30080                            |        | 当使用HyperBDR官方SaaS环境时，应为443/30080<br/>国内SaaS环境:<br/>[点击开始迁移](https://hypermotion.oneprocloud.com/)<br/>[点击开始容灾](https://hyperbdr.oneprocloud.com/) |
+| 7    | HyperBDR           | 目标云 API Endpoint | TCP 单向 | 443                                      | 控制流 | 调用目标云 API 执行资源操作                                  |
+
+
 
 ### 部署架构
 
@@ -162,6 +175,18 @@
 | 2 | Failback Agent | Failback Transition Host | TCP 单向 | 3260 / 13260 | 数据流 |
 | 3 | HyperBDR Console | Failback Transition Host | TCP 单向 | 10729 | 控制流 |
 | 4 | Failback Transition Host | HyperBDR Console | TCP 单向 | 10729 | 控制流 |
+
+#### 部署架构 - NAT
+
+![](./images/dr-network-planning-recommendations-12.jpeg)
+
+#### 开放端口列表
+
+| **编号** | **访问来源** | **访问目标** | **通信方向** | **开放端口** | **通讯类型** | **备注** |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Failback Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |当使用HyperBDR官方SaaS环境时，应为443/30080<br>国内SaaS环境:<br>[点击开始迁移](https://hypermotion.oneprocloud.com)<br>[点击开始容灾](https://hyperbdr.oneprocloud.com)|
+| 2 | Failback Agent | Failback Transition Host | TCP 单向 | 3260 / 13260 | 数据流 |
+| 3 | Failback Transition Host | HyperBDR Console | TCP 单向 | 10729 | 控制流 |
 
 ### 对象存储
 
