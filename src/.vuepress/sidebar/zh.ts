@@ -48,7 +48,17 @@ export const zhSidebar = sidebar({
       ],
       collapsible: true,
       expanded: true,
-    },       
+    },
+    {
+      text: "项目交付",
+      icon: "check",
+      prefix: "",
+      children: [
+        "migration-project-delivery-best-practices.md",
+      ],
+      collapsible: true,
+      expanded: true,
+    },
     {
       text: "容灾回切",
       icon: "check",
