@@ -48,7 +48,17 @@ export const enSidebar = sidebar({
       ],
       collapsible: true,
       expanded: true,
-    },       
+    },
+    {
+      text: "Project Delivery",
+      icon: "check",
+      prefix: "",
+      children: [
+        "migration-project-delivery-best-practices.md",
+      ],
+      collapsible: true,
+      expanded: true,
+    }, 
     {
       text: "DR Failback",
       icon: "check",
