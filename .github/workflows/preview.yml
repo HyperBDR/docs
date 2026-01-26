@@ -5,6 +5,13 @@ on:
     branches:
       - preview
 
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Trigger reason'
+        required: false
+        default: 'manual or remote trigger'
+
 jobs:
   deploy:
     runs-on: ubuntu-24.04
