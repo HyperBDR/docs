@@ -18,7 +18,8 @@ jobs:
       - name: Download Linux Kerners  Support Matrix MD files from object storage
         run: |
           # 下载单个文件示例
-          curl -o /home/runner/work/docs/docs/src/userguide/operations/linux-agent-kernels-support.md "https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/temporary_download/linux-agent-kernels-support.md"
+          curl -o /home/runner/work/docs/docs/src/userguide/operations/linux-agent-kernels-support-en.md "https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/linux-agent-kernels-support/linux-agent-kernels-support-en.md"
+          curl -o /home/runner/work/docs/docs/src/zh/userguide/operations/linux-agent-kernels-support-zh.md "https://hyperbdr-system-image-do-not-delete.obs.ap-southeast-3.myhuaweicloud.com/linux-agent-kernels-support/linux-agent-kernels-support-zh.md"
 
       - name: Build README
         run: yarn && node tools/docs-manager.cjs --build
