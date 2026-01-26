@@ -600,6 +600,7 @@ export const enSidebar = sidebar({
       children: [
         "upgrade-manual.md",
         "oem.md",
+        "linux-agent-kernels-support-en.md",
       ]
     }
   ],
