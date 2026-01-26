@@ -1,8 +1,8 @@
 name: Deploy Preview to doc-preview.oneprocloud.com
 
-于:
+on:
   push:
-    分支:
+    branches:
       - preview
 
 jobs:
