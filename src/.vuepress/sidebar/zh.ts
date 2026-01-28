@@ -601,6 +601,7 @@ export const zhSidebar = sidebar({
       children: [
         "upgrade-manual.md",
         "oem.md",
+        "linux-agent-kernels-support.md",
       ]
     }
   ],
