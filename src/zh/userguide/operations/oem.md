@@ -33,9 +33,10 @@ vi /root/OEM_self/installer/OEM/newmuse/newmuse.json   #输入下列内容(只�
 ```
 ```json
 {
-"title":"MyDR",
-"openOnlineService":false,
-"loginPageLogo":false,
+"oem": true,
+"title": "MyDR",
+"openOnlineService": false,
+"loginPageLogo": false,
 "loginPageBanner": false
 }
 ```
@@ -43,9 +44,10 @@ vi /root/OEM_self/installer/OEM/newmuse/newmuse.json   #输入下列内容(只�
 ```plain text
 代码示意：
 {
-"title":"MyDR", --> 浏览器标签页文字
-"openOnlineService":false, --> 去掉页面的客服
-"loginPageLogo":false, --> 去掉登录主页面右上角的OnePro的LOGO
+"oem": true,  --> 开启oem功能
+"title": "MyDR", --> 浏览器标签页文字
+"openOnlineService": false, --> 去掉页面的客服
+"loginPageLogo": false, --> 去掉登录主页面右上角的OnePro的LOGO
 "loginPageBanner": false --> 去掉登录主页面中间的HyperBDR场景LOGO
 }
 ```
@@ -69,9 +71,10 @@ vi /root/OEM_self/installer/OEM/newmuse-motion/newmuse.json  #输入下列内容
 ```
 ```json
 {
-"title":"MyMigration",
-"openOnlineService":false,
-"loginPageLogo":false,
+"oem": true,
+"title": "MyMigration",
+"openOnlineService": false,
+"loginPageLogo": false,
 "loginPageBanner": false
 }
 ```
@@ -79,9 +82,10 @@ vi /root/OEM_self/installer/OEM/newmuse-motion/newmuse.json  #输入下列内容
 ```plain test
 代码示意：
 {
-"title":"MyMigration", --> 浏览器标签页文字
-"openOnlineService":false, --> 去掉页面的客服
-"loginPageLogo":false, --> 去掉登录主页面右上角的OnePro的LOGO
+"oem": true,  --> 开启oem功能
+"title": "MyMigration", --> 浏览器标签页文字
+"openOnlineService": false, --> 去掉页面的客服
+"loginPageLogo": false, --> 去掉登录主页面右上角的OnePro的LOGO
 "loginPageBanner": false --> 去掉登录主页面中间的HyperBDR场景LOGO
 }
 ```
@@ -148,3 +152,21 @@ ll  #展示如下
 ![](./images/customizationofoemproductlogo-replacetheserviceprovider_sownlogo-5.png)
 
 ![](./images/customizationofoemproductlogo-replacetheserviceprovider_sownlogo-6.png)
+
+### 工具安装
+
+```plain&#x20;text
+bash /root/OEM_self/installer/install.sh -i <服务IP>  # 如果不加“-i <服务IP>”，则会用默认的主机IP地址
+```
+等待安装完成。
+安装完成之后，执行命令：
+```plain&#x20;text
+sed -i s/HyperBDR/<标签名称>/g /opt/installer/production/venvs/newmuse-venv/index.html
+```
+<标签名称>：如EasyStack、XSKYBDR、UMigrater、UCloudBDR等。
+
+至此，安装完成，可以在浏览器中访问:
+
+容灾工具： https://<服务IP>:10443 (默认用户名密码： admin/P@ssw0rd)
+
+迁移工具： https://<服务IP>:10443 (默认用户名密码： admin/P@ssw0rd)
