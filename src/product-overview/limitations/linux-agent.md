@@ -54,7 +54,7 @@ For detailed compatibility, see the [Source OS Support Matrix](https://oneproclo
 - LILO boot method is not supported for driver repair.
 - If a separate `/boot` partition exists, it must be clearly defined in `/etc/fstab`; otherwise, boot repair will fail. If missing, manually add the `/boot` partition entry.
 - The first disk must be the boot disk. Only some cloud platforms support specifying a different system disk.
-- The host needs to have Secure Boot disabled, otherwise it will prevent the migration module from loading.
+- The source host must have Secure Boot disabled; otherwise, the migration module cannot be loaded.
 
 ### Disk and Partition Limitations
 - If a shared disk is mounted by multiple source hosts, it will be migrated multiple times, resulting in duplicate disks on the target. You must manually remove redundant disks and keep only one shared disk.
