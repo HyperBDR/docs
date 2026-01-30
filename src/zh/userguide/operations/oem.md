@@ -163,7 +163,7 @@ bash /root/OEM_self/installer/install.sh -i <服务IP>  # 如果不加“-i <服
 ```plain&#x20;text
 sed -i s/HyperBDR/<标签名称>/g /opt/installer/production/venvs/newmuse-venv/index.html
 ```
-<标签名称>：如EasyStack、XSKYBDR、UMigrater、UCloudBDR等。
+<标签名称>：公司产品名称
 
 至此，安装完成，可以在浏览器中访问:
 

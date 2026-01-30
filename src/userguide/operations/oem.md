@@ -164,7 +164,7 @@ After the installation is complete, run the command:
 ```plain&#x20;text
 sed -i s/HyperBDR/<Tag_Name>/g /opt/installer/production/venvs/newmuse-venv/index.html
 ```
-<Tag_Name>：Such as: EasyStack、XSKYBDR、UMigrater、UCloudBDR
+<Tag_Name>：Company Product Name
 
 At this point, the installation is complete. You can access the tools in your browser:
 
