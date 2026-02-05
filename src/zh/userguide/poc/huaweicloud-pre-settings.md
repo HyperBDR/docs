@@ -14,6 +14,10 @@
 
 ### 授予IAM用户权限
 
+::: warning
+请使用**继承所选用户组的策略**的授权方式给用户授权，目前暂时不支持**直接给IAM用户授予权限**。
+:::
+
 #### 华为云官方文档链接：
 
 - [https://support.huaweicloud.com/intl/en-us/usermanual-iam/iam_01_0652.html](https://support.huaweicloud.com/intl/en-us/usermanual-iam/iam_01_0652.html)
