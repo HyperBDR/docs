@@ -287,6 +287,7 @@ export const enSidebar = sidebar({
           children: [
             "online-purchase.md",
             "activation-code.md",
+            'huawei-koogallery-saas.md',
           ],
         },
       {
@@ -308,7 +309,6 @@ export const enSidebar = sidebar({
       prefix: "",
       children: [
         'huawei-koogallery-license.md',
-        'huawei-koogallery-saas.md',
       ],
     },
   ],
