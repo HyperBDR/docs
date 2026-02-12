@@ -34,6 +34,7 @@ vi /root/OEM_self/installer/OEM/newmuse/newmuse.json   # Enter the following con
 ```
 ```json
 {
+"oem": true,
 "title":"MyDR",
 "openOnlineService":false,
 "loginPageLogo":false,
@@ -44,6 +45,7 @@ vi /root/OEM_self/installer/OEM/newmuse/newmuse.json   # Enter the following con
 ```plain text
 Sample Code：
  {
+"oem": true,   --> enable oem feature
 "title":"MyDR", --> Browser tab title
 "openOnlineService":false, --> Remove customer service icon
 "loginPageLogo":false, --> Remove OnePro logo at top right of login page
@@ -70,9 +72,10 @@ vi /root/OEM_self/installer/OEM/newmuse-motion/newmuse.json  # Enter the followi
 ```
 ```json
 {
-"title":"MyMigration",
-"openOnlineService":false,
-"loginPageLogo":false,
+"oem": true,
+"title": "MyMigration",
+"openOnlineService": false,
+"loginPageLogo": alse,
 "loginPageBanner": false
 }
 ```
@@ -80,6 +83,7 @@ vi /root/OEM_self/installer/OEM/newmuse-motion/newmuse.json  # Enter the followi
 ```plain text
 Sample Code：
 {
+"oem": true,   --> enable oem feature
 "title":"MyMigration", --> Browser tab title
 "openOnlineService":false, --> Remove customer service icon
 "loginPageLogo":false, --> Remove OnePro logo at top right of login page
@@ -149,3 +153,21 @@ Displayed at the top left after logging into the DR platform. **Size: 184 × 56,
 ![](./images/customizationofoemproductlogo-replacetheserviceprovider_sownlogo-5.png)
 
 ![](./images/customizationofoemproductlogo-replacetheserviceprovider_sownlogo-6.png)
+
+### Tool Installation 
+
+```plain&#x20;text
+bash /root/OEM_self/installer/install.sh -i <service_ip>  # If you do not add "-i <service_ip>", the default host IP address will be used.
+```
+Wait for the installation to complete
+After the installation is complete, run the command:
+```plain&#x20;text
+sed -i s/HyperBDR/<Tag_Name>/g /opt/installer/production/venvs/newmuse-venv/index.html
+```
+<Tag_Name>：Company Product Name
+
+At this point, the installation is complete. You can access the tools in your browser:
+
+Disaster Recovery Tool:  https://<service_ip>:10443  (Default credentials: admin/P@ssw0rd)
+
+Migration Tool:  https://<service_ip>:10443  (Default credentials: admin/P@ssw0rd)
