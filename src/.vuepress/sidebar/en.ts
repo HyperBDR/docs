@@ -308,6 +308,7 @@ export const enSidebar = sidebar({
       prefix: "",
       children: [
         'huawei-koogallery-license.md',
+        'huawei-koogallery-saas.md',
       ],
     },
   ],
