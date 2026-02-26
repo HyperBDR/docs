@@ -97,11 +97,11 @@ export const enNavbar = navbar([
             icon: "thumbs-up",
             link: "/userguide/technical-practices/",
           },
-      //    {
-      //      text: "Project Practices",
-      //      icon: "warning",
-      //      link: "/userguide/project-practices/",
-      //    },
+          {
+            text: "Project Practices",
+            icon: "warning",
+            link: "/userguide/project-practices/",
+          },
         ],
       },
       {
