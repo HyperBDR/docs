@@ -82,11 +82,21 @@ export const zhSidebar = sidebar({
   ],
   "/zh/userguide/project-practices": [
     {
-      text: "Checklist",
+      text: "迁移",
       icon: "check",
       prefix: "",
       children: [
         
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+    {
+      text: "容灾",
+      icon: "check",
+      prefix: "",
+      children: [
+       "sap-hana-hybrid-cloud-dr-solution"
       ],
       collapsible: true,
       expanded: true,

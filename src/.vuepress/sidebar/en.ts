@@ -82,11 +82,21 @@ export const enSidebar = sidebar({
   ],
   "/userguide/project-practices": [
     {
-      text: "Checklist",
+      text: "Migration",
       icon: "check",
       prefix: "",
       children: [
 
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+    {
+      text: "DR",
+      icon: "check",
+      prefix: "",
+      children: [
+        "sap-hana-hybrid-cloud-dr-solution"
       ],
       collapsible: true,
       expanded: true,

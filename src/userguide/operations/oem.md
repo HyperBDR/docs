@@ -153,21 +153,3 @@ Displayed at the top left after logging into the DR platform. **Size: 184 × 56,
 ![](./images/customizationofoemproductlogo-replacetheserviceprovider_sownlogo-5.png)
 
 ![](./images/customizationofoemproductlogo-replacetheserviceprovider_sownlogo-6.png)
-
-### Tool Installation 
-
-```plain&#x20;text
-bash /root/OEM_self/installer/install.sh -i <service_ip>  # If you do not add "-i <service_ip>", the default host IP address will be used.
-```
-Wait for the installation to complete
-After the installation is complete, run the command:
-```plain&#x20;text
-sed -i s/HyperBDR/<Tag_Name>/g /opt/installer/production/venvs/newmuse-venv/index.html
-```
-<Tag_Name>：Company Product Name
-
-At this point, the installation is complete. You can access the tools in your browser:
-
-Disaster Recovery Tool:  https://<service_ip>:10443  (Default credentials: admin/P@ssw0rd)
-
-Migration Tool:  https://<service_ip>:10443  (Default credentials: admin/P@ssw0rd)
