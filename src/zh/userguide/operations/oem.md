@@ -152,21 +152,3 @@ ll  #展示如下
 ![](./images/customizationofoemproductlogo-replacetheserviceprovider_sownlogo-5.png)
 
 ![](./images/customizationofoemproductlogo-replacetheserviceprovider_sownlogo-6.png)
-
-### 工具安装
-
-```plain&#x20;text
-bash /root/OEM_self/installer/install.sh -i <服务IP>  # 如果不加“-i <服务IP>”，则会用默认的主机IP地址
-```
-等待安装完成。
-安装完成之后，执行命令：
-```plain&#x20;text
-sed -i s/HyperBDR/<标签名称>/g /opt/installer/production/venvs/newmuse-venv/index.html
-```
-<标签名称>： 公司产品名称
-
-至此，安装完成，可以在浏览器中访问:
-
-容灾工具： https://<服务IP>:10443 (默认用户名密码： admin/P@ssw0rd)
-
-迁移工具： https://<服务IP>:10443 (默认用户名密码： admin/P@ssw0rd)
