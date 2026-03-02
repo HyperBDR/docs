@@ -780,6 +780,7 @@ export const zhSidebar = sidebar({
             "user",
             "ak-sk",
             "sso-config",
+            "email-registration.md"
           ],
         },
         {
@@ -809,6 +810,7 @@ export const zhSidebar = sidebar({
             "audit-logs",
             "task-management",
             "download-logs",
+            "reports",
           ],
         },
         {
