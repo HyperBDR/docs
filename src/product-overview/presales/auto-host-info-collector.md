@@ -1,4 +1,4 @@
-# Automated Host Collection Tool
+# 自动化主机收集工具
 
 [[toc]]
 
