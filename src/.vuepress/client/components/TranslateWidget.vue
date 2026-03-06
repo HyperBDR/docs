@@ -11,10 +11,10 @@
         <span class="translate-arrow notranslate">▾</span>
       </button>
       <div v-if="menuOpen" class="translate-dropdown notranslate" translate="no">
-        <div class="translate-item" :class="{ active: currentLang === 'English' }"     @click.stop="goTo('/')">{{ labels[0] }}</div>
-        <div class="translate-item" :class="{ active: currentLang === '简体中文' }"   @click.stop="goTo('/zh/')">{{ labels[1] }}</div>
-        <div class="translate-item" :class="{ active: currentLang === '日本語' }"     @click.stop="translateTo('ja')">{{ labels[2] }}</div>
-        <div class="translate-item" :class="{ active: currentLang === 'Español' }"    @click.stop="translateTo('es')">{{ labels[3] }}</div>
+        <div class="translate-item" :class="{ active: currentLang === 'English' }"   @click.stop="switchLang('en')">{{ labels[0] }}</div>
+        <div class="translate-item" :class="{ active: currentLang === '简体中文' }" @click.stop="switchLang('zh')">{{ labels[1] }}</div>
+        <div class="translate-item" :class="{ active: currentLang === '日本語' }"   @click.stop="switchLang('ja')">{{ labels[2] }}</div>
+        <div class="translate-item" :class="{ active: currentLang === 'Español' }"  @click.stop="switchLang('es')">{{ labels[3] }}</div>
       </div>
     </div>
   </Teleport>
@@ -25,7 +25,6 @@ import { ref, computed, onMounted } from 'vue'
 
 const mounted = ref(false)
 onMounted(() => {
-  // 等导航栏渲染完再 Teleport
   const wait = (retries = 20) => {
     if (document.querySelector('.vp-navbar-end')) {
       mounted.value = true
@@ -38,17 +37,17 @@ onMounted(() => {
 
 const menuOpen = ref(false)
 const isTranslating = ref(false)
-let currentLangTarget = null
 
-const getLangFromPath = () => {
+const getLangFromCookieAndPath = () => {
   if (typeof window === 'undefined') return 'English'
   if (window.location.pathname.startsWith('/zh/')) return '简体中文'
-  const m = document.cookie.match(/googtrans=\/(?:zh-CN|en)\/(ja|es|zh-CN|en)/)
-  if (m) return { ja: '日本語', es: 'Español', 'zh-CN': '简体中文', en: 'English' }[m[1]] || 'English'
+  const m = document.cookie.match(/googtrans=\/en\/(ja|es)/)
+  if (m) return m[1] === 'ja' ? '日本語' : 'Español'
   return 'English'
 }
 
-const currentLang = ref(getLangFromPath())
+const currentLang = ref(getLangFromCookieAndPath())
+
 const menuLabels = {
   'English':  ['English', 'Chinese', 'Japanese', 'Spanish'],
   '简体中文': ['英语', '简体中文', '日语', '西班牙语'],
@@ -59,77 +58,43 @@ const labels = computed(() => menuLabels[currentLang.value] || menuLabels['Engli
 
 function toggleMenu() { menuOpen.value = !menuOpen.value }
 
-function goTo(path) {
+function setCookie(value) {
+  document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+  document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${location.hostname}`
+  if (value) {
+    document.cookie = `googtrans=${value}; path=/`
+    document.cookie = `googtrans=${value}; path=/; domain=${location.hostname}`
+  }
+}
+
+function switchLang(lang) {
   menuOpen.value = false
   const cur = window.location.pathname
-  const target = path === '/' ? cur.replace(/^\/zh\//, '/') : (cur.startsWith('/zh/') ? cur : '/zh' + cur)
+  const isCurrentlyZh = cur.startsWith('/zh/')
 
-  // 彻底清除 cookie
-  const domains = [location.hostname, '.' + location.hostname, '']
-  const paths = ['/', '/zh/']
-  domains.forEach(domain => {
-    paths.forEach(p => {
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${p};${domain ? ' domain=' + domain : ''}`
-    })
-  })
+  if (lang === 'zh') {
+    setCookie(null)
+    const target = isCurrentlyZh ? cur : '/zh' + cur
+    window.location.href = window.location.origin + target
 
-  // 不做还原，直接用 location.replace 跳转
-  // 浏览器会完整刷新页面，cookie 已清除，GT 不会再翻译
-  window.location.replace(window.location.origin + target)
-}
+  } else if (lang === 'en') {
+    setCookie(null)
+    const target = isCurrentlyZh ? cur.replace(/^\/zh\//, '/') : cur
+    window.location.href = window.location.origin + target
 
-function watchTranslationDone(resolve) {
-  const html = document.documentElement
-  if (html.classList.contains('translated-ltr') || html.classList.contains('translated-rtl')) {
-    resolve(); return
-  }
-  const obs = new MutationObserver(() => {
-    if (html.classList.contains('translated-ltr') || html.classList.contains('translated-rtl')) {
-      obs.disconnect(); resolve()
-    }
-  })
-  obs.observe(html, { attributes: true, attributeFilter: ['class'] })
-  setTimeout(() => { obs.disconnect(); resolve() }, 8000)
-}
-
-async function translateTo(lang) {
-  menuOpen.value = false
-  currentLangTarget = lang
-  isTranslating.value = true
-  currentLang.value = lang === 'ja' ? '日本語' : 'Español'
-
-  try {
-    await window.__gtReady
-    if (currentLangTarget !== lang) { isTranslating.value = false; return }
-
-    // 重试等 select 出现，最多等 8 秒
-    const select = await new Promise((resolve, reject) => {
-      const check = (retries = 40) => {
-        const sel = document.querySelector('select.goog-te-combo')
-        if (sel) return resolve(sel)
-        if (retries > 0) setTimeout(() => check(retries - 1), 200)
-        else reject(new Error('select not found after retries'))
-      }
-      check()
-    })
-
-    if (currentLangTarget !== lang) { isTranslating.value = false; return }
-
-    select.value = lang
-    select.dispatchEvent(new Event('change'))
-    await new Promise(resolve => watchTranslationDone(resolve))
-
-  } catch (e) {
-    console.warn('translateTo failed:', e)
-  } finally {
-    isTranslating.value = false
+  } else {
+    const basePath = isCurrentlyZh ? cur.replace(/^\/zh\//, '/') : cur
+    setCookie(`/en/${lang}`)
+    isTranslating.value = true
+    setTimeout(() => {
+      window.location.href = window.location.origin + basePath
+    }, 100)
   }
 }
 
 if (typeof window !== 'undefined') {
   document.addEventListener('click', () => { menuOpen.value = false })
-  window.addEventListener('popstate', () => { currentLang.value = getLangFromPath() })
-  window.addEventListener('langchange', () => { currentLang.value = getLangFromPath() })
+  window.addEventListener('langchange', () => { currentLang.value = getLangFromCookieAndPath() })
 }
 </script>
 
@@ -139,6 +104,7 @@ if (typeof window !== 'undefined') {
   display: inline-flex;
   align-items: center;
   margin-right: 8px;
+  order: -1;
 }
 .translate-btn {
   display: flex; align-items: center; gap: 4px; padding: 4px 10px;
@@ -154,7 +120,7 @@ if (typeof window !== 'undefined') {
 .translate-item {
   padding: 8px 16px; font-size: 14px; cursor: pointer; color: var(--vp-c-text, #374151);
 }
-.translate-item:hover { background: var(--vp-c-bg-soft, #f3f4f61a); color: var(--vp-c-brand, #1C64F2); }
+.translate-item:hover { background: var(--vp-c-bg-soft, #f3f4f6); color: var(--vp-c-brand, #1C64F2); }
 .translate-item.active { color: var(--vp-c-brand, #1C64F2); font-weight: 500; }
 .translate-loading {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;

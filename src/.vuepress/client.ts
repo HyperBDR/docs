@@ -5,9 +5,7 @@ import TranslateWidget from './client/components/TranslateWidget.vue'
 
 declare global {
   interface Window {
-    google?: any
     googleTranslateElementInit?: () => void
-    __gtReady?: Promise<void>
     difyChatbotConfig?: any
     difySearchConfig?: any
   }
@@ -19,9 +17,7 @@ export default defineClientConfig({
     app.component('TranslateWidget', TranslateWidget)
   },
 
-  rootComponents: [
-    () => h(TranslateWidget)
-  ],
+  rootComponents: [() => h(TranslateWidget)],
 
   setup() {
     if (typeof window !== 'undefined') {
@@ -40,66 +36,39 @@ export default defineClientConfig({
       style.textContent = `
         #dify-chatbot-bubble-button { background-color: #1C64F2 !important; }
         #dify-chatbot-bubble-window { width: 35rem !important; height: 80rem !important; position: fixed !important; }
-        .google-translate-container {
-          visibility: hidden !important; position: fixed !important;
-          top: -9999px !important; left: -9999px !important;
-          width: 1px !important; height: 1px !important;
-          overflow: hidden !important; pointer-events: none !important;
-        }
         .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; height: 0 !important; }
         .goog-te-banner-frame { display: none !important; height: 0 !important; }
         body { top: 0 !important; }
+        .vp-navbar-end { display: flex; align-items: center; }
         .vp-navbar-end .vp-nav-item:has(.vp-dropdown-title):has(.route-link) { display: none !important; }
       `
       document.head.appendChild(style)
 
-      // GT 容器，只创建一次
-      const translateContainer = document.createElement('div')
-      translateContainer.id = 'google_translate_element'
-      translateContainer.className = 'google-translate-container'
-      document.body.appendChild(translateContainer)
+      // GT 初始化，只做一件事：让 GT 脚本加载
+      window.googleTranslateElementInit = function () {
+        new window.google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,zh-CN,ja,es',
+          autoDisplay: false,
+        }, 'google_translate_element')
+      }
 
-      // GT 只初始化一次
-      window.__gtReady = new Promise<void>((resolve) => {
-        window.googleTranslateElementInit = function () {
-          const isZh = window.location.pathname.startsWith('/zh/')
-          new window.google.translate.TranslateElement({
-            pageLanguage: isZh ? 'zh-CN' : 'en',
-            includedLanguages: 'en,zh-CN,ja,es',
-            layout: window.google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-            autoDisplay: false,
-          }, 'google_translate_element')
+      const gtContainer = document.createElement('div')
+      gtContainer.id = 'google_translate_element'
+      gtContainer.style.cssText = 'position:absolute;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;'
+      document.body.appendChild(gtContainer)
 
-          const wait = (retries = 40) => {
-            const sel = document.querySelector('select.goog-te-combo')
-            if (sel) {
-              const m = document.cookie.match(/googtrans=\/(?:zh-CN|en)\/(ja|es)/)
-              if (m) { sel.value = m[1]; sel.dispatchEvent(new Event('change')) }
-              resolve()
-            } else if (retries > 0) {
-              setTimeout(() => wait(retries - 1), 200)
-            }
-          }
-          wait()
-        }
-
-        const s = document.createElement('script')
-        s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
-        s.onerror = () => { console.warn('Google Translate failed to load'); resolve() }
-        document.head.appendChild(s)
-      })
+      const gtScript = document.createElement('script')
+      gtScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+      document.head.appendChild(gtScript)
 
       // banner 清理
       setInterval(() => {
-        ;['.VIpgJd-ZVi9od-ORHb-OEVmcd', '.goog-te-banner-frame'].forEach(sel => {
-          const el = document.querySelector(sel) as HTMLElement
-          if (el) {
-            el.style.setProperty('display', 'none', 'important')
-            el.style.setProperty('height', '0', 'important')
-          }
-        })
+        const banner = document.querySelector('.VIpgJd-ZVi9od-ORHb-OEVmcd') as HTMLElement
+        if (banner) { banner.style.setProperty('display', 'none', 'important') }
+        const bannerOld = document.querySelector('.goog-te-banner-frame') as HTMLElement
+        if (bannerOld) { bannerOld.style.setProperty('display', 'none', 'important') }
         document.body.style.setProperty('top', '0px', 'important')
-        document.body.style.setProperty('margin-top', '0px', 'important')
         document.body.style.removeProperty('position')
       }, 500)
 
