@@ -63,9 +63,28 @@ function goTo(path) {
   menuOpen.value = false
   const cur = window.location.pathname
   const target = path === '/' ? cur.replace(/^\/zh\//, '/') : (cur.startsWith('/zh/') ? cur : '/zh' + cur)
-  document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
-  document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${location.hostname}`
-  window.location.href = window.location.origin + target
+
+  // 彻底清除所有可能的 googtrans cookie
+  const domains = [location.hostname, '.' + location.hostname, '']
+  const paths = ['/', '/zh/']
+  domains.forEach(domain => {
+    paths.forEach(p => {
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${p};${domain ? ' domain=' + domain : ''}`
+    })
+  })
+
+  // 如果当前页面是翻译状态，先还原再跳转
+  const select = document.querySelector('select.goog-te-combo')
+  if (select && select.value !== '') {
+    select.value = ''
+    select.dispatchEvent(new Event('change'))
+    // 等还原完再跳转
+    setTimeout(() => {
+      window.location.href = window.location.origin + target
+    }, 800)
+  } else {
+    window.location.href = window.location.origin + target
+  }
 }
 
 function watchTranslationDone(resolve) {
