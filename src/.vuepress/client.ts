@@ -60,6 +60,7 @@ export default defineClientConfig({
 
       const gtScript = document.createElement('script')
       gtScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+      gtScript.async = false  // 改成同步
       document.head.appendChild(gtScript)
 
       // banner 清理

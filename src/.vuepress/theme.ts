@@ -5,6 +5,8 @@ import { enSidebar, zhSidebar } from "./sidebar/index.js";
 
 export default hopeTheme({
 
+  localeDetection: false,
+
   head: [
     [
       'link',
