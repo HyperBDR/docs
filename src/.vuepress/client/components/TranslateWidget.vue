@@ -64,7 +64,7 @@ function goTo(path) {
   const cur = window.location.pathname
   const target = path === '/' ? cur.replace(/^\/zh\//, '/') : (cur.startsWith('/zh/') ? cur : '/zh' + cur)
 
-  // 彻底清除所有可能的 googtrans cookie
+  // 彻底清除 cookie
   const domains = [location.hostname, '.' + location.hostname, '']
   const paths = ['/', '/zh/']
   domains.forEach(domain => {
@@ -73,18 +73,9 @@ function goTo(path) {
     })
   })
 
-  // 如果当前页面是翻译状态，先还原再跳转
-  const select = document.querySelector('select.goog-te-combo')
-  if (select && select.value !== '') {
-    select.value = ''
-    select.dispatchEvent(new Event('change'))
-    // 等还原完再跳转
-    setTimeout(() => {
-      window.location.href = window.location.origin + target
-    }, 800)
-  } else {
-    window.location.href = window.location.origin + target
-  }
+  // 不做还原，直接用 location.replace 跳转
+  // 浏览器会完整刷新页面，cookie 已清除，GT 不会再翻译
+  window.location.replace(window.location.origin + target)
 }
 
 function watchTranslationDone(resolve) {
@@ -163,7 +154,7 @@ if (typeof window !== 'undefined') {
 .translate-item {
   padding: 8px 16px; font-size: 14px; cursor: pointer; color: var(--vp-c-text, #374151);
 }
-.translate-item:hover { background: var(--vp-c-bg-soft, #f3f4f6); color: var(--vp-c-brand, #1C64F2); }
+.translate-item:hover { background: var(--vp-c-bg-soft, #f3f4f61a); color: var(--vp-c-brand, #1C64F2); }
 .translate-item.active { color: var(--vp-c-brand, #1C64F2); font-weight: 500; }
 .translate-loading {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
