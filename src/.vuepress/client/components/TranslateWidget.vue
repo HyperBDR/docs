@@ -1,25 +1,40 @@
 <template>
-  <div class="translate-widget notranslate" translate="no">
-    <div v-if="isTranslating" class="translate-loading">
-      <div class="translate-spinner"></div>
-      <span>翻译中...</span>
+  <Teleport v-if="mounted" to=".vp-navbar-end">
+    <div class="translate-widget notranslate" translate="no">
+      <div v-if="isTranslating" class="translate-loading">
+        <div class="translate-spinner"></div>
+        <span>翻译中...</span>
+      </div>
+      <button class="translate-btn notranslate" @click.stop="toggleMenu">
+        <span>🌐</span>
+        <span class="translate-label notranslate">{{ currentLang }}</span>
+        <span class="translate-arrow notranslate">▾</span>
+      </button>
+      <div v-if="menuOpen" class="translate-dropdown notranslate" translate="no">
+        <div class="translate-item" :class="{ active: currentLang === 'English' }"     @click.stop="goTo('/')">{{ labels[0] }}</div>
+        <div class="translate-item" :class="{ active: currentLang === '简体中文' }"   @click.stop="goTo('/zh/')">{{ labels[1] }}</div>
+        <div class="translate-item" :class="{ active: currentLang === '日本語' }"     @click.stop="translateTo('ja')">{{ labels[2] }}</div>
+        <div class="translate-item" :class="{ active: currentLang === 'Español' }"    @click.stop="translateTo('es')">{{ labels[3] }}</div>
+      </div>
     </div>
-    <button class="translate-btn notranslate" @click.stop="toggleMenu">
-      <span>🌐</span>
-      <span class="translate-label notranslate">{{ currentLang }}</span>
-      <span class="translate-arrow notranslate">▾</span>
-    </button>
-    <div v-if="menuOpen" class="translate-dropdown notranslate" translate="no">
-      <div class="translate-item" :class="{ active: currentLang === 'English' }"     @click.stop="goTo('/')">{{ labels[0] }}</div>
-      <div class="translate-item" :class="{ active: currentLang === '简体中文' }"   @click.stop="goTo('/zh/')">{{ labels[1] }}</div>
-      <div class="translate-item" :class="{ active: currentLang === '日本語' }"     @click.stop="translateTo('ja')">{{ labels[2] }}</div>
-      <div class="translate-item" :class="{ active: currentLang === 'Español' }"    @click.stop="translateTo('es')">{{ labels[3] }}</div>
-    </div>
-  </div>
+  </Teleport>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+
+const mounted = ref(false)
+onMounted(() => {
+  // 等导航栏渲染完再 Teleport
+  const wait = (retries = 20) => {
+    if (document.querySelector('.vp-navbar-end')) {
+      mounted.value = true
+    } else if (retries > 0) {
+      setTimeout(() => wait(retries - 1), 100)
+    }
+  }
+  wait()
+})
 
 const menuOpen = ref(false)
 const isTranslating = ref(false)
@@ -74,19 +89,26 @@ async function translateTo(lang) {
   currentLang.value = lang === 'ja' ? '日本語' : 'Español'
 
   try {
-    // 等 GT 脚本就绪（Promise 只等一次加载，之后立即返回）
     await window.__gtReady
+    if (currentLangTarget !== lang) { isTranslating.value = false; return }
+
+    // 重试等 select 出现，最多等 8 秒
+    const select = await new Promise((resolve, reject) => {
+      const check = (retries = 40) => {
+        const sel = document.querySelector('select.goog-te-combo')
+        if (sel) return resolve(sel)
+        if (retries > 0) setTimeout(() => check(retries - 1), 200)
+        else reject(new Error('select not found after retries'))
+      }
+      check()
+    })
 
     if (currentLangTarget !== lang) { isTranslating.value = false; return }
 
-    // 每次都重新从 DOM 查，不用缓存的引用
-    const select = document.querySelector('select.goog-te-combo')
-    if (!select) throw new Error('select not found in DOM')
-
     select.value = lang
     select.dispatchEvent(new Event('change'))
-
     await new Promise(resolve => watchTranslationDone(resolve))
+
   } catch (e) {
     console.warn('translateTo failed:', e)
   } finally {
@@ -103,7 +125,10 @@ if (typeof window !== 'undefined') {
 
 <style scoped>
 .translate-widget {
-  position: relative; display: inline-flex; align-items: center; margin-right: 8px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
 }
 .translate-btn {
   display: flex; align-items: center; gap: 4px; padding: 4px 10px;
