@@ -1,5 +1,5 @@
 import { defineClientConfig } from 'vuepress/client'
-import { createApp } from 'vue'
+import { h } from 'vue'
 import HomePage from './client/components/HomePage.vue'
 import TranslateWidget from './client/components/TranslateWidget.vue'
 
@@ -18,9 +18,13 @@ export default defineClientConfig({
     app.component('HomePage', HomePage)
     app.component('TranslateWidget', TranslateWidget)
   },
+
+  rootComponents: [
+    () => h(TranslateWidget)
+  ],
+
   setup() {
     if (typeof window !== 'undefined') {
-      let widgetMounted = false
 
       // Dify
       const script = document.createElement('script')
@@ -49,13 +53,13 @@ export default defineClientConfig({
       `
       document.head.appendChild(style)
 
-      // GT 容器 —— 只创建一次，永远不清空
+      // GT 容器，只创建一次
       const translateContainer = document.createElement('div')
       translateContainer.id = 'google_translate_element'
       translateContainer.className = 'google-translate-container'
       document.body.appendChild(translateContainer)
 
-      // GT 只初始化一次，返回 Promise<void>，只标志脚本就绪
+      // GT 只初始化一次
       window.__gtReady = new Promise<void>((resolve) => {
         window.googleTranslateElementInit = function () {
           const isZh = window.location.pathname.startsWith('/zh/')
@@ -66,17 +70,12 @@ export default defineClientConfig({
             autoDisplay: false,
           }, 'google_translate_element')
 
-          // 等 select 渲染出来
           const wait = (retries = 40) => {
             const sel = document.querySelector('select.goog-te-combo')
             if (sel) {
-              // 恢复上次翻译
               const m = document.cookie.match(/googtrans=\/(?:zh-CN|en)\/(ja|es)/)
-              if (m) {
-                sel.value = m[1]
-                sel.dispatchEvent(new Event('change'))
-              }
-              resolve()  // 只标志脚本就绪，不传 select
+              if (m) { sel.value = m[1]; sel.dispatchEvent(new Event('change')) }
+              resolve()
             } else if (retries > 0) {
               setTimeout(() => wait(retries - 1), 200)
             }
@@ -94,30 +93,17 @@ export default defineClientConfig({
       setInterval(() => {
         ;['.VIpgJd-ZVi9od-ORHb-OEVmcd', '.goog-te-banner-frame'].forEach(sel => {
           const el = document.querySelector(sel) as HTMLElement
-          if (el) { el.style.setProperty('display', 'none', 'important'); el.style.setProperty('height', '0', 'important') }
+          if (el) {
+            el.style.setProperty('display', 'none', 'important')
+            el.style.setProperty('height', '0', 'important')
+          }
         })
         document.body.style.setProperty('top', '0px', 'important')
         document.body.style.setProperty('margin-top', '0px', 'important')
         document.body.style.removeProperty('position')
       }, 500)
 
-      // 挂载 TranslateWidget
-      const mountTranslateWidget = () => {
-        if (widgetMounted) return
-        const navbarEnd = document.querySelector('.vp-navbar-end')
-        if (navbarEnd) {
-          if (navbarEnd.querySelector('.translate-widget')) { widgetMounted = true; return }
-          const container = document.createElement('div')
-          navbarEnd.insertBefore(container, navbarEnd.firstChild)
-          createApp(TranslateWidget).mount(container)
-          widgetMounted = true
-        } else {
-          setTimeout(mountTranslateWidget, 200)
-        }
-      }
-      mountTranslateWidget()
-
-      // 路由切换只通知组件更新语言显示，不动 GT
+      // 路由变化通知
       const onRouteChange = () => window.dispatchEvent(new Event('langchange'))
       window.addEventListener('popstate', onRouteChange)
       const origPush = history.pushState
