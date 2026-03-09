@@ -59,7 +59,12 @@ const labels = computed(() => menuLabels[currentLang.value] || menuLabels['Engli
 function toggleMenu() { menuOpen.value = !menuOpen.value }
 
 function setCookie(value) {
-  const domains = [location.hostname, '.' + location.hostname, '']
+  const hostname = location.hostname
+  const parts = hostname.split('.')
+  const domains = ['', hostname]
+  for (let i = 1; i < parts.length; i++) {
+    domains.push('.' + parts.slice(i).join('.'))
+  }
   domains.forEach(domain => {
     document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;${domain ? ' domain=' + domain + ';' : ''}`
   })
