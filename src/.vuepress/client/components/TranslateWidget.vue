@@ -24,6 +24,8 @@
 import { ref, computed, onMounted } from 'vue'
 
 const mounted = ref(false)
+const isTranslating = ref(false)
+
 onMounted(() => {
   const wait = (retries = 20) => {
     if (document.querySelector('.vp-navbar-end')) {
@@ -33,10 +35,37 @@ onMounted(() => {
     }
   }
   wait()
+
+  // 新页面加载后，如果有翻译标志，显示 loading 直到翻译完成
+  if (sessionStorage.getItem('gt_translating')) {
+    sessionStorage.removeItem('gt_translating')
+    const html = document.documentElement
+
+    // 已经翻译完了
+    if (html.classList.contains('translated-ltr')) {
+      isTranslating.value = false
+      return
+    }
+
+    // 还没翻译完，显示 loading 等待
+    isTranslating.value = true
+    const obs = new MutationObserver(() => {
+      if (html.classList.contains('translated-ltr')) {
+        obs.disconnect()
+        isTranslating.value = false
+      }
+    })
+    obs.observe(html, { attributes: true, attributeFilter: ['class'] })
+
+    // 兜底 15 秒
+    setTimeout(() => {
+      obs.disconnect()
+      isTranslating.value = false
+    }, 15000)
+  }
 })
 
 const menuOpen = ref(false)
-const isTranslating = ref(false)
 
 const getLangFromCookieAndPath = () => {
   if (typeof window === 'undefined') return 'English'
@@ -91,6 +120,7 @@ function switchLang(lang) {
   } else {
     const basePath = isCurrentlyZh ? cur.replace(/^\/zh\//, '/') : cur
     setCookie(`/en/${lang}`)
+    sessionStorage.setItem('gt_translating', '1')
     isTranslating.value = true
     setTimeout(() => {
       window.location.href = window.location.origin + basePath
@@ -115,19 +145,19 @@ if (typeof window !== 'undefined') {
 .translate-btn {
   display: flex; align-items: center; gap: 4px; padding: 4px 10px;
   border: none; background: transparent; color: var(--vp-c-text, #374151);
-  font-size: 14px; cursor: pointer;
+  font-size: 0.75rem; cursor: pointer;
 }
-.translate-btn:hover { color: var(--vp-c-brand, #1C64F2); }
+.translate-btn:hover { color: var(--vp-c-brand, #902362); }
 .translate-dropdown {
-  position: absolute; top: calc(100% + 6px); right: 0; min-width: 130px;
+  position: absolute; top: calc(100% + 4px); right: 0; min-width: 80px;
   background: var(--vp-c-bg, white); border: 1px solid var(--vp-c-border, #e5e7eb);
   border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 9999; overflow: hidden;
 }
 .translate-item {
-  padding: 8px 16px; font-size: 14px; cursor: pointer; color: var(--vp-c-text, #374151);
+  padding: 3px 8px !important; font-size: 0.75rem; line-height: 1.4 !important; cursor: pointer; color: var(--vp-c-text, #374151);
 }
-.translate-item:hover { background: var(--vp-c-bg-soft, #f3f4f6); color: var(--vp-c-brand, #1C64F2); }
-.translate-item.active { color: var(--vp-c-brand, #1C64F2); font-weight: 500; }
+.translate-item:hover { background: var(--vp-c-bg-soft, #f3f4f6); color: var(--vp-c-brand, #902362); }
+.translate-item.active { color: var(--vp-c-brand, #902362); font-weight: 500; }
 .translate-loading {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(255,255,255,0.6); display: flex; flex-direction: column;
@@ -136,7 +166,7 @@ if (typeof window !== 'undefined') {
 }
 .translate-spinner {
   width: 32px; height: 32px; border: 3px solid #e5e7eb;
-  border-top-color: #1C64F2; border-radius: 50%;
+  border-top-color: #902362; border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
