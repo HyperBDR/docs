@@ -96,7 +96,8 @@ export const zhSidebar = sidebar({
       icon: "check",
       prefix: "",
       children: [
-       "sap-hana-hybrid-cloud-dr-solution"
+       "sap-hana-hybrid-cloud-dr-solution",
+       "sap-semiconductor-hybrid-cloud-dr-solution",
       ],
       collapsible: true,
       expanded: true,
