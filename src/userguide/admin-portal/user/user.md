@@ -16,7 +16,7 @@ After selecting the user to operate in the list, click "Modify" in the upper rig
 
 | **Field Name**   | **Example/Default Value**  | **Description**                           |
 | ---------------- | ------------------------- | ----------------------------------------- |
-| User Name        | dame1                     | Cannot be modified                       |
+| User Name        | dame1                     | The username for logging into the HyperBDR/HyperMotion platform must be 2–60 characters long and can only include letters, numbers, underscores, and dots. |
 | Role             | Platform Admin    | Assign the user's role in the platform. Different roles have different permission scopes. |
 | Nick Name        | dame1                     | The name displayed for the user in the system. Can be in Chinese or English and is customizable. |
 | Email            | xxx@163.com               | Used to receive notifications, verification codes, and other system information. Please enter a valid email address. |
@@ -29,6 +29,12 @@ After modifying the user information, click the "Submit" button at the bottom ri
 
 ## **Action**
 
+### **Reset Password**
+
+Click the "Reset Password" button to reset the user's login password.
+
+![](./images/usermanagement-moreoperations-3.png)
+
 ### **Enable**
 
 Click the "Enable" button to activate a disabled user.
@@ -40,12 +46,6 @@ Click the "Enable" button to activate a disabled user.
 Click the "Disable" button to disable an enabled user.
 
 ![](./images/usermanagement-moreoperations-2.png)
-
-### **Reset Password**
-
-Click the "Reset Password" button to reset the user's login password.
-
-![](./images/usermanagement-moreoperations-3.png)
 
 ### **Delete**
 

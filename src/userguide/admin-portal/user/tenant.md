@@ -16,6 +16,7 @@ Click the "Add Tenant" button in the upper left corner to start creating a tenan
 
 | **Setting** | **Example Value** | **Description**                 |
 | ----------- | ---------------- | ------------------------------ |
+| Scene | Migration | Select the usage scenario for this tenant: ALL, Migration, or DR. |
 | Tenant Name | test1            | The name used to identify the tenant in the system. It should be unique.   |
 | Status      | Enable           | Indicates the current status of the tenant. Can be set to enabled or disabled. |
 

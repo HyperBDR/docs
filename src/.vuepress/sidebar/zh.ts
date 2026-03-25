@@ -82,11 +82,22 @@ export const zhSidebar = sidebar({
   ],
   "/zh/userguide/project-practices": [
     {
-      text: "Checklist",
+      text: "迁移",
       icon: "check",
       prefix: "",
       children: [
         
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+    {
+      text: "容灾",
+      icon: "check",
+      prefix: "",
+      children: [
+       "sap-hana-hybrid-cloud-dr-solution",
+       "sap-semiconductor-hybrid-cloud-dr-solution",
       ],
       collapsible: true,
       expanded: true,
@@ -770,6 +781,7 @@ export const zhSidebar = sidebar({
             "user",
             "ak-sk",
             "sso-config",
+            "email-registration.md"
           ],
         },
         {
@@ -799,6 +811,7 @@ export const zhSidebar = sidebar({
             "audit-logs",
             "task-management",
             "download-logs",
+            "reports",
           ],
         },
         {

@@ -97,11 +97,11 @@ export const zhNavbar = navbar([
             icon: "thumbs-up",
             link: "/zh/userguide/technical-practices/",
           },
-      //    {
-      //      text: "项目实践",
-      //      icon: "warning",
-      //      link: "/zh/userguide/project-practices/",
-      //    },
+          {
+            text: "项目实践",
+            icon: "warning",
+            link: "/zh/userguide/project-practices/",
+          },
         ],
       },
       {

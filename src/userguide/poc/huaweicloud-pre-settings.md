@@ -14,6 +14,10 @@ Create a Huawei Cloud IAM account with correspinding permissions, detail require
 
 ### Granting Authorization to IAM User
 
+::: warning
+Please use the authorization method of **Inherit permissions from user groups** to authorize the IAM user. Currently, **Select permissions(Directly assign specific permissions to the IAM user.)** is not supported.
+:::
+
 #### Huawei Cloud official documentation link:
 
 - [https://support.huaweicloud.com/intl/en-us/usermanual-iam/iam_01_0652.html](https://support.huaweicloud.com/intl/en-us/usermanual-iam/iam_01_0652.html)

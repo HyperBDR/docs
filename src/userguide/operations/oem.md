@@ -34,6 +34,7 @@ vi /root/OEM_self/installer/OEM/newmuse/newmuse.json   # Enter the following con
 ```
 ```json
 {
+"oem": true,
 "title":"MyDR",
 "openOnlineService":false,
 "loginPageLogo":false,
@@ -44,6 +45,7 @@ vi /root/OEM_self/installer/OEM/newmuse/newmuse.json   # Enter the following con
 ```plain text
 Sample Code：
  {
+"oem": true,   --> enable oem feature
 "title":"MyDR", --> Browser tab title
 "openOnlineService":false, --> Remove customer service icon
 "loginPageLogo":false, --> Remove OnePro logo at top right of login page
@@ -70,9 +72,10 @@ vi /root/OEM_self/installer/OEM/newmuse-motion/newmuse.json  # Enter the followi
 ```
 ```json
 {
-"title":"MyMigration",
-"openOnlineService":false,
-"loginPageLogo":false,
+"oem": true,
+"title": "MyMigration",
+"openOnlineService": false,
+"loginPageLogo": alse,
 "loginPageBanner": false
 }
 ```
@@ -80,6 +83,7 @@ vi /root/OEM_self/installer/OEM/newmuse-motion/newmuse.json  # Enter the followi
 ```plain text
 Sample Code：
 {
+"oem": true,   --> enable oem feature
 "title":"MyMigration", --> Browser tab title
 "openOnlineService":false, --> Remove customer service icon
 "loginPageLogo":false, --> Remove OnePro logo at top right of login page

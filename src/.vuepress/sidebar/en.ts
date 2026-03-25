@@ -82,11 +82,22 @@ export const enSidebar = sidebar({
   ],
   "/userguide/project-practices": [
     {
-      text: "Checklist",
+      text: "Migration",
       icon: "check",
       prefix: "",
       children: [
 
+      ],
+      collapsible: true,
+      expanded: true,
+    },
+    {
+      text: "DR",
+      icon: "check",
+      prefix: "",
+      children: [
+        "sap-hana-hybrid-cloud-dr-solution",
+        "sap-semiconductor-hybrid-cloud-dr-solution"
       ],
       collapsible: true,
       expanded: true,
@@ -287,6 +298,7 @@ export const enSidebar = sidebar({
           children: [
             "online-purchase.md",
             "activation-code.md",
+            'huawei-koogallery-saas.md',
           ],
         },
       {
@@ -769,6 +781,7 @@ export const enSidebar = sidebar({
             "user",
             "ak-sk",
             "sso-config",
+            "email-registration.md"
           ],
         },
         {
@@ -798,6 +811,7 @@ export const enSidebar = sidebar({
             "audit-logs",
             "task-management",
             "download-logs",
+            "reports",
           ],
         },
         {

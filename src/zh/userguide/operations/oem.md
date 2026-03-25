@@ -33,9 +33,10 @@ vi /root/OEM_self/installer/OEM/newmuse/newmuse.json   #输入下列内容(只�
 ```
 ```json
 {
-"title":"MyDR",
-"openOnlineService":false,
-"loginPageLogo":false,
+"oem": true,
+"title": "MyDR",
+"openOnlineService": false,
+"loginPageLogo": false,
 "loginPageBanner": false
 }
 ```
@@ -43,9 +44,10 @@ vi /root/OEM_self/installer/OEM/newmuse/newmuse.json   #输入下列内容(只�
 ```plain text
 代码示意：
 {
-"title":"MyDR", --> 浏览器标签页文字
-"openOnlineService":false, --> 去掉页面的客服
-"loginPageLogo":false, --> 去掉登录主页面右上角的OnePro的LOGO
+"oem": true,  --> 开启oem功能
+"title": "MyDR", --> 浏览器标签页文字
+"openOnlineService": false, --> 去掉页面的客服
+"loginPageLogo": false, --> 去掉登录主页面右上角的OnePro的LOGO
 "loginPageBanner": false --> 去掉登录主页面中间的HyperBDR场景LOGO
 }
 ```
@@ -69,9 +71,10 @@ vi /root/OEM_self/installer/OEM/newmuse-motion/newmuse.json  #输入下列内容
 ```
 ```json
 {
-"title":"MyMigration",
-"openOnlineService":false,
-"loginPageLogo":false,
+"oem": true,
+"title": "MyMigration",
+"openOnlineService": false,
+"loginPageLogo": false,
 "loginPageBanner": false
 }
 ```
@@ -79,9 +82,10 @@ vi /root/OEM_self/installer/OEM/newmuse-motion/newmuse.json  #输入下列内容
 ```plain test
 代码示意：
 {
-"title":"MyMigration", --> 浏览器标签页文字
-"openOnlineService":false, --> 去掉页面的客服
-"loginPageLogo":false, --> 去掉登录主页面右上角的OnePro的LOGO
+"oem": true,  --> 开启oem功能
+"title": "MyMigration", --> 浏览器标签页文字
+"openOnlineService": false, --> 去掉页面的客服
+"loginPageLogo": false, --> 去掉登录主页面右上角的OnePro的LOGO
 "loginPageBanner": false --> 去掉登录主页面中间的HyperBDR场景LOGO
 }
 ```
