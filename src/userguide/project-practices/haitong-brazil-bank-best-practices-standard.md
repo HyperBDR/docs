@@ -1,6 +1,4 @@
-# Haitong Brazil Bank HyperBDR Best Practices (Standard)
-
-This document is based on the Haitong Brazil Bank disaster recovery project, focusing on demonstrating HyperBDR's application in the financial industry VMware to Huawei Cloud disaster recovery scenario.
+# Haitong Brazil Bank HyperBDR Best Practices
 
 ***
 
@@ -162,5 +160,3 @@ This project demonstrates HyperBDR's core value in financial industry disaster r
 This project covers typical scenarios for financial industry VMware to Huawei Cloud disaster recovery, including DR protection for database systems, application systems, 和 file storage systems, which has representativeness and reference value for similar financial customers.
 
 ---
-
-*This is the standard version, containing detailed implementation guidance and best practices. For more details and troubleshooting information, please refer to the complete version.*
