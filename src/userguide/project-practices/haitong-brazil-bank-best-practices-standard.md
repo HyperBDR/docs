@@ -56,8 +56,6 @@ This project uses HyperBDR to replicate 16 business hosts from Haitong Brazil Ba
 - **Storage Layer**: Database and file storage systems use block storage, other business systems use object storage as intermediate layer
 - **Replication**: Incremental synchronization mode, snapshot interval 1 hour, snapshot quota 128, supports policy-based synchronization
 
-![Architecture Diagram](images/architecture.png)
-
 ### 3.3 HyperBDR Core Capabilities in This Project
 
 | HyperBDR Capability              | Application in This Project                                  | Value                                                        |
