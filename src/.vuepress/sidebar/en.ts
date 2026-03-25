@@ -97,7 +97,9 @@ export const enSidebar = sidebar({
       prefix: "",
       children: [
         "sap-hana-hybrid-cloud-dr-solution",
-        "sap-semiconductor-hybrid-cloud-dr-solution"
+        "sap-semiconductor-hybrid-cloud-dr-solution",
+        "haitong-brazil-bank-best-practices-standard",
+        "imss-huaweicloud-dr"
       ],
       collapsible: true,
       expanded: true,
