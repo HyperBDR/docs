@@ -107,7 +107,7 @@ Windows Agent uses Windows VSS to create consistent snapshots without interrupti
 
 ## Common Issues
 
-**Windows Agent Synchronization Failure Solutions (153315 / 154000 / 154001, etc.)**
+### Windows Agent Synchronization Failure Solutions (153315 / 154000 / 154001, etc.)
 
 When using Windows Agent, common error codes include 153315, 154000, 154001, etc. These errors are usually related to Windows VSS (Volume Shadow Copy Service) VolSnap events. The following is a detailed analysis of these issues:
 
@@ -143,3 +143,76 @@ Starting from version v6.2.0, if VSS exceptions occur (for example, VSS snapshot
 | 38 | VolSnap | User-set limits prevented the use of disk space on volume %3 to expand volume %2 shadow copy diff area. Therefore, all volume %2 shadow copies are at risk of being deleted. |
 | 40 | VolSnap | Volume %2 shadow copy has been aborted due to volume %3 being dismounted. |
 | 41 | VolSnap | When preparing a new shadow copy for volume %2, the shadow copy storage on volume %3 did not have a large enough contiguous block. Please consider deleting unnecessary files on the shadow copy storage volume, or use a different shadow copy storage volume. |
+
+### Measures when Antivirus Software is Running on the Windows Host
+
+#### Option 1: Add to Antivirus Software Whitelist
+
+::: warning
+As some antivirus software programs may operate in the background, this method may not completely avoid issues caused by antivirus software programs, preventing the Windows Agent from functioning properly.
+:::
+
+1. **Disable the protection feature of the antivirus software.**
+
+2. **Install the Windows Agent (refer to the documentation: [Install the Windows Agent](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#install-agent-on-the-source-windows-host)).**
+
+3. **Add the following directories and files to the whitelist of the antivirus software (default installation path).**
+
+| **List** | **Attributes** |
+| --- | --- |
+| C:\\Program Files (x86)\\DiskSync-Agent | Dir |
+| C:\\Program Files (x86)\\DiskSync-Agent\\hyper_exporter | Dir |
+| C:\\Program Files (x86)\\DiskSync-Agent\\CollHostInfo.bat | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\create_bcd.bat | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\DiskSyncAgent.exe | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\DiskSyncCtrl.exe | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\ExecPro_in.exe | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\ExecPro_un.exe | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\hyper_exporter.exe | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\Opcli.exe | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\reg_service.bat | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\reset.bat | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\uninst.exe | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\unreg_service.bat | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\WindowsAgentCmd.bat | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\hyper_exporter\\hp_exporter_service.exe | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\hyper_exporter\\hyper_exporter.exe | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\hyper_exporter\\reg_service.bat | File |
+| C:\\Program Files (x86)\\DiskSync-Agent\\hyper_exporter\\unreg_service.bat | File |
+| C:\\ProgramData\\CloudSyncAgent | Dir |
+
+
+
+4. **Enable the Antivirus Software's Protection Feature**
+
+
+During this process, if the antivirus software prompts actions such as blocking the installation and operation of the Window Agent with pop-ups or isolating files, manual "**allow**" or "**restore**" operations are required.
+
+
+5. **Start the Windows Agent Service (refer to the documentation: [Start Windows Agent Service](https://docs.oneprocloud.com/userguide/poc/agent-pre-settings.html#start-the-windows-agent-service))**
+
+::: warning
+If the program fails to start, uninstall the Windows Agent and repeat steps **[1]** to **[5]** until the Windows Agent starts successfully.
+:::
+
+6. **If the issue persists after multiple attempts, please contact us for assistance.**
+
+#### Option 2: Uninstall Antivirus Software
+
+::: tip
+Consider this option when option 1 does not resolve the issue. 
+:::
+
+To effectively address this issue, completely uninstall the antivirus software before installing the Windows Agent. If possible, uninstall the current antivirus software on the system and restrict its reinstallation during the host disaster recovery process.
+
+#### Option 3: Permanently Close the Antivirus Software Program
+
+::: tip
+Consider this option when option 1 does not resolve the issue. 
+:::
+
+Exiting the antivirus software program can also allow the normal installation and use of Windows Agent.
+
+::: tip
+During the installation and use of Windows Agent, it is crucial to ensure that the antivirus software program is not running. If the antivirus software restarts during the use of Windows Agent (either manually or automatically by the system), it may render Windows Agent unusable, leading to HyperBDR disaster recovery failure.
+:::
