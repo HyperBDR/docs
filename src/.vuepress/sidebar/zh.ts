@@ -98,7 +98,8 @@ export const zhSidebar = sidebar({
       children: [
        "sap-hana-hybrid-cloud-dr-solution",
        "sap-semiconductor-hybrid-cloud-dr-solution",
-       "haitong-brazil-bank-best-practices-standard"
+       "haitong-brazil-bank-best-practices-standard",
+       "stategrid-best-practices"
       ],
       collapsible: true,
       expanded: true,

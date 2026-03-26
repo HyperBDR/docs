@@ -99,7 +99,8 @@ export const enSidebar = sidebar({
         "sap-hana-hybrid-cloud-dr-solution",
         "sap-semiconductor-hybrid-cloud-dr-solution",
         "haitong-brazil-bank-best-practices-standard",
-        "imss-huaweicloud-dr"
+        "imss-huaweicloud-dr",
+        "stategrid-best-practices"
       ],
       collapsible: true,
       expanded: true,
