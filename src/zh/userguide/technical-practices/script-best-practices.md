@@ -400,6 +400,7 @@ netsh interface ip add dns name="%ADAPTER_NAME%" addr=172.24.206.131 index=3 val
 场景：VMware
 
 迁移到HCS的Windows2022启动后配置自定义DNS。
+此脚本也适用于 Windows Server 2016 和 Windows Server 2019
 
 ```bash
 @echo off
