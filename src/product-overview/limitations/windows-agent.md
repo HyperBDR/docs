@@ -105,6 +105,10 @@ Windows Agent uses Windows VSS to create consistent snapshots without interrupti
    - If security software is already installed on the host, it is recommended to completely disable the security software before synchronization (for some software, the exit function may not completely disable the software. If you are unsure whether the security software can be completely disabled, it is recommended to uninstall the related software first).
    - If security software cannot be completely disabled, please pay attention to the security software warning messages when installing and starting the Agent service. If a warning message window pops up, please be sure to set trust for all operations to avoid security software interception or warnings. Do not temporarily disable security software when installing and starting Windows Agent, as this may damage the Agent service. If this problem occurs, the host needs to be restarted to restore the service. For a list of security software that affects Agent data synchronization, please refer to Appendix 2.
 
+### Bitlocker Encryption Support
+
+- Windows Agent mode provides full support for host recovery with BitLocker encryption, whereas Agentless mode supports data disk encryption only and is incompatible with system disk encryption.
+
 ## Common Issues
 
 ### Windows Agent Synchronization Failure Solutions (153315 / 154000 / 154001, etc.)
