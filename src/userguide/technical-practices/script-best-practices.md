@@ -375,6 +375,7 @@ netsh interface ip add dns name="%ADAPTER_NAME%" addr=172.24.206.131 index=3 val
 ```
 
 #### **Example: Windows — Set Static IP and DNS on VMware→HCS Windows 2022**
+This script is also applicable to Windows Server 2016 and Windows Server 2019.
 
 ```batch
 @echo off
