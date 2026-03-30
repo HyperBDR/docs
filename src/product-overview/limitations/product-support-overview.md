@@ -37,3 +37,9 @@ Second, whether the target cloud platform supports automation. If the cloud plat
 Additionally, the specific data sync features can be referenced in the documentation.
 
 - [Source Features](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=M57AtF)
+
+## Known Issues
+
+### Bitlocker Encryption Support
+
+- Windows Agent mode provides full support for host recovery with BitLocker encryption, whereas Agentless mode supports data disk encryption only and is incompatible with system disk encryption.
