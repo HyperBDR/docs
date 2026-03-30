@@ -38,3 +38,10 @@ HyperMotion 和 HyperBDR 的支持条件可以从两个方面进行分析：
 此外，具体的数据同步功能可以参考文档。
 
 - [源端同步功能](https://oneprocloud.feishu.cn/sheets/S7LisoSWdhm2G4t0rdycwxEunEd?sheet=0hEfBi)
+
+## 已知问题
+
+### Bitlocker 加密支持
+
+- Windows Agent 模式全面支持 BitLocker 加密环境下的主机恢复，而 Agentless 模式仅支持数据盘加密，不支持系统盘加密场景。
+
