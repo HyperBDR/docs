@@ -152,3 +152,44 @@ ll  #展示如下
 ![](./images/customizationofoemproductlogo-replacetheserviceprovider_sownlogo-5.png)
 
 ![](./images/customizationofoemproductlogo-replacetheserviceprovider_sownlogo-6.png)
+
+## 处理浏览器标签刷新时显示
+宗旨是解压之后，修改文件内容，然后再重新压缩，具体步骤如下：
+```plain&#x20;text
+cd  /root/OEM_self/installer/venvs/
+tar zxvf newmuse-venv-7.3.2.dev10.tar.gz   # 注意使用当前目录里的文件名，此处只是示例。解压之后得到newmuse-venv目录。
+sed -i s/HyperBDR/<标签名称>/g  ./newmuse-venv/index.html   #注意：<标签名称>替换成服务商的工具名称，比如 Migrater
+rm -f ./newmuse-venv-7.3.2.dev10.tar.gz
+tar zcvf newmuse-venv-7.3.2.dev10.tar.gz ./newmuse-venv 
+```
+处理完成之后，继续执行安装步骤。
+
+## 自定义OEM LOGO 安装包
+### 由客户安装
+若MSP伙伴需要制作独有的OEM LOGO 安装包，客户自己拿到后就可以直接安装部署，则需要把处理好的OEM包制作成压缩包，发给客户。
+制作压缩包：
+```plain&#x20;text
+cd /root/OEM_self
+tar zcvf Migrater_release_7.3.0-tar.gz ./installer   #压缩包名称自己取名即可
+```
+> 生成之后的软件包，可以直接上传并提供给客户进行下载执行后续的安装。
+
+客户只需执行如下安装命令(假设客户把安装包放在/root/package目录)：
+```plain&#x20;text
+cd /root/package/
+tar zxvf Migrater_release_7.3.0-tar.gz 
+bash ./installer/install.sh -i <服务IP>        # 如果不加“-i <服务IP>”，则会使用主机的第一个IP地址
+```
+等待安装完成。
+
+### 由MSP伙伴协助客户安装
+若MSP伙伴协助客户安装，则在处理好OEM之后，直接执行如下命令即可：
+```plain&#x20;text
+bash /root/OEM_self/installer/install.sh -i <服务IP>  # 如果不加“-i <服务IP>”，则会使用主机的第一个IP地址
+```
+等待安装完成。
+
+## 浏览器访问容灾/迁移工具
+容灾工具访问：**https://<服务IP>:10443**
+
+迁移工具访问：**https://<服务IP>:20443**
