@@ -32,7 +32,7 @@
 
 | **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |当使用HyperBDR官方SaaS环境时，应为443/30080<br>国内SaaS环境:<br>[点击开始迁移](https://hypermotion.oneprocloud.com)<br>[点击开始容灾](https://hyperbdr.oneprocloud.com)|
+| 1 | Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br>国内SaaS环境:<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com)|
 | 2 | Agent | 对象存储服务 | TCP 单向 | 443 | 数据流 |
 | 3 | HyperBDR Console | 对象存储服务 | TCP 单向 | 443 | 控制流 |
 | 4 | HyperBDR Console | Transition Host | TCP 单向 | 10729 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
@@ -45,7 +45,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Sync Proxy | vCenter | TCP 单向 | 443 | 控制流 |  |
 | 2 | Sync Proxy | ESXi | TCP 单向 | 902 | 数据流 | 所有由 vCenter 管理的 ESXi 的端口 902 |
-| 3 | Sync Proxy | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |当使用HyperBDR官方SaaS环境时，应为443/30080<br>国内SaaS环境:<br>[点击开始迁移](https://hypermotion.oneprocloud.com)<br>[点击开始容灾](https://hyperbdr.oneprocloud.com)|
+| 3 | Sync Proxy | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br>国内SaaS环境:<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com)|
 | 4 | Sync Proxy | 对象存储服务 | TCP 单向 | 443 | 数据流 |  |
 | 5 | HyperBDR Console | 对象存储服务 | TCP 单向 | 443 | 控制流 |  |
 | 6 | HyperBDR Console | Transition Host | TCP 单向 | 10729 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
@@ -57,7 +57,7 @@
 | **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Sync Proxy | HUAWEI API Endpoint | TCP 单向 | 443 | 控制流 |  |
-| 2 | Sync Proxy | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 | 当使用 HyperBDR 官方 SaaS 环境时，应为 443/30080<br>海外 SaaS 环境：<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com) |
+| 2 | Sync Proxy | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 | 若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br>国内SaaS环境：<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com) |
 | 3 | Sync Proxy | 对象存储服务 | TCP 单向 | 443 | 数据流 |  |
 | 4 | HyperBDR | 对象存储服务 | TCP 单向 | 443 | 控制流 |  |
 | 5 | HyperBDR Console | Transition Host | TCP 单向 | 10729 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管 VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
@@ -100,10 +100,10 @@
 
 | **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |当使用HyperBDR官方SaaS环境时，应为443/30080<br>国内SaaS环境:<br>[点击开始迁移](https://hypermotion.oneprocloud.com)<br>[点击开始容灾](https://hyperbdr.oneprocloud.com)|
+| 1 | Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br>国内SaaS环境:<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com)|
 | 2 | Agent | Cloud Sync Gateway | TCP 单向 | 3260 / 13260 | 数据流 |
 | 3 | HyperBDR Console | Cloud Sync Gateway | TCP 单向 | 22 / 10729 / 16100 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
-| 4 | Cloud Sync Gateway | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |当使用HyperBDR官方SaaS环境时，应为443/30080<br>国内SaaS环境:<br>[点击开始迁移](https://hypermotion.oneprocloud.com)<br>[点击开始容灾](https://hyperbdr.oneprocloud.com)|
+| 4 | Cloud Sync Gateway | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br>国内SaaS环境:<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com)|
 | 5 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |
 
 #### 无代理
@@ -112,10 +112,10 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Sync Proxy | vCenter | TCP 单向 | 443 | 控制流 |  |
 | 2 | Sync Proxy | ESXi | TCP 单向 | 902 | 数据流 | 所有由 vCenter 管理的 ESXi 的端口 902 |
-| 3 | Sync Proxy | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |当使用HyperBDR官方SaaS环境时，应为443/30080<br>国内SaaS环境:<br>[点击开始迁移](https://hypermotion.oneprocloud.com)<br>[点击开始容灾](https://hyperbdr.oneprocloud.com)  |
+| 3 | Sync Proxy | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br>国内SaaS环境:<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com)  |
 | 4 | Sync Proxy | Cloud Sync Gateway | TCP 单向 | 3260 / 13260 | 数据流 |  |
 | 5 | HyperBDR Console | Cloud Sync Gateway | TCP 单向 | 22 / 10729 / 16100 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管 VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
-| 6 | Cloud Sync Gateway | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |当使用HyperBDR官方SaaS环境时，应为443/30080<br>国内SaaS环境:<br>[点击开始迁移](https://hypermotion.oneprocloud.com)<br>[点击开始容灾](https://hyperbdr.oneprocloud.com)|
+| 6 | Cloud Sync Gateway | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br>国内SaaS环境:<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com)|
 | 7 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |
 
 #### 华为云 无代理
@@ -123,10 +123,10 @@
 | **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Sync Proxy | Huawei API Endpoint | TCP 单向 | 443 | 控制流 |  |
-| 2 | Sync Proxy | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 | 当使用 HyperBDR 官方 SaaS 环境时，应为 443/30080<br>海外 SaaS 环境：<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com) |
+| 2 | Sync Proxy | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 | 若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br>国内SaaS环境：<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com) |
 | 3 | Sync Proxy | Cloud Sync Gateway | TCP 单向 | 3260 / 13260 | 数据流 |  |
 | 4 | HyperBDR Console | Cloud Sync Gateway | TCP 单向 | 22 / 10729 / 16100 | 控制流 | 必须在 HyperBDR Console 和容灾演练/接管 VM 的 VPC 之间建立 VPC Peering。端口配置将由安全组自动设置，无需特定设置。 |
-| 5 | Cloud Sync Gateway | HyperBDR Console | TCP 单向 | 10443 / 30080 |  | 当使用 HyperBDR 官方 SaaS 环境时，应为 443/30080<br>海外 SaaS 环境：<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com) |
+| 5 | Cloud Sync Gateway | HyperBDR Console | TCP 单向 | 10443 / 30080 |  | 若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br>国内SaaS环境：<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com) |
 | 6 | HyperBDR Console | 云 API | TCP 单向 | 443 | 控制流 |  |
 
 #### OpenStack Ceph 无代理
@@ -135,10 +135,10 @@
 | ---- | ------------------ | ------------------- | -------- | ---------------------------------------- | ------ | ------------------------------------------------------------ |
 | 1    | Sync Proxy         | OpenStack API       | TCP 单向 | 5000 /<br> 35357 /<br> 9696 /<br> 8774 /<br> 8776 /<br> 9292 | 控制流 | 身份认证与资源调用（Keystone / Nova / Neutron / Cinder / Glance） |
 | 2    | Sync Proxy         | Ceph Monitor        | TCP 单向 | 6789                                     | 数据流 | 通过 Ceph Monitor 获取虚拟机数据                             |
-| 3    | Sync Proxy         | HyperBDR Console    | TCP 单向 | 10443 /<br> 30080                            | 控制流 | 当使用HyperBDR官方SaaS环境时，应为443/30080<br/>国内SaaS环境:<br/>[点击开始迁移](https://hypermotion.oneprocloud.com/)<br/>[点击开始容灾](https://hyperbdr.oneprocloud.com/) |
+| 3    | Sync Proxy         | HyperBDR Console    | TCP 单向 | 10443 /<br> 30080                            | 控制流 | 若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br/>国内SaaS环境:<br/>[点击开始迁移](https://motion.hyperbdr.com/)<br/>[点击开始容灾](https://hyperbdr.com/) |
 | 4    | Sync Proxy         | Cloud Sync Gateway  | TCP 单向 | 13260                                    | 数据流 |                                                              |
 | 5    | HyperBDR Console   | Cloud Sync Gateway  | TCP 单向 | 22 <br>/ 10729 <br>/ 16100                       | 控制流 | 管理目标云同步网关 ECS 节点并下发指令                        |
-| 6    | Cloud Sync Gateway | HyperBDR Console    | TCP 单向 | 10443 / 30080                            |        | 当使用HyperBDR官方SaaS环境时，应为443/30080<br/>国内SaaS环境:<br/>[点击开始迁移](https://hypermotion.oneprocloud.com/)<br/>[点击开始容灾](https://hyperbdr.oneprocloud.com/) |
+| 6    | Cloud Sync Gateway | HyperBDR Console    | TCP 单向 | 10443 / 30080                            |        | 若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br/>国内SaaS环境:<br/>[点击开始迁移](https://motion.hyperbdr.com/)<br/>[点击开始容灾](https://hyperbdr.com/) |
 | 7    | HyperBDR           | 目标云 API Endpoint | TCP 单向 | 443                                      | 控制流 | 调用目标云 API 执行资源操作                                  |
 
 
@@ -171,7 +171,7 @@
 
 | **编号** | **访问来源** | **访问目标** | **通信方向** | **开放端口** | **通讯类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Failback Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |当使用HyperBDR官方SaaS环境时，应为443/30080<br>国内SaaS环境:<br>[点击开始迁移](https://hypermotion.oneprocloud.com)<br>[点击开始容灾](https://hyperbdr.oneprocloud.com)|
+| 1 | Failback Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br>国内SaaS环境:<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com)|
 | 2 | Failback Agent | Failback Transition Host | TCP 单向 | 3260 / 13260 | 数据流 |
 | 3 | HyperBDR Console | Failback Transition Host | TCP 单向 | 10729 | 控制流 |
 | 4 | Failback Transition Host | HyperBDR Console | TCP 单向 | 10729 | 控制流 |
@@ -184,7 +184,7 @@
 
 | **编号** | **访问来源** | **访问目标** | **通信方向** | **开放端口** | **通讯类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Failback Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |当使用HyperBDR官方SaaS环境时，应为443/30080<br>国内SaaS环境:<br>[点击开始迁移](https://hypermotion.oneprocloud.com)<br>[点击开始容灾](https://hyperbdr.oneprocloud.com)|
+| 1 | Failback Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br>国内SaaS环境:<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com)|
 | 2 | Failback Agent | Failback Transition Host | TCP 单向 | 3260 / 13260 | 数据流 |
 | 3 | Failback Transition Host | HyperBDR Console | TCP 单向 | 10729 | 控制流 |
 
@@ -198,7 +198,7 @@
 
 | **编号** | **来源** | **目标** | **方向** | **端口** | **类型** | **备注** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Failback Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |当使用HyperBDR官方SaaS环境时，应为443/30080<br>国内SaaS环境:<br>[点击开始迁移](https://hypermotion.oneprocloud.com)<br>[点击开始容灾](https://hyperbdr.oneprocloud.com)|
+| 1 | Failback Agent | HyperBDR Console | TCP 单向 | 10443 / 30080 | 控制流 |若使用 HyperBDR 官方 SaaS 环境，应为 443/80 端口，以及 downloads.hyperbdr.com (TCP 80) 的出向访问权限。<br>国内SaaS环境:<br>[点击开始迁移](https://motion.hyperbdr.com)<br>[点击开始容灾](https://hyperbdr.com)|
 | 2 | Failback Agent | 对象存储服务 | TCP 单向 | 443 | 数据流 |
 | 3 | HyperBDR Console | 对象存储服务 | TCP 单向 | 443 | 控制流 |
 | 4 | HyperBDR Console | Failback Transition Host | TCP 单向 | 10729 | 控制流 |
