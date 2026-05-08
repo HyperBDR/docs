@@ -73,7 +73,7 @@ Agent contains Windows Agent and Linux Agent.
 
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)| 
+| 1 | Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)| 
 | 2 | Agent | Object Storage Service | TCP Unidirectional | 443 | Data Flow | 
 | 3 | HyperBDR Console | Object Storage Service | TCP Unidirectional | 443 | Control Flow | 
 | 4 | HyperBDR Console | Transition Host | TCP Unidirectional | 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
@@ -86,7 +86,7 @@ Agent contains Windows Agent and Linux Agent.
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Sync Proxy | vCenter | TCP Unidirectional | 443 | Control Flow |  |
 | 2 | Sync Proxy | ESXi | TCP Unidirectional | 902 | Data Flow | Port 902 for all ESXis managed by vCenter |
-| 3 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
+| 3 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
 | 4 | Sync Proxy | Object Storage Service | TCP Unidirectional | 443 | Data Flow |  |
 | 5 | HyperBDR Console | Object Storage Service | TCP Unidirectional | 443 | Control Flow |  |
 | 6 | HyperBDR Console | Transition Host | TCP Unidirectional | 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
@@ -98,7 +98,7 @@ Agent contains Windows Agent and Linux Agent.
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Sync Proxy | AWS API Endpoint | TCP Unidirectional | 443 | Control Flow |  |
-| 2 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
+| 2 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
 | 3 | Sync Proxy | Object Storage Service | TCP Unidirectional | 443 | Data Flow |  |
 | 4 | HyperBDR | Object Storage Service | TCP Unidirectional | 443 | Control Flow |  |
 | 5 | HyperBDR Console | Transition Host | TCP Unidirectional | 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
@@ -110,7 +110,7 @@ Agent contains Windows Agent and Linux Agent.
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Sync Proxy | HUAWEI API Endpoint | TCP Unidirectional | 443 | Control Flow |  |
-| 2 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
+| 2 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
 | 3 | Sync Proxy | Object Storage Service | TCP Unidirectional | 443 | Data Flow |  |
 | 4 | HyperBDR | Object Storage Service | TCP Unidirectional | 443 | Control Flow |  |
 | 5 | HyperBDR Console | Transition Host | TCP Unidirectional | 10729 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
@@ -168,10 +168,10 @@ Agent contains Windows Agent and Linux Agent.
 
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)| 
+| 1 | Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)| 
 | 2 | Agent | Cloud Sync Gateway | TCP Unidirectional | 3260 / 13260 | Data Flow | 
 | 3 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 / 16100 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
-| 4 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)|
+| 4 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)|
 | 5 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
 
 #### Agentless
@@ -180,20 +180,20 @@ Agent contains Windows Agent and Linux Agent.
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Sync Proxy | vCenter | TCP Unidirectional | 443 | Control Flow |  |
 | 2 | Sync Proxy | ESXi | TCP Unidirectional | 902 | Data Flow | Port 902 for all ESXis managed by vCenter |
-| 3 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
+| 3 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
 | 4 | Sync Proxy | Cloud Sync Gateway | TCP Unidirectional | 3260 / 13260 | Data Flow |  |
 | 5 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 / 16100 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
-| 6 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)|
+| 6 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)|
 | 7 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
 
 #### AWS Agentless
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Sync Proxy | AWS API Endpoint | TCP Unidirectional | 443 | Control Flow |  |
-| 2 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
+| 2 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
 | 3 | Sync Proxy | Cloud Sync Gateway | TCP Unidirectional | 3260 / 13260 | Data Flow |  |
 | 4 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 / 16100 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
-| 5 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 / 30080 ||When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)|
+| 5 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 / 30080 ||If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)|
 | 6 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
 
 #### FusionCompute Agentless
@@ -201,10 +201,10 @@ Agent contains Windows Agent and Linux Agent.
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Sync Proxy | VRM API Endpoint | TCP Unidirectional | 7443 | Control Flow | Default port, if there is a change to the other correct port. |
 | 2 | Sync Proxy | CNA Node Socket Interface | TCP Unidirectional | 35001 | Control Flow | Default port, if there is a change to the other correct port, Port 35001 for all CNA Node managed by VRM. |
-| 3 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
+| 3 | Sync Proxy | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
 | 4 | Sync Proxy | Cloud Sync Gateway | TCP Unidirectional | 3260 / 13260 | Data Flow |  |
 | 5 | HyperBDR Console | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 / 16100 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group, and no specific settings are required. |
-| 6 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 /30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)|
+| 6 | Cloud Sync Gateway | HyperBDR Console | TCP Unidirectional | 10443 /30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)|
 | 7 | HyperBDR Console | Cloud API | TCP Unidirectional | 443 | Control Flow | 
 
 #### Huawei Cloud Agentless
@@ -212,10 +212,10 @@ Agent contains Windows Agent and Linux Agent.
 | No. | From              | To                  | Direction        | Ports              | Type         | Comment                                                                                                                                                                      |
 |-----|-------------------|---------------------|------------------|--------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1   | Sync Proxy        | Huawei API Endpoint | TCP Unidirectional | 443                | Control Flow |                                                                                                                                                                              |
-| 2   | Sync Proxy        | HyperBDR Console    | TCP Unidirectional | 10443 / 30080      | Control Flow | When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
+| 2   | Sync Proxy        | HyperBDR Console    | TCP Unidirectional | 10443 / 30080      | Control Flow | If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
 | 3   | Sync Proxy        | Cloud Sync Gateway  | TCP Unidirectional | 3260 / 13260       | Data Flow    |                                                                                                                                                                              |
 | 4   | HyperBDR Console  | Cloud Sync Gateway  | TCP Unidirectional | 22 / 10729 / 16100 | Control Flow | It is necessary to establish VPC Peering between HyperBDR Console and the VPC hosting the recovered VM. Port configurations will be automatically set up by the security group. |
-| 5   | Cloud Sync Gateway| HyperBDR Console    | TCP Unidirectional | 10443 / 30080      |              | When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
+| 5   | Cloud Sync Gateway| HyperBDR Console    | TCP Unidirectional | 10443 / 30080      |              | If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)  |
 | 6   | HyperBDR Console  | Cloud API           | TCP Unidirectional | 443                | Control Flow |                                                                                                                                                                              |
 
 #### OpenStack Ceph Agentless
@@ -224,10 +224,10 @@ Agent contains Windows Agent and Linux Agent.
 | --- | ------------------ | ------------------ | ------------------ | ---------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1   | Sync Proxy         | OpenStack API      | TCP Unidirectional | 5000 / 35357 / 9696 / 8774 / 8776 / 9292 | Control Flow | Identity authentication and resource operations (Keystone / Nova / Neutron / Cinder / Glance)                                                                 |
 | 2   | Sync Proxy         | Ceph Monitor       | TCP Unidirectional | 6789                                     | Data Flow    | Retrieves virtual machine data via the Ceph Monitor                                                                                                           |
-| 3   | Sync Proxy         | HyperBDR Console   | TCP Unidirectional | 10443 / 30080                            | Control Flow | When using the official HyperBDR SaaS environment, please use ports 443/30080.<br/>Overseas SaaS Environment:<br/>Start Migration<br/>Start Disaster Recovery |
+| 3   | Sync Proxy         | HyperBDR Console   | TCP Unidirectional | 10443 / 30080                            | Control Flow | If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br/>Overseas SaaS Environment:<br/>Start Migration<br/>Start Disaster Recovery |
 | 4   | Sync Proxy         | Cloud Sync Gateway | TCP Unidirectional | 13260                                    | Data Flow    |                                                                                                                                                               |
 | 5   | HyperBDR Console   | Cloud Sync Gateway | TCP Unidirectional | 22 / 10729 / 16100                       | Control Flow | Manages target Cloud Sync Gateway ECS nodes and delivers control commands.                                                                                    |
-| 6   | Cloud Sync Gateway | HyperBDR Console   | TCP Unidirectional | 10443 / 30080                            | Control Flow | When using the official HyperBDR SaaS environment, please use ports 443/30080.<br/>Overseas SaaS Environment:<br/>Start Migration<br/>Start Disaster Recovery |
+| 6   | Cloud Sync Gateway | HyperBDR Console   | TCP Unidirectional | 10443 / 30080                            | Control Flow | If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br/>Overseas SaaS Environment:<br/>Start Migration<br/>Start Disaster Recovery |
 | 7   | HyperBDR           | Target Cloud API   | TCP Unidirectional | 443                                      | Control Flow | Invokes target cloud APIs to perform resource operations                                                                                                      |
 
 
@@ -267,10 +267,10 @@ During the failback process, due to the necessity for cloud takeover of the host
 
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Failback Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)| 
+| 1 | Failback Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)| 
 | 2 | Failback Agent | Failback Transition Host | TCP Unidirectional | 3260 / 13260 | Data Flow | 
 | 3 | HyperBDR Console | Failback Transition Host | TCP Unidirectional | 10729 | Control Flow | 
-| 4 | Failback Transition Host | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)|
+| 4 | Failback Transition Host | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)|
 
 #### Deployment Architecutre - NAT
 
@@ -280,7 +280,7 @@ During the failback process, due to the necessity for cloud takeover of the host
 
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Failback Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)| 
+| 1 | Failback Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com)| 
 | 2 | Failback Agent | Failback Transition Host | TCP Unidirectional | 3260 / 13260 | Data Flow | 
 | 3 | HyperBDR Console | Failback Transition Host | TCP Unidirectional | 10729 | Control Flow | 
 
@@ -294,7 +294,7 @@ During the failback process, due to the necessity for cloud takeover of the host
 
 | **No.** | **From** | **To** | **Direction** | **Ports** | **Type** | **Comment** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Failback Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |When using the official HyperBDR SaaS environment, please use ports 443/30080.<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com) |
+| 1 | Failback Agent | HyperBDR Console | TCP Unidirectional | 10443 / 30080 | Control Flow |If using the official HyperBDR SaaS environment, outbound access should be allowed for ports 443/80, as well as downloads.hyperbdr.com (TCP 80).<br>Overseas SaaS Environment:<br>[Start Migration](https://motion.hyperbdr.com)<br>[Start Disaster Recovery](https://hyperbdr.com) |
 | 2 | Failback Agent | Object Storage Service | TCP Unidirectional | 443 | Data Flow | 
 | 3 | HyperBDR Console | Object Storage Service | TCP Unidirectional | 443 | Control Flow | 
 | 4 | HyperBDR Console | Failback Transition Host | TCP Unidirectional | 10729 | Control Flow | 
