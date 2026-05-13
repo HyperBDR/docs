@@ -588,6 +588,7 @@ export const enSidebar = sidebar({
             "tengxun",
             "alibaba",
             "tengxun-tce",
+            "vmware"
           ],
         },
       ],
