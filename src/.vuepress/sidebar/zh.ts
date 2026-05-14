@@ -588,6 +588,7 @@ export const zhSidebar = sidebar({
             "tengxun",
             "alibaba",
             "tengxun-tce",
+            "vmware"
           ],
         },
       ],
