@@ -48,6 +48,7 @@ For detailed compatibility, see the [Source OS Support Matrix](https://oneproclo
 | Encrypted Disks      | Not supported                      | Not supported: LUKS-encrypted disks/partitions               |
 | Network Mounts       | Not supported                      | Not supported: NFS/NAS network shares (use separate sync tools) |
 | Oracle RAC Cluster       | Not supported                      | Not supported |
+| DRBD       | Not supported                      | Not supported |
 
 ### Boot Requirements
 - Only systems using grub or grub2 are supported.
