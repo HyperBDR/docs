@@ -33,7 +33,7 @@
 | OpenStack社区版本(Juno+)            |      |
 | TM CAE                          |      |
 | UCloud                          |      |
-| VMware                          |      |
+| VMware                          |[点击查看](../dr-site-configuration-obs/vmware.md)      |
 | XHERE(NeutonOs\_3.x)            |      |
 
 ## **块存储模式**

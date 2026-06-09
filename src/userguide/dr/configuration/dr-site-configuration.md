@@ -31,7 +31,7 @@ You can configure DR or failback strategies as needed to achieve end-to-end busi
 | Tencent Cloud Enterprise                              |[Click to View](../dr-site-configuration-obs/tengxun-tce.md)         |
 | TM CAE                                      |         |
 | UCloud                                      |         |
-| VMware                                      |         |
+| VMware                                      |[Click to View](../dr-site-configuration-obs/vmware.md)         |
 | Volcengine                                  |         |
 | XHERE(NeutonOs_3.x)                         |         |
 
