@@ -45,6 +45,7 @@ export const enSidebar = sidebar({
         "hyperbdr-service-ip-changes-and-post-change-environment.md",
         "hyperbdr-orchestration-best-practices",
         "domain-access-standalone-hyperbdr-change-guide.md",
+        "hyperbdr-asm-best-practice.md",
       ],
       collapsible: true,
       expanded: true,
