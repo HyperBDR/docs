@@ -29,6 +29,24 @@ export default hopeTheme({
           })();
             `
     ],
+    // 添加 Google 统计
+    [
+      "script",
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=G-9D3TVY20F0",
+      },
+    ],
+    [
+      "script",
+      {},
+      `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-9D3TVY20F0');
+            `
+    ],
   ],
 
   pure: true,
