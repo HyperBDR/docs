@@ -2,7 +2,7 @@
 
 [[toc]]
 
-> **生成时间**: 2026-05-27 11:09:26
+> **生成时间**: 2026-06-11 10:10:22
 > 
 > 当前列表为最新发布包中支持的情况
 > 
@@ -472,17 +472,26 @@
 ### Debian 11.x
 | 序号 | 系统版本 | 内核版本号 / 架构信息 | 类型 | 大小 | MD5 校验值 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Debian 11.x | **5.10.0-30-amd64_amd64** | DEB | 817.12 KB | `15b3fcedd05712f57cfc5f3367f87821` |
-| 2 | Debian 11.x | **5.10.0-32-amd64_amd64** | DEB | 815.16 KB | `89a8c2e746a9d41f0be4d7417dd87183` |
-| 3 | Debian 11.x | **5.10.0-39-amd64_amd64** | DEB | 817.29 KB | `cb6f6cf7772506b9c9d3cc2eeaa327d4` |
+| 1 | Debian 11.x | **5.10.0-11-amd64_amd64** | DEB | 811.49 KB | `898f5c0a0a41616cf799fd97bd1efc80` |
+| 2 | Debian 11.x | **5.10.0-30-amd64_amd64** | DEB | 816.4 KB | `4892b146d8942e7d627bf827632a9a7c` |
+| 3 | Debian 11.x | **5.10.0-32-amd64_amd64** | DEB | 815.49 KB | `a16603561a43965f8932daafb33cbe2b` |
+| 4 | Debian 11.x | **5.10.0-39-amd64_amd64** | DEB | 816.46 KB | `384c1e4516e31ffbf0508afc46ed0ddc` |
 
 ### Debian 12.x
 | 序号 | 系统版本 | 内核版本号 / 架构信息 | 类型 | 大小 | MD5 校验值 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Debian 12.x | **6.1.0-23-amd64_amd64** | DEB | 694.94 KB | `a2fea3a706429c30eb7871bfb491b74f` |
-| 2 | Debian 12.x | **6.1.0-37-amd64_amd64** | DEB | 697.65 KB | `0861aab2208f8e15e18e5036a0a3b33d` |
-| 3 | Debian 12.x | **6.1.0-39-amd64_amd64** | DEB | 698.5 KB | `0d3f19d9cffae50c6cd83f223f5f06fe` |
-| 4 | Debian 12.x | **6.1.0-42-amd64_amd64** | DEB | 698.7 KB | `8ce975343df4dda7f9157aebba37d412` |
+| 1 | Debian 12.x | **6.1.0-13-amd64_amd64** | DEB | 770.61 KB | `31a77c8dc616732f72dfb7fea5546f2f` |
+| 2 | Debian 12.x | **6.1.0-15-amd64_amd64** | DEB | 769.77 KB | `bba85cdae1df88a47b6730e49e17a8ea` |
+| 3 | Debian 12.x | **6.1.0-18-amd64_amd64** | DEB | 768.03 KB | `77cef17dd1208428207eef0bd2c4f227` |
+| 4 | Debian 12.x | **6.1.0-22-amd64_amd64** | DEB | 770.76 KB | `fa9839ef4d38aff8eeefe9110353bd61` |
+| 5 | Debian 12.x | **6.1.0-23-amd64_amd64** | DEB | 770.71 KB | `570b07701548737c23f7331c0cd3ed42` |
+| 6 | Debian 12.x | **6.1.0-28-amd64_amd64** | DEB | 773.52 KB | `a08a71415e74688c91ec86bafaff96ed` |
+| 7 | Debian 12.x | **6.1.0-30-amd64_amd64** | DEB | 773.85 KB | `595e4d8e258cafba9035eb0d123b3af5` |
+| 8 | Debian 12.x | **6.1.0-33-amd64_amd64** | DEB | 778.04 KB | `24d6d23414f66b6ede839a34f22998b4` |
+| 9 | Debian 12.x | **6.1.0-37-amd64_amd64** | DEB | 773.98 KB | `188c8dac04b94e8dd062c4b70f47563c` |
+| 10 | Debian 12.x | **6.1.0-39-amd64_amd64** | DEB | 773.77 KB | `7d5f23e16543d667564e82f604476cc5` |
+| 11 | Debian 12.x | **6.1.0-40-amd64_amd64** | DEB | 773.58 KB | `5568b29b5853615d548a1a491229fcfd` |
+| 12 | Debian 12.x | **6.1.0-42-amd64_amd64** | DEB | 774.75 KB | `2e01b1caa9bc50fe9265ac0f6cc81f89` |
 
 ### Debian 8.x
 | 序号 | 系统版本 | 内核版本号 / 架构信息 | 类型 | 大小 | MD5 校验值 |
@@ -1903,22 +1912,22 @@
 ### SUSE Linux Enterprise Server 11 SP1
 | 序号 | 系统版本 | 内核版本号 / 架构信息 | 类型 | 大小 | MD5 校验值 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | SUSE Linux Enterprise Server 11 SP1 | **2.6.32.12-0.7.x86_64** | RPM | 140.09 KB | `3affa16008641e342e817de823a7bcd3` |
+| 1 | SUSE Linux Enterprise Server 11 SP1 | **2.6.32.12-0.7.x86_64** | RPM | 140.69 KB | `2789eecdf3571421c634eec55e083e70` |
 
 ### SUSE Linux Enterprise Server 11 SP2
 | 序号 | 系统版本 | 内核版本号 / 架构信息 | 类型 | 大小 | MD5 校验值 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | SUSE Linux Enterprise Server 11 SP2 | **3.0.13-0.27.x86_64** | RPM | 148.02 KB | `b50d35758ae50c7496f990c4e73ec250` |
+| 1 | SUSE Linux Enterprise Server 11 SP2 | **3.0.13-0.27.x86_64** | RPM | 148.67 KB | `5f36b9e8491df516b6898da8fcd5f741` |
 
 ### SUSE Linux Enterprise Server 11 SP3
 | 序号 | 系统版本 | 内核版本号 / 架构信息 | 类型 | 大小 | MD5 校验值 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | SUSE Linux Enterprise Server 11 SP3 | **3.0.76-0.11.x86_64** | RPM | 142.75 KB | `1ab0b8ccaa113746f9fbee2c277e1767` |
+| 1 | SUSE Linux Enterprise Server 11 SP3 | **3.0.76-0.11.x86_64** | RPM | 147.53 KB | `8a9565a7a4d07bdbce36aa30b81178cf` |
 
 ### SUSE Linux Enterprise Server 11 SP4
 | 序号 | 系统版本 | 内核版本号 / 架构信息 | 类型 | 大小 | MD5 校验值 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | SUSE Linux Enterprise Server 11 SP4 | **3.0.101-63.x86_64** | RPM | 146.86 KB | `9a64e27201abb3aa1cd9534be9b42592` |
+| 1 | SUSE Linux Enterprise Server 11 SP4 | **3.0.101-63.x86_64** | RPM | 147.47 KB | `38780d3a5fd83b3db8d7a205bf508ae2` |
 
 ### SUSE Linux Enterprise Server 12 GA
 | 序号 | 系统版本 | 内核版本号 / 架构信息 | 类型 | 大小 | MD5 校验值 |
@@ -3488,31 +3497,31 @@
 ### Ubuntu 24.04 LTS
 | 序号 | 系统版本 | 内核版本号 / 架构信息 | 类型 | 大小 | MD5 校验值 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Ubuntu 24.04 LTS | **6.14.0-1007-aws_amd64** | DEB | 980.41 KB | `014afcbfce94d2a8fddac11b9c6d621f` |
-| 2 | Ubuntu 24.04 LTS | **6.14.0-1009-aws_amd64** | DEB | 980.41 KB | `86c60d6b8e3669edcf11b2fb9a770d7b` |
-| 3 | Ubuntu 24.04 LTS | **6.14.0-1010-aws_amd64** | DEB | 980.61 KB | `04650ad01531ed5828d7837349cd083c` |
-| 4 | Ubuntu 24.04 LTS | **6.14.0-1011-aws_amd64** | DEB | 981.44 KB | `fa6377ed25e0db8c7c0d9ecc67e68854` |
-| 5 | Ubuntu 24.04 LTS | **6.14.0-1012-aws_amd64** | DEB | 981.66 KB | `9f0ea598d3ae186661634108c2cc25f1` |
-| 6 | Ubuntu 24.04 LTS | **6.14.0-1012-azure_amd64** | DEB | 952.21 KB | `b53e77932e0644028f427e3b0022bf26` |
-| 7 | Ubuntu 24.04 LTS | **6.14.0-1013-aws_amd64** | DEB | 982.28 KB | `9b2ad7bf60877ef765dd3fd5a59372b9` |
-| 8 | Ubuntu 24.04 LTS | **6.14.0-1013-azure_amd64** | DEB | 952.22 KB | `db8d9462bf5c5bd3c3a78a63f00163fd` |
-| 9 | Ubuntu 24.04 LTS | **6.14.0-1014-aws_amd64** | DEB | 982.25 KB | `c13b8362caf00a43824ac95900e3ca22` |
-| 10 | Ubuntu 24.04 LTS | **6.14.0-1014-azure_amd64** | DEB | 954.77 KB | `cd3496dd98682a995dd6a077d52fc761` |
-| 11 | Ubuntu 24.04 LTS | **6.14.0-1015-aws_amd64** | DEB | 983.31 KB | `15ad0e2bd3acb0660645a27409831325` |
-| 12 | Ubuntu 24.04 LTS | **6.14.0-1016-aws_amd64** | DEB | 983.41 KB | `8451856c58a650329c5fae1939f4a390` |
-| 13 | Ubuntu 24.04 LTS | **6.14.0-1017-aws_amd64** | DEB | 983.31 KB | `45ee71ee3a5904c485790cabb56bf17c` |
-| 14 | Ubuntu 24.04 LTS | **6.14.0-1017-azure_amd64** | DEB | 954.8 KB | `55af134dcd445ced4f7cea026c1a4b15` |
-| 15 | Ubuntu 24.04 LTS | **6.14.0-1018-aws_amd64** | DEB | 983.31 KB | `3feb3ac610d8f4109b79fc202c4ab50b` |
-| 16 | Ubuntu 24.04 LTS | **6.14.0-24-generic_amd64** | DEB | 985.3 KB | `c210ded2c4a98928bf8f98ae46a6a7d5` |
-| 17 | Ubuntu 24.04 LTS | **6.14.0-27-generic_amd64** | DEB | 985.34 KB | `a82d1901ba0044137fa368bcfdeb990f` |
-| 18 | Ubuntu 24.04 LTS | **6.14.0-28-generic_amd64** | DEB | 984.89 KB | `3e0cf745569a6c3bae55f7e9483da3dc` |
-| 19 | Ubuntu 24.04 LTS | **6.14.0-29-generic_amd64** | DEB | 984.99 KB | `a966530091277da9317b5c4b219e2f20` |
-| 20 | Ubuntu 24.04 LTS | **6.14.0-32-generic_amd64** | DEB | 986.78 KB | `f6e9d43c5c3840bea233de7d5ca4a010` |
-| 21 | Ubuntu 24.04 LTS | **6.14.0-33-generic_amd64** | DEB | 986.84 KB | `f1f095c615299859bd8db289a919812f` |
-| 22 | Ubuntu 24.04 LTS | **6.14.0-34-generic_amd64** | DEB | 986.01 KB | `07b33a33dba622a405bfff90b9a0c358` |
-| 23 | Ubuntu 24.04 LTS | **6.14.0-35-generic_amd64** | DEB | 986.02 KB | `1bd3bfbd53551a4af0051b46f887af31` |
-| 24 | Ubuntu 24.04 LTS | **6.14.0-36-generic_amd64** | DEB | 985.79 KB | `efed11f7ab942b49b894103f15d1736e` |
-| 25 | Ubuntu 24.04 LTS | **6.14.0-37-generic_amd64** | DEB | 985.73 KB | `e4181521cc27a2556bcdc3d59825cb26` |
+| 1 | Ubuntu 24.04 LTS | **6.14.0-1007-aws_amd64** | DEB | 980.37 KB | `9a3333008486aab066e5e1822d2f52b6` |
+| 2 | Ubuntu 24.04 LTS | **6.14.0-1009-aws_amd64** | DEB | 980.6 KB | `74066610765d52445803d70729fcf067` |
+| 3 | Ubuntu 24.04 LTS | **6.14.0-1010-aws_amd64** | DEB | 980.53 KB | `41aafee89923d76ca79667097cb7a5f4` |
+| 4 | Ubuntu 24.04 LTS | **6.14.0-1011-aws_amd64** | DEB | 981.34 KB | `70a243c967686a97d6851c901e85d508` |
+| 5 | Ubuntu 24.04 LTS | **6.14.0-1012-aws_amd64** | DEB | 981.56 KB | `18e260d3fe80400671f3b14315fbe984` |
+| 6 | Ubuntu 24.04 LTS | **6.14.0-1012-azure_amd64** | DEB | 952.84 KB | `27676c62c3b34bbca3a51981888f9903` |
+| 7 | Ubuntu 24.04 LTS | **6.14.0-1013-aws_amd64** | DEB | 982.44 KB | `3b37f5281be537814e85cfb2d5da5e71` |
+| 8 | Ubuntu 24.04 LTS | **6.14.0-1013-azure_amd64** | DEB | 952.12 KB | `327aa0b06bf9e4c182c35f008272f83f` |
+| 9 | Ubuntu 24.04 LTS | **6.14.0-1014-aws_amd64** | DEB | 982.44 KB | `72136f5864a634545c8e7999a4820d62` |
+| 10 | Ubuntu 24.04 LTS | **6.14.0-1014-azure_amd64** | DEB | 954.76 KB | `a7e59ad9a81b4e40fdab343220dca3f6` |
+| 11 | Ubuntu 24.04 LTS | **6.14.0-1015-aws_amd64** | DEB | 983.31 KB | `de47eeff5c9133b81cae4773f6b180ee` |
+| 12 | Ubuntu 24.04 LTS | **6.14.0-1016-aws_amd64** | DEB | 983.4 KB | `8f15fd4df302d92a8638df7d1182005c` |
+| 13 | Ubuntu 24.04 LTS | **6.14.0-1017-aws_amd64** | DEB | 983.37 KB | `c51df8a0f746241e4d26813957141f4d` |
+| 14 | Ubuntu 24.04 LTS | **6.14.0-1017-azure_amd64** | DEB | 954.8 KB | `b8090a907b4d7fe80096e5b3264dbcc0` |
+| 15 | Ubuntu 24.04 LTS | **6.14.0-1018-aws_amd64** | DEB | 983.33 KB | `eff46ff5423372fdfc43df96ea62fcad` |
+| 16 | Ubuntu 24.04 LTS | **6.14.0-24-generic_amd64** | DEB | 985.32 KB | `9bd0073beb680dd184a758266586df95` |
+| 17 | Ubuntu 24.04 LTS | **6.14.0-27-generic_amd64** | DEB | 985.31 KB | `6c4e775d72cdfcce8ec32a75b61f32a5` |
+| 18 | Ubuntu 24.04 LTS | **6.14.0-28-generic_amd64** | DEB | 984.94 KB | `fc8d233f18e344612aef761f34cba92e` |
+| 19 | Ubuntu 24.04 LTS | **6.14.0-29-generic_amd64** | DEB | 985.0 KB | `065d53b01a3a20918cf7e57d1122a2d3` |
+| 20 | Ubuntu 24.04 LTS | **6.14.0-32-generic_amd64** | DEB | 986.75 KB | `0d30040e2515802a25e2feb5e411bac9` |
+| 21 | Ubuntu 24.04 LTS | **6.14.0-33-generic_amd64** | DEB | 986.9 KB | `7859d745d27facd024fb710c0b33b334` |
+| 22 | Ubuntu 24.04 LTS | **6.14.0-34-generic_amd64** | DEB | 986.02 KB | `eafed3ab56420bf0e086768ab6531b43` |
+| 23 | Ubuntu 24.04 LTS | **6.14.0-35-generic_amd64** | DEB | 985.98 KB | `5693d2d832e221c407f5a15c75d0a328` |
+| 24 | Ubuntu 24.04 LTS | **6.14.0-36-generic_amd64** | DEB | 985.74 KB | `e0660c09a12be5a5d4b87f7483bc9254` |
+| 25 | Ubuntu 24.04 LTS | **6.14.0-37-generic_amd64** | DEB | 985.93 KB | `121e101c675e02a52b9889b208f73fb9` |
 | 26 | Ubuntu 24.04 LTS | **6.8.0-100-generic_amd64** | DEB | 906.69 KB | `839b8e31d15ea802888bf3beec59404e` |
 | 27 | Ubuntu 24.04 LTS | **6.8.0-1007-azure_amd64** | DEB | 886.61 KB | `38e7d7a1bf3d13b1f0bb46eff4c71081` |
 | 28 | Ubuntu 24.04 LTS | **6.8.0-1008-aws_amd64** | DEB | 917.78 KB | `ba051e4dbdc3aa92d651b9cdb9063033` |
