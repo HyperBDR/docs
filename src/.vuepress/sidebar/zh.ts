@@ -45,6 +45,7 @@ export const zhSidebar = sidebar({
         "hyperbdr-service-ip-changes-and-post-change-environment.md",
         "hyperbdr-orchestration-best-practices",
         "domain-access-standalone-hyperbdr-change-guide.md",
+        "openstack_dhcp_pool_best_practice.md",
       ],
       collapsible: true,
       expanded: true,

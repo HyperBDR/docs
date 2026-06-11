@@ -46,6 +46,7 @@ export const enSidebar = sidebar({
         "hyperbdr-orchestration-best-practices",
         "domain-access-standalone-hyperbdr-change-guide.md",
         "hyperbdr-asm-best-practice.md",
+        "openstack_dhcp_pool_best_practice.md",
       ],
       collapsible: true,
       expanded: true,
