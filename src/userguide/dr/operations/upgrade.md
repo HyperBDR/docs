@@ -72,7 +72,7 @@ After completing the prerequisite steps (Upgrade Preparation), the system will a
 
 **Operations > Upgrade > DR > Sync Proxy**
 
-![](./images/startdownload-dr-1.png)
+![operations-upgrade-cloud-sync-gateway-dr-main](./images/operations-upgrade-cloud-sync-gateway-dr-main.png)
 
 ### **Agent**
 
@@ -82,7 +82,7 @@ After completing the prerequisite steps (Upgrade Preparation), the system will a
 
 **Operations > Upgrade > DR > Sync Proxy > Agent**
 
-![](./images/startdownload-dr-2.png)
+![operations-upgrade-agent-dr-main](./images/operations-upgrade-agent-dr-main.png)
 
 ### **Cloud Sync Gateway**
 
@@ -92,7 +92,7 @@ After completing the prerequisite steps (Upgrade Preparation), the system will a
 
 **Operations > Upgrade > DR > Cloud Sync Gateway**
 
-![](./images/startdownload-dr-3.png)
+![operations-upgrade-cloud-sync-gateway-dr-main](./images/operations-upgrade-cloud-sync-gateway-dr-main.png)
 
 
 
@@ -106,7 +106,7 @@ After completing the prerequisite steps (Upgrade Preparation), the system will a
 
 **Operations > Upgrade > Failback > Sync Proxy**
 
-![](./images/startdownload-failback-1.png)
+![operations-upgrade-sync-proxy-dr-main](./images/operations-upgrade-sync-proxy-dr-main.png)
 
 ### **Agent**
 
@@ -116,7 +116,7 @@ After completing the prerequisite steps (Upgrade Preparation), the system will a
 
 **Operations > Upgrade > DR > Agent**
 
-![](./images/startdownload-failback-2.png)
+![operations-upgrade-agent-failback-main](./images/operations-upgrade-agent-failback-main.png)
 
 ### **Cloud Sync Gateway**
 
@@ -126,5 +126,5 @@ After completing the prerequisite steps (Upgrade Preparation), the system will a
 
 **Operations > Upgrade > DR > Cloud Sync Gateway**
 
-![](./images/startdownload-failback-3.png)
+![operations-upgrade-cloud-sync-gateway-failback-main](./images/operations-upgrade-cloud-sync-gateway-failback-main.png)
 

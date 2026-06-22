@@ -21,7 +21,7 @@ Fill in the required information as prompted to complete the notification recipi
 | Notification Email    | XXX@qq.com              | Email(s) to receive notifications (multiple allowed) |
 | Description           |                         | Additional notes or description  |
 
-![](./images/notification-createnotification-1.png)
+![monitor-notification-dr-createnotification](./images/monitor-notification-dr-createnotification.png)
 
 ### Action
 
@@ -31,25 +31,25 @@ After selecting a notification recipient, you can manage it by editing, enabling
 
 * Click [Edit] to go to the edit page, where you can update the alert configuration.
 
-  ![](./images/notification-createnotification-2.png)
+  ![monitor-notification-dr-action-hover-edit](./images/monitor-notification-dr-action-hover-edit.png)
 
 #### Enable
 
 * Enabled notification recipients cannot be edited. To change the configuration, please disable it first.
 
-  ![](./images/notification-createnotification-3.png)
+  ![monitor-notification-dr-action-dropdown](./images/monitor-notification-dr-action-dropdown.png)
 
 #### Disable
 
 * Disabled notification recipients cannot be edited. To change the configuration, please enable it first.
 
-  ![](./images/notification-createnotification-4.png)
+  ![monitor-notification-dr-action-hover-disable](./images/monitor-notification-dr-action-hover-disable.png)
 
 #### Remove
 
 * Click [Remove] to trigger a confirmation. After confirming, the system will delete the notification recipient and remove its association with related alerts.
 
-  ![](./images/notification-createnotification-5.png)
+  ![monitor-notification-dr-action-hover-remove](./images/monitor-notification-dr-action-hover-remove.png)
 
 ## Failback
 
@@ -68,7 +68,7 @@ Fill in the required information as prompted to complete the notification recipi
 | Notification Email  | XXX@qq.com              | Email(s) to receive notifications (multiple allowed) |
 | Description         |                         | Additional notes or description        |
 
-![](./images/notification-failback-1.png)
+![monitor-notification-failback-createnotification](./images/monitor-notification-failback-createnotification.png)
 
 ### Action
 
@@ -78,22 +78,22 @@ After selecting a notification recipient, you can manage it by editing, enabling
 
 * Click [Edit] to go to the edit page, where you can update the alert configuration.
 
-  ![](./images/notification-failback-2.png)
+  ![monitor-notification-failback-action-hover-edit](./images/monitor-notification-failback-action-hover-edit.png)
 
 #### Enable
 
 * Enabled notification recipients cannot be edited. To change the configuration, please disable it first.
 
-  ![](./images/notification-failback-3.png)
+  ![monitor-notification-failback-action-dropdown](./images/monitor-notification-failback-action-dropdown.png)
 
 #### Disable
 
 * Disabled notification recipients cannot be edited. To change the configuration, please enable it first. When disabled, no notifications will be sent.
 
-  ![](./images/notification-failback-4.png)
+  ![monitor-notification-failback-action-hover-disable](./images/monitor-notification-failback-action-hover-disable.png)
 
 #### Remove
 
 * Click [Remove] to trigger a confirmation. After confirming, the system will delete the notification recipient and remove its association with related alerts.
 
-  ![](./images/notification-failback-5.png)
+  ![monitor-notification-failback-action-hover-remove](./images/monitor-notification-failback-action-hover-remove.png)

@@ -24,35 +24,35 @@ In HyperBDR, users can go to "O&M Management > Download Logs" to quickly collect
 | Log Status | Downloadable    | Status of host logs (click to view details)         |
 | Action     | Collect        | Collect logs                                        |
 
-### **Collection Example: Console**
+### **Collection Example: Sync Proxy**
 
-On the **"Download Logs > DR > Console"** page, users can collect and download required log files as needed for troubleshooting and monitoring.
+On the **"Download Logs > DR > Sync Proxy"** page, users can collect and download required log files as needed for troubleshooting and monitoring.
 
-![](./images/downloadlogs-dr-1.png)
+![operations-download-logs-dr-sync-proxy](./images/operations-download-logs-dr-sync-proxy.png)
 
 #### **Log Collection**
 
 Select the target host and click the "Collect" button in the corresponding row.
 
-![](./images/downloadlogs-dr-2.png)
+![operations-download-logs-dr-sync-proxy-collect-pointer](./images/operations-download-logs-dr-sync-proxy-collect-pointer.png)
 
 #### **Select Time Range**
 
 In the pop-up dialog, set the time range for the logs you want to collect. After confirming, the system will automatically start collecting logs.
 
-![](./images/downloadlogs-dr-3.png)
+![operations-download-logs-dr-syncproxy-time-range](./images/operations-download-logs-dr-syncproxy-time-range.png)
 
 #### **Start Collection**
 
 After confirming the time range, the system will automatically start collecting logs, and the log status will change to "Collecting".
 
-![](./images/downloadlogs-dr-4.png)
+![operations-download-logs-dr-sync-proxy](./images/operations-download-logs-dr-sync-proxy.png)
 
 #### **Download Logs**
 
 After log collection is complete, the status will update to **"Available"**. Users can click "Click for list" to see the log files and select files to download.
 
-![](./images/downloadlogs-dr-5.png)
+![operations-download-logs-dr-syncproxy-click-for-list](./images/operations-download-logs-dr-syncproxy-click-for-list.png)
 
 ## **Failback**
 
@@ -75,33 +75,33 @@ After log collection is complete, the status will update to **"Available"**. Use
 | Log Status | Downloadable    | Status of host logs (click to view details)         |
 | Action     | Collect        | Collect logs                                        |
 
-### **Collection Example: Failback Sync Proxy**
+### **Collection Example: Cloud Sync Gateway**
 
-On the **"Download Logs > Failback > Failback Sync Proxy"** page, users can collect and download required log files as needed for troubleshooting and monitoring.
+On the **"Download Logs > Failback > Cloud Sync Gateway"** page, users can collect and download required log files as needed for troubleshooting and monitoring.
 
-![](./images/downloadlogs-failback-1.png)
+![operations-downloadlogs-failback-csg](./images/operations-downloadlogs-failback-csg.png)
 
 #### **Log Collection**
 
 Select the target host and click the "Collect" button in the corresponding row.
 
-![](./images/downloadlogs-failback-2.png)
+![operations-downloadlogs-failback-csg-collect-pointer](./images/operations-downloadlogs-failback-csg-collect-pointer.png)
 
 #### **Select Time Range**
 
 In the pop-up dialog, set the time range for the logs you want to collect. After confirming, the system will automatically start collecting logs.
 
-![](./images/downloadlogs-failback-3.png)
+![operations-downloadlogs-failback-csg-time-range](./images/operations-downloadlogs-failback-csg-time-range.png)
 
 #### **Start Collection**
 
 After confirming the time range, the system will automatically start collecting logs, and the log status will change to "Collecting".
 
-![](./images/downloadlogs-failback-4.png)
+![operations-downloadlogs-failback-csg](./images/operations-downloadlogs-failback-csg.png)
 
 #### **Download Logs**
 
 After log collection is complete, the status will update to **"Available"**. Users can click "Click for list" to see the log files and select files to download.
 
-![](./images/downloadlogs-failback-5.png)
+![operations-downloadlogs-failback-csg-click-for-list](./images/operations-downloadlogs-failback-csg-click-for-list.png)
 

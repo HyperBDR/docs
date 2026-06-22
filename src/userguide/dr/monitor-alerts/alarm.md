@@ -11,7 +11,7 @@ Go to:
 
 After navigating to the creation page, configure the required parameters based on your needs, then save to complete the setup of **DR** and **Failback** alerts.
 
-![](./images/alarm-resourcealert-1.png)
+![monitor-alertrules-dr-resourcerules](./images/monitor-alertrules-dr-resourcerules.png)
 
 ### Create Alert
 
@@ -42,11 +42,11 @@ After navigating to the creation page, configure the required parameters based o
 | Object Storage Resources   | Object Storage Capacity    | Monitors usage of storage capacity                   |
 
 
-![](./images/alarm-resourcealert-2.png)
+![monitor-alertrules-dr-resourcerules-createalert](./images/monitor-alertrules-dr-resourcerules-createalert.png)
 
 * After the alert is created, the system will automatically trigger it when the event occurs and send notifications to the assigned recipients. Related alert information will also be shown on the "Alert Messages" page for unified management.
 
-![](./images/alarm-resourcealert-3.png)
+![monitor-alertrules-dr-resourcerules](./images/monitor-alertrules-dr-resourcerules.png)
 
 ### **Action**
 
@@ -54,25 +54,25 @@ After navigating to the creation page, configure the required parameters based o
 
 * Click [Edit] to go to the edit page, where you can update the alert configuration.
 
-![](./images/alarm-resourcealert-4.png)
+![monitor-alertrules-dr-resourcerules-action-hover-edit](./images/monitor-alertrules-dr-resourcerules-action-hover-edit.png)
 
 #### **Enable**
 
 * Enabled alerts cannot be edited. To change the configuration, please disable the alert first.
 
-![](./images/alarm-resourcealert-5.png)
+![monitor-alertrules-dr-resourcerules-action-dropdown](./images/monitor-alertrules-dr-resourcerules-action-dropdown.png)
 
 #### **Disable**
 
 * Disabled alerts cannot be edited. To change the configuration, please enable the alert first.
 
-![](./images/alarm-resourcealert-6.png)
+![monitor-alertrules-dr-resourcerules-action-hover-disable](./images/monitor-alertrules-dr-resourcerules-action-hover-disable.png)
 
 #### **Remove**
 
 * Click [Remove] to trigger a confirmation. After confirming, the system will delete the alert.
 
-![](./images/alarm-resourcealert-7.png)
+![monitor-alertrules-dr-resourcerules-action-hover-remove](./images/monitor-alertrules-dr-resourcerules-action-hover-remove.png)
 
 ## Event Alert
 
@@ -81,7 +81,7 @@ Go to:
 
 After navigating to the creation page, configure the required parameters based on your needs, then save to complete the setup of **DR** and **Failback** alerts.
 
-![](./images/alarm-eventalert-1.png)
+![monitor-alertrules-dr-eventrules](./images/monitor-alertrules-dr-eventrules.png)
 
 ### Create Alert
 
@@ -113,11 +113,11 @@ After navigating to the creation page, configure the required parameters based o
 | **Resource Policies**         | Associate/Disassociate/Create/Delete/Update resource policies                                                                                                                                                                                                        | Events related to lifecycle management of disaster recovery policies. |
 
 
-![](./images/alarm-eventalert-2.png)
+![monitor-alertrules-dr-eventrules-createalert](./images/monitor-alertrules-dr-eventrules-createalert.png)
 
 * After the alert is created, the system will automatically trigger it when the event occurs and send notifications to the assigned recipients. Related alert information will also be shown on the "Alert Messages" page for unified management.
 
-![](./images/alarm-eventalert-3.png)
+![monitor-alertrules-dr-eventrules](./images/monitor-alertrules-dr-eventrules.png)
 
 ### **Action**
 
@@ -125,22 +125,22 @@ After navigating to the creation page, configure the required parameters based o
 
 * Click [Edit] to go to the edit page, where you can update the alert configuration.
 
-![](./images/alarm-eventalert-4.png)
+![monitor-alertrules-dr-eventrules-action-hover-edit](./images/monitor-alertrules-dr-eventrules-action-hover-edit.png)
 
 #### **Enable**
 
 * Enabled alerts cannot be edited. To change the configuration, please disable the alert first.
 
-![](./images/alarm-eventalert-5.png)
+![monitor-alertrules-dr-eventrules-action-dropdown](./images/monitor-alertrules-dr-eventrules-action-dropdown.png)
 
 #### **Disable**
 
 * Disabled alerts cannot be edited. To change the configuration, please enable the alert first.
 
-![](./images/alarm-eventalert-6.png)
+![monitor-alertrules-dr-eventrules-action-hover-disable](./images/monitor-alertrules-dr-eventrules-action-hover-disable.png)
 
 #### **Remove**
 
 * Click [Remove] to trigger a confirmation. After confirming, the system will delete the alert.
 
-![](./images/alarm-eventalert-7.png)
+![monitor-alertrules-dr-eventrules-action-hover-remove](./images/monitor-alertrules-dr-eventrules-action-hover-remove.png)

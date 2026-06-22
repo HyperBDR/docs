@@ -8,7 +8,7 @@ The DR License controls the use of disaster recovery features for different reso
 
 Go to **Settings > License Management > DR License**, click **"Add"**, fill in the required information as prompted, and enter a valid license code to complete the authorization.
 
-![](./images/licensemanagement-drlicense-1.png)
+![settings-licensemgmt-drlicense-add-modal](./images/settings-licensemgmt-drlicense-add-modal.png)
 
 ## **Failback License**
 
@@ -18,7 +18,7 @@ The Failback License is used to manage authorization when moving business operat
 
 Go to **Settings > License Management > Failback License**, click **Add"**, enter and activate the license code as prompted to enable the failback feature.
 
-![](./images/licensemanagement-failbacklicense-1.png)
+![settings-licensemgmt-failbacklicense-add-modal](./images/settings-licensemgmt-failbacklicense-add-modal.png)
 
 ## **Allocation Log**
 
@@ -28,5 +28,5 @@ This page displays basic information and operation status for all connected host
 
 Go to **Settings > License Management > Allocation Log**, click **"Export"** to download host information and operation status.
 
-![](./images/licensemanagement-allocationlog-1.png)
+![settings-licensemgmt-drlicense](./images/settings-licensemgmt-drlicense.png)
 

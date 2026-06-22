@@ -12,7 +12,7 @@ Users can quickly search using the top filter options, supporting log filtering 
   * **Task Name:** Enter a keyword to find the corresponding resource
   * **End Time:** Sort in ascending or descending order
 
-![](./images/taskmanagement-pagefeatures-1.png)
+![operations-task-management-dr](./images/operations-task-management-dr.png)
 
 ### Task Management Description
 
@@ -27,9 +27,9 @@ Users can quickly search using the top filter options, supporting log filtering 
 
 > Note: Click the status link in the "Task Status" field to go to the task details page for full logs and error information.
 
-![](./images/taskmanagement-pagefeatures-2.png)
+![operations-task-management-dr](./images/operations-task-management-dr.png)
 
-![](./images/taskmanagement-pagefeatures-3.png)
+![operations-task-management-dr-click-for-details](./images/operations-task-management-dr-click-for-details.png)
 
 ### Other Notes
 
