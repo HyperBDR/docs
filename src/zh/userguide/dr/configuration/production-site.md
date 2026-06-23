@@ -888,6 +888,6 @@ Windows Agent 安装程序包：**windows-agent.zip**
 
 ## **回切**
 
-在配置回切源端生产站点时，其整体配置逻辑与容灾生产站点配置流程一致，相关参数含义及操作方法可直接参考[**容灾生产站点配置**](../configuration/production-site.md#容灾)章节。完成配置后，即可继续执行主机回切操作。
+在配置回切源端生产站点时，其整体配置逻辑与容灾生产站点配置流程一致，相关参数含义及操作方法可直接参考[**容灾生产站点配置**](#容灾)章节。完成配置后，即可继续执行主机回切操作。
 
 ![config-productionsite-failback-vmware](./images/config-productionsite-failback-vmware.png)
