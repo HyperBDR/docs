@@ -886,6 +886,6 @@ Select the Source Sync Proxy that has been added to the platform, click the "Act
 
 ## **Failback**
 
-When configuring the Failback Production Site, the overall configuration logic is consistent with the DR Production Site workflow. The meaning and operation of each parameter can be directly referenced in the [DR Production Site](production-site.md#dr) section. Once the configuration is complete, you can proceed with the Host Failback operation.
+When configuring the Failback Production Site, the overall configuration logic is consistent with the DR Production Site workflow. The meaning and operation of each parameter can be directly referenced in the [DR Production Site](#dr) section. Once the configuration is complete, you can proceed with the Host Failback operation.
 
 ![config-productionsite-failback-vmware](./images/config-productionsite-failback-vmware.png)
