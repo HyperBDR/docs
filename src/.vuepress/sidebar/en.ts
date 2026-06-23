@@ -547,6 +547,7 @@ export const enSidebar = sidebar({
           children: [
             "global-settings.md",
             "license-management.md",
+            "user-management.md",
             "versions.md",
           ]
         },

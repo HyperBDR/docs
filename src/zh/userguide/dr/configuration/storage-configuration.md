@@ -32,7 +32,7 @@
 
 通过顶部导航栏依次选择 **“配置管理” → “存储配置” → “对象存储”** 进入对象存储页面，点击右上角 **“添加”** 按钮，可进行对象存储的新增配置操作。
 
-![](./images/storageconfiguration-objectstorage-1.png)
+![config-object-storage-dr](./images/config-object-storage-dr.png)
 
 ###### **添加鉴权信息**
 
@@ -71,7 +71,7 @@
 
 在进入具体回切存储配置阶段时，其配置方式与容灾存储配置流程保持一致，相关参数含义及操作方法可直接参考[**容灾对象存储配置**](storage-configuration.md#容灾)章节。完成对应配置后，即可继续执行主机回切操作。
 
-![](./images/storageconfiguration-objectstorage-4.png)
+![config-block-storage-dr](./images/config-block-storage-dr.png)
 
 ## **块存储**
 
@@ -118,11 +118,3 @@
 | UCloudStack                     |      |
 | XHERE(NeutonOS\_3.x)            |      |
 | ZStack(v4.x.x)                  |      |
-
-### **回切**
-
-通过顶部导航栏依次选择 **“配置管理” → “存储配置” → “块存储” → “回切”** 进入块存储页面，点击右上角 **“添加”** 按钮，可进行块存储的新增配置操作。
-
-在进入具体回切存储配置阶段时，其配置方式与容灾存储配置流程保持一致，相关参数含义及操作方法可直接参考[**容灾块存储配置**](storage-configuration.md#容灾-1)章节。完成对应配置后，即可继续执行主机回切操作。
-
-![](./images/storageconfiguration-blockstoragemode-2.png)

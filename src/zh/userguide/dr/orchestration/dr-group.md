@@ -1,17 +1,17 @@
 # **资源组容灾**
 
 “资源组容灾”功能支持以资源组为单位进行统一的容灾配置和调度，适用于需对多个相关资源（如主机、网络、存储）统一进行保护和恢复的场景。
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-0.png)
+![orchestration-dr-group-main](./images/orchestration-dr-group-main.png)
 
 ## **新建资源组**
 
 点击“新建资源组”，可对已完成资源配置的主机进行统一编组，以便后续进行集中调度与容灾管理。
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-1.png)
+![orchestration-dr-group-create](./images/orchestration-dr-group-create.png)
 
 根据实际需求设置资源组名称，填写备注，选择对应的主机资源，完成配置后点击“完成”以创建资源组。
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-2.png)
+![orchestration-dr-group-main](./images/orchestration-dr-group-main.png)
 
 ## **资源编排**
 

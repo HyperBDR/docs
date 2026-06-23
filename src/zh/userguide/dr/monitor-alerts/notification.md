@@ -21,7 +21,7 @@
 | 描述           |                           | 相关备注或说明                 |
 
 
-![](./images/notification-createnotification-1.png)
+![monitor-notification-dr-createnotification](./images/monitor-notification-dr-createnotification.png)
 
 ### **更多操作**
 
@@ -31,25 +31,25 @@
 
 * 点击【修改】后，系统将跳转页面，用户可在该页面对已创建的报警器配置进行重新编辑与调整。
 
-![](./images/notification-createnotification-2.png)
+![monitor-notification-dr-action-hover-edit](./images/monitor-notification-dr-action-hover-edit.png)
 
 #### **启用**
 
 * 已启用的通知对象无法进行修改操作。如需变更相关配置，请先将通知对象停用
 
-![](./images/notification-createnotification-3.png)
+![monitor-notification-dr-action-dropdown](./images/monitor-notification-dr-action-dropdown.png)
 
 #### **停用**
 
 * 已停的通知对象无法进行修改操作。如需变更相关配置，请先将通知对象起用
 
-![](./images/notification-createnotification-4.png)
+![monitor-notification-dr-action-hover-disable](./images/monitor-notification-dr-action-hover-disable.png)
 
 #### **移除**
 
 * 点击【移除】后，移除操作将触发二次确认，确认后，系统将删除该通知对象，并取消其与相关报警器的关联
 
-![](./images/notification-createnotification-5.png)
+![monitor-notification-dr-action-hover-remove](./images/monitor-notification-dr-action-hover-remove.png)
 
 ## **回切**
 
@@ -68,7 +68,7 @@
 | 通知邮箱     | XXX@qq.com            | 用于接收通知的邮箱(可添加多个)    |
 | 描述       |                       | 相关备注或说明             |
 
-![](./images/notification-failback-1.png)
+![monitor-notification-failback-createnotification](./images/monitor-notification-failback-createnotification.png)
 
 ### **更多操作**
 
@@ -78,21 +78,21 @@
 
 * 点击【修改】后，系统将跳转页面，用户可在该页面对已创建的报警器配置进行重新编辑与调整。
 
-  ![](./images/notification-failback-2.png)
+  ![monitor-notification-failback-action-hover-edit](./images/monitor-notification-failback-action-hover-edit.png)
 
 #### **启用**
 
 * 已启用的通知对象无法进行修改操作。如需变更相关配置，请先将通知对象停用
 
-  ![](./images/notification-failback-3.png)
+  ![monitor-notification-failback-action-dropdown](./images/monitor-notification-failback-action-dropdown.png)
 #### **停用**
 
 * 已停用的通知对象无法修改。如需调整其配置，请先启用该通知对象。停用状态下将不进行任何消息推送。
 
-  ![](./images/notification-failback-4.png)
+  ![monitor-notification-failback-action-hover-disable](./images/monitor-notification-failback-action-hover-disable.png)
 
 #### **移除**
 
 * 点击【移除】后，移除操作将触发二次确认，确认后，系统将删除该通知对象，并取消其与相关报警器的关联
 
-  ![](./images/notification-failback-5.png)
+  ![monitor-notification-failback-action-hover-remove](./images/monitor-notification-failback-action-hover-remove.png)

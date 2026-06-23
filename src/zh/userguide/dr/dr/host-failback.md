@@ -4,6 +4,6 @@
 
 点击顶部"资源容灾"导航栏，点击左侧"主机回切"导航栏，可以进行主机回切的主流程操作。
 
-![](./images/host-failback-1.png)
+![failback-select-host-main](./images/failback-select-host-main.png)
 
 在进入具体回切配置阶段时，其整体配置逻辑与主机容灾流程保持一致，如需了解各配置项的详细含义及操作方法，可参考[**主机容灾**](host-dr.md)章节中的配置流程说明，按步骤完成相关设置后，即可继续执行主机回切操作。

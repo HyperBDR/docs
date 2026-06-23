@@ -12,12 +12,12 @@
 
   * 点击右上角的"A图标"，展开下拉菜单。
 
-    ![](./images/languageswitch-1.png)
+    ![dashboard-language-entry](./images/dashboard-language-entry.png)
 
   * 在弹出的语言列表中，选择您希望使用的语言，例如“简体中文”或“English”。
 
     > 默认语言为：简体中文
 
-    ![](./images/languageswitch-2.png)
+    ![dashboard-language-zh-hover](./images/dashboard-language-zh-hover.png)
 
 切换后系统将自动刷新界面并应用所选语言。
