@@ -118,7 +118,7 @@ If the console host has direct internet access, we recommend using this method t
 
 ```sh
 # Get the latest HyperBDR package URL
-HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/get_hyperbdr_latest/latest)
+HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/get_hyperbdr_latest?format=url)
 echo "HYPERBDR_PACKAGE: ${HYPERBDR_PACKAGE}"
 
 # Get the corresponding MD5 file URL
@@ -147,8 +147,6 @@ Skip this step if you've already obtained the package through the online method.
 If the installation host cannot access the internet, you can use a browser on another device to access:
 
 - [https://install.oneprocloud.com/get_hyperbdr_latest](https://install.oneprocloud.com/get_hyperbdr_latest)
-
-Add `.md5` suffix to the URL to get the corresponding MD5 verification file. Then manually upload the installation package to the console host.
 
 ### 3. Verify Package Integrity (MD5)
 
