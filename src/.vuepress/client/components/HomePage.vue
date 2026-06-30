@@ -202,7 +202,7 @@ const searchSuggestions = useSearchSuggestions({
 })
 
 // AI 搜索 URL
-const AI_SEARCH_URL = 'https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b'
+const AI_SEARCH_URL = 'https://sourcelens.oneprocloud.com/lens/assistants/AI_HyperBDR/chat'
 
 // 判断是否为中文环境
 const isZh = computed(() => {

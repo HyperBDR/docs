@@ -237,7 +237,7 @@ export const homepageSectionsZh: HomepageSection[] = [
       {
         title: "AI 智能搜索",
         desc: "AI 智能搜索 from OneProCloud.",
-        link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+        link: "https://sourcelens.oneprocloud.com/lens/assistants/AI_HyperBDR/chat",
         icon: "fa-solid fa-robot"
       },
       {
@@ -270,7 +270,7 @@ export const coreActionsZh: CoreAction[] = [
   {
     title: "AI Support",
     desc: "AI Support from OneProCloud.",
-    link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+    link: "https://sourcelens.oneprocloud.com/lens/assistants/AI_HyperBDR/chat",
     icon: "fa-solid fa-robot"
   },
 ]
