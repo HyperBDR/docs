@@ -115,7 +115,7 @@
 
 ```sh
 # 获取最新的 HyperBDR 软件包 URL。
-HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/get_hyperbdr_latest/latest)
+HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/get_hyperbdr_latest?format=url)
 echo "HYPERBDR_PACKAGE: ${HYPERBDR_PACKAGE}"
 
 # 获取相应的 MD5 文件 URL。
@@ -144,8 +144,6 @@ curl -k -O "$HYPERBDR_PACKAGE_MD5"
 如果安装主机无法直接访问互联网，您可以使用其他设备的浏览器访问以下地址获取安装包链接：
 
 - [https://install.oneprocloud.com/get_hyperbdr_latest](https://install.oneprocloud.com/get_hyperbdr_latest)
-
-获取链接后，在链接地址末尾添加 `.md5` 后缀即可获取对应的 MD5 校验文件。然后手动将安装包上传至控制台主机并执行安装。
 
 ### 3. 安装包完整性校验(MD5)
 
