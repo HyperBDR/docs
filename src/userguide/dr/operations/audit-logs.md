@@ -1,6 +1,6 @@
-# Audit Logs
+# Event Logs
 
-In HyperBDR, users can go to "Operations Management > Audit Logs" to view detailed records of all **DR** and **Failback** operations on the platform. This page helps O&M staff track actions, audit behavior, and troubleshoot issues.
+In HyperBDR, users can go to "Operations Management > Event Logs" to view detailed records of all **DR** and **Failback** operations on the platform. This page helps O&M staff track actions, audit behavior, and troubleshoot issues.
 
 ## Page Features
 
@@ -10,7 +10,7 @@ Users can quickly search using the top filter options, supporting log filtering 
 * **Message Name:** Filter specific operation events by keyword
 * **Resource Name:** Enter a keyword to find the corresponding resource
 
-![](./images/auditlogs-pagefeatures-1.png)
+![operations-event-logs-dr](./images/operations-event-logs-dr.png)
 
 ### Audit Log Description
 
@@ -26,7 +26,7 @@ Users can quickly search using the top filter options, supporting log filtering 
 
 > Click the message name to view details.
 
-![](./images/auditlogs-pagefeatures-2.png)
+![operations-audit-logs-dr-name-detail](./images/operations-audit-logs-dr-name-detail.png)
 
 ### Resource Type Description
 

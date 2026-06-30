@@ -15,7 +15,7 @@ You can configure platform settings as needed, including data display items, lan
 | Data Sync Refresh Frequency       | 1 minute                                    | Default is 1 minute. Cannot be changed in this version.                         |
 | Data Sync Interval | N/A                                         | Not configurable by default.                                                    |
 
-![](./images/globalsettings-generalsettings-1.png)
+![settings-globalsettings-generalsettings](./images/settings-globalsettings-generalsettings.png)
 
 ## **Sync Proxy Domain Mappings**
 
@@ -34,6 +34,7 @@ Example:
 
 > Note: This setting does not take effect immediately. It will be applied automatically within a few minutes after configuration.
 
+![settings-globalsettings-syncproxydomainmappings](./images/settings-globalsettings-syncproxydomainmappings.png)
 
 
 ## **Console Domain Mappings**
@@ -54,5 +55,23 @@ Example:
 
 > Note: This setting does not take effect immediately. It will be applied automatically within a few minutes after configuration.
 
-![](./images/globalsettings-consoledomainmappings-1.png)
+![settings-globalsettings-consoledomainmappings](./images/settings-globalsettings-consoledomainmappings.png)
 
+## **Transition Host Domain Mappings**
+
+In global settings, click "Transition Host Domain Mappings" to add domain and IP mappings for the source production platform. The format is the same as the `/etc/hosts` file in Linux.
+
+* Parameter Description
+
+This mapping is mainly used when the source needs to connect to vCenter, ESXi, or cloud platform APIs using domain names but DNS is not configured. Without this, the sync proxy cannot synchronize data properly. For example, in a VMware environment with multiple ESXi hosts, you need to configure the IP and domain mapping for each host here.
+Example:
+
+```plaintext
+192.168.1.10 esxi1.example.com
+192.168.1.11 esxi2.example.com
+192.168.1.12 esxi3.example.com
+```
+
+> Note: This setting does not take effect immediately. It will be applied automatically within a few minutes after configuration.
+
+![settings-globalsettings-transitionhostdomainmappings](./images/settings-globalsettings-transitionhostdomainmappings.png)

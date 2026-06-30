@@ -23,7 +23,7 @@ Here is your table translated into clear, simple English for a disaster recovery
 | **Occurrence Time** | The time when the system first detected the alarm event, used for tracing the issue and analyzing response time.                                                                                                                                                                                   |
 
 
-![](./images/alerts-dr-1.png)
+![monitor-alerthistory-dr](./images/monitor-alerthistory-dr.png)
 
 * More Actions
 
@@ -31,7 +31,7 @@ On the alert messages page, you can manage alerts by marking them as "Read" or u
 
 After processing, the status will be updated:
 
-![](./images/alerts-dr-2.png)
+![monitor-alerthistory-dr-action-hover-mark-all-read](./images/monitor-alerthistory-dr-action-hover-mark-all-read.png)
 
 ## Failback
 
@@ -52,7 +52,7 @@ Here is your table translated into clear, simple English for a disaster recovery
 | **Occurrence Time** | The time when the system first detected the alarm event, used for tracing the issue and analyzing response time.                                                                                                                                                                                   |
 
 
-![](./images/alerts-failback-1.png)
+![monitor-alerthistory-failback](./images/monitor-alerthistory-failback.png)
 
 * More Actions
 
@@ -60,5 +60,5 @@ On the alert messages page, you can manage alerts by marking them as "Read" or u
 
 After processing, the status will be updated:
 
-![](./images/alerts-failback-2.png)
+![monitor-alerthistory-failback-action-hover-mark-all-read](./images/alerts-failback-2.png)
 

@@ -6,7 +6,7 @@
 
   * 点击“退出系统”选项，用户将被安全地注销，返回登录页面。
 
-    ![](./images/logout-1.png)
+    ![dashboard-logout-signout-hover](./images/dashboard-logout-signout-hover.png)
 
   用户将被安全地注销，返回登录页面。
   > 注意：仅关闭浏览器窗口可能不会终止会话，建议使用上述方法正式退出系统，以防止他人未经授权访问您的账户，以免造成不必要的损失。

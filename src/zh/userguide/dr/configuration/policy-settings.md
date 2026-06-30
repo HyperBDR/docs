@@ -8,7 +8,7 @@
 
 用户可点击【创建策略】按钮新增策略，并根据业务需求填写相应的策略配置内容。系统支持同时存在多种策略类型，用户可灵活管理同步策略、限速策略与保留策略，实现多维度的容灾策略控制。
 
-![](./images/policysettings-createapolicy-1.png)
+![config-policy-settings-dr-create-policy](./images/config-policy-settings-dr-create-policy.png)
 
 在输入策略名称、设置快照保留数量并选择策略状态后，开始配置下列详细策略配置。
 
@@ -24,8 +24,6 @@
 
 ![](./images/policysettings-createapolicy-2.png)
 
-![](./images/policysettings-createapolicy-3.png)
-
 ##### **时间周期配置说明**
 
 | **配置项** | **配置值**                   | **说明**                             |
@@ -35,6 +33,8 @@
 | 分钟数     | 30                        | 每间隔 N 分钟执行一次，其中 N 范围为 \[5–59] 的整数。 |
 | 开始时间    | 2025-05-27 00:00:00       | 同步任务的首次执行时间，后续按周期触发。               |
 | 时区      | (GMT+08:00) Asia/shanghai | 同步任务调度的时区，如 `UTC+8`，建议明确设置以避免时间偏差。 |
+
+![](./images/policysettings-createapolicy-3.png)
 
 ##### **高级设置配置说明**
 
@@ -52,8 +52,6 @@
 
 ![](./images/policysettings-createapolicy-4.png)
 
-![](./images/policysettings-createapolicy-5.png)
-
 ##### **时间周期配置说明**
 
 | **配置项** | **配置值**                   | **说明**                             |
@@ -63,6 +61,8 @@
 | 分钟数     | 30                        | 每间隔 N 分钟执行一次，其中 N 范围为 \[5–59] 的整数。 |
 | 开始时间    | 2025-05-27 00:00:00       | 同步任务的首次执行时间，后续按周期触发。               |
 | 时区      | (GMT+08:00) Asia/shanghai | 同步任务调度的时区，如 `UTC+8`，建议明确设置以避免时间偏差。 |
+
+![](./images/policysettings-createapolicy-5.png)
 
 ##### **高级设置配置说明**
 
@@ -129,25 +129,25 @@
 
 选中目标策略后，点击【更多操作】>【修改】，可以修改对应策略的名称，快照数，策略等相关内容
 
-![](./images/policysettings-moreoperations-1.png)
+![config-policy-settings-dr-action-hover-modify](./images/config-policy-settings-dr-action-hover-modify.png)
 
 ### **启用**
 
 选中目标策略后，点击【更多操作】>【启用】，可修改策略状态
 
-![](./images/policysettings-moreoperations-2.png)
+![config-policy-settings-dr-action-hover-enable](./images/config-policy-settings-dr-action-hover-enable.png)
 
 ### **禁用**
 
 选中目标策略后，点击【更多操作】>【禁用】，可修改策略状态
 
-![](./images/policysettings-moreoperations-3.png)
+![config-policy-settings-dr-action-hover-disable](./images/config-policy-settings-dr-action-hover-disable.png)
 
 ### **关联主机**
 
 选中目标策略后，点击【更多操作】 > 【关联主机】，可将需要应用该策略的主机关联至当前策略。
 
-![](./images/policysettings-moreoperations-4.png)
+![config-policy-settings-dr-action-hover-associated-host](./images/config-policy-settings-dr-action-hover-associated-host.png)
 
 ### **删除**
 
@@ -155,7 +155,7 @@
 
 > 注意：在删除策略之前，请确保该策略没有关联任何主机资源。如果有主机资源正在使用该策略，则无法进行删除，需先解绑主机资源。
 
-![](./images/policysettings-moreoperations-5.png)
+![config-policy-settings-dr-action-hover-delete](./images/config-policy-settings-dr-action-hover-delete.png)
 
 
 
@@ -167,13 +167,13 @@
 
 在策略详情页面，您可以全面查看该策略的所有配置项，包括同步策略、限速策略及保留策略等信息。
 
-![](./images/policysettings-policysettingsdetails-1.png)
+![config-policy-settings-dr-policy-detail](./images/config-policy-settings-dr-policy-detail.png)
 
 ### **关联主机**
 
 通过关联主机页面，您可以完整查看所有已绑定该策略的主机信息，包括主机名称、IP 地址及其他相关详情。
 
-![](./images/policysettings-policysettingsdetails-2.png)
+![config-policy-settings-dr-policy-detail-associated-host](./images/config-policy-settings-dr-policy-detail-associated-host.png)
 
 ### **解绑主机**
 

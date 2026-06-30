@@ -65,7 +65,10 @@ export const zhSidebar = sidebar({
       icon: "check",
       prefix: "",
       children: [
+        "general-failback-drill",
         "hyperbdr-disaster-recovery-failback.md",
+        "vmware-failback-drill-reference-guide",
+        "openstack-failback-drill-reference-guide",
       ],
       collapsible: true,
       expanded: true,
@@ -550,6 +553,7 @@ export const zhSidebar = sidebar({
           children: [
             "global-settings.md",
             "license-management.md",
+            "user-management.md",
             "versions.md",
           ]
         },

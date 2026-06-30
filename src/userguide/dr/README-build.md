@@ -35,4 +35,5 @@
 ## **Settings**
 <!-- @include: ./settings/global-settings.md -->
 <!-- @include: ./settings/license-management.md -->
+<!-- @include: ./settings/user-management.md -->
 <!-- @include: ./settings/versions.md -->

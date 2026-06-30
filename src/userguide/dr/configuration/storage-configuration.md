@@ -29,7 +29,7 @@ You can refer to the following 'Configuration Example' to complete the related s
 
 From the top navigation bar, select **"Configuration" → "Storage Configuration" → "Object Storage"** to enter the object storage page. Click the **"Add"** button to add a new object storage configuration.
 
-![](./images/storageconfiguration-objectstorage-1.png)
+![config-object-storage-dr](./images/config-object-storage-dr.png)
 
 ##### **Add Authentication Information**
 
@@ -68,7 +68,7 @@ After completing the authentication information, click **"Next"** to continue co
 
 From the top navigation bar, select **"Configuration" → "Storage Configuration" → "Block Storage"** to enter the block storage page. Click the **"Add"** button in the upper right corner to add a new block storage configuration.
 
-![](./images/storageconfiguration-blockstoragemode-1.png)
+![config-block-storage-dr](./images/config-block-storage-dr.png)
 
 You can click the "Configuration Guide" link next to each cloud platform in the list to view detailed operation steps.
 

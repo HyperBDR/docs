@@ -16,7 +16,7 @@ The upper right area displays the current logged-in user, system time (with time
 
 Shows the three core components of the system architecture: **Production → Storage → DR Site**
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-1.png)
+![dashboard-main](./images/dashboard-main.png)
 
 ### **Section Descriptions**
 
@@ -28,7 +28,7 @@ Displays an overview of production resources connected to the system, including 
 
 Click the **Details** button in the lower right to go to the DR resources page for detailed host information and DR configuration status.
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-2.png)
+![dr-select-host-main](./images/dr-select-host-main.png)
 
 #### **DR Group**
 
@@ -36,7 +36,7 @@ Shows the number of DR groups configured in the system, helping users understand
 
 Click the **Details** button in the lower right to go to the DR group page for detailed configuration and DR status of each group.
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-3.png)
+![orchestration-dr-group-main](./images/orchestration-dr-group-main.png)
 
 #### **DR Policy**
 
@@ -44,7 +44,7 @@ Displays the DR policy configuration status for production hosts, helping users 
 
 Click the **Details** button in the lower right to go to the "Start DR" page, where you can select target hosts and associate policies.
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-4.png)
+![dr-startdr-main](./images/dr-startdr-main.png)
 
 #### **Data Sync**
 
@@ -52,7 +52,7 @@ Shows the overall progress of data synchronization from source hosts, which is a
 
 Click the **Details** button in the lower right to go to the "Start DR" page, where you can select hosts and perform immediate sync operations.
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-5.png)
+![dr-startdr-main](./images/dr-startdr-main.png)
 
 #### **Storage Pool**
 
@@ -62,13 +62,13 @@ Displays the number of configured object storage pools and their capacity usage,
 
 Click the **Details** button in the lower right to go to the storage configuration page for object storage management.
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-6.png)
+![config-object-storage-dr](./images/config-object-storage-dr.png)
 
 ##### **Cloud Sync Gateway**
 
 Click the **Details** button in the lower right to go to the storage configuration page for block storage management.
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-7.png)
+![config-block-storage-dr](./images/config-block-storage-dr.png)
 
 #### **Restore / DR**
 
@@ -82,7 +82,7 @@ Shows the number of resources under "Drill" management, as well as the number of
 
 Click the **Details** button in the lower right to go to the "Start DR" page for drill and takeover operations on hosts.
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-8.png)
+![dr-startdr-main](./images/dr-startdr-main.png)
 
 #### **DR Site**
 
@@ -90,7 +90,7 @@ Displays the number of successfully and unsuccessfully connected DR sites, as we
 
 Click the **Details** button to go to the "Start DR" page for related operations.
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-9.png)
+![dr-startdr-main](./images/dr-startdr-main.png)
 
 #### **DR Resources Monitoring & Analysis**
 
@@ -107,7 +107,7 @@ Users can select different monitoring resources from the dropdown list. Supporte
 
 Click the **Details** button in the upper right to go to the system monitoring page for more information.
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-13.png)
+![monitor-systemmonitor-dr-syncproxy](./images/monitor-systemmonitor-dr-syncproxy.png)
 
 #### **Events**
 
@@ -115,7 +115,7 @@ This module displays key dynamic information related to the user, helping users 
 
 Click the **Operation Log** button in the upper right to go to the audit log page for detailed event logs.
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-10.png)
+![operations-event-logs-dr](./images/operations-event-logs-dr.png)
 
 #### **Alert**
 
@@ -123,7 +123,7 @@ Displays alert messages triggered by the alarm system, helping users stay inform
 
 Click the **Details** button in the upper right to go to the alert messages page for more information.
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-11.png)
+![monitor-alerthistory-dr](./images/monitor-alerthistory-dr.png)
 
 #### **License Status**
 
@@ -131,7 +131,7 @@ Shows the number, usage status, and validity of activation codes, helping admini
 
 Click the **Details** button in the upper right to go to the license management page for more information and to add or export licenses.
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-12.png)
+![settings-license-dr](./images/settings-license-dr.png)
 
 #### **Carbon Footprint**
 

@@ -2,4 +2,4 @@
 
 版本信息页面用于展示当前系统平台的详细版本数据，便于运维人员核查软件版本状态、跟踪发布历史，或在获取技术支持时提供参考依据。
 
-![](./images/versions-1.png)
+![settings-versions](./images/settings-versions.png)

@@ -204,16 +204,72 @@ Currently, users can export various system operation and management reports for 
 
 * Click [Operations] > [Reports] to enter the report page.
 
-![](./images/reports-reportexportexample-1.png)
+![operations-export-report-dr](./images/operations-export-report-dr.png)
 
 * After clicking collect, select the report type, scope, time zone, time range, host, etc. as needed, then submit.
 
-![](./images/reports-reportexportexample-2.png)
+![operations-export-report-dr-export-dialog](./images/operations-export-report-dr-export-dialog.png)
 
-![](./images/reports-reportexportexample-3.png)
+![operations-export-report-dr-time-range-next](./images/operations-export-report-dr-time-range-next.png)
 
-### **Download Report**
+#### **Download Report**
 
 Select the report row you want to download and click [Download] to get the report.
 
-![](./images/reports-reportexportexample-4.png)
+![operations-export-report-dr](./images/operations-export-report-dr.png)
+
+## Scheduled Report 
+
+The Scheduled Report Module supports configuring periodic automatic report tasks. The system will automatically collect business data within the specified scope according to the preset cycle, generate reports, and support local download or email push, enabling regular archiving and automatic auditing of operation and maintenance data without the need for manual repeated collection of reports. Data of different tenants is isolated from each other, and only the currently logged-in tenant account can configure and view the scheduled report tasks of the current tenant. 
+
+### Example of Scheduled Report
+
+Note: If you need to download the host information report for different tenants, users belonging to different tenants must log in to the Console to perform the operation.
+
+Create Scheduled Report
+
+- Click 【Operation and Maintenance Management】 > 【Scheduled Report】 to enter the Scheduled Report Management page.
+
+![operations-scheduled-reports-dr](./images/operations-scheduled-reports-dr.png)
+
+- Click the "+ Create" button, select the report type, statistical scope, time zone, and data time range as needed in the creation pop-up window, configure parameters such as report delivery channels and email recipients, and click Next to proceed to the next step after completing the filling.
+
+![operations-scheduled-reports-dr-create-step1](./images/operations-scheduled-reports-dr-create-step1.png)
+
+- On the host selection interface, check the target hosts to be included in the report statistics, confirm that all parameters are correct, and then click Submit to complete the creation of the scheduled report task. 
+
+![](./images/operations-scheduled-reports-dr-create-step2.png)
+
+After the scheduled task is created, it will automatically take effect. The system will regularly collect the business data of the corresponding host according to the preset cycle and generate reports. After the report generation is completed, it will be automatically pushed to the designated recipients through the configured sending channels. Meanwhile, you can return to the scheduled report list page to view and download the historically generated report files. 
+
+#### Action 
+
+After selecting a target scheduled reporting task from the list, click the drop-down button of [Action] to perform the following management operations: 
+
+##### Modify
+
+Select the target scheduled report task, click [Modify], and the system will pop up an edit window, where you can readjust all configuration parameters such as report type, statistical scope, time zone, push channel, recipient email, statistical host, execution cycle, etc. After the modification is completed and submitted, the new configuration will take effect in the next scheduled cycle.
+
+![operations-scheduled-reports-dr-action-hover-modify](./images/operations-scheduled-reports-dr-action-hover-modify.png)
+![operations-scheduled-reports-dr-action-click-modify](./images/operations-scheduled-reports-dr-action-click-modify.png)
+
+##### Enable
+
+Visible only for disabled scheduled tasks, click [Enable] to restore the automatic execution capability of the scheduled report task, and the system will normally collect and push reports according to the preset cycle.
+
+![operations-scheduled-reports-dr-action-hover-enable](./images/operations-scheduled-reports-dr-action-hover-enable.png)
+![operations-scheduled-reports-dr-action-click-enable](./images/operations-scheduled-reports-dr-action-click-enable.png)
+
+##### Disable
+
+Select a running scheduled report task, click [Disable] to pause the periodic execution of the task; the task configuration information will be fully retained without deletion, and can resume running after subsequent activation.
+
+![operations-scheduled-reports-dr-action-hover-disable](./images/operations-scheduled-reports-dr-action-hover-disable.png)
+![operations-scheduled-reports-dr-action-click-disable](./images/operations-scheduled-reports-dr-action-click-disable.png)
+
+##### Delete
+
+Select the scheduled report task that is no longer needed, click [Delete], and after confirmation, the scheduled task will be permanently removed, and the system will no longer generate the corresponding report periodically; the deletion operation is irreversible, so please confirm that there are no report archiving requirements before proceeding. 
+
+![operations-scheduled-reports-dr-action-hover-delete](./images/operations-scheduled-reports-dr-action-hover-delete.png)
+![operations-scheduled-reports-dr-action-click-delete](./images/operations-scheduled-reports-dr-action-click-delete.png)

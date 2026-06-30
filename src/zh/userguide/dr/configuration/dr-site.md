@@ -6,7 +6,7 @@
 
 请按照引导进行输入认证信息进行容灾目标平台的设定。
 
-![](./images/drsite-2.png)
+![config-drsite](./images/config-drsite.png)
 
 容灾目标配置云提供商参考：
 

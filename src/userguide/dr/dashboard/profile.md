@@ -6,7 +6,7 @@ Our system provides comprehensive account management features, allowing you to e
 
 After logging in, click your username at the top right corner and select "Account" from the dropdown menu to view your account details.
 
-![](./images/profile-1.png)
+![dashboard-profile-account-hover](./images/dashboard-profile-account-hover.png)
 
 The basic information page displays the following account details:
 
@@ -21,7 +21,7 @@ The basic information page displays the following account details:
 
 > Tip: Using a strong password significantly improves your account security. We recommend updating your password regularly.
 
-![](./images/profile-2.png)
+![dashboard-profile-account-page](./images/dashboard-profile-account-page.png)
 
 ### **Change Account Information**
 
@@ -29,9 +29,9 @@ Your account information includes basic details such as username and registratio
 
 On the "Account" page, click the "Edit" button to modify your username and nickname.
 
-![](./images/profile-3.png)
+![dashboard-profile-change-highlight](./images/dashboard-profile-change-highlight.png)
 
-![](./images/profile-4.png)
+![dashboard-profile-change-modal](./images/dashboard-profile-change-modal.png)
 
 - **Nickname:** Used for display purposes only and does not affect login.
 - **Username:** The unique identifier for logging into the system. After changing it, please use the new username for future logins.
@@ -44,9 +44,9 @@ To keep your account secure, we recommend changing your password regularly, espe
 
 On the "Account" page, click the "Change Password" button to start the password update process.
 
-![](./images/profile-5.png)
+![dashboard-profile-change-password-highlight](./images/dashboard-profile-change-password-highlight.png)
 
-![](./images/profile-6.png)
+![dashboard-profile-change-password-modal](./images/dashboard-profile-change-password-modal.png)
 
 > Note: Your new password must be 8-20 characters long, contain both uppercase and lowercase letters and numbers, and may include special characters (except spaces). After changing your password, please remember it to avoid login issues. The password for the Operations Management Platform will also be updated.
 
@@ -55,3 +55,12 @@ On the "Account" page, click the "Change Password" button to start the password 
 - Change your password regularly, especially if you suspect your account security may be compromised.
 - Avoid using the same password across multiple platforms. Use complex and unique passwords to enhance your account security.
 
+### **Change Email**
+
+The email address demouser@oneprocloud.com is associated with your account. It will be used to receive system messages, service notifications, and for login purposes.
+
+On the "Account" page, click the "Change Email" button to start the Change Email process.
+
+![dashboard-profile-change-email-highlight](./images/dashboard-profile-change-email-highlight.png)
+
+![dashboard-profile-change-email-modal](./images/dashboard-profile-change-email-modal.png)

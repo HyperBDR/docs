@@ -4,6 +4,6 @@ Host Failback provides step-by-step guidance to restore your business to the sou
 
 Click the "Resource DR" navigation menu at the top, then click the "Host Failback" menu on the left side to perform the failback operations.
 
-![](./images/host-failback-1.png)
+![failback-select-host-main](./images/failback-select-host-main.png)
 
 When entering the failback configuration stage, the configuration process is the same as the Host DR workflow. For details on each configuration option and how to use it, refer to the configuration guide in the [**Host DR**](host-dr.md) section. After completing the required settings, you can proceed with the Failback operation.

@@ -2,17 +2,17 @@
 
 The "DR Group" feature allows unified disaster recovery configuration and scheduling at the resource group level. It is suitable for scenarios where multiple related resources (such as hosts, networks, and storage) need to be protected and recovered together.
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-0.png)
+![orchestration-dr-group-main](./images/orchestration-dr-group-main.png)
 
 ## **Create DR Group**
 
 Click "Create DR Group" to group hosts that have completed resource configuration. This makes it easier to manage and schedule disaster recovery for multiple resources at once.
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-1.png)
+![orchestration-dr-group-create](./images/orchestration-dr-group-create.png)
 
 Set the resource group name, add notes, select the corresponding host resources, and click "Finish" to create the resource group.
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-2.png)
+![orchestration-dr-group-main](./images/orchestration-dr-group-main.png)
 
 ## **Orchestration**
 

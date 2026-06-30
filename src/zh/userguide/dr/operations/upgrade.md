@@ -72,7 +72,7 @@ tar zxvf <更新包>.tar.gz -C /更新包解压后路径
 
 **运维管理 > 升级管理 > 容灾 > 源端同步代理**
 
-![](./images/startdownload-dr-1.png)
+![operations-upgrade-cloud-sync-gateway-dr-main](./images/operations-upgrade-cloud-sync-gateway-dr-main.png)
 
 ### **源端代理程序(Agent)**
 
@@ -82,7 +82,7 @@ tar zxvf <更新包>.tar.gz -C /更新包解压后路径
 
 **运维管理 > 升级管理 > 容灾 > 源端代理程序**
 
-![](./images/startdownload-dr-2.png)
+![operations-upgrade-agent-dr-main](./images/operations-upgrade-agent-dr-main.png)
 
 ### **云同步网关(Cloud Sync Gateway)**
 
@@ -92,7 +92,7 @@ tar zxvf <更新包>.tar.gz -C /更新包解压后路径
 
 **运维管理 > 升级管理 > 容灾 > 云同步网关**
 
-![](./images/startdownload-dr-3.png)
+![operations-upgrade-cloud-sync-gateway-dr-main](./images/operations-upgrade-cloud-sync-gateway-dr-main.png)
 
 
 
@@ -106,7 +106,7 @@ tar zxvf <更新包>.tar.gz -C /更新包解压后路径
 
 **运维管理 > 升级管理 > 回切 > 源端同步代理**
 
-![](./images/startdownload-failback-1.png)
+![operations-upgrade-sync-proxy-dr-main](./images/operations-upgrade-sync-proxy-dr-main.png)
 
 ### **源端代理程序(Agent)**
 
@@ -116,7 +116,7 @@ tar zxvf <更新包>.tar.gz -C /更新包解压后路径
 
 **运维管理 > 升级管理 > 回切 > 源端代理程序**
 
-![](./images/startdownload-failback-2.png)
+![operations-upgrade-agent-failback-main](./images/operations-upgrade-agent-failback-main.png)
 
 ### **云同步网关(Cloud Sync Gateway)**
 
@@ -126,5 +126,5 @@ tar zxvf <更新包>.tar.gz -C /更新包解压后路径
 
 **运维管理 > 升级管理 > 回切 > 云同步网关**
 
-![](./images/startdownload-failback-3.png)
+![operations-upgrade-cloud-sync-gateway-failback-main](./images/operations-upgrade-cloud-sync-gateway-failback-main.png)
 

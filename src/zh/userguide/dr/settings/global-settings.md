@@ -15,7 +15,7 @@
 | 数据同步速率时间间隔 | N/A                                             | 默认不可修改。                                                           |
 
 
-![](./images/globalsettings-generalsettings-1.png)
+![settings-globalsettings-generalsettings](./images/settings-globalsettings-generalsettings.png)
 
 ## **源端同步代理域名设置**
 
@@ -34,7 +34,7 @@
 
 > 注意：该项设置并非立即生效，而是会在设置后的几分钟内自动获取并应用。
 
-![](./images/globalsettings-syncproxydomainmappings-1.png)
+![settings-globalsettings-syncproxydomainmappings](./images/settings-globalsettings-syncproxydomainmappings.png)
 
 ## **控制台域名映射**
 
@@ -54,5 +54,24 @@
 
 > 注意：该项设置并非立即生效，而是会在设置后的几分钟内自动获取并应用。
 
-![](./images/globalsettings-consoledomainmappings-1.png)
+![settings-globalsettings-consoledomainmappings](./images/settings-globalsettings-consoledomainmappings.png)
 
+## **过渡主机域名映射**
+
+全局设置，点击 过渡主机域名映射，即可添加源端生产平台的域名和IP地址对应关闭，格式与Linux系统下/etc/hosts配置格式一致。
+
+* 参数配置说明
+
+控制端域名映射的主要目的是在目标平台的 API 接口中使用域名时，确保控制端能够正确地访问这些域名。例如，在 OpenStack 平台上，如果 Endpoint 使用了域名，就需要在这里配置计算、网络、存储和镜像服务的域名映射，以确保控制端能够正确访问 API 接口。
+示例配置如下：
+
+```plaintext
+192.168.1.100 compute.example.com
+192.168.1.101 network.example.com
+192.168.1.102 storage.example.com
+192.168.1.103 image.example.com
+```
+
+> 注意：该项设置并非立即生效，而是会在设置后的几分钟内自动获取并应用。
+
+![settings-globalsettings-transitionhostdomainmappings](./images/settings-globalsettings-transitionhostdomainmappings.png)

@@ -24,35 +24,35 @@
 | 日志状态 | 可下载           | 主机日志的状态（点击查看列表可查看详细信息）         |
 | 操作   | 采集            | 收集日志                           |
 
-### **收集示例：控制台**
+### **收集示例：源端同步代理**
 
-用户可&#x5728;**"日志管理>容灾> 控制台"**&#x9875;面，根据实际需求，帮助用户收集与下载所需日志文件，便于问题排查与系统监控。
+用户可&#x5728;**"日志管理>容灾> 源端同步代理"**&#x9875;面，根据实际需求，帮助用户收集与下载所需日志文件，便于问题排查与系统监控。
 
-![](./images/downloadlogs-dr-1.png)
+![operations-download-logs-dr-sync-proxy](./images/operations-download-logs-dr-sync-proxy.png)
 
 #### **日志采集**
 
 选择需要收集的目标主机，点击对应行的“**采集”**&#x64CD;作按钮
 
-![](./images/downloadlogs-dr-2.png)
+![operations-download-logs-dr-sync-proxy-collect-pointer](./images/operations-download-logs-dr-sync-proxy-collect-pointer.png)
 
 #### **选择时间段**
 
 在弹出的对话框中设定需要收集的日志时间范围，确认后系统将自动开始日志收集
 
-![](./images/downloadlogs-dr-3.png)
+![operations-download-logs-dr-syncproxy-time-range](./images/operations-download-logs-dr-syncproxy-time-range.png)
 
 #### **开始采集**
 
 选择时间段确认后，系统将自动开始日志收集，日志状态转换为采集中
 
-![](./images/downloadlogs-dr-4.png)
+![operations-download-logs-dr-sync-proxy](./images/operations-download-logs-dr-sync-proxy.png)
 
 #### **日志下载**
 
 日志采集完成后，状态更新&#x4E3A;**“可下载”**，用户可点击“点击查看列表”查看日志文件，并选择下载
 
-![](./images/downloadlogs-dr-5.png)
+![operations-download-logs-dr-syncproxy-click-for-list](./images/operations-download-logs-dr-syncproxy-click-for-list.png)
 
 ## **回切**
 
@@ -75,33 +75,33 @@
 | 日志状态 | 可下载           | 主机日志的状态（点击查看列表可查看详细信息） |
 | 操作   | 采集            | 收集日志                   |
 
-### **收集示例：回切源端同步代理**
+### **收集示例：云同步网关**
 
-用户可&#x5728;**"日志管理>回切> 回切源端同步代理"**&#x9875;面，根据实际需求，帮助用户收集与下载所需日志文件，便于问题排查与系统监控。
+用户可&#x5728;**"日志管理>回切> 云同步网关"**&#x9875;面，根据实际需求，帮助用户收集与下载所需日志文件，便于问题排查与系统监控。
 
-![](./images/downloadlogs-failback-1.png)
+![operations-downloadlogs-failback-csg](./images/operations-downloadlogs-failback-csg.png)
 
 #### **日志采集**
 
 选择需要收集的目标主机，点击对应行的“**采集”**&#x64CD;作按钮
 
-![](./images/downloadlogs-failback-2.png)
+![operations-downloadlogs-failback-csg-collect-pointer](./images/operations-downloadlogs-failback-csg-collect-pointer.png)
 
 #### **选择时间段**
 
 在弹出的对话框中设定需要收集的日志时间范围，确认后系统将自动开始日志收集
 
-![](./images/downloadlogs-failback-3.png)
+![operations-downloadlogs-failback-csg-time-range](./images/operations-downloadlogs-failback-csg-time-range.png)
 
 #### **开始采集**
 
 选择时间段确认后，系统将自动开始日志收集，日志状态转换为采集中
 
-![](./images/downloadlogs-failback-4.png)
+![operations-downloadlogs-failback-csg](./images/operations-downloadlogs-failback-csg.png)
 
 #### **日志下载**
 
 日志采集完成后，状态更新&#x4E3A;**“可下载”**，用户可点击“点击查看列表”查看日志文件，并选择下载
 
-![](./images/downloadlogs-failback-5.png)
+![operations-downloadlogs-failback-csg-click-for-list](./images/operations-downloadlogs-failback-csg-click-for-list.png)
 
