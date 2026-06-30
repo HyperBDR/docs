@@ -162,7 +162,7 @@ export const enNavbar = navbar([
   {
     text: "AI Support",
     icon: "robot",
-    link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+    link: "https://sourcelens.oneprocloud.com/lens/assistants/AI_HyperBDR/chat",
   },
   {
     text: "Get Support",
