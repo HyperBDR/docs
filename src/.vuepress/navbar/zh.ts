@@ -162,7 +162,7 @@ export const zhNavbar = navbar([
   {
     text: "AI支持",
     icon: "robot",
-    link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+    link: "https://sourcelens.oneprocloud.com/lens/assistants/AI_HyperBDR/chat",
   },
   {
     text: "获取支持",

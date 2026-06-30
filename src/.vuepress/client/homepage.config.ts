@@ -276,7 +276,7 @@ export const homepageSections: HomepageSection[] = [
       {
         title: "AI Support",
         desc: "AI Support from OneProCloud.",
-        link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+        link: "https://sourcelens.oneprocloud.com/lens/assistants/AI_HyperBDR/chat",
         icon: "fa-solid fa-robot"
       },
       {
@@ -309,7 +309,7 @@ export const coreActions: CoreAction[] = [
   {
     title: "AI Support",
     desc: "AI Support from OneProCloud.",
-    link: "https://ai.oneprocloud.com/chat/qWGp3yX8ain2550b",
+    link: "https://sourcelens.oneprocloud.com/lens/assistants/AI_HyperBDR/chat",
     icon: "fa-solid fa-robot"
   }
 ]

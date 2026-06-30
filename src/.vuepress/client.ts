@@ -35,7 +35,7 @@ export default defineClientConfig({
       // 样式
       const style = document.createElement('style')
       style.textContent = `
-        #dify-chatbot-bubble-button { background-color: #1C64F2 !important; }
+        #dify-chatbot-bubble-button { display: none !important; }
         #dify-chatbot-bubble-window { width: 35rem !important; height: 80rem !important; position: fixed !important; }
         .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; height: 0 !important; }
         .goog-te-banner-frame { display: none !important; height: 0 !important; }
