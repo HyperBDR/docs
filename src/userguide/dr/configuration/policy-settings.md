@@ -8,7 +8,7 @@ Go to [Configuration] > [Policy Settings]. Users can configure policies for diff
 
 Click [Create Policy] to add a new policy label and fill in the required configuration as needed. The system supports multiple policy types at the same time, so you can flexibly manage Sync, Speed Limit, and Retention policies for comprehensive DR and failback control.
 
-![](./images/policysettings-createapolicy-1.png)
+![config-policy-settings-dr-create-policy](./images/config-policy-settings-dr-create-policy.png)
 
 After entering the policy name, setting the snapshot retention count, and selecting the policy status, you can configure the following details.
 
@@ -121,25 +121,25 @@ Select a policy and click [Actions] to configure or edit.
 
 Select a policy, click [Actions] > [Modify] to edit the name, snapshot count, or other settings.
 
-![](./images/policysettings-moreoperations-1.png)
+![config-policy-settings-dr-action-hover-modify](./images/config-policy-settings-dr-action-hover-modify.png)
 
 ### **Enable**
 
 Select a policy, click [Actions] > [Enable] to change its status.
 
-![](./images/policysettings-moreoperations-2.png)
+![config-policy-settings-dr-action-hover-enable](./images/config-policy-settings-dr-action-hover-enable.png)
 
 ### **Disable**
 
 Select a policy, click [Actions] > [Disable] to change its status.
 
-![](./images/policysettings-moreoperations-3.png)
+![config-policy-settings-dr-action-hover-disable](./images/config-policy-settings-dr-action-hover-disable.png)
 
 ### **Associated Host**
 
 Select a policy, click [Actions] > [Associated Host] to link hosts to this policy.
 
-![](./images/policysettings-moreoperations-4.png)
+![config-policy-settings-dr-action-hover-associated-host](./images/config-policy-settings-dr-action-hover-associated-host.png)
 
 ### **Delete**
 
@@ -147,7 +147,7 @@ Select a policy, click [Actions] > [Delete] to remove it.
 
 > Note: Before deleting, make sure the policy is not linked to any hosts. If it is, unbind the hosts first.
 
-![](./images/policysettings-moreoperations-5.png)
+![config-policy-settings-dr-action-hover-delete](./images/config-policy-settings-dr-action-hover-delete.png)
 
 ## **Policy Setting Details**
 
@@ -157,13 +157,13 @@ Click a policy name to view its detailed configuration.
 
 On the policy details page, you can view all configuration items, including sync, speed limit, and retention policies.
 
-![](./images/policysettings-policysettingsdetails-1.png)
+![config-policy-settings-dr-policy-detail](./images/config-policy-settings-dr-policy-detail.png)
 
 ### **Associated Host**
 
 On the associated host page, you can view all hosts linked to this policy, including host name, IP, and other details.
 
-![](./images/policysettings-policysettingsdetails-2.png)
+![config-policy-settings-dr-policy-detail-associated-host](./images/config-policy-settings-dr-policy-detail-associated-host.png)
 
 ### **Unbind Host**
 

@@ -17,7 +17,7 @@
 
 展示系统架构的三大核心组件：**生产平台 → 数据存储 → 容灾平台**
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-1.png)
+![dashboard-main](./images/dashboard-main.png)
 
 ### **区块内容说明**
 
@@ -29,7 +29,7 @@
 
 点击右下角“**详情**”按钮，可跳转至资源容灾页面，查看主机的详细信息与容灾配置状态。
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-2.png)
+![dr-select-host-main](./images/dr-select-host-main.png)
 
 #### **资源组容灾**
 
@@ -37,7 +37,7 @@
 
 &#x20;点击右下角“**详情**”按钮，可跳转至资源组容灾页面，查看各资源组的详细配置信息与容灾状态。
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-3.png)
+![orchestration-dr-group-main](./images/orchestration-dr-group-main.png)
 
 #### **容灾策略**
 
@@ -45,7 +45,7 @@
 
 点击右下角“**详情**”按钮，可跳转至“开始容灾”页面，选择目标主机并关联相应策略。
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-4.png)
+![dr-startdr-main](./images/dr-startdr-main.png)
 
 #### **同步数据**
 
@@ -53,7 +53,7 @@
 
 点击右下角“**详情**”按钮，可跳转至“开始容灾”页面，选择主机并执行立即同步操作。
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-5.png)
+![dr-startdr-main](./images/dr-startdr-main.png)
 
 #### **存储池**
 
@@ -63,13 +63,13 @@
 
 点击右下角“**详情**”按钮，可跳转至存储配置页面，执行对象存储的配置与管理操作。
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-6.png)
+![config-object-storage-dr](./images/config-object-storage-dr.png)
 
 ##### **云同步网关**
 
 点击右下角“**详情**”按钮，可进入存储配置页面，进行块存储的配置和管理操作。
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-7.png)
+![config-block-storage-dr](./images/config-block-storage-dr.png)
 
 #### **恢复/演练**
 
@@ -83,7 +83,7 @@
 
 点击右下角“**详情**”按钮，可进入开始容灾页面，对主机进行演练、接管操作。
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-8.png)
+![dr-startdr-main](./images/dr-startdr-main.png)
 
 #### **容灾平台**
 
@@ -91,7 +91,7 @@
 
 点击“详情”按钮可进入“开始容灾”界面，进行相关操作。
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-9.png)
+![dr-startdr-main](./images/dr-startdr-main.png)
 
 #### **容灾资源监测分析**
 
@@ -108,7 +108,7 @@
 
 点击右上角的“详情”按钮，可进入系统监控页面，查看更详细的信息。
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-13.png)
+![monitor-systemmonitor-dr-syncproxy](./images/monitor-systemmonitor-dr-syncproxy.png)
 
 #### **事件**
 
@@ -116,7 +116,7 @@
 
 点击右上角的“操作日志”按钮，可跳转至审计日志页面，查看详细的事件日志。
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-10.png)
+![operations-event-logs-dr](./images/operations-event-logs-dr.png)
 
 #### **告警**
 
@@ -124,7 +124,7 @@
 
 点击右上角的“详情”按钮，可跳转至报警消息页面，查看告警的详细信息。
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-11.png)
+![monitor-alerthistory-dr](./images/monitor-alerthistory-dr.png)
 
 #### **授权统计**
 
@@ -132,7 +132,7 @@
 
 点击右上角“详情”按钮，可跳转至授权管理页面，查看详细授权信息，并进行添加、导出等操作。
 
-![](./images/overviewhomepagedescription-pagestructureandfunctiondescription-12.png)
+![settings-license-dr](./images/settings-license-dr.png)
 
 #### **碳足迹**
 

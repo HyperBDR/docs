@@ -51,7 +51,7 @@
 
 通过【配置管理】>【容灾恢复平台配置】>【容灾】>【过渡主机】>【添加】，进入“过渡主机”页面后，点击右上角的【添加】 按钮，在配置窗口中，请仔细阅读注意事项，并根据页面提示准备相应的主机。
 
-![](./images/-universalmode_disasterrecovery-1.png)
+![config-generic-mode-dr-th-add](./images/config-generic-mode-dr-th-add.png)
 
 请在目标云平台资源准备完成后，点击‘下一步’以继续配置流程。系统提供两种安装方式，用户可根据页面提示选择任意一种完成配置。
 
@@ -59,7 +59,7 @@
 
 控制台可以主动访问过渡主机网络，过渡主机位于私有网络或具有公网IP，需要从控制台发起数据同步到过渡主机
 
-![](./images/-universalmode_disasterrecovery-2.png)
+![config-generic-mode-dr-th-to-transition](./images/config-generic-mode-dr-th-to-transition.png)
 
 在配置窗口中，选择存储方式并，填写临时过渡主机信息，如名称、IP 地址、服务端口等。
 
@@ -78,13 +78,13 @@
 
 信息填写完成后，点击“确定”，系统将开始创建过渡主机。待状态显示为“可使用”时，表示添加完成，可进行后续操作。
 
-![](./images/-universalmode_disasterrecovery-3.png)
+![config-generic-mode-dr-th-main](./images/config-generic-mode-dr-th-main.png)
 
 ##### **安装方式二：从过渡主机访问控制台**
 
 过渡主机可以主动访问控制台网络，控制台位于私有网络或具有公网IP，需要从过渡主机发起数据同步到控制台。
 
-![](./images/-universalmode_disasterrecovery-4.png)
+![config-generic-mode-dr-th-to-console](./images/config-generic-mode-dr-th-to-console.png)
 
 请在您已创建并准备好的过渡主机（例如：您在“添加过渡主机”步骤中创建的VMware虚拟机或云平台主机）的命令行界面复制并执行此命令。确保过渡主机可以访问控制台的网络地址。
 
@@ -92,7 +92,7 @@
 
 对比上图结果执行成功后，过渡主机将出现在过渡主机列表中。
 
-![](./images/-universalmode_disasterrecovery-6.png)
+![config-generic-mode-dr-th-main](./images/config-generic-mode-dr-th-main.png)
 
 #### **更多操作**
 
@@ -104,7 +104,9 @@
 
 > 注：该功能主要用于在存在内外网络隔离或 NAT 转换的网络环境中，引导数据流使用正确的出口地址，从而保证源端与目标端之间的数据传输链路连通。
 
-![](./images/-universalmode_disasterrecovery-7.png)
+![config-generic-mode-dr-th-action-hover-data-transmission-nat](./images/config-generic-mode-dr-th-action-hover-data-transmission-nat.png)
+
+![config-generic-mode-dr-th-action-click-data-transmission-nat](./images/config-generic-mode-dr-th-action-click-data-transmission-nat.png)
 
 根据网络结构配置主机 NAT 映射地址，完成添加，确保数据流量可正常传输。
 
@@ -112,13 +114,17 @@
 
 选中目标主机后，点击【更多操作】 > 【删除】可移除该过渡主机。
 
+![config-generic-mode-dr-th-action-hover-delete](./images/config-generic-mode-dr-th-action-hover-delete.png)
+
+![config-generic-mode-dr-th-action-click-delete](./images/config-generic-mode-dr-th-action-click-delete.png)
+
 ### **待验证主机**
 
 > 仅完成“资源容灾 > 数据同步 > 容灾演练”流程后的主机，才会显示在“待验证主机”列表中。未完成数据同步的主机将不会出现在此位置。
 
 启动容灾演练后，相关主机会显示在此列表中。请等待验证流程完成，方可继续后续操作。
 
-![](./images/-universalmode_disasterrecovery-8.png)
+![config-generic-mode-dr-hv-main](./images/config-generic-mode-dr-hv-main.png)
 
 #### **更多操作**
 
@@ -144,7 +150,7 @@
 
 通过【配置管理】>【容灾恢复平台配置】>【回切】>【过渡主机】>【添加】，进入“过渡主机”页面后，点击右上角的【添加】 按钮，在配置窗口中，请仔细阅读注意事项，并根据页面提示准备相应的主机。
 
-![](./images/-universalmode_switchback-1.png)
+![config-generic-mode-failback-th-add](./images/config-generic-mode-failback-th-add.png)
 
 请在目标云平台资源准备完成后，点击‘下一步’以继续配置流程。系统提供两种安装方式，用户可根据页面提示选择任意一种完成配置。
 
@@ -152,7 +158,7 @@
 
 控制台可以主动访问过渡主机网络，过渡主机位于私有网络或具有公网IP，需要从控制台发起数据同步到过渡主机
 
-![](./images/-universalmode_switchback-2.png)
+![config-generic-mode-failback-th-to-transition](./images/config-generic-mode-failback-th-to-transition.png)
 
 在配置窗口中，选择存储方式并填写临时过渡主机信息，如名称、IP 地址、服务端口等。
 
@@ -171,13 +177,13 @@
 
 信息填写完成后，点击“确定”，系统将开始创建过渡主机。待状态显示为“可使用”时，表示添加完成，可进行后续操作。
 
-![](./images/-universalmode_switchback-3.png)
+![config-generic-mode-failback-th-main](./images/config-generic-mode-failback-th-main.png)
 
 ##### **安装方式二：从过渡主机访问控制台**
 
 过渡主机可以主动访问控制台网络，控制台位于私有网络或具有公网IP，需要从过渡主机发起数据同步到控制台。
 
-![](./images/-universalmode_switchback-4.png)
+![config-generic-mode-failback-th-to-console](./images/config-generic-mode-failback-th-to-console.png)
 
 请在您已创建并准备好的过渡主机（例如：您在“添加过渡主机”步骤中创建的VMware虚拟机或云平台主机）的命令行界面复制并执行此命令。确保过渡主机可以访问控制台的网络地址。
 
@@ -185,7 +191,7 @@
 
 对比上图结果执行成功后，过渡主机将出现在过渡主机列表中。
 
-![](./images/-universalmode_switchback-6.png)
+![config-generic-mode-failback-th-main](./images/config-generic-mode-failback-th-main.png)
 
 #### **更多操作**
 
@@ -197,7 +203,9 @@
 
 > 注：该功能主要用于在存在内外网络隔离或 NAT 转换的网络环境中，引导数据流使用正确的出口地址，从而保证源端与目标端之间的数据传输链路连通。
 
-![](./images/-universalmode_switchback-7.png)
+[config-generic-mode-failback-th-action-hover-data-transmission-nat](./images/config-generic-mode-failback-th-action-hover-data-transmission-nat.png)
+
+![config-generic-mode-failback-th-action-click-data-transmission-nat](./images/config-generic-mode-failback-th-action-click-data-transmission-nat.png)
 
 根据网络结构配置主机 NAT 映射地址，完成添加，确保数据流量可正常传输。
 
@@ -205,13 +213,17 @@
 
 选中目标主机后，点击【更多操作】 > 【删除】可移除该过渡主机。
 
+![config-generic-mode-failback-th-action-hover-delete](./images/config-generic-mode-failback-th-action-hover-delete.png)
+
+![config-generic-mode-failback-th-action-click-delete](./images/config-generic-mode-failback-th-action-click-delete.png)
+
 ### **待验证主机**
 
 > 仅完成“资源容灾 > 数据同步 > 容灾演练”流程后的主机，才会显示在“待验证主机”列表中。未完成数据同步的主机将不会出现在此位置。
 
 启动容灾演练后，相关主机会显示在此列表中。请等待验证流程完成，方可继续后续操作。
 
-![](./images/-universalmode_switchback-8.png)
+![config-generic-mode-failback-hv-main](./images/config-generic-mode-failback-hv-main.png)
 
 #### **更多操作**
 
