@@ -6,7 +6,7 @@ Provides a visual overview of the operating status of core platform resources, s
 
 The system monitoring module offers real-time visualization and performance analysis of key resources on the platform. For example, with "Sync Proxy", users can select a specific host to view detailed metrics for that node, helping to quickly identify resource bottlenecks or potential risks.
 
-![](./images/systemmonitor-systemmonitoringfeatures-1.png)
+![monitor-systemmonitor-dr-syncproxy](./images/monitor-systemmonitor-dr-syncproxy.png)
 
 #### **Basic Information**
 
@@ -37,25 +37,25 @@ The system uses charts to dynamically display the status of various resources, h
 
 Users can go to the "Monitoring & Management" module from the top navigation bar and switch to the **DR** "Sync Proxy" page to view system resource usage for the selected proxy. This view displays the following key monitoring information:
 
-![](./images/systemmonitor-dr-1.png)
+![monitor-systemmonitor-dr-syncproxy](./images/monitor-systemmonitor-dr-syncproxy.png)
 
 ### **Cloud Sync Gateway**
 
 Users can go to the "Monitoring & Management" module from the top navigation bar and switch to the **DR** "Cloud Sync Gateway" page to view system resource usage for the selected proxy. This view displays the following key monitoring information:
 
-![](./images/systemmonitor-dr-2.png)
+![monitor-systemmonitor-dr-cloudsyncgateway](./images/monitor-systemmonitor-dr-cloudsyncgateway.png)
 
 ### **Linux Agent**
 
 Users can go to the "Monitoring & Management" module from the top navigation bar and switch to the **DR** "Linux Agent" page to view system resource usage for the selected proxy. This view displays the following key monitoring information:
 
-![](./images/systemmonitor-dr-3.png)
+![monitor-systemmonitor-dr-linuxagent](./images/monitor-systemmonitor-dr-linuxagent.png)
 
 ### **Windows Agent**
 
 Users can go to the "Monitoring & Management" module from the top navigation bar and switch to the **DR** "Windows Agent" page to view system resource usage for the selected proxy. This view displays the following key monitoring information:
 
-![](./images/systemmonitor-dr-4.png)
+![monitor-systemmonitor-dr-windowsagent](./images/monitor-systemmonitor-dr-windowsagent.png)
 
 ## **Failback**
 
@@ -63,23 +63,23 @@ Users can go to the "Monitoring & Management" module from the top navigation bar
 
 Users can go to the "Monitoring & Management" module from the top navigation bar and switch to the **Failback** "Failback Sync Proxy" page to view system resource usage for the selected proxy. This view displays the following key monitoring information:
 
-![](./images/systemmonitor-failback-1.png)
+![monitor-systemmonitor-failback-syncproxy](./images/monitor-systemmonitor-failback-syncproxy.png)
 
 ### **Failback Cloud Sync Gateway**
 
 Users can go to the "Monitoring & Management" module from the top navigation bar and switch to the **Failback** "Failback Cloud Sync Gateway" page to view system resource usage for the selected proxy. This view displays the following key monitoring information:
 
-![](./images/systemmonitor-failback-2.png)
+![monitor-systemmonitor-failback-cloudsyncgateway](./images/monitor-systemmonitor-failback-cloudsyncgateway.png)
 
 ### **Failback Linux Agent**
 
 Users can go to the "Monitoring & Management" module from the top navigation bar and switch to the **Failback** "Failback Linux Agent" page to view system resource usage for the selected proxy. This view displays the following key monitoring information:
 
-![](./images/systemmonitor-failback-3.png)
+![monitor-systemmonitor-failback-linuxagent](./images/monitor-systemmonitor-failback-linuxagent.png)
 
 ### **Failback Windows Agent**
 
 Users can go to the "Monitoring & Management" module from the top navigation bar and switch to the **Failback** "Failback Windows Agent" page to view system resource usage for the selected proxy. This view displays the following key monitoring information:
 
-![](./images/systemmonitor-failback-4.png)
+![monitor-systemmonitor-failback-windowsagent](./images/monitor-systemmonitor-failback-windowsagent.png)
 

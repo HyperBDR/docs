@@ -77,7 +77,7 @@
 
 登录控制台，点击顶部 **"资源容灾"** 导航栏，点击左侧 **"主机容灾"**，点击 **"选择主机"** 菜单， 点击 **"添加主机"** 按钮来添加待容灾生产主机。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-1.png)
+![dr-select-host-main](./images/dr-select-host-main.png)
 
 在添加主机页面，你可以选择生产平台类型，源端无代理模式和源端代理程序。
 
@@ -123,7 +123,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的VMware生产平台，参考步骤：[添加VMware平台](../configuration/production-site.md#添加vmware平台)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-2.png)
+![dr-vmware-step1-account](./images/dr-vmware-step1-account.png)
 
 从当前VMware平台中勾选需要容灾备份的虚拟机，可以翻页进行手动进行批量勾选，也可以使用搜索功能根据名称和系统类型进行搜索需要备份的主机。
 
@@ -133,11 +133,9 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 **"重载虚拟机"** 功能，如果您在平台上新建的主机未展示在下方列表中，请点击“重载虚拟机”按钮，将其重新加载至此列表。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-3.png)
+![dr-vmware-step2-host](./images/dr-vmware-step2-host.png)
 
 选择完成虚拟机后，点&#x51FB;**"确定"**&#x6309;钮，将备份虚拟机加入到平台侧。
-
-添加完成后，可以勾选要备份的虚拟机，点&#x51FB;**"下一步"**&#x6309;钮将备份主机切换到第二步骤进行进行后续的容灾配置操作。
 
 #### **OpenStack**
 
@@ -145,7 +143,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的OpenStack生产平台，参考步骤：[添加OpenStack生产平台](../configuration/production-site.md#添加openstack平台)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-4.png)
+![dr-openstack-step1-account](./images/dr-openstack-step1-account.png)
 
 从当前OpenStack平台中勾选需要容灾备份的虚拟机，可以翻页进行手动进行批量勾选，也可以使用搜索功能根据名称和系统类型进行搜索需要备份的主机。
 
@@ -159,17 +157,13 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 选择完成虚拟机后，点&#x51FB;**"确定"**&#x6309;钮，将备份虚拟机加入到平台侧。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-6.png)
-
-添加完成后，可以勾选要备份的虚拟机，点&#x51FB;**"下一步"**&#x6309;钮将备份主机切换到第二步骤进行进行后续的容灾配置操作。
-
 #### **AWS**
 
 点击 **"选择主机"** 菜单， 点击 **"+ 添加主机"** 按钮来添加主机，选择生产平台类型，选&#x62E9;**"源端无代理模式"**，并选&#x62E9;**"AWS"**&#x5E73;台，选择生产平台中，选择已经添加完成的AWS平台链接，并点&#x51FB;**"下一步"**&#x8FDB;行选择AWS待容灾主机列表。
 
 如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加AWS生产平台](../configuration/production-site.md#添加aws平台)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-7.png)
+![dr-aws-step1-account](./images/dr-aws-step1-account.png)
 
 从当前AWS平台中勾选需要容灾备份的虚拟机，可以翻页进行手动进行批量勾选，也可以使用搜索功能根据名称和系统类型进行搜索需要备份的主机。
 
@@ -179,11 +173,9 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 **"重载虚拟机"** 功能，如果您在平台上新建的主机未展示在下方列表中，请点击“重载虚拟机”按钮，将其重新加载至此列表。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-8.png)
+![dr-aws-step2-account](./images/hostdisasterrecovery-hostdisasterrecovery-8.png)
 
 选择完成虚拟机后，点&#x51FB;**"确定"**&#x6309;钮，将备份虚拟机加入到平台侧。
-
-![](./images/hostdisasterrecovery-hostdisasterrecovery-9.png)
 
 #### **FusionCompute**
 
@@ -191,7 +183,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加FusionCompute生产平台](../configuration/production-site.md#添加fusioncompute平台)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-10.png)
+![dr-fusioncompute-step1-account](./images/dr-fusioncompute-step1-account.png)
 
 从当前FusionCompute平台中勾选需要容灾备份的虚拟机，可以翻页进行手动进行批量勾选，也可以使用搜索功能根据名称和系统类型进行搜索需要备份的主机。
 
@@ -209,9 +201,57 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加Oracle生产平台](../configuration/production-site.md#添加oracle平台)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-11.png)
+![dr-oracle-step1-account](./images/dr-oracle-step1-account.png)
+
+从当前Oracl平台中勾选需要容灾备份的虚拟机，可以翻页进行手动进行批量勾选，也可以使用搜索功能根据名称和系统类型进行搜索需要备份的主机。
+
+在选择备份主机时，可以参考选择主机磁盘数量变化及源端同步代理信息，目前源端同步代理数量、最大挂载磁盘数量、已挂载磁盘数量及剩余可挂载磁盘数量，可以根据信息来随时扩展源端同步代理的规格及数量来支持大批量的备份。
+
+可以从列表中看到所有虚拟机的清单、包含操作系统、磁盘数量、磁盘总容量、支持同步及支持增量等内容。
+
+**"重载虚拟机"** 功能，如果您在平台上新建的主机未展示在下方列表中，请点击“重载虚拟机”按钮，将其重新加载至此列表。
+
+#### **HCS 8.0.2**
+
+点击 **"选择主机"** 菜单， 点击 **"添加主机"** 按钮来添加主机，选择生产平台类型，选&#x62E9;**"源端无代理模式"**，并选&#x62E9;**"HCS 8.0.2"**&#x5E73;台，选择生产平台中，选择已经添加完成的AWS平台链接，并点&#x51FB;**"下一步"**&#x8FDB;行选择HCS 8.0.2待容灾主机列表。
+
+如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加HCS 8.0.2生产平台](../configuration/production-site.md#添加HCS 8.0.2平台)
+
+![dr-hcs-8.0.2-step1-account](./images/dr-hcs-8.0.2-step1-account.png)
 
 从当前FusionCompute平台中勾选需要容灾备份的虚拟机，可以翻页进行手动进行批量勾选，也可以使用搜索功能根据名称和系统类型进行搜索需要备份的主机。
+
+在选择备份主机时，可以参考选择主机磁盘数量变化及源端同步代理信息，目前源端同步代理数量、最大挂载磁盘数量、已挂载磁盘数量及剩余可挂载磁盘数量，可以根据信息来随时扩展源端同步代理的规格及数量来支持大批量的备份。
+
+可以从列表中看到所有虚拟机的清单、包含操作系统、磁盘数量、磁盘总容量、支持同步及支持增量等内容。
+
+**"重载虚拟机"** 功能，如果您在平台上新建的主机未展示在下方列表中，请点击“重载虚拟机”按钮，将其重新加载至此列表。
+
+#### **HCS Online**
+
+点击 **"选择主机"** 菜单， 点击 **"添加主机"** 按钮来添加主机，选择生产平台类型，选&#x62E9;**"源端无代理模式"**，并选&#x62E9;**"HCS Online"**&#x5E73;台，选择生产平台中，选择已经添加完成的AWS平台链接，并点&#x51FB;**"下一步"**&#x8FDB;行选择HCS Online待容灾主机列表。
+
+如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加HCS Online生产平台](../configuration/production-site.md#添加HCS Online平台)
+
+![dr-hcs-online-step1-account](./images/dr-hcs-online-step1-account.png)
+
+从当前HCS Online平台中勾选需要容灾备份的虚拟机，可以翻页进行手动进行批量勾选，也可以使用搜索功能根据名称和系统类型进行搜索需要备份的主机。
+
+在选择备份主机时，可以参考选择主机磁盘数量变化及源端同步代理信息，目前源端同步代理数量、最大挂载磁盘数量、已挂载磁盘数量及剩余可挂载磁盘数量，可以根据信息来随时扩展源端同步代理的规格及数量来支持大批量的备份。
+
+可以从列表中看到所有虚拟机的清单、包含操作系统、磁盘数量、磁盘总容量、支持同步及支持增量等内容。
+
+**"重载虚拟机"** 功能，如果您在平台上新建的主机未展示在下方列表中，请点击“重载虚拟机”按钮，将其重新加载至此列表。
+
+#### **华为云**
+
+点击 **"选择主机"** 菜单， 点击 **"添加主机"** 按钮来添加主机，选择生产平台类型，选&#x62E9;**"源端无代理模式"**，并选&#x62E9;**"华为云"**&#x5E73;台，选择生产平台中，选择已经添加完成的AWS平台链接，并点&#x51FB;**"下一步"**&#x8FDB;行选择华为云待容灾主机列表。
+
+如果你还没有添加生产平台，可以点击 "添加生产平台" 按钮来添加一个新的AWS生产平台，参考步骤：[添加华为云生产平台](../configuration/production-site.md#添加华为云平台)
+
+![dr-huawei-cloud-step1-account](./images/dr-huawei-cloud-step1-account.png)
+
+从当前华为云平台中勾选需要容灾备份的虚拟机，可以翻页进行手动进行批量勾选，也可以使用搜索功能根据名称和系统类型进行搜索需要备份的主机。
 
 在选择备份主机时，可以参考选择主机磁盘数量变化及源端同步代理信息，目前源端同步代理数量、最大挂载磁盘数量、已挂载磁盘数量及剩余可挂载磁盘数量，可以根据信息来随时扩展源端同步代理的规格及数量来支持大批量的备份。
 
@@ -229,11 +269,11 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 详细安装步骤操作参考：[点击查看](../configuration/production-site.md#linux-agent)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-12.png)
+![dr-add-host-agent](./images/dr-add-host-agent.png)
 
 等待安装完成后，源端主机自动注册到平台，可以查看注册主机的状态。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-13.png)
+![dr-select-host-main](./images/dr-select-host-main.png)
 
 添加完成后，可以勾选要备份的虚拟机，点&#x51FB;**"下一步"**&#x6309;钮将备份主机切换到第二步骤进行进行后续的容灾配置操作。
 
@@ -245,11 +285,13 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 详细安装步骤操作参考：[点击查看](../configuration/production-site.md#windows-agent)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-14.png)
+![dr-add-host-agent-windows](./images/dr-add-host-agent-windows.png)
+
+![dr-add-host-agent-windows-download](./images/dr-add-host-agent-windows-download.png)
 
 等待安装完成后，源端主机自动注册到平台，可以查看注册主机的状态。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-15.png)
+![dr-select-host-main](./images/dr-select-host-main.png)
 
 ### **更多操作**
 
@@ -257,9 +299,9 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 备份主机的源端参数配置设定。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-16.png)
+![dr-select-host-action-hover-source-sync-settings](./images/dr-select-host-action-hover-source-sync-settings.png)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-17.png)
+![dr-select-host-action-click-source-sync-settings](./images/dr-select-host-action-click-source-sync-settings.png)
 
 ##### **通用设置**
 
@@ -289,35 +331,35 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 #### **修改源端同步代理**
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-18.png)
+![dr-select-host-action-hover-modify-sync-proxy](./images/dr-select-host-action-hover-modify-sync-proxy.png)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-19.png)
+![dr-select-host-action-click-modify-sync-proxy](./images/dr-select-host-action-click-modify-sync-proxy.png)
 
 #### **绑定标签**
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-20.png)
+![dr-select-host-action-hover-attach-tag](./images/dr-select-host-action-hover-attach-tag.png)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-21.png)
+![dr-select-host-action-click-attach-tag](./images/dr-select-host-action-click-attach-tag.png)
 
 #### **解绑标签**
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-22.png)
+![dr-select-host-action-hover-detach-tag](./images/dr-select-host-action-hover-detach-tag.png)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-23.png)
+![dr-select-host-action-click-detach-tag](./images/dr-select-host-action-click-detach-tag.png)
 
 #### **解除注册主机**
 
 将备份主机从容灾管理平台移除注册。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-24.png)
+![dr-select-host-action-hover-deregister-host](./images/dr-select-host-action-hover-deregister-host.png)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-25.png)
+![dr-select-host-action-click-deregister-host](./images/dr-select-host-action-click-deregister-host.png)
 
 ## **容灾配置**
 
 登录控制台，点击顶部 **"资源容灾"** 导航栏，点击左侧 **"主机容灾"**，点击 **"容灾配置"** 菜单， 选择单台或多选主机，点击 **"容灾配置"** 按钮来进行容灾配置。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-26.png)
+![dr-setupdr-main](./images/dr-setupdr-main.png)
 
 ### **块存储**
 
@@ -327,13 +369,13 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 不同云平台在容灾配置流程中的步骤顺序可能存在细微差异，例如某些平台在配置计算资源之前设置卷类型，而有些平台则相反。建议在实际配置过程中，根据所使用的云平台对照界面指引，灵活调整操作顺序，确保配置顺利完成。
    :::
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-27.png)
+![dr-setupdr-block-platform](./images/dr-setupdr-block-platform.png)
 
 #### **指定容灾平台**
 
 将备份主机指定使用"块存储"类型进行备份，并选择配置参数信息。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-28.png)
+![dr-setupdr-block-platform](./images/dr-setupdr-block-platform.png)
 
 ##### **存储配置**
 
@@ -356,33 +398,13 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 > 注意：该云同步网关将在添加容灾恢复平台配置时自动创建，无需手动配置，详细可参考：存储配置--块存储配置--查找自身对应云厂商配置方式[👉点击查看](../configuration/dr-site-configuration.md#块存储模式)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-29.png)
+![dr-setupdr-block-gateway](./images/dr-setupdr-block-gateway.png)
 
 点击对应容灾主机后&#x7684;**“+”**&#x5373;可完成指定容灾主机
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-30.png)
+![dr-setupdr-block-gateway-plus](./images/dr-setupdr-block-gateway-plus.png)
 
-云同步网关指定完成后点&#x51FB;**“下一步”**，开始**指定卷类型。**
-
-#### **指定卷类型**
-
-用户需为所选虚拟机的各个磁盘指定恢复目标云平台上的磁盘类型（卷类型），确保容灾恢复过程中目标端资源的正确映射。
-
-![](./images/hostdisasterrecovery-hostdisasterrecovery-91.png)
-
-![](./images/hostdisasterrecovery-hostdisasterrecovery-92.png)
-
-设置选择需要容灾备份的虚拟机磁盘类型。
-
-| **配置项**   | **示例值**                 | **说明**                                  |
-| --------- | ----------------------- | --------------------------------------- |
-| 系统卷类型     | 高效云盘（cloud\_efficiency） | 可通过上方列表批量设置当前主机系统盘的目标卷类型，亦可在主机列表中逐台独立设置 |
-| 数据卷类型     | 高效云盘（cloud\_efficiency） | 可通过上方列表批量设置当前主机数据盘的目标卷类型，亦可在主机列表中逐台独立设置 |
-| 新增磁盘目标卷类型 | 高效云盘（cloud\_efficiency） | 可通过上方列表批量设置当前主机新增磁盘的目标卷类型，亦支持在主机列表中逐台设置 |
-
-多磁盘情况下，务必在**设置启动盘**列**手动为每台主机单独选择设置启动盘**，以确保系统能够正确引导启动。
-
-**卷类型**指定完成后点&#x51FB;**“下一步”**，开始**计算资源配置.**
+云同步网关指定完成后点&#x51FB;**“下一步”**，开始**计算资源配置。**
 
 #### **计算资源配置**
 
@@ -392,9 +414,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 > 注意：源端主机采用UEFI启动方式时，可以选择BIOS或UEFI方式启动系统盘容量大于2T无法使用BIOS方式启动。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-93.png)
-
-![](./images/hostdisasterrecovery-hostdisasterrecovery-94.png)
+![dr-setupdr-block-computing](./images/dr-setupdr-block-computing.png)
 
 当预设模板中存在与资源类型一致的配置时，系统将自动匹配，否则需用户手动选择相应配置。
 
@@ -406,7 +426,15 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 在弹出的对话框中，根据预设的配置信息进行选择和确认。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-33.png)
+![dr-setupdr-block-computing-bulk-set-flavor](./images/dr-setupdr-block-computing-bulk-set-flavor.png)
+
+##### **批量自动匹配规格**
+
+通过勾选所需主机，点击页面上&#x7684;**“批量自动匹配规格”**&#x6309;钮，即可开始批量自动匹配规格。
+
+> 注意：您当前选择的主机将进行统一设置，如有疑异请重新选择。
+
+![dr-setupdr-block-computing-bulk-auto-match-flavor](./images/dr-setupdr-block-computing-bulk-auto-match-flavor.png)
 
 ##### **批量设置系统类型**
 
@@ -416,9 +444,27 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 在弹出的对话框中，选择您的主机操作系统类型。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-34.png)
+![dr-setupdr-block-computing-bulk-set-os-type](./images/dr-setupdr-block-computing-bulk-set-os-type.png)
 
-**计算资源配置**完成后点&#x51FB;**“下一步”**，开始**网络配置.**
+**计算资源配置**完成后点&#x51FB;**“下一步”**，开始**指定卷类型.**
+
+#### **指定卷类型**
+
+用户需为所选虚拟机的各个磁盘指定恢复目标云平台上的磁盘类型（卷类型），确保容灾恢复过程中目标端资源的正确映射。
+
+![dr-setupdr-block-volume](./images/dr-setupdr-block-volume.png)
+
+设置选择需要容灾备份的虚拟机磁盘类型。
+
+| **配置项**   | **示例值**                 | **说明**                                  |
+| --------- | ----------------------- | --------------------------------------- |
+| 系统卷类型     | 高效云盘（cloud\_efficiency） | 可通过上方列表批量设置当前主机系统盘的目标卷类型，亦可在主机列表中逐台独立设置 |
+| 数据卷类型     | 高效云盘（cloud\_efficiency） | 可通过上方列表批量设置当前主机数据盘的目标卷类型，亦可在主机列表中逐台独立设置 |
+| 新增磁盘目标卷类型 | 高效云盘（cloud\_efficiency） | 可通过上方列表批量设置当前主机新增磁盘的目标卷类型，亦支持在主机列表中逐台设置 |
+
+多磁盘情况下，务必在**设置启动盘**列**手动为每台主机单独选择设置启动盘**，以确保系统能够正确引导启动。
+
+**卷类型**指定完成后点&#x51FB;**“下一步”**，开始**网络配置.**
 
 #### **网络配置**
 
@@ -428,7 +474,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 选择完毕后，可根据实际情况需求，配置内网 IP、公网 IP、安全组、MAC 地址等相关参数
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-35.png)
+![dr-setupdr-block-network](./images/dr-setupdr-block-network.png)
 
 ##### **IP设置规则**
 
@@ -452,7 +498,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 在弹出的对话框中，选择您的内网IP分配类型
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-36.png)
+![dr-setupdr-block-network-bulk-set-private-ip](./images/dr-setupdr-block-network-bulk-set-private-ip.png)
 
 **批量设置公网IP**
 
@@ -460,7 +506,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 在弹出的对话框中，选择您的公网IP分配类型
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-37.png)
+![dr-setupdr-block-network-bulk-set-public-ip](./images/dr-setupdr-block-network-bulk-set-public-ip.png)
 
 **批量设置指定MAC**
 
@@ -476,7 +522,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 在弹出的对话框中，选择您的安全组
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-39.png)
+![dr-setupdr-block-network-bulk-set-security-group](./images/dr-setupdr-block-network-bulk-set-security-group.png)
 
 ##### **多网卡**
 
@@ -488,22 +534,26 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 选择主机后依次点击页面“添加网卡”按钮，使其新增网卡与源网卡保持对应
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-88.png)
+![dr-setupdr-block-network-multiple-nics](./images/dr-setupdr-block-network-multiple-nics.png)
 
 **修改**
 
 选择对应网卡后，可根据实际情况针对单个网卡，分别设置网络，子网，内网IP，公网IP，指定MAC地址，安全组等相关内容
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-89.png)
+![dr-setupdr-block-network-multiple-nics-modify](./images/dr-setupdr-block-network-multiple-nics-modify.png)
 
 
 **网络配置**完成后点&#x51FB;**“下一步”**，开始**高级配置。**
 
 #### **高级配置**
 
+![dr-setupdr-block-advanced](./images/dr-setupdr-block-advanced.png)
+
+点击列表内右侧“配置”即可开始高级配置。
+
 支持用户自定义脚本执行和驱动器适配设置，满足复杂环境下的个性化需求和硬件兼容性调优（脚本部分可留空）。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-40.png)
+![dr-setupdr-block-advanced-configuration](./images/dr-setupdr-block-advanced-configuration.png)
 
 ##### **自定义前后脚本**
 
@@ -594,13 +644,13 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 存储类型选择"对象存储"，并按照所选信息进行块存储步骤配置，完成容灾配置操作。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-43.png)
+![dr-setupdr-object-platform](./images/dr-setupdr-object-platform.png)
 
 #### **指定容灾平台**
 
 将备份主机指定使用"对象存储"类型进行备份，并选择配置参数信息。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-44.png)
+![dr-setupdr-object-platform](./images/dr-setupdr-object-platform.png)
 
 ##### **存储配置**
 
@@ -641,7 +691,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 选择需要容灾备份的虚拟机，可以翻页进行手动进行批量勾选，配置CPU、操作系统类型等信息，也可通过页面按钮进行批量设置，选择合适的目标启动方式后，完成配置。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-45.png)
+![dr-setupdr-object-computing](./images/dr-setupdr-object-computing.png)
 
 当预设模板中存在与资源类型一致的配置时，系统将自动匹配，否则需用户手动选择相应配置。
 
@@ -653,7 +703,15 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 在弹出的对话框中，根据预设的配置信息进行选择和确认。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-46.png)
+![dr-setupdr-object-computing-bulk-set-flavor](./images/dr-setupdr-object-computing-bulk-set-flavor.png)
+
+##### **批量自动匹配规格**
+
+通过勾选所需主机，点击页面上&#x7684;**“批量自动匹配规格”**&#x6309;钮，即可开始批量自动匹配规格。
+
+> 注意：您当前选择的主机将进行统一设置，如有疑异请重新选择。
+
+![dr-setupdr-object-computing-bulk-auto-match-flavor](./images/dr-setupdr-object-computing-bulk-auto-match-flavor.png)
 
 ##### **批量设置系统类型**
 
@@ -663,7 +721,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 在弹出的对话框中，选择您的主机操作系统类型。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-47.png)
+![dr-setupdr-object-computing-bulk-set-os-type](./images/dr-setupdr-object-computing-bulk-set-os-type.png)
 
 **计算资源配置**完成后点&#x51FB;**“下一步”**，开始**指定卷类型。**
 
@@ -673,7 +731,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 设置选择需要容灾备份的虚拟机磁盘类型。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-48.png)
+![dr-setupdr-object-volume](./images/dr-setupdr-object-volume.png)
 
 您可以通过下拉列表选择系统卷类型，具体选项请以实际云厂商支持为准。以下为示例配置，供参考：
 
@@ -695,7 +753,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 选择完毕后，可根据实际情况需求，配置内网 IP、公网 IP、安全组、MAC 地址等相关参数
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-49.png)
+![dr-setupdr-object-network](./images/dr-setupdr-object-network.png)
 
 * 配置说明
 
@@ -718,7 +776,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 在弹出的对话框中，选择您的内网IP分配类型
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-50.png)
+![dr-setupdr-object-network-bulk-set-private-ip](./images/dr-setupdr-object-network-bulk-set-private-ip.png)
 
 **批量设置公网IP**
 
@@ -726,7 +784,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 在弹出的对话框中，选择您的公网IP分配类型
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-51.png)
+![dr-setupdr-object-network-bulk-set-public-ip](./images/dr-setupdr-object-network-bulk-set-public-ip.png)
 
 **批量设置安全组**
 
@@ -734,15 +792,19 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 在弹出的对话框中，选择您的安全组
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-52.png)
+![dr-setupdr-object-network-bulk-set-security-group](./images/dr-setupdr-object-network-bulk-set-security-group.png)
 
 **网络配置**完成后点&#x51FB;**“下一步”**，开始**高级配置。**
 
 #### **高级配置**
 
+![dr-setupdr-object-advanced](./images/dr-setupdr-object-advanced.png)
+
+点击列表内右侧“配置”即可开始高级配置。
+
 支持用户自定义脚本执行和驱动器适配设置，满足复杂环境下的个性化需求和硬件兼容性调优（脚本部分可留空）。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-53.png)
+![dr-setupdr-object-advanced-configuration](./images/dr-setupdr-object-advanced-configuration.png)
 
 ##### **自定义前后脚本**
 
@@ -804,7 +866,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 登录控制台，点击顶部 **"资源容灾"** 导航栏，点击左侧 **"主机容灾"**，点击 **"开始容灾"** 菜单， 选择单台或多选主机，点击 **"立即同步"** 按钮来进行开始容灾。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-56.png)
+![dr-startdr-main](./images/dr-startdr-main.png)
 
 > 注意：必须要先同步数据才能完成后续操作
 
@@ -812,7 +874,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 选中需要容灾的主机后，点击页&#x9762;**“立即同步”**，开始首次全量同步数据
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-57.png)
+![dr-startdr-sync](./images/dr-startdr-sync.png)
 
 点&#x51FB;**“确认”**，开始同步
 
@@ -846,13 +908,11 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 选择对应的容灾主机，点击“容灾演练”，选择恢复时间点，一键恢复容灾主机到目标环境。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-62.png)
+![dr-startdr-main](./images/dr-startdr-main.png)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-63.png)
+![dr-startdr-drill](./images/dr-startdr-drill.png)
 
 系统会根据预先配置的资源编排（计算、存储、网络等）自动化创建或启动目标端实例，等待启动完成，即可登录到目标平台进行验证配置及业务演练。
-
-![](./images/hostdisasterrecovery-hostdisasterrecovery-64.png)
 
 恢复完成后，检查应用服务、数据库、负载均衡等是否正常工作。
 
@@ -860,13 +920,11 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 选择对应业务主机&#x7684;**“容灾接管”**&#x529F;能，按照需求选择恢复快照时间点，并点击确定
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-65.png)
+![dr-startdr-main](./images/dr-startdr-main.png)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-66.png)
+![dr-startdr-takeover](./images/dr-startdr-takeover.png)
 
 系统会根据预先配置的资源编排（计算、存储、网络等）自动化创建或启动目标端实例，等待启动完成，即可登录到目标平台进行验证配置及业务接管。
-
-![](./images/hostdisasterrecovery-hostdisasterrecovery-67.png)
 
 此时主机容灾流程完成，业务启动后，检查数据库版本、应用服务配置、依赖服务（如缓存、消息队列）是否正常。
 
@@ -884,7 +942,9 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 对象存储：[点击查看](#指定容灾平台-1)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-68.png)
+![dr-startdr-action-hover-specify-dr-platform](./images/dr-startdr-action-hover-specify-dr-platform.png)
+
+![dr-startdr-action-click-specify-dr-platform](./images/dr-startdr-action-click-specify-dr-platform.png)
 
 #### **指定云同步网关**
 
@@ -894,7 +954,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 块存储：[点击查看](#指定云同步网关)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-69.png)
+![dr-startdr-action-dropdown](./images/dr-startdr-action-dropdown.png)
 
 #### **指定卷类型**
 
@@ -906,7 +966,9 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 对象存储：[点击查看](#指定卷类型-1)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-70.png)
+![dr-startdr-action-hover-specify-volume-type](./images/dr-startdr-action-hover-specify-volume-type.png)
+
+![dr-startdr-action-click-specify-volume-type](./images/dr-startdr-action-click-specify-volume-type.png)
 
 #### **计算资源配置**
 
@@ -918,7 +980,9 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 对象存储：[点击查看](#计算资源配置-1)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-71.png)
+![dr-startdr-action-hover-computing-resource-configuration](./images/dr-startdr-action-hover-computing-resource-configuration.png)
+
+![dr-startdr-action-click-computing-resource-configuration](./images/dr-startdr-action-click-computing-resource-configuration.png)
 
 #### **网络配置**
 
@@ -930,7 +994,9 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 对象存储：[点击查看](#网络配置-1)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-72.png)
+![dr-startdr-action-hover-network-configuration](./images/dr-startdr-action-hover-network-configuration.png)
+
+![dr-startdr-action-click-network-configuration](./images/dr-startdr-action-click-network-configuration.png)
 
 #### **高级配置**
 
@@ -940,7 +1006,9 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 对象存储：[点击查看](#高级配置-1)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-73.png)
+![dr-startdr-action-hover-advanced-configuration](./images/dr-startdr-action-hover-advanced-configuration.png)
+
+![dr-startdr-action-click-advanced-configuration](./images/dr-startdr-action-click-advanced-configuration.png)
 
 #### **关联策略**
 
@@ -950,13 +1018,17 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 对象存储：[点击查看](#关联策略-1)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-74.png)
+![dr-startdr-action-hover-associate-policy](./images/dr-startdr-action-hover-associate-policy.png)
+
+![dr-startdr-action-click-associate-policy](./images/dr-startdr-action-click-associate-policy.png)
 
 #### **源端同步设置**
 
 点&#x51FB;**“源端同步设置”，**&#x53EF;完成备份主机的源端参数配置设定。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-75.png)
+![dr-startdr-action-hover-source-sync-settings](./images/dr-startdr-action-hover-source-sync-settings.png)
+
+![dr-startdr-action-click-source-sync-settings](./images/dr-startdr-action-click-source-sync-settings.png)
 
 ##### **通用设置**
 
@@ -987,7 +1059,7 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 点&#x51FB;**“源端磁盘同步设置”**，可配置源端的磁盘同步策略。在存在多块磁盘的情况下，支持针对每块磁盘选择是否参与同步。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-90.png)
+![dr-startdr-action-dropdown](./images/dr-startdr-action-dropdown.png)
 
 
 #### **修改源端同步代理**
@@ -996,31 +1068,33 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 点&#x51FB;**“修改源端同步代理”**，可完成源端同步代理修改。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-76.png)
+![dr-startdr-action-hover-modify-sync-proxy](./images/dr-startdr-action-hover-modify-sync-proxy.png)
+
+![dr-startdr-action-click-modify-sync-proxy](./images/dr-startdr-action-click-modify-sync-proxy.png)
 
 #### **绑定标签**
 
 点&#x51FB;**“绑定标签”**，在弹出的侧栏里可针对当前选择的主机完成绑定标签操作。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-77.png)
+![dr-startdr-action-hover-attach-tag](./images/dr-startdr-action-hover-attach-tag.png)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-78.png)
+![dr-startdr-action-click-attach-tag](./images/dr-startdr-action-click-attach-tag.png)
 
 #### **解绑标签**
 
 点&#x51FB;**“解绑标签”**，在弹出的侧栏里可完成解绑标签操作。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-79.png)
+![dr-startdr-action-hover-detach-tag](./images/dr-startdr-action-hover-detach-tag.png)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-80.png)
+![dr-startdr-action-click-detach-tag](./images/dr-startdr-action-click-detach-tag.png)
 
 #### **报告导出**
 
 点&#x51FB;**“报告导出”**，在弹出的对话框里选择需要导出的主机报告类型，可完成**报告导出**操作。具体可参考：(报告导出)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-81.png)
+![dr-startdr-action-hover-export-report](./images/dr-startdr-action-hover-export-report.png)
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-82.png)
+![dr-startdr-action-click-export-report](./images/dr-startdr-action-click-export-report.png)
 
 #### **解除注册主机**
 
@@ -1032,17 +1106,17 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 点&#x51FB;**“解除注册主机”**&#x6309;钮，可取消当前主机的注册，在弹出的对话框内勾选注意事项后点击确认可解除注册。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-83.png)
+![dr-startdr-action-hover-deregister-host](./images/dr-startdr-action-hover-deregister-host.png)
+
+![dr-startdr-action-click-deregister-host](./images/dr-startdr-action-click-deregister-host.png)
 
 对于已失联的主机需要使用强制注册
-
-![](./images/hostdisasterrecovery-hostdisasterrecovery-84.png)
 
 #### **清理验证主机**
 
 点&#x51FB;**“清理验证主机”**&#x6309;钮，该操作只会清理云上已启动的主机，在弹出的对话框中输入“Yes”后点击确认即可清理云上验证主机。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-85.png)
+![dr-startdr-action-dropdown](./images/dr-startdr-action-dropdown.png)
 
 ![](./images/hostdisasterrecovery-hostdisasterrecovery-86.png)
 
@@ -1052,5 +1126,5 @@ QCOW镜像下载链接：[点击下载](https://downloads.oneprocloud.com/docs_i
 
 点&#x51FB;**“强制终止”**&#x6309;钮，立即停止当前任务的执行。
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-87.png)
+![dr-startdr-action-dropdown](./images/dr-startdr-action-dropdown.png)
 

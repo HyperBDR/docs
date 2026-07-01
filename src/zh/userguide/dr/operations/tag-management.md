@@ -10,7 +10,7 @@
 
 点击创建标签开始创建标签，根据弹出框内容添加标签名称、描述、标签颜色
 
-![](./images/tagmanagement-taglist-1.png)
+![operations-tagmanagement-taglist-createtag-modal](./images/operations-tagmanagement-taglist-createtag-modal.png)
 
 ### **更多操作**
 
@@ -18,29 +18,29 @@
 
 选中已创建标签后，点击【更多操作】>【修改】，可以修改对应名称、描述、标签颜色
 
-![](./images/tagmanagement-taglist-2.png)
+![operations-tagmanagement-taglist-action-hover-modify](./images/operations-tagmanagement-taglist-action-hover-modify.png)
 
 #### **绑定资源**
 
 选中已创建标签后，点击【更多操作】>【绑定资源】，绑定对应主机资源
 
-![](./images/tagmanagement-taglist-3.png)
+![operations-tagmanagement-taglist-action-hover-attach-resource](./images/operations-tagmanagement-taglist-action-hover-attach-resource.png)
 
 通过点击【点击查看列表】，查看已绑定的主机资源
 
-![](./images/tagmanagement-taglist-4.png)
+![operations-tagmanagement-taglist-click-for-list](./images/operations-tagmanagement-taglist-click-for-list.png)
 
 #### **解绑资源**
 
 选中已创建标签后，点击【更多操作】>【解绑资源】，解绑对应主机资源
 
-![](./images/tagmanagement-taglist-5.png)
+![operations-tagmanagement-taglist-action-hover-detach-resource](./images/operations-tagmanagement-taglist-action-hover-detach-resource.png)
 
 #### **删除**
 
 选中已创建标签后，点击【更多操作】>【删除】，删除对应标签，且所有绑定的资源会自动从该标签解绑
 
-![](./images/tagmanagement-taglist-6.png)
+![operations-tagmanagement-taglist-action-hover-delete](./images/operations-tagmanagement-taglist-action-hover-delete.png)
 
 
 
@@ -52,7 +52,7 @@
 
 点击页面导出模板后，开始下载模板为xml格式
 
-![](./images/tagmanagement-batchassociation-1.png)
+![operations-tagmanagement-batch-association](./images/operations-tagmanagement-batch-association.png)
 
 ##### **导出模板说明**
 
@@ -75,9 +75,9 @@
 
 点击页面导入标签后，根据提示框进行拖入或上传文件开始导入模板
 
-![](./images/tagmanagement-batchassociation-3.png)
+![operations-tagmanagement-batchassociation-importtags-modal](./images/operations-tagmanagement-batchassociation-importtags-modal.png)
 
 完成导入后，会自动创建标签并将资源加入对应标签
 
-![](./images/tagmanagement-batchassociation-4.png)
+![operations-tagmanagement-taglist-click-for-list](./images/operations-tagmanagement-taglist-click-for-list.png)
 

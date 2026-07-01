@@ -12,12 +12,12 @@
 
   * Click the "A icon" in the upper right corner to open the dropdown menu.
 
-    ![](./images/languageswitch-1.png)
+    ![dashboard-language-entry](./images/dashboard-language-entry.png)
 
   * In the language list that appears, select your preferred language, such as "Simplified Chinese" or "English".
 
     > The default language is Simplified Chinese.
 
-    ![](./images/languageswitch-2.png)
+    ![dashboard-language-zh-hover](./images/dashboard-language-zh-hover.png)
 
 After switching, the system will automatically refresh and display the selected language.

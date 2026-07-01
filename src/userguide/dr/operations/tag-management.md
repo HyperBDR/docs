@@ -10,7 +10,7 @@ Go to [Operations] > [Tag Management] > [Tag List] to access the tag management 
 
 Click "Create Tag" to start. In the pop-up, add the tag name, description, and tag color.
 
-![](./images/tagmanagement-taglist-1.png)
+![operations-tagmanagement-taglist-createtag-modal](./images/operations-tagmanagement-taglist-createtag-modal.png)
 
 ### **Action**
 
@@ -18,29 +18,29 @@ Click "Create Tag" to start. In the pop-up, add the tag name, description, and t
 
 Select a created tag, click [More Actions] > [Modify], and you can modify the name, description, and color.
 
-![](./images/tagmanagement-taglist-2.png)
+![operations-tagmanagement-taglist-action-hover-modify](./images/operations-tagmanagement-taglist-action-hover-modify.png)
 
 #### **Attach Resource**
 
 Select a created tag, click [More Actions] > [Attach Resource], and bind the tag to the target host resource.
 
-![](./images/tagmanagement-taglist-3.png)
+![operations-tagmanagement-taglist-action-hover-attach-resource](./images/operations-tagmanagement-taglist-action-hover-attach-resource.png)
 
 Click [View List] to see the bound host resources.
 
-![](./images/tagmanagement-taglist-4.png)
+![operations-tagmanagement-taglist-click-for-list](./images/operations-tagmanagement-taglist-click-for-list.png)
 
 #### **Detach Resource**
 
 Select a created tag, click [More Actions] > [Detach Resource], and unbind the tag from the target host resource.
 
-![](./images/tagmanagement-taglist-5.png)
+![operations-tagmanagement-taglist-action-hover-detach-resource](./images/operations-tagmanagement-taglist-action-hover-detach-resource.png)
 
 #### **Delete**
 
 Select a created tag, click [More Actions] > [Delete] to remove the tag. All resources bound to this tag will be automatically unbound.
 
-![](./images/tagmanagement-taglist-6.png)
+![operations-tagmanagement-taglist-action-hover-delete](./images/operations-tagmanagement-taglist-action-hover-delete.png)
 
 ## **Batch Association**
 
@@ -50,7 +50,7 @@ Go to [O&M Management] > [Tag Management] > [Batch Association] to access the ba
 
 Click "Export Template" to download the template in XML format.
 
-![](./images/tagmanagement-batchassociation-1.png)
+![operations-tagmanagement-batch-association](./images/operations-tagmanagement-batch-association.png)
 
 ##### **Template Field Description**
 
@@ -73,9 +73,9 @@ Fill in the HOST TAGS field with tag names in the exported template and save.
 
 Click "Import Tags" and follow the prompt to drag or upload the file to start importing.
 
-![](./images/tagmanagement-batchassociation-3.png)
+![operations-tagmanagement-batchassociation-importtags-modal](./images/operations-tagmanagement-batchassociation-importtags-modal.png)
 
 After import, tags will be created automatically and resources will be added to the corresponding tags.
 
-![](./images/tagmanagement-batchassociation-4.png)
+![operations-tagmanagement-taglist-click-for-list](./images/operations-tagmanagement-taglist-click-for-list.png)
 

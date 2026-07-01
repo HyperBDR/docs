@@ -50,7 +50,7 @@ The Generic Mode is applicable to environments that currently do not support aut
 
 Through 【Configuration】 > 【DR Site Configuration】 > 【DR】 > 【Transition Host】 > 【Add】, after entering the "Transition Host" page, click the 【Add】 button in the upper right corner. In the configuration window, please carefully read the notes and prepare the corresponding host according to the page prompts.&#x20;
 
-![](./images/-genericmode_dr-1.png)
+![config-generic-mode-dr-th-add](./images/config-generic-mode-dr-th-add.png)
 
 After the target Cloud Computing Platform resources are ready, click 'Next' to continue the configuration process. The system provides two installation methods, and users can choose either one according to the page prompts to complete the configuration.&#x20;
 
@@ -58,7 +58,7 @@ After the target Cloud Computing Platform resources are ready, click 'Next' to c
 
 The console can actively access the transition host network，The transition host is located on a private network or has a public IP，Data synchronization to the transition host needs to be initiated from the console.
 
-![](./images/-genericmode_dr-2.png)
+![config-generic-mode-dr-th-to-transition](./images/config-generic-mode-dr-th-to-transition.png)
 
 In the configuration window, select the storage method and fill in the information of the temporary transition host, such as name, IP address, service port, etc.&#x20;
 
@@ -77,13 +77,13 @@ In the configuration window, select the storage method and fill in the informati
 
 After filling in the information, click "OK", and the system will start creating the transition host. When the status shows "Available", it indicates that the addition is completed, and subsequent operations can be performed.&#x20;
 
-![](./images/-genericmode_dr-3.png)
+![config-generic-mode-dr-th-main](./images/config-generic-mode-dr-th-main.png)
 
 ##### Installation Method 2: Transition Host Access to Console
 
 The console can actively access the transition host network，The transition host is located on a private network or has a public IP，Data synchronization to the transition host needs to be initiated from the console.
 
-![](./images/-genericmode_dr-4.png)
+![config-generic-mode-dr-th-to-console](./images/config-generic-mode-dr-th-to-console.png)
 
 Please copy and execute this command in the command-line interface of the transition host you have created and prepared (e.g., the VMware virtual machine or Cloud Computing Platform host created in the "\<Add Transition Host" step). Ensure that the transition host can access the network address of the Console.
 
@@ -91,7 +91,7 @@ Please copy and execute this command in the command-line interface of the transi
 
 After the comparison of the results in the above figure is successfully executed, the transition host will appear in the transition host list.&#x20;
 
-![](./images/-genericmode_dr-6.png)
+![config-generic-mode-dr-th-main](./images/config-generic-mode-dr-th-main.png)
 
 #### Action
 
@@ -103,7 +103,9 @@ After selecting the target host, click \[Action] > \[Data Transmission NAT] to s
 
 > Note: This function is mainly used in network environments with internal and external network isolation or NAT conversion to guide data flows to use the correct egress address, thereby ensuring the connectivity of the data transmission link between the source and destination.
 
-![](./images/-genericmode_dr-7.png)
+![config-generic-mode-dr-th-action-hover-data-transmission-nat](./images/config-generic-mode-dr-th-action-hover-data-transmission-nat.png)
+
+![config-generic-mode-dr-th-action-click-data-transmission-nat](./images/config-generic-mode-dr-th-action-click-data-transmission-nat.png)
 
 Configure the host NAT mapping address according to the network structure, complete the addition, and ensure that data traffic can be transmitted normally.
 
@@ -111,13 +113,17 @@ Configure the host NAT mapping address according to the network structure, compl
 
 After selecting the target host, click \[Action] > \[Delete] to remove the transitional host.&#x20;
 
+![config-generic-mode-dr-th-action-hover-delete](./images/config-generic-mode-dr-th-action-hover-delete.png)
+
+![config-generic-mode-dr-th-action-click-delete](./images/config-generic-mode-dr-th-action-click-delete.png)
+
 ### Host Verification
 
 > Only hosts that have completed the "DR > Sync > Drill" process will appear in the "Host Verification" list. Hosts that have not completed data sync will not appear here.
 
 After starting a DR drill, related hosts will appear in this list. Wait for the verification process to complete before proceeding.
 
-![](./images/-genericmode_dr-8.png)
+![config-generic-mode-dr-hv-main](./images/config-generic-mode-dr-hv-main.png)
 
 #### Action
 
@@ -133,8 +139,6 @@ After selecting the target host, click \[Action] > \[Driver Repair] to inject th
 
 After selecting the target host, click \[Action] > \[Delete] to remove the host to be verified.&#x20;
 
-
-
 ## Generic Mode (Failback)
 
 The Generic Mode is applicable to environments that currently do not support automated migration or disaster recovery processes. In this mode, users need to manually complete some operations&#x20;
@@ -145,7 +149,7 @@ The Generic Mode is applicable to environments that currently do not support aut
 
 Through 【Configuration】 > 【DR Site Configuration】 > 【Failback】 > 【Transition Host】 > 【Add】, after entering the "Transition Host" page, click the 【Add】 button in the upper right corner. In the configuration window, please carefully read the notes and prepare the corresponding host according to the page prompts.&#x20;
 
-![](./images/-genericmode_failback-1.png)
+![config-generic-mode-failback-th-add](./images/config-generic-mode-failback-th-add.png)
 
 After the target Cloud Computing Platform resources are ready, click 'Next' to continue the configuration process. The system provides two installation methods, and users can choose either one according to the page prompts to complete the configuration.&#x20;
 
@@ -153,7 +157,7 @@ After the target Cloud Computing Platform resources are ready, click 'Next' to c
 
 The console can actively access the transition host network，The transition host is located on a private network or has a public IP，Data synchronization to the transition host needs to be initiated from the console.
 
-![](./images/-genericmode_failback-2.png)
+![config-generic-mode-failback-th-to-transition](./images/config-generic-mode-failback-th-to-transition.png)
 
 In the configuration window, select the storage method and fill in the information of the temporary transition host, such as name, IP address, service port, etc.&#x20;
 
@@ -172,13 +176,13 @@ In the configuration window, select the storage method and fill in the informati
 
 After filling in the information, click "OK", and the system will start creating the transition host. When the status shows "Available", it indicates that the addition is completed, and subsequent operations can be performed.&#x20;
 
-![](./images/-genericmode_failback-3.png)
+![config-generic-mode-failback-th-main](./images/config-generic-mode-failback-th-main.png)
 
 ##### Installation Method 2: Transition Host Access to Console
 
 The console can actively access the transition host network，The transition host is located on a private network or has a public IP，Data synchronization to the transition host needs to be initiated from the console.
 
-![](./images/-genericmode_failback-4.png)
+![config-generic-mode-failback-th-to-console](./images/config-generic-mode-failback-th-to-console.png)
 
 Please copy and execute this command in the command-line interface of the transition host you have created and prepared (e.g., the VMware virtual machine or Cloud Computing Platform host created in the "\<Add Transition Host" step). Ensure that the transition host can access the network address of the Console.
 
@@ -186,7 +190,7 @@ Please copy and execute this command in the command-line interface of the transi
 
 After the comparison of the results in the above figure is successfully executed, the transition host will appear in the transition host list.&#x20;
 
-![](./images/-genericmode_failback-6.png)
+![config-generic-mode-failback-th-main](./images/config-generic-mode-failback-th-main.png)
 
 #### Action
 
@@ -198,7 +202,9 @@ After selecting the target host, click \[Action] > \[Data Transmission NAT] to s
 
 > Note: This function is mainly used in network environments with internal and external network isolation or NAT conversion to guide data flows to use the correct egress address, thereby ensuring the connectivity of the data transmission link between the source and destination.
 
-![](./images/-genericmode_failback-7.png)
+![config-generic-mode-failback-th-action-hover-data-transmission-nat](./images/config-generic-mode-failback-th-action-hover-data-transmission-nat.png)
+
+![config-generic-mode-failback-th-action-click-data-transmission-nat](./images/config-generic-mode-failback-th-action-click-data-transmission-nat.png)
 
 Configure the host NAT mapping address according to the network structure, complete the addition, and ensure that data traffic can be transmitted normally.
 
@@ -206,13 +212,17 @@ Configure the host NAT mapping address according to the network structure, compl
 
 After selecting the target host, click \[Action] > \[Delete] to remove the transitional host.&#x20;
 
+![config-generic-mode-failback-th-action-hover-delete](./images/config-generic-mode-failback-th-action-hover-delete.png)
+
+![config-generic-mode-failback-th-action-click-delete](./images/config-generic-mode-failback-th-action-click-delete.png)
+
 ### Host Verification
 
 > Only hosts that have completed the "DR > Sync > Drill" process will appear in the "Host Verification" list. Hosts that have not completed data sync will not appear here.
 
 After starting a DR drill, related hosts will appear in this list. Wait for the verification process to complete before proceeding.
 
-![](./images/-genericmode_failback-8.png)
+![config-generic-mode-failback-hv-main](./images/config-generic-mode-failback-hv-main.png)
 
 #### Action
 

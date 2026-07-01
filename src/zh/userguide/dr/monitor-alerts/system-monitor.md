@@ -6,7 +6,7 @@
 
 系统监控模块用于对平台内各类关键资源的运行状态进行实时可视化展示和性能分析。以“源端同步代理”为例，用户可选择具体主机，查看该节点的详细运行指标，以便及时发现资源瓶颈或潜在故障风险。
 
-![](./images/systemmonitor-systemmonitoringfeatures-1.png)
+![monitor-systemmonitor-dr-syncproxy](./images/monitor-systemmonitor-dr-syncproxy.png)
 
 #### **基本信息**
 
@@ -39,25 +39,25 @@
 
 用户可通过顶部导航栏进入“监控与管理”模块，并切换至**容灾**“源端同步代理”页面，以查看选定代理的系统资源使用情况。该视图展示了以下关键监控信息：
 
-![](./images/systemmonitor-dr-1.png)
+![monitor-systemmonitor-dr-syncproxy](./images/monitor-systemmonitor-dr-syncproxy.png)
 
 ### **云同步网关**
 
 用户可通过顶部导航栏进入“监控与管理”模块，并切换至**容灾**“云同步网关”页面，以查看选定代理的系统资源使用情况。该视图展示了以下关键监控信息：
 
-![](./images/systemmonitor-dr-2.png)
+![monitor-systemmonitor-dr-cloudsyncgateway](./images/monitor-systemmonitor-dr-cloudsyncgateway.png)
 
 ### **Linux Agent**
 
 用户可通过顶部导航栏进入“监控与管理”模块，并切换至**容灾**“Linux Agent”页面，以查看选定代理的系统资源使用情况。该视图展示了以下关键监控信息：
 
-![](./images/systemmonitor-dr-3.png)
+![monitor-systemmonitor-dr-linuxagent](./images/monitor-systemmonitor-dr-linuxagent.png)
 
 ### **Windows Agent**
 
 用户可通过顶部导航栏进入“监控与管理”模块，并切换至**容灾**“Windows Agent”页面，以查看选定代理的系统资源使用情况。该视图展示了以下关键监控信息：
 
-![](./images/systemmonitor-dr-4.png)
+![monitor-systemmonitor-dr-windowsagent](./images/monitor-systemmonitor-dr-windowsagent.png)
 
 ## **回切**
 
@@ -65,23 +65,23 @@
 
 用户可通过顶部导航栏进入“监控与管理”模块，并切换至**回切**“回切源端同步代理”页面，以查看选定代理的系统资源使用情况。该视图展示了以下关键监控信息：
 
-![](./images/systemmonitor-failback-1.png)
+![monitor-systemmonitor-failback-syncproxy](./images/monitor-systemmonitor-failback-syncproxy.png)
 
 ### **回切云同步网关**
 
 用户可通过顶部导航栏进入“监控与管理”模块，并切换至**回切**“回切云同步网关”页面，以查看选定代理的系统资源使用情况。该视图展示了以下关键监控信息：
 
-![](./images/systemmonitor-failback-2.png)
+![monitor-systemmonitor-failback-cloudsyncgateway](./images/monitor-systemmonitor-failback-cloudsyncgateway.png)
 
 ### **回切Linux Agent**
 
 用户可通过顶部导航栏进入“监控与管理”模块，并切换至**回切**“回切Linux Agent”页面，以查看选定代理的系统资源使用情况。该视图展示了以下关键监控信息：
 
-![](./images/systemmonitor-failback-3.png)
+![monitor-systemmonitor-failback-linuxagent](./images/monitor-systemmonitor-failback-linuxagent.png)
 
 ### **回切Windows Agent**
 
 用户可通过顶部导航栏进入“监控与管理”模块，并切换至**回切**“回切Windows Agent”页面，以查看选定代理的系统资源使用情况。该视图展示了以下关键监控信息：
 
-![](./images/systemmonitor-failback-4.png)
+![monitor-systemmonitor-failback-windowsagent](./images/monitor-systemmonitor-failback-windowsagent.png)
 

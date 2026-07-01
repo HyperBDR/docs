@@ -7,7 +7,7 @@
 
 进入 **设置 > 授权管理 > 容灾授权** 页面，点击 **“添加”** 按钮，根据系统提示填写必要信息，并获取有效的授权码以完成授权配置。
 
-![](./images/licensemanagement-drlicense-1.png)
+![settings-licensemgmt-drlicense-add-modal](./images/settings-licensemgmt-drlicense-add-modal.png)
 
 ## **回切授权**
 
@@ -17,7 +17,7 @@
 
 在 **设置 > 授权管理 > 容灾授权** 页面，点击 **“回切授权”**，根据提示输入并激活授权码，即可启用回切功能。
 
-![](./images/licensemanagement-failbacklicense-1.png)
+![settings-licensemgmt-failbacklicense-add-modal](./images/settings-licensemgmt-failbacklicense-add-modal.png)
 
 ## **主机操作统计**
 
@@ -27,4 +27,4 @@
 
 在 **设置 > 授权管理 > 主机操作统计** 页面，点击 **“导出”**，即可导出主机的基本信息与操作状态。
 
-![](./images/licensemanagement-allocationlog-1.png)
+![settings-licensemgmt-drlicense](./images/settings-licensemgmt-drlicense.png)

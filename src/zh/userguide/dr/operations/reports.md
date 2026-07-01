@@ -1,4 +1,4 @@
-# **报告导出**
+# **报告管理**
 
 目前，用户可通过HyperBDR 控制台导出**容灾**与**回切**过程中的各类系统运行与管理报告。该功能有助于用户对平台运行状态进行**定期分析、归档留存**，满足运维审计、问题追踪与管理评估等多种使用场景。
 
@@ -196,24 +196,80 @@
 | Synced Size(GB)           | 已同步的数据大小，单位为GB      |
 | Task Details              | 任务详情，描述任务执行的具体信息和结果 |
 
-## **报告导出示例**
+## **报告导出**
+
+报告导出模块用于采集、导出平台各类业务统计报表，支持自定义报表类型、统计时间、主机范围等筛选条件，可将备份、主机、运维相关数据导出为本地文件，用于线下审计、业务归档、数据对账。不同租户数据相互隔离，仅当前登录租户账号可导出本租户范围内的报表数据。
+
+### **报告导出示例** 
 
 > 注意：如果需要下载不同租户的主机信息报表，需要不同租户所属的用户登录控制台进行操作。
 
-### **收集报表**
+#### **收集报表**
 
 * 点击【运维管理】>【报告导出】，进入报表页面。
 
-![](./images/reports-reportexportexample-1.png)
+![operations-export-report-dr](./images/operations-export-report-dr.png)
 
 * 点击采集后，根据需要选择报表类型、范围、时区、时间范围、主机等信息后，提交收集
 
-![](./images/reports-reportexportexample-2.png)
+![operations-export-report-dr-export-dialog](./images/operations-export-report-dr-export-dialog.png)
 
-![](./images/reports-reportexportexample-3.png)
+![operations-export-report-dr-time-range-next](./images/operations-export-report-dr-time-range-next.png)
 
-### **下载报告**
+#### **下载报告**
 
 选择需要下载的报表行，点击【下载】，即可下载对应报告
 
-![](./images/reports-reportexportexample-4.png)
+![operations-export-report-dr](./images/operations-export-report-dr.png)
+
+## **定时报告** 
+
+定时报告模块支持配置周期性自动报表任务，系统将按照预设周期自动采集指定范围的业务数据，生成报表并支持本地下载或邮件推送，实现运维数据定期归档、自动审计，无需人工重复手动采集报表。不同租户数据相互隔离，仅当前登录租户账号可配置、查看本租户的定时报告任务。
+
+### **定时报告示例**
+
+> 注意：如果需要下载不同租户的主机信息报表，需要不同租户所属的用户登录控制台进行操作。
+
+#### **创建定时报告**
+
+* 点击【运维管理】>【定时报告】，进入定时报表管理页面。
+
+![operations-scheduled-reports-dr](./images/operations-scheduled-reports-dr.png)
+
+* 点击「+ 创建」按钮，在创建弹窗中按需选择报表类型、统计范围、时区、数据时间范围，配置报告发送渠道、邮件接收对象等参数，填写完成后点击 下一步 进入下一步操作。
+
+![operations-scheduled-reports-dr-create-step1](./images/operations-scheduled-reports-dr-create-step1.png)
+
+* 在主机选择界面勾选需要纳入报表统计的目标主机，确认全部参数无误后点击 Submit 提交，即可完成定时报告任务创建。
+
+![](./images/operations-scheduled-reports-dr-create-step2.png)
+
+定时任务创建完成后将自动生效，系统会根据预设周期定时采集对应主机业务数据并生成报表；报表生成完成后，将自动通过配置的发送渠道推送至指定接收人，同时可回到定时报告列表页面，查看、下载历史生成的报表文件。
+
+#### **更多操作**
+
+列表选中目标定时报告任务后，点击【更多操作】下拉按钮，可执行以下管理操作：
+
+##### **修改**
+选中目标定时报告任务，点击【Modify】后系统弹出编辑弹窗，可重新调整报表类型、统计范围、时区、推送渠道、接收邮箱、统计主机、执行周期等全部配置参数，修改完成提交后，新配置将在下一轮定时周期生效。
+
+![operations-scheduled-reports-dr-action-hover-modify](./images/operations-scheduled-reports-dr-action-hover-modify.png)
+![operations-scheduled-reports-dr-action-click-modify](./images/operations-scheduled-reports-dr-action-click-modify.png)
+
+##### **启用**
+仅针对已停用的定时任务可见，点击【Enable】即可恢复该定时报表任务的自动执行能力，系统将按照预设周期正常采集、推送报表。
+
+![operations-scheduled-reports-dr-action-hover-enable](./images/operations-scheduled-reports-dr-action-hover-enable.png)
+![operations-scheduled-reports-dr-action-click-enable](./images/operations-scheduled-reports-dr-action-click-enable.png)
+
+##### **禁用**
+选中正在运行的定时报告任务，点击【Disable】将暂停该任务的周期执行；任务配置信息会完整保留，不会删除，待后续启用后可恢复运行。
+
+![operations-scheduled-reports-dr-action-hover-disable](./images/operations-scheduled-reports-dr-action-hover-disable.png)
+![operations-scheduled-reports-dr-action-click-disable](./images/operations-scheduled-reports-dr-action-click-disable.png)
+
+##### **删除**
+选中无需再使用的定时报告任务，点击【Delete】确认后该定时任务将被永久清除，系统不再按周期生成对应报表；删除操作不可逆，执行前请确认无报表归档需求。
+
+![operations-scheduled-reports-dr-action-hover-delete](./images/operations-scheduled-reports-dr-action-hover-delete.png)
+![operations-scheduled-reports-dr-action-click-delete](./images/operations-scheduled-reports-dr-action-click-delete.png)

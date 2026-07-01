@@ -6,11 +6,7 @@ After the system is deployed, operations personnel can access the platform conso
 
 * **Console Address**: `https://<IP>:10443`
 
-  ![](./images/login-loginportal-1.png)
-
-* **Operations Management Platform Address**: `https://<IP>:30443`
-
-  ![](./images/login-loginportal-2.png)
+  ![login-before-submit](./images/login-before-submit.png)
 
 Enter the above address in the browser's address bar and press **Enter** to access the system and open the login page.
 

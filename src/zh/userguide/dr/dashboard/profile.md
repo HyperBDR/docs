@@ -5,7 +5,7 @@
 
 登录系统后，点击右上角的用户名，在下拉菜单中选择“基本信息”以查看账户详情。
 
-![](./images/profile-1.png)
+![dashboard-profile-account-hover](./images/dashboard-profile-account-hover.png)
 
 如下图所示为账号的基本信息页面展示：
 
@@ -25,7 +25,7 @@
 
 > 说明：设置高强度密码可有效提升账号安全性，建议定期更新密码。
 
-![](./images/profile-2.png)
+![dashboard-profile-account-page](./images/dashboard-profile-account-page.png)
 
 ### **修改账号信息**
 
@@ -33,9 +33,9 @@
 
 进入“基本信息”页面后，点击“修改”按钮即可开始编辑用户名和昵称。
 
-![](./images/profile-3.png)
+![dashboard-profile-change-highlight](./images/dashboard-profile-change-highlight.png)
 
-![](./images/profile-4.png)
+![dashboard-profile-change-modal](./images/dashboard-profile-change-modal.png)
 
 * **昵称**：仅作为界面显示使用，不影响登录功能。
 
@@ -49,9 +49,9 @@
 
 进入“基本信息”页面后，点击“修改密码”按钮即可开始进行密码修改操作。
 
-![](./images/profile-5.png)
+![dashboard-profile-change-password-highlight](./images/dashboard-profile-change-password-highlight.png)
 
-![](./images/profile-6.png)
+![dashboard-profile-change-password-modal](./images/dashboard-profile-change-password-modal.png)
 
 > 注意：新密码长度8-20个字符，必须包含大小写字母和数字，支持特殊字符(除空格)。修改密码后，请务必牢记新的密码，以免影响后续系统访问。运维管理平台的登录密码也将同步更新。
 #### **密码管理建议**
@@ -60,3 +60,12 @@
 
 * 避免在多个平台使用相同密码，建议设置复杂且独特的密码以提升账户安全。
 
+### **更换邮箱**
+
+您已绑定邮箱 **demouser@oneprocloud.com**，绑定邮箱可用于接收系统消息、获取服务通知、登录账号。
+
+进入“基本信息”页面后，点击“更换邮箱”按钮即可开始进行更换邮箱操作。
+
+![dashboard-profile-change-email-highlight](./images/dashboard-profile-change-email-highlight.png)
+
+![dashboard-profile-change-email-modal](./images/dashboard-profile-change-email-modal.png)

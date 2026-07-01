@@ -11,7 +11,7 @@
 
 进入创建页面后，根据实际需求配置相关参数并保存，即可完成**容灾**、**回切**报警器创建。
 
-![](./images/alarm-resourcealert-1.png)
+![monitor-alertrules-dr-resourcerules](./images/monitor-alertrules-dr-resourcerules.png)
 
 ### **创建报警器**
 
@@ -41,11 +41,11 @@
 | Windows Agent | CPU、内存、磁盘、进程 | 监控Windows Agent资源使用情况及进程状态 |
 | 对象存储资源  | 对象存储容量          | 监控存储容量的使用情况                  |
 
-![](./images/alarm-resourcealert-2.png)
+![monitor-alertrules-dr-resourcerules-createalert](./images/monitor-alertrules-dr-resourcerules-createalert.png)
 
 * 报警器创建完成后，系统将在对应事件发生时自动触发报警，并依据已关联的通知对象通过指定渠道发送通知。同时，相关报警信息将同步展示在平台的“报警消息”页面中，便于统一查看与处置。
 
-![](./images/alarm-resourcealert-3.png)
+![monitor-alertrules-dr-resourcerules](./images/monitor-alertrules-dr-resourcerules.png)
 
 ### **更多操作**
 
@@ -53,25 +53,25 @@
 
 * 点击【修改】后，系统将跳转页面，用户可在该页面对已创建的报警器配置进行重新编辑与调整。
 
-![](./images/alarm-resourcealert-4.png)
+![monitor-alertrules-dr-resourcerules-action-hover-edit](./images/monitor-alertrules-dr-resourcerules-action-hover-edit.png)
 
 #### **启用**
 
 * 已启用的报警器无法进行修改操作。如需变更相关配置，请先将报警器停用
 
-![](./images/alarm-resourcealert-5.png)
+![monitor-alertrules-dr-resourcerules-action-dropdown](./images/monitor-alertrules-dr-resourcerules-action-dropdown.png)
 
 #### **停用**
 
 * 已停的报警器无法进行修改操作。如需变更相关配置，请先将报警器起用
 
-![](./images/alarm-resourcealert-6.png)
+![monitor-alertrules-dr-resourcerules-action-hover-disable](./images/monitor-alertrules-dr-resourcerules-action-hover-disable.png)
 
 #### **移除**
 
 * 点击【移除】后，移除操作将触发二次确认，确认后，系统将删除该报警器
 
-![](./images/alarm-resourcealert-7.png)
+![monitor-alertrules-dr-resourcerules-action-hover-remove](./images/monitor-alertrules-dr-resourcerules-action-hover-remove.png)
 
 
 ## **事件报警器**
@@ -81,7 +81,7 @@
 
 进入创建页面后，根据实际需求配置相关参数并保存，即可完成**容灾**、**回切**报警器创建。
 
-![](./images/alarm-eventalert-1.png)
+![monitor-alertrules-dr-eventrules](./images/monitor-alertrules-dr-eventrules.png)
 
 ### **创建报警器**
 
@@ -113,11 +113,11 @@
 | 对象存储       | 添加/删除/更新对象存储、开始添加/删除操作                                            | 存储接入、配置变更、容量变化、访问异常等相关事件。   |
 | 容灾策略       | 创建/删除/修改策略、关联/分离策略                                                | 涉及容灾计划策略配置的生命周期管理。          |
 
-![](./images/alarm-eventalert-2.png)
+![monitor-alertrules-dr-eventrules-createalert](./images/monitor-alertrules-dr-eventrules-createalert.png)
 
 * 报警器创建完成后，系统将在对应事件发生时自动触发报警，并依据已关联的通知对象通过指定渠道发送通知。同时，相关报警信息将同步展示在平台的“报警消息”页面中，便于统一查看与处置。
 
-![](./images/alarm-eventalert-3.png)
+![monitor-alertrules-dr-eventrules](./images/monitor-alertrules-dr-eventrules.png)
 
 ### **更多操作**
 
@@ -125,23 +125,23 @@
 
 * 点击【修改】后，系统将跳转页面，用户可在该页面对已创建的报警器配置进行重新编辑与调整。
 
-![](./images/alarm-eventalert-4.png)
+![monitor-alertrules-dr-eventrules-action-hover-edit](./images/monitor-alertrules-dr-eventrules-action-hover-edit.png)
 
 #### **启用**
 
 * 已启用的报警器无法进行修改操作。如需变更相关配置，请先将报警器停用
 
-![](./images/alarm-eventalert-5.png)
+![monitor-alertrules-dr-eventrules-action-dropdown](./images/monitor-alertrules-dr-eventrules-action-dropdown.png)
 
 #### **停用**
 
 * 已停的报警器无法进行修改操作。如需变更相关配置，请先将报警器起用
 
-![](./images/alarm-eventalert-6.png)
+![monitor-alertrules-dr-eventrules-action-hover-disable](./images/monitor-alertrules-dr-eventrules-action-hover-disable.png)
 
 #### **移除**
 
 * 点击【移除】后，移除操作将触发二次确认，确认后，系统将删除该报警器
 
-![](./images/alarm-eventalert-7.png)
+![monitor-alertrules-dr-eventrules-action-hover-remove](./images/monitor-alertrules-dr-eventrules-action-hover-remove.png)
 

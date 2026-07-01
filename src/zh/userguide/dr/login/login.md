@@ -5,11 +5,7 @@
 
 * 控制台地址：`https://<IP>:10443`
 
-  ![](./images/login-loginportal-1.png)
-
-* 运维管理平台地址：`https://<IP>:30443`
-
-  ![](./images/login-loginportal-2.png)
+  ![login-before-submit](./images/login-before-submit.png)
 
 在浏览器地址栏中输入上述地址，按回车键访问系统，进入登录页面。
 

@@ -16,7 +16,7 @@
 
   * **结束时间**：升序降序排序
 
-![](./images/taskmanagement-pagefeatures-1.png)
+![operations-task-management-dr](./images/operations-task-management-dr.png)
 
 ### 任务管理说明
 
@@ -31,9 +31,9 @@
 
 > 注：点击“任务状态”字段中的状态信息链接，可跳转至任务详情页，查看完整日志与错误信息。
 
-![](./images/taskmanagement-pagefeatures-2.png)
+![operations-task-management-dr](./images/operations-task-management-dr.png)
 
-![](./images/taskmanagement-pagefeatures-3.png)
+![operations-task-management-dr-click-for-details](./images/operations-task-management-dr-click-for-details.png)
 
 ### 其他说明
 

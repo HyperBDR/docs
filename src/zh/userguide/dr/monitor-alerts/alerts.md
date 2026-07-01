@@ -20,7 +20,7 @@
 | **资源类型**     | 涉及的资源范围，包括：<br>· 对象存储<br>· 容灾策略用户资源<br>· 容灾主机资源<br>· License 资源<br>· 生产平台资源<br>· 容灾平台资源<br>· 监控报警<br>· 资源组 |
 | **发生时间**     | 系统首次检测到该报警事件的时间点，用于问题溯源与响应时效分析。                                                                           |
 
-![](./images/alerts-dr-1.png)
+![monitor-alerthistory-dr](./images/monitor-alerthistory-dr.png)
 
 * 更多操作
 
@@ -28,7 +28,7 @@
 
 处理后对应状态信息会进行改变：
 
-![](./images/alerts-dr-2.png)
+![monitor-alerthistory-dr-action-hover-mark-all-read](./images/monitor-alerthistory-dr-action-hover-mark-all-read.png)
 
 ## 回切
 
@@ -46,7 +46,7 @@
 | **资源类型**     | 涉及的资源范围，包括：<br>· 对象存储<br>· 容灾策略用户资源<br>· 容灾主机资源<br>· License 资源<br>· 生产平台资源<br>· 容灾平台资源<br>· 监控报警<br>· 资源组 |
 | **发生时间**     | 系统首次检测到该报警事件的时间点，用于问题溯源与响应时效分析。                                                                           |
 
-![](./images/alerts-failback-1.png)
+![monitor-alerthistory-failback](./images/monitor-alerthistory-failback.png)
 
 * 更多操作
 
@@ -54,5 +54,5 @@
 
 处理后对应状态信息会进行改变：
 
-![](./images/alerts-failback-2.png)
+![monitor-alerthistory-failback-action-hover-mark-all-read](./images/alerts-failback-2.png)
 
