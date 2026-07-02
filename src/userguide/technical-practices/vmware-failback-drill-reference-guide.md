@@ -30,6 +30,8 @@ At this time, Livecd\-HyperDoor\.iso has been successfully uploaded to the Cloud
 
 Find the transition host that has completed synchronization, and use the host cloning capability of the platform to clone a new host for standby\.
 
+> After the cloning process is complete, please verify that the boot mode of the target host is consistent with that of the source host. Under normal circumstances, the cloned host should use the same boot mode as the source host.
+
 Find HyperUbuntu, click ACTIONS, move to Clone, and click Clone to Virtual Machine\.\.\.
 
 ![Image](./images/vmware-failback-drill-reference-guide-5.png)
@@ -64,10 +66,6 @@ setting-ip 192.168.8.35 255.255.240.0 192.168.0.1 114.114.114.114
 ## Perform driver repair on the cloned host
 
 Log in to the HyperUbuntuDrill host that has just completed booting via the Console or SSH, and execute minitgt\-fix to complete driver repair; 
-
-If UEFI to BIOS conversion is required, please refer to the document: xxx\. 
-
-If WinPE repair is required, please refer to the document: xxx\.
 
 ![Image](./images/vmware-failback-drill-reference-guide-9.png)
 
