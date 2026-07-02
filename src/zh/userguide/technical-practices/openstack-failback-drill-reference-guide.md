@@ -72,10 +72,6 @@ Format：选择 QCOW2
 
 通过控制台或者 SSH 登录刚刚完成引导的 HyperUbuntuDrill 主机，执行 minitgt\-fix 完成驱动修复；
 
-如果需要 UEFI 转 BIOS 请参考文档：xxx。
-
-如果需要 WinPE 修复请参考文档：xxx。
-
 ![Image](./images/openstack-failback-drill-reference-guide-13.png)
 
 ![Image](./images/openstack-failback-drill-reference-guide-14.png)
