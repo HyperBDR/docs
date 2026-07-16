@@ -65,8 +65,9 @@ HyperBDR 安全组名称: SG-HyperBDR
 #### Linux 镜像
 
 * 版本： ubuntu 24.04 server
-* 大小: 596.38 MB
+* 大小: 590.25 MB
 * 下载链接: [https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2)  
+* 拥有默认密码(Acb@132.Inst)的镜像下载链接：[https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64-password.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64-password.qcow2)  
 
 #### Windows 镜像
 
