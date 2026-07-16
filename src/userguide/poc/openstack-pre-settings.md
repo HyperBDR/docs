@@ -65,8 +65,9 @@ Download the Windows/Linux images to your local computer using the provided imag
 #### Linux Image
 
 * Version: ubuntu 24.04 server
-* Size:  596.38 MB
+* Size:  590.25 MB
 * Download Link: [https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64.qcow2)  
+* Download link for the image with the default password (Acb@132.Inst): [https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64-password.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64-password.qcow2)  
 
 #### Windows Image
 

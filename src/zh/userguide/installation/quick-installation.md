@@ -96,13 +96,14 @@
 | :------- | :------------------------ |
 | CPU      | 8 C                       |
 | 内存     | 16 GiB                    |
-| 操作系统 | Ubuntu 20.04 server 64bit |
+| 操作系统 | Ubuntu 20.04/24.04 server 64bit |
 | 系统盘   | 500GB                     |
 
 ::: tip
 如果您所在的平台没有 Ubuntu 20.04 Server 64 位镜像，那么您可以下载我们提供的标准镜像，并将其导入平台进行安装。
 
-下载链接: [ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
+ubuntu20.04下载链接: [ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)  
+ubuntu24.04下载链接(root密码:Acb@132.Inst): [ubuntu-24.04-server-cloud-init-amd64-password.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64-password.qcow2)
 :::
 
 ::: warning

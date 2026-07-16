@@ -98,14 +98,16 @@ If the console host is accessible via public network, for security reasons, we s
 |---------------|---------------|
 | CPU | 8 Cores |
 | Memory | 16 GiB |
-| OS | Ubuntu 20.04 server 64-bit |
+| OS | Ubuntu 20.04/24.04 server 64-bit |
 | System Disk | 500GB |
 | Firewall | Required ports only |
 
 ::: tip
 If your platform doesn't have Ubuntu 20.04 Server 64-bit image, you can download our standard image and import it to your platform.
 
-Download link: [ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)
+ubuntu20.04 download link: [ubuntu-20.04-server-cloud-init-amd64.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-20.04-server-cloud-init-amd64.qcow2)  
+ubuntu24.04 download link(root-password:Acb@132.Inst): [ubuntu-24.04-server-cloud-init-amd64-password.qcow2](https://downloads.oneprocloud.com/docs_images/ubuntu-24.04-server-cloud-init-amd64-password.qcow2)  
+
 :::
 
 ::: warning
