@@ -74,10 +74,6 @@ Enter Project, Volumes, Volumes, find the volume created by the snapshot, and mo
 
 Log in to the HyperUbuntuDrill host that has just completed booting via the Console or SSH, and execute minitgt\-fix to complete driver repair; 
 
-If UEFI to BIOS conversion is required, please refer to the document: xxx\. 
-
-If WinPE repair is needed, please refer to the document: xxx\. 
-
 ![Image](./images/openstack-failback-drill-reference-guide-13.png)
 
 ![Image](./images/openstack-failback-drill-reference-guide-14.png)
