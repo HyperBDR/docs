@@ -30,6 +30,8 @@
 
 找到同步完成的过渡主机，使用平台的主机克隆能力，克隆出一台新的主机备用。
 
+> 克隆完成后，请检查目标主机的启动方式是否与源主机保持一致。正常情况下，克隆后的主机启动方式应与源主机一致。
+
 找到 HyperUbuntu，点击 ACTIONS，移动到 Clone，点击 Clone to Virtual Machine\.\.\.
 
 ![Image](./images/vmware-failback-drill-reference-guide-5.png)
@@ -64,10 +66,6 @@ setting-ip 192.168.8.35 255.255.240.0 192.168.0.1 114.114.114.114
 ## 在克隆的主机上执行驱动修复
 
 通过控制台或者 SSH 登录刚刚完成引导的 HyperUbuntuDrill 主机，执行 minitgt\-fix 完成驱动修复；
-
-如果需要 UEFI 转 BIOS 请参考文档：xxx。
-
-如果需要 WinPE 修复请参考文档：xxx。
 
 ![Image](./images/vmware-failback-drill-reference-guide-9.png)
 
