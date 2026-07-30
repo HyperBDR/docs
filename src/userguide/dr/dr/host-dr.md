@@ -490,7 +490,7 @@ After selection, configure related parameters such as private IP, public IP, sec
 | Private IP | Original IP / Specified IP / Not Specified | Original IP: system auto-recognizes NIC and assigns source host IP via DHCP. Specified IP: manually enter IP (same subnet as target subnet, immutable), system assigns via DHCP. Not Specified: system uses DHCP to auto-Allocate lP randomly. **Note: If DHCP is unavailable, system cannot auto-configure IP.** |
 | Public IP  | Not Specified / Allocate lP / Request lP **(subject to actual cloud vendor)** | Not Specified: host without elastic public IP cannot access the internet, used only in private networks or clusters. Allocate lP: assign an existing elastic public IP to the host. Request lP: automatically assign an elastic public IP with dedicated bandwidth to each host. |
 | Security Group | (According to target network configuration) | Multiple security group options based on target network configuration; subject to actual conditions.                                                   |
-|Fixed MAC | Original MAC / Fixed MAC / Not Specified | Note: MAC address modification is not supported when using cloud services.                                                                             |
+|Fixed MAC | Original MAC / Fixed MAC / Not Specified | This feature depends on the cloud platform's support for the required APIs. Because API capabilities vary across cloud platforms, this feature may not be available on all platforms. Availability is subject to the capabilities supported by the target cloud platform. |
 
 ##### **Single NIC**
 
