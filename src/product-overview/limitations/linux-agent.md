@@ -4,17 +4,19 @@
 
 | Operating System     | Supported Versions |
 | -------------------- | ----------------- |
-| CentOS (64-bit)      | 6.x, 7.x, 8.x     |
-| Red Hat Enterprise Linux (RHEL) (64-bit) | 6.x, 7.x, 8.x |
-| SUSE Linux Enterprise Server (SLES) (64-bit) | 11 (SP1-SP4), 12 (SP1-SP5), 15 (SP1-SP5) |
-| Ubuntu Server (64-bit) | 12.04.x, 14.04.x, 16.04.x, 18.04.x, 20.04.x, 22.04.x, 24.04.x |
-| Oracle Linux Server (64-bit) | 6.x, 7.x, 8.x |
-| Kylin Linux          | v10 SP1 (v2101)   |
+| CentOS (64-bit)      | 6.x, 7.x, 8.x, 9.x, 10.x     |
+| Red Hat Enterprise Linux (RHEL) (64-bit) | 6.x, 7.x, 8.x, 9.x, 10.x |
+| Rocky Linux (64-bit) | 9.x |
+| Alma Linux (64-bit) | 9.x |
+| SUSE Linux Enterprise Server (SLES) (64-bit) | 11 (SP1-SP4), 12 (SP1-SP5), 15 (SP1-SP6) |
+| Ubuntu Server (64-bit) | 12.04.x, 14.04.x, 16.04.x, 18.04.x, 20.04.x, 22.04.x, 24.04.x, 26.04.x |
+| Oracle Linux Server (64-bit) | 6.x, 7.x, 8.x, 9.x |
+| Kylin Linux          | v10 SP1 (v2101), SP3(v2207, v2401)   |
 | UOS                  | UOS 1050 u2a, UOS 1050 u2e |
 | OpenEuler            | 22.03.x, 24.03.x  |
 
 ::: warning
-- Note: Supported kernel versions: 2.6.32 to 5.8 (standard community releases).
+- Note: Supported kernel versions: 2.6.32 to 7.0.0 (standard community releases).
 - Kernels with cloud-specific tags are not supported. For special kernel requirements, please contact technical support.
 
 For detailed compatibility, see the [Source OS Support Matrix](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO).
@@ -59,7 +61,6 @@ For detailed compatibility, see the [Source OS Support Matrix](https://oneproclo
 
 ### Disk and Partition Limitations
 - If a shared disk is mounted by multiple source hosts, it will be migrated multiple times, resulting in duplicate disks on the target. You must manually remove redundant disks and keep only one shared disk.
-- Multipath remote disks (FC, IP SAN) are not supported.
 - Unmounted partitions and raw disks (not mounted to any directory) are not supported.
 - LUKS-encrypted disks/partitions are not supported.
 - Network shares (NFS/NAS) require separate file-level sync tools.
