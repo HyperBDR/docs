@@ -950,32 +950,84 @@ Object Storage: [Click to View](#associate-policy-1)
 
 Click **"Source Sync Settings"** to configure source-side parameters for backup hosts.
 
-![](./images/hostdisasterrecovery-hostdisasterrecovery-75.png)
+![dr-startdr-action-hover-source-sync-settings](./images/dr-startdr-action-hover-source-sync-settings.png)
 
 ##### **General Settings**
 
-| Parameter        | Options       | Description                                                                 |
-|------------------|---------------|-----------------------------------------------------------------------------|
-| Maximum CPU Usage    | 1–100          | Sets the maximum CPU usage on the source host during backup. Avoid setting it too low to ensure backup efficiency. |
-| Encryption       | Yes / No       | Applies only to Object Storage mode. Note: Enabling this option increases CPU usage for encryption processing. |
-| Compression      | Yes / No       | Applies only to Object Storage mode. Note: Enabling this option increases CPU usage for compression processing. |
+> This configuration applies to Linux Agent, Windows Agent, and Agentless modes. The interface layout or configuration location may vary slightly across different modes. Please refer to the actual interface.
 
-##### **Agentless Mode**
+![dr-startdr-action-click-source-sync-settings](./images/dr-startdr-action-click-source-sync-settings-1.png)
 
-| Parameter             | Options           | Description                                                                                                                                                                                                                     |
-|------------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| VMware Quiesced Snapshot | Yes / No          | Currently supported only on VMware hosts with VMware Tools installed.                                                                                                                     |
-| Read Threads          | Auto / Custom     | Sets the number of read threads per host. "Auto" adjusts the threads based on the sync proxy's resources and the number of disks on the host (1–10). Use "Custom" (1–100) if needed; it's recommended to keep under 30. For 10Gb+ networks, increasing proxy resources (e.g., 8 cores, 16 GB RAM or more) allows setting to 50 or 100 for better performance. |
-| Writing Thread         | Auto / Custom     | Sets the number of write threads per host. "Auto" adjusts based on proxy resources and disk count (1–10). Use "Custom" (1–100) if needed; recommended max is 30. For 10Gb+ networks, increase proxy resources before setting to 50 or 100. |
-| Concurrent Multi-Disk Read and Write  | Yes / No          | Determines whether all disks on a host are synchronized concurrently.                                                                                                                     |
+| Parameter                        | Setting   | Description                                                                                                                                                         |
+| -------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Maximum CPU Usage (%)            | 30        | Limits the maximum CPU percentage available for backup tasks. Range: **1–100**. A higher value increases backup speed but also increases the impact on source host services. It is recommended to keep the default value unless business load requires adjustment. |
+| Available Memory (MB)            | 1024      | Remaining available system memory. Valid range: **700–1024** MB. Adjust based on the available memory of the source host.                                           |
+| Encryption                       | Yes       | When enabled, transmitted data is encrypted to improve data security, but it will consume additional CPU resources and may slightly reduce backup speed.            |
+| Compression                      | No        | When enabled, the system applies block-level compression to reduce the amount of data being transmitted, thereby enhancing transmission efficiency. In incremental transfers, certain operating system characteristics can cause the volume of transmitted data to exceed the actual amount written, due to the need for maintaining data continuity and integrity. The effectiveness of compression varies depending on the type of data being handled, and the system dynamically adjusts its approach accordingly. Users can enable or disable this feature based on their specific needs, ensuring optimal performance across different scenarios. |
+| Check Dup Data              | Automatic | Detects and skips duplicate data to reduce data transfer volume.<br>**Automatic**: The system automatically determines whether to perform deduplication check based on actual conditions (recommended).<br>**Enable**: Deduplication check is performed on every sync.<br>**Disable**: Deduplication check is not performed on any sync. |
+| Volume Reserved Space (%)        | 3         | Windows Agent volume availability ratio. Range: **0–99**. Sets the percentage of volume space to reserve on the source host.                                        |
+| Snapshot Creation Timeout (sec)  | 600       | The maximum allowed wait time for snapshot creation, in seconds. Range: **600–86400**. If snapshot creation is not completed within this time, the task will be marked as failed. For environments where snapshot creation takes longer, increase this value as needed. |
 
-##### **Sync Retry Settings**
+##### **Sync Thread Settings**
 
-| Parameter   | Options     | Description                                                                                   |
-|-------------|-------------|-----------------------------------------------------------------------------------------------|
-| Retry on Failure       | Yes / No     | If enabled, the system will retry automatically after a failure (e.g., network issues).       |
-| Retry Count | 1–100        | Maximum number of retry attempts.                                                             |
-| Retry Interval    | 1–3600       | Wait time (in seconds) between retries.                                                       |
+> This configuration applies to Agentless mode. The interface layout or configuration location may vary slightly across different modes. Please refer to the actual interface.
+
+![dr-startdr-action-click-source-sync-settings](./images/dr-startdr-action-click-source-sync-settings-2.png)
+
+| Parameter                    | Setting              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ---------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| VMware Quiesce Snapshot      | No                   | Only applicable to VMware virtual machines with **VMware Tools** installed. When enabled, file system consistency is ensured to the greatest extent during snapshot creation. It is recommended to enable based on business needs.                                                                                                                                                                                                                                                              |
+| Reading Thread               | Automatic Adaptation | Sets the number of data reading threads for a single host. The default uses **Automatic Adaptation** mode, where the system adjusts the thread count (1–10) based on the Sync Proxy's resource configuration and the number of disks on the host to be synchronized, without manual configuration.<br>Use the **Custom** option (1–100) only when further optimization is needed. It is recommended to keep the thread count within 30. In 10 Gigabit or higher network environments, after increasing the Sync Proxy's resource configuration (e.g., 8 cores, 16 GB memory or above), increasing the thread count to 50 or 100 can improve synchronization performance. |
+| Writing Thread               | Automatic Adaptation | Sets the number of data writing threads for a single host. The default uses **Automatic Adaptation** mode, where the system adjusts the thread count (1–10) based on the Sync Proxy's resource configuration and the number of disks on the host to be synchronized, without manual configuration.<br>Use the **Custom** option (1–100) only when further optimization is needed. It is recommended to keep the thread count within 30. In 10 Gigabit or higher network environments, after increasing the Sync Proxy's resource configuration (e.g., 8 cores, 16 GB memory or above), increasing the thread count to 50 or 100 can improve synchronization performance. |
+| Concurrent Multi-Disk Read and Write | Yes        | Controls whether multiple disks are read and written simultaneously during synchronization. When enabled, multiple disks can be synchronized concurrently to improve efficiency. When disabled, disks are synchronized sequentially, suitable for scenarios with strict system resource constraints. |
+
+##### Sync Retry Settings
+
+> This configuration applies to Linux Agent, Windows Agent, and Agentless modes. The interface layout or configuration location may vary slightly across different modes. Please refer to the actual interface.
+
+![dr-startdr-action-click-source-sync-settings](./images/dr-startdr-action-click-source-sync-settings-3.png)
+
+| Parameter        | Setting | Description                                                                                                                                                       |
+| ---------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Retry on Failure | Yes     | When enabled, the system will automatically attempt to reconnect and resume synchronization if an exception (e.g., network error) causes synchronization failure. If disabled, the system will not retry after a failure. |
+| Retry Count      | 3       | Sets the maximum number of retry attempts. Range: **1–100**. If the connection is still not restored after reaching the maximum retry count, the sync task will be marked as failed. |
+| Retry Interval   | 60      | Sets the wait time between retries, in **seconds**. Range: **1–3600**. Increasing the interval helps wait for network recovery and avoid frequent retries.  |
+
+##### Sync Thread Settings
+
+> This configuration applies to Linux Agent and Windows Agent modes. The interface layout or configuration location may vary slightly across different modes. Please refer to the actual interface.
+
+![dr-startdr-action-click-source-sync-settings](./images/dr-startdr-action-click-source-sync-settings-4.png)
+
+| Parameter                                  | Setting | Description                                                                                                                                               |
+| ------------------------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Block Storage Single-Disk Sync Thread Count | 2      | Sets the number of sync threads for a single disk in block storage mode. Range: **1–64**. Increasing the thread count can improve sync performance but will consume more system resources. Adjust based on host resource configuration. |
+| Object Storage Sync Thread Count           | 4       | Sets the number of sync threads in object storage mode. Range: **1–16**. Increasing the thread count can improve sync performance but will consume more system resources. Adjust based on host resource configuration. |
+
+##### Object Upload Settings
+
+> This configuration applies to Linux Agent mode. The interface layout or configuration location may vary slightly across different modes. Please refer to the actual interface.
+
+![dr-startdr-action-click-source-sync-settings](./images/dr-startdr-action-click-source-sync-settings-5.png)
+
+| Parameter                  | Setting | Description                                                                                                                                                       |
+| -------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Connection Timeout         | 120     | Sets the maximum wait time for establishing a connection when uploading objects, in **seconds**. Range: **1–1800**. If the connection is not established within this time, it will be marked as timed out. |
+| Whether to Send MD5 Hash            | Yes     | When enabled, an MD5 digest is sent during object upload to verify data integrity, helping detect data corruption that may occur during transmission.              |
+| Whether to Perform Segmental SHA256 Checksum | No  | When enabled, the system performs SHA256 verification on each data segment during multipart upload, further enhancing data integrity verification. However, it may increase computational overhead. |
+
+##### Volume VSS Storage Settings
+
+> This configuration applies to Windows Agent mode. The interface layout or configuration location may vary slightly across different modes. Please refer to the actual interface.
+
+![dr-startdr-action-click-source-sync-settings](./images/dr-startdr-action-click-source-sync-settings-6.png)
+
+| Parameter                    | Setting               | Description                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| General Roll Proportion    | 10                    | Sets the default percentage of disk space available for VSS snapshot storage, in **%**. Range: **5–100**. When no specific VSS storage space is configured for a volume, this setting is used.                                                                                                                                                                                                       |
+| Special Roll Storage      | `VSS_SPEC_MAX_C=d:10` | Sets the VSS snapshot storage location and capacity for specific volumes.\<br\>**Single volume example:** `VSS_SPEC_MAX_C=d:10` means storing the VSS snapshot of volume **C** on volume **D** with **10 GB** allocated.\<br\>**Multiple volume example:** `VSS_SPEC_MAX_C=d:10;VSS_SPEC_MAX_E=f:10`, separated by semicolons (`;`). **Leave blank by default unless special requirements exist.** |
+| VSS Shadow Creation Timeout  | 300                   | Sets the maximum wait time for creating a VSS shadow copy, in **seconds**. The value must be greater than or equal to **60**. If the shadow copy is not created within this time, the operation will be marked as failed.                                                                                                                                                                                         |
+| Raw Sync Volume         | F                     | Specifies partitions to be synchronized using raw data mode without VSS snapshots. Enter the drive letter. Multiple drive letters are separated by commas (`,`), e.g., `F` or `E,F`. Applicable to partitions that do not require VSS consistency snapshots. **Leave blank by default unless special requirements exist.**                                                           |
 
 #### **Source Disk Sync Settings**
 
