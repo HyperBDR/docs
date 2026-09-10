@@ -131,6 +131,7 @@ export const enSidebar = sidebar({
             'tmcae-pre-settings',
             'opentelekomcloud-pre-settings',
             'aws-target-pre-settings',
+            'hcf-pre-settings',
             'hcs-pre-settings',
             'googlecloud-pre-settings',
             'xhere-pre-settings.md',
