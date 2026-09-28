@@ -1,4 +1,4 @@
-# Deep in AWS Agentless Mode(RC)
+# Deep in AWS Agentless Mode
 
 [[toc]]
 
@@ -93,7 +93,7 @@ sequenceDiagram
 
 * [Read snapshots with EBS direct APIs](https://docs.aws.amazon.com/ebs/latest/userguide/readsnapshots.html)
 
-## AWS Agentless Mode Cost Calculator(RC)
+## AWS Agentless Mode Cost Calculator
 
 ### Understand the Cost
 

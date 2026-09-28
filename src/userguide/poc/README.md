@@ -15,7 +15,7 @@ The **Pre-Settings** section outlines platform-specific prerequisites and config
   Provides guidance on preparing VMware environments, including network configurations, compatibility checks, and best practices.
 
 - **AWS Pre-Settings**:  
-  Covers the initial setup for AWS, focusing on RC (Release Candidate) environments. Includes IAM role configuration, EC2 requirements, and snapshot settings.
+  Covers the initial setup for AWS. Includes IAM role configuration, EC2 requirements, and snapshot settings.
 
 ### **2. DR/Target Pre-Settings**
 

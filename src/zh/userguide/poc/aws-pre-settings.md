@@ -1,4 +1,4 @@
-# AWS Pre-Settings(RC)
+# AWS Pre-Settings
 
 [[toc]]
 
