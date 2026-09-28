@@ -94,7 +94,7 @@ sequenceDiagram
 
 * [Read snapshots with EBS direct APIs](https://docs.aws.amazon.com/ebs/latest/userguide/readsnapshots.html)
 
-## AWS 无代理模式成本计算器(RC)
+## AWS 无代理模式成本计算器
 
 ### 了解成本
 
