@@ -760,3 +760,19 @@ When taking over during disaster recovery host drill, the disaster recovery prog
 The technical configuration methods for communication between different cloud-set VPC networks vary. Please refer to the documentation provided by cloud service providers for configuration or request the help of MSP partners. 
 
 > The common implementation technology for accessing VPC network interconnection configuration is **VPC Peering** Connect.
+
+## Why Does HyperBDR Require More Memory Before Version 6.8?
+
+A: Before version 6.8, HyperBDR used Redis to store snapshot metadata in object storage mode. As the total protected data size and the number of snapshots increased, Redis required more memory. Therefore, HyperBDR had higher memory requirements.
+
+With an 8-core, 16 GB configuration, it is recommended to protect up to approximately 10 TB of total data on production hosts (128 snapshots, with incremental data below 5%).
+
+If the data size exceeds 10 TB, it is recommended to increase the memory based on the actual data size:
+
+```text
+10 TB < Data size ≤ 30 TB: Increase memory to 32 GB.
+
+30 TB < Data size ≤ 50 TB: Increase memory to 64 GB.
+
+Data size > 50 TB: Deploy a separate Redis node to meet the memory requirements.
+```
