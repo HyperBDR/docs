@@ -22,16 +22,16 @@ DKMS 是一项成熟且广泛应用的技术，已被包括 Google、Red Hat、U
 
 3. **升级时机**：确保安装源正常且系统资源充足（编译时可能占用较高 CPU 和磁盘空间）。建议在系统和业务负载较低时进行内核升级，以便自动通过 DKMS 更新 Linux Agent 内核模块。
 
-| **使用条件**                  | **说明**                                                                                                         |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| **操作系统支持**                | Ubuntu 20.04 (HyperBDR 6.9开始支持）&#xA;Ubuntu 22.04/24.04 (HyperBDR 6.7开始支持）&#xA;CentOS 8/9系列（HyperBDR 6.10 开始支持） |
-| **内核支持范围**                | 5.15 至 6.8 版本                                                                                                  |
-| **内核头文件（kernel headers）** | **必须安装与当前正在运行的内核版本相匹配的 kernel headers，用于编译模块。**                                                                |
-| **编译工具链**                 | 需要安装如 gcc、make 等编译工具，用于构建内核模块。                                                                                 |
-| **DKMS 工具包**              | 系统中需已安装 dkms 命令工具，通常可通过包管理器安装（如 apt install dkms 或 yum install dkms）。                                          |
-| **可编译的模块源码包**             | 用户或软件提供方需提供符合 DKMS 格式的模块源码（包含 dkms.conf 文件），用于注册、构建和安装。                                                        |
-| **root 权限**               | 安装、构建和加载内核模块通常需要 root 或 sudo 权限。                                                                               |
-| **兼容的内核接口**               | 模块源码必须与当前内核版本的接口兼容，否则编译可能失败。                                                                                   |
+| **使用条件** | **说明** |
+|---|---|
+| **操作系统支持** | **Ubuntu**<br>Ubuntu 20.04：HyperBDR 6.9 及以上版本<br>Ubuntu 22.04 / 24.04：HyperBDR 6.7 及以上版本<br>Ubuntu 26.04（7.0 内核）：HyperBDR 7.7 及以上版本<br><br>**CentOS**<br>CentOS 8 / 9 / 10：HyperBDR 6.10 及以上版本|
+| **内核支持范围** | 5.15 至 6.8 版本<br> <br> **内核限制** <br>其他 Ubuntu 系统：HyperBDR 6.x 最高支持 Linux 6.17 内核。|
+| **内核头文件（kernel headers）** | **必须安装与当前运行内核版本匹配的 kernel headers**，用于编译内核模块。 |
+| **编译工具链** | 需要安装 GCC、Make 等编译工具，用于构建内核模块。 |
+| **DKMS 工具包** | 系统需已安装 DKMS 工具，可通过包管理器安装，例如 `apt install dkms` 或 `yum install dkms`。 |
+| **可编译的模块源码包** | 用户或软件提供方需提供符合 DKMS 格式的模块源码，包含 `dkms.conf` 文件，用于注册、构建和安装模块。 |
+| **root 权限** | 安装、构建和加载内核模块通常需要 root 或 sudo 权限。 |
+| **兼容的内核接口** | 模块源码必须与当前内核版本的接口兼容，否则可能编译失败。 |
 
 ### 2.2 安装DKMS工具
 
@@ -180,8 +180,6 @@ update-initramfs: Generating /boot/initrd.img-6.8.0-62-generic
 * 在 基于 Ubuntu 的系统中，建议使用 apt upgrade 或 apt full-upgrade 方式进行内核更新；
 
 * 在 CentOS 或 Red Hat Enterprise Linux（RHEL） 中，建议使用 yum update 或 dnf upgrade 命令升级内核；
-
-* 对于 SUSE Linux Enterprise Server（SLES） 或 openSUSE，应使用 zypper update 或 zypper patch 进行官方推荐的内核升级。
 
 避免手动下载安装第三方内核包或使用非官方源，以减少因兼容性问题导致 DKMS 构建失败或系统不稳定的风险。如果需要采用手动升级方式，请参考附录二中常见问题中的推荐手动升级方式。
 

@@ -22,16 +22,16 @@ When using DKMS for dynamic module builds, required build tools (such as gcc, ma
 
 3. **Upgrade Timing**: Ensure installation sources are available and system resources are sufficient (compilation may consume high CPU and disk space). Schedule kernel upgrades during periods of low system and business load to allow automatic DKMS updates of Linux Agent kernel modules.
 
-| **Requirement**                  | **Details**                                                                                                         |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| **OS Support**                | Ubuntu 20.04 (supported since HyperBDR 6.9)&#xA;Ubuntu 22.04/24.04 (supported since HyperBDR 6.7)&#xA;CentOS 8/9 (supported since HyperBDR 6.10) |
-| **Kernel Version Range**                | 5.15 to 6.8                                                                                                  |
-| **Kernel Headers** | **Must install kernel headers matching your running kernel version for module compilation.** |
-| **Compiler Toolchain**                 | Install compilation tools such as gcc and make for building kernel modules.                                                                                 |
-| **DKMS Package**              | System must have dkms command-line tool installed, typically available through package managers (apt install dkms or yum install dkms).                                          |
-| **Module Source Code**             | User or vendor must provide DKMS-compliant module source (including dkms.conf) for registration, building, and installation.                                                        |
-| **Root Privileges**               | Installing, building, and loading kernel modules typically requires root or sudo privileges.                                                                               |
-| **Compatible Kernel Interface**               | Module source must be compatible with the current kernel version, or compilation may fail.                                                                                   |
+| **Requirement** | **Details** |
+|---|---|
+| **OS Support** | **Ubuntu**<br>Ubuntu 20.04 (supported since HyperBDR 6.9)<br>Ubuntu 22.04 / 24.04 (supported since HyperBDR 6.7)<br>Ubuntu 26.04 (kernel 7.0, supported since HyperBDR 7.7)<br><br>**CentOS**<br>CentOS 8 / 9 / 10 (supported since HyperBDR 6.10) |
+| **Kernel Version Range** | 5.15 to 6.8<br><br>**Kernel Limitation**<br>For other Ubuntu versions, HyperBDR 6.x supports Linux kernels up to version 6.17. |
+| **Kernel Headers** | **Kernel headers matching the currently running kernel version must be installed for module compilation.** |
+| **Compiler Toolchain** | Install compilation tools such as GCC and Make to build kernel modules. |
+| **DKMS Package** | The system must have the DKMS command-line tool installed. It can typically be installed through a package manager, such as `apt install dkms` or `yum install dkms`. |
+| **Module Source Code** | The user or vendor must provide DKMS-compliant module source code, including a `dkms.conf` file, for registration, building, and installation. |
+| **Root Privileges** | Root or sudo privileges are typically required to install, build, and load kernel modules. |
+| **Compatible Kernel Interface** | The module source code must be compatible with the current kernel version; otherwise, compilation may fail. |
 
 ### 2.2 Install DKMS
 
@@ -179,8 +179,6 @@ To minimize risk and ensure compatibility, use the system's recommended kernel u
 * **Ubuntu-based systems**: Use `apt upgrade` or `apt full-upgrade` for kernel updates.
 
 * **CentOS or Red Hat Enterprise Linux (RHEL)**: Use `yum update` or `dnf upgrade` to upgrade the kernel.
-
-* **SUSE Linux Enterprise Server (SLES) or openSUSE**: Use `zypper update` or `zypper patch` for official recommended kernel upgrades.
 
 Avoid manually downloading and installing third-party kernel packages or using unofficial sources, which may cause DKMS build failures or system instability. For manual upgrades, refer to common questions in Appendix B for recommended steps.
 
