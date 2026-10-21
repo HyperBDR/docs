@@ -46,6 +46,12 @@
 
 > 注意：为回馈用户，购买容灾授权后，系统将同步附赠等量的一次性回切授权。该授权专用于回切操作，仅限一次性使用，有效期与容灾授权保持一致。授权不支持续订，但可另行购买，请在有效期内妥善安排使用，确保服务顺利运行。详情可点击页面订阅管理按钮进入页面查看。
 
+7. 在页面中点击 Manage Subscriptions（订阅管理），即可进入订阅管理页面，查看订阅订单信息及订阅状态，并根据需要进行自动续订或取消续订操作。
+
+![](./images/onlinepurchaseactivation-disasterresilienceauthorizationsteps-7.png)
+
+
+
 ## **回切授权步骤**
 
 1. 登录控制台后，依次点击上方导航栏的“设置” > “授权管理” > “回切授权”，进入授权管理页面。
@@ -93,3 +99,7 @@
 6. 授权订阅完成后，系统将自动跳转回控制台首页，用户即可正常访问并使用所订阅的功能与服务。
 
 ![](./images/onlinepurchaseactivation-back-cutauthorizationsteps-6.png)
+
+7. 在页面中点击 Manage Subscriptions（订阅管理），即可进入订阅管理页面，查看订阅订单信息及订阅状态，并根据需要进行自动续订或取消续订操作。
+
+![](./images/onlinepurchaseactivation-disasterresilienceauthorizationsteps-7.png)
