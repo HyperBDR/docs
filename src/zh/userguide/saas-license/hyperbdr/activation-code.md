@@ -26,11 +26,15 @@
 
 ![](./images/activationcodeactivation-disasterresilienceauthorizationsteps-5.png)
 
-3. 请向您所在公司业务联系人申请获取激活码或联系我方协助办理授权订购事宜：ecosys@oneprocloud.com
+3. 请向您所在公司业务联系人申请获取激活码或联系我方协助办理授权订购事宜：
 
-复制下方“注册码”给到对应联系人：
+- 方法一：复制下方的注册码，并发送至邮箱 ecosys@oneprocloud.com，我们将在收到邮件后尽快处理。
 
 ![](./images/activationcodeactivation-disasterresilienceauthorizationsteps-6.png)
+
+- 方法二：访问 https://oneprocloud.com/where-to-buy 购买页面，选择对应的产品并按照页面提示完成自助支付。请务必准确填写接收邮箱和注册码，以确保激活码能够正常发放。
+
+![](./images/activationcodeactivation-disasterresilienceauthorizationsteps-8.png)
 
 4. 获取激活码后在下方输入框中填写您的激活码，点击 **激活** 按钮完成授权绑定
 
