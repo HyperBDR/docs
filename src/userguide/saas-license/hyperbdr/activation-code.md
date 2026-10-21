@@ -26,11 +26,15 @@
 
 ![](./images/activationcodeactivation-disasterresilienceauthorizationsteps-5.png)
 
-3. Request the activation code from your company’s business contact,Or contact us for assistance: ecosys@oneprocloud.com
+3. Please contact your company's business representative to request an activation code, or contact us for assistance with license procurement.
 
-Copy the "Registration Code" below and share it with your contact:
+- Method 1:Copy the registration code below and send it to ecosys@oneprocloud.com. We will process your request as soon as possible after receiving your email.
 
 ![](./images/activationcodeactivation-disasterresilienceauthorizationsteps-6.png)
+
+- Method 2:Visit the [OneProCloud](https://oneprocloud.com/where-to-buy) purchase page, select the appropriate product, and follow the on-screen instructions to complete your payment. Please ensure that you enter the correct email address for receiving the activation code and the correct registration code to ensure successful delivery of the activation code.
+
+![](./images/activationcodeactivation-disasterresilienceauthorizationsteps-8.png)
 
 4. After obtaining the activation code, enter it in the input box below and click the **Activate** button to complete the authorization binding.
 
