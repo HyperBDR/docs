@@ -35,3 +35,7 @@
 6. After the license subscription is completed, the system will automatically redirect to the console homepage. You can then access and use the subscribed features and services normally.
 
 ![](./images/onlinepurchaseactivation-disasterresilienceauthorizationsteps-6.png)
+
+7. Click **Manage Subscriptions** to access the subscription management page, where you can view your subscription details and status, and enable or cancel automatic renewals as needed.
+
+![](./images/onlinepurchaseactivation-disasterresilienceauthorizationsteps-7.png)

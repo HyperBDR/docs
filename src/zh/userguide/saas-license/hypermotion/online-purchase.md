@@ -43,3 +43,7 @@
 6. 授权订阅完成后，系统将自动跳转回控制台首页，用户即可正常访问并使用所订阅的功能与服务。
 
 ![](./images/onlinepurchaseactivation-disasterresilienceauthorizationsteps-6.png)
+
+7. 在页面中点击 Manage Subscriptions（订阅管理），即可进入订阅管理页面，查看订阅订单信息及订阅状态，并根据需要进行自动续订或取消续订操作。
+
+![](./images/onlinepurchaseactivation-disasterresilienceauthorizationsteps-7.png)

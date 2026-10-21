@@ -38,6 +38,10 @@
 
 > To thank our users, an equal number of one-time fallback licenses will be automatically included with each disaster recovery license purchase. These licenses are for fallback use only, valid for one-time use, and share the same validity period as the disaster recovery license. They cannot be renewed but can be purchased separately. Please use them within the validity period to ensure uninterrupted service. For more details, click the Manage Subscriptions button on the page.
 
+7. Click **Manage Subscriptions** to access the subscription management page, where you can view your subscription details and status, and enable or cancel automatic renewals as needed.
+
+![](./images/onlinepurchaseactivation-disasterresilienceauthorizationsteps-7.png)
+
 ## **Failback Authorization Steps**
 
 1. After logging in to the console, click "Settings" > "License Management" > "Failback License" in the top navigation bar to enter the license management page.
@@ -76,3 +80,6 @@
 
 ![](./images/onlinepurchaseactivation-back-cutauthorizationsteps-6.png)
 
+7. Click **Manage Subscriptions** to access the subscription management page, where you can view your subscription details and status, and enable or cancel automatic renewals as needed.
+
+![](./images/onlinepurchaseactivation-disasterresilienceauthorizationsteps-7.png)
