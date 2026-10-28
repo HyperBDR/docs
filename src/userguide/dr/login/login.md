@@ -2,19 +2,34 @@
 
 ## **Login Entry**
 
-After the system is deployed, operations personnel can access the platform console via a web browser:
+The platform supports two service modes: private deployment and SaaS. Please select the appropriate access entry based on your actual needs.
 
-* **Console Address**: `https://<IP>:10443`
+![login-before-submit](./images/login-before-submit.png)
 
-  ![login-before-submit](./images/login-before-submit.png)
+### **Private Deployment**
 
-Enter the above address in the browser's address bar and press **Enter** to access the system and open the login page.
+#### **Username & Password Login**
 
-### **Login Information**
+- Enter the console access address in the browser address bar: `https://<Your-Server-IP>:10443`
 
-On the login page, enter the assigned **username** and **password** to authenticate. The default administrator account credentials are:
+- After the login page opens, sign in with the default administrator account:
 
-* **Username**: `admin`
-* **Initial Password**: `P@ssw0rd`
+    - **Username**: `admin`
 
-> ⚠️ **Security Notice**: To ensure account security, please change the default password immediately after your first login.
+    - **Initial Password**: `P@ssw0rd`
+
+> 💡 **Security Notice**: To keep your account secure, please change the default password promptly after your first successful login.
+
+### **SaaS Service**
+
+- Access the official platform at: [https://hyperbdr.com/](https://hyperbdr.com/login)
+
+#### **Username & Password Login**
+
+- **Existing account**: Sign in directly with the email bound to your account during registration.
+
+- **New user**: Please refer to the [Account Registration Guide](../register/register.md) to create an account first, then sign in.
+
+#### **Google Quick Sign-in**
+
+- Supports one-click quick sign-in with an authorized Google account. See [Google Sign-in Guide](../register/register.md#sign-up-with-google).

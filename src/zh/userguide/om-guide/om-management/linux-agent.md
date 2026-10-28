@@ -76,19 +76,19 @@ File system
 
 * **启动服务**
 
-  ```plain&#x20;text
+  ```plain text
   systemctl start egisplus-agent.service
   ```
 
 * **停止服务**
 
-  ```plain&#x20;text
+  ```plain text
   systemctl stop egisplus-agent.service
   ```
 
 * **重启服务**
 
-  ```plain&#x20;text
+  ```plain text
   systemctl restart egisplus-agent.service
   ```
 
@@ -96,7 +96,7 @@ File system
 
 所有系统日志文件存储在 /var/log/egisplus-agent 目录中。运维人员可以通过查看，日志文件，监控系统运行状态，排查故障，或提供相关文件给到对应项目负责人，确保系统稳定性。
 
-```plain&#x20;text
+```plain text
 egisplus-agent/
 ├── agent-syncer.log              # 与控制中心/云端同步任务的运行日志
 ├── agent-syncer-panic.log        # 同步任务的异常/崩溃日志，问题排查首选
@@ -106,9 +106,9 @@ egisplus-agent/
 ```
 ### **日志采集**
 
-在 HyperBDR 系统中，运维人员可通过&#x5728;**"运维管理 > 日志管理 > 容灾|回切 > Linux主机"**&#x9875;面，根据实际需求，收集与下载所需日志文件，便于问题排查与系统监控。
+在 HyperBDR 系统中，运维人员可通过在**"运维管理 > 日志管理 > 容灾|回切 > Linux主机"**页面，根据实际需求，收集与下载所需日志文件，便于问题排查与系统监控。
 
-选择需要收集的目标主机，点击对应行的“**采集”**&#x64CD;作按钮
+选择需要收集的目标主机，点击对应行的“**采集”**操作按钮
 
 ![](./images/downloadlogs-dr-linux-2.png)
 
@@ -126,7 +126,7 @@ egisplus-agent/
 
 #### **日志下载**
 
-日志采集完成后，状态更新&#x4E3A;**“可下载”**，用户可点击“点击查看列表”查看日志文件，并选择下载
+日志采集完成后，状态更新为**“可下载”**，用户可点击“点击查看列表”查看日志文件，并选择下载
 
 ![](./images/downloadlogs-dr-5.png)
 

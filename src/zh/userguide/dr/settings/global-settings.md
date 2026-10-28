@@ -26,7 +26,7 @@
 源端同步代理的域名映射配置主要用于以下情况：当源端需要连接的 vCenter、ESXi 或云平台 API 接口使用域名配置且未配置 DNS 时，需进行此配置，否则同步代理将无法正常进行数据同步。例如，在 VMware 环境中，如果包含多个 ESXi，则每台主机的 IP 地址和域名映射都需要在此处进行配置。
 示例配置如下：
 
-```plain&#x20;text
+```plain text
 192.168.1.10 esxi1.example.com
 192.168.1.11 esxi2.example.com
 192.168.1.12 esxi3.example.com

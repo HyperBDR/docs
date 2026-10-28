@@ -37,27 +37,27 @@ DKMS 是一项成熟且广泛应用的技术，已被包括 Google、Red Hat、U
 
 1. Ubuntu 20.04 / 22.04 / 24.04 系列环境
 
-```plain&#x20;text
+```plain text
 apt update
 apt install dkms
 ```
 
-查询是否成功安装了DKMS组件：&#x20;
+查询是否成功安装了DKMS组件： 
 
-```plain&#x20;text
+```plain text
 # dpkg -l |grep dkms
 ii  dkms        2.8.7-2ubuntu2.2     all          Dynamic Kernel Module Support Framework
 ```
 
 * CentOS / RHEL 8 / 9 系列环境
 
-```plain&#x20;text
+```plain text
 yum install dkms
 ```
 
 查询是否成功安装了DKMS组件:
 
-```plain&#x20;text
+```plain text
 # rpm -qa |grep dkms
 dkms-3.2.1-1.el9.noarch
 ```
@@ -68,15 +68,15 @@ dkms-3.2.1-1.el9.noarch
 
 部署脚本中，如果指定 --enable-dkms 参数，则采用非交互方式自动使用DKMS编译模块，系统自动认为已经安装了DKMS tools工具包：
 
-```plain&#x20;text
+```plain text
 curl -k 'https://192.168.7.122:10443/hypermotion/v1/sources/download?type=linux&id=OEExMTAwNTA1NjlGMTk1RWV5SmhiR2NpT2lKSVV6STFOaUlzSW1WNGNDSTZNVGMxTWpVM01USTJNeXdpYVdGMElqb3hOelV4T1RZMk5EWXpmUS4zQjA0NUI0NERBQjUxMUU5ZXlKdFozSmZkMkY1SWpvaVNIbHdaWEpIWVhSbElpd2lkV2xrSWpvaVl6RmxPVEl3TmpRME1qa3hOR1pqTmpobVpEUXhPRGc0WldZeFpHRTFPR0VpTENKeWIyeGxjeUk2SW1Ga2JXbHVJaXdpWlc1MFgybGtJam9pWWpBM1kySmtZVEV6TUdGak5EQXdZVGd3T0dRMk16bGlaR0UyTnpBME1UTWlmUS5OVTBQTlNudTNyaThXVUpJZXpTTkkzRGtJQlBvd1AxRlBRUjY2X1pVTXow&scene=dr' | bash -s -- --enable-dkms
 ```
 
 安装部署脚本会预先判断是否已经安装了DKMS，否则报错返回。如果已经安装了DKMS，则会自动采用DKMS进行本地编译和安装。
 
-没有采用 --enable-dkms的选项参数场景下，系统检查到本地已经安装DKMS组件，但在HyperBDR系统上没有找到相应内核的Dattobd模块包的时候，会提示部署过程是否采用DKMS进行编译Dattobd模块包：&#x20;
+没有采用 --enable-dkms的选项参数场景下，系统检查到本地已经安装DKMS组件，但在HyperBDR系统上没有找到相应内核的Dattobd模块包的时候，会提示部署过程是否采用DKMS进行编译Dattobd模块包： 
 
-```plain&#x20;text
+```plain text
 curl -k 'https://192.168.7.122:10443/hypermotion/v1/sources/download?type=linux&id=OEExMTAwNTA1NjlGMTk1RWV5SmhiR2NpT2lKSVV6STFOaUlzSW1WNGNDSTZNVGMxTWpVM01USTJNeXdpYVdGMElqb3hOelV4T1RZMk5EWXpmUS4zQjA0NUI0NERBQjUxMUU5ZXlKdFozSmZkMkY1SWpvaVNIbHdaWEpIWVhSbElpd2lkV2xrSWpvaVl6RmxPVEl3TmpRME1qa3hOR1pqTmpobVpEUXhPRGc0WldZeFpHRTFPR0VpTENKeWIyeGxjeUk2SW1Ga2JXbHVJaXdpWlc1MFgybGtJam9pWWpBM1kySmtZVEV6TUdGak5EQXdZVGd3T0dRMk16bGlaR0UyTnpBME1UTWlmUS5OVTBQTlNudTNyaThXVUpJZXpTTkkzRGtJQlBvd1AxRlBRUjY2X1pVTXow&scene=dr' | bash
 ......
 [2025-09-15 09:04:36] [INFO] Sorry, the current kernel version 5.4.0-216-generic is not found, but the DKMS tools is installed, would you like to build dattobd with DKMS? (y/n) [n]:
@@ -88,7 +88,7 @@ y/n [n]: y
 
 如果选择y，则会采用DKMS编译和安装Dattobd的内核驱动。其它情况，会按照传统的安装部署方式进行，如HyperBDR没有提供对应内核版本Dattobd模块，则会报错如下：
 
-```plain&#x20;text
+```plain text
 [2025-09-10 07:04:00] [ERROR] Sorry, the current kernel version 5.4.0-216-generic is not supported, the installation process cannot proceed.
 ```
 
@@ -96,7 +96,7 @@ y/n [n]: y
 
 输入Y后，开始采用DMKS进行编译Dattobd包：
 
-```plain&#x20;text
+```plain text
 [2025-07-07 02:58:59] [INFO] Trying to download the dattobd source code and extract to /usr/src/dattobd-version
 .gitignore
 BUILDING-PACKAGE.md
@@ -185,7 +185,7 @@ update-initramfs: Generating /boot/initrd.img-6.8.0-62-generic
 
 以下为Ubuntu升级参考过程：
 
-```plain&#x20;text
+```plain text
 # apt upgrade
 Reading package lists... Done
 Building dependency tree... Done
@@ -268,7 +268,7 @@ update-initramfs: Generating /boot/initrd.img-6.8.0-63-generic
 
 如果升级到指定内核，可以采用，同时升级headers和image的方式，升级过程中，系统会自动触发内核模块的编译和加载：
 
-```plain&#x20;text
+```plain text
 apt install linux-headers-<version>-generic linux-image-<version>-generic
 ```
 
@@ -318,7 +318,7 @@ apt install -y linux-headers-<version>-generic
 
 * 更新镜像文件，这样下次引导时自动加载驱动
 
-```plain&#x20;text
+```plain text
 depmod
 modprobe dattobd
 update-initramfs -u
@@ -358,7 +358,7 @@ update-initramfs -u
 
 重启服务器后，发现Dattobd没有自动加载，需要将Linux Agent 驱动压入引导镜像中，可采用如下命令生效：
 
-```plain&#x20;text
+```plain text
 depmod
 modprobe dattobd
 update-initramfs -u
@@ -368,7 +368,7 @@ update-initramfs -u
 
 有些版本自动开启了内核自动升级，系统内核版本自动升级一般会自动触发编译和安装重启服务器后，但是在某些场景下，可能会发现系统自动升级了image和headers 包，但是Dattobd没有重新编译，这时候需要手工触发编译；可按照如下步骤进行编译和安装，并生效：
 
-```plain&#x20;text
+```plain text
 dkms build -m dattobd -v 0.12.0
 dkms install -m dattobd -v 0.12.0
 modprobe dattobd
@@ -388,8 +388,8 @@ update-initramfs -u
 ### 6.5 FAQ 5: 如何在其他主机上复用已编译的 Linux Agent 内核模块？
 
 在安装 Linux Agent 时，系统会使用 **DKMS** 自动编译并安装 `Dattobd` 内核模块，同时将编译结果和相关脚本打包到 `/root/dattobd_dkms_build_pacakges` 目录下（例如：`/root/dattobd_dkms_build_pacakges/dattobd-5.15.0-153-generic-0.12.0.tar.gz`）。
-&#x20;管理员可将此压缩包复制到 HyperBDR 服务器对应系统目录中（例如 Ubuntu 22.04 可放置于 `/opt/installer/production/venvs/linux-agent-venv/dkms/ubuntu/22/`）。
-&#x20;当在另一台具有相同 Linux 内核版本的主机上安装 Agent 时，系统会自动检测到可用的已编译模块，并提示是否直接使用该包。若选择 **“y”**，则会自动安装该模块包并完成部署，无需重新编译。
+ 管理员可将此压缩包复制到 HyperBDR 服务器对应系统目录中（例如 Ubuntu 22.04 可放置于 `/opt/installer/production/venvs/linux-agent-venv/dkms/ubuntu/22/`）。
+ 当在另一台具有相同 Linux 内核版本的主机上安装 Agent 时，系统会自动检测到可用的已编译模块，并提示是否直接使用该包。若选择 **“y”**，则会自动安装该模块包并完成部署，无需重新编译。
 
 ### 6.6 FAQ 6： 在FAQ 5中， 如果复用Agent 内核模块所在主机Linux内核升级，如何处理？
 
@@ -415,19 +415,19 @@ update-initramfs -u
 
 主机 B 的 Dattobd 模块通常位于以下路径（其中 6.8.0-62-generic 为示例内核版本号）：
 
-```plain&#x20;text
+```plain text
 /lib/modules/6.8.0-62-generic/updates/dkms/dattobd.ko.zst
 ```
 
 > **注意：**
-> &#x20;在 Ubuntu 22.04 与 20.04 系统中，模块文件可能为 `dattobd.ko`（无 `.zst` 后缀）。
-> &#x20;请根据实际版本确认文件名称。
+>  在 Ubuntu 22.04 与 20.04 系统中，模块文件可能为 `dattobd.ko`（无 `.zst` 后缀）。
+>  请根据实际版本确认文件名称。
 
 * 将模块复制到主机 A
 
 将主机 B 上的 `dattobd.ko.zst` 文件复制到主机 A 对应的目录中：
 
-```plain&#x20;text
+```plain text
 /lib/modules/6.8.0-62-generic/dattobd.ko.zst
 ```
 
@@ -435,7 +435,7 @@ update-initramfs -u
 
 **Ubuntu 系统：**
 
-```plain&#x20;text
+```plain text
 depmod
 modprobe dattobd
 update-initramfs -u
@@ -443,7 +443,7 @@ update-initramfs -u
 
 **CentOS / RHEL 系列系统：**
 
-```plain&#x20;text
+```plain text
 depmod
 modprobe dattobd
 dracut -f

@@ -6,13 +6,13 @@
 
     后台日志组件服务目录
 
-  ```plain&#x20;text
+  ```plain text
   /opt/installer/production/logs/
   ```
 
   * **服务组件状态检查**
 
-  ```plain&#x20;text
+  ```plain text
   docker ps  #查看各服务模块
   ```
 

@@ -8,5 +8,4 @@
 
     ![dashboard-logout-signout-hover](./images/dashboard-logout-signout-hover.png)
 
-  You will be securely logged out and redirected to the login page.
   > Note: Simply closing the browser window may not end your session. It is recommended to use the logout option above to prevent unauthorized access to your account and avoid unnecessary risks.

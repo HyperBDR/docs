@@ -48,13 +48,13 @@ systemctl status s3block.service
 
   * `s3block.service`
 
-  ```plain&#x20;text
+  ```plain text
   systemctl start s3block.service
   ```
 
   * `watchman.service`
 
-  ```plain&#x20;text
+  ```plain text
   systemctl start watchman.service
   ```
 
@@ -62,13 +62,13 @@ systemctl status s3block.service
 
   * `s3block.service`
 
-  ```plain&#x20;text
+  ```plain text
   systemctl stop s3block.service
   ```
 
   * `watchman.service`
 
-  ```plain&#x20;text
+  ```plain text
   systemctl stop watchman.service
   ```
 
@@ -76,13 +76,13 @@ systemctl status s3block.service
 
   * `s3block.service`
 
-  ```plain&#x20;text
+  ```plain text
   systemctl restart s3block.service
   ```
 
   * `watchman.service`
 
-  ```plain&#x20;text
+  ```plain text
   systemctl restart watchman.service
   ```
 
@@ -98,9 +98,9 @@ systemctl status s3block.service
 ```
 ### **日志采集**
 
-在 HyperBDR 系统中，运维人员可通过&#x5728;**"运维管理 > 日志管理 > 容灾|回切 > 云同步网关"**&#x9875;面，根据实际需求，收集与下载所需日志文件，便于问题排查与系统监控。
+在 HyperBDR 系统中，运维人员可通过在**"运维管理 > 日志管理 > 容灾|回切 > 云同步网关"**页面，根据实际需求，收集与下载所需日志文件，便于问题排查与系统监控。
 
-选择需要收集的目标主机，点击对应行的“**采集”**&#x64CD;作按钮
+选择需要收集的目标主机，点击对应行的“**采集”**操作按钮
 
 ![](./images/downloadlogs-dr-gateway-2.png)
 
@@ -118,7 +118,7 @@ systemctl status s3block.service
 
 #### **日志下载**
 
-日志采集完成后，状态更新&#x4E3A;**“可下载”**，用户可点击“点击查看列表”查看日志文件，并选择下载
+日志采集完成后，状态更新为**“可下载”**，用户可点击“点击查看列表”查看日志文件，并选择下载
 
 ![](./images/downloadlogs-dr-5.png)
 

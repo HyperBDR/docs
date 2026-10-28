@@ -15,7 +15,7 @@
 
 ## 2. 操作系统支持
 
-### 2.1 源端主机&#x20;
+### 2.1 源端主机 
 
 * 点击[云平台支持矩阵](https://oneprocloud.feishu.cn/sheets/VRqksSPEPhRTPStp3kVcItXNnyh?sheet=Y9fpqO)查看兼容性列表及最新支持状态。
 
@@ -35,7 +35,7 @@
 
 同步代理 (Sync Proxy) 需要同时通过管理网络和数据网络进行通信：
 
-1. **API 访问权限&#x20;**：
+1. **API 访问权限 **：
 
    * 同步代理需要访问 OCI 的公共 API 端点（如 Identity, Compute, BlockStorage）。
 
@@ -55,7 +55,7 @@
 
 建议在 OCI 控制台配置如下 Policy（将 `GroupName` 替换为实际的用户组名）：
 
-```plain&#x20;text
+```plain text
 Allow group GroupName to manage volume-family in tenancy
 Allow group GroupName to manage instance-family in tenancy
 Allow group GroupName to use virtual-network-family in tenancy
@@ -87,7 +87,7 @@ Allow group GroupName to inspect users in tenancy
 
 1. **创建一致性快照**：系统首先对源端主机的所有磁盘创建一个卷组备份 (Volume Group Backup)，确保数据在时间点上的一致性。
 
-2. **资源还原&#x20;**：系统利用该备份，在同步代理所在的可用区临时克隆出一套临时卷。
+2. **资源还原 **：系统利用该备份，在同步代理所在的可用区临时克隆出一套临时卷。
 
 3) **挂载读取**：系统将这些临时卷以 iSCSI 方式挂载到同步代理上。
 
