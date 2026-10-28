@@ -100,7 +100,7 @@
 
 ![](./images/solution_switchbackfromthetargetcloudtothevmwareproductionenvironment-operationprocess-21.png)
 
-按 "F10"之后，在弹出的对话框里点击"Yes"&#x20;
+按 "F10"之后，在弹出的对话框里点击"Yes" 
 
 ![](./images/solution_switchbackfromthetargetcloudtothevmwareproductionenvironment-operationprocess-22.png)
 

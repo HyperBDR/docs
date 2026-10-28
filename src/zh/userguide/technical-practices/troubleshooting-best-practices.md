@@ -7,13 +7,13 @@
 在实际运维过程中，问题的发生主要涉及以下阶段：
 
 * **源端问题**
-  &#x20;源端问题通常与源环境配置或运行状态有关，常见场景包括：鉴权地址不正确、鉴权凭证填写有误、源端网络不通或受限等。通过对日志进行分析，运维人员可以快速识别异常根因，并在源端环境中进行相应调整，从而恢复正常运行。
+   源端问题通常与源环境配置或运行状态有关，常见场景包括：鉴权地址不正确、鉴权凭证填写有误、源端网络不通或受限等。通过对日志进行分析，运维人员可以快速识别异常根因，并在源端环境中进行相应调整，从而恢复正常运行。
 
 * **目标端问题**
-  &#x20;目标端问题主要涉及目标云平台或接口的运行状态，常见异常包括：鉴权信息配置错误、网络规划不合理、目标平台资源配额不足等。日志分析可帮助运维人员在第一时间发现这些环境问题，经过调整与验证后，相关迁移或容灾任务可顺利继续执行。
+   目标端问题主要涉及目标云平台或接口的运行状态，常见异常包括：鉴权信息配置错误、网络规划不合理、目标平台资源配额不足等。日志分析可帮助运维人员在第一时间发现这些环境问题，经过调整与验证后，相关迁移或容灾任务可顺利继续执行。
 
 * **产品自身问题**
-  &#x20;这类问题通常与产品服务本身的运行状态或特定场景下的功能缺陷相关。常见处理方式包括：通过日志定位后尝试重启相关服务，或在确认是产品缺陷的情况下，及时将问题反馈至研发团队，以便尽快修复。
+   这类问题通常与产品服务本身的运行状态或特定场景下的功能缺陷相关。常见处理方式包括：通过日志定位后尝试重启相关服务，或在确认是产品缺陷的情况下，及时将问题反馈至研发团队，以便尽快修复。
 
 通过系统化的日志分析流程，运维人员能够在多维度上快速识别并处理异常问题：既能区分是环境因素导致，还是产品本身存在问题，也能为进一步的优化、迭代提供数据支撑。最终，日志分析不仅是排障手段，更是保障系统稳定运行的重要工具。
 
@@ -434,55 +434,129 @@ ERROR hamal.exception [-] Unhandled error type <class 'keystoneauth1.exceptions.
 
 ### 云平台驱动版本对应关系
 
-| No.&#xA;(序号) | Platform Name &#xA;(平台名称)                | Chinese Name &#xA;(中文名称)       | Engine Generation &#xA;(所属引擎代) | Supported Storage Types &#xA;(支持存储类型) | Transitional host image build method&#xA;(过渡主机镜像构建方法) | Image types(镜像类型)                        | Primary person in charge&#xA;(主负责人) |
+| No.
+(序号) | Platform Name 
+(平台名称)                | Chinese Name 
+(中文名称)       | Engine Generation 
+(所属引擎代) | Supported Storage Types 
+(支持存储类型) | Transitional host image build method
+(过渡主机镜像构建方法) | Image types(镜像类型)                        | Primary person in charge
+(主负责人) |
 | ------------ | ---------------------------------------- | ------------------------------ | ------------------------------ | ------------------------------------- | ----------------------------------------------------- | ---------------------------------------- | ----------------------------------- |
-| 1            | Alibaba Cloud                            | 阿里云                            | v1                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张天洁                                 |
-|              |                                          |                                | v1                             | Object Storage &#xA;(对象存储)            | Upload via object storage&#xA;(通过对象存储上传)              | Linux, Linux UEFI, Windows, Windows UEFI | 张天洁                                 |
-| 2            | Alibaba Cloud Apsara Stack(v3.16.x)      | 阿里云 专有云(v3.16.x)               | v2                             | Block Storage&#xA;(块存储)               | Build based on the host&#xA;(基于主机构建)                  | Linux                                    | 张天洁                                 |
-|              |                                          |                                | v1                             | Object Storage&#xA;(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux, Windows                           | 张天洁                                 |
-| 3            | Alibaba Cloud Apsara Stack(v3.18.x)      | 阿里云 专有云(v3.18.x)               | v2                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张天洁                                 |
-|              |                                          |                                | v1                             | Object Storage&#xA;(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux, Windows                           | 张天洁                                 |
-| 4            | AWS China(SDK v1.34.93)                  | AWS中国(SDK v1.34.93)            | v2                             | Block Storage&#xA;(块存储)               | Build based on the host&#xA;(基于主机构建)                  | Linux, Linux UEFI, Windows, Windows UEFI | 张乐                                  |
-|              |                                          |                                | v2                             | Object Storage&#xA;(对象存储)             | Build based on the host&#xA;(基于主机构建)                  | Linux, Linux UEFI, Windows, Windows UEFI | 张乐                                  |
-| 5            | AWS(SDK v1.34.93)                        | AWS(SDK v1.34.93)              | v2                             | Block Storage&#xA;(块存储)               | Build based on the host&#xA;(基于主机构建)                  | Linux, Linux UEFI, Windows, Windows UEFI | 张乐                                  |
-|              |                                          |                                | v2                             | Object Storage&#xA;(对象存储)             | Build based on the host&#xA;(基于主机构建)                  | Linux, Linux UEFI, Windows, Windows UEFI | 张乐                                  |
-| 6            | ctyun JC                                 | 天翼云合营云                         | v2                             | Object Storage&#xA;(对象存储)             | Build based on the host&#xA;(基于主机构建)                  | Linux, Windows                           | 罗湘儒                                 |
-| 7            | ecloud                                   | 移动云                            | v1                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
-|              |                                          |                                | v1                             | Object Storage&#xA;(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux, Windows                           | 赵江波                                 |
-| 8            | ecloud JC                                | 移动和云                           | v1                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 郭赫伟                                 |
-| 9            | eSurfingCloud4.0                         | 天翼云4.0                         | v2                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张乐                                  |
-| 10           | FiXo Cloud BS                            | FiXo Cloud BS                  | v2                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张天洁                                 |
-| 11           | FusionCompute(v8.6.x)                    | FusionCompute(v8.6.x)          | v2                             | Object Storage&#xA;(对象存储)             | Build based on the host&#xA;(基于主机构建)                  | Linux                                    | 张天洁                                 |
-| 12           | Google Cloud(SDK v1.19.0)                | Google Cloud(SDK v1.19.0)      | v2                             | Block Storage&#xA;(块存储)               | Build based on the host&#xA;(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
-| 13           | GridCloud                                | 绿能云                            | v2                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张天洁                                 |
-| 14           | GDS                                      | GDS万国数据本地云                     | v1                             | Object Storage&#xA;(对象存储)             | Upload via object storage&#xA;(通过对象存储上传)              | Linux, Windows                           | 张天洁                                 |
-| 15           | Huawei Cloud Stack Online(v23.3)         | 华为云 HCS Online(v23.3)          | v2                             | Block Storage&#xA;(块存储)               | Build based on the host&#xA;(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
-|              |                                          |                                | v2                             | Object Storage&#xA;(对象存储)             | Build based on the host&#xA;(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
-| 16           | Huawei Cloud Stack(HCS)(v8.2.x / v8.3.x) | 华为云Stack(HCS)(v8.2.x / v8.3.x) | v1                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张江波                                 |
-| 17           | Huawei Cloud(Recommended, SDK v3.1.86)   | 华为云(推荐使用，SDK v3.1.86)          | v2                             | Block Storage&#xA;(块存储)               | Build based on the host&#xA;(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
-|              |                                          |                                | v2                             | Object Storage&#xA;(对象存储)             | Build based on the host&#xA;(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
-| 18           | Jinshan Cloud                            | 金山云                            | v1                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
-| 19           | Microsoft Azure(SDK v30.3)               | Microsoft Azure(SDK v30.3)     | v2                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
-| 20           | Open Telekom Cloud(SDK v3.1.86)          | Open Telekom Cloud(SDK 3.1.86) | v2                             | Block Storage&#xA;(块存储)               | Build based on the host&#xA;(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
-|              |                                          |                                | v2                             | Object Storage&#xA;(对象存储)             | Build based on the host&#xA;(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
-| 21           | OpenStackCommunity(Juno+)                | OpenStack社区版本(Juno+)           | v1                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
-|              |                                          |                                | v1                             | Object Storage&#xA;(对象存储)             | Upload via object storage&#xA;(通过对象存储上传)              | Linux, Windows                           | 赵江波                                 |
-| 22           | Oracle Cloud(SDK v2.126.3)               | 甲骨文云(SDK v2.126.3)             | v2                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
-| 23           | QingCloud                                | 青云                             | v1                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张天洁                                 |
-| 24           | SMTX OS(v6.x.x)                          | SMTX OS(v6.x.x)                | v2                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张乐                                  |
-| 25           | Tencent Cloud                            | 腾讯云                            | v1                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
-|              |                                          |                                | v2                             | Object Storage&#xA;(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux, Windows                           | 赵江波                                 |
-| 26           | Tencent Cloud Enterprise                 | 腾讯云 专有云企业版                     | v2                             | Block Storage&#xA;(块存储)               | Upload via object storage(通过对象存储上传)                   | Linux                                    | 张乐                                  |
-|              |                                          |                                | v2                             | Object Storage&#xA;(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux                                    | 张乐                                  |
-| 27           | Tencent Cloud TStack Enterprise          | 腾讯云 TStack企业版                  | v1                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
-| 28           | Tencent Cloud TStack Ultimate            | 腾讯云 TStack旗舰版                  | v1                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
-| 29           | TM CAE                                   | TM CAE                         | v1                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 罗湘儒                                 |
-|              |                                          |                                | v1                             | Object Storage&#xA;(对象存储)             | Upload via object storage&#xA;(通过对象存储上传)              | Linux                                    | 罗湘儒                                 |
-| 30           | UCloud                                   | UCloud                         | v1                             | Object Storage&#xA;(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux                                    | 张乐                                  |
-| 31           | UCloudStack                              | UCloudStack                    | v2                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张乐                                  |
-| 32           | VMware                                   | VMware                         | v1                             | Object Storage&#xA;(对象存储)             | Upload directly(直接上传)                                 | Linux                                    | 张天洁                                 |
-| 33           | Volcengine                               | 火山引擎                           | v2                             | Object Storage&#xA;(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux, Windows                           | 赵江波                                 |
-| 34           | XHERE(NeutonOS\_3.x)                     | XHERE(NeutonOS\_3.x)           | v2                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
-|              |                                          |                                | v2                             | Object Storage&#xA;(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux, Windows                           | 赵江波                                 |
-| 35           | ZStack(v4.x.x)                           | ZStack(v4.x.x)                 | v1                             | Block Storage&#xA;(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张天洁                                 |
+| 1            | Alibaba Cloud                            | 阿里云                            | v1                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张天洁                                 |
+|              |                                          |                                | v1                             | Object Storage 
+(对象存储)            | Upload via object storage
+(通过对象存储上传)              | Linux, Linux UEFI, Windows, Windows UEFI | 张天洁                                 |
+| 2            | Alibaba Cloud Apsara Stack(v3.16.x)      | 阿里云 专有云(v3.16.x)               | v2                             | Block Storage
+(块存储)               | Build based on the host
+(基于主机构建)                  | Linux                                    | 张天洁                                 |
+|              |                                          |                                | v1                             | Object Storage
+(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux, Windows                           | 张天洁                                 |
+| 3            | Alibaba Cloud Apsara Stack(v3.18.x)      | 阿里云 专有云(v3.18.x)               | v2                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张天洁                                 |
+|              |                                          |                                | v1                             | Object Storage
+(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux, Windows                           | 张天洁                                 |
+| 4            | AWS China(SDK v1.34.93)                  | AWS中国(SDK v1.34.93)            | v2                             | Block Storage
+(块存储)               | Build based on the host
+(基于主机构建)                  | Linux, Linux UEFI, Windows, Windows UEFI | 张乐                                  |
+|              |                                          |                                | v2                             | Object Storage
+(对象存储)             | Build based on the host
+(基于主机构建)                  | Linux, Linux UEFI, Windows, Windows UEFI | 张乐                                  |
+| 5            | AWS(SDK v1.34.93)                        | AWS(SDK v1.34.93)              | v2                             | Block Storage
+(块存储)               | Build based on the host
+(基于主机构建)                  | Linux, Linux UEFI, Windows, Windows UEFI | 张乐                                  |
+|              |                                          |                                | v2                             | Object Storage
+(对象存储)             | Build based on the host
+(基于主机构建)                  | Linux, Linux UEFI, Windows, Windows UEFI | 张乐                                  |
+| 6            | ctyun JC                                 | 天翼云合营云                         | v2                             | Object Storage
+(对象存储)             | Build based on the host
+(基于主机构建)                  | Linux, Windows                           | 罗湘儒                                 |
+| 7            | ecloud                                   | 移动云                            | v1                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
+|              |                                          |                                | v1                             | Object Storage
+(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux, Windows                           | 赵江波                                 |
+| 8            | ecloud JC                                | 移动和云                           | v1                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 郭赫伟                                 |
+| 9            | eSurfingCloud4.0                         | 天翼云4.0                         | v2                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张乐                                  |
+| 10           | FiXo Cloud BS                            | FiXo Cloud BS                  | v2                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张天洁                                 |
+| 11           | FusionCompute(v8.6.x)                    | FusionCompute(v8.6.x)          | v2                             | Object Storage
+(对象存储)             | Build based on the host
+(基于主机构建)                  | Linux                                    | 张天洁                                 |
+| 12           | Google Cloud(SDK v1.19.0)                | Google Cloud(SDK v1.19.0)      | v2                             | Block Storage
+(块存储)               | Build based on the host
+(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
+| 13           | GridCloud                                | 绿能云                            | v2                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张天洁                                 |
+| 14           | GDS                                      | GDS万国数据本地云                     | v1                             | Object Storage
+(对象存储)             | Upload via object storage
+(通过对象存储上传)              | Linux, Windows                           | 张天洁                                 |
+| 15           | Huawei Cloud Stack Online(v23.3)         | 华为云 HCS Online(v23.3)          | v2                             | Block Storage
+(块存储)               | Build based on the host
+(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
+|              |                                          |                                | v2                             | Object Storage
+(对象存储)             | Build based on the host
+(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
+| 16           | Huawei Cloud Stack(HCS)(v8.2.x / v8.3.x) | 华为云Stack(HCS)(v8.2.x / v8.3.x) | v1                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张江波                                 |
+| 17           | Huawei Cloud(Recommended, SDK v3.1.86)   | 华为云(推荐使用，SDK v3.1.86)          | v2                             | Block Storage
+(块存储)               | Build based on the host
+(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
+|              |                                          |                                | v2                             | Object Storage
+(对象存储)             | Build based on the host
+(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
+| 18           | Jinshan Cloud                            | 金山云                            | v1                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
+| 19           | Microsoft Azure(SDK v30.3)               | Microsoft Azure(SDK v30.3)     | v2                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
+| 20           | Open Telekom Cloud(SDK v3.1.86)          | Open Telekom Cloud(SDK 3.1.86) | v2                             | Block Storage
+(块存储)               | Build based on the host
+(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
+|              |                                          |                                | v2                             | Object Storage
+(对象存储)             | Build based on the host
+(基于主机构建)                  | Linux                                    | 罗湘儒                                 |
+| 21           | OpenStackCommunity(Juno+)                | OpenStack社区版本(Juno+)           | v1                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
+|              |                                          |                                | v1                             | Object Storage
+(对象存储)             | Upload via object storage
+(通过对象存储上传)              | Linux, Windows                           | 赵江波                                 |
+| 22           | Oracle Cloud(SDK v2.126.3)               | 甲骨文云(SDK v2.126.3)             | v2                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
+| 23           | QingCloud                                | 青云                             | v1                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张天洁                                 |
+| 24           | SMTX OS(v6.x.x)                          | SMTX OS(v6.x.x)                | v2                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张乐                                  |
+| 25           | Tencent Cloud                            | 腾讯云                            | v1                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
+|              |                                          |                                | v2                             | Object Storage
+(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux, Windows                           | 赵江波                                 |
+| 26           | Tencent Cloud Enterprise                 | 腾讯云 专有云企业版                     | v2                             | Block Storage
+(块存储)               | Upload via object storage(通过对象存储上传)                   | Linux                                    | 张乐                                  |
+|              |                                          |                                | v2                             | Object Storage
+(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux                                    | 张乐                                  |
+| 27           | Tencent Cloud TStack Enterprise          | 腾讯云 TStack企业版                  | v1                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
+| 28           | Tencent Cloud TStack Ultimate            | 腾讯云 TStack旗舰版                  | v1                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
+| 29           | TM CAE                                   | TM CAE                         | v1                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 罗湘儒                                 |
+|              |                                          |                                | v1                             | Object Storage
+(对象存储)             | Upload via object storage
+(通过对象存储上传)              | Linux                                    | 罗湘儒                                 |
+| 30           | UCloud                                   | UCloud                         | v1                             | Object Storage
+(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux                                    | 张乐                                  |
+| 31           | UCloudStack                              | UCloudStack                    | v2                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张乐                                  |
+| 32           | VMware                                   | VMware                         | v1                             | Object Storage
+(对象存储)             | Upload directly(直接上传)                                 | Linux                                    | 张天洁                                 |
+| 33           | Volcengine                               | 火山引擎                           | v2                             | Object Storage
+(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux, Windows                           | 赵江波                                 |
+| 34           | XHERE(NeutonOS\_3.x)                     | XHERE(NeutonOS\_3.x)           | v2                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 赵江波                                 |
+|              |                                          |                                | v2                             | Object Storage
+(对象存储)             | Upload via object storage(通过对象存储上传)                   | Linux, Windows                           | 赵江波                                 |
+| 35           | ZStack(v4.x.x)                           | ZStack(v4.x.x)                 | v1                             | Block Storage
+(块存储)               | Build based on the host(基于主机构建)                       | Linux                                    | 张天洁                                 |
 

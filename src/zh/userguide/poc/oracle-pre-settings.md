@@ -1,7 +1,7 @@
 # Oracle Cloud 源端无代理预设置
 
 > **适用场景**：用于在 HyperBDR / HyperMotion / OnePro 产品中，通过 Oracle Cloud（OCI）进行无代理（Agentless）资源发现、同步或容灾功能。
-> &#x20;本文档指导客户如何创建 OCI 用户、用户组、授权策略、下载 API Key（公钥/私钥），并最终生成可用于产品端的认证信息。
+>  本文档指导客户如何创建 OCI 用户、用户组、授权策略、下载 API Key（公钥/私钥），并最终生成可用于产品端的认证信息。
 
 ***
 

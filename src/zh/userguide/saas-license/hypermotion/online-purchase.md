@@ -32,11 +32,11 @@
 
 ![](./images/onlinepurchaseactivation-disasterresilienceauthorizationsteps-3.png)
 
-4. 点&#x51FB;**“立即订阅”**&#x63D0;交订阅请求后，系统会弹出确认提示，确认是否跳转至第三方支付平台。用户点&#x51FB;**“确认前往”**&#x540E;，系统将在新窗口中打开支付页面，完成付款后即视为订阅成功。
+4. 点击**“立即订阅”**提交订阅请求后，系统会弹出确认提示，确认是否跳转至第三方支付平台。用户点击**“确认前往”**后，系统将在新窗口中打开支付页面，完成付款后即视为订阅成功。
 
 ![](./images/onlinepurchaseactivation-disasterresilienceauthorizationsteps-4.png)
 
-5. 用户在跳转的支付页面中填写有效的支付鉴权信息，点&#x51FB;**“订阅”**&#x4EE5;确认付款。系统将处理支付请求，完成支付后，所选订阅授权将立即生效。
+5. 用户在跳转的支付页面中填写有效的支付鉴权信息，点击**“订阅”**以确认付款。系统将处理支付请求，完成支付后，所选订阅授权将立即生效。
 
 ![](./images/onlinepurchaseactivation-disasterresilienceauthorizationsteps-5.png)
 

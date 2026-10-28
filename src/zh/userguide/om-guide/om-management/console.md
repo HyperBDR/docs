@@ -36,13 +36,13 @@
 
 返回结果包括：
 
-```plain&#x20;text
+```plain text
 /opt/installer/production/scripts/hmctl status
 ```
 
 > 注意：可为其增加系统环境变量使其全局调用
 
-```plain&#x20;text
+```plain text
 echo 'export PATH=$PATH:/opt/installer/production/scripts' >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -84,13 +84,13 @@ source ~/.bashrc
 
   * 启动全部服务
 
-  ```plain&#x20;text
+  ```plain text
   /opt/installer/production/scripts/hmctl start
   ```
 
   * 启动单个服务
 
-  ```plain&#x20;text
+  ```plain text
   /opt/installer/production/scripts/hmctl start <服务名>
   ```
 
@@ -98,13 +98,13 @@ source ~/.bashrc
 
   * 停止全部服务
 
-  ```plain&#x20;text
+  ```plain text
   /opt/installer/production/scripts/hmctl stop
   ```
 
   * 停止单个服务
 
-  ```plain&#x20;text
+  ```plain text
   /opt/installer/production/scripts/hmctl stop <服务名>
   ```
 
@@ -112,13 +112,13 @@ source ~/.bashrc
 
   * 重启全部服务
 
-  ```plain&#x20;text
+  ```plain text
   /opt/installer/production/scripts/hmctl restart
   ```
 
   * 重启单个服务
 
-  ```plain&#x20;text
+  ```plain text
   /opt/installer/production/scripts/hmctl restart <服务名>
   ```
 
@@ -126,7 +126,7 @@ source ~/.bashrc
 
   > **注意：该命令只用于基础镜像有更新的情况下使用**
 
-  ```plain&#x20;text
+  ```plain text
   /opt/installer/production/scripts/hmctl reload
   ```
 
@@ -156,9 +156,9 @@ source ~/.bashrc
 ```
 ### **日志采集**
 
-在 HyperBDR 系统中，运维人员可通过&#x5728;**"运维管理 > 日志管理 > 容灾|回切 > 控制台"**&#x9875;面，根据实际需求，收集与下载所需日志文件，便于问题排查与系统监控。
+在 HyperBDR 系统中，运维人员可通过在**"运维管理 > 日志管理 > 容灾|回切 > 控制台"**页面，根据实际需求，收集与下载所需日志文件，便于问题排查与系统监控。
 
-选择需要收集的目标主机，点击对应行的“**采集”**&#x64CD;作按钮
+选择需要收集的目标主机，点击对应行的“**采集”**操作按钮
 
 ![](./images/downloadlogs-dr-console-2.png)
 
@@ -176,7 +176,7 @@ source ~/.bashrc
 
 #### **日志下载**
 
-日志采集完成后，状态更新&#x4E3A;**“可下载”**，用户可点击“点击查看列表”查看日志文件，并选择下载
+日志采集完成后，状态更新为**“可下载”**，用户可点击“点击查看列表”查看日志文件，并选择下载
 
 ![](./images/downloadlogs-dr-5.png)
 

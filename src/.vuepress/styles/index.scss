@@ -2063,3 +2063,12 @@ html[data-theme="dark"] {
     width: calc(100% - 1rem);
   }
 }
+// ============================================
+// 隐藏图片下方的图注（figcaption）
+// 原因：theme-hope 的 image 插件默认 figure:true，
+// 会把图片 alt（文件名标签）渲染成图注显示在图片下方。
+// 这里隐藏显示，但 md 里的 alt 保留不动（仍作为 <img alt> 语义存在）。
+// ============================================
+figure figcaption {
+  display: none;
+}

@@ -1,9 +1,9 @@
 # Host Failback
 
-Host Failback provides step-by-step guidance to restore your business to the source production environment after Drill/Takeover is complete and the source environment recovers from failure. The process consists of three main steps: Select Host, Setup Failback, and Start Failback. By following these three steps, you can complete the entire failback process.
+Host Failback guides you through restoring workloads back to the source production environment after a drill or takeover has completed and the source site is recovered. The workflow mirrors the forward DR process in three key steps: **Select Host**, **Setup Failback**, and **Start Failback**.
 
-Click the "Resource DR" navigation menu at the top, then click the "Host Failback" menu on the left side to perform the failback operations.
+To begin, click the top **"DR"** navigation bar and select **"Host Failback"** in the left sidebar.
 
 ![failback-select-host-main](./images/failback-select-host-main.png)
 
-When entering the failback configuration stage, the configuration process is the same as the Host DR workflow. For details on each configuration option and how to use it, refer to the configuration guide in the [**Host DR**](host-dr.md) section. After completing the required settings, you can proceed with the Failback operation.
+The configuration logic in the failback setup stage follows the same principles as the Host DR workflow. For detailed descriptions and instructions for each setting, refer to the [**Host DR**](host-dr.md) guide. Once configuration is complete, proceed with the failback execution.

@@ -42,7 +42,7 @@ curl -k -O "$HYPERBDR_PACKAGE_MD5"
 
 下载完成后使用Xftp等类似工具将安装包上传至控制台主机
 
-```plain&#x20;text
+```plain text
 https://install.oneprocloud.com/get_hyperbdr_latest
 ```
 
@@ -50,7 +50,7 @@ https://install.oneprocloud.com/get_hyperbdr_latest
 
 使用下列命令将其解压至指定目录：
 
-```plain&#x20;text
+```plain text
 tar zxvf <更新包>.tar.gz -C /更新包解压后路径
 ```
 
@@ -58,7 +58,7 @@ tar zxvf <更新包>.tar.gz -C /更新包解压后路径
 
 执行升级命令，系统将自动加载更新内容至运行目录 `/opt/installer/production/venvs`：
 
-```plain&#x20;text
+```plain text
 /opt/installer/production/scripts/hmctl upgrade /<更新包解压路径>/installer/venvs
 ```
 
