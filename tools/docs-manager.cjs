@@ -34,13 +34,13 @@ function downgradeHeadings(content, level = 2) {
 // 关键函数，去掉一个 ../
 function fixRelativeLinks(content) {
   return content.replace(
-    /(?<!\!)\[(.*?)\]\(\s*(\.\.\/+)([^\)]*)\)/g,
-    (match, text, prefix, rest) => {
+    /(!?\[.*?\])\(\s*(\.\.\/+)([^\)]*)\)/g,
+    (match, bracket, prefix, rest) => {
       const newPrefix = prefix.replace(/^\.\.\//, '');
       if (newPrefix === '') {
-        return `[${text}](./${rest})`;
+        return `${bracket}(./${rest})`;
       } else {
-        return `[${text}](${newPrefix}${rest})`;
+        return `${bracket}(${newPrefix}${rest})`;
       }
     }
   );
