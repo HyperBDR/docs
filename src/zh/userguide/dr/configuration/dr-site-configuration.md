@@ -203,7 +203,7 @@
 
 > 注：该功能主要用于在存在内外网络隔离或 NAT 转换的网络环境中，引导数据流使用正确的出口地址，从而保证源端与目标端之间的数据传输链路连通。
 
-[config-generic-mode-failback-th-action-hover-data-transmission-nat](./images/config-generic-mode-failback-th-action-hover-data-transmission-nat.png)
+![config-generic-mode-failback-th-action-hover-data-transmission-nat](./images/config-generic-mode-failback-th-action-hover-data-transmission-nat.png)
 
 ![config-generic-mode-failback-th-action-click-data-transmission-nat](./images/config-generic-mode-failback-th-action-click-data-transmission-nat.png)
 

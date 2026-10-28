@@ -7,6 +7,10 @@ export default defineUserConfig({
 
   base: "/",
 
+  // Exclude @include fragment directories (e.g. `_host-dr/`, `_production-site/`)
+  // from being rendered as standalone pages.
+  pagePatterns: ["**/*.md", "!.vuepress", "!node_modules", "!**/_*/**"],
+
   locales: {
     "/": {
       lang: "en-US",

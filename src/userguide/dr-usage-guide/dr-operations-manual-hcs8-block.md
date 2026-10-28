@@ -214,7 +214,7 @@ Choose **"Block Storage"** as the storage type, and select the configured cloud 
 
 > VPC networks and Subnets need to be created in advance under your Huawei Cloud Stack account.
 
-![hyperbdruserguide-tohcs8-blockstoragemode-12.png].(/images/hyperbdruserguide-tohcs8-blockstoragemode-12.png)  
+![hyperbdruserguide-tohcs8-blockstoragemode-12.png].(/images/hyperbdruserguide-tohcs8-blockstoragemode-12.webp)  
 
 **Disaster recovery configuration step 6:** Advanced Configuratior; Set Driver Injection on and off, and the opening and closing of the Custom Pre & Post scripts. After completing the configuration, click on the **"Next"** button.  
 
