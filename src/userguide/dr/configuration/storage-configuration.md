@@ -62,13 +62,21 @@ After completing the authentication information, click **"Next"** to continue co
 
 ![](./images/storageconfiguration-objectstorage-3.png)
 
+### **Failback**
+
+From the top navigation bar, select **"Configuration" → "Storage Configuration" → "Object Storage" → "Failback"** to enter the object storage page. Click the **"Add"** button in the upper right corner to add a new object storage configuration.
+
+When entering the specific failback storage configuration stage, the configuration process is identical to the disaster recovery storage configuration process. Refer to the [**Disaster Recovery Object Storage Configuration**](#dr) section for parameter meanings and operation methods. Once configured, you can proceed with host failback operations.
+
+![config-block-storage-dr](./images/config-block-storage-dr.png)
+
 ## **Block Storage**
 
 ### **Add Block Storage**
 
 From the top navigation bar, select **"Configuration" → "Storage Configuration" → "Block Storage"** to enter the block storage page. Click the **"Add"** button in the upper right corner to add a new block storage configuration.
 
-![config-block-storage-dr](./images/config-block-storage-dr.png)
+![](./images/storageconfiguration-blockstoragemode-1.png)
 
 You can click the "Configuration Guide" link next to each cloud platform in the list to view detailed operation steps.
 

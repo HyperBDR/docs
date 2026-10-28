@@ -2,15 +2,19 @@
 
 The registration function allows new users to create a platform account for future login, use, and receiving system notifications. During registration, users need to provide required identity information and contact details. The platform will verify user identity through the configured verification method to ensure account security.
 
-## **Start Registration**
+The platform supports two registration methods: email registration and Google account sign-in.
 
-### **Access the Registration Page**
+## **Registration Methods**
+
+### **Register with Email**
+
+#### **Access the Registration Page**
 
 Open the login page and click **"Don't have an account? Sign up"** to enter the account registration page.
 
 ![](./images/register-startregistration-1.png)
 
-### **Fill in Registration Information**
+#### **Fill in Registration Information**
 
 Enter the required information, including: first name, last name, company name, country/region, email, and other authentication details.
 
@@ -18,19 +22,19 @@ Enter the required information, including: first name, last name, company name, 
 
 ![](./images/register-startregistration-2.png)
 
-### **Submit Registration Application**
+#### **Submit Registration Application**
 
 After filling in the authentication information, click **"Send Registration Email"**. The system will send a verification email.
 
 ![](./images/register-startregistration-3.png)
 
-### **Activation Confirmation**
+#### **Activation Confirmation**
 
 Please check your registration email inbox, click **"Activate Registration"** in the email to complete the verification. Your account will be activated and the system will redirect you to the **"Set Password"** page.
 
 ![](./images/register-startregistration-4.png)
 
-### **Set Password**
+#### **Set Password**
 
 After account activation, you need to enter and confirm a new password to complete the registration process.
 
@@ -41,6 +45,16 @@ After account activation, you need to enter and confirm a new password to comple
 After setting the password, you can now use it to log in and securely access the platform. Please go to the login page to sign in.
 
 ![](./images/register-startregistration-6.png)
+
+### **Sign Up with Google**
+
+Open the login page and click **"Continue with Google"**.
+
+![](../login/images/login-before-submit.png)
+
+The system will redirect you to the Google authorization page. Select the Google account you want to use and complete the authorization.
+
+After authorization, the system will automatically create a platform account and log you in. No email verification is required.
 
 ## **Forgot Password**
 

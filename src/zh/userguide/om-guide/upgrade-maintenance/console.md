@@ -13,7 +13,7 @@
 
 * 解压至指定目录，例如：
 
-```plain&#x20;text
+```plain text
 tar zxvf <更新包>.tar.gz -C /更新包解压路径
 ```
 ### 单个模块升级
@@ -24,7 +24,7 @@ tar zxvf <更新包>.tar.gz -C /更新包解压路径
 
 * 创建更新包目录
 
-```plain&#x20;text
+```plain text
 mkdir -p /root/upgrade_$(date +%Y%m%d)
 ```
 * 上传更新包到新创建目录下
@@ -36,7 +36,7 @@ mkdir -p /root/upgrade_$(date +%Y%m%d)
 
 * 执行升级命令，系统将自动加载更新内容至运行目录 `/opt/installer/production/venvs`：
 
-```plain&#x20;text
+```plain text
 cd /opt/installer/production/scripts
 ./hmctl upgrade /更新包解压路径/installer/venvs
 ```
@@ -45,7 +45,7 @@ cd /opt/installer/production/scripts
 
 * 执行升级命令，系统将自动加载更新内容至运行目录 `/opt/installer/production/venvs`：
 
-```plain&#x20;text
+```plain text
 cd /opt/installer/production/scripts
 ./hmctl upgrade /root/upgrade_$(date +%Y%m%d)/
 ```

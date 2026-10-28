@@ -1,8 +1,8 @@
-# Profile
+# **Profile**
 
 Our system provides comprehensive account management features, allowing you to easily view, update, and manage your account details while ensuring security.
 
-### **Account**
+## **Account**
 
 After logging in, click your username at the top right corner and select "Account" from the dropdown menu to view your account details.
 

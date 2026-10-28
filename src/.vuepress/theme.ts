@@ -181,7 +181,9 @@ export default hopeTheme({
       // figure: true,
       // imgLazyload: true,
       // imgSize: true,
-      include: true,
+      include: {
+        deep: true,
+      },
       mark: true,
       plantuml: true,
       spoiler: true,
@@ -240,7 +242,6 @@ export default hopeTheme({
 
       // Install sandpack-vue3 before enabling it
       // sandpack: true,
-      image: true, // 使用 @vuepress/plugin-markdown-image
       tab: true,   // 使用 @vuepress/plugin-markdown-tab
     },
 

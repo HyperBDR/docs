@@ -8,6 +8,8 @@
 
   * Español
 
+  * 日本語
+
 * To change the display language in the system interface:
 
   * Click the "A icon" in the upper right corner to open the dropdown menu.
