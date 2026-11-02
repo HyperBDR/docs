@@ -1,173 +1,251 @@
 # **Policy Settings**
 
-The policy settings module is used to centrally configure and manage key control policies for DR processes, helping users flexibly define data sync, resource scheduling, and retention strategies. There are three types of policies: **Sync Policy** (defines sync frequency and method), **Speed Limit Policy** (controls network or IO usage during sync), and **Retention Policy** (sets snapshot or replica retention period and count to optimize storage and ensure recovery needs).
+The **Policy Settings module** is used to centrally configure and manage critical control policies during disaster recovery and failback, helping users flexibly design data sync schedules, network resource allocation, and storage snapshot retention plans. The system supports three core policy types:
+- **Sync Policy**: Defines the trigger frequency and scheduling method for full and incremental data synchronization.
+- **Speed Limit Policy**: Controls host network bandwidth consumption during data transmission based on peak and off-peak business hours.
+- **Retention Policy**: Optimizes target storage space utilization and meets Recovery Point Objectives (RPO) by configuring retention periods and snapshot quantities.
+
+---
 
 ## **Create Policy**
 
-Go to [Configuration] > [Policy Settings]. Users can configure policies for different scenarios in both **DR** and **Failback** modules.
+### **Operational Steps**
 
-Click [Create Policy] to add a new policy label and fill in the required configuration as needed. The system supports multiple policy types at the same time, so you can flexibly manage Sync, Speed Limit, and Retention policies for comprehensive DR and failback control.
+1. Log in to the HyperBDR console, and navigate to **【Configuration】>【Policy Settings】** from the top navigation menu.
+2. Policies can be independently maintained in the **【DR】** and **【Failback】** modules; switch to the target business module.
+3. Click the **【+ Create Policy】** button in the upper right corner to open the full-screen policy configuration dialog.
+4. In the basic information area, enter the policy name, set the snapshot retention quota, and select the initial policy status.
 
-![config-policy-settings-dr-create-policy](./images/config-policy-settings-dr-create-policy.png)
+![policysettings-createapolicy-1](./images/policysettings-createapolicy-1.png)
 
-After entering the policy name, setting the snapshot retention count, and selecting the policy status, you can configure the following details.
+#### **Basic Information Parameters**
+
+| **Parameter** | **Description** |
+| :--- | :--- |
+| **Policy Name** | Unique identifier for the policy. It is recommended to name it according to business systems or application levels. |
+| **Quota** | Maximum number of snapshot replicas retained on the target end. When exceeded, snapshots will be automatically rotated and purged based on the retention policy. |
+| **Policy Status** | Default operational status after creation (Enable / Disable). |
+
+---
 
 ### **Sync Policy**
 
-You can set up sync policies by choosing a time period or using advanced settings for different types.
+In policy settings, users can configure both **Incremental Sync** and **Full Sync** modes to build flexible data synchronization plans.
 
-> Incremental and full sync can be configured in parallel. To ensure tasks run smoothly, avoid overlapping times.
+::: note
+Incremental sync and full sync can be configured in parallel. To ensure smooth task execution, it is recommended to plan execution schedules reasonably to avoid schedule overlap causing network and storage I/O resource contention.
+:::
 
 #### **Incremental Sync**
 
-Enable incremental sync in the policy. After the initial full sync, the system will run incremental sync tasks at the set frequency or trigger, providing ongoing, lightweight data protection.
+Incremental sync continuously replicates source changes at defined cycles after initial full backup, achieving lightweight, low-overhead continuous data protection. Two scheduling types are supported:
 
-##### **Time Period Settings**
-![](./images/policysettings-createapolicy-2.png)
+##### **1. Time Period Mode**
 
-| **Field** | **Example**                   | **Description**                             |
-|-----------|------------------------------|---------------------------------------------|
-| Type      | Time Period                   | Type of sync schedule                       |
-| Cycle     | Every N minutes               | Runs at a fixed interval                    |
-| Minutes   | 30                            | Runs every N minutes, N = 5–59              |
-| Start Time| 2025-05-27 00:00:00           | First run time, then triggers by cycle      |
-| Time Zone | (GMT+08:00) Asia/shanghai     | Time zone for scheduling, set explicitly    |
+Trigger incremental sync tasks at fixed time intervals.
 
-##### **Advanced Setting**
-![](./images/policysettings-createapolicy-3.png)
+![policysettings-createapolicy-2](./images/policysettings-createapolicy-2.png)
 
-| **Field**        | **Example**         | **Description**                                                                                                                                                                                                                                   |
-|------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Type             | Advanced           | Use crontab expressions for flexible scheduling.                                                                                                                                                           |
-| Configuration    | */30 * * * *       | Use crontab to set rules with minute, hour, day, month, week. Symbols: <br> `*` every, `,` multiple, `-` range, `/` step. <br> Examples: <br> `15 * * * *` 15th min each hour <br> `0 2 * * *` 2am daily <br> `0 0 * * 1` Mon midnight <br> `0 5 1 * *` 5am 1st monthly <br> `*/5 * * * *` every 5 min <br> `*/5 8-20 * * *` every 5 min 8am-8pm |
-| Start Time       | 2025-05-27 00:00:00| First run time                                                                                                               |
-| Time Zone        | (GMT+08:00) Asia/shanghai | Time zone for scheduling, set explicitly    |
+| **Parameter** | **Example Value** | **Description** |
+| :--- | :--- | :--- |
+| **Type** | Time Period | Basic periodic scheduling mode. |
+| **Cycle** | Every N minutes | Triggers cyclically at fixed time intervals. |
+| **Minutes** | `30` | Execution interval, valid range is an integer between `5` and `59`. |
+| **Start Time** | `2025-05-27 00:00:00` | Effective time of the first execution, followed by cycles based on this time. |
+| **Time Zone** | `(GMT+08:00) Asia/Shanghai` | Reference time zone for task scheduling. Setting it explicitly avoids deviations. |
+
+##### **2. Advanced Setting Mode (Crontab)**
+
+Use standard 5-field Crontab expressions to configure flexible and complex timing rules.
+
+![policysettings-createapolicy-3](./images/policysettings-createapolicy-3.png)
+
+| **Parameter** | **Example Value** | **Description** |
+| :--- | :--- | :--- |
+| **Type** | Advanced Setting | Use Crontab expressions to customize complex scheduling rules. |
+| **Configuration** | `*/30 * * * *` | Combine time rules using five fields: minute, hour, day, month, weekday.<br><br>**Common Wildcards:**<br>• `*`: Every point in time;<br>• `,`: Enumerate multiple values;<br>• `-`: Continuous range;<br>• `/`: Step value (e.g., every N minutes/hours).<br><br>**Common Expression Examples:**<br>• `15 * * * *`: Triggers at minute 15 of every hour;<br>• `0 2 * * *`: Runs daily at 2:00 AM;<br>• `0 0 * * 1`: Runs every Monday at 0:00 AM;<br>• `0 5 1 * *`: Runs on the 1st of every month at 5:00 AM;<br>• `*/5 * * * *`: Runs every 5 minutes;<br>• `*/5 8-20 * * *`: Runs every 5 minutes during working hours (8:00–20:00). |
+| **Start Time** | `2025-05-27 00:00:00` | Base effective time for the policy. |
+| **Time Zone** | `(GMT+08:00) Asia/Shanghai` | Reference time zone for scheduling. |
+
+---
 
 #### **Full Sync**
 
-The system will run a full sync first, so the target has a complete copy of the source. This uses more resources and bandwidth and may take longer, so schedule carefully to avoid business impact.
+Full sync performs a complete data baseline synchronization for the source host. Since full sync reads the entire disk and consumes relatively high network bandwidth, it is usually recommended to schedule it during off-peak business hours.
 
-##### **Time Period Settings**
-![](./images/policysettings-createapolicy-4.png)
+##### **1. Time Period Mode**
 
-| **Field** | **Example**                   | **Description**                             |
-|-----------|------------------------------|---------------------------------------------|
-| Type      | Time Period                   | Type of sync schedule                       |
-| Cycle     | Every N minutes               | Runs at a fixed interval                    |
-| Minutes   | 30                            | Runs every N minutes, N = 5–59              |
-| Start Time| 2025-05-27 00:00:00           | First run time, then triggers by cycle      |
-| Time Zone | (GMT+08:00) Asia/shanghai     | Time zone for scheduling, set explicitly    |
+![policysettings-createapolicy-4](./images/policysettings-createapolicy-4.png)
 
-##### **Advanced Setting**
-![](./images/policysettings-createapolicy-5.png)
+| **Parameter** | **Example Value** | **Description** |
+| :--- | :--- | :--- |
+| **Type** | Time Period | Schedules full sync tasks at fixed intervals. |
+| **Cycle** | Every N minutes | Recurrence interval setting. |
+| **Minutes** | `30` | Valid range is an integer between `5` and `59`. |
+| **Start Time** | `2025-05-27 00:00:00` | Scheduled effective time for full sync. |
+| **Time Zone** | `(GMT+08:00) Asia/Shanghai` | Reference time zone for scheduling. |
 
-| **Field**        | **Example**         | **Description**                                                                                                                                                                                                                                   |
-|------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Type             | Advanced           | Use crontab expressions for flexible scheduling.                                                                                                                                                           |
-| Configuration    | */30 * * * *       | Use crontab to set rules with minute, hour, day, month, week. Symbols: <br> `*` every, `,` multiple, `-` range, `/` step. <br> Examples: <br> `15 * * * *` 15th min each hour <br> `0 2 * * *` 2am daily <br> `0 0 * * 1` Mon midnight <br> `0 5 1 * *` 5am 1st monthly <br> `*/5 * * * *` every 5 min <br> `*/5 8-20 * * *` every 5 min 8am-8pm |
-| Start Time       | 2025-05-27 00:00:00| First run time                                                                                                               |
-| Time Zone        | (GMT+08:00) Asia/shanghai | Time zone for scheduling, set explicitly    |
+##### **2. Advanced Setting Mode (Crontab)**
+
+![policysettings-createapolicy-5](./images/policysettings-createapolicy-5.png)
+
+| **Parameter** | **Example Value** | **Description** |
+| :--- | :--- | :--- |
+| **Type** | Advanced Setting | Use Crontab expressions to customize full sync schedules. |
+| **Configuration** | `*/30 * * * *` | Executes according to standard Crontab rules (syntax identical to incremental advanced mode). |
+| **Start Time** | `2025-05-27 00:00:00` | Effective time for the plan. |
+| **Time Zone** | `(GMT+08:00) Asia/Shanghai` | Reference time zone for scheduling. |
+
+---
+
+#### **View Execution Time**
+
+After configuring sync policy parameters, users can click the **【View Execution Time】** button at the bottom of the dialog. The system will automatically calculate upcoming execution timestamps based on the start time, interval minutes, or Crontab expression, making it easy to verify scheduling logic before saving.
+
+![policysettings-createapolicy-6](./images/policysettings-createapolicy-6.png)
+
+---
 
 ### **Speed Limit Policy**
 
-You can define multiple time periods, each with its own speed limit, to manage bandwidth during peak and off-peak hours.
+The speed limit policy allows users to set independent bandwidth caps for sync tasks across different time periods, preventing DR replication traffic from overwhelming daytime production network bandwidth.
 
-> You can set different speed limits for different periods in the same cycle. Changing the cycle will clear current speed limit settings.
+::: tip
+Configuring multiple speed limit rules across different time periods within the same cycle is supported; switching the cycle type will reset and clear existing time period configurations.
+:::
 
 #### **Multi-time Periods Speed Limiting**
 
-Set different bandwidth limits for different time periods to flexibly control sync network usage.
+Check to enable multi-period speed limiting, allowing you to configure host transmission bandwidth limits for different time slots.
 
-![](./images/policysettings-createapolicy-6.png)
+![policysettings-createapolicy-7](./images/policysettings-createapolicy-7.png)
 
-#### **Multi-time Periods Speed Limiting Settings**
+| **Parameter** | **Example Value** | **Description** |
+| :--- | :--- | :--- |
+| **Cycle** | Every N days / Weekly / Monthly | Recurrence cycle type for speed limits, supporting daily intervals, designated weekdays, or specific days of the month. |
+| **Days** | `1` | When the cycle is "Every N days", represents the interval frequency, ranging from `[1–30]` as an integer. |
+| **Date** | Monday, Wednesday | When the cycle is "Weekly", designates specific weekdays (supports multi-selection). |
+| **Date** | Day 5 | When the cycle is "Monthly", designates specific calendar days of the month (supports multi-selection). |
+| **Speed Limit Time** | `00:00 - 23:59` | Active time interval within a single day for this speed limit rule. |
+| **Time Zone** | `(GMT+08:00) Asia/Shanghai` | Reference standard time zone for the speed limit interval. |
+| **Host Speed Limit** | `10 Mbps` | Maximum bandwidth limit for the host during sync, measured in Mbps. |
+| **Speed Limit Details** | (Table summary) | After adding parameters, all active time-period speed limit rules will be summarized and displayed here. |
 
-| **Field** | **Example**                                         | **Description**                                     |
-|-----------|-----------------------------------------------------|-----------------------------------------------------|
-| Cycle     | Every N days / week / month                         | Cycle type: daily interval, specific days of week/month |
-| Days      | 1                                                   | For "every N days", N = 1-30                        |
-| Date      | Monday, Wednesday                                   | For "every week", select days                        |
-| Date      | 5th                                                 | For "every month", select dates                      |
-| Limit Time| 00:00 - 23:59                                       | Time period for speed limit                          |
-| Time Zone | (GMT+08:00) Asia/Shanghai                           | Time zone for limit period                           |
-| Host Limit| 10 Mbps                                             | Max bandwidth per host during sync                   |
-| Speed Limit Details | e.g. "1,2,3,4,5,6,7,8,15,22,29 00:00-23:59 100Mbps" | Shows after adding parameters                        |
+---
 
 ### **Retention Policy**
 
-Retention policy defines how backup or sync data is kept, helping manage storage and avoid waste.
+Retention policies manage the lifecycle of target storage replicas, preventing unbounded data growth from exhausting storage resources.
 
-> Make sure you have enough quota for new snapshots, or sync will fail.
+::: caution
+When configuring retention policies, ensure the target storage has sufficient quota to support creating new snapshots. Snapshot creation failures may cause sync tasks to abort.
+:::
 
 #### **Sequence Retention**
 
-The system keeps the latest copies by time. When the number exceeds the set limit, old data is deleted automatically.
+The system retains the latest copies according to the chronological sequence of sync backups. When the number of snapshots exceeds the set quota, older historical replicas are automatically pruned and reclaimed.
 
-![](./images/policysettings-createapolicy-7.png)
+![policysettings-createapolicy-8](./images/policysettings-createapolicy-8.png)
 
-#### **Sequence Retention Settings**
+#### **Sequence Retention Parameter Description**
 
-You can set how many copies to keep for different time periods using four dropdowns. The system will keep the set number and delete older data.
+Users can flexibly configure the number of snapshot replicas across four time granularities: day, week, month, and year:
 
-> Note: Minimum is 1, maximum is 129.
+![policysettings-createapolicy-9](./images/policysettings-createapolicy-9.png)
 
-![](./images/policysettings-createapolicy-8.png)
+::: note
+The minimum retention count for each granularity is `1`, and the maximum does not exceed `129`. The system intelligently consolidates redundant backups to ensure the specified number of optimal recovery points is retained across granularities.
+:::
+
+---
 
 ## **Action**
 
-Select a policy and click [Actions] to configure or edit.
+In the Policy Settings list, select the checkbox before the target policy record, and click the **【Action】** dropdown button above the table to perform the following management operations:
 
 ### **Modify**
 
-Select a policy, click [Actions] > [Modify] to edit the name, snapshot count, or other settings.
+When you need to adjust the policy name, snapshot quota, or sync schedule, use the modify feature:
 
-![config-policy-settings-dr-action-hover-modify](./images/config-policy-settings-dr-action-hover-modify.png)
+1. In the policy list, check the target policy and click **【Action】>【Modify】**.
+   ![policysettings-action-1](./images/policysettings-action-1.png)
+2. In the popup Edit Policy dialog, adjust parameters as needed, and click **【Submit】** to save changes.
+   ![policysettings-action-2](./images/policysettings-action-2.png)
+
+---
 
 ### **Enable**
 
-Select a policy, click [Actions] > [Enable] to change its status.
+When a policy is disabled and needs to be reactivated:
+1. Select the checkbox for the target policy.
+2. Click **【Action】>【Enable】**. The policy status will immediately switch to "Enable", resuming execution according to the schedule.
 
-![config-policy-settings-dr-action-hover-enable](./images/config-policy-settings-dr-action-hover-enable.png)
+![policysettings-action-3](./images/policysettings-action-3.png)
+
+---
 
 ### **Disable**
 
-Select a policy, click [Actions] > [Disable] to change its status.
+When you need to temporarily suspend scheduled tasks (e.g., during source maintenance or network inspection):
+1. Select the checkbox for the target policy.
+2. Click **【Action】>【Disable】**. All scheduled sync and rotation tasks under this policy will pause.
 
-![config-policy-settings-dr-action-hover-disable](./images/config-policy-settings-dr-action-hover-disable.png)
+![policysettings-action-4](./images/policysettings-action-4.png)
+
+---
 
 ### **Associated Host**
 
-Select a policy, click [Actions] > [Associated Host] to link hosts to this policy.
+Batch-bind host resources that need protection under this policy:
 
-![config-policy-settings-dr-action-hover-associated-host](./images/config-policy-settings-dr-action-hover-associated-host.png)
+1. Select the checkbox for the target policy, and click **【Action】>【Associated Host】**.
+   ![policysettings-action-5](./images/policysettings-action-5.png)
+2. In the popup Associated Host dialog, check the target hosts to protect, and click **【Submit】** to complete binding.
+   ![policysettings-action-6](./images/policysettings-action-6.png)
+
+---
 
 ### **Delete**
 
-Select a policy, click [Actions] > [Delete] to remove it.
+To permanently remove a policy configuration:
 
-> Note: Before deleting, make sure the policy is not linked to any hosts. If it is, unbind the hosts first.
+1. Select the checkbox for the target policy, and click **【Action】>【Delete】**.
+   ![policysettings-action-7](./images/policysettings-action-7.png)
+2. A secondary confirmation alert dialog will appear. After verifying details, click **【Confirm】** to complete removal.
 
-![config-policy-settings-dr-action-hover-delete](./images/config-policy-settings-dr-action-hover-delete.png)
+::: warning
+Before deleting a policy, ensure that **no host resources are associated with this policy**. If any hosts are currently using this policy, the system will intercept the deletion; you must unbind the hosts first before deleting.
+:::
+
+![policysettings-action-8](./images/policysettings-action-8.png)
+
+---
 
 ## **Policy Setting Details**
 
-Click a policy name to view its detailed configuration.
+Click any **Policy Name** in the policy list. The policy details drawer will slide out from the right, allowing users to verify configurations and association relationships.
 
-### **Dashboard**
+### **Overview**
 
-On the policy details page, you can view all configuration items, including sync, speed limit, and retention policies.
+On the **【Overview】** tab of the details drawer, you can view comprehensive summary information including basic configurations, sync modes (incremental/full), speed limit schedules, and snapshot quotas.
 
-![config-policy-settings-dr-policy-detail](./images/config-policy-settings-dr-policy-detail.png)
+![policysettings-policy-setting-details-1](./images/policysettings-policy-setting-details-1.png)
+
+---
 
 ### **Associated Host**
 
-On the associated host page, you can view all hosts linked to this policy, including host name, IP, and other details.
+Switch to the **【Associated Host】** tab to inspect the complete list of hosts currently protected by this policy, including host names, IP addresses, platform types, and other details.
 
-![config-policy-settings-dr-policy-detail-associated-host](./images/config-policy-settings-dr-policy-detail-associated-host.png)
+![policysettings-policy-setting-details-2](./images/policysettings-policy-setting-details-2.png)
+
+---
 
 ### **Unbind Host**
 
-Select the host you want to unbind, click [Unbind Host], and confirm to complete.
+If a host needs to change protection policies or no longer requires disaster recovery protection, you can unbind it here:
 
-![](./images/policysettings-policysettingsdetails-3.png)
+1. In the **Associated Host** list, select the checkbox of the host to unbind.
+2. Click the **【Unbind Host】** button above the table, confirm the action in the popup prompt, and the host will be safely unbound from the current policy.
 
+![policysettings-policy-setting-details-3](./images/policysettings-policy-setting-details-3.png)

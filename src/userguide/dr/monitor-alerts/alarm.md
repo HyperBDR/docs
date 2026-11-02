@@ -1,146 +1,165 @@
-# Alarm
+# **Alert Rules**
 
-To ensure system security, stability, and visibility of key events, the platform includes a built-in alarm feature. It monitors the status and resource usage of DR hosts in real time and triggers alerts when issues are detected, helping O&M staff quickly identify and resolve problems to reduce business impact.
+To ensure system security, stability, and visibility into critical events, the platform includes built-in alert rule functionality. It monitors the operating status and resource utilization of disaster recovery hosts in real time and triggers alert notifications upon detecting anomalies, enabling operations personnel to promptly discover and address issues while minimizing the impact on business systems.
 
-> For best practices on alarm configuration, see "Monitoring & Alerts → Alarm Best Practice" in the O&M Guide for detailed advice and instructions.
+::: tip
+For best practices on configuring alert rules, refer to [【O&M Guide】>【Monitoring & Alerts】>【Alarm Best Practice】](../../om-guide/monitor-alerts/alarm-best-practice.md) for detailed recommendations and instructions.
+:::
 
-## Resource Alert
+## **Resource Rules**
 
-Go to:
-**Monitor & Alerts → Alarm → Resource Alert → Create Alert**
+In the system menu, navigate to: **【Monitoring & Alerts】>【Alert Rules】>【Resource Rules】**.
 
-After navigating to the creation page, configure the required parameters based on your needs, then save to complete the setup of **DR** and **Failback** alerts.
+On the Resource Rules page, you can view, create, and manage resource monitoring rules in a centralized manner.
 
-![monitor-alertrules-dr-resourcerules](./images/monitor-alertrules-dr-resourcerules.png)
+![alertrules-resourcerules-1](./images/alertrules-resourcerules-1.png)
 
-### Create Alert
+### **Create Alert Rule**
 
-* Alert Configuration Field Description
+Click the **【+ Create Alert Rule】** button in the upper left corner of the list to enter the resource alert rule creation page:
 
-| **Field Name**    | **Example**         | **Description**                                                                                  |
-|:-----------------:|:------------------:|:-----------------------------------------------------------------------------------------------:|
-| Alert Type        | Resource Alert     | Select the alert category or type, used to distinguish different monitoring strategies.          |
-| Alert Name        | test               | Custom alert name for identification and management.                                             |
-| Level             | Critical           | Set the severity level, e.g., Info, Critical, Emergency.                                        |
-| Status            | Enabled            | Enable or disable the alert. When enabled, the system will monitor and alert as configured.      |
-| Resource Type     | Sync Proxy         | The type of resource to monitor. Common types: Sync Proxy, Cloud Sync Gateway, Linux Agent, Windows Agent, Object Storage. |
-| Monitoring Resources | ubuntu-ova      | Select the resource(s) to monitor. The system will continuously monitor these as configured.     |
-| Entry             | CPU                | The specific metric to monitor. Supported: CPU, Disk, RAM, Process.                          |
-| Alert Trigger Rule| ≥ 80%, 5 min       | Set the alert trigger condition, e.g., when a metric exceeds a value for a certain time.         |
-| Cycle             | 5 min              | How often the system checks the metric status.                                                  |
-| Notification      |                    | Who to notify when the alert is triggered (user or group).                                      |
-| Description       |                    | Optional. Record the purpose or notes for the alert for easier management.                       |
+![alertrules-resourcerules-2](./images/alertrules-resourcerules-2.png)
 
-- Resource Monitoring Types
+#### **Alert Rule Configuration Field Description**
 
-| **Resource Type** | **Alarm Items**           | **Description**                                       |
-|-------------------|---------------------------|-------------------------------------------------------|
-| Sync Proxy | CPU, RAM, Disk, Process | Monitors resource usage and process status of source sync proxy |
-| Cloud Sync Gateway | CPU, RAM, Disk, Process | Monitors resource usage and process status of cloud sync gateway |
-| Linux Agent       | CPU, RAM, Disk, Process | Monitors resource usage and process status of Linux Agent |
-| Windows Agent     | CPU, RAM, Disk, Process | Monitors resource usage and process status of Windows Agent |
-| Object Storage Resources   | Object Storage Capacity    | Monitors usage of storage capacity                   |
+| **Field Name** | **Example** | **Description** |
+| :--- | :--- | :--- |
+| **Rule Type** | Resource Alert Rule | Select the classification or intended purpose of the alert rule, used to distinguish between different monitoring strategies. |
+| **Rule Name** | test | Custom name for the alert rule, used for identification and management. |
+| **Alert Level** | Critical | Specifies the severity of the alert, such as: Info, Critical, Emergency. |
+| **Status** | Enabled | Sets whether the alert rule is enabled. When enabled, the system monitors and alerts according to the configured rule. |
+| **Resource Type** | Sync Proxy | The type of resource monitored by the alert rule. Common resource types include:<br>• Sync Proxy<br>• Cloud Sync Gateway<br>• Linux Agent<br>• Windows Agent<br>• Object Storage Resources |
+| **Monitored Resource** | ubuntu-ova | Select the target resource objects to monitor (multiple can be added). The system will continuously monitor them based on configuration. |
+| **Metric** | CPU | Sets the specific metric items to monitor. Supported items include:<br>• CPU<br>• Disk<br>• RAM<br>• Process |
+| **Trigger Rule** | ≥ 80%, for 5 minutes | Defines the condition that triggers an alert, e.g., when a metric exceeds a preset threshold for a specified duration. |
+| **Check Interval** | 5 minutes | Sets the time interval at which the system checks metric statuses. |
+| **Notification Recipient** | - | Specifies the recipients (users or notification groups) to notify once an alert is triggered. |
+| **Rule Description** | - | Optional notes or description documenting the purpose of the alert rule for easier management and auditing. |
 
+#### **Monitored Resource Types**
 
-![monitor-alertrules-dr-resourcerules-createalert](./images/monitor-alertrules-dr-resourcerules-createalert.png)
+| **Resource Type** | **Metrics** | **Description** |
+| :--- | :--- | :--- |
+| **Sync Proxy** | CPU, RAM, Disk, Process | Monitors hardware resource utilization and process status of the source sync proxy. |
+| **Cloud Sync Gateway** | CPU, RAM, Disk, Process | Monitors hardware resource utilization and service process status of the cloud sync gateway. |
+| **Linux Agent** | CPU, RAM, Disk, Process | Monitors resource utilization and key process status of Linux Agents. |
+| **Windows Agent** | CPU, RAM, Disk, Process | Monitors resource utilization and process status of Windows Agents. |
+| **Object Storage Resources** | Object Storage Capacity | Monitors storage capacity usage and remaining quota. |
 
-* After the alert is created, the system will automatically trigger it when the event occurs and send notifications to the assigned recipients. Related alert information will also be shown on the "Alert Messages" page for unified management.
-
-![monitor-alertrules-dr-resourcerules](./images/monitor-alertrules-dr-resourcerules.png)
-
-### **Action**
-
-#### **Edit**
-
-* Click [Edit] to go to the edit page, where you can update the alert configuration.
-
-![monitor-alertrules-dr-resourcerules-action-hover-edit](./images/monitor-alertrules-dr-resourcerules-action-hover-edit.png)
-
-#### **Enable**
-
-* Enabled alerts cannot be edited. To change the configuration, please disable the alert first.
-
-![monitor-alertrules-dr-resourcerules-action-dropdown](./images/monitor-alertrules-dr-resourcerules-action-dropdown.png)
-
-#### **Disable**
-
-* Disabled alerts cannot be edited. To change the configuration, please enable the alert first.
-
-![monitor-alertrules-dr-resourcerules-action-hover-disable](./images/monitor-alertrules-dr-resourcerules-action-hover-disable.png)
-
-#### **Remove**
-
-* Click [Remove] to trigger a confirmation. After confirming, the system will delete the alert.
-
-![monitor-alertrules-dr-resourcerules-action-hover-remove](./images/monitor-alertrules-dr-resourcerules-action-hover-remove.png)
-
-## Event Alert
-
-Go to:
-**Monitor & Alerts → Alarm → Event Alert → Create Alert**
-
-After navigating to the creation page, configure the required parameters based on your needs, then save to complete the setup of **DR** and **Failback** alerts.
-
-![monitor-alertrules-dr-eventrules](./images/monitor-alertrules-dr-eventrules.png)
-
-### Create Alert
-
-* Alert Configuration Field Description
-
-| **Field Name**    | **Example**    | **Description**                                                                                           |
-|:-----------------:|:-------------:|:--------------------------------------------------------------------------------------------------------:|
-| Alert Type        | Event Alert   | Set the alert type. Event alerts monitor key actions and abnormal states, and trigger notifications.      |
-| Alert Name        | test          | Custom alert name for identification and management.                                                      |
-| Level             | Critical      | Severity level, e.g., Info, Critical, Emergency.                                                          |
-| Status            | Enabled       | Whether the alert is enabled. When enabled, the system will monitor and alert as configured.              |
-| Event Type        | User Resource / Login | The event type to monitor. Supported: User Resource, DR Host Resource, License Resource, Production Site Resources, DR Resource, Monitoring Alarm, Object Storage, Resource Policies. |
-| Event Result      | Success       | The event result that triggers the alert. E.g., Success, Failure.                                         |
-| Notification      | Notification Recipient | Who to notify when the alert is triggered (person or group).                                             |
-| Description       | —             | Briefly describe the alert's function or purpose for easy identification and maintenance.                 |
-
-- Event Type Descriptions
-
-| **Event Type**                | **Alert Conditions (Examples)**                                                                                                                                                                                                                                      | **Description**                                                       |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| **User Resources**            | Login, Logout, Modify phone number, Change password, Reset password                                                                                                                                                                                                  | Events related to user login activities and account updates.          |
-| **DR Host Resources**         | Add DR host configuration, Boot host, Clean host resource, Forced abort of task, Host disconnected, Host recovery timeout, <br/>Sync host, Takeover host, Register host, <br/>Limit/Unlimit host resource, Limit/Unlimit transfer rate, Update DR host configuration | Key events for DR host configuration, task execution, and status.     |
-| **License Resources**         | Add license                                                                                                                                                                                                                                                          | Events related to license status and updates.                         |
-| **Production Site Resources** | Add/Delete Linux or Windows agent, Add/Delete/Bind/Unbind sync proxy or connection, Refresh sync proxy VMs, Update sync proxy connection                                                                                                                             | Events related to agent deployment and sync proxy configuration.      |
-| **DR Site Resources**         | Add/Delete/Update cloud account, Create/Delete/Start create/Delete cloud sync gateway                                                                                                                                                                                | Events related to DR site configuration and cloud sync gateway.       |
-| **Monitoring Alarm**          | Create/Delete/Update alarm, Create/Delete/Update notification                                                                                                                                                                                                        | Events related to alarm rules and notification settings.              |
-| **Resource Groups**           | Create/Delete resource group, Clean resources, Sync data, Drill/Takeover DR, Start drill/sync/clean/takeover                                                                                                                                                         | Events related to grouped resource management and DR operations.      |
-| **Object Storage**            | Add/Delete/Update object storage, Start add/delete object storage                                                                                                                                                                                                    | Events for changes to object storage configuration or access.         |
-| **Resource Policies**         | Associate/Disassociate/Create/Delete/Update resource policies                                                                                                                                                                                                        | Events related to lifecycle management of disaster recovery policies. |
-
-
-![monitor-alertrules-dr-eventrules-createalert](./images/monitor-alertrules-dr-eventrules-createalert.png)
-
-* After the alert is created, the system will automatically trigger it when the event occurs and send notifications to the assigned recipients. Related alert information will also be shown on the "Alert Messages" page for unified management.
-
-![monitor-alertrules-dr-eventrules](./images/monitor-alertrules-dr-eventrules.png)
+::: note
+Once an alert rule is created, the system will automatically trigger alerts when corresponding events occur and send notifications through designated channels based on associated notification recipients. Meanwhile, related alert messages will appear on the "Alert Messages" page for centralized review and resolution.
+:::
 
 ### **Action**
 
-#### **Edit**
+Select the resource alert rule to manage and click the **【Action】** button to expand the action menu. Note that certain operations may not support batch execution; please refer to the actual interface display:
 
-* Click [Edit] to go to the edit page, where you can update the alert configuration.
+![alertrules-resourcerules-3](./images/alertrules-resourcerules-3.png)
 
-![monitor-alertrules-dr-eventrules-action-hover-edit](./images/monitor-alertrules-dr-eventrules-action-hover-edit.png)
+#### **Modify**
+
+Click **【Modify】** to navigate to the editing page, where you can modify the configuration parameters of the created resource alert rule:
+
+![alertrules-resourcerules-4](./images/alertrules-resourcerules-4.png)
 
 #### **Enable**
 
-* Enabled alerts cannot be edited. To change the configuration, please disable the alert first.
+Click **【Enable】** to update the alert rule status to "Enabled":
 
-![monitor-alertrules-dr-eventrules-action-dropdown](./images/monitor-alertrules-dr-eventrules-action-dropdown.png)
+![alertrules-resourcerules-5](./images/alertrules-resourcerules-5.png)
 
 #### **Disable**
 
-* Disabled alerts cannot be edited. To change the configuration, please enable the alert first.
+Click **【Disable】** to update the alert rule status to "Disabled". Disabled rules will stop monitoring metrics:
 
-![monitor-alertrules-dr-eventrules-action-hover-disable](./images/monitor-alertrules-dr-eventrules-action-hover-disable.png)
+![alertrules-resourcerules-6](./images/alertrules-resourcerules-6.png)
 
 #### **Remove**
 
-* Click [Remove] to trigger a confirmation. After confirming, the system will delete the alert.
+Click **【Remove】** to display a secondary confirmation dialog. After confirmation, the alert rule is permanently deleted:
 
-![monitor-alertrules-dr-eventrules-action-hover-remove](./images/monitor-alertrules-dr-eventrules-action-hover-remove.png)
+::: warning
+The remove operation permanently deletes the alert policy configuration and cannot be undone. Please ensure there are no active dependencies before proceeding.
+:::
+
+![alertrules-resourcerules-7](./images/alertrules-resourcerules-7.png)
+
+
+## **Event Rules**
+
+In the system menu, navigate to: **【Monitoring & Alerts】>【Alert Rules】>【Event Rules】**.
+
+On the Event Rules page, you can view, create, and manage various event monitoring rules in a centralized manner.
+
+![alertrules-eventrules-1](./images/alertrules-eventrules-1.png)
+
+### **Create Alert Rule**
+
+Click the **【+ Create Alert Rule】** button in the upper left corner of the list to enter the event alert rule creation page:
+
+#### **Alert Rule Configuration Field Description**
+
+| **Field Name** | **Example** | **Description** |
+| :--- | :--- | :--- |
+| **Rule Type** | Event Alert Rule | Sets the type of alert rule. Event alert rules monitor critical operational actions and abnormal states, triggering alert notifications upon occurrence. |
+| **Rule Name** | test | Custom name for the alert rule, used for identification and management. |
+| **Alert Level** | Critical | Severity level when the event is triggered (e.g., Info, Critical, Emergency). |
+| **Status** | Enabled | Specifies whether the current alert rule is active. When enabled, the system monitors and alerts based on the rule. |
+| **Event Type** | User Resource / Login | Category of event to monitor. Supported categories include:<br>• User Resource<br>• DR Host Resource<br>• License Resource<br>• Production Site Resources<br>• DR Platform Resources<br>• Monitoring Alarm Resource Group<br>• Object Storage<br>• DR Policies |
+| **Event Result** | Success | Specifies the execution outcome condition that triggers the alert (e.g., Success, Failure). |
+| **Notification Recipient** | Associated Notification Recipient | The recipients (personnel or groups) notified when an alert triggers, enabling prompt response by stakeholders. |
+| **Rule Description** | — | Brief overview of the alert rule's function or purpose for ease of recognition and maintenance. |
+
+#### **Event Type Descriptions**
+
+| **Event Type** | **Alert Conditions (Examples)** | **Description** |
+| :--- | :--- | :--- |
+| **User Resources** | Login, Logout, Modify phone number, Change password, Reset password | Events related to user account login, authentication, and credential modifications. |
+| **DR Host Resources** | Add DR host configuration, Boot host, Clean resources, Force abort task, Host disconnected/recovered, Snapshot integrity check, Sync host, Takeover host, Resource limits, etc. | Key events relating to disaster recovery host tasks, status monitoring, and resource operations. |
+| **License Resources** | Add License | Critical events relating to system license status, validity period, and authorization exceptions. |
+| **Production Site Resources** | Add/Delete Linux or Windows agent, Add/Delete/Bind sync proxy and connections, Reload VM agent, Connection status changes, etc. | Events relating to agent deployment management and connection status in production environments. |
+| **DR Platform Resources** | Add/Delete/Modify cloud platform, Create/Delete cloud sync gateway, and related process events | Operations relating to cloud disaster recovery platform infrastructure components and deployment status. |
+| **Monitoring Alarm** | Create/Modify/Delete alert rules and notification recipients | Operational events relating to monitoring alert configurations and alert dispatch mechanisms. |
+| **Resource Groups** | Create/Delete resource group, Clean verification resources, Drill/Takeover DR, Sync data, Modify resource group | Critical operations relating to multi-resource logical grouping and disaster recovery lifecycle management. |
+| **Object Storage** | Add/Delete/Update object storage, Start add/delete operations | Events relating to storage integration, configuration changes, capacity updates, and access anomalies. |
+| **DR Policies** | Create/Delete/Modify policies, Associate/Disassociate policies | Events relating to the full lifecycle management of disaster recovery plan policy configurations. |
+
+![alertrules-eventrules-2](./images/alertrules-eventrules-2.png)
+
+::: note
+Once an alert rule is created, the system will automatically trigger alerts when corresponding events occur and send notifications through designated channels based on associated notification recipients. Meanwhile, related alert messages will appear on the "Alert Messages" page for centralized review and resolution.
+:::
+
+### **Action**
+
+Select the event alert rule to manage and click the **【Action】** button to expand the action menu:
+
+![alertrules-eventrules-3](./images/alertrules-eventrules-3.png)
+
+#### **Modify**
+
+Click **【Modify】** to navigate to the editing page, where you can modify the configuration parameters of the created event alert rule:
+
+![alertrules-eventrules-4](./images/alertrules-eventrules-4.png)
+
+#### **Enable**
+
+Click **【Enable】** to update the alert rule status to "Enabled":
+
+![alertrules-eventrules-5](./images/alertrules-eventrules-5.png)
+
+#### **Disable**
+
+Click **【Disable】** to update the alert rule status to "Disabled":
+
+![alertrules-eventrules-6](./images/alertrules-eventrules-6.png)
+
+#### **Remove**
+
+Click **【Remove】** to display a secondary confirmation dialog. After confirmation, the alert rule is permanently deleted:
+
+::: warning
+The remove operation permanently deletes the event alert policy and cannot be undone. Please ensure there are no active dependencies before proceeding.
+:::
+
+![alertrules-eventrules-7](./images/alertrules-eventrules-7.png)

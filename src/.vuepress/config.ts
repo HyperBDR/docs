@@ -28,7 +28,7 @@ export default defineUserConfig({
 
   markdown: {
     toc: {
-      level: [2, 3, 4 ],
+      level: [2, 3],
     },
   },
 
