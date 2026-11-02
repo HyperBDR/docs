@@ -1,130 +1,59 @@
 # **升级管理**
 
-**升级管理**用于统一管理系统组件和代理程序的版本更新，确保各模块保持在受支持、稳定的版本状态。用户可通过平台界面查看当前版本信息，并按需执行在线升级操作。
+升级管理用于集中维护与在线更新平台中纳管的各端组件版本（包括源端同步代理、主机 Agent 程序及云同步网关），确保各模块保持在受支持的稳定版本。
 
-## **升级准备**
+系统提供 **【容灾】** 与 **【回切】** 两个维度的组件升级视图，两者在界面布局与升级操作上保持完全一致。登录 HyperBDR 控制台，在顶部导航栏进入 **【运维管理】>【升级管理】** 页面即可开始管理。
 
-在升级各功能组件（如同步代理、云同步网关等）之前，必须先完成控制台的版本升级。控制台作为系统管理核心，其版本需与其他组件保持兼容，以避免因版本不一致引发功能异常或升级失败。
+## **升级前置条件**
 
-### **获取安装包**
+在通过控制台升级各端组件之前，**控制台核心服务必须先完成升级**。
 
-#### **在线方式：**
+只有当控制台中已载入更新版本的组件包时，界面才会检测并提示各组件可供升级的新版本。关于控制台安装包获取及升级操作，请参考 [【运维指南】>【升级管理】>【控制台】](../../om-guide/upgrade-maintenance/console.md)。
 
-登录控制台安装的主机，使用本方式获取安装包。
+## **支持升级的组件说明**
 
-```bash
-# 获取最新的 HyperBDR 软件包 URL。
-HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/get_hyperbdr_latest/latest)
-echo "HYPERBDR_PACKAGE: ${HYPERBDR_PACKAGE}"
+用户可在 **【容灾】** 或 **【回切】** 标签页下，针对以下三大类组件执行在线版本检测与升级：
 
-# 获取相应的 MD5 文件 URL。
-HYPERBDR_PACKAGE_MD5="${HYPERBDR_PACKAGE}.md5"
-echo "HYPERBDR_PACKAGE_MD5: ${HYPERBDR_PACKAGE_MD5}"
+::: tip 版本提示与列表说明
+当系统检测到组件存在可用的新版本时，将在列表的「版本」列显示 **▲ New Version** 标识。若当前环境中尚未创建或纳管相应类型的组件主机，则对应列表将显示为空。
+:::
 
-# 使用字符串操作提取包名称。
-HYPERBDR_PACKAGE_NAME="${HYPERBDR_PACKAGE##*/}"
-echo "HYPERBDR_PACKAGE_NAME: ${HYPERBDR_PACKAGE_NAME}"
+| **组件名称** | **部署位置** | **升级条件与说明** |
+| :--- | :--- | :--- |
+| **源端同步代理 (Sync Proxy)** | Sync Proxy主机 | 配置生产站点时创建的代理主机，用于无代理模式下的源端数据同步。 |
+| **源端代理程序 (Agent)** | 受保护的 Linux / Windows 生产主机 | 安装了客户端 Agent 的主机。 |
+| **云同步网关 (Cloud Sync Gateway)** | 目标端灾备云平台 | 容灾/回切配置【块存储】时自动创建的数据接收网关。**注意**：仅采用 S3Block 传输协议的网关支持在线升级。 |
 
-# 提取 MD5 文件名
-HYPERBDR_PACKAGE_MD5_NAME="${HYPERBDR_PACKAGE_NAME}.md5"
-echo "HYPERBDR_PACKAGE_MD5_NAME: ${HYPERBDR_PACKAGE_MD5_NAME}"
+![upgrade-syncproxy-1](./images/upgrade-syncproxy-1.png)
 
-# 开始下载
-curl -k -O "$HYPERBDR_PACKAGE"
-curl -k -O "$HYPERBDR_PACKAGE_MD5"
-```
+## **组件在线升级流程**
 
-#### **离线方式：**
+三大组件的升级交互完全一致，均支持单台快速升级与多节点批量升级，操作流程如下：
 
-> 如果已经通过在线方式获取安装包，请直接跳过该步骤。
+### **1. 勾选待升级目标**
 
-如果安装主机无法直接访问互联网，您可以使用其他设备的浏览器访问以下地址获取安装包链接：
+在左侧导航栏中，选择需要升级的组件类型：**【源端同步代理】**、**【源端代理程序】** 或 **【云同步网关】**，进入对应的组件列表页面。
 
-下载完成后使用Xftp等类似工具将安装包上传至控制台主机
+在列表中查看「版本」列，找到显示新版本提示的主机，勾选主机名称前的复选框，选择需要升级的组件主机。支持单选或批量多选。
 
-```plain text
-https://install.oneprocloud.com/get_hyperbdr_latest
-```
+::: note 注意
+如果需要升级的组件属于回切场景，请先在左侧导航栏中选择对应的组件类型，再点击页面上方的 **【回切】** Tab，切换至回切组件列表后进行选择。
+:::
 
-### **解压至指定目录**
+![upgrade-syncproxy-1](./images/upgrade-syncproxy-1.png)
 
-使用下列命令将其解压至指定目录：
+### **2. 发起在线升级**
 
-```plain text
-tar zxvf <更新包>.tar.gz -C /更新包解压后路径
-```
+点击列表左上方的 **【↑ 升级】** 按钮，系统将自动下发升级任务至目标主机。
 
-### **执行升级**
+![upgrade-syncproxy-2](./images/upgrade-syncproxy-2.png)
 
-执行升级命令，系统将自动加载更新内容至运行目录 `/opt/installer/production/venvs`：
+### **3. 查看升级记录与任务详情**
 
-```plain text
-/opt/installer/production/scripts/hmctl upgrade /<更新包解压路径>/installer/venvs
-```
+* **查看升级历史**：点击目标主机操作列中的 **【升级记录】**，右侧将滑出历史升级记录抽屉，展示升级起止时间、升级前后版本及最终状态。
 
-## **容灾**
+![upgrade-syncproxy-3](./images/upgrade-syncproxy-3.png)
 
-### **源端同步代理(Sync Proxy)**
+* **查看详细执行日志**：在升级记录中点击 **【点击查看详情】**，可进一步展开任务详情抽屉，查看组件下载、安装、验证各子任务的详细日志与耗时。
 
-#### **升级执行**
-
-在完成前置步骤（升级准备）后，系统将在该页面对应位置自动显示可升级的代理组件及相关提示，用户可按提示完成升级流程。
-
-**运维管理 > 升级管理 > 容灾 > 源端同步代理**
-
-![operations-upgrade-cloud-sync-gateway-dr-main](./images/operations-upgrade-cloud-sync-gateway-dr-main.png)
-
-### **源端代理程序(Agent)**
-
-#### **升级执行**
-
-在完成前置步骤（升级准备）后，系统将在该页面对应位置自动显示可升级的代理组件及相关提示，用户可按提示完成升级流程。
-
-**运维管理 > 升级管理 > 容灾 > 源端代理程序**
-
-![operations-upgrade-agent-dr-main](./images/operations-upgrade-agent-dr-main.png)
-
-### **云同步网关(Cloud Sync Gateway)**
-
-#### **升级执行**
-
-在完成前置步骤（升级准备）后，系统将在该页面对应位置自动显示可升级的代理组件及相关提示，用户可按提示完成升级流程。
-
-**运维管理 > 升级管理 > 容灾 > 云同步网关**
-
-![operations-upgrade-cloud-sync-gateway-dr-main](./images/operations-upgrade-cloud-sync-gateway-dr-main.png)
-
-
-
-## **回切**
-
-### **源端同步代理(Sync Proxy)**
-
-#### **升级执行**
-
-在完成前置步骤（升级准备）后，系统将在该页面对应位置自动显示可升级的代理组件及相关提示，用户可按提示完成升级流程。
-
-**运维管理 > 升级管理 > 回切 > 源端同步代理**
-
-![operations-upgrade-sync-proxy-dr-main](./images/operations-upgrade-sync-proxy-dr-main.png)
-
-### **源端代理程序(Agent)**
-
-#### **升级执行**
-
-在完成前置步骤（升级准备）后，系统将在该页面对应位置自动显示可升级的代理组件及相关提示，用户可按提示完成升级流程。
-
-**运维管理 > 升级管理 > 回切 > 源端代理程序**
-
-![operations-upgrade-agent-failback-main](./images/operations-upgrade-agent-failback-main.png)
-
-### **云同步网关(Cloud Sync Gateway)**
-
-#### **升级执行**
-
-在完成前置步骤（升级准备）后，系统将在该页面对应位置自动显示可升级的代理组件及相关提示，用户可按提示完成升级流程。
-
-**运维管理 > 升级管理 > 回切 > 云同步网关**
-
-![operations-upgrade-cloud-sync-gateway-failback-main](./images/operations-upgrade-cloud-sync-gateway-failback-main.png)
-
+![upgrade-syncproxy-4](./images/upgrade-syncproxy-4.png)

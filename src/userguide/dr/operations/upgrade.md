@@ -1,130 +1,59 @@
-# Upgrade
+# **Upgrade Management**
 
-**Upgrade** provides unified management for updating system components and agent versions, ensuring all modules stay supported and stable. Users can view current version info and perform online upgrades as needed through the platform interface.
+Upgrade management is used to centrally maintain and update the versions of various components managed by the platform (including source sync proxies, host agent programs, and cloud sync gateways), ensuring all modules remain on supported, stable releases.
 
-## **Upgrade Preparation**
+The system provides two component upgrade views: **【DR】** and **【Failback】**, which share identical interface layouts and upgrade workflows. Log in to the HyperBDR console, and navigate to **【O&M Management】>【Upgrade Management】** from the top navigation bar to start managing.
 
-Before upgrading any functional components (such as Sync Proxy, Cloud Sync Gateway, etc.), you must first upgrade the Console version. As the core management module, the Console must be compatible with other components to avoid issues or upgrade failures caused by version mismatches.
+## **Prerequisites for Upgrade**
 
-### **Get Installation Package**
+Before upgrading any endpoint components via the console, the **core console services must be upgraded first**.
 
-#### **Online Method:**
+Only when updated component packages are loaded into the console will the interface detect and highlight new versions available for upgrade. For details on obtaining installation packages and upgrading the console, please refer to [【O&M Guide】>【Upgrade Management】>【Console】](../../om-guide/upgrade-maintenance/console.md).
 
-Log in to the host where the Console is installed and use this method to get the installation package.
+## **Supported Upgrade Components**
 
-```bash
-# Get the latest HyperBDR package URL.
-HYPERBDR_PACKAGE=$(curl -s -k https://install.oneprocloud.com/get_hyperbdr_latest/latest)
-echo "HYPERBDR_PACKAGE: ${HYPERBDR_PACKAGE}"
+Under the **【DR】** or **【Failback】** tab, users can perform online version detection and upgrades for the following three types of components:
 
-# Get the corresponding MD5 file URL.
-HYPERBDR_PACKAGE_MD5="${HYPERBDR_PACKAGE}.md5"
-echo "HYPERBDR_PACKAGE_MD5: ${HYPERBDR_PACKAGE_MD5}"
+::: tip Version Prompts and List Notes
+When the system detects an available new version for a component, it will display a **▲ New Version** indicator in the "Version" column of the list. If hosts of the corresponding component type have not yet been created or managed in the current environment, the list will appear empty.
+:::
 
-# Extract the package name using string operations.
-HYPERBDR_PACKAGE_NAME="${HYPERBDR_PACKAGE##*/}"
-echo "HYPERBDR_PACKAGE_NAME: ${HYPERBDR_PACKAGE_NAME}"
+| **Component Name** | **Deployment Location** | **Upgrade Prerequisites and Notes** |
+| :--- | :--- | :--- |
+| **Sync Proxy** | Sync Proxy Host | Proxy host created during production site configuration, used for agentless source-side data synchronization. |
+| **Agent** | Protected Linux / Windows production hosts | Hosts with the client Agent installed. |
+| **Cloud Sync Gateway** | Target disaster recovery cloud platforms | Data receiving gateway automatically created when configuring 【Block Storage】 for DR/Failback. **Note**: Only gateways using the S3Block transmission protocol support online upgrade. |
 
-# Extract MD5 file name
-HYPERBDR_PACKAGE_MD5_NAME="${HYPERBDR_PACKAGE_NAME}.md5"
-echo "HYPERBDR_PACKAGE_MD5_NAME: ${HYPERBDR_PACKAGE_MD5_NAME}"
+![upgrade-syncproxy-1](./images/upgrade-syncproxy-1.png)
 
-# Start download
-curl -k -O "$HYPERBDR_PACKAGE"
-curl -k -O "$HYPERBDR_PACKAGE_MD5"
-```
+## **Component Online Upgrade Workflow**
 
-#### **Offline Method:**
+The upgrade interactions for all three components are identical, supporting both single-host quick upgrades and multi-node batch upgrades. The operational steps are as follows:
 
-> If you have already obtained the package online, skip this step.
+### **1. Select Upgrade Targets**
 
-If the installation host cannot access the internet, use another device's browser to visit the following address to get the package link:
+In the left sidebar, select the component type to upgrade: **【Sync Proxy】**, **【Agent】**, or **【Cloud Sync Gateway】** to enter the corresponding component list page.
 
-After downloading, use Xftp or similar tools to upload the package to the Console host
+In the list, check the "Version" column to find hosts displaying new version prompts. Select the checkbox before the host name to choose the target component hosts to upgrade (supports single selection or batch selection).
 
-```plain&#x20;text
-https://install.oneprocloud.com/get_hyperbdr_latest
-```
+::: note Note
+If the components to be upgraded belong to a failback scenario, first select the corresponding component type in the left sidebar, and then click the **【Failback】** tab at the top of the page to switch to the failback component list before making your selection.
+:::
 
-### **Extract to Specified Directory**
+![upgrade-syncproxy-1](./images/upgrade-syncproxy-1.png)
 
-Use the following command to extract it to the specified directory:
+### **2. Initiate Online Upgrade**
 
-```plain&#x20;text
-tar zxvf <update-package>.tar.gz -C /path/to/extract
-```
+Click the **【↑ Upgrade】** button in the upper left corner of the list. The system will automatically dispatch the upgrade task to the target hosts.
 
-### **Execute Upgrade**
+![upgrade-syncproxy-2](./images/upgrade-syncproxy-2.png)
 
-Run the upgrade command, and the system will automatically load the update content to the running directory `/opt/installer/production/venvs`:
+### **3. View Upgrade Records and Task Details**
 
-```plain&#x20;text
-/opt/installer/production/scripts/hmctl upgrade /<path-to-extracted-package>/installer/venvs
-```
+* **View Upgrade History**: Click **【Upgrade Records】** in the target host's action column to slide out the historical upgrade records drawer on the right, displaying upgrade start/end times, pre/post-upgrade versions, and the final status.
 
-## **DR**
+![upgrade-syncproxy-3](./images/upgrade-syncproxy-3.png)
 
-### **Sync Proxy**
+* **View Detailed Execution Logs**: In the Upgrade Records drawer, click **【Click for details】** to open the task details drawer and review the step-by-step logs and elapsed time for package download, installation, and verification.
 
-#### **Upgrade Execution**
-
-After completing the prerequisite steps (Upgrade Preparation), the system will automatically display the upgradable proxy components and related prompts in the corresponding position on this page. Users can follow the prompts to complete the upgrade process.
-
-**Operations > Upgrade > DR > Sync Proxy**
-
-![operations-upgrade-cloud-sync-gateway-dr-main](./images/operations-upgrade-cloud-sync-gateway-dr-main.png)
-
-### **Agent**
-
-#### **Upgrade Execution**
-
-After completing the prerequisite steps (Upgrade Preparation), the system will automatically display the upgradable agent components and related prompts in the corresponding position on this page. Users can follow the prompts to complete the upgrade process.
-
-**Operations > Upgrade > DR > Sync Proxy > Agent**
-
-![operations-upgrade-agent-dr-main](./images/operations-upgrade-agent-dr-main.png)
-
-### **Cloud Sync Gateway**
-
-#### **Upgrade Execution**
-
-After completing the prerequisite steps (Upgrade Preparation), the system will automatically display the upgradable proxy components and related prompts in the corresponding position on this page. Users can follow the prompts to complete the upgrade process.
-
-**Operations > Upgrade > DR > Cloud Sync Gateway**
-
-![operations-upgrade-cloud-sync-gateway-dr-main](./images/operations-upgrade-cloud-sync-gateway-dr-main.png)
-
-
-
-## **Failback**
-
-### **Sync Proxy**
-
-#### **Upgrade Execution**
-
-After completing the prerequisite steps (Upgrade Preparation), the system will automatically display the upgradable proxy components and related prompts in the corresponding position on this page. Users can follow the prompts to complete the upgrade process.
-
-**Operations > Upgrade > Failback > Sync Proxy**
-
-![operations-upgrade-sync-proxy-dr-main](./images/operations-upgrade-sync-proxy-dr-main.png)
-
-### **Agent**
-
-#### **Upgrade Execution**
-
-After completing the prerequisite steps (Upgrade Preparation), the system will automatically display the upgradable agent components and related prompts in the corresponding position on this page. Users can follow the prompts to complete the upgrade process.
-
-**Operations > Upgrade > DR > Agent**
-
-![operations-upgrade-agent-failback-main](./images/operations-upgrade-agent-failback-main.png)
-
-### **Cloud Sync Gateway**
-
-#### **Upgrade Execution**
-
-After completing the prerequisite steps (Upgrade Preparation), the system will automatically display the upgradable proxy components and related prompts in the corresponding position on this page. Users can follow the prompts to complete the upgrade process.
-
-**Operations > Upgrade > DR > Cloud Sync Gateway**
-
-![operations-upgrade-cloud-sync-gateway-failback-main](./images/operations-upgrade-cloud-sync-gateway-failback-main.png)
-
+![upgrade-syncproxy-4](./images/upgrade-syncproxy-4.png)

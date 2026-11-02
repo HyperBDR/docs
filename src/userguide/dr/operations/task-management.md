@@ -1,39 +1,41 @@
-# Task Management
+# **Task Management**
 
-In HyperBDR, users can go to "Operations Management > Task Management" to view the execution status of all **DR** and **Failback** tasks, including key types such as registration, snapshot, and replication. The system supports real-time task status queries, filtering, and detailed views, helping users fully track task progress and results.
+The task management module is used to centrally monitor the execution status of all background asynchronous tasks across daily disaster recovery protection, data snapshots, incremental replication, emergency takeover, and business failback. The system supports real-time task status tracking, combined filtering, and log detail inspection, helping administrators comprehensively grasp execution progress and troubleshoot abnormal results.
 
-## Page Features
+The system provides two task views: **【DR】** and **【Failback】**, which share identical features and operational workflows. Log in to the HyperBDR console, and navigate to **【O&M Management】>【Task Management】** from the top navigation bar. The page defaults to the **【DR】** tab, and you can switch to the **【Failback】** tab as needed to review reverse failback task execution records.
 
-Users can quickly search using the top filter options, supporting log filtering by the following fields:
+## **Task Retrieval and Filtering**
 
-* **Advanced Filters:**
-  * **Task Type:** Select the resource type related to the operation (e.g., VM, user resource, etc.)
-  * **Task Status:** Filter specific operation events by keyword
-  * **Task Name:** Enter a keyword to find the corresponding resource
-  * **End Time:** Sort in ascending or descending order
+Users can select the task type from the dropdown list at the top of the list and enter keywords such as the host name in the search box to query records. You can also use the advanced filter feature to configure more specific filter conditions to accurately locate target tasks:
 
-![operations-task-management-dr](./images/operations-task-management-dr.png)
+* **Name**: Enter keywords to search for the host or resource name associated with the task.
+* **Task Type**: Filter by specific task category (e.g., data synchronization, snapshot creation, host recovery, drill launch, etc.).
+* **Task Status**: Quickly filter by execution status (e.g., All, In Progress, Success, Failed, etc.).
+* **Time Sorting**: Supports sorting in ascending or descending order based on the task start time or end time.
 
-### Task Management Description
+![taskmanagement-dr-1](./images/taskmanagement-dr-1.png)
 
-| Field Name | Description                                  |
-| ---------- | -------------------------------------------- |
-| Name       | Shows the host or resource name for the task |
-| Task Type  | Shows the type of task, such as registration, snapshot, sync, or replica creation |
-| Start Time | The actual start time of the task            |
-| End Time   | The time the task finished or was interrupted|
-| Execution Time   | How long the task ran                        |
-| Details    | Shows the final result status, with a link to view task details |
+## **Task List Field Descriptions**
 
-> Note: Click the status link in the "Task Status" field to go to the task details page for full logs and error information.
+Each record in the task list contains the following fields:
 
-![operations-task-management-dr](./images/operations-task-management-dr.png)
+| **Field Name** | **Description** |
+| :--- | :--- |
+| **Name** | Displays the host or resource name associated with the executed task. |
+| **Task Type** | Shows the specific type of task, such as registration, snapshot, sync, replica creation, disaster recovery, etc. |
+| **Start Time** | The actual start time when the task was scheduled and initiated by the system. |
+| **End Time** | The time when the task successfully finished, was manually aborted, or encountered an abnormal termination. |
+| **Execution Time** | The total duration elapsed from the start of the task to its completion. |
+| **Details / Status** | Displays the final execution status of the task (e.g., Success, Failed). Click the link to view task details. |
 
-![operations-task-management-dr-click-for-details](./images/operations-task-management-dr-click-for-details.png)
+::: tip View Task Details
+In the "Details" column of the list, click **【View Details】** to open the task details window, which displays the complete execution workflow, step-by-step progress, and detailed error logs.
+:::
 
-### Other Notes
+![taskmanagement-dr-2](./images/taskmanagement-dr-2.png)
 
-* The page supports pagination, showing 10 records per page by default. Users can adjust the number of records per page or jump to a specific page using the filter bar at the bottom for quick access to needed information.
-* Task logs record all actions and results during task execution, keeping a complete operation history for tracking and troubleshooting.
+![taskmanagement-dr-3](./images/taskmanagement-dr-3.png)
 
-
+::: note
+Task management supports pagination (defaulting to 10 records per page). Administrators can adjust the number of items per page or navigate through pages to locate historical task records. All task logs are automatically recorded by the system for end-to-end audit tracking and troubleshooting.
+:::

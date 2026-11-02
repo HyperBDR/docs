@@ -2,18 +2,18 @@
 
 The system monitors the status of various resources and key events based on alert rules you set. When abnormal metrics are detected or preset alert conditions are triggered, the platform will automatically generate alert messages.
 
-> If you assign notification contacts when creating an alert, the system will notify them by email, SMS, or other methods as appropriate.
+::: note
+If you assign notification contacts when creating an alert, the system will notify them by email, SMS, or other methods as appropriate.
+:::
 
 ## DR
 
-* Alert Message Fields
+### **Alert Message Fields**
 
 When the system detects a resource issue or event trigger, it generates an alert message. The main fields are:
 
-Here is your table translated into clear, simple English for a disaster recovery product document:
-
-| Field Name          | Description                                                                                                                                                                                                                                                                                        |
-| :-------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Field Name** | **Description** |
+| :--- | :--- |
 | **Alarm Name**      | The type of event that triggers the alarm, used to quickly identify the root cause of the issue.                                                                                                                                                                                                   |
 | **Resource Name**   | The specific resource that triggered the alarm, such as a host name or service name.                                                                                                                                                                                                               |
 | **Status**          | The current handling status of the alarm, for example, "Unprocessed" or "Processed".                                                                                                                                                                                                               |
@@ -22,27 +22,38 @@ Here is your table translated into clear, simple English for a disaster recovery
 | **Resource Type**   | The types of resources involved, including:<br>· Object Storage<br>· Disaster Recovery Policy User Resources<br>· Disaster Recovery Host Resources<br>· License Resources<br>· Production Platform Resources<br>· Disaster Recovery Platform Resources<br>· Monitoring Alarms<br>· Resource Groups |
 | **Occurrence Time** | The time when the system first detected the alarm event, used for tracing the issue and analyzing response time.                                                                                                                                                                                   |
 
+![alerts-dr-1](./images/alerts-dr-1.png)
 
-![monitor-alerthistory-dr](./images/monitor-alerthistory-dr.png)
+### **Search & Filter Alerts**
 
-* More Actions
+In the upper-right corner of the alert list, you can filter alert messages by **Resource Type**, **Severity Level**, **Read Type**, or by entering a **Resource Name**:
 
-On the alert messages page, you can manage alerts by marking them as "Read" or updating their status for easier tracking and management.
+![alerts-dr-2](./images/alerts-dr-2.png)
 
-After processing, the status will be updated:
+### **Action**
 
-![monitor-alerthistory-dr-action-hover-mark-all-read](./images/monitor-alerthistory-dr-action-hover-mark-all-read.png)
+On the alert messages page, users can perform batch actions on alerts. After selecting one or more alert records, click the **Action** button to expand the action menu:
+
+![alerts-dr-3](./images/alerts-dr-3.png)
+
+The following two batch actions are supported:
+
+1. **Mark All Read**: Click this option to open the confirmation dialog "Are you sure you want to mark all as read?". Confirming marks all selected alert messages as read.
+
+![alerts-dr-4](./images/alerts-dr-4.png)
+
+2. **Acknowledge**: Click this option to open the confirmation dialog "Confirm to deal message ?". Confirming updates the handling status of the selected alerts to processed.
+
+![alerts-dr-5](./images/alerts-dr-5.png)
 
 ## Failback
 
-* Alert Message Fields
+### **Alert Message Fields**
 
 When the system detects a resource issue or event trigger, it generates an alert message. The main fields are:
 
-Here is your table translated into clear, simple English for a disaster recovery product document:
-
-| Field Name          | Description                                                                                                                                                                                                                                                                                        |
-| :-------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Field Name** | **Description** |
+| :--- | :--- |
 | **Alarm Name**      | The type of event that triggers the alarm, used to quickly identify the root cause of the issue.                                                                                                                                                                                                   |
 | **Resource Name**   | The specific resource that triggered the alarm, such as a host name or service name.                                                                                                                                                                                                               |
 | **Status**          | The current handling status of the alarm, for example, "Unprocessed" or "Processed".                                                                                                                                                                                                               |
@@ -51,14 +62,26 @@ Here is your table translated into clear, simple English for a disaster recovery
 | **Resource Type**   | The types of resources involved, including:<br>· Object Storage<br>· Disaster Recovery Policy User Resources<br>· Disaster Recovery Host Resources<br>· License Resources<br>· Production Platform Resources<br>· Disaster Recovery Platform Resources<br>· Monitoring Alarms<br>· Resource Groups |
 | **Occurrence Time** | The time when the system first detected the alarm event, used for tracing the issue and analyzing response time.                                                                                                                                                                                   |
 
+![alerts-failback-1](./images/alerts-failback-1.png)
 
-![monitor-alerthistory-failback](./images/monitor-alerthistory-failback.png)
+### **Search & Filter Alerts**
 
-* More Actions
+In the upper-right corner of the Failback alert list, users can similarly search and filter failback alerts across multiple dimensions:
 
-On the alert messages page, you can manage alerts by marking them as "Read" or updating their status for easier tracking and management.
+![alerts-failback-2](./images/alerts-failback-2.png)
 
-After processing, the status will be updated:
+### **Action**
 
-![monitor-alerthistory-failback-action-hover-mark-all-read](./images/monitor-alerthistory-failback-action-hover-mark-all-read.png)
+On the Failback alert messages page, select records and click the **Action** button to expand the action menu:
 
+![alerts-failback-3](./images/alerts-failback-3.png)
+
+The following two batch actions are supported:
+
+1. **Mark All Read**: Click to open the confirmation dialog "Are you sure you want to mark all as read?". Confirming marks all selected failback alerts as read.
+
+![alerts-failback-4](./images/alerts-failback-4.png)
+
+2. **Acknowledge**: Click to open the confirmation dialog "Confirm to deal message ?". Confirming updates the handling status to processed.
+
+![alerts-failback-5](./images/alerts-failback-5.png)
