@@ -1,49 +1,57 @@
-# Event Logs
+# **Event Logs**
 
-In HyperBDR, users can go to "Operations Management > Event Logs" to view detailed records of all **DR** and **Failback** operations on the platform. This page helps O&M staff track actions, audit behavior, and troubleshoot issues.
+Event logs are used to record various user operations and critical system events across the entire lifecycle of daily operations, disaster recovery protection, drill & takeover, and business failback. They help operations personnel track activities, perform security and compliance audits, and troubleshoot issues. The system provides two log views: **【DR】** and **【Failback】**, which share identical features and operational workflows.
 
-## Page Features
+Log in to the HyperBDR console, and navigate to **【O&M Management】>【Event Logs】** from the top navigation bar. The page defaults to the **【DR】** tab, and you can switch to the **【Failback】** tab as needed to review reverse failback operations.
 
-Users can quickly search using the top filter options, supporting log filtering by the following fields:
+## **Log Retrieval and Filtering**
 
-* **Resource Type:** Select the type of resource related to the operation (e.g., VM, user resource, etc.)
-* **Message Name:** Filter specific operation events by keyword
-* **Resource Name:** Enter a keyword to find the corresponding resource
+The event log list supports multi-dimensional combined search. Administrators can quickly filter and locate target log entries using the top filter bar:
 
-![operations-event-logs-dr](./images/operations-event-logs-dr.png)
+* **Resource Type**: Filter by resource category involved in the operation (e.g., User Resource, DR Host Resource, Production Site Resources, etc.).
+* **Message Name**: Enter keywords to search for specific operations (e.g., login, sync host, create policy, etc.).
+* **Resource Name**: Enter the target resource name for precise matching.
 
-### Audit Log Description
+![auditlogs-dr-1](./images/auditlogs-dr-1.png)
 
-| **Field Name** | **Example**           | **Description**                                               |
-| -------------- | --------------------- | ------------------------------------------------------------- |
-| **Name** | Login                | The type of audit event, e.g., user performed a login action. |
-| **Resource Name** | admin               | The user or resource that triggered the audit event.          |
-| **Resource Type** | User Resource       | The category of resource involved, here related to user ops.  |
-| **Result** | Success              | The result of the operation, usually "Success" or "Failure".  |
-| **Source IP**    | 172.30.1.33          | The client IP address that initiated the operation.           |
-| **Description**  | Login with username and password | Brief description of the operation, helps understand intent.  |
-| **Occurrence Time**         | 2025-05-23 09:54:10  | The exact time the event was recorded, for tracking/audit.    |
+## **Field and Type Descriptions**
 
-> Click the message name to view details.
+### **Event Log Field Descriptions**
 
-![operations-audit-logs-dr-name-detail](./images/operations-audit-logs-dr-name-detail.png)
+Each record in the event log list includes the following fields:
 
-### Resource Type Description
+| **Field Name** | **Example** | **Description** |
+| :--- | :--- | :--- |
+| **Message Name** | Login | The specific type of audit event triggered (click to view event details). |
+| **Resource Name** | admin | The user or associated resource name that triggered the event. |
+| **Resource Type** | User Resource | The system resource category involved in the audit event. |
+| **Event Result** | Success | The final status of the operation, such as "Success" or "Failure". |
+| **Source IP** | 172.30.1.33 | The client IP address that initiated the operation, facilitating security traceability. |
+| **Description** | Login with username and password | Brief contextual description of the operation. |
+| **Occurrence Time** | 2025-05-23 09:54:10 | The exact timestamp recorded by the system for the operation event. |
 
-| Resource Type        | Description                                                        |
-| -------------------- | ------------------------------------------------------------------ |
-| User Resource        | Resources related to user accounts and actions, e.g., login records, permission changes. |
-| DR Host Resource     | Hosts involved in DR protection, including configuration and status.|
-| License Resource     | Management and status of licenses required for system operation.    |
-| Production Site Resource | Agents, hosts, and services in the production environment.      |
-| DR Site Resource     | Platforms and components in the DR backup environment.             |
-| Monitoring Alarm     | Objects and events related to resource monitoring and alerts.       |
-| Resource Group       | Logical groupings of resources by business or function.            |
-| Object Storage       | Object storage resources for backup, archiving, etc.               |
-| Resource Policies            | Policy objects defining DR behavior, such as sync and failover rules.|
+::: tip View Log Details
+Click the specific **Message Name** in the list to open the operation details window, which displays the full execution context and extended information for the event.
+:::
 
-### Other Notes
+![auditlogs-dr-2](./images/auditlogs-dr-2.png)
 
-* The page supports pagination, showing 10 records per page by default.
-* You can use the search box in the upper right corner for more precise queries.
-* Audit logs cannot be edited manually and are only used for system behavior tracking.
+### **Resource Type Descriptions**
+
+The resource type classifications used in the system are defined as follows:
+
+| **Resource Type** | **Description** |
+| :--- | :--- |
+| **User Resource** | Operations related to user accounts and authentication, such as login, logout, password modification, and permission updates. |
+| **DR Host Resource** | Host resources involved in disaster recovery protection, including configuration changes, data synchronization, and status monitoring. |
+| **License Resource** | Management operations and quota status records related to system licensing. |
+| **Production Site Resources** | Agent deployments, node management, and cloud platform connection status changes in production environments. |
+| **DR Platform Resources** | Cloud accounts, cloud sync gateways, and architecture components in the disaster recovery destination environment. |
+| **Monitoring Alarm** | Creation and maintenance operations for alert rules, notification recipients, and other monitoring mechanisms. |
+| **Resource Group** | Logical host resource groupings and orchestration management operations based on business logic. |
+| **Object Storage** | Integration, configuration updates, and capacity events for disaster recovery backup object storage buckets. |
+| **DR Policies** | Creation, association, unbinding, and execution plan modifications for disaster recovery policies. |
+
+::: note
+Event logs serve as immutable audit trails of system behavior and cannot be manually edited or deleted. The page supports pagination (defaulting to 10 records per page), and you can use the top-right search box for keyword searches.
+:::

@@ -1,30 +1,39 @@
 # **Global Settings**
 
+The Global Settings module is used to configure the basic operating environment of the HyperBDR platform, including console interface display parameters, language preferences, system refresh frequency, and domain name and IP address mappings for the source sync proxy, console, and transition hosts.
+
 ## **General Settings**
 
-You can configure platform settings as needed, including data display items, language, and more.
+Configure basic operating parameters and interface display preferences on the platform based on actual business needs.
 
-* Parameter Description
+**Configuration Method:**
 
-| **Parameter**           | **Options**                                 | **Description**                                                                 |
-|:-----------------------:|:-------------------------------------------:|:-------------------------------------------------------------------------------:|
-| Items per page          | 10 / 20 / 30 / 40 / 50 / 60                 | Set the number of items displayed per page in tables. Default is 10.            |
-| Language                | Simplified Chinese / English / Spanish      | Default display language for the platform. Only affects the current user.        |
-| Notification Language   | Simplified Chinese / English                | Language used for system alerts (emails, SMS, Webhook, etc.).                   |
-| System Status Refresh Frequency   | 1 minute                                    | Default is 1 minute. Cannot be changed in this version.                         |
-| Data Sync Refresh Frequency       | 1 minute                                    | Default is 1 minute. Cannot be changed in this version.                         |
-| Data Sync Interval | N/A                                         | Not configurable by default.                                                    |
+Go to **Settings > Global Settings**, which opens to the **General Settings** tab by default. Adjust the items per page, interface display language, and alert notification language as needed. After completing the configuration, click **Save**.
 
-![settings-globalsettings-generalsettings](./images/settings-globalsettings-generalsettings.png)
+![globalsettings-1](./images/globalsettings-1.png)
+
+**Parameter Description:**
+
+| **Parameter** | **Options** | **Description** |
+| :--- | :--- | :--- |
+| **Items per page** | 10 / 20 / 30 / 40 / 50 / 60 | Set the number of items displayed per page on platform table pages. Default is 10. |
+| **Language** | Simplified Chinese / English / Español | The display language of the platform console. Affects only the current user. |
+| **Notification Language** | Simplified Chinese / English | The language used for system alert notifications (applicable to Email, SMS, Webhook, etc.). |
+| **System Status Refresh Frequency** | 1 minute | Default is 1 minute. Not configurable in the current version. |
+| **Data Sync Refresh Frequency** | 1 minute | Default is 1 minute. Not configurable in the current version. |
+| **Data Sync Interval** | N/A | Not configurable by default. |
 
 ## **Sync Proxy Domain Mappings**
 
-In global settings, click "Sync Proxy Domain Mapping" to add domain and IP mappings for the source production platform. The format is the same as the `/etc/hosts` file in Linux.
+Used to add domain name and IP address mappings for the source production platform. The configuration format is consistent with `/etc/hosts` in Linux systems.
 
-* Parameter Description
+**Configuration Method:**
 
-This mapping is mainly used when the source needs to connect to vCenter, ESXi, or cloud platform APIs using domain names but DNS is not configured. Without this, the sync proxy cannot synchronize data properly. For example, in a VMware environment with multiple ESXi hosts, you need to configure the IP and domain mapping for each host here.
-Example:
+Go to **Settings > Global Settings**, and switch to the **Sync Proxy Domain Mappings** tab. Enter the mapping rules in the configuration box using the format `[IP Address] [Domain Name]`, with one entry per line. After completing the configuration, click **Save**.
+
+![globalsettings-2](./images/globalsettings-2.png)
+
+**Configuration Example:**
 
 ```plaintext
 192.168.1.10 esxi1.example.com
@@ -32,19 +41,21 @@ Example:
 192.168.1.12 esxi3.example.com
 ```
 
-> Note: This setting does not take effect immediately. It will be applied automatically within a few minutes after configuration.
-
-![settings-globalsettings-syncproxydomainmappings](./images/settings-globalsettings-syncproxydomainmappings.png)
-
+::: note
+This setting does not take effect immediately. The system will automatically pull and apply it to the corresponding sync proxy nodes within a few minutes after saving.
+:::
 
 ## **Console Domain Mappings**
 
-In global settings, click "Console Domain Mapping" to add domain and IP mappings for the source production platform. The format is the same as the `/etc/hosts` file in Linux.
+Console domain mapping is mainly used when the target cloud platform API interfaces communicate via domain names, ensuring that the HyperBDR console can accurately resolve and invoke various API endpoints of the target platform services. For example, when connecting to an OpenStack platform whose service endpoints use domain names, you need to centrally configure domain mappings for Compute (Nova), Network (Neutron), Storage (Cinder), and Image (Glance) services here.
 
-* Parameter Description
+**Configuration Method:**
 
-The main purpose of console domain mapping is to ensure the console can access target platform APIs when domain names are used. For example, on OpenStack, if endpoints use domain names, you need to configure domain mappings for compute, network, storage, and image services here so the console can access the APIs correctly.
-Example:
+Go to **Settings > Global Settings**, and switch to the **Console Domain Mappings** tab. Enter the mapping rules in the configuration box using the format `[IP Address] [Domain Name]`, with one entry per line. After completing the configuration, click **Save**.
+
+![globalsettings-3](./images/globalsettings-3.png)
+
+**Configuration Example:**
 
 ```plaintext
 192.168.1.100 compute.example.com
@@ -53,25 +64,29 @@ Example:
 192.168.1.103 image.example.com
 ```
 
-> Note: This setting does not take effect immediately. It will be applied automatically within a few minutes after configuration.
-
-![settings-globalsettings-consoledomainmappings](./images/settings-globalsettings-consoledomainmappings.png)
+::: note
+This setting does not take effect immediately. The system will automatically pull and apply it within a few minutes after saving.
+:::
 
 ## **Transition Host Domain Mappings**
 
-In global settings, click "Transition Host Domain Mappings" to add domain and IP mappings for the source production platform. The format is the same as the `/etc/hosts` file in Linux.
+The transition host is responsible for volume mounting, driver adaptation, and data format conversion during disaster recovery takeover and drill recovery. When the cloud service interfaces of the target platform (such as image service, block storage service, object storage endpoint) use domain names for communication and the intranet lacks DNS, domain mappings must be configured here to ensure that the transition host can smoothly resolve and communicate with the target cloud service endpoints upon startup.
 
-* Parameter Description
+**Configuration Method:**
 
-This mapping is mainly used when the source needs to connect to vCenter, ESXi, or cloud platform APIs using domain names but DNS is not configured. Without this, the sync proxy cannot synchronize data properly. For example, in a VMware environment with multiple ESXi hosts, you need to configure the IP and domain mapping for each host here.
-Example:
+Go to **Settings > Global Settings**, and switch to the **Transition Host Domain Mappings** tab. Enter the mapping rules in the configuration box using the format `[IP Address] [Domain Name]`, with one entry per line. After completing the configuration, click **Save**.
+
+![globalsettings-4](./images/globalsettings-4.png)
+
+**Configuration Example:**
 
 ```plaintext
-192.168.1.10 esxi1.example.com
-192.168.1.11 esxi2.example.com
-192.168.1.12 esxi3.example.com
+192.168.1.100 compute.example.com
+192.168.1.101 network.example.com
+192.168.1.102 storage.example.com
+192.168.1.103 image.example.com
 ```
 
-> Note: This setting does not take effect immediately. It will be applied automatically within a few minutes after configuration.
-
-![settings-globalsettings-transitionhostdomainmappings](./images/settings-globalsettings-transitionhostdomainmappings.png)
+::: note
+This setting does not take effect immediately. The system will automatically pull and apply it within a few minutes after saving.
+:::

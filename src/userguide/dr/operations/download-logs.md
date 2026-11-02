@@ -1,107 +1,106 @@
 # **Download Logs**
 
-In HyperBDR, users can go to "O&M Management > Download Logs" to quickly collect logs from key components for troubleshooting.
+In HyperBDR, users can access the **【O&M Management】>【Download Logs】** module from the top navigation bar to collect and download runtime logs from critical components on demand, facilitating in-depth troubleshooting, routine inspections, and failure diagnostics.
 
 ## **DR**
 
 ### **Supported Resource Types**
 
-| Resource Type     | Description                                      |
-|-------------------|-------------------------------------------------|
-| Console           | Management node logs, including core platform services |
-| Sync Proxy        | Agentless hosts deployed via OVA template        |
-| Linux Host        | Logs from Linux hosts with Agent installed       |
-| Windows Host      | Logs from Windows hosts with Agent installed     |
-| Cloud Sync Gateway| Gateway hosts automatically created at DR start  |
+| **Resource Type** | **Description** |
+| :--- | :--- |
+| **Console** | Management node log collection, including platform core runtime service logs. |
+| **Sync Proxy** | Agentless sync proxy hosts deployed via OVA templates. |
+| **Linux Host** | Operating system host logs from Linux hosts with Agent installed. |
+| **Windows Host** | Operating system host logs from Windows hosts with Agent installed. |
+| **Cloud Sync Gateway** | Gateway hosts automatically created at the disaster recovery target cloud platform upon initiating DR. |
 
 ### **Page Field Descriptions**
 
-| Field Name | Example         | Description                                         |
-|------------|----------------|-----------------------------------------------------|
-| Host Name  | onepro         | Name of the host, used to identify the device       |
-| Host IP    | 192.168.7.141  | IP address of the host                              |
-| Status     | Online         | Current status (offline hosts cannot collect logs)  |
-| Log Status | Downloadable    | Status of host logs (click to view details)         |
-| Action     | Collect        | Collect logs                                        |
+| **Field Name** | **Example** | **Description** |
+| :--- | :--- | :--- |
+| **Host Name** | onepro | Identifier name of the target host. |
+| **Host IP** | 192.168.7.141 | Communication IP address of the target host. |
+| **Status** | Online | Current connectivity status of the host (logs cannot be collected if the host is offline). |
+| **Log Status** | Available | Current readiness status of the logs (click to expand the list of collection history records). |
+| **Action** | Collect | Entry button to initiate the log collection task. |
 
 ### **Collection Example: Sync Proxy**
 
-On the **"Download Logs > DR > Sync Proxy"** page, users can collect and download required log files as needed for troubleshooting and monitoring.
+Navigate to **【O&M Management】>【Download Logs】** and switch to the **【DR】>【Sync Proxy】** tab to collect and download log files for the specified sync proxy host:
 
-![operations-download-logs-dr-sync-proxy](./images/operations-download-logs-dr-sync-proxy.png)
+![downloadlogs-dr-1](./images/downloadlogs-dr-1.png)
 
 #### **Log Collection**
 
-Select the target host and click the "Collect" button in the corresponding row.
+Select the target host and click the **【Collect】** button in the corresponding row:
 
-![operations-download-logs-dr-sync-proxy-collect-pointer](./images/operations-download-logs-dr-sync-proxy-collect-pointer.png)
+![downloadlogs-dr-2](./images/downloadlogs-dr-2.png)
 
 #### **Select Time Range**
 
-In the pop-up dialog, set the time range for the logs you want to collect. After confirming, the system will automatically start collecting logs.
+In the popup dialog, specify the log time range to collect. The system provides convenient preset shortcuts (such as Last 15 minutes, Last 1 hour, Last 30 days) as well as custom date-time ranges via the calendar picker:
 
-![operations-download-logs-dr-syncproxy-time-range](./images/operations-download-logs-dr-syncproxy-time-range.png)
+![downloadlogs-dr-3](./images/downloadlogs-dr-3.png)
 
 #### **Start Collection**
 
-After confirming the time range, the system will automatically start collecting logs, and the log status will change to "Collecting".
+After confirming the selected time range and submitting, the system automatically launches the log collection task, and the log status changes to "Collecting":
 
-![operations-download-logs-dr-sync-proxy](./images/operations-download-logs-dr-sync-proxy.png)
+![downloadlogs-dr-4](./images/downloadlogs-dr-4.png)
 
 #### **Download Logs**
 
-After log collection is complete, the status will update to **"Available"**. Users can click "Click for list" to see the log files and select files to download.
+Once log collection is completed, the status updates to **"Available"**. Click "Click for list" to open the Collect Record drawer, select the target log file, and click **【Download】** to complete the download:
 
-![operations-download-logs-dr-syncproxy-click-for-list](./images/operations-download-logs-dr-syncproxy-click-for-list.png)
+![downloadlogs-dr-5](./images/downloadlogs-dr-5.png)
 
 ## **Failback**
 
 ### **Supported Resource Types**
 
-| Resource Type         | Description                                      |
-|-----------------------|-------------------------------------------------|
-| Failback Sync Proxy   | Agentless hosts deployed via OVA template        |
-| Linux Host            | Logs from Linux hosts with Agent installed       |
-| Windows Host          | Logs from Windows hosts with Agent installed     |
-| Cloud Sync Gateway    | Gateway hosts automatically created at failback  |
+| **Resource Type** | **Description** |
+| :--- | :--- |
+| **Failback Sync Proxy** | Agentless failback sync proxy hosts deployed via OVA templates. |
+| **Linux Host** | Operating system host logs from Linux failback hosts with Agent installed. |
+| **Windows Host** | Operating system host logs from Windows failback hosts with Agent installed. |
+| **Cloud Sync Gateway** | Gateway hosts automatically created at the target cloud platform upon initiating reverse failback. |
 
 ### **Page Field Descriptions**
 
-| Field Name | Example         | Description                                         |
-|------------|----------------|-----------------------------------------------------|
-| Host Name  | ubuntu-ova     | Name of the host, used to identify the device       |
-| Host IP    | 192.168.7.202  | IP address of the host                              |
-| Status     | Online         | (Offline hosts cannot collect logs)                 |
-| Log Status | Downloadable    | Status of host logs (click to view details)         |
-| Action     | Collect        | Collect logs                                        |
+| **Field Name** | **Example** | **Description** |
+| :--- | :--- | :--- |
+| **Host Name** | ubuntu-ova | Identifier name of the target host. |
+| **Host IP** | 192.168.7.202 | Communication IP address of the target host. |
+| **Status** | Online | Current connectivity status of the host (logs cannot be collected if the host is offline). |
+| **Log Status** | Available | Current readiness status of the logs (click to expand the list of collection history records). |
+| **Action** | Collect | Entry button to initiate the log collection task. |
 
 ### **Collection Example: Cloud Sync Gateway**
 
-On the **"Download Logs > Failback > Cloud Sync Gateway"** page, users can collect and download required log files as needed for troubleshooting and monitoring.
+Navigate to **【O&M Management】>【Download Logs】** and switch to the **【Failback】>【Cloud Sync Gateway】** tab to collect and download log files for the target gateway host:
 
-![operations-downloadlogs-failback-csg](./images/operations-downloadlogs-failback-csg.png)
+![downloadlogs-failback-1](./images/downloadlogs-failback-1.png)
 
 #### **Log Collection**
 
-Select the target host and click the "Collect" button in the corresponding row.
+Select the target gateway host and click the **【Collect】** button in the corresponding row:
 
-![operations-downloadlogs-failback-csg-collect-pointer](./images/operations-downloadlogs-failback-csg-collect-pointer.png)
+![downloadlogs-failback-2](./images/downloadlogs-failback-2.png)
 
 #### **Select Time Range**
 
-In the pop-up dialog, set the time range for the logs you want to collect. After confirming, the system will automatically start collecting logs.
+In the popup dialog, specify the log time range to collect. The system provides convenient preset shortcuts (such as Last 15 minutes, Last 1 hour, Last 30 days) as well as custom date-time ranges via the calendar picker:
 
-![operations-downloadlogs-failback-csg-time-range](./images/operations-downloadlogs-failback-csg-time-range.png)
+![downloadlogs-failback-3](./images/downloadlogs-failback-3.png)
 
 #### **Start Collection**
 
-After confirming the time range, the system will automatically start collecting logs, and the log status will change to "Collecting".
+After confirming the selected time range and submitting, the system automatically launches the log collection task, and the log status changes to "Collecting":
 
-![operations-downloadlogs-failback-csg](./images/operations-downloadlogs-failback-csg.png)
+![downloadlogs-failback-4](./images/downloadlogs-failback-4.png)
 
 #### **Download Logs**
 
-After log collection is complete, the status will update to **"Available"**. Users can click "Click for list" to see the log files and select files to download.
+Once log collection is completed, the status updates to **"Available"**. Click "Click for list" to open the Collect Record drawer, select the target log file, and click **【Download】** to complete the download:
 
-![operations-downloadlogs-failback-csg-click-for-list](./images/operations-downloadlogs-failback-csg-click-for-list.png)
-
+![downloadlogs-failback-5](./images/downloadlogs-failback-5.png)
