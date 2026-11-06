@@ -51,8 +51,8 @@ For example, if your external IP address is 110.242.68.66, the source IP range c
 ### Image Download
 
 ::: tip
-We need to use three image files to import four images in Huawei Cloud Stack.
-Linux BIOS Image is used to create a cloud sync gateway and boot Linux hosts with DR; Windows BIOS Image is used for DR to boot Windows hosts; Linux/Windows UEFI Image is used for DR to boot UEFI hosts.
+We need to use two image files to import two images in Huawei Cloud Stack.
+Linux BIOS Image is used to create a cloud sync gateway and boot Linux hosts with DR; Windows BIOS Image is used for DR to boot Windows hosts.
 :::
 
 ::: tip
@@ -77,14 +77,6 @@ The image using requires cloud-init for password and key injection, so if the im
 * Size: 12.11 GB
 * Download Link: [https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2](https://downloads.oneprocloud.com/docs_images/Windows_Server_2016_Datacenter_64bit_English_40G.qcow2) 
 * MD5 Value of the Image: 519444d4b0343e15fa014c50d906a832
-
-#### UEFI Image
-
-* File Name: HuaweiCloud_UEFI_GenericImage.qcow2
-* Version: HuaweiCloud_UEFI_GenericImage
-* Size: 554.69 MB
-* Download Link: [https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2](https://downloads.oneprocloud.com/docs_images/HuaweiCloud_UEFI_GenericImage.qcow2) 
-* MD5 Value of the Image: 7814209a573666f2701b35236764723d
 
 ### Import BIOS Image
 
@@ -116,30 +108,6 @@ The size of the System disk must be 40G.
 Supported Linux image names
 
 > Ubuntu 24.04 server 64bit  
-
-### Import UEFI Image
-
-::: tip
-Use the [HuaweiCloud_UEFI_GenericImage.qcow2] qcow2 file in Huawei Cloud OBS to import the Linux UEFI image and Windows UEFI image respectively.
-:::
-
-**Windows UEFI Image**
-
-Supported Windows image names
-
-> Windows Server 2016 Standard 64bit English UEFI
-> Windows Server 2019 Datacenter 64bit UEFI
-> Windows Server 2019 Datacenter 64bit English UEFI
-
-::: warning
-The size of the System disk must be 40G.
-:::
-
-**Linux UEFI Image**  
-
-Supported Linux image names
-
-> Ubuntu 24.04 server 64bit UEFI
 
 ### 60-Disk Cloud Sync Gateway Image Adaptation Plan
 
