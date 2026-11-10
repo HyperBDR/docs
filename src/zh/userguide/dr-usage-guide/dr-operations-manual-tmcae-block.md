@@ -432,39 +432,21 @@ Check **Synchronization Policy : Full Synchronization, **You can enable and conf
 | **Parameter** |  | **Description** |
 | --- | --- | --- |
 | Cycle |  | Sync policy execution cycle can be set to **Every N minutes**、**Every N hours**、**Every N days**、**Weekly**、**Monthly** for setting the triggering conditions for periodic sync tasks. |
-| Minutes |  | You can configure it when the **Cycle** is set to **Every N minutes**. 
-Execute once every N minutes, where N is an integer in the range [5-59].  |
+| Minutes |  | You can configure it when the **Cycle** is set to **Every N minutes**.<br>Execute once every N minutes, where N is an integer in the range [5-59]. |
 
-| Hours Amount |  | You can configure it when the **Cycle** is set to **Every N hours**. 
-Execute once every N hours, where N is an integer in the range [1-23]. |
+| Hours Amount |  | You can configure it when the **Cycle** is set to **Every N hours**.<br>Execute once every N hours, where N is an integer in the range [1-23]. |
 
-| Day |  | You can configure it when the **Cycle** is set to **Every N days**. 
-Execute once every N hours, where N is an integer in the range [1-30]. |
+| Day |  | You can configure it when the **Cycle** is set to **Every N days**.<br>Execute once every N hours, where N is an integer in the range [1-30]. |
 
-| Date（Weekly） |  | You can configure it when the **Cycle** is set to **Weekly**. 
-Execute the synchronization policy on one day or days of the week every n week.
+| Date（Weekly） |  | You can configure it when the **Cycle** is set to **Weekly**.<br>Execute the synchronization policy on one day or days of the week every n week.<br>Execute once a week, where N can take values in the range [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday], and multiple selections are allowed. |
 
-Execute once a week, where N can take values in the range [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday], and multiple selections are allowed. |
+| Date（Mouthly） |  | You can configure it when the **Cycle** is set to **Mouthly**.<br>Execute every certain date of the month, where the selectable range is [1-31, end of the month], and multiple selections are allowed.<br>29: The current option will only be executed in leap years of February and will be skipped in other years of February.<br>30: The current option will not be executed in February.<br>31: Only executes in January, March, May, July, August, October and December.<br>E.O.M: The current option will be executed in the last day of each month. |
 
-| Date（Mouthly） |  | You can configure it when the **Cycle** is set to **Mouthly**.
-Execute every certain date of the month, where the selectable range is [1-31, end of the month], and multiple selections are allowed.
+| Start Time |  | You can configure it when the **Cycle** is set to **Every N minutes **or** Every N hours**.<br>Setting the Start Time for Synchronization。 |
 
-29: The current option will only be executed in leap years of February and will be skipped in other years of February.
+| Time（Weekly） |  | You can configure it when the **Cycle** is set to **Weekly**.<br>Setting the Start Time for Synchronization。 |
 
-30: The current option will not be executed in February.
-
-31: Only executes in January, March, May, July, August, October and December.
-
-E.O.M: The current option will be executed in the last day of each month. |
-
-| Start Time |  | You can configure it when the **Cycle** is set to **Every N minutes **or** Every N hours**.
-Setting the Start Time for Synchronization。 |
-
-| Time（Weekly） |  | You can configure it when the **Cycle** is set to **Weekly**. 
-Setting the Start Time for Synchronization。 |
-
-| Time（Mouthly） |  | You can configure it when the **Cycle** is set to **Mouthly**.
-Setting the Start Time for Synchronization。 |
+| Time（Mouthly） |  | You can configure it when the **Cycle** is set to **Mouthly**.<br>Setting the Start Time for Synchronization。 |
 
 
 #### 5.1.3 Speed Limit Policy（待修正）
@@ -477,24 +459,11 @@ Support Multi-time period speed limiting(Supports setting different speed limits
 | **Parameter** |  | **Description** |
 | --- | --- | --- |
 | Cycle |  | Speed Limit Policy execution cycle can be set to **Every N days**、**Weekly**、**Monthly** for setting the triggering conditions for speed limit tasks. |
-| Day |  | You can configure it when the **Cycle** is set to **Every N days**. 
-Execute once every N days, where N is an integer in the range [1-30]. |
+| Day |  | You can configure it when the **Cycle** is set to **Every N days**.<br>Execute once every N days, where N is an integer in the range [1-30]. |
 
-| Date（Weekly） |  | You can configure it when the **Cycle** is set to **Weekly**. 
-Execute the speed limit policy on one day or days of the week every n week.
+| Date（Weekly） |  | You can configure it when the **Cycle** is set to **Weekly**.<br>Execute the speed limit policy on one day or days of the week every n week.<br>Execute once a week, where N can take values in the range [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday], and multiple selections are allowed. |
 
-Execute once a week, where N can take values in the range [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday], and multiple selections are allowed. |
-
-| Date（Monthly） |  | You can configure it when the **Cycle** is set to **Mouthly**.
-Execute every certain date of the month, where the selectable range is [1-31, end of the month], and multiple selections are allowed.
-
-29: The current option will only be executed in leap years of February and will be skipped in other years of February.
-
-30: The current option will not be executed in February.
-
-31: Only executes in January, March, May, July, August, October and December.
-
-E.O.M: The current option will be executed in the last day of each month. |
+| Date（Monthly） |  | You can configure it when the **Cycle** is set to **Mouthly**.<br>Execute every certain date of the month, where the selectable range is [1-31, end of the month], and multiple selections are allowed.<br>29: The current option will only be executed in leap years of February and will be skipped in other years of February.<br>30: The current option will not be executed in February.<br>31: Only executes in January, March, May, July, August, October and December.<br>E.O.M: The current option will be executed in the last day of each month. |
 
 | Speed Limit Time |  | Set the time for speed limit tasks |
 | Host Speed Limit |  | The host speed limit value should be an integer ≥1. Unit: Mbps |

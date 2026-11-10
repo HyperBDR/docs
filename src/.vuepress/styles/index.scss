@@ -2072,3 +2072,60 @@ html[data-theme="dark"] {
 figure figcaption {
   display: none;
 }
+
+// ============================================
+// 字体方案（与 VitePress 默认主题对齐）
+//
+// 背景：theme-hope 默认 --vp-font 中中文回退到 STHeiti（华文黑体），
+// 该字体只有常规体一个字重；配合 normalize.css 的 font-synthesis: style
+// （禁止合成粗体），h1~h6 / strong / th 的 600~700 与正文 400 字形完全相同，
+// 中文看起来「全是粗体」。
+//
+// 本方案与 VitePress 默认主题同构：
+//   1. 自托管 Inter 可变字体（100-900），按 unicode-range 分 14 个子集，
+//      拉丁字符由它提供真实多字重；@font-face 规则在
+//      public/fonts/fonts.css（由 theme.ts 的 head 以 <link> 引入），
+//      不经过 webpack，避免 url() 被当作模块解析；
+//   2. "Punctuation SC" 把中文标点的 400/500/600/700 分别映射到
+//      PingFang SC Regular/Medium/Semibold 等系统字体；
+//   3. 英文页使用 Inter + system-ui 默认栈，完全不含中文字体；
+//   4. 仅在 :lang(zh) 下切换为 Punctuation SC 优先的中文栈；
+//   5. 汉字本身由 system-ui / PingFang 等多字重系统字体提供，
+//      因此无需合成粗体，恢复 font-synthesis: style。
+// 字体文件位于 public 下的 fonts 目录，共 14 个 woff2（约 640KB）。
+// 注意：theme-hope 对标题使用独立的 --vp-font-heading，两个变量必须一并覆盖。
+// ============================================
+
+// --- 1. Inter 可变字体（normal 7 + italic 7）---
+// --- 2. 中文标点字重映射（仅覆盖标点 unicode-range，不影响汉字）---
+// --- 1. 全局默认栈（英文页，与 VitePress 一致）---
+:root {
+  --vp-font: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --vp-font-heading: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+// --- 2. 中文页条件覆盖（对齐 VitePress 的 :root:where(:lang(zh))）---
+:root:where(:lang(zh)) {
+  --vp-font: "Punctuation SC", "Inter", ui-sans-serif, system-ui,
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --vp-font-heading: "Punctuation SC", "Inter", ui-sans-serif, system-ui,
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
+
+// --- 3. 标题 / 强调 / 表头显式指定（它们不自动继承 --vp-font）---
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+th {
+  font-family: var(--vp-font-heading);
+}
