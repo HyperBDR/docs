@@ -13,10 +13,7 @@ This document is primarily intended to describe how to provide Proof of Concept 
 |                              | - Setup HyperMotion & HyperBDR Server (for x VM/Server)                  |
 |                              | - Setup HyperMotion & HyperBDR Agent/Agentless (for x VM/Server)        |
 |                              | - Setup and Configuration Migration/DR Backup (Source VM/Server to Cloud) |
-| Functional Testing           | - Data Sync
-|                              | - Data Sync Policy                                            |
-|                              | - Drill Testing                                            |
-|                              | - (Optional) Failback Testing (for x VM/Server)           |
+| Functional Testing           | - Data Sync<br>- Data Sync Policy<br>- Drill Testing<br>- (Optional) Failback Testing (for x VM/Server) |
 
 ## HyperBDR UAT
 

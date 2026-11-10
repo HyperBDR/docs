@@ -23,6 +23,16 @@ export default defineClientConfig({
   setup() {
     if (typeof window !== 'undefined') {
 
+      // 自托管 Inter 可变字体 + Punctuation SC 中文字重映射
+      // 独立 CSS 直接由浏览器加载，避免 webpack 把 /fonts/*.woff2 当作模块解析；
+      // theme.ts 的 head 配置在运行时未生效，因此在此处显式注入。
+      if (!document.querySelector('link[href="/fonts/fonts.css"]')) {
+        const fontLink = document.createElement('link')
+        fontLink.rel = 'stylesheet'
+        fontLink.href = '/fonts/fonts.css'
+        document.head.appendChild(fontLink)
+      }
+
       // Dify
       const script = document.createElement('script')
       script.src = 'https://ai.oneprocloud.com/embed.min.js'
