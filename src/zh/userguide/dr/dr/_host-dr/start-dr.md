@@ -177,7 +177,7 @@
 
 > 该配置项适用于 Linux Agent、Windows Agent 和 Agentless 三种模式。不同模式下，界面布局或配置位置可能略有差异，请以实际界面显示为准。
 
-![hostdr-action-click-source-sync-settings-1](../images/hostdr-action-click-source-sync-settings-1.png)
+![](../images/hostdr-action-click-source-sync-settings-1.png)
 
 | 参数                   | 配置 | 说明                                                         |
 | ---------------------- | ---- | ------------------------------------------------------------ |
@@ -193,7 +193,7 @@
 
 > 该配置项适用于 Agentless 模式。不同模式下，界面布局或配置位置可能略有差异，请以实际界面显示为准。
 
-![hostdr-action-click-source-sync-settings-2](../images/hostdr-action-click-source-sync-settings-2.png)
+![](../images/hostdr-action-click-source-sync-settings-2.png)
 
 | 参数            | 配置     | 说明                                                         |
 | --------------- | -------- | ------------------------------------------------------------ |
@@ -206,7 +206,7 @@
 
 > 该配置项适用于 Linux Agent、Windows Agent 和 Agentless 三种模式。不同模式下，界面布局或配置位置可能略有差异，请以实际界面显示为准。
 
-![hostdr-action-click-source-sync-settings-3](../images/hostdr-action-click-source-sync-settings-3.png)
+![](../images/hostdr-action-click-source-sync-settings-3.png)
 
 | 参数     | 配置 | 说明                                                         |
 | -------- | ---- | ------------------------------------------------------------ |
@@ -218,7 +218,7 @@
 
 > 该配置项适用于 Linux Agent、Windows Agent 模式。不同模式下，界面布局或配置位置可能略有差异，请以实际界面显示为准。
 
-![hostdr-action-click-source-sync-settings-4](../images/hostdr-action-click-source-sync-settings-4.png)
+![](../images/hostdr-action-click-source-sync-settings-4.png)
 
 | 参数             | 配置 | 说明                                                         |
 | ---------------- | ---- | ------------------------------------------------------------ |
@@ -229,7 +229,7 @@
 
 > 该配置项适用于 Linux Agent 模式。不同模式下，界面布局或配置位置可能略有差异，请以实际界面显示为准。
 
-![hostdr-action-click-source-sync-settings-5](../images/hostdr-action-click-source-sync-settings-5.png)
+![](../images/hostdr-action-click-source-sync-settings-5.png)
 
 | 参数                 | 配置 | 说明                                                         |
 | -------------------- | ---- | ------------------------------------------------------------ |
@@ -241,7 +241,7 @@
 
 > 该配置项适用于 Windows Agent 模式。不同模式下，界面布局或配置位置可能略有差异，请以实际界面显示为准。
 
-![hostdr-action-click-source-sync-settings-6](../images/hostdr-action-click-source-sync-settings-6.png)
+![](../images/hostdr-action-click-source-sync-settings-6.png)
 
 | 参数              | 配置                  | 说明                                                         |
 | ----------------- | --------------------- | ------------------------------------------------------------ |
