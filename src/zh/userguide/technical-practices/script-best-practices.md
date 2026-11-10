@@ -129,40 +129,29 @@
 + echo before_pre
 ```
 
-| Platform Name 
-(平台名称)              | Chinese Name 
-(中文名称)        | Engine Generation 
-(所属引擎代) | Supported Storage Types 
-(支持存储类型)         |
+| Platform Name<br>(平台名称) | Chinese Name<br>(中文名称) | Engine Generation<br>(所属引擎代) | Supported Storage Types<br>(支持存储类型) |
 | -------------------------------------- | ------------------------------- | ------------------------------ | --------------------------------------------- |
 | Alibaba Cloud Apsara Stack(v3.16.x)    | 阿里云 专有云(v3.16.x)                | v2                             | Block Storage (块存储)                           |
 | Alibaba Cloud Apsara Stack(v3.18.x)    | 阿里云 专有云(v3.18.x)                | v2                             | Block Storage (块存储)                           |
-| AWS China(SDK v1.34.93)                | AWS中国(SDK v1.34.93)             | v2                             | Block Storage (块存储)
-Object Storage (对象存储) |
-| AWS(SDK v1.34.93)                      | AWS(SDK v1.34.93)               | v2                             | Block Storage (块存储)
-Object Storage (对象存储) |
+| AWS China(SDK v1.34.93)                | AWS中国(SDK v1.34.93)             | v2                             | Block Storage (块存储)<br>Object Storage (对象存储) |
+| AWS(SDK v1.34.93)                      | AWS(SDK v1.34.93)               | v2                             | Block Storage (块存储)<br>Object Storage (对象存储) |
 | ctyun JC                               | 天翼云合营云                          | v2                             | Object Storage (对象存储)                         |
 | eSurfingCloud4.0                       | 天翼云4.0                          | v2                             | Block Storage (块存储)                           |
 | FiXo Cloud BS                          | FiXo Cloud BS                   | v2                             | Block Storage (块存储)                           |
 | FusionCompute(v8.6.x)                  | FusionCompute(v8.6.x)           | v2                             | Object Storage (对象存储)                         |
 | Google Cloud(SDK v1.19.0)              | Google Cloud(SDK v1.19.0)       | v2                             | Block Storage (块存储)                           |
 | GridCloud                              | 绿能云                             | v2                             | Block Storage (块存储)                           |
-| Huawei Cloud Stack Online(v23.3)       | 华为云 HCS Online(v23.3)           | v2                             | Block Storage (块存储)
-Object Storage (对象存储) |
-| Huawei Cloud(Recommended, SDK v3.1.86) | 华为云(推荐使用，SDK v3.1.86)           | v2                             | Block Storage (块存储)
-Object Storage (对象存储) |
+| Huawei Cloud Stack Online(v23.3)       | 华为云 HCS Online(v23.3)           | v2                             | Block Storage (块存储)<br>Object Storage (对象存储) |
+| Huawei Cloud(Recommended, SDK v3.1.86) | 华为云(推荐使用，SDK v3.1.86)           | v2                             | Block Storage (块存储)<br>Object Storage (对象存储) |
 | Microsoft Azure(SDK v30.3)             | Microsoft Azure(SDK v30.3)      | v2                             | Block Storage (块存储)                           |
-| Open Telekom Cloud(SDK v3.1.86)        | Open Telekom Cloud(SDK v3.1.86) | v2                             | Block Storage (块存储)
-Object Storage (对象存储) |
+| Open Telekom Cloud(SDK v3.1.86)        | Open Telekom Cloud(SDK v3.1.86) | v2                             | Block Storage (块存储)<br>Object Storage (对象存储) |
 | Oracle Cloud(SDK v2.126.3)             | 甲骨文云(SDK v2.126.3)              | v2                             | Block Storage (块存储)                           |
 | SMTX OS(v6.x.x)                        | SMTX OS(v6.x.x)                 | v2                             | Block Storage (块存储)                           |
 | Tencent Cloud                          | 腾讯云                             | v2                             | Object Storage (对象存储)                         |
-| Tencent Cloud Enterprise               | 腾讯云 专有云企业版                      | v2                             | Block Storage (块存储)
-Object Storage (对象存储) |
+| Tencent Cloud Enterprise               | 腾讯云 专有云企业版                      | v2                             | Block Storage (块存储)<br>Object Storage (对象存储) |
 | UCloudStack                            | UCloudStack                     | v2                             | Block Storage (块存储)                           |
 | Volcengine                             | 火山引擎                            | v2                             | Object Storage (对象存储)                         |
-| XHERE(NeutonOS\_3.x)                   | XHERE(NeutonOS\_3.x)            | v2                             | Block Storage (块存储)
-Object Storage (对象存储) |
+| XHERE(NeutonOS\_3.x)                   | XHERE(NeutonOS\_3.x)            | v2                             | Block Storage (块存储)<br>Object Storage (对象存储) |
 
 #### **一代启动引擎结果查看**
 
@@ -175,30 +164,22 @@ Object Storage (对象存储) |
 + echo before_pre
 ```
 
-| **Platform Name **
-**(平台名称)**   | **Chinese Name **
-**(中文名称)** | **Engine Generation **
-**(所属引擎代)** | **Supported Storage Types **
-**(支持存储类型)** |
+| **Platform Name**<br>**(平台名称)** | **Chinese Name**<br>**(中文名称)** | **Engine Generation**<br>**(所属引擎代)** | **Supported Storage Types**<br>**(支持存储类型)** |
 | ---------------------------------------- | ------------------------------------- | ------------------------------------------- | -------------------------------------------------- |
-| Alibaba Cloud                            | 阿里云                                   | v1                                          | Block Storage (块存储)
-Object Storage (对象存储)      |
+| Alibaba Cloud                            | 阿里云                                   | v1                                          | Block Storage (块存储)<br>Object Storage (对象存储) |
 | Alibaba Cloud Apsara Stack(v3.16.x)      | 阿里云 专有云(v3.16.x)                      | v1                                          | Object Storage (对象存储)                              |
 | Alibaba Cloud Apsara Stack(v3.18.x)      | 阿里云 专有云(v3.18.x)                      | v1                                          | Object Storage (对象存储)                              |
-| ecloud                                   | 移动云                                   | v1                                          | Block Storage (块存储)
-Object Storage (对象存储)      |
+| ecloud                                   | 移动云                                   | v1                                          | Block Storage (块存储)<br>Object Storage (对象存储) |
 | ecloud JC                                | 移动和云                                  | v1                                          | Block Storage (块存储)                                |
 | GDS                                      | GDS万国数据本地云                            | v1                                          | Object Storage (对象存储)                              |
 | Huawei Cloud Stack(HCS)(v8.2.x / v8.3.x) | 华为云Stack(HCS)(v8.2.x / v8.3.x)        | v1                                          | Block Storage (块存储)                                |
 | Jinshan Cloud                            | 金山云                                   | v1                                          | Block Storage (块存储)                                |
-| OpenStackCommunity(Juno+)                | OpenStack社区版本(Juno+)                  | v1                                          | Block Storage (块存储)
-Object Storage (对象存储)      |
+| OpenStackCommunity(Juno+)                | OpenStack社区版本(Juno+)                  | v1                                          | Block Storage (块存储)<br>Object Storage (对象存储) |
 | QingCloud                                | 青云                                    | v1                                          | Block Storage (块存储)                                |
 | Tencent Cloud                            | 腾讯云                                   | v1                                          | Block Storage (块存储)                                |
 | Tencent Cloud TStack Enterprise          | 腾讯云 TStack企业版                         | v1                                          | Block Storage (块存储)                                |
 | Tencent Cloud TStack Ultimate            | 腾讯云 TStack旗舰版                         | v1                                          | Block Storage (块存储)                                |
-| TM CAE                                   | TM CAE                                | v1                                          | Block Storage (块存储)
-Object Storage (对象存储)      |
+| TM CAE                                   | TM CAE                                | v1                                          | Block Storage (块存储)<br>Object Storage (对象存储) |
 | VMware                                   | VMware                                | v1                                          | Object Storage (对象存储)                              |
 | ZStack(v4.x.x)                           | ZStack(v4.x.x)                        | v1                                          | Block Storage (块存储)                                |
 

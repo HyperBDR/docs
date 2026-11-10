@@ -38,8 +38,7 @@ Allocate compute and storage resources for the cloud sync gateway to ensure stab
 | Region              | ap-singapore-1                           | Please select the region where the cloud sync gateway will be deployed.                                                                                                                                                                                                                                      |
 | Availability Domain | VFVd:AP-SINGAPORE-1-AD-1                 | Select the availability domain in the selected region from the dropdown list.                                                                                                                                                                                                                                |
 | Flavor              | Select vCPU and memory as needed from the dropdown list. After selection, the example specifications below will be refreshed automatically. | The cloud sync gateway is mainly used for data synchronization. It is recommended to choose an instance with at least 4 vCPU \| 8 GB or more and ensure a baseline bandwidth above 1Gbps to maintain efficient and stable performance during data synchronization. |
-| Image               | Select the corresponding Linux image from the dropdown list.                      | When creating a cloud sync gateway, you should select the Linux operating system from the list. If there is no image in the list, please manually upload an Ubuntu 24.04 version image.  
-Note: To prevent irregular image naming, all image information is listed here. Please make sure to select the required operating system image. |
+| Image               | Select the corresponding Linux image from the dropdown list.                      | When creating a cloud sync gateway, you should select the Linux operating system from the list. If there is no image in the list, please manually upload an Ubuntu 24.04 version image.<br>Note: To prevent irregular image naming, all image information is listed here. Please make sure to select the required operating system image. |
 | System Disk Size    | User-defined (as required by the instance)                           | Choose an appropriate size based on the workload of the sync gateway. The default is 40G, and 50G is recommended.                                                                                                                                                                                           |
 
 After resource configuration is complete, click **"Next"** to proceed to **Network Configuration**.
@@ -71,9 +70,7 @@ Allocate network resources for the cloud sync gateway to ensure stable and effic
 
 | **Configuration Item**      | **Optional Value**                    | **Description**                                                                                                                                                                                                                                                                                                            |
 | --------------------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Data Transfer Protocol      | S3Block / iSCSI (Not Recommended)     | This option is the data transfer protocol between the source and the sync gateway.  
-S3Block is widely used in WAN environments and is more suitable for data transfer.  
-The iSCSI protocol is used for storage networks and is suitable for stable network environments. |
+| Data Transfer Protocol      | S3Block / iSCSI (Not Recommended)     | This option is the data transfer protocol between the source and the sync gateway.<br>S3Block is widely used in WAN environments and is more suitable for data transfer.<br>The iSCSI protocol is used for storage networks and is suitable for stable network environments. |
 
 After network configuration is complete, click **"Next"** to proceed to **Target Start Settings**.
 
@@ -87,9 +84,7 @@ Configure the key parameters required for starting the target during recovery or
 
 | **Configuration Item**              | **Example Value**                       | **Description**                                                                                                                                                                                                                                                                            |
 | ----------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Windows Transition Host Image       | Windows Server-2019-XXXXXXXXXXXXX       | Please select a 64-bit image of Windows Server 2019/2016.  
-If you cannot find this version in the public or custom images, you can resolve it by uploading a custom image:  
-Upload the image file to object storage and then import the custom image from the object store. |
+| Windows Transition Host Image       | Windows Server-2019-XXXXXXXXXXXXX       | Please select a 64-bit image of Windows Server 2019/2016.<br>If you cannot find this version in the public or custom images, you can resolve it by uploading a custom image:<br>Upload the image file to object storage and then import the custom image from the object store. |
 | Image Access Type                   | Default / Custom                        | When creating an instance using the above image, if it is not possible to inject a username and password, you will need to use the available username and password provided by the image.                                                                                         |
 
 After completing the target start settings, click **"Finish"**. The system will automatically create the cloud sync gateway and transition host image.
