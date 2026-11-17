@@ -488,7 +488,6 @@ If the corresponding value of **"Availability Zone"** is empty, it may be necess
 ![hcs8.x_platform_credentials_information-10.png](./images/hcs8.x_platform_credentials_information-10.png)
 
 
-
 ## How to obtain Huawei Cloud HCF 1.0.x Platform Credentials information?
 
 When targeting the Huawei Cloud HCF 1.0.x version, the following authentication information of the HCF 1.0.x platform is required to complete the authentication docking of the API interface.
@@ -568,9 +567,11 @@ If the corresponding value of **"Availability Zone"** is empty, it may be necess
 
 
 
+
 ## What to do if kernel panic occurs when Oracle Linux 6.6 is booted in the cloud?
 
 - [Kernel Panic when Oracle Linux 6.6 Boot in Cloud](https://qa.oneprocloud.com/questions/D1s4)
+
 
 ## How to obtain ApsaraStack authentication information during object storage disaster recovery
 
