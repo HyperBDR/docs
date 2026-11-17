@@ -14,11 +14,9 @@ On the Resource Rules page, you can view, create, and manage resource monitoring
 
 ![alertrules-resourcerules-1](./images/alertrules-resourcerules-1.png)
 
-### **Create Alert Rule**
+### **Create Resource Rules**
 
-Click the **【+ Create Alert Rule】** button in the upper left corner of the list to enter the resource alert rule creation page:
-
-![alertrules-resourcerules-2](./images/alertrules-resourcerules-2.png)
+Click the **【+ Create Resource Rules】** button in the upper left corner of the list to enter the resource alert rule creation page:
 
 #### **Alert Rule Configuration Field Description**
 
@@ -46,19 +44,21 @@ Click the **【+ Create Alert Rule】** button in the upper left corner of the l
 | **Windows Agent** | CPU, RAM, Disk, Process | Monitors resource utilization and process status of Windows Agents. |
 | **Object Storage Resources** | Object Storage Capacity | Monitors storage capacity usage and remaining quota. |
 
+![alertrules-resourcerules-2](./images/alertrules-resourcerules-2.png)
+
 ::: note
 Once an alert rule is created, the system will automatically trigger alerts when corresponding events occur and send notifications through designated channels based on associated notification recipients. Meanwhile, related alert messages will appear on the "Alert Messages" page for centralized review and resolution.
 :::
 
 ### **Action**
 
-Select the resource alert rule to manage and click the **【Action】** button to expand the action menu. Note that certain operations may not support batch execution; please refer to the actual interface display:
+Select the resource alert rule to manage and click the **【Action】** button to expand the action menu:
 
 ![alertrules-resourcerules-3](./images/alertrules-resourcerules-3.png)
 
-#### **Modify**
+#### **Edit**
 
-Click **【Modify】** to navigate to the editing page, where you can modify the configuration parameters of the created resource alert rule:
+Click **【Edit】** to navigate to the editing page, where you can modify the configuration parameters of the created resource alert rule:
 
 ![alertrules-resourcerules-4](./images/alertrules-resourcerules-4.png)
 
@@ -78,10 +78,6 @@ Click **【Disable】** to update the alert rule status to "Disabled". Disabled 
 
 Click **【Remove】** to display a secondary confirmation dialog. After confirmation, the alert rule is permanently deleted:
 
-::: warning
-The remove operation permanently deletes the alert policy configuration and cannot be undone. Please ensure there are no active dependencies before proceeding.
-:::
-
 ![alertrules-resourcerules-7](./images/alertrules-resourcerules-7.png)
 
 
@@ -93,9 +89,9 @@ On the Event Rules page, you can view, create, and manage various event monitori
 
 ![alertrules-eventrules-1](./images/alertrules-eventrules-1.png)
 
-### **Create Alert Rule**
+### **Create Event Rules**
 
-Click the **【+ Create Alert Rule】** button in the upper left corner of the list to enter the event alert rule creation page:
+Click the **【+ Create Event Rules】** button in the upper left corner of the list to enter the event alert rule creation page:
 
 #### **Alert Rule Configuration Field Description**
 
@@ -136,9 +132,9 @@ Select the event alert rule to manage and click the **【Action】** button to e
 
 ![alertrules-eventrules-3](./images/alertrules-eventrules-3.png)
 
-#### **Modify**
+#### **Edit**
 
-Click **【Modify】** to navigate to the editing page, where you can modify the configuration parameters of the created event alert rule:
+Click **【Edit】** to navigate to the editing page, where you can modify the configuration parameters of the created event alert rule:
 
 ![alertrules-eventrules-4](./images/alertrules-eventrules-4.png)
 
@@ -157,9 +153,5 @@ Click **【Disable】** to update the alert rule status to "Disabled":
 #### **Remove**
 
 Click **【Remove】** to display a secondary confirmation dialog. After confirmation, the alert rule is permanently deleted:
-
-::: warning
-The remove operation permanently deletes the event alert policy and cannot be undone. Please ensure there are no active dependencies before proceeding.
-:::
 
 ![alertrules-eventrules-7](./images/alertrules-eventrules-7.png)

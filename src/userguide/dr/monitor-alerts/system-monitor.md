@@ -4,9 +4,9 @@ Provides a visual overview of the operating status of core platform resources, s
 
 ## **System Monitoring Features**
 
-The system monitoring module provides real-time visualization and performance analysis of key resources across the platform. Taking "Sync Proxy" as an example, users can select a specific host to view detailed performance metrics for that node, helping quickly identify resource bottlenecks or potential failure risks.
+The system monitoring module provides real-time visualization and performance analysis of key resources across the platform. Taking "Sync Proxy" as an example, users can select a specific host to view detailed operating metrics for that node, helping quickly identify resource bottlenecks or potential failure risks.
 
-![systemmonitor-dr-1](./images/systemmonitor-dr-1.png)
+![systemmonitor-1](./images/systemmonitor-1.png)
 
 #### **Basic Information**
 
@@ -35,56 +35,52 @@ Supports flexibly switching views by resource type and host instance for targete
 
 ## **DR**
 
-Log in to the HyperBDR console, and navigate to **【Monitor & Alerts】>【System Monitor】** from the top navigation bar. By default, the page opens on the **【DR】** tab. Users can use the component type dropdown menu and host list to flexibly inspect real-time metrics for each disaster recovery component.
-
 ### **Sync Proxy**
 
-Select **【Sync Proxy】** from the component type dropdown menu to inspect system resource utilization for the selected proxy node.
+Navigate to the **【Monitoring & Alerts】** module from the top navigation bar. The page opens on the **【DR】** tab by default. Select **【Sync Proxy】** from the component type dropdown menu to view the system resource usage of the selected proxy node.
 
 ![systemmonitor-dr-1](./images/systemmonitor-dr-1.png)
 
 ### **Cloud Sync Gateway**
 
-Select **【Cloud Sync Gateway】** from the component type dropdown menu to view resource consumption and workload metrics for the cloud sync gateway.
+On the **【DR】** tab, switch the component type dropdown menu to **【Cloud Sync Gateway】** to view system resource consumption and workload metrics of the cloud sync gateway.
 
 ![systemmonitor-dr-2](./images/systemmonitor-dr-2.png)
 
 ### **Linux Agent**
 
-Select **【Linux Agent】** from the component type dropdown menu, and pick a target Linux instance from the host list to pull up Agent resource monitoring details for that source Linux host.
+On the **【DR】** tab, switch the component type dropdown menu to **【Linux Agent】**, and select the target Linux instance from the host list to view Agent resource monitoring details of that source Linux host.
 
 ![systemmonitor-dr-3](./images/systemmonitor-dr-3.png)
 
 ### **Windows Agent**
 
-Select **【Windows Agent】** from the component type dropdown menu, and pick a target Windows instance from the host list to monitor Agent metrics for that production Windows host in real time.
+On the **【DR】** tab, switch the component type dropdown menu to **【Windows Agent】**, and select the target Windows instance from the host list to view Agent monitoring data of that Windows production host in real time.
 
 ![systemmonitor-dr-4](./images/systemmonitor-dr-4.png)
 
 ## **Failback**
 
-On the **【Monitor & Alerts】>【System Monitor】** page, switch to the **【Failback】** tab to monitor the real-time performance of various components involved in the reverse failback workflow.
-
 ### **Failback Sync Proxy**
 
-Select **【Failback Sync Proxy】** from the component type dropdown menu to inspect the operational monitoring dashboard for the selected proxy node.
+Navigate to the **【Monitoring & Alerts】** module from the top navigation bar and switch to the **【Failback】** tab. The **【Failback Sync Proxy】** monitoring dashboard is displayed by default.
 
 ![systemmonitor-failback-1](./images/systemmonitor-failback-1.png)
 
 ### **Failback Cloud Sync Gateway**
 
-Select **【Failback Cloud Sync Gateway】** from the component type dropdown menu to check operational metrics of data transfer gateways during failback.
+On the **【Failback】** tab, switch the component type dropdown menu to **【Failback Cloud Sync Gateway】** to view operating metrics of data transfer gateways in failback scenarios.
 
 ![systemmonitor-failback-2](./images/systemmonitor-failback-2.png)
 
 ### **Failback Linux Agent**
 
-Select **【Failback Linux Agent】** from the component type dropdown menu and pick a target node from the host list to view Linux host monitoring status during reverse failback.
+On the **【Failback】** tab, switch the component type dropdown menu to **【Failback Linux Agent】**, and select a managed host node to view Linux host monitoring status during failback.
 
 ![systemmonitor-failback-3](./images/systemmonitor-failback-3.png)
 
 ### **Failback Windows Agent**
 
-Select **【Failback Windows Agent】** from the component type dropdown menu and pick a target node from the host list to view Windows host system monitoring during failback.
+On the **【Failback】** tab, switch the component type dropdown menu to **【Failback Windows Agent】**, and select the target node to view system monitoring of Windows hosts during failback.
 
 ![systemmonitor-failback-4](./images/systemmonitor-failback-4.png)

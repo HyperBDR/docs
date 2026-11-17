@@ -1,86 +1,80 @@
-# **Tag Management**
+# Tag Management
 
-The Tag Management module is used to classify and multi-dimensionally label host resources in the system, enabling users to quickly search, group, and manage large-scale resources, thereby improving O&M efficiency.
+The Tag Management module is used to classify and identify resources or objects in the system, making it convenient for users to quickly search, categorize, and manage resources, thereby improving management efficiency.
 
-## **Tag List**
+## Tag List
 
-Log in to the HyperBDR console, and navigate to **【O&M Management】>【Tag Management】>【Tag List】** from the top navigation bar.
+Navigate to **【O&M Management】>【Tag Management】>【Tag List】** from the top menu to enter the tag management page.
 
-### **Create Tag**
+### Create Tag
 
-Click the **【+ Create Tag】** button in the upper left corner of the list. In the popup window, fill in the tag name, description, and select the tag color, then click **【Submit】** to complete creation:
+Click **【Create Tag】** to start creating a tag. Add the tag name, description, and tag color according to the popup window content:
 
-![tagmanagement-taglist-1](./images/tagmanagement-taglist-1.png)
+![operations-tagmanagement-taglist-createtag-modal](./images/operations-tagmanagement-taglist-createtag-modal.png)
 
-### **Action**
+### Action
 
-Select a created target tag, and click the **【Action】** dropdown menu above the list to perform the following management operations:
+#### Modify
 
-#### **Modify**
+Select a created tag, click **【Action】>【Modify】**, and modify the corresponding name, description, and tag color:
 
-Select the target tag, click **【Action】>【Modify】**, edit the tag name, description, and color as needed, then click **【Submit】** to save changes:
+![operations-tagmanagement-taglist-action-hover-modify](./images/operations-tagmanagement-taglist-action-hover-modify.png)
 
-![tagmanagement-taglist-2](./images/tagmanagement-taglist-2.png)
+#### Attach Resource
 
-#### **Attach Resource**
+Select a created tag, click **【Action】>【Attach Resource】**, and attach the corresponding host resources:
 
-Select the target tag, click **【Action】>【Attach Resource】**, check the host resources to associate in the popup host list, and click **【Submit】** to complete binding:
+![operations-tagmanagement-taglist-action-hover-attach-resource](./images/operations-tagmanagement-taglist-action-hover-attach-resource.png)
 
-![tagmanagement-taglist-3](./images/tagmanagement-taglist-3.png)
+Click **【Click for list】** to view the attached host resources:
 
-After association, click **【>Click for list】** in the target tag's row. The resource details drawer will slide out from the right, allowing you to centrally view all host resources currently bound to this tag:
+![operations-tagmanagement-taglist-click-for-list](./images/operations-tagmanagement-taglist-click-for-list.png)
 
-![tagmanagement-taglist-4](./images/tagmanagement-taglist-4.png)
+#### Detach Resource
 
-#### **Detach Resource**
+Select a created tag, click **【Action】>【Detach Resource】**, and detach the corresponding host resources:
 
-Select the target tag, click **【Action】>【Detach Resource】**, check the host resources to unbind, and click **【Submit】** to confirm detaching:
+![operations-tagmanagement-taglist-action-hover-detach-resource](./images/operations-tagmanagement-taglist-action-hover-detach-resource.png)
 
-![tagmanagement-taglist-5](./images/tagmanagement-taglist-5.png)
+#### Delete
 
-#### **Delete**
+Select a created tag, click **【Action】>【Delete】**, and delete the corresponding tag. All attached resources will be automatically detached from the tag:
 
-Select the tag that is no longer needed, click **【Action】>【Delete】**, and a secondary confirmation dialog will pop up. Click **【Submit】** to permanently delete the tag:
+![operations-tagmanagement-taglist-action-hover-delete](./images/operations-tagmanagement-taglist-action-hover-delete.png)
 
-::: warning
-The deletion operation is irreversible. Once a tag is deleted, all attached host resources will be automatically detached from it.
-:::
+## Batch Association
 
-![tagmanagement-taglist-6](./images/tagmanagement-taglist-6.png)
+Navigate to **【O&M Management】>【Tag Management】>【Batch Association】** from the top menu to enter the batch association page.
 
-## **Batch Association**
+### Export Template
 
-For scenarios requiring large-scale tag assignment, you can import CSV templates to achieve batch association. Navigate to **【O&M Management】>【Tag Management】>【Batch Association】**.
+Click the **【Export Template】** button on the page to start downloading the template file (in csv format):
 
-### **Export Template**
+![operations-tagmanagement-batch-association](./images/operations-tagmanagement-batch-association.png)
 
-Click the **【Export Template】** button in the upper right corner of the page to download the host tag configuration template file (`.csv` format):
+##### Export Template Description
 
-![tagmanagement-batchassociation-1](./images/tagmanagement-batchassociation-1.png)
+| Field Name | Description |
+| --------- | ----------------------- |
+| HOST ID | Unique host identifier, usually in UUID format. |
+| NAME | Host name, customized by the user or assigned by the system. |
+| HOST NAME | Network hostname of the host. |
+| HOST IP | IP address of the host. |
+| HOST MAC | MAC address of the host, uniquely identifying the network interface. |
+| HOST TAGS | Host tags, custom information used to classify, group, or identify hosts. |
 
-#### **Template Field Description**
+##### Fill in the Template
 
-| **Field Name** | **Description** |
-| :--- | :--- |
-| **HOST ID** | Unique host identifier, usually in UUID format. |
-| **NAME** | Host name, custom or system-assigned name. |
-| **HOST NAME** | Host network hostname. |
-| **HOST IP** | Host IP address. |
-| **HOST MAC** | Host MAC address, uniquely identifying the network interface. |
-| **HOST TAGS** | Host tags, used to classify, group, or identify custom host information (multiple tags separated by English commas). |
-
-#### **Fill in and Save Template**
-
-Open the exported CSV template file, enter the target tag names in the **HOST TAGS** column for the corresponding hosts, and save the file:
+Fill in the tag names in the HOST TAGS field of the exported template and save it:
 
 ![tagmanagement-template](./images/tagmanagement-template.png)
 
-### **Import Tags**
+### Import Tags
 
-Click the **【Import Tags】** button in the upper right corner of the page, and drag or upload the filled CSV template file in the popup dialog (only `.csv` format is supported):
+Click the **【Import Tags】** button on the page, and drag or upload the file into the prompt box to start importing the template:
 
-![tagmanagement-batchassociation-2](./images/tagmanagement-batchassociation-2.png)
+![operations-tagmanagement-batchassociation-importtags-modal](./images/operations-tagmanagement-batchassociation-importtags-modal.png)
 
-After uploading and submitting the file, the system will automatically create the corresponding tags in batch and attach host resources to them. You can view the import progress and execution results in the task details drawer:
+After the import is completed, tags will be created automatically and resources will be added to the corresponding tags. Click **【Click for details】** in the task list to expand the import task execution details drawer:
 
-![tagmanagement-batchassociation-3](./images/tagmanagement-batchassociation-3.png)
+![operations-tagmanagement-batchassociation-task-details](./images/operations-tagmanagement-batchassociation-task-details.png)

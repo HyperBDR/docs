@@ -6,7 +6,7 @@
 
 系统监控模块用于对平台内各类关键资源的运行状态进行实时可视化展示和性能分析。以“源端同步代理”为例，用户可选择具体主机，查看该节点的详细运行指标，以便及时发现资源瓶颈或潜在故障风险。
 
-![systemmonitor-dr-1](./images/systemmonitor-dr-1.png)
+![systemmonitor-1](./images/systemmonitor-1.png)
 
 #### **基本信息**
 
@@ -35,56 +35,52 @@
 
 ## **容灾**
 
-登录 HyperBDR 控制台，在顶部导航栏进入 **【监控与报警管理】>【系统监控】**，默认处于 **【容灾】** 标签页。用户可通过组件类型下拉菜单与主机列表，灵活查看各类容灾组件的实时运行指标。
-
 ### **源端同步代理**
 
-在组件类型下拉菜单中选择 **【源端同步代理】**（Sync Proxy），查看选定代理节点的系统资源使用情况。
+用户可通过顶部导航栏进入 **【监控与告警】** 模块，默认处于 **【容灾】** 标签页，在组件类型下拉菜单中选择 **【源端同步代理】**（Sync Proxy），查看选定代理节点的系统资源使用情况。
 
 ![systemmonitor-dr-1](./images/systemmonitor-dr-1.png)
 
 ### **云同步网关**
 
-在组件类型下拉菜单中选择 **【云同步网关】**（Cloud Sync Gateway），即可查看云同步网关的系统资源消耗与运行负载指标。
+在 **【容灾】** 标签页下，组件类型下拉菜单切换至 **【云同步网关】**（Cloud Sync Gateway），即可查看云同步网关的系统资源消耗与运行负载指标。
 
 ![systemmonitor-dr-2](./images/systemmonitor-dr-2.png)
 
 ### **Linux Agent**
 
-在组件类型下拉菜单中选择 **【Linux Agent】**，并在主机列表中选择目标 Linux 实例，即可调取该源端 Linux 主机的 Agent 资源监控详情。
+在 **【容灾】** 标签页下，组件类型下拉菜单切换至 **【Linux Agent】**，并在主机列表中选择目标 Linux 实例，即可调取该源端 Linux 主机的 Agent 资源监控详情。
 
 ![systemmonitor-dr-3](./images/systemmonitor-dr-3.png)
 
 ### **Windows Agent**
 
-在组件类型下拉菜单中选择 **【Windows Agent】**，并在主机列表中选择目标 Windows 实例，即可实时查看该 Windows 生产主机的 Agent 监控数据。
+在 **【容灾】** 标签页下，组件类型下拉菜单切换至 **【Windows Agent】**，并在主机列表中选择目标 Windows 实例，即可实时查看该 Windows 生产主机的 Agent 监控数据。
 
 ![systemmonitor-dr-4](./images/systemmonitor-dr-4.png)
 
 ## **回切**
 
-在 **【监控与报警管理】>【系统监控】** 页面，切换至 **【回切】**（Failback）标签页，即可针对反向回切流程中涉及的各类运行组件进行实时性能监控。
-
 ### **回切源端同步代理**
 
-在组件类型下拉菜单中选择 **【回切源端同步代理】**（Failback Sync Proxy），查看选定代理节点的运行监控面板。
+用户可通过顶部导航栏进入 **【监控与告警】** 模块，切换至 **【回切】**（Failback）标签页，默认展示 **【回切源端同步代理】**（Failback Sync Proxy）的运行监控面板。
 
 ![systemmonitor-failback-1](./images/systemmonitor-failback-1.png)
 
 ### **回切云同步网关**
 
-在组件类型下拉菜单中选择 **【回切云同步网关】**（Failback Cloud Sync Gateway），查看回切场景中数据流转网关的运行指标。
+在 **【回切】** 标签页下，组件类型下拉菜单切换至 **【回切云同步网关】**（Failback Cloud Sync Gateway），查看回切场景中数据流转网关的运行指标。
 
 ![systemmonitor-failback-2](./images/systemmonitor-failback-2.png)
 
 ### **回切Linux Agent**
 
-在组件类型下拉菜单中选择 **【回切Linux Agent】**（Failback Linux Agent），并在主机列表中选择目标节点，查看反向回切过程中的 Linux 主机监控状态。
+在 **【回切】** 标签页下，组件类型下拉菜单切换至 **【回切Linux Agent】**（Failback Linux Agent），选择纳管的主机节点查看反向回切过程中的 Linux 主机监控状态。
 
 ![systemmonitor-failback-3](./images/systemmonitor-failback-3.png)
 
 ### **回切Windows Agent**
 
-在组件类型下拉菜单中选择 **【回切Windows Agent】**（Failback Windows Agent），并在主机列表中选择目标节点，查看回切流程中 Windows 主机的系统监控情况。
+在 **【回切】** 标签页下，组件类型下拉菜单切换至 **【回切Windows Agent】**（Failback Windows Agent），选择目标节点查看回切流程中 Windows 主机的系统监控情况。
 
 ![systemmonitor-failback-4](./images/systemmonitor-failback-4.png)

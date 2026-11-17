@@ -123,6 +123,22 @@
 
 ![](./images/huaweicloud_recommendeduse_sdkv3_1_86-gateway-availability-details.png)
 
+##### 云同步网关详情
+
+在云同步网关列表中，点击网关主机名称，即可打开“云同步网关详情”抽屉，支持查看概览、存储及系统监控信息：
+
+- **概览**：展示网关的基础信息（名称、类型、连接地址、可用性等）、资源配置（地域、可用区、规格、CPU/内存等）、网络配置及网络高级设置。
+
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-gateway-details-overview.png)
+
+- **存储**：展示关联的存储池（Storage Pool）、卷（Volume）及卷组（Volume Group）的状态与分配详情。
+
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-gateway-details-storage.png)
+
+- **系统监控**：展示网关的运行时间（Run Time）、CPU 与内存配置，以及网络流量、CPU 使用率、内存使用情况、系统平均负载和磁盘使用监控图表。
+
+![](./images/huaweicloud_recommendeduse_sdkv3_1_86-gateway-details-systemmonitor.png)
+
 ##### 更多操作
 
 选中单台云同步网关后，点击“更多操作”按钮展开更多操作菜单，可对云同步网关进行配置调整：
