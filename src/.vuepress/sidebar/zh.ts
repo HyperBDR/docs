@@ -102,6 +102,9 @@ export const zhSidebar = sidebar({
       children: [
        "sap-hana-hybrid-cloud-dr-solution",
        "sap-semiconductor-hybrid-cloud-dr-solution",
+       "haitong-brazil-bank-best-practices-standard",
+       "stategrid-best-practices",
+       "imss-huaweicloud-dr"
       ],
       collapsible: true,
       expanded: true,
@@ -506,7 +509,8 @@ export const zhSidebar = sidebar({
           icon: "paper-plane",
           prefix: "orchestration/",
           children: [
-            "dr-group.md"
+            "dr-group.md",
+            "batch-tasks.md"
           ]
         },
         {

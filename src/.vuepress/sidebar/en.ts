@@ -45,6 +45,7 @@ export const enSidebar = sidebar({
         "hyperbdr-service-ip-changes-and-post-change-environment.md",
         "hyperbdr-orchestration-best-practices",
         "domain-access-standalone-hyperbdr-change-guide.md",
+        "hyperbdr-asm-best-practice.md",
         "openstack_dhcp_pool_best_practice.md",
       ],
       collapsible: true,
@@ -101,7 +102,10 @@ export const enSidebar = sidebar({
       prefix: "",
       children: [
         "sap-hana-hybrid-cloud-dr-solution",
-        "sap-semiconductor-hybrid-cloud-dr-solution"
+        "sap-semiconductor-hybrid-cloud-dr-solution",
+        "haitong-brazil-bank-best-practices-standard",
+        "imss-huaweicloud-dr",
+        "stategrid-best-practices"
       ],
       collapsible: true,
       expanded: true,
@@ -506,7 +510,8 @@ export const enSidebar = sidebar({
           icon: "paper-plane",
           prefix: "orchestration/",
           children: [
-            "dr-group.md"
+            "dr-group.md",
+            "batch-tasks.md"
           ]
         },
         {

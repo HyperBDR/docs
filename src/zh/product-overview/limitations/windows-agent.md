@@ -186,8 +186,7 @@ Windows Agent使用Windows VSS创建一致的快照，无需中断系统操作�
 | C:\\Program Files (x86)\\DiskSync-Agent\\hyper_exporter\\hyper_exporter.exe | 文件 |
 | C:\\Program Files (x86)\\DiskSync-Agent\\hyper_exporter\\reg_service.bat | 文件 |
 | C:\\Program Files (x86)\\DiskSync-Agent\\hyper_exporter\\unreg_service.bat | 文件 |
-
-
+| C:\\ProgramData\\CloudSyncAgent | 目录 |
 
 4. **开启防病毒软件的保护功能**
 
