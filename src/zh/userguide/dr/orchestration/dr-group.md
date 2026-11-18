@@ -1,107 +1,392 @@
-# **资源组容灾**
+# **资源组**
 
-“资源组容灾”功能支持以资源组为单位进行统一的容灾配置和调度，适用于需对多个相关资源（如主机、网络、存储）统一进行保护和恢复的场景。
-![orchestration-dr-group-main](./images/orchestration-dr-group-main.png)
+资源组容灾模块用于对系统中的多个关联资源（包括主机、网络、存储及自定义脚本）进行统一编组、调度与全流程自动化编排。通过可视化工作流画布预先定义各资源的启动依赖次序、容灾验证脚本及定时周期性任务，确保灾难发生时业务系统能够按预期顺序自动、快速且平稳地完成跨环境恢复与接管。
 
-## **新建资源组**
+## **资源组管理**
 
-点击“新建资源组”，可对已完成资源配置的主机进行统一编组，以便后续进行集中调度与容灾管理。
+登录 HyperBDR 控制台，在顶部导航栏进入 **【资源编排】>【资源组】** 页面。
 
-![orchestration-dr-group-create](./images/orchestration-dr-group-create.png)
+![drgroup-manage-1](./images/drgroup-manage-1.png)
 
-根据实际需求设置资源组名称，填写备注，选择对应的主机资源，完成配置后点击“完成”以创建资源组。
+列表上方提供操作按钮：**【新建资源组】**、**【新建工作流】**、**【立即同步】**、**【运行】**、**【更多操作】**；下方为搜索与筛选栏。列表各列清晰展示资源组名称、资源同步状态、启动状态、任务状态、工作流数量、主机数量及存储容量等信息。
 
-![orchestration-dr-group-main](./images/orchestration-dr-group-main.png)
+#### **查看明细**
 
-## **资源编排**
+资源组列表的每行记录中，提供了三个快捷明细下钻抽屉入口：
 
-资源编排可以预先定义主机、网络和存储等资源的启动顺序及依赖关系，确保在灾难发生时，系统能够按正确流程迅速且有序地恢复运行。
+![drgroup-manage-1](./images/drgroup-manage-1.png)
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-3.png)
+##### **查看关联任务**
 
-通过点击“开始”按钮，进入添加节点流程，完成节点的配置与添加。
+点击表格对应行中的 **【点击查看任务】**，页面右侧滑出该资源组所有历史任务执行记录抽屉：
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-4.png)
+![drgroup-details-1](./images/drgroup-details-1.png)
 
-点击“添加主机节点”后，右侧栏将显示对应设置选项，用户可在此添加启动前脚本、启动后脚本及其他相关配置后以此添加下一节点或并行节点。
+- **查看任务详情**：在任务列表抽屉中点击 **【点击查看详情】**，进一步展开该任务的子步骤、执行耗时与日志详情：
 
-## **立即同步**
+  ![drgroup-details-2](./images/drgroup-details-2.png)
 
-选中需要容灾的资源组后，点击页面**“立即同步”**，开始根据实际业务需求进行同步数据
+##### **查看关联工作流**
 
-> 注意：默认情况下，首次同步是全量同步，随后的同步则为增量同步。如果需要在已开始增量同步后重新进行全量同步以确保数据完整性，可以选择强制进行全量同步。
+点击表格对应行中的 **【点击查看工作流】**，右侧滑出当前资源组已编排的所有工作流管理抽屉：
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-5.png)
+![drgroup-details-3](./images/drgroup-details-3.png)
 
-### **高级设置**
+##### **查看关联资源**
 
-可在“高级设置”中启用**强制全量同步**选项，以确保所有数据均重新进行完整同步。
+点击表格对应行中的 **【点击查看资源】**，右侧滑出当前资源组所纳管的主机资源明细抽屉：
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-6.png)
+![drgroup-details-4](./images/drgroup-details-4.png)
 
-## **容灾演练**
+- **资源抽屉内数据同步**：在主机资源抽屉中选中目标主机后点击 **【立即同步】**，系统将弹出针对该主机的快照配额与同步策略窗口：
 
-选择对应的资源组，点击“容灾演练”，选择主机并选择恢复时间点，一键恢复容灾主机到目标环境。
+  ![drgroup-details-5](./images/drgroup-details-5.png)
 
-> 注意：仅完成同步的主机才能参与容灾演练，未同步数据的主机将被排除在演练任务之外。状态为不可启动。
+- **资源抽屉内容灾配置**：在主机资源抽屉中选中目标主机后点击 **【更多操作】**，系统将弹出针对该主机的容灾配置信息，具体可参考[主机容灾](../dr/host-dr.md)：
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-7.png)
+  ![drgroup-details-6](./images/drgroup-details-6.png)
 
-系统会根据预先配置的资源编排（计算、存储、网络等）自动化创建或启动目标端实例，等待启动完成，即可登录到目标平台进行验证配置及业务演练。
+### **新建资源组**
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-8.png)
+点击列表左上方的 **【新建资源组】** 按钮，系统将弹出新建向导窗口，根据向导表单填写资源组基本信息：
 
-恢复完成后，检查应用服务、数据库、负载均衡等是否正常工作。
+![drgroup-createdrgroup-1](./images/drgroup-createdrgroup-1.png)
 
-## **容灾接管**
+在左侧待选资源列表中勾选目标受保护主机，点击中间的 **【 > 】** 按钮（或直接拖拽），将其添加到右侧已选资源栏中（中间的 **【 < 】** 按钮可移出已选主机）：
 
-选择对应资源组，点击**“容灾接管”**功能，按照需求选择恢复快照时间点，并点击确定
+![drgroup-createdrgroup-2](./images/drgroup-createdrgroup-2.png)
 
-> 注意：仅完成同步的主机才能参与容灾接管，未同步数据的主机将被排除在接管任务之外。状态为不可启动。
+##### **参数说明**
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-9.png)
+| 参数名称 | 必填 | 说明 |
+| :--- | :---: | :--- |
+| **名称** | 是 | 资源组自定义唯一标识名称 |
+| **描述** | 否 | 资源组备注信息及业务说明 |
+| **关联资源** | 是 | 勾选加入当前资源组的目标受保护主机资源 |
 
-系统会根据预先配置的资源编排（计算、存储、网络等）自动化创建或启动目标端实例，等待启动完成，即可登录到目标平台进行验证配置及业务接管。
+::: warning 注意
+通用平台主机不支持加入资源组。
+:::
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-10.png)
+### **新建工作流**
 
-此时主机容灾流程完成，业务启动后，检查数据库版本、应用服务配置、依赖服务（如缓存、消息队列）是否正常。
+在资源组列表中勾选目标资源组，点击列表上方的 **【新建工作流】** 按钮，系统将弹出工作流可视化编排画布：
 
-## **更多操作**
+- **自定义工作流名称**：在画布顶部菜单栏右侧，点击工作流名称可自定义工作流名称。
 
-### **基本信息**
+![drgroup-createworkflow-3](./images/drgroup-createworkflow-3.png)
 
-点击“基本信息”，可查看资源组的名称、备注等信息。
+- **常用画布工具**：画布顶部菜单栏中间区域提供常用画布操作，支持撤销、放大、缩小及拖动画布等功能。
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-11.png)
+![drgroup-createworkflow-2](./images/drgroup-createworkflow-2.png)
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-12.png)
+- **工作流控制栏**：画布顶部菜单栏左侧区域提供工作流运行、重试、环境变量配置及保存等功能，可用于编辑工作流、配置运行环境和测试工作流的执行情况。
 
-### **关联资源**
+![drgroup-createworkflow-1](./images/drgroup-createworkflow-1.png)
 
-点击“关联资源”，可管理该资源组内的主机资源，支持新增或移除主机。
+#### **步骤一：选择运行模式**
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-13.png)
+点击根节点卡片，在右侧面板中选择工作流的运行模式（【容灾演练】或【容灾接管】）：
 
-点击资源数量内对应主机资源右侧“x号”可对该资源组主机进行移除操作
+![drgroup-createworkflow-4](./images/drgroup-createworkflow-4.png)
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-14.png)
+#### **步骤二：添加节点（资源与工具）**
 
-选择需要添加的主机后，点击确认即可将其加入资源组。
+点击节点旁的 **【+】**（点击添加节点）按钮，在弹出的节点选择窗口中挑选所需节点类型。面板支持【资源】与【工具】两大类：
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-15.png)
+![drgroup-createworkflow-5](./images/drgroup-createworkflow-5.png)
 
-### **删除资源组**
+| 节点分类 | 节点名称 | 说明 |
+| :--- | :--- | :--- |
+| **资源** | **主机** | 添加受保护的主机节点，编排主机的启动顺序与依赖 |
+| **工具** | **远程 Linux 命令执行** | 向目标主机发送并执行自定义命令或运维脚本 |
+| | **条件分支** | 根据执行状态或条件表达式将工作流拆分为不同分支 |
+| | **解除同步策略** | 解除父级资源节点当前绑定的数据同步策略 |
+| | **停止同步** | 强制停止父级资源节点正在执行的数据同步任务 |
+| | **清理验证资源** | 仅清理该节点对应在目标端拉起的容灾验证资源 |
 
-> 注意：该操作仅删除资源组，资源组中的资源将会保留。
+- **添加受保护主机节点**：选择【主机】节点类型，并在弹出的主机资源列表中勾选目标受保护主机：
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-16.png)
+  ::: tip 主机选择限制
+  每个主机只能被选择一次。
+  :::
 
-### **清理验证资源**
+  ![drgroup-createworkflow-6](./images/drgroup-createworkflow-6.png)
 
-> 注意：该操作只会清理云上已启动的资源。
+  勾选确认后，画布中生成主机节点卡片及其拓扑连接：
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-17.png)
+  ![drgroup-createworkflow-7](./images/drgroup-createworkflow-7.png)
 
-![](./images/resourceorchestration-resourcegroupdisasterrecovery-18.png)
+- **添加工具节点**：在已添加的主机节点之后继续点击 **【+】**（点击添加节点）入口，选择【远程 Linux 命令执行】等下游节点：
 
+  ![drgroup-createworkflow-8](./images/drgroup-createworkflow-8.png)
+
+  在弹出的节点列表中选择【远程 Linux 命令执行】：
+
+  ![drgroup-createworkflow-9](./images/drgroup-createworkflow-9.png)
+
+  确认后，画布中生成远程命令执行节点与上下游依赖连接线：
+
+  ![drgroup-createworkflow-10](./images/drgroup-createworkflow-10.png)
+
+#### **步骤三：配置节点属性**
+
+点击画布中的目标节点卡片，页面右侧将滑出属性面板，可按需配置基础信息、连接凭据、执行脚本或环境变量：
+
+![drgroup-createworkflow-11](./images/drgroup-createworkflow-11.png)
+
+::: tip 最佳实践
+关于企业级多层业务架构（如 WordPress + MySQL HA 等）的端到端容灾编排场景、自动化切换脚本规范及实战演练案例，请参考 [HyperBDR编排功能最佳实践](../../technical-practices/hyperbdr-orchestration-best-practices.md)。
+:::
+
+### **立即同步**
+
+在资源组主列表中勾选目标资源组，点击列表上方的 **【立即同步】** 按钮，系统将针对该资源组内所有关联主机发起整组数据同步：
+
+![drgroup-sync-1](./images/drgroup-sync-1.png)
+
+### **运行**
+
+在资源组主列表中勾选目标资源组，点击列表上方的 **【运行】** 按钮，系统将弹出工作流详情列表抽屉，展示该资源组已绑定的工作流：
+
+![drgroup-run-1](./images/drgroup-run-1.png)
+
+#### **修改**
+
+勾选工作流后，点击列表上方的 **【修改】** 按钮，进入工作流可视化编排画布，支持对已保存的节点拓扑与配置参数进行编辑调整：
+
+![drgroup-run-2](./images/drgroup-run-2.png)
+
+#### **运行**
+
+勾选目标工作流后，点击列表上方的 **【运行】** 按钮，系统弹出运行参数确认窗口，可为各主机选择恢复时间点及高级设置后发起运行：
+
+![drgroup-run-3](./images/drgroup-run-3.png)
+
+#### **重试**
+
+当工作流运行失败或部分节点出现异常时，点击 **【重试】** 按钮可对失败的节点及下游任务重新发起执行。
+
+#### **更多操作**
+
+选中工作流后点击 **【更多操作】** 下拉菜单，可对该工作流进行以下操作：
+
+![drgroup-run-5](./images/drgroup-run-5.png)
+
+##### **关联计划任务**
+
+点击 **【更多操作】>【关联计划任务】**，在弹出的窗口中选择需要绑定的计划任务，实现该工作流的定时自动化调度：
+
+![drgroup-run-4](./images/drgroup-run-4.png)
+
+##### **解除计划任务**
+
+点击 **【更多操作】>【解除计划任务】**，解除当前工作流与已关联计划任务的绑定关系；解除后计划任务不再自动触发该工作流。
+
+##### **删除**
+
+点击 **【更多操作】>【删除】**，在弹出的二次确认窗口中点击 **【确定】** 彻底删除该编排工作流：
+
+![drgroup-workflow-8](./images/drgroup-workflow-8.png)
+
+### **更多操作**
+
+在资源组列表中勾选目标资源组，点击列表顶部的 **【更多操作】** 下拉菜单：
+
+![drgroup-action-1](./images/drgroup-action-1.png)
+
+#### **基本信息**
+
+点击 **【更多操作】>【基本信息】**，在弹出的基本信息窗口中查看或编辑当前资源组的基本信息（包括资源组名称和备注说明）：
+
+![drgroup-action-2](./images/drgroup-action-2.png)
+
+#### **关联资源**
+
+点击 **【更多操作】>【关联资源】**，在弹出的关联资源窗口中查看当前资源组所纳管的受保护主机清单，并支持调整或转移关联主机：
+
+![drgroup-action-3](./images/drgroup-action-3.png)
+
+#### **清理验证资源**
+
+点击 **【更多操作】>【清理验证资源】**，在二次确认弹窗中确认后，一键释放当前资源组在容灾演练过程中拉起的目标端云上测试验证实例及关联资源：
+
+![drgroup-action-4](./images/drgroup-action-4.png)
+
+#### **删除资源组**
+
+点击 **【更多操作】>【删除资源组】**，在弹出的二次确认对话框中点击 **【确定】** 彻底删除该资源组元数据逻辑配置：
+
+![drgroup-action-5](./images/drgroup-action-5.png)
+
+::: warning 操作影响
+清理验证资源只会释放云上已拉起的测试验证实例，不会对源端生产主机及同步数据产生影响；删除资源组仅删除元数据逻辑，主机数据将完整保留。
+:::
+
+## **工作流管理**
+
+点击左侧导航栏切换至 **【工作流】** 标签页，集中查看与管理系统内已创建的所有编排工作流：
+
+![drgroup-workflow-1](./images/drgroup-workflow-1.png)
+
+#### **查看工作流任务**
+
+在工作流列表中直接点击目标工作流名称，页面右侧将滑出该工作流的执行拓扑详情与历史任务记录抽屉：
+
+![drgroup-workflow-2](./images/drgroup-workflow-2.png)
+
+### **修改**
+
+在工作流列表中选中目标工作流，点击列表上方的 **【修改】** 按钮：
+
+![drgroup-workflow-3](./images/drgroup-workflow-3.png)
+
+系统将重新打开可视化编排画布，支持对已保存的工作流节点拓扑与配置参数进行编辑调整：
+
+![drgroup-workflow-4](./images/drgroup-workflow-4.png)
+
+### **运行**
+
+在工作流列表中勾选目标工作流，点击列表上方的 **【运行】** 按钮（或直接点击操作列的运行图标），系统将弹出运行工作流参数确认窗口：
+
+![drgroup-workflow-5](./images/drgroup-workflow-5.png)
+
+在弹出的运行配置窗口中，可查看该工作流纳管的可启动资源数量、受保护主机名称、主机 IP、存储类型、目标云平台以及还原点快照，并可展开 **【高级设置】** 进行启动参数调整。确认无误后点击 **【确定】** 即可触发该工作流执行。
+
+### **重试**
+
+当工作流在执行过程中由于网络抖动、目标端资源配额不足或脚本执行超时等异常导致执行失败时，列表上方的 **【重试】** 按钮（及操作列的重试图标）将被激活。
+
+在工作流列表中勾选执行失败的目标工作流，点击 **【重试】** 按钮，系统将从失败的节点断点处继续执行，或根据预设重试策略重新触发工作流，无需重新从头配置与运行。
+
+::: tip 重试可用条件
+仅当工作流的最近执行状态为失败时，**【重试】** 按钮才处于可用状态；未执行或最近一次执行成功的正常工作流该按钮为置灰状态。
+:::
+
+### **更多操作**
+
+选中目标工作流后，点击操作列的 **【更多操作】** 下拉菜单：
+
+![drgroup-workflow-6](./images/drgroup-workflow-6.png)
+
+#### **关联计划任务**
+
+点击 **【更多操作】>【关联计划任务】**，在弹出的窗口中选择已创建的定时任务策略进行绑定，使工作流可按预设计划自动定时执行：
+
+![drgroup-workflow-7](./images/drgroup-workflow-7.png)
+
+#### **解除计划任务**
+
+若当前工作流已绑定计划任务，点击 **【更多操作】>【解除计划任务】** 可解除绑定关系；解除后该工作流将不再随定时任务周期性触发，但工作流本身不受影响。
+
+::: note 删除前检查
+在删除工作流之前，必须确保其未关联任何处于启用状态的计划任务；若存在关联，需先在此处解除绑定。
+:::
+
+#### **删除**
+
+点击 **【更多操作】>【删除】**，在弹出的二次确认对话框中点击 **【确定】** 彻底删除该工作流配置：
+
+![drgroup-workflow-8](./images/drgroup-workflow-8.png)
+
+::: warning 操作影响
+删除工作流只会删除其元数据编排逻辑与拓扑配置，不会删除源端主机数据及底层快照。
+:::
+
+## **计划任务**
+
+点击左侧导航栏切换至 **【计划任务】** 标签页，统一配置和调度定时自动化容灾任务：
+
+![drgroup-scheduledtasks-1](./images/drgroup-scheduledtasks-1.png)
+
+### **创建**
+
+点击页面左上方的 **【创建】** 按钮，弹出创建计划任务向导窗口：
+
+![drgroup-scheduledtasks-2](./images/drgroup-scheduledtasks-2.png)
+
+- **配置时间周期与调度参数**：设置执行周期（如每 N 小时、每 N 天等）及具体小时数：
+  ![drgroup-scheduledtasks-3](./images/drgroup-scheduledtasks-3.png)
+- **查看执行时间**：点击表单底部的 **【查看执行时间】**，预览未来各个周期的具体触发时间点：
+  ![drgroup-scheduledtasks-4](./images/drgroup-scheduledtasks-4.png)
+
+##### **配置说明**
+
+| 配置项 | 说明 |
+| :--- | :--- |
+| **名称** | 计划任务自定义唯一名称 |
+| **时区** | 计划任务生效的时区，默认为 (GMT+08:00) Asia/Shanghai |
+| **起始时间** | 计划任务开始生效并首次执行的时间 |
+| **任务状态** | 开关控制，默认开启 |
+| **类型** | 支持时间周期与高级设置（Crontab 表达式） |
+| **周期** | 支持每 N 小时、每 N 天、每周、每月 |
+
+### **更多操作**
+
+在列表中选中目标计划任务，点击 **【更多操作】** 菜单：
+
+![drgroup-scheduledtasks-5](./images/drgroup-scheduledtasks-5.png)
+
+#### **修改**
+
+点击 **【更多操作】>【修改】**，重新编辑计划任务的基本信息与调度周期策略：
+
+![drgroup-scheduledtasks-6](./images/drgroup-scheduledtasks-6.png)
+
+#### **启用**
+
+点击 **【更多操作】>【启用】**，启用处于暂停状态的定时任务：
+
+![drgroup-scheduledtasks-7](./images/drgroup-scheduledtasks-7.png)
+
+#### **禁用**
+
+点击 **【更多操作】>【禁用】**，暂停该定时任务的周期调度：
+
+![drgroup-scheduledtasks-8](./images/drgroup-scheduledtasks-8.png)
+
+#### **关联工作流**
+
+点击 **【更多操作】>【关联工作流】**，弹窗查看并管理该计划任务所绑定的容灾工作流：
+
+![drgroup-scheduledtasks-9](./images/drgroup-scheduledtasks-9.png)
+
+#### **解绑工作流**
+
+点击 **【更多操作】>【解绑工作流】**，解除定时任务与已关联工作流的绑定关系。
+
+#### **删除**
+
+点击 **【更多操作】>【删除】**，在弹出的确认提示框中点击 **【确定】** 删除该计划任务：
+
+![drgroup-scheduledtasks-10](./images/drgroup-scheduledtasks-10.png)
+
+::: warning 删除限制
+已关联工作流的定时任务无法直接删除，需先解除与工作流的关联。
+:::
+
+## **工作流设置**
+
+点击左侧导航栏切换至 **【工作流设置】** 标签页，统一配置系统全局的工作流并发与超时策略：
+
+![drgroup-workflowsettings-1](./images/drgroup-workflowsettings-1.png)
+
+### **最大并发主机数**
+
+配置运行中的工作流可并发处理的最大主机数上限：
+
+![drgroup-workflowsettings-2](./images/drgroup-workflowsettings-2.png)
+
+### **单节点默认超时时间**
+
+设定命令执行等单节点的全局默认超时耗时限制：
+
+![drgroup-workflowsettings-3](./images/drgroup-workflowsettings-3.png)
+
+##### **参数说明**
+
+| 配置项 | 说明 |
+| :--- | :--- |
+| **最大并发主机数** | 每个运行中的工作流系统可并发处理的最大主机数 |
+| **单节点默认超时时间** | 设定自定义命令节点的默认最长超时时间，超时未完成将中断并告警 |
+| **失败中断策略** | 当工作流中某一节点执行失败时，决定是终止后续执行还是跳过非关键节点继续运行 |

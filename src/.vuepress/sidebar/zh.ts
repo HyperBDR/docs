@@ -509,7 +509,8 @@ export const zhSidebar = sidebar({
           icon: "paper-plane",
           prefix: "orchestration/",
           children: [
-            "dr-group.md"
+            "dr-group.md",
+            "batch-tasks.md"
           ]
         },
         {
